@@ -154,31 +154,24 @@ large_R_limit = 0  # Analyse large volume of structure, sets R_limit to 5000.
 
 if keep_IC_R_middle:  # For R_limit_10000 and 20 bins.
     if F.startswith('Hernquist10000_G'):
-       # logr = -.70, r = 10 ** -.70
-        R_middle = 10 ** -.70
-       # logr = -.25, r = 10 ** -.25
-         R_middle = 10 ** -.25
-       # logr = .0 , r = 10 ** .0
-        R_middle = 10 ** -.0
-       # logr = .30 , r = 10 ** .30
-        R_middle = 10 ** -.30
+        R_middles = [10 ** -.70, 10 ** -.25, 10 ** -.0, 10 ** -.30]
     if F.startswith('OsipkovMerritt_'):
-            R_middles = [0, 0, 0, 0]
+        R_middles = [0, 0, 0, 0]
 if new_R_middle:  # Choose new R_middle for each file.
     # B
     if F == 'B_Hernquist10000_G1.0_0_000':  # 0.th/IC file of B
-            R_middles = [10 ** -.70, 10 ** -.25, 10 ** -.0, 10 ** .3]
+        R_middles = [10 ** -.70, 10 ** -.25, 10 ** -.0, 10 ** .3]
     if F == 'B_Hernquist10000_G1.0_5_005':  # 5.th file
-            R_middles = [10 ** -.4, 10 ** -.15, 10 ** .1, 10 ** .25]
+        R_middles = [10 ** -.4, 10 ** -.15, 10 ** .1, 10 ** .25]
     if F == 'B_Hernquist10000_G1.0_10_005':  # 10.th file
-            R_middles = [10 ** -.25, 10 ** -.14, 1., 10 ** .4]
+        R_middles = [10 ** -.25, 10 ** -.14, 1., 10 ** .4]
     if F == 'B_Hernquist10000_G1.0_198_000':  # 198.th file
-            R_middles = [10 ** .1, 10 ** .2, 10 ** .3, 10 ** .45]
+        R_middles = [10 ** .1, 10 ** .2, 10 ** .3, 10 ** .45]
     if F == 'B_Hernquist10000_G1.0_198_093':
-            R_middles = [10 ** .1, 10 ** .15, 10 ** .25, 10 ** .5]
+        R_middles = [10 ** .1, 10 ** .15, 10 ** .25, 10 ** .5]
     # CS1
     if F == 'CS1_Osipkov_Merritt10000_G1.0_0_000':
-            R_middles = [10 ** -.95, 10 ** -.25, 1., 10 ** .35]
+        R_middles = [10 ** -.95, 10 ** -.25, 1., 10 ** .35]
     # CS2
     if F == 'CS2_Osipkov_Merritt10000_G1.0_0_000':
         R_middles = [10 ** -1.1, 10 ** -.4, 1., 10 ** .4]
@@ -187,7 +180,7 @@ if new_R_middle:  # Choose new R_middle for each file.
         R_middles = [10 ** -.7, 10 ** -.4, 1., 10 ** .4]
     # CS4
     if F == 'CS4_Osipkov_Merritt10000_G1.0_0_000':
-        R_middles = [10**-.75, 10**-.4, 1., 10**.3]
+        R_middles = [10 ** -.75, 10 ** -.4, 1., 10 ** .3]
     # CS5
     if F == 'CS5_Osipkov_Merritt10000_G1.0_0_000':
         R_middles = [10 ** -.75, 10 ** -.4, 1., 10 ** .3]
