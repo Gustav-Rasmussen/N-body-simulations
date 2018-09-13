@@ -16,6 +16,8 @@ from astropy.io import ascii
 from mpl_toolkits.mplot3d import Axes3D
 import seaborn as sns
 import os
+import Gammas_and_R_middles
+import getSnapshotValues
 
 User_path = os.getcwd()
 Desktop_path = User_path + '/Desktop/'
@@ -32,13 +34,6 @@ Filename = GADGET_G_path + test_path + 'HQ10000_G1.0_0_000.hdf5'
 SnapshotFile = h5py.File(Filename, 'r')
 F = 'test' + Filename[len(GADGET_G_path + test_path):-5]
 
-Gamma = -3.
-# Beta = 1.
-
-IC_R_middle = 0
-large_R_middle = 1
-
-
 def switch_R_middle_depending_on_Gamma(Gamma):
     return {
         -1.5: lambda: 10 ** -.70,
@@ -52,51 +47,6 @@ def switch_R_middle_depending_on_Gamma(Gamma):
 
 if IC_R_middle:
     R_middle = switch_R_middle_depending_on_Gamma(Gamma)
-
-if large_R_middle:
-    # R_middle =  10 ** 1.3
-    R_middle = 10 ** 1.5
-
-# print(f'R_middle = {R_middle}')
-
-Pos = SnapshotFile['PartType1/Coordinates'].value
-Vel = SnapshotFile['PartType1/Velocities'].value
-V = SnapshotFile['PartType1/Potential'].value
-x, y, z = Pos[:, 0], Pos[:, 1], Pos[:, 2]
-vx, vy, vz = Vel[:, 0], Vel[:, 1], Vel[:, 2]
-minV = np.argmin(V)
-xC, yC, zC = x[minV], y[minV], z[minV]
-vxC, vyC, vzC = vx[minV], vy[minV], vz[minV]
-R = ((x - xC) ** 2 + (y - yC) ** 2 + (z - zC) ** 2) ** .5
-
-# make R_limit_min and R_limit_max selection automatic
-R_limit_min, R_limit_max = R_middle
-
-a = 0
-x0 = x
-
-while (len(x0) < 10000 or a == 0):
-    R_limit_min = R_limit_min - .000005
-    R_limit_max = R_limit_max + .000005
-    a += 1
-    GoodIDs = np.where((R < R_limit_max) * (R > R_limit_min))
-    x0 = x[GoodIDs[0]]
-
-'''
-DoInnerCut = False
-if DoInnerCut:
-    GoodIDs = np.where(R < R_limit_max)
-else:
-    GoodIDs = np.where((R < R_limit_max) * (R > R_limit_min))
-'''
-
-x, y, z = x[GoodIDs], y[GoodIDs], z[GoodIDs]
-vx, vy, vz = vx[GoodIDs], vy[GoodIDs], vz[GoodIDs]
-vx = vx - np.median(vx)
-vy = vy - np.median(vy)
-vz = vz - np.median(vz)
-
-nr_binning_bins = 102  # 53
 
 # Make switches to control figures, print statements, binning etc.
 Fig4_vspherical_hist_old = 0
@@ -150,11 +100,6 @@ if vsphericalnew:  # radial and tangential velocities
         + sp.cos(Theta) * sp.sin(Phi) * vy - sp.sin(Theta) * vz
     VPhi = - sp.sin(Phi) * vx + sp.cos(Phi) * vy
     VT = VTheta + VPhi
-
-
-print(f'a = {1 + 1} \n'  # 2
-      f'b = {1 + 2}')  # 3
-
 
 if velocitycheck:  # Use 3 simple particles to check vr and vtheta (continued)
     print(f'VR[0] = {VR[0]} \n'  # .0
@@ -225,8 +170,8 @@ if plotvelocitycheckold:  # Check old velocities are correct
     figure()
     plt.ylim(-10, 10)
     plt.plot(v_r, v_theta, 'o', ms=1.)
-    plt.xlabel(r'$ v_r $')
-    plt.ylabel(r'$  v_{\theta}$')
+    plt.xlabel(r'$v_r$')
+    plt.ylabel(r'$v_{\theta}$')
     plt.title(r'check if $ v_{\theta} =\
               v_r$ ($N=%i$, $\gamma = %.2f$)' % (len(x), Gamma))
     plt.grid()
@@ -243,7 +188,7 @@ if plotvelocitycheckold:  # Check old velocities are correct
     plt.xlim(-20, 20)
     plt.plot(v_theta, v_phi, 'o', ms=1.)
     plt.xlabel(r'$ v_{\theta} $')
-    plt.ylabel(r'$  v_{\phi}$')
+    plt.ylabel(r'$ v_{\phi}$')
     plt.title(r'check if $ v_{\phi} =\
               v_{\theta} $ ($N=%i$, $\gamma = %.2f$)' % (len(x), Gamma))
     plt.grid()
@@ -350,32 +295,13 @@ if Fig5_vspherical_hist_logfail_new:
                                 label=r'$v_{\theta}$', alpha=.75)
     xdata = bins[0:-1] + (bins[1] - bins[0]) * .5
     ydata = n
-    # popt, pcov = curve_fit(func_4, xdata, ydata)
-    # y_fit = func_4(xdata, popt[0], popt[1], popt[2])
-    # plt.plot(xdata, y_fit, '--', lw=3, color='SkyBlue',
-    #         label=r'$v_{\theta}-fit= a \cdot (1 - (1 - q )\cdot b\
-    #                \cdot x^2)^{(\frac{q}{1-q})}$, $ q = %.3f $' % popt[1])
-    # popt, pcov = curve_fit(func_2, xdata, ydata)
-    # y_fit = func_2(xdata, popt[0], popt[1])
-    # plt.plot(xdata, y_fit, '--', lw=3, color='blue',
-    #         label=r'$v_{\theta}-fit= a \cdot e^{-b \cdot x^2}$\
-    #                 ($\mu=%.3f$, $\sigma=%.3f$)' % (mu, sigma))
 
     (mu, sigma) = norm.fit(VPhi)
     n, bins, patches = plt.hist(VPhi, 100, histtype='step', color='green',
                                 label=r'$ v_{\phi}$', alpha=.75)
     xdata = bins[0:-1] + (bins[1] - bins[0]) * .5
     ydata = n
-    # popt, pcov = curve_fit(func_4, xdata, ydata)
-    # y_fit = func_4(xdata, popt[0], popt[1], popt[2])
-    # plt.plot(xdata, y_fit, '--', lw=3, color='green',
-    #          label=r'$v_{\phi}-fit= a \cdot (1 - (1 - q)\cdot b\
-    #                 \cdot x^2)^{(\frac{q}{1 - q})}$, $ q = %.3f $' %popt[1])
-    # popt, pcov = curve_fit(func_2, xdata, ydata)
-    # y_fit = func_2(xdata, popt[0], popt[1])
-    # plt.plot(xdata, y_fit, '--', lw=3, color='cyan',
-    #         label=r'$v_{\phi}-fit= a \cdot e^{-b \cdot x^2}$\
-    #                ($\mu=%.3f$, $\sigma=%.3f$)' %(mu, sigma))
+
     plt.xlabel(r'$v_r$, $v_{\theta}$ and $v_{\phi}$')
     plt.ylabel(r'$\log$ number of particles')
     plt.title(r'f(v) ($N=%i$, $\gamma = %.2f$, File = %s)'
@@ -392,17 +318,6 @@ if Fig5_vspherical_hist_logfail_new:
                                 label=r'$ \log |v_r| $', alpha=.75)
     xdata = bins[0:-1] + (bins[1] - bins[0]) * .5
     ydata = n
-    # popt, pcov = curve_fit(func_4_log, xdata, ydata)
-    # y_fit = func_4_log(xdata, popt[0], popt[1], popt[2])
-    # plt.plot(xdata, y_fit, '--', lw=3, color='red',
-    #         label=r'$\log |v_r|-fit= a \cdot log(x)\
-    #                 \cdot (1 - (1 - q )\cdot b\
-    #                 \cdot log(x)^2)^{(\frac{q}{1-q})}$,$q = %.3f $'%popt[1])
-    # popt, pcov = curve_fit(func_1_log, xdata, ydata)
-    # y_fit = func_1_log(xdata, popt[0], popt[1])
-    # plt.plot(xdata, y_fit, '--', lw=3, color='pink',
-    #         label=r'$\log |v_r|-fit=\
-    #                 a \cdot log(x) \cdot e^{-b \cdot log(x)^2}$')
 
     (mu, sigma) = norm.fit(np.log10(np.absolute(VTheta)))
     n, bins, patches = plt.hist(np.log10(np.absolute(VTheta)), 100,
@@ -410,17 +325,6 @@ if Fig5_vspherical_hist_logfail_new:
                                 label=r'$ \log |v_{\theta}|$', alpha=.75)
     xdata = bins[0:-1] + (bins[1] - bins[0]) * .5
     ydata = n
-    # popt, pcov = curve_fit(func_4_log, xdata, ydata)
-    # y_fit = func_4_log(xdata, popt[0], popt[1], popt[2])
-    # plt.plot(xdata, y_fit, '--', lw=3, color='SkyBlue',
-    #         label=r'$\log |v_{\theta}|-fit=a \cdot log(x)\
-    #                 \cdot (1 - (1 - q)\cdot b\
-    #                 \cdot log(x)^2)^{(\frac{q}{1-q})}$,$q=%.3f$'%popt[1])
-    # popt, pcov = curve_fit(func_1_log, xdata, ydata)
-    # y_fit = func_1_log(xdata, popt[0], popt[1])
-    # plt.plot(xdata, y_fit, '--', lw=3, color='blue',
-    #         label=r'$\log |v_{\theta}| - fit= a \cdot log(x)\
-    #                 \cdot e^{-b \cdot log(x)^2}$')
 
     (mu, sigma) = norm.fit(np.log10(np.absolute(VPhi)))
     n, bins, patches = plt.hist(np.log10(np.absolute(VPhi)), 100,
@@ -428,17 +332,7 @@ if Fig5_vspherical_hist_logfail_new:
                                 label=r'$ \log |v_{\phi}|$', alpha=.75)
     xdata = bins[0:-1] + (bins[1] - bins[0]) * .5
     ydata = n
-    # popt, pcov = curve_fit(func_4_log, xdata, ydata)
-    # y_fit = func_4_log(xdata, popt[0], popt[1], popt[2])
-    # plt.plot(xdata, y_fit, '--', lw=3, color='green',
-    #         label=r'$\log |v_{\phi}|-fit=a \cdot log(x)\
-    #                 \cdot (1- (1 - q )\cdot b\
-    #                 \cdot log(x)^2)^{(\frac{q}{1-q})}$,$q=%.3f$'%popt[1])
-    # popt, pcov = curve_fit(func_1_log, xdata, ydata)
-    # y_fit = func_1_log(xdata, popt[0], popt[1])
-    # plt.plot(xdata, y_fit, '--', lw=3, color='cyan',
-    #         label=r'$\log |v_{\phi}|-fit= a \cdot log(x)\
-    #                 \cdot e^{-b \cdot log(x)^2}$')
+
     plt.xlabel(r'$\log |v_r|$, $\log |v_{\theta}|$, $\log |v_{\phi}|$')
     plt.ylabel('number of particles')
     plt.title(r'$f(\log |v|)$ ')
@@ -472,11 +366,14 @@ if Fig7_vspherical_hist_logfail_old:
     plt.ylabel('Number of particles')
     plt.title(r'VDF (HQ structure, $10^6$ particles).\
                 distance: 0.5 to 0.25 kpc from center')
-    plt.hist(v_theta, bins=100, histtype='step', color='red', range=(-.7, 1),
+    plt.hist(v_theta, bins=100, histtype='step', color='red',
+             range=(-.7, 1),
              label=r'$v_{\theta}$', lw=2)
-    plt.hist(v_phi, bins=100, histtype='step', color='skyblue', range=(-.7, 1),
+    plt.hist(v_phi, bins=100, histtype='step', color='skyblue',
+             range=(-.7, 1),
              label=r'$v_{\phi}$', lw=2)
-    plt.hist(v_r, bins=100, histtype='step', color='black', range=(-.7, 1),
+    plt.hist(v_r, bins=100, histtype='step', color='black',
+             range=(-.7, 1),
              label=r'$v_r$', lw=2)
     plt.legend(prop=dict(size=13), numpoints=2, ncol=2,
                frameon=True, loc=1, handlelength=2.5)
@@ -484,9 +381,11 @@ if Fig7_vspherical_hist_logfail_old:
     plt.subplot(122)
     plt.xlabel(r'$\log v_r, \log v_{\theta}$ and $ \log v_{\phi}$')
     plt.hist(np.log10(np.absolute(v_theta)), bins=100, histtype='step',
-             color='red', range=(-5, 1), label=r'$\log v_{\theta}$', lw=2)
+             color='red', range=(-5, 1), label=r'$\log v_{\theta}$',
+             lw=2)
     plt.hist(np.log10(np.absolute(v_phi)), bins=100, histtype='step',
-             color='skyblue', range=(-5, 1), label=r'$\log v_{\phi}$', lw=2)
+             color='skyblue', range=(-5, 1), label=r'$\log v_{\phi}$',
+             lw=2)
     plt.hist(np.log10(np.absolute(v_r)), bins=100, histtype='step',
              color='black', range=(-5, 1), label=r'$\log v_r$', lw=2)
     plt.legend(prop=dict(size=13), numpoints=2, ncol=2,
@@ -569,7 +468,7 @@ if Fig8_vspherical_hist_log_vpvn:
     plt.legend(prop=dict(size=13), numpoints=2, ncol=2,
                frameon=True, loc=2, handlelength=2.5)
 
-'''
+
 x1 = list(v_thetap_arr)
 x2 = list(v_phip_arr)
 x3 = list(v_rp_arr)
@@ -601,7 +500,7 @@ if x14_25_36_same_length:
         for i in range(len(v_rp_arr) - len(v_rp_arr)):
             x6.append(0.)
     x3, x6 = np.asarray(x3), np.asarray(x6)
-'''
+
 
 if print_x123456:
     print(f'x1 = {x1}'
@@ -777,7 +676,7 @@ if print_Vp_Vn:
               f'np.where(sigmarad == 0) = {np.where(sigmarad == 0)}'
               f'np.where(sigmatheta == 0) = {np.where(sigmatheta == 0)}'
               f'np.where(sigmaphi == 0) = {np.where(sigmaphi == 0)}')
-        
+
         # pass
 
 if Fig10_concatenate_x789:  # check new log, concatenate lists x1 and x4, x2 and x5, x3 and x6.
@@ -995,7 +894,7 @@ if Fig12_x789_sigma:
     x9 = np.asarray(x3 + list(np.absolute(v_rn_arr)))
     txt = Filename.strip('.hdf5') + 'Sigma.txt'
     TXT = pylab.loadtxt(txt)
-    
+
     if print_sigma:
         print(r'$\sigma_{tot}^2$, TXT[:, 0] = ', TXT[:, 0])
         print(r'$\sigma_r^2$, TXT[:, 1] = ', TXT[:, 1])
@@ -1108,13 +1007,16 @@ if Fig12_x789_sigma:
                frameon=True, loc=2, handlelength=2.5)
     plt.grid()
 
-if Fig12_vr_vtheta_vphi_sigma:
+if Fig12_vr_vtheta_vphi_vt_sigma:
     v_rpn = np.asarray(list(v_rp_arr) + list(np.absolute(v_rn_arr)))
     v_thetapn = np.asarray(list(v_thetap_arr) + list(np.absolute(v_thetan_arr)))
     v_phipn = np.asarray(list(v_phip_arr) + list(np.absolute(v_phin_arr)))
-    x7 = np.asarray(list(VTheta_sigmatheta_p_arr) + list(np.absolute(VTheta_sigmatheta_n_arr)))
-    x8 = np.asarray(list(VPhi_sigmaphi_p_arr) + list(np.absolute(VPhi_sigmaphi_n_arr)))
-    x9 = np.asarray(list(VR_sigmarad_p_arr) + list(np.absolute(VR_sigmarad_n_arr)))
+    v_tpn = np.asarray(list(v_tp_arr) + list(np.absolute(v_tn_arr)))
+    x7  = np.asarray(list(VTheta_sigmatheta_p_arr) + list(np.absolute(VTheta_sigmatheta_n_arr)))
+    x8  = np.asarray(list(VPhi_sigmaphi_p_arr) + list(np.absolute(VPhi_sigmaphi_n_arr)))
+    x9  = np.asarray(list(VR_sigmarad_p_arr) + list(np.absolute(VR_sigmarad_n_arr)))
+    x10 = np.asarray(list(VT_sigmatan_p_arr) + list(np.absolute(VT_sigmatan_n_arr)))
+
     f = plt.figure()
     plt.subplot(221)
     n, bins, patches = plt.hist(np.log10(v_rpn) / linalg.norm(VR), 100,

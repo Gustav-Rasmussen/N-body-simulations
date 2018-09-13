@@ -59,9 +59,11 @@ def rename_files(files):
         # print(f'{new_file}')
         os.rename(f, new_file)
 
+readfile = "VDFnetwork.txt" # "readVDF.txt" # "readVDF_2_new.txt" # "TimeEvolutionGammaKappaBeta.txt" # "Sigma.txt"  # "readVDF_2_new.txt"
+writefile = "VDFnetwork_copy.txt" # "readVDF_copy.txt" # "readVDF_2_new_copy.txt" # "TimeEvolutionGammaKappaBeta_copy.txt" # "Sigma_copy.txt"  # "readVDF_2_new_copy.txt"
 
-with open("readVDF_2_new.txt", "r") as rf:
-    with open("readVDF_2_new_copy.txt", "w") as wf:
+with open(readfile, "r") as rf:
+    with open(writefile, "w") as wf:
         for line in rf:
             if 'Eddington' in line:
                 line = line.replace('Eddington', 'Edd')
@@ -71,10 +73,14 @@ with open("readVDF_2_new.txt", "r") as rf:
                 line = line.replace('Hernquist', 'HQ')
             if 'Hq' in line:
                 line = line.replace('Hq', 'HQ')
+            if 'Osipkov_Merritt' in line:
+                line = line.replace('Osipkov_Merritt', 'OM')
             if 'Osipkov' in line:
                 line = line.replace('Osipkov', 'O')
             if 'Merritt' in line:
                 line = line.replace('Merritt', 'M')
+            if 'figure_path' in line:
+                line = line.replace('figure_path', 'figurePath')
             if 'datalist_innerbin' in line:
                 line = line.replace('datalist_innerbin', 'bin1')
             if 'datalist_first_middlebin' in line:
@@ -83,8 +89,20 @@ with open("readVDF_2_new.txt", "r") as rf:
                 line = line.replace('datalist_second_middlebin', 'bin3')
             if 'datalist_outerbin' in line:
                 line = line.replace('datalist_outerbin', 'bin4')
+            if 'list_of_files_' in line:
+                line = line.replace('list_of_files_', 'FileLst')
+            if 'innerbin_' in line:
+                line = line.replace('innerbin_', 'bin1')
+            if 'first_middlebin_' in line:
+                line = line.replace('first_middlebin_', 'bin2')
+            if 'second_middlebin_' in line:
+                line = line.replace('second_middlebin_', 'bin3')
+            if 'outerbin_' in line:
+                line = line.replace('outerbin_', 'bin4')
+            if '\'/Users/gustav.c.rasmussen' in line:
+                line = line.replace('\'/Users/gustav.c.rasmussen',
+                                    'os.getcwd() + \'')
             wf.write(line)
-
 
 
 '''

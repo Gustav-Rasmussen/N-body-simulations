@@ -6,11 +6,11 @@ import numpy as np
 import matplotlib.lines as lines
 import matplotlib.pyplot as plt
 import fileLsts as lsts
+import snapshotFiles
 
 # Use this command for running 3D plots:
 # ~/python/3dplot/bin/python gamma_kappa_beta.py
 
-userPath = '/Users/gustavcollinrasmussen/Desktop'
 desktopPath = os.getcwd()
 GADGET_G_path = desktopPath + 'RunGadget/G_perturbations/'
 StablePath = 'G_perturbations/Stable_structures/'
@@ -21,14 +21,6 @@ MartinPath = 'Martin_IC_and_Final_Edd_and_OM/'
 textMartinPath = textFilesPath + MartinPath
 hdf5Path = desktopPath + 'G_perturbations/hdf5_files/'
 nosyncPath = userPath + 'nosync/RunGadget/'
-
-# testPath = 'G_HQ_1000000_test/output/'
-# Filename = GADGET_G_path + test_path + 'Hernquist1000000_G1.2_9_005.hdf5'
-# Filename = hdf5Path + '0G00_IC_000.hdf5'
-# Filename = hdf5Path + '0G20_Final_000.hdf5'
-# Filename = hdf5Path + 'OMG00_001_IC_000.hdf5'
-# Filename = hdf5Path + 'OMG20_Final_000.hdf5'
-# SnapshotFile = h5py.File(Filename, 'r')
 
 datalistMartinIC = [(pylab.loadtxt(filename), label) for filename,
                     label in lsts.fileLstMartinIC]
@@ -619,7 +611,6 @@ if logrGammaABCS4CS5CS6DS1D2E_ICFinalRLimit32:
     leg.get_frame().set_alpha(.5)
     f.savefig(figurePath +
               'logrGammaABCS4CS5CS6DS1D2E_ICFinalRLimit32.png')
-
 
 if betaGammaKappaABCS4CS5CS6DS1D2E_ICFinalRLimit32:
     f, (ax1, ax2) = plt.subplots(1, 2, figsize=(13, 11))
@@ -1661,8 +1652,9 @@ if attractor3DSparre:  # 3D plots of attractor, IC and Final.
     leg = ax.legend([scatter1_proxy, scatter2_proxy, scatter3_proxy,
                      scatter4_proxy, scatter5_proxy, scatter6_proxy,
                      scatter7_proxy],
-                    ['0G20_001', '00-5G20_001', 'om0-3.5G20_001', 's1G20_001',
-                     's2G20_001', 's3G20_001', 's4G20_001'],
+                    ['0G20_001', '00-5G20_001', 'om0-3.5G20_001',
+                     's1G20_001', 's2G20_001', 's3G20_001',
+                     's4G20_001'],
                     loc=0, numpoints=1, fancybox=True)
     leg.get_frame().set_alpha(.5)
     ax.set_xlabel(r'$2 \beta$', fontsize=30)
@@ -1733,13 +1725,17 @@ if betaGammaFunctions:
     # gammaHQ(r))
 
     ax1.plot(betaOM(r, 1.40), gammaHQ(r),
-             '-o', mew=0, color=Colors[0], label=r'$rA = 1.4$', lw=2, ms=7)
+             '-o', mew=0, color=Colors[0],
+             label=r'$rA = 1.4$', lw=2, ms=7)
     ax1.plot(betaOM(r, 1.00), gammaHQ(r),
-             '-o', mew=0, color=Colors[1], label=r'$rA = 1$', lw=2, ms=7)
+             '-o', mew=0, color=Colors[1],
+             label=r'$rA = 1$', lw=2, ms=7)
     ax1.plot(betaOM(r, .20), gammaHQ(r),
-             '-o', mew=0, color=Colors[2], label=r'$rA = 0.2$', lw=2, ms=7)
+             '-o', mew=0, color=Colors[2],
+             label=r'$rA = 0.2$', lw=2, ms=7)
     ax1.plot(betaOM(r, .15), gammaHQ(r),
-             '-o', mew=0, color=Colors[3], label=r'$rA = 0.15$', lw=2, ms=7)
+             '-o', mew=0, color=Colors[3],
+             label=r'$rA = 0.15$', lw=2, ms=7)
     ax1.set_xlabel(r'$\beta$', fontsize=20)
     ax1.set_ylabel(r'$\gamma$', fontsize=20)
     ax1.set_title(r'Anisotropy radius variation. \
@@ -1749,13 +1745,17 @@ if betaGammaFunctions:
     ax1.set_xlim(0., 1.05)
 
     ax2.plot(betaOM(r), gammaHQ(r, x=5.),
-             '-o', mew=0, color=Colors[0], label=r'$rS = 5$', lw=2, ms=7)
+             '-o', mew=0, color=Colors[0],
+             label=r'$rS = 5$', lw=2, ms=7)
     ax2.plot(betaOM(r), gammaHQ(r, x=2.),
-             '-o', mew=0, color=Colors[1], label=r'$rS = 2$', lw=2, ms=7)
+             '-o', mew=0, color=Colors[1],
+             label=r'$rS = 2$', lw=2, ms=7)
     ax2.plot(betaOM(r), gammaHQ(r, x=1.2),
-             '-o', mew=0, color=Colors[2], label=r'$rS = 1.2$', lw=2, ms=7)
+             '-o', mew=0, color=Colors[2],
+             label=r'$rS = 1.2$', lw=2, ms=7)
     ax2.plot(betaOM(r), gammaHQ(r),
-             '-o', mew=0, color=Colors[3], label=r'$rS = 1$', lw=2, ms=7)
+             '-o', mew=0, color=Colors[3],
+             label=r'$rS = 1$', lw=2, ms=7)
     ax2.plot(x, y, color='Pink', lw=2, ms=7)
     ax2.fill_between(x, 0, y, color='Violet')
     ax2.set_xlim(0., .5)
@@ -1768,9 +1768,11 @@ if betaGammaFunctions:
                loc=0, handlelength=2.5)
     g = gammaHQ(r)
     k = kappa(r)
-    Fit = (-.15 * g - .85 * k) / ((1 + (-.15 * g - .85 * k) ** 3) ** .333333)
+    Fit = (-.15 * g - .85 * k) /
+          ((1 + (-.15 * g - .85 * k) ** 3) ** .333333)
     b = betaOM(r)
-    ax3.plot(b, Fit, '-o', mew=0, color=Colors[0], label=r'$Fit$', lw=2, ms=7)
+    ax3.plot(b, Fit, '-o', mew=0, color=Colors[0],
+             label=r'$Fit$', lw=2, ms=7)
     ax3.set_xlim(0., .5)
     ax3.set_xlabel(r'$\beta$', fontsize=20)
     ax3.set_ylabel(r'Fit', fontsize=20)
@@ -1780,7 +1782,8 @@ if betaGammaFunctions:
     ax4.plot(x, y, color='Pink', lw=2, ms=7)
     ax4.fill_between(x, 0, y, color='Violet')
     ax4.plot(betaOM(r, .2), gammaHQ(r, x=1.5),
-             '-o', mew=0, color=Colors[0], label=r'$rA = 0.2, rS = 1.5$',
+             '-o', mew=0, color=Colors[0],
+             label=r'$rA = 0.2, rS = 1.5$',
              lw=2, ms=7)
     ax4.plot(betaOM(r, .3), gammaHQ(r, x=2.),
              '-o', mew=0, color=Colors[1], label=r'$rA = 0.3, rS = 2$',

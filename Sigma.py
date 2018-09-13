@@ -12,6 +12,9 @@ from scipy.optimize import curve_fit
 import scipy as sp
 import seaborn as sns
 import os
+import Gammas_and_R_middles
+import getSnapshotValues
+import snapshotFiles
 
 UserPath = os.getcwd()
 DesktopPath = UserPath + 'Desktop/'
@@ -19,160 +22,21 @@ GADGET_G_path = DesktopPath + 'RunGadget/G_Perts/'
 StablePath = 'G_Perts/Stable_structures/'
 figurePath = DesktopPath + StablePath + 'figures/'
 
-# text_files_path = DesktopPath + StablePath + 'text_files/A/'
-# text_files_path = DesktopPath + StablePath + 'text_files/B/'
-# text_files_path = DesktopPath + StablePath + 'text_files/Soft_B/'
-# text_files_path = DesktopPath + StablePath + 'text_files/CS4/'
-# text_files_path = DesktopPath + StablePath + 'text_files/CS5/'
-# text_files_path = DesktopPath + StablePath + 'text_files/CS6/'
-# text_files_path = DesktopPath + StablePath + 'text_files/DS1/'
-# text_files_path = DesktopPath + StablePath + 'text_files/Soft_D2/'
-# text_files_path = DesktopPath + StablePath + 'text_files/E/'
+textFilesPath = DesktopPath + StablePath + 'text_files/'
+
+# text_files_path = textFilesPath + 'A/'
+# text_files_path = textFilesPath + 'B/'
+# text_files_path = textFilesPath + 'Soft_B/'
+# text_files_path = textFilesPath + 'CS4/'
+# text_files_path = textFilesPath + 'CS5/'
+# text_files_path = textFilesPath + 'CS6/'
+# text_files_path = textFilesPath + 'DS1/'
+# text_files_path = textFilesPath + 'Soft_D2/'
+# text_files_path = textFilesPath + 'E/'
 
 MartinPath = 'Martin_IC_and_Final_Edd_and_OM/'
 hdf5Path = DesktopPath + 'G_Perts/hdf5_files/'
 nosyncPath = UserPath + 'nosync/RunGadget/'
-
-# Filename = hdf5Path + '0G00_IC_000.hdf5'
-# Filename = hdf5Path + '0G20_Final_000.hdf5'
-# Filename = hdf5Path + 'OMG00_001_IC_000.hdf5'
-# Filename = hdf5Path + 'OMG20_Final_000.hdf5'
-
-testPath = 'G_HQ_1000000_test/output/'
-# Filename = GADGET_G_path + testPath + 'HQ10000_G1.0_0_000.hdf5'
-# Filename = GADGET_G_path + testPath + 'HQ10000_G1.2_1_005.hdf5'
-# Filename = GADGET_G_path + testPath + 'HQ10000_G0.8_2_000.hdf5'
-# Filename = GADGET_G_path + testPath + 'HQ10000_G0.8_2_005.hdf5'
-# Filename = GADGET_G_path + testPath + 'HQ10000_G1.2_3_005.hdf5'
-# Filename = GADGET_G_path + testPath + 'HQ10000_G1.2_5_005.hdf5'
-# Filename = GADGET_G_path + testPath + 'HQ10000_G1.2_7_005.hdf5'
-# Filename = GADGET_G_path + testPath + 'HQ10000_G1.2_9_005.hdf5'
-# Filename = GADGET_G_path + testPath + 'HQ10000_G1.0_10_009.hdf5'
-A_path = 'G_HQ_1000000_A/output/'
-Filename = GADGET_G_path + A_path + 'HQ10000_G1.0_0_000.hdf5'
-# Filename = GADGET_G_path + A_path + 'HQ10000_G1.0_5_005.hdf5'
-# Filename = GADGET_G_path + A_path + 'HQ10000_G1.0_10_005.hdf5'
-# Filename = GADGET_G_path + A_path + 'HQ10000_G1.0_40_005.hdf5'
-# Filename = GADGET_G_path + A_path + 'HQ10000_G1.0_48_009.hdf5'
-# Filename = nosync_path + A_path + 'HQ10000_G1.0_48_093.hdf5'
-B_path = 'G_HQ_1000000_B/output/'
-# Filename = GADGET_G_path + B_path + 'HQ10000_G1.0_0_000.hdf5'
-# Filename = GADGET_G_path + B_path + 'HQ10000_G1.0_5_005.hdf5'
-# Filename = GADGET_G_path + B_path + 'HQ10000_G1.0_10_005.hdf5'
-# Filename = GADGET_G_path + B_path + 'HQ10000_G1.0_198_000.hdf5'
-# Filename = GADGET_G_path + B_path + 'HQ10000_G1.0_198_093.hdf5'
-# Filename = GADGET_G_path + B_path + 'HQ10000_G1.0_199_093.hdf5'
-Soft_B_path = 'Soft_G_HQ_1000000_B/output/'
-# Filename = GADGET_G_path + Soft_B_path + 'HQ10000_G1.0_0_000.hdf5'
-# Filename = GADGET_G_path + Soft_B_path + 'HQ10000_G1.0_5_005.hdf5'
-# Filename = GADGET_G_path + Soft_B_path + 'HQ10000_G1.0_10_005.hdf5'
-# Filename = GADGET_G_path + Soft_B_path + 'HQ10000_G1.0_198_000.hdf5'
-# Filename = GADGET_G_path + Soft_B_path + 'HQ10000_G1.0_198_093.hdf5'
-# Filename = GADGET_G_path + Soft_B_path + 'HQ10000_G1.0_199_093.hdf5'
-CS1_path = 'G_HQ_10000_CS1/output/'
-# Filename = GADGET_G_path + CS1_path + 'OM10000_G1.0_0_000.hdf5'
-CS2_path = 'G_HQ_10000_CS2/output/'
-# Filename = GADGET_G_path + CS2_path + 'OM10000_G1.0_0_000.hdf5'
-CS3_path = 'G_HQ_10000_CS3/output/'
-# Filename = GADGET_G_path + CS3_path + 'OM10000_G1.0_0_000.hdf5'
-CS4_path = 'G_HQ_100000_CS4/output/'
-# Filename = GADGET_G_path + CS4_path + 'OM10000_G1.0_0_000.hdf5'
-# Filename = GADGET_G_path + CS4_path + 'OM10000_G1.0_48_093.hdf5'
-CS5_path = 'G_HQ_100000_CS5/output/'
-# Filename = GADGET_G_path + CS5_path + 'OM10000_G1.0_0_000.hdf5'
-# Filename = GADGET_G_path + CS5_path + 'OM10000_G1.0_48_093.hdf5'
-CS6_path = 'G_HQ_100000_CS6/output/'
-# Filename = GADGET_G_path + CS6_path + 'OM10000_G1.0_0_000.hdf5'
-# Filename = GADGET_G_path + CS6_path + 'OM10000_G1.0_48_093.hdf5'
-DS1_path = 'G_0_5_100000_DS1/output/'
-# Filename = GADGET_G_path + DS1_path + 'OM10000_G1.0_0_000.hdf5'
-# Filename = GADGET_G_path + DS1_path + 'OM10000_G1.0_48_093.hdf5'
-# Filename = GADGET_G_path + DS1_path + 'OM10000_G1.0_49_093.hdf5'
-D2_path = 'G_0_5_100000_D2/output/'
-# Filename = GADGET_G_path + D2_path + 'HQ10000_G1.0_0_000.hdf5'
-# Filename = GADGET_G_path + D2_path + 'HQ10000_G1.0_48_093.hdf5'
-# Filename = GADGET_G_path + D2_path + 'HQ10000_G1.0_49_093.hdf5'
-Soft_D2_path = 'Soft_G_0_5_100000_D2/output/'
-# Filename = GADGET_G_path + Soft_D2_path + 'HQ10000_G1.0_0_000.hdf5'
-# Filename = GADGET_G_path + Soft_D2_path + 'HQ10000_G1.0_48_093.hdf5'
-# Filename = GADGET_G_path + Soft_D2_path + 'HQ10000_G1.0_49_093.hdf5'
-E_path = 'Soft_G_HQ_1000000_E/output/'
-# Filename = GADGET_G_path + E_path + 'HQ10000_G1.0_0_000.hdf5'
-# Filename = GADGET_G_path + E_path + 'HQ10000_G1.0_5_005.hdf5'
-# Filename = GADGET_G_path + E_path + 'HQ10000_G1.0_10_005.hdf5'
-# Filename = GADGET_G_path + E_path + 'HQ10000_G1.0_160_005.hdf5'
-# Filename = GADGET_G_path + E_path + 'HQ10000_G1.05_196_005.hdf5'
-# Filename = GADGET_G_path + E_path + 'HQ10000_G0.95_197_005.hdf5'
-# Filename = GADGET_G_path + E_path + 'HQ10000_G1.0_198_009.hdf5'
-# Filename = GADGET_G_path + E_path + 'HQ10000_G1.0_198_093.hdf5'
-
-# Bound particles only:
-B_rfp_path = 'G_HQ_1000000_B/rfp_output/'
-# Filename = GADGET_G_path + B_rfp_path + 'B_G1.0_200_rfp_011.hdf5'
-# Filename = GADGET_G_path + B_rfp_path + 'B_G1.0_200_rfp_093.hdf5'
-Soft_B_rfp_path = 'Soft_G_HQ_1000000_B/rfp_output/'
-# Filename = GADGET_G_path + Soft_B_rfp_path + 'B_G1.0_200_rfp_011.hdf5'
-# Filename = GADGET_G_path + Soft_B_rfp_path + 'B_G1.0_200_rfp_093.hdf5'
-CS4_rfp_path = 'G_HQ_100000_CS4/rfp_output/'
-# Filename = GADGET_G_path + CS4_rfp_path + 'CS4_G1.0_49_rfp_093.hdf5'
-CS5_rfp_path = 'G_HQ_100000_CS5/rfp_output/'
-# Filename = GADGET_G_path + CS5_rfp_path + 'CS5_G1.0_49_rfp_093.hdf5'
-CS6_rfp_path = 'G_HQ_100000_CS6/rfp_output/'
-# Filename = GADGET_G_path + CS6_rfp_path + 'CS6_G1.0_49_rfp_093.hdf5'
-DS1_rfp_path = 'G_0_5_100000_DS1/rfp_output/'
-# Filename = GADGET_G_path + DS1_rfp_path + 'DS1_G1.0_50_rfp_093.hdf5'
-D2_rfp_path = 'G_0_5_100000_D2/rfp_output/'
-# Filename = GADGET_G_path + D2_rfp_path + 'D2_G1.0_50_rfp_093.hdf5'
-Soft_D2_rfp_path = 'Soft_G_0_5_100000_D2/rfp_output/'
-# Filename = GADGET_G_path + Soft_D2_rfp_path + 'D2_G1.0_50_rfp_093.hdf5'
-E_rfp_path = 'G_HQ_1000000_E/rfp_output/'
-# Filename = GADGET_G_path + E_rfp_path + 'E_G1.0_50_rfp_093.hdf5' # Fix filename here.
-
-SnapshotFile = h5py.File(Filename, 'r')
-
-# F = 'test_' + Filename[len(GADGET_G_path + test_path):-5]
-F = 'A_' + Filename[len(GADGET_G_path + A_path):-5]
-# F = 'A_' + Filename[len(nosync_path + A_path):-5]
-# F = 'B_' + Filename[len(GADGET_G_path + B_path):-5]
-# F = 'Soft_B_' + Filename[len(GADGET_G_path + Soft_B_path):-5 ]
-# F = 'CS1_' + Filename[len(GADGET_G_path + CS1_path):-5]
-# F = 'CS2_' + Filename[len(GADGET_G_path + CS2_path):-5]
-# F = 'CS3_' + Filename[len(GADGET_G_path + CS3_path):-5]
-# F = 'CS4_' + Filename[len(GADGET_G_path + CS4_path):-5]
-# F = 'CS5_' + Filename[len(GADGET_G_path + CS5_path):-5]
-# F = 'CS6_' + Filename[len(GADGET_G_path + CS6_path):-5]
-# F = 'DS1_' + Filename[len(GADGET_G_path + DS1_path):-5]
-# F = 'D2_' + Filename[len(GADGET_G_path + D2_path):-5]
-# F = 'Soft_D2_' + Filename[len(GADGET_G_path + Soft_D2_path):-5]
-# F = 'E_' + Filename[len(GADGET_G_path + E_path):-5]
-
-# Bound particles only:
-# F = 'B_bound_particles_' +
-#     Filename[len(GADGET_G_path + B_rfp_path + 'B_'):-5]
-# F = 'Soft_B_bound_particles_' +
-#     Filename[len(GADGET_G_path + Soft_B_rfp_path + 'B_'):-5]
-# F = 'CS4_bound_particles_' +
-#     Filename[len(GADGET_G_path + CS4_rfp_path + 'CS4_'):-5]
-# F = 'CS5_bound_particles_' +
-#     Filename[len(GADGET_G_path + CS5_rfp_path + 'CS5_'):-5]
-# F = 'CS6_bound_particles_' +
-#     Filename[len(GADGET_G_path + CS6_rfp_path + 'CS6_'):-5]
-# F = 'DS1_bound_particles_' +
-#     Filename[len(GADGET_G_path + DS1_rfp_path + 'DS1_'):-5]
-# F = 'D2_bound_particles_' +
-#     Filename[len(GADGET_G_path + D2_rfp_path + 'D2_'):-5]
-# F = 'Soft_D2_bound_particles_' +
-#     Filename[len(GADGET_G_path + Soft_D2_rfp_path + 'D2_'):-5]
-# F = 'E_bound_particles_' +
-#     Filename[len(GADGET_G_path + E_rfp_path + 'E_'):-5]
-
-Gammas = [-1.5, -2.0, -2.5, -3.0]
-Gamma = Gammas[1]
-Beta = 1.
-
-keep_IC_R_middle = 0
-new_R_middle = 1
-R_bin_automatic = 0
 
 Fig_v_logr = 0
 Fig_v_logr_r2 = 0
@@ -207,168 +71,9 @@ Fig_combine_ASCII = 0
 save_sigma = 0
 V_vr_r_logr_panel = 0
 
-# Reduce number of radial bins in analysis code.
-# This makes them larger and they therefore contain more particles.
-bins_202 = 0
-bins_102 = 0
-bins_52 = 0
-bins_22 = 1
-
-# Analyse larger volume of structure
-R_limit_10000 = 0
-R_limit_5000 = 0
-R_limit_500 = 0
-R_limit_32 = 1
-
-if keep_IC_R_middle:  # For R_limit_10000 and 20 bins.
-    if F.startswith('HQ10000_G'):
-        R_middles = [10 ** -.70, 10 ** -.25, 10 ** -.0, 10 ** -.30]
-    if F.startswith('OM_'):
-        R_middles = [0, 0, 0, 0]
-if new_R_middle:  # Choose new R_middle for each file.
-    # A
-    if F == 'A_HQ10000_G1.0_0_000':  # 0.th/IC file
-        R_middles = [10 ** -.7, 10 ** -.35, 1., 10 ** .25]
-    if F == 'A_HQ10000_G1.0_5_005':  # 5.th file
-        R_middles = [10 ** -.38, 10 ** -.18, 1., 10 ** .4]
-    if F == 'A_HQ10000_G1.0_10_005':  # 10.th file
-        R_middles = [10 ** -.35, 10 ** -.18, 1., 10 ** .4]
-    if F == 'A_HQ10000_G1.0_40_005':  # 198.th file
-        R_middles = [10 ** -.08, 1., 10 ** .07, 10 ** .38]
-    if F == 'A_HQ10000_G1.0_48_009':
-        R_middles = [10 ** -.08, 1., 10 ** .07, 10 ** .25]
-    if F == 'A_HQ10000_G1.0_48_093':
-        R_middles = [10 ** -.05, 1., 10 ** .07, 10 ** .57]
-    # B
-    if F == 'B_HQ10000_G1.0_0_000':  # 0.th/IC file
-        R_middles = [10 ** -.70, 10 ** -.25, 10 ** -.0, 10 ** .3]
-    if F == 'B_HQ10000_G1.0_5_005':  # 5.th file
-        R_middles = [10 ** -.4, 10 ** -.15, 10 ** .1, 10 ** .25]
-    if F == 'B_HQ10000_G1.0_10_005':  # 10.th file
-        R_middles = [10 ** -.25, 10 ** -.14, 1., 10 ** .4]
-    if F == 'B_HQ10000_G1.0_198_000':  # 198.th file
-        R_middles = [10 ** .1, 10 ** .2, 10 ** .3, 10 ** .45]
-    if F == 'B_HQ10000_G1.0_198_093':
-        R_middles = [10 ** .1, 10 ** .15, 10 ** .25, 10 ** .5]
-    if F == 'B_HQ10000_G1.0_199_093':
-        R_middles = [10 ** .12, 10 ** .2, 10 ** .25, 10 ** .42]
-    # CS1
-    if F == 'CS1_OM10000_G1.0_0_000':
-        R_middles = [10 ** -.95, 10 ** -.25, 1., 10 ** .35]
-    # CS2
-    if F == 'CS2_OM10000_G1.0_0_000':
-        R_middles = [10 ** -1.1, 10 ** -.4, 1., 10 ** .4]
-    # CS3
-    if F == 'CS3_OM10000_G1.0_0_000':
-        R_middles = [10 ** -.7,10 ** -.4, 1., 10 ** .4]
-    # CS4
-    if F == 'CS4_OM10000_G1.0_0_000':
-        R_middles = [10 ** -.75, 10 ** -.4, 1., 10 ** .3]
-    if F == 'CS4_OM10000_G1.0_48_093':
-        R_middles = [10 ** -.05, 1., 10 ** .08, 10 ** .5]
-    # CS5
-    if F == 'CS5_OM10000_G1.0_0_000':
-        R_middles = [10 ** -.75, 10 ** -.4, 1., 10 ** .3]
-    if F == 'CS5_OM10000_G1.0_48_093':
-        R_middles = [10 ** -.05, 1., 10 ** .08, 10 ** .7]
-    # CS6
-    if F == 'CS6_OM10000_G1.0_0_000':
-        R_middles = [10 ** -.8, 10 ** -.25, 1., 10 ** .3]
-    if F == 'CS6_OM10000_G1.0_48_093':
-        R_middles = [10 ** -.05, 1., 10 ** .08, 10.]
-    # DS1
-    if F == 'DS1_OM10000_G1.0_0_000':
-        R_middles = [10 ** -.4, 10 ** -.2, 10 ** .05, 10 ** .2]
-    if F == 'DS1_OM10000_G1.0_49_093':
-        R_middles = [10 ** -.25, 10 ** -.1, 10 ** .1, 10 ** .65]
-    # Soft_D2
-    if F == 'Soft_D2_HQ10000_G1.0_0_000':
-        R_middles = [10 ** -.45, 10 ** -.2, 10 ** .05, 10 ** .2]
-    if F == 'Soft_D2_HQ10000_G1.0_49_093':
-        R_middles = [10 ** -.3, 10 ** -.1, 10 ** .1, 10 ** 1.4]
-    # E
-    if F == 'E_HQ10000_G1.0_0_000':
-        R_middles = [10 ** -.75, 10 ** -.4, 1., 10 ** .4]
-    if F == 'E_HQ10000_G1.0_198_093':
-        R_middles = [10 ** -.3, 10 ** -.1, 10 ** .1, 10 ** .4]
-
-if Gamma == Gammas[0]:
-    R_middle = R_middles[0]
-elif Gamma == Gammas[1]:
-    R_middle = R_middles[1]
-elif Gamma == Gammas[2]:
-    R_middle = R_middles[2]
-elif Gamma == Gammas[3]:
-    R_middle = R_middles[3]
-
-Pos = SnapshotFile['PartType1/Coordinates'].value
-Vel = SnapshotFile['PartType1/Velocities'].value
-V = SnapshotFile['PartType1/Potential'].value
-x = Pos[:, 0]
-y = Pos[:, 1]
-z = Pos[:, 2]
-print x.shape
-vx = Vel[:, 0]
-vy = Vel[:, 1]
-vz = Vel[:, 2]
-# Finds the particle with the lowest potential
-# (which is in the center of the largest cluster)
-minV = np.argmin(V)
-xC = x[minV]  # Changes x, y and z so that the cluster is centered.
-yC = y[minV]
-zC = z[minV]
-vxC = vx[minV]
-vyC = vy[minV]
-vzC = vz[minV]
-R = ((x - xC) ** 2 + (y - yC) ** 2 + (z - zC) ** 2) ** .5
-# R_xyz = (x ** 2 + y ** 2 + z ** 2) ** .5
-
-if R_limit_10000:
-    R_limit = 10000.
-    F += '_R_limit_10000'
-elif R_limit_5000:
-    R_limit = 5000.
-    F += '_R_limit_5000'
-elif R_limit_500:
-    R_limit = 500.
-    F += '_R_limit_500'
-elif R_limit_32:
-    R_limit = 32.
-    F += '_R_limit_32'
-
-# Removes all particles that is far away from the cluster.
-GoodIDs = np.where(R < R_limit)
-
-# make R_limit_min and R_limit_max selection automatic
-if R_bin_automatic:
-    R_limit_min = R_middle
-    R_limit_max = R_middle
-    a = 0  # makes sure the while loop is entered.
-    x0 = x
-    while (len(x0) < 10000 or a == 0):
-        R_limit_min -= .000005
-        R_limit_max += .000005
-        a += 1
-        GoodIDs = np.where((R < R_limit_max) * (R > R_limit_min))
-        x0 = x[GoodIDs[0]]
-
-x = x[GoodIDs]
-y = y[GoodIDs]
-z = z[GoodIDs]
-x = x - np.median(x)
-y = y - np.median(y)
-z = z - np.median(z)
-vx = vx[GoodIDs]
-vy = vy[GoodIDs]
-vz = vz[GoodIDs]
-vx = vx - np.median(vx)
-vy = vy - np.median(vy)
-vz = vz - np.median(vz)
-R_xyz = (x ** 2 + y ** 2 + z ** 2) ** .5
-
 if Fig_x_hist:
     f, (ax1, ax2, ax3) = plt.subplots(1, 3, figsize=(13, 11))
-    
+
     f.subplots_adjust(hspace=0, wspace=0)
     ax1.set_xlabel(r'$x - x_c$', fontsize=30)
     n, bins, patches = ax1.hist(x - xC, 500, normed=1,
@@ -437,9 +142,14 @@ if Gamma == -2.0:
     G = 1.
     v_circ_2 = (G * M_2 / r_2) ** .5
 
+
+
+r = (x ** 2 + y ** 2 + z ** 2) ** .5
+v = (vx ** 2 + vy ** 2 + vz ** 2) ** .5
+r_r2 = r / r_2
+
+
 if Fig_v_logr:
-    r = (x ** 2 + y ** 2 + z ** 2) ** .5
-    v = (vx ** 2 + vy ** 2 + vz ** 2) ** .5
     f, (ax1, ax2) = plt.subplots(1, 2, figsize=(13, 11))
     f.subplots_adjust(hspace=0, wspace=0)
     ax1.plot(r, v, 'o', color='Blue', lw=3, ms=2)
@@ -474,10 +184,6 @@ if Fig_v_logr:
     # f.savefig(figurePath + 'E_v_logr.png')
 
 if Fig_v_logr_r2:
-    r = (x ** 2 + y ** 2 + z ** 2) ** .5
-    v = (vx ** 2 + vy ** 2 + vz ** 2) ** .5
-    r_r2 = r / r_2
-
     f, (ax1, ax2) = plt.subplots(1, 2, figsize=(13, 11))
     f.subplots_adjust(hspace=0, wspace=0)
     ax1.plot(r_r2, v, 'o', color='Blue', lw=3, ms=2)
@@ -496,7 +202,7 @@ if Fig_v_logr_r2:
 
     # f.savefig(figurePath + 'A_IC_v_logr_r2.png')
     # f.savefig(figurePath + 'A_10_005_v_logr_r2.png')
-    f.savefig(figurePath + 'A_48_009_v_logr_r2.png')
+    # f.savefig(figurePath + 'A_48_009_v_logr_r2.png')
     # f.savefig(figurePath + 'B_v_logr_r2.png')
     # f.savefig(figurePath + 'Soft_B_v_logr_r2.png')
     # f.savefig(figurePath + 'CS1_v_logr_r2.png')
@@ -783,7 +489,7 @@ if Fig3_sigma_r_2:  # Dispersions
     # plt.title(r'Velocity dispersions (B 198_093, $R_{limit} = 10^4$, 20 radial bins)',
     #           fontsize=30)
     # f.savefig(figurePath + 'A_sigma_r_2.png')
-    f.savefig(figurePath + 'B_IC_sigma_r_2.png')
+    # f.savefig(figurePath + 'B_IC_sigma_r_2.png')
     # f.savefig(figurePath + 'B_198_093_sigma_r_2.png')
     # f.savefig(figurePath + 'Soft_B_sigma_r_2.png')
     # f.savefig(figurePath + 'CS1_sigma_r_2.png')
@@ -942,7 +648,7 @@ if Fig4_beta:  # plot beta
 
         # f.savefig(figurePath + 'A_IC_beta_logr_I_R32.png')
         # f.savefig(figurePath + 'A_48_009_beta_logr_I_R32.png')
-        f.savefig(figurePath + 'A_48_009_beta_logr_I_R32_cuts.png')
+        # f.savefig(figurePath + 'A_48_009_beta_logr_I_R32_cuts.png')
         # f.savefig(figurePath + 'B_IC_beta_logr_I_R32.png')
         # f.savefig(figurePath + 'B_199_093_beta_logr_I_R32.png')
         # f.savefig(figurePath + 'Soft_B_IC_beta_logr_I_R32.png')
@@ -1364,7 +1070,7 @@ if Fig6_gamma:
         # f.savefig(figurePath + 'A_IC_gamma_logr_I_R32.png')
         # f.savefig(figurePath + 'A_48_009_gamma_logr_I_R32.png')
         # f.savefig(figurePath + 'A_48_009_gamma_logr_I_R32_cuts.png')
-        f.savefig(figurePath + 'A_48_009_gamma_r_I_R32.png')
+        # f.savefig(figurePath + 'A_48_009_gamma_r_I_R32.png')
         # f.savefig(figurePath + 'B_IC_gamma_logr_I_R32.png')
         # f.savefig(figurePath + 'B_199_093_gamma_logr_I_R32.png')
         # f.savefig(figurePath + 'Soft_B_IC_gamma_logr_I_R32.png')
@@ -1442,7 +1148,7 @@ if Fig6_gamma_r_2:
     # f.savefig(figurePath + 'CS2_IC_gamma_r_2_logr.png')
     # f.savefig(figurePath + 'CS3_IC_gamma_r_2_logr.png')
     # f.savefig(figurePath + 'CS4_IC_gamma_r_2_logr.png')
-    f.savefig(figurePath + 'CS4_Final_gamma_r_2_logr.png')
+    # f.savefig(figurePath + 'CS4_Final_gamma_r_2_logr.png')
     # f.savefig(figurePath + 'CS5_IC_gamma_r_2_logr.png')
     # f.savefig(figurePath + 'CS5_Final_gamma_r_2_logr.png')
     # f.savefig(figurePath + 'CS6_IC_gamma_r_2_logr.png')

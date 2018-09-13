@@ -70,7 +70,7 @@ fileLstB20 = [(textFilesPath + 'B/' +
 # (textFilesPath + 'B/' + 'B_Hernquist10000_G1.0_10_005_20_radial_bins.txt', 'B_Hernquist10000_G1.0_10_005_20_radial_bins'),
 # (textFilesPath + 'B/' + 'B_Hernquist10000_G1.0_198_000_20_radial_bins.txt', 'B_Hernquist10000_G1.0_198_000_20_radial_bins'),
 # (textFilesPath + 'B/' + 'B_Hernquist10000_G1.0_198_093_20_radial_bins.txt', 'B_Hernquist10000_G1.0_198_093_20_radial_bins')
-fileLstB_R10000 = [(textFilesPath + 'B/' + 
+fileLstB_R10000 = [(textFilesPath + 'B/' +
                     'B_Hernquist10000_G1.0_0_000_R_limit_10000.txt',
                     'B_Hernquist10000_G1.0_0_000_R_limit_10000'),
                    (textFilesPath + 'B/' +
