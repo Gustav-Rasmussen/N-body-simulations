@@ -4,8 +4,8 @@
 import os
 
 userPath = os.getcwd()
-Filename = userPath + '/Desktop/RunGadget/G_HQ_1000000_test/output/Hernquist10000_G0.8_2_000.hdf5'
-SnapshotFile = h5py.File(Filename, 'r')
+# Filename = userPath + '/Desktop/RunGadget/G_HQ_1000000_test/output/Hernquist10000_G0.8_2_000.hdf5'
+# SnapshotFile = h5py.File(Filename, 'r')
 
 Pos = SnapshotFile['PartType1/Coordinates'].value
 Vel = SnapshotFile['PartType1/Velocities'].value
@@ -134,9 +134,9 @@ else:
 
 x, y, z = x[GoodIDs], y[GoodIDs], z[GoodIDs]
 vx, vy, vz = vx[GoodIDs], vy[GoodIDs], vz[GoodIDs]
-vx = vx - np.median(vx)
-vy = vy - np.median(vy)
-vz = vz - np.median(vz)
+vx -= np.median(vx)
+vy -= np.median(vy)
+vz -= np.median(vz)
 
 
 # if test or A or B or E:

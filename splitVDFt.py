@@ -28,18 +28,14 @@ import getSnapshotValues
 # radial and tangential velocities
 v_t1_arr, v_t2_arr = ([] for i in range(2))
 
-v_r = zeros([1000000, 1])
+# Initialize velocities
+v_r, v_theta, v_phi = zeros([1000000, 1])
 v_t = zeros([1000000, 3])
 for i in range(1000000):
     v_r[i] = np.divide(np.dot(Rvector[:, i], v_vector[:, i]),
                        linalg.norm(Rvector[:, i]))
     v_t[i] = np.divide(np.cross(Rvector[:, i], v_vector[:, i], axis=0),
                        linalg.norm(Rvector[:, i]))
-
-# v_theta and v_phi
-v_theta, v_phi = zeros([1000000, 1])
-
-for i in range(1000000):
     v_theta[i] = (vxnew[i] * ycl[i] - xcl[i] * vynew[i]) /
                  (xcl[i] ** 2 + ycl[i] ** 2)
     v_phi[i] = (zcl[i] * (xcl[i] * vxnew[i] + ycl[i] * vynew[i])

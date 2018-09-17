@@ -15,6 +15,7 @@ import os
 import Gammas_and_R_middles
 import getSnapshotValues
 import snapshotFiles
+import NoOfParticlesAndParticleMass
 
 UserPath = os.getcwd()
 DesktopPath = UserPath + 'Desktop/'
@@ -119,20 +120,6 @@ if Fig_x_hist2d:
 
 R_hob_par = R[GoodIDs]
 
-if F.startswith(('A_', 'B_', 'E_')):
-    N = 10 ** 6
-elif F.startswith(('CS4_', 'CS5_', 'CS6_', 'DS1_', 'D2_', 'Soft_D2_')):
-    N = 10 ** 5
-elif F.startswith(('CS1_', 'CS2_', 'CS3_')):
-    N = 10 ** 4
-
-if F.startswith(('A_', 'B_', 'CS1_', 'CS4_', 'CS5_', 'CS6_', 'E_')):
-    M = 1.
-elif F.startswith(('DS1_', 'D2_', 'Soft_D2_')):
-    M = 1. / 6.
-
-m = M / N
-
 if Gamma == -2.0:
     r_2 = R_middle
     # position of particles inside halo
@@ -141,8 +128,6 @@ if Gamma == -2.0:
     M_2 = nr_par_inside_halo * m
     G = 1.
     v_circ_2 = (G * M_2 / r_2) ** .5
-
-
 
 r = (x ** 2 + y ** 2 + z ** 2) ** .5
 v = (vx ** 2 + vy ** 2 + vz ** 2) ** .5
@@ -194,7 +179,8 @@ if Fig_v_logr_r2:
     # ax1.set_title(r'A IC (I: $\Delta G, R_{lim}=10^4$)', fontsize=30)
     # ax1.set_title(r'A 10_005 (I: $\Delta G,R_{lim}=10^4$)',
     #               fontsize=30)
-    ax1.set_title(r'A 48_009 (I: $\Delta G, R_{lim}=10^4$)', fontsize=30)
+    ax1.set_title(r'A 48_009 (I: $\Delta G, R_{lim}=10^4$)',
+                  fontsize=30)
 
     ax2.plot(np.log10(r_r2), v, 'o', color='Blue', lw=3, ms=2)
     ax2.set_xlabel(r'$\log (\frac{r}{r_{-2}})$', fontsize=30)
@@ -263,7 +249,7 @@ if Fig2_v:  # 3 plots of the velocities as function of x.
 (sigma2_arr, sigmarad2_arr, sigmatheta2_arr, sigmaphi2_arr,
  sigmatan2_arr, v2_arr, gamma_arr, kappa_arr, beta_arr, density_arr,
  rho_arr, Volume_arr, r, Phi, Theta, VR, VTheta, VPhi,
- VR_i_average_inside_bin) = ([] for i in range(19))
+ VR_i_average_inside_bin, bin_radius_arr) = ([] for i in range(20))
 
 v_r = (vx * x + vy * y + vz * z) / (x ** 2 + y ** 2 + z ** 2) ** .5
 
@@ -299,7 +285,6 @@ print(F)
 binning_arr_lin_log10 = np.logspace(min_binning_R,
                                     max_binning_R,
                                     nr_binning_bins)  # Array, -5-1000
-bin_radius_arr = []
 
 for i in range(nr_binning_bins - 2):
     min_R_bin_i = binning_arr_lin_log10[i]  # start of bin
@@ -367,7 +352,6 @@ for i in range(nr_binning_bins - 2):
                 ** .5
     sigmatan2 = sigmatan ** 2
     sigmatan2_arr.append(sigmatan2)
-    # save arrays
     density_arr.append(den_cl)
     rho_arr.append(rho)
     Volume_arr.append(Volume_cl)

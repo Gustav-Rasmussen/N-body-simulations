@@ -9,6 +9,7 @@ Created on Wed Jun 20 21:36:43 2018
 import numpy as np
 import pylab
 import os
+import RhoAndGaussianAndTsallis
 
 userPath = os.getcwd()
 desktopPath = userPath + 'Desktop/'
@@ -19,52 +20,6 @@ textFilesPath = stablePath + 'textFiles/'
 MartinPath = 'MartinICandFinalEddandOM/'
 hdf5Path = desktopPath + 'Gperturbations/hdf5Files/'
 nosyncPath = userPath + 'nosync/RunGadget/'
-
-# All files in this script belong to the G-perturbations simulations
-
-
-def func1(x, a, b):  # Gaussian fits
-    return a * x*np.exp(-b * x**2.)
-
-
-def func2(x, a, b):
-    return a * np.exp(-b * x**2.)
-
-
-def func3(x, a, b):
-    return a * x**2*np.exp(-b * x**2.)
-
-
-def func1Log(log10x, a, b):
-    x = 10.0 ** log10x
-    return a * x * np.exp(-b * x**2.)
-
-
-def func2Log(log10x, a, b):
-    x = 10.0 ** log10x
-    return a * np.exp(-b * x ** 2.)
-
-
-def func_3_log(log10x, a, b):
-    x = 10.0 ** log10x
-    return a * x ** 2 * np.exp(-b * x ** 2.)
-
-
-def func_4(x, a, b, q):  # q-fits
-    return a * (1. - (1. - q) * b * x ** 2.) ** (q / (1. - q))
-
-
-def func_5(x, b, q):
-    return (1. - (1. - q) * b * x ** 2.) ** (q / (1. - q))
-
-
-def func_6(x, a, b, q):
-    return a * x * (1. - (1. - q) * b * x ** 2.) ** (q / (1. - q))
-
-
-def func_7_log(log10x, a, b, q):
-    x = 10.0 ** log10x
-    return a * x ** 2 * (1. - (1. - q) * b * x ** 2.) ** (q / (1. - q))
 
 
 # [5],[6],[7] : log9, log7, log8 : r, theta, phi

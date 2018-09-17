@@ -12,6 +12,7 @@ import os
 # import Gammas_and_R_middles
 # import getSnapshotValues
 import snapshotFiles
+import NoOfParticlesAndParticleMass
 
 UserPath = os.getcwd()
 DesktopPath = UserPath + 'Desktop/'
@@ -39,23 +40,6 @@ Fig2_Density_r_2 = 0
 Fig3_Potential = 0
 Fig4_xy_rectangular = 0
 Fig5_cartesian_velocities = 0
-
-# Total number of particles:
-if F.startswith(('A_', 'B_', 'E_')):
-    N = 10 ** 6
-elif F.startswith(('CS4_', 'CS5_', 'CS6_', 'DS1_', 'D2_')):
-    N = 10 ** 5
-elif F.startswith(('CS1_', 'CS2_', 'CS3_')):
-    N = 10 ** 4
-
-if F.startswith(('A_', 'B_', 'CS4_', 'CS5_', 'CS6_', 'E_')):
-    M = 1.  # Total mass equals unity
-elif F.startswith(('DS1_', 'D2_')):
-    M = 1. / 6.
-
-m = M / N  # Mass of each particle
-# print('N = ', N)
-# print('m = ', m)
 
 R_hob_par = R[GoodIDs]
 

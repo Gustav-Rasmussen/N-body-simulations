@@ -51,8 +51,7 @@ import snapshotFiles
 # Gamma = -3, logr = .5, r = 10 ** .5
 
 # Make switches to control figures, print statements, binning etc. -----
-Fig1_xy = 0
-Fig2_xz = 0
+
 Fig3_3D_xyz = 0
 
 Fig8_vspherical_hist_log_vpvn = 0
@@ -76,54 +75,10 @@ print_sigma_unbinned = 0
 save_r_v_as_txt = 0
 Fig14_sigmas = 0
 
-if Fig1_xy:
-    figure()
-    plt.subplot(121)
-    plt.plot(x,y)
-    plt.xlabel(r'$x_{cluster}$')
-    plt.ylabel(r'$y_{cluster}$')
-    plt.title(r'positions ($N = %i$, $\gamma = %.2f $)' % (len(x),
-              Gamma))
-    plt.grid()
-
-    plt.subplot(122)
-    plt.plot(x, z)
-    plt.xlabel(r'$x_{cluster}$')
-    plt.ylabel(r'$z_{cluster}$')
-    plt.grid()
-
-if Fig2_xz:
-    figure()
-    plt.subplot(121)
-    plt.plot(x,y,'o', ms=1)
-    plt.xlabel(r'$x_{cluster}$')
-    plt.ylabel(r'$y_{cluster}$')
-    plt.title(r'positions ($N = %i$, $\gamma = %.2f $)' % (len(x),
-              Gamma))
-    plt.grid()
-
-    plt.subplot(122)
-    plt.plot (x, z, 'o', ms=1)
-    plt.xlabel(r'$x_{cluster}$')
-    plt.ylabel(r'$z_{cluster}$')
-    plt.grid()
-
 
 def randrange(n, vmin, vmax):  # 3D scatterplot of positions
     return (vmax - vmin) * np.random.rand(n) + vmin
 
-
-if Fig3_3D_xyz:
-    fig = plt.figure()
-    ax = fig.add_subplot(111, projection='3d')
-    n = 100
-    for c, m, zl, zh in [('r', 'o', -50, -25), ('b', '^', -30, -5)]:
-        ax.scatter(x, y, z, c=c, marker=m)
-    ax.set_xlabel('x')
-    ax.set_ylabel('y')
-    ax.set_zlabel('z')
-    ax.set_title('3D view of halo structure.($N = %i$, $\gamma = %.2f $)'
-                 % (len(x), Gamma))
 
 # sigma_1 = .205
 # sigma_2 = .335

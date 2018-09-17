@@ -466,8 +466,8 @@ datalist_E_R32 = [(pylab.loadtxt(f), l) for f, l in FileLstE_Rlimit32_50bins]
 
 # Switches for figures
 
-logr_rho_IC_Final_R32 = 1
-log_r_r2_rho_IC_Final_R32 = 1
+logr_rho_IC_Final_R32 = 0
+log_r_r2_rho_IC_Final_R32 = 0
 
 logr_rho = 0
 log_r_r2_rho = 0
