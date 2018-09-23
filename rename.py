@@ -59,8 +59,15 @@ def rename_files(files):
         # print(f'{new_file}')
         os.rename(f, new_file)
 
-readfile = "VDFnetwork.txt" # "readVDF.txt" # "readVDF_2_new.txt" # "TimeEvolutionGammaKappaBeta.txt" # "Sigma.txt"  # "readVDF_2_new.txt"
-writefile = "VDFnetwork_copy.txt" # "readVDF_copy.txt" # "readVDF_2_new_copy.txt" # "TimeEvolutionGammaKappaBeta_copy.txt" # "Sigma_copy.txt"  # "readVDF_2_new_copy.txt"
+readfiles = ["readVDF2", "VDFnetwork", "readVDF", "readVDF_2_new"
+             , "TimeEvolutionGammaKappaBeta", "Sigma"
+             , "readVDF_2_new"
+             ]
+
+readfile = f'{readfiles[0]}.txt'
+writefile = f'{readfiles[0]}_copy.txt'
+
+# print(readfile, writefile)
 
 with open(readfile, "r") as rf:
     with open(writefile, "w") as wf:
@@ -103,7 +110,6 @@ with open(readfile, "r") as rf:
                 line = line.replace('\'/Users/gustav.c.rasmussen',
                                     'os.getcwd() + \'')
             wf.write(line)
-
 
 '''
 with change_dir(A):

@@ -21,6 +21,7 @@ import getSnapshotValues
 import RhoAndGaussianAndTsallis
 import velocityCheck
 import snapshotFiles
+import vSphericalAnd_vBins
 
 # HQ1000000_150311_000.hdf5
 # Gamma = -1.5, logr = -.75, r = 10 ** -.75
@@ -63,7 +64,6 @@ Fig12_vr_vtheta_vphi_sigma = 0
 Fig12_vr_vtheta_vphi_vt_sigma = 0
 
 Fig13_vspherical_hist_old = 0
-vbin = 0
 x14_25_36_same_length = 0
 print_vp_vn = 0
 print_Vp_Vn = 0
@@ -80,88 +80,6 @@ def randrange(n, vmin, vmax):  # 3D scatterplot of positions
 
 # sigma_1 = .205
 # sigma_2 = .335
-
-if vbin:
-    for i in range(nr_binning_bins_v - 2):  # loop over 0-998
-        min_v_bin_i = v_binning_arr[i]  # start of bin
-        max_v_bin_i = v_binning_arr[i + 1]  # end of bin
-        # position of particles inside a radial bin
-        posv_par_inside_bin_i = np.where((v_hob_par > min_v_bin_i)
-                                         * (v_hob_par < max_v_bin_i))
-        # number of particles inside a radial bin
-        nr_par_inside_bin_i = len(posv_par_inside_bin_i)
-        if nr_par_inside_bin_i == 0:
-            continue
-
-        v_inside_bin_i = v[posv_par_inside_bin_i]
-        v_r_inside_bin_i = v_r[posv_par_inside_bin_i]
-        v_t_inside_bin_i = v_t[posv_par_inside_bin_i]
-
-        v_arr.append(v_inside_bin_i)
-        v_r_arr.append(v_r_inside_bin_i)
-        v_t_arr.append(v_t_inside_bin_i)
-        nr_par_inside_bin.append(nr_par_inside_bin_i)
-
-    plt.figure()  # plot structure over velocity bins.
-    plt.subplot(121)
-    plt.xlabel(r'$v, v_r$ and $v_t$')
-    plt.ylabel('Number of particles')
-    plt.title(r'VDF (HQ structure, $10^6$ particles)')
-    plt.hist(v_arr[15], bins=100, histtype='step', color='red',
-             range=(v_limit_min, v_limit_max), label=r'$v$', lw=2)
-    plt.hist(v_r_arr[15], bins=100, histtype='step', color='blue',
-             range=(v_limit_min, v_limit_max), label=r'$v_r$', lw=2)
-    plt.legend(prop=dict(size=13), numpoints=2, ncol=2,
-               frameon=True, loc=1, handlelength=2.5)
-    plt.show()
-    plt.hist(v_r, bins=100, histtype='step', color='skyblue',
-             range=(v_limit_min, v_limit_max), label=r'$v_r$', lw=2)
-    plt.hist(v_t, bins=100, histtype='step', color='black',
-             range=(-4, 4), label=r'$v_t$', lw=2)
-
-    plt.subplot(122)
-    plt.xlabel(r'$\log v$, $ \log v_r$ and $ \log v_t$')
-    plt.hist(np.log10(np.absolute(v_arr)), bins=100, histtype='step',
-             color='red', range=(-5, 1), label=r'$\log v$', lw=2)
-    plt.hist(np.log10(np.absolute(v_r)), bins=100, histtype='step',
-             color='skyblue', range=(-5, 1), label=r'$\log v_r$', lw=2)
-    plt.hist(np.log10(np.absolute(v_t)), bins=100, histtype='step',
-             color='black', range=(-5, 1), label=r'$\log v_t$', lw=2)
-    plt.legend(prop=dict(size=13), numpoints=2, ncol=2,
-               frameon=True, loc=2, handlelength=2.5)
-
-    plt.figure()
-    plt.xlabel(r'$v_r$ and $v_t$')
-    plt.ylabel('Number of particles')
-    plt.title('velocity distributions')
-    plt.hist(v_r_arr[5], bins=30, histtype='step',
-             color='red', range=(-4, 1), label=r'$v_r$ (bin 5)',
-             normed=True, lw=2)
-    plt.hist(v_r_arr[8], bins=30, histtype='step',
-             color='skyblue', range=(-4, 1), label=r'$v_r$ (bin 8)',
-             normed=True, lw=2)
-    plt.hist(v_r_arr[10], bins=300, histtype='step',
-             color='black', range=(-1, 1), label=r'$v_r$ (bin 10)',
-             lw=2)
-    plt.hist(.5 * v_t_arr[5], bins=30, histtype='step',
-             color='green', range=(-4, 1), label=r'$v_t$ (bin 5)',
-             normed=True)
-    plt.hist(.5 * v_t_arr[8], bins=30, histtype='step',
-             color='blue', range=(-4, 1), label=r'$v_t$ (bin 8)',
-             normed=True)
-    plt.hist(v_t_arr[10], bins=300, histtype='step',
-             color='orange', range=(-1, 1), label=r'$v_t$ (bin 10)')
-    plt.hist(.25 * v_t_arr[10], bins=300, histtype='step',
-             color='red', range=(-2, 1),
-             label=r'$\frac{1}{4}\cdot v_t$ (bin 10)')
-    plt.hist(v_t_arr[10] * v_t_arr[10], bins=300, histtype='step',
-             color='green', range=(-2, 1),
-             label=r'$v_t\cdot v_t$ (bin 10)')
-    plt.hist(2 * v_t_arr[10], bins=300, histtype='step',
-             color='blue', range=(-2, 1),
-             label=r'$2 \cdot v_t$ (bin 10)')
-    plt.legend(prop=dict(size=13), numpoints=2, ncol=2,
-               frameon=True, loc=2, handlelength=2.5)
 
 if calc_sigma_binned_lin_radius:
     R_hob_par = R[GoodIDs]
