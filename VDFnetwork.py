@@ -52,8 +52,6 @@ import snapshotFiles
 
 # Make switches to control figures, print statements, binning etc. -----
 
-Fig3_3D_xyz = 0
-
 Fig8_vspherical_hist_log_vpvn = 0
 Fig11_vspherical_hist_log_n123 = 0
 calc_sigma_binned_lin_radius = 0

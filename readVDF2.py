@@ -37,31 +37,31 @@ if vRvPhivTheta:
         data, label = fls.Bin1HQ10000_G1_2_1_005[1]
         ax1.plot(data[:, 0], data[:, 1], color='Green', ls='--', lw=2, ms=7)
         data, label = datalist_innerbin_Hernquist10000_G1_2_1_005[2]
-        ax1.plot(data[:,0], data[:,1],color = 'Red',ls =  '--',lw=2,ms=7)
+        ax1.plot(data[:, 0], data[:, 1], color='Red', ls='--', lw=2, ms=7)
         data, label = datalist_innerbin_Hernquist10000_G1_2_1_005[3]
-        ax1.plot(data[:,0], data[:,1],color = 'Black',ls =  '--',lw=2,ms=7)
+        ax1.plot(data[:, 0], data[:, 1], color='Black', ls='--', lw=2, ms=7)
         data, label = datalist_first_middlebin_Hernquist10000_G1_2_1_005[1]
-        ax1.plot(data[:,0], data[:,1],color = 'Green', ls =  ':',lw=4,ms=7)
+        ax1.plot(data[:, 0], data[:, 1], color='Green', ls=':', lw=4, ms=7)
         data, label = datalist_first_middlebin_Hernquist10000_G1_2_1_005[2]
-        ax1.plot(data[:,0], data[:,1],color = 'Red',  ls =  ':',lw=4,ms=7)
+        ax1.plot(data[:, 0], data[:, 1], color='Red', ls=':', lw=4, ms=7)
         data, label = datalist_first_middlebin_Hernquist10000_G1_2_1_005[3]
-        ax1.plot(data[:,0], data[:,1],color = 'Black',ls =  ':',lw=2,ms=7)
+        ax1.plot(data[:, 0], data[:, 1], color='Black', ls=':', lw=2, ms=7)
         data, label = datalist_second_middlebin_Hernquist10000_G1_2_1_005[1]
-        ax1.plot(data[:,0], data[:,1],color = 'Green', ls =  '-.',lw=2,ms=7)
+        ax1.plot(data[:, 0], data[:, 1], color='Green', ls='-.', lw=2, ms=7)
         data, label = datalist_second_middlebin_Hernquist10000_G1_2_1_005[2]
-        ax1.plot(data[:,0], data[:,1],color = 'Red', ls =  '-.',lw=2,ms=7 )
+        ax1.plot(data[:, 0], data[:, 1], color='Red', ls='-.', lw=2, ms=7)
         data, label = datalist_second_middlebin_Hernquist10000_G1_2_1_005[3]
-        ax1.plot(data[:,0], data[:,1],color = 'Black', ls =  '-.',lw=2,ms=7)
+        ax1.plot(data[:, 0], data[:, 1], color='Black', ls='-.', lw=2, ms=7)
         data, label = datalist_outerbin_Hernquist10000_G1_2_1_005[1]
-        ax1.plot(data[:,0], data[:,1],color = 'Green',label=r'$v_r$',lw=2,ms=7)
+        ax1.plot(data[:, 0], data[:, 1], color='Green', label=r'$v_r$', lw=2, ms=7)
         data, label = datalist_outerbin_Hernquist10000_G1_2_1_005[2]
-        ax1.plot(data[:,0], data[:,1],color = 'Red',label=r'$v_{\theta}$',
-                 lw=2, ms=7 )
+        ax1.plot(data[:, 0], data[:, 1], color='Red', label=r'$v_{\theta}$',
+                 lw=2, ms=7)
         data, label = datalist_outerbin_Hernquist10000_G1_2_1_005[3]
-        ax1.plot(data[:,0], data[:,1],color = 'Black',label=r'$v_{\phi}$',
-                 lw=2, ms=7 )
+        ax1.plot(data[:, 0], data[:, 1], color='Black', label=r'$v_{\phi}$',
+                 lw=2, ms=7)
         ax1.set_ylabel(r'$f\left(u \right)$', fontsize=20)
-        ax1.set_title(r' File = %s' %Hq12 , fontsize=20)
+        ax1.set_title(r'File = %s' % Hq12 , fontsize=20)
         ax1.legend(prop=dict(size=13), numpoints=2, ncol=1,
                    frameon=True, loc=0, handlelength=2.5)
         ax1.grid()
@@ -69,24 +69,24 @@ if vRvPhivTheta:
         data, label = datalist_innerbin_Hernquist10000_G1_2_1_005[5]
         ax2.plot(data[:, 0], data[:, 1], color='Green', ls='--', lw=2, ms=7)
         data, label = datalist_innerbin_Hernquist10000_G1_2_1_005[6]
-        ax2.plot(data[:,0], data[:,1],color = 'Red',ls = '--', lw=2,ms=7)
+        ax2.plot(data[:, 0], data[:, 1], color='Red', ls='--', lw=2, ms=7)
         data, label = datalist_innerbin_Hernquist10000_G1_2_1_005[7]
         ax2.plot(data[:, 0], data[:, 1], color='Black',
                  label=r'$\gamma = -1.5$', ls='--', lw=2, ms=7)
         data, label = datalist_first_middlebin_Hernquist10000_G1_2_1_005[5]
-        ax2.plot(data[:,0], data[:,1],color = 'Green', ls =  ':',lw=2,ms=7 )
+        ax2.plot(data[:, 0], data[:, 1], color='Green', ls=':', lw=2, ms=7)
         data, label = datalist_first_middlebin_Hernquist10000_G1_2_1_005[6]
-        ax2.plot(data[:,0], data[:,1],color = 'Red', ls =  ':',lw=2,ms=7 )
+        ax2.plot(data[:, 0], data[:, 1], color='Red', ls=':', lw=2, ms=7)
         data, label = datalist_first_middlebin_Hernquist10000_G1_2_1_005[7]
-        ax2.plot(data[:,0], data[:,1],color = 'Black',
-                 label=r'$\gamma = -2.0 $',ls = ':',lw=2,ms=7 )
+        ax2.plot(data[:, 0], data[:, 1], color='Black',
+                 label=r'$\gamma = -2.0$', ls=':', lw=2, ms=7)
         data, label = datalist_second_middlebin_Hernquist10000_G1_2_1_005[5]
-        ax2.plot(data[:,0], data[:,1],color = 'Green', ls =  '-.',lw=2,ms=7 )
+        ax2.plot(data[:, 0], data[:, 1], color='Green', ls='-.', lw=2, ms=7)
         data, label = datalist_second_middlebin_Hernquist10000_G1_2_1_005[6]
-        ax2.plot(data[:,0], data[:,1],color = 'Red', ls =  '-.',lw=2,ms=7 )
+        ax2.plot(data[:, 0], data[:, 1], color='Red', ls='-.', lw=2, ms=7)
         data, label = datalist_second_middlebin_Hernquist10000_G1_2_1_005[7]
-        ax2.plot(data[:,0], data[:,1],color = 'Black',
-                 label=r'$\gamma = -2.5 $', ls =  '-.',lw=2,ms=7 )
+        ax2.plot(data[:, 0], data[:, 1], color='Black',
+                 label=r'$\gamma = -2.5$', ls='-.', lw=2, ms=7)
         data, label = datalist_outerbin_Hernquist10000_G1_2_1_005[5]
         ax2.plot(data[:,0], data[:,1],color = 'Green',lw=2,ms=7 )
         data, label = datalist_outerbin_Hernquist10000_G1_2_1_005[6]
@@ -162,9 +162,9 @@ if vRvPhivTheta:
         data, label = datalist_outerbin_Hernquist10000_G1_2_1_005[7]
         ax4.plot(data[:, 0], data[:, 1], color='Black', lw=2, ms=7)
         ax4.set_xlabel(r'$\log \left( |u_rn|,u_rp \right)$, $\log \left( |u_{\theta}n|,u_{\theta}p \right)$ and $\log \left( |u_{\phi}n|,u_{\phi}p \right)$',
-            fontsize=20)
+                       fontsize=20)
         ax4.set_ylabel(r'$\log \left( f\left(\log \left( |u_n|,u_p \right)\right) \right)$',
-            fontsize=20)
+                       fontsize=20)
         ax4.grid()
         ax4.set_yscale('log')
 
@@ -291,9 +291,9 @@ if vRvPhivTheta:
         data, label = datalist_outerbin_different_gammas_test2_Hernquist10000_G1_0_0_000[7]
         ax4.plot(data[:,0], data[:,1],color = 'Black',lw=2,ms=7)
         ax4.set_xlabel(r'$\log \left( |u_rn|,u_rp \right)$, $\log \left( |u_{\theta}n|,u_{\theta}p \right)$ and $\log \left( |u_{\phi}n|,u_{\phi}p \right)$',
-            fontsize=20)
+                       fontsize=20)
         ax4.set_ylabel(r'$\log \left( f\left(\log \left( |u_n|,u_p \right)\right) \right)$',
-            fontsize=20)
+                       fontsize=20)
         ax4.grid()
         ax4.set_yscale('log')
 
@@ -303,17 +303,17 @@ if Fig_vr_vphi_vtheta_with_fit:
         data, label = datalist_first_middlebin_Hernquist10000_G1_2_1_005[1]
         ax1.plot(data[:,0], data[:,1],color = 'Green',lw=4,ms=7 )
         popt, pcov = curve_fit(func_2, data[:,0], data[:,1])
-        y_fit = func_2(data[:,0],popt[0],popt[1])
+        y_fit = func_2(data[:, 0], popt[0], popt[1])
         ax1.plot(data[:,0],y_fit,'.-',lw=3,color='cyan',
                  label=r'$ radial: axe^{-bx^2}$, $ a,b = %.3f,%.3f$' %(popt[0], popt[1]))
         data, label = datalist_first_middlebin_Hernquist10000_G1_2_1_005[2]
         ax1.plot(data[:,0], data[:,1],color = 'Red',lw=4,ms=7 )
         popt, pcov = curve_fit(func_2, data[:,0], data[:,1])
-        y_fit = func_2(data[:,0],popt[0],popt[1])
+        y_fit = func_2(data[:, 0], popt[0], popt[1])
         ax1.plot(data[:,0],y_fit,'.-',lw=3,color='Pink',
                  label=r'$ \theta: axe^{-bx^2}$, $ a,b = %.3f,%.3f $' %(popt[0], popt[1]))
         data, label = datalist_first_middlebin_Hernquist10000_G1_2_1_005[3]
-        ax1.plot(data[:,0], data[:,1],color = 'Black',lw=2,ms=7 )
+        ax1.plot(data[:, 0], data[:, 1], color='Black', lw=2, ms=7)
         popt, pcov = curve_fit(func_2, data[:,0], data[:,1])
         y_fit = func_2(data[:,0],popt[0],popt[1])
         ax1.plot(data[:,0],y_fit,'.-',lw=3,color='Brown',
@@ -323,7 +323,7 @@ if Fig_vr_vphi_vtheta_with_fit:
         ax1.set_title(r'Fits to file = %s, $\gamma = -2.0 $' %Hq12 ,
                       fontsize=20)
         ax1.legend(prop=dict(size=13), numpoints=2, ncol=1,
-                   frameon=True,loc=0,handlelength=2.5)
+                   frameon=True, loc=0, handlelength=2.5)
         ax1.grid()
 
         data, label = datalist_first_middlebin_Hernquist10000_G1_2_1_005[5]
@@ -354,12 +354,12 @@ if Fig_vr_vphi_vtheta_with_fit:
         ax2.grid()
 
         data, label = datalist_first_middlebin_Hernquist10000_G1_2_1_005[1]
-        ax3.plot(data[:,0], data[:,1],color = 'Green',
+        ax3.plot(data[:, 0], data[:, 1], color='Green',
                  label=r'$\gamma = -2.0 $',lw=4,ms=7 )
         data, label = datalist_first_middlebin_Hernquist10000_G1_2_1_005[2]
-        ax3.plot(data[:,0], data[:,1],color = 'Red',lw=4,ms=7 )
+        ax3.plot(data[:, 0], data[:, 1], color='Red', lw=4, ms=7)
         data, label = datalist_first_middlebin_Hernquist10000_G1_2_1_005[3]
-        ax3.plot(data[:,0], data[:,1],color = 'Black',lw=2,ms=7 )
+        ax3.plot(data[:,0], data[:,1], color='Black', lw=2, ms=7)
         ax3.set_xlabel(r'$ u_r $, $u_{\theta}$ and $u_{\phi}$', fontsize=20)
         ax3.set_ylabel(r'$\log \left( f\left( u \right) \right)$', fontsize=20)
         ax3.grid()
@@ -369,13 +369,13 @@ if Fig_vr_vphi_vtheta_with_fit:
         ax4.plot(data[:,0], data[:,1], color='Green',
                  label=r'$\gamma = -2.0 $', lw=2, ms=7)
         data, label = datalist_first_middlebin_Hernquist10000_G1_2_1_005[6]
-        ax4.plot(data[:,0], data[:,1],color = 'Red',lw=2,ms=7)
+        ax4.plot(data[:, 0], data[:, 1], color='Red', lw=2, ms=7)
         data, label = datalist_first_middlebin_Hernquist10000_G1_2_1_005[7]
-        ax4.plot(data[:,0], data[:,1],color = 'Black', lw=2, ms=7)
+        ax4.plot(data[:, 0], data[:, 1], color='Black', lw=2, ms=7)
         ax4.set_xlabel(r'$\log \left( |u_rn|,u_rp \right)$, $\log \left( |u_{\theta}n|,u_{\theta}p \right)$ and $\log \left( |u_{\phi}n|,u_{\phi}p \right)$',
-            fontsize=20)
+                       fontsize=20)
         ax4.set_ylabel(r'$\log \left( f\left(\log \left( |u_n|,u_p \right)\right) \right)$',
-            fontsize=20)
+                       fontsize=20)
         ax4.grid()
         ax4.set_yscale('log')
 

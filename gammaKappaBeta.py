@@ -7,6 +7,8 @@ import matplotlib.lines as lines
 import matplotlib.pyplot as plt
 import fileLsts as lsts
 import snapshotFiles
+import colorsAndSymbols
+import dataLsts
 
 # Use this command for running 3D plots:
 # ~/python/3dplot/bin/python gamma_kappa_beta.py
@@ -21,52 +23,6 @@ MartinPath = 'Martin_IC_and_Final_Edd_and_OM/'
 textMartinPath = textFilesPath + MartinPath
 hdf5Path = desktopPath + 'G_perturbations/hdf5_files/'
 nosyncPath = userPath + 'nosync/RunGadget/'
-
-datalistMartinIC = [(pylab.loadtxt(filename), label) for filename,
-                    label in lsts.fileLstMartinIC]
-datalistMartinFinal = [(pylab.loadtxt(filename), label) for filename,
-                       label in lsts.fileLstMartinFinal]
-datalistA = [(pylab.loadtxt(filename), label) for filename,
-             label in lsts.fileLstA]
-datalistA_R10000 = [(pylab.loadtxt(filename), label) for filename,
-                    label in lsts.fileLstA_R10000]
-datalistB = [(pylab.loadtxt(filename), label) for filename,
-             label in lsts.fileLstB]
-datalistB20 = [(pylab.loadtxt(filename), label) for filename,
-               label in lsts.fileLstB20]
-datalistB_R10000 = [(pylab.loadtxt(filename), label) for filename,
-                    label in lsts.fileLstB_R10000]
-datalistC_IC = [(pylab.loadtxt(filename), label) for filename,
-                label in lsts.fileLstC_IC]
-datalistCS4CS5CS6_R10000 = [(pylab.loadtxt(filename), label) for filename,
-                            label in lsts.fileLstCS4CS5CS6_R10000]
-datalistDS1_SoftD2_R10000 = [(pylab.loadtxt(filename), label) for filename,
-                             label in lsts.fileLstDS1_SoftD2_R10000]
-datalistE_R10000 = [(pylab.loadtxt(filename), label) for filename,
-                    label in lsts.fileLstE_R10000]
-datalistA_R32 = [(pylab.loadtxt(filename), label) for filename,
-                 label in lsts.fileLstA_Rlimit32_50bins]
-datalistB_R32 = [(pylab.loadtxt(filename), label) for filename,
-                 label in lsts.fileLstB_Rlimit32_50bins]
-datalistCS4_R32 = [(pylab.loadtxt(filename), label) for filename,
-                   label in lsts.fileLstCS4_Rlimit32_20bins]
-datalistCS5_R32 = [(pylab.loadtxt(filename), label) for filename,
-                   label in lsts.fileLstCS5_Rlimit32_20bins]
-datalistCS6_R32 = [(pylab.loadtxt(filename), label) for filename,
-                   label in lsts.fileLstCS6_Rlimit32_20bins]
-datalistDS1_R32 = [(pylab.loadtxt(filename), label) for filename,
-                   label in lsts.fileLstDS1_Rlimit32_20bins]
-datalistSoftD2_R32 = [(pylab.loadtxt(filename), label) for filename,
-                      label in lsts.fileLstSoft_D2_Rlimit32_20bins]
-datalistE_R32 = [(pylab.loadtxt(filename), label) for filename,
-                 label in lsts.fileLstE_Rlimit32_50bins]
-
-Colors = ['red', 'blue', 'black', 'brown', 'yellow', 'green',
-          'maroon', 'cyan', 'grey', 'SkyBlue', 'orange']
-
-Symbols = ['-o', '-s', '-<', '--v', '--*', '--s', '--d', '--.',
-           '--.', '--s', '--o', '--v', '--^', '--<', '-->',
-           '.', 's', 'o', 'v', '^', '<', '>', 'p', '*']
 
 # Switches for figures --------------------------------------------------------
 
