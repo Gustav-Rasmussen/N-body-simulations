@@ -59,13 +59,13 @@ def rename_files(files):
         # print(f'{new_file}')
         os.rename(f, new_file)
 
-readfiles = ["readVDF2", "VDFnetwork", "readVDF", "readVDF_2_new"
-             , "TimeEvolutionGammaKappaBeta", "Sigma"
-             , "readVDF_2_new"
-             ]
 
-readfile = f'{readfiles[0]}.txt'
-writefile = f'{readfiles[0]}_copy.txt'
+modules = ["fileLsts", "readVDF2", "VDFnetwork", "readVDF", "readVDF_2_new",
+           "TimeEvolutionGammaKappaBeta", "Sigma", "readVDF_2_new"
+           ]
+
+readfile = f'{modules[0]}.txt'
+writefile = f'{modules[0]}_copy.txt'
 
 # print(readfile, writefile)
 
@@ -106,6 +106,12 @@ with open(readfile, "r") as rf:
                 line = line.replace('second_middlebin_', 'bin3')
             if 'outerbin_' in line:
                 line = line.replace('outerbin_', 'bin4')
+            if 'radial_bins' in line:
+                line = line.replace('radial_bins', 'RBins')
+            if 'R_limit' in line:
+                line = line.replace('R_limit', 'Rlim')
+            if 'Almost_Final' in line:
+                line = line.replace('Almost_Final', 'SecondLast')
             if '\'/Users/gustav.c.rasmussen' in line:
                 line = line.replace('\'/Users/gustav.c.rasmussen',
                                     'os.getcwd() + \'')
