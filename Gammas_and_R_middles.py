@@ -15,8 +15,8 @@ largest_R_limit = 0
 large_R_limit = 0
 
 if large_R_middle:
-    # R_middle =  10 ** 1.3
-    R_middle  =  10 ** 1.5
+    # R_middle = 10 ** 1.3
+    R_middle = 10 ** 1.5
 # print('R_middle = ', R_middle)
 
 # Reduce number of radial bins in analysis code.
@@ -41,7 +41,6 @@ elif R_limit_32:
     R_limit = 32.
     F += '_R_limit_32'
 
-
 if largest_R_limit:
     R_limit = 10000.
     F += '_R_limit_10000'
@@ -51,7 +50,6 @@ elif large_R_limit:
 else:
     R_limit = 500.
     # F += '_R_limit_500'
-
 
 if bins_202:
     nr_binning_bins = 202
@@ -64,7 +62,6 @@ elif larger_fewer_bins:
     F += '_20_radial_bins'
 else:
     nr_binning_bins = 52
-
 
 Gammas = [-1.5, -2.0, -2.5, -3.0]
 Gamma = Gammas[1]
@@ -114,7 +111,7 @@ if new_R_middle:  # Choose new R_middle for each file.
         R_middles = [10 ** -1.1, 10 ** -.4, 1., 10 ** .4]
     # CS3
     if F == 'CS3_OM10000_G1.0_0_000':
-        R_middles = [10 ** -.7,10 ** -.4, 1., 10 ** .4]
+        R_middles = [10 ** -.7, 10 ** -.4, 1., 10 ** .4]
     # CS4
     if F == 'CS4_OM10000_G1.0_0_000':
         R_middles = [10 ** -.75, 10 ** -.4, 1., 10 ** .3]
@@ -185,8 +182,6 @@ elif Gamma == Gammas[2]:
 elif Gamma == Gammas[3]:
     R_middle = R_middles[3]
 
-
-
 # make R_limit_min and R_limit_max selection automatic
 if R_bin_automatic:
     R_limit_min, R_limit_max = R_middle
@@ -198,4 +193,3 @@ if R_bin_automatic:
         a += 1
         GoodIDs = np.where((R < R_limit_max) * (R > R_limit_min))
         x0 = x[GoodIDs[0]]
-

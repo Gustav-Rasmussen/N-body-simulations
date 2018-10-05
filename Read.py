@@ -2,32 +2,16 @@
 
 # import h5py
 import numpy as np
-# import matplotlib.pyplot as plt
-import IPython
+import matplotlib.pyplot as plt
 from matplotlib.colors import LogNorm
-import time
 # from pylab import *
 # import seaborn as sns
-import os
+from pathlib import Path
 # import Gammas_and_R_middles
 # import getSnapshotValues
 import snapshotFiles
 import NoOfParticlesAndParticleMass
-
-UserPath = os.getcwd()
-DesktopPath = UserPath + 'Desktop/'
-GADGET_G_path = DesktopPath + 'RunGadget/G_perturbations/'
-StablePath = 'G_perturbations/Stable_structures/'
-figurePath = DesktopPath + StablePath + 'figures/'
-text_files_path = DesktopPath + StablePath + 'text_files/'
-MartinPath = 'Martin_IC_and_Final_Edd_and_OM/'
-hdf5_path = DesktopPath + 'G_perturbations/hdf5_files/'
-nosync_path = UserPath + 'nosync/RunGadget/'
-
-# print(UserPath)
-# print(DesktopPath)
-# print(StablePath)
-# print(figurePath)
+from definePaths import *
 
 simulationsLst = ['A', 'B', 'Soft_B', 'CS1', 'CS2', 'CS3', 'CS4',
                   'CS5', 'CS6', 'DS1', 'D2', 'Soft_D2', 'E']
@@ -48,7 +32,7 @@ if Gamma == Gammas[1]:
     # position of particles inside halo
     posR_par_inside_halo = np.where(R_hob_par < r_2)
     nr_par_inside_halo = len(posR_par_inside_halo[0])
-    M_2 = nr_par_inside_halo*m
+    M_2 = nr_par_inside_halo * m
     G = 1.
     v_circ_2 = np.sqrt(G * M_2 / r_2)
     V_2 = 4 / 3 * np.pi * r_2 ** 3
@@ -57,10 +41,11 @@ if Gamma == Gammas[1]:
 
 # Array, 0.00001-1.
 binning_arr_lin_log10_unitRmax = 10 ** ((np.arange(nr_binning_bins) /
-                                 (nr_binning_bins - 1)) *
-                                 abs(np.log10(max_binning_R_unitRmax)
-                                 - np.log10(min_binning_R_unitRmax))
-                                 + np.log10(min_binning_R_unitRmax))
+                                  (nr_binning_bins - 1)) *
+                                  abs(np.log10(max_binning_R_unitRmax)
+                                  - np.log10(min_binning_R_unitRmax))
+                                  + np.log10(min_binning_R_unitRmax))
+
 # Array, 0-500
 binning_arr_lin_log10 = R_limit * binning_arr_lin_log10_unitRmax
 for i in range(0, int(nr_binning_bins - 2)):  # loop over 0-998
@@ -70,8 +55,8 @@ for i in range(0, int(nr_binning_bins - 2)):  # loop over 0-998
     posR_par_inside_bin_i = np.where((R > min_R_bin_i) & (R < max_R_bin_i))[0]
     # number of particles inside a radial bin
     nr_par_inside_bin_i = len(posR_par_inside_bin_i)
-    Volume_cl = (4. / 3.) * np.pi * (max_R_bin_i ** 3 -
-                            min_R_bin_i ** 3)  # Volume of cluster
+    # Volume of cluster
+    Volume_cl = (4. / 3.) * np.pi * (max_R_bin_i ** 3 - min_R_bin_i ** 3)
     den_cl = nr_par_inside_bin_i / Volume_cl  # Number density
     rho = den_cl * m
     rho_2 = rho * V_2 / M_2
@@ -83,7 +68,7 @@ for i in range(0, int(nr_binning_bins - 2)):  # loop over 0-998
     rho_2_arr.append(rho_2)
 
 Invers_Volume_arr = np.log10(np.divide(np.ones(len(Volume_arr)),
-                                               Volume_arr))
+                             Volume_arr))
 
 '''
 print('len(density_arr) = ', len(density_arr))
@@ -110,7 +95,7 @@ print('R[99999] = ', R[99999])
 '''
 
 
-def savefigStr(simName, plotName=plotName):
+def savefigStr(simName, plotName):
     return '{}{}{}'.format(figurePath, simName, plotName)
 
 
@@ -134,28 +119,7 @@ if Fig2_Density:
                  c='black', label=r'$\frac{1}{2\pi r (1+r)^3}$')
         plt.title(r'Density profile (B IC with 998 radial bins)',
                   fontsize=30)
-        '''
-        Chi2 = 0
-        i = 0
-        print('rho_arr = ', rho_arr)
-        # while (i < len(rho_arr)):  # returns chi2 = infinity.
-        # while (300 < i < len(rho_arr) - 300):  # returns chi2 = .00000
-        # while (1 < i < len(rho_arr) - 1):  # returns chi2 = .00000
 
-            if isnan(rho_arr[i]):
-                print('nan at index: ', i)
-            else:
-                Chi2 += ((rho_arr[i] - y_plot[i]) ** 2) / (rho_arr[i] *
-                        .2) ** 2
-                print('Chi2 for density-fit: ', Chi2)
-            i += 1
-        Chi2 = (1.0 / (len(rho_arr) - 1)) * Chi2
-
-        print('Total Chi2 for density-fit: ', Chi2)
-        # Dummy plot to add label to legend for chi2
-        plt.plot([], [], ls='.', c='grey',
-                 label=r'$\chi^2 = %.6f$'%Chi2)
-        '''
         leg = plt.legend(prop=dict(size=30), numpoints=2, ncol=1,
                          fancybox=True, loc=0, handlelength=2.5)
         leg.get_frame().set_alpha(.5)
@@ -283,7 +247,7 @@ if Fig5_cartesian_velocities:
     plt.xlabel('x')
     plt.ylabel('vynew')
     plt.plot(xclrec, vynew, 'o', ms=2, mew=0, color='blue')
-    setp( ax2.get_yticklabels(), visible=False)
+    setp(ax2.get_yticklabels(), visible=False)
     ax3 = plt.subplot(133)
     plt.ylabel('vznew')
     plt.plot(xclrec, vznew, 'o', ms=2, mew=0, color='blue')

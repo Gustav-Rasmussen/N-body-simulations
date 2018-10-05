@@ -6,253 +6,241 @@ Created on Sat Jun 16 15:30:48 2018
 @author: gustavcollinrasmussen
 """
 
-import os
+from definePaths import *
 
-userPath = '/Users/gustavcollinrasmussen/Desktop'
-desktopPath = os.getcwd()
-GADGET_G_path = desktopPath + 'RunGadget/G_Perts/'
-StablePath = 'G_Perts/Stable_structures/'
-desktopStablePath = desktopPath + StablePath
-figurePath = desktopStablePath + 'figures/'
-textFilesPath = desktopStablePath + 'text_files/'
-MartinPath = 'Martin_IC_and_Final_Edd_and_OM/'
-textMartinPath = textFilesPath + MartinPath
-hdf5Path = desktopPath + 'G_Perts/hdf5_files/'
-nosyncPath = userPath + 'nosync/RunGadget/'
-
-fileLstMartinIC = [(textMartinPath +
+fileLstMartinIC = [(textMartinPath /
                     'OMG00_001_IC_000.txt',
                     'OMG00_001_IC_000'),
-                   (textMartinPath +
+                   (textMartinPath /
                     '0G00_IC_000.txt',
                     '0G00_IC_000')
                    ]
 
-fileLstMartinFinal = [(textMartinPath +
+fileLstMartinFinal = [(textMartinPath /
                        '0G20_001.txt',
                        '0G20_001'),
-                      (textMartinPath +
+                      (dP.textMartinPath /
                        '00-5G20_001.txt',
                        '00-5G20_001'),
-                      (textMartinPath +
+                      (dP.textMartinPath /
                        'om0-3.5G20_001.txt',
                        'om0-3.5G20_001'),
-                      (textMartinPath +
+                      (dP.textMartinPath /
                        's1G20_001.txt',
                        's1G20_001'),
-                      (textMartinPath +
+                      (dP.textMartinPath /
                        's2G20_001.txt',
                        's2G20_001'),
-                      (textMartinPath +
+                      (dP.textMartinPath /
                        's3G20_001.txt',
                        's3G20_001'),
-                      (textMartinPath +
+                      (dP.textMartinPath /
                        's4G20_001.txt',
                        's4G20_001'),
-                      (textMartinPath +
+                      (dP.textMartinPath /
                        'OMG20_Final_000.txt',
                        'OMG20_Final_000')
                       ]
 
-fileLstA = [(textFilesPath + 'A/' +
+fileLstA = [(dP.textFilesPath / 'A' /
              'A_HQ10000_G1.0_0_000.txt',
              'A_HQ10000_G1.0_0_000'),
-            (textFilesPath + 'A/' +
+            (dP.textFilesPath / 'A' /
              'A_HQ10000_G1.0_5_005.txt',
              'A_HQ10000_G1.0_5_005'),
-            (textFilesPath + 'A/' +
+            (dP.textFilesPath / 'A' /
              'A_HQ10000_G1.0_10_005.txt',
              'A_HQ10000_G1.0_10_005'),
-            (textFilesPath + 'A/' +
+            (dP.textFilesPath / 'A' /
              'A_HQ10000_G1.0_40_005.txt',
              'A_HQ10000_G1.0_40_005'),
-            (textFilesPath + 'A/' +
+            (dP.textFilesPath / 'A' /
              'A_HQ10000_G1.0_48_009.txt',
              'A_HQ10000_G1.0_48_008')
             ]
 
-fileLstA_R10000 = [(textFilesPath + 'A/' +
+fileLstA_R10000 = [(dP.textFilesPath / 'A' /
                     'A_HQ10000_G1.0_0_000_Rlim_10000_20_RBins.txt',
                     'A_HQ10000_G1.0_0_000_Rlim_10000_20_RBins'),
-                   (textFilesPath + 'A/' +
+                   (dP.textFilesPath / 'A' /
                     'A_HQ10000_G1.0_5_005_Rlim_10000_20_RBins.txt',
                     'A_HQ10000_G1.0_5_005_Rlim_10000_20_RBins'),
-                   (textFilesPath + 'A/' +
+                   (dP.textFilesPath / 'A' /
                     'A_HQ10000_G1.0_10_005_Rlim_10000_20_RBins.txt',
                     'A_HQ10000_G1.0_10_005_Rlim_10000_20_RBins'),
-                   (textFilesPath + 'A/' +
+                   (dP.textFilesPath / 'A' /
                     'A_HQ10000_G1.0_40_005_Rlim_10000_20_RBins.txt',
                     'A_HQ10000_G1.0_40_005_Rlim_10000_20_RBins'),
-                   (textFilesPath + 'A/' +
+                   (dP.textFilesPath / 'A' /
                     'A_HQ10000_G1.0_48_009_Rlim_10000_20_RBins.txt',
                     'A_HQ10000_G1.0_48_009_Rlim_10000_20_RBins')
                    ]
 
-FileLstA_Rlimit32_50bins = [(textFilesPath + 'A/' +
+FileLstA_Rlimit32_50bins = [(dP.textFilesPath / 'A' /
                              'A_HQ10000_G1.0_0_000_Rlim_32_50_RBins.txt',
                              'A_HQ10000_G1.0_0_000_Rlim_32_50_RBins'),
-                            (textFilesPath + 'A/' +
+                            (dP.textFilesPath / 'A' /
                              'A_HQ10000_G1.0_48_009_Rlim_32_50_RBins.txt',
                              'A_HQ10000_G1.0_48_009_Rlim_32_50_RBins')
                             ]
 
-fileLstB = [(textFilesPath + 'B/' +
+fileLstB = [(dP.textFilesPath / 'B' /
              'B_HQ10000_G1.0_0_000.txt',
              'B_HQ10000_G1.0_0_000'),
-            (textFilesPath + 'B/' +
+            (dP.textFilesPath / 'B' /
              'B_HQ10000_G1.0_5_005.txt',
              'B_HQ10000_G1.0_5_005'),
-            (textFilesPath + 'B/' +
+            (dP.textFilesPath / 'B' /
              'B_HQ10000_G1.0_10_005.txt',
              'B_HQ10000_G1.0_10_005'),
-            (textFilesPath + 'B/' +
+            (dP.textFilesPath / 'B' /
              'B_HQ10000_G1.0_198_000.txt',
              'B_HQ10000_G1.0_198_000'),
-            (textFilesPath + 'B/' +
+            (dP.textFilesPath / 'B' /
              'B_HQ10000_G1.0_198_093.txt',
              'B_HQ10000_G1.0_198_093'),
-            (textFilesPath + 'B/' +
+            (dP.textFilesPath / 'B' /
              'B_HQ10000_G1.0_199_093.txt',
              'B_HQ10000_G1.0_199_093')
             ]
 
-fileLstB20 = [(textFilesPath + 'B/' +
+fileLstB20 = [(dP.textFilesPath / 'B' /
                'B_HQ10000_G1.0_0_000_20_RBins.txt',
                'B_HQ10000_G1.0_0_000_20_RBins'),
-              (textFilesPath + 'B/' +
+              (dP.textFilesPath / 'B' /
                'B_HQ10000_G1.0_199_093_20_RBins.txt',
                'B_HQ10000_G1.0_199_093_20_RBins'),
-              (textFilesPath + 'B/' +
+              (dP.textFilesPath / 'B' /
                'B_HQ10000_G1.0_5_005_20_RBins.txt',
                'B_HQ10000_G1.0_5_005_20_RBins'),
-              (textFilesPath + 'B/' +
+              (dP.textFilesPath / 'B' /
                'B_HQ10000_G1.0_10_005_20_RBins.txt',
                'B_HQ10000_G1.0_10_005_20_RBins'),
-              (textFilesPath + 'B/' +
+              (dP.textFilesPath / 'B' /
                'B_HQ10000_G1.0_198_000_20_RBins.txt',
                'B_HQ10000_G1.0_198_000_20_RBins'),
-              (textFilesPath + 'B/' +
+              (dP.textFilesPath / 'B/' /
                'B_HQ10000_G1.0_198_093_20_RBins.txt',
                'B_HQ10000_G1.0_198_093_20_RBins')
               ]
 
-fileLstB_R10000 = [(textFilesPath + 'B/' +
+fileLstB_R10000 = [(dP.textFilesPath / 'B' /
                     'B_HQ10000_G1.0_0_000_Rlim_10000.txt',
                     'B_HQ10000_G1.0_0_000_Rlim_10000'),
-                   (textFilesPath + 'B/' +
+                   (dP.textFilesPath / 'B' /
                     'B_HQ10000_G1.0_198_093_Rlim_10000.txt',
                     'B_HQ10000_G1.0_198_093_Rlim_10000')
-                   (textFilesPath + 'B/' +
+                   (dP.textFilesPath / 'B' /
                     'B_HQ10000_G1.0_199_093_Rlim_10000.txt',
                     'B_HQ10000_G1.0_199_093_Rlim_10000'),
-                   (textFilesPath + 'B/' +
+                   (dP.textFilesPath / 'B' /
                     'B_HQ10000_G1.0_0_000_Rlim_10000_20_RBins.txt',
                     'B_HQ10000_G1.0_0_000_Rlim_10000_20_RBins'),
-                   (textFilesPath + 'B/' +
+                   (dP.textFilesPath / 'B' /
                     'B_HQ10000_G1.0_5_005_Rlim_10000_20_RBins.txt',
                     'B_HQ10000_G1.0_5_005_Rlim_10000_20_RBins'),
-                   (textFilesPath + 'B/' +
+                   (dP.textFilesPath / 'B' /
                     'B_HQ10000_G1.0_10_005_Rlim_10000_20_RBins.txt',
                     'B_HQ10000_G1.0_10_005_Rlim_10000_20_RBins'),
-                   (textFilesPath + 'B/' +
+                   (dP.textFilesPath / 'B' /
                     'B_HQ10000_G1.0_198_000_Rlim_10000_20_RBins.txt',
                     'B_HQ10000_G1.0_198_000_Rlim_10000_20_RBins'),
-                   (textFilesPath + 'B/' +
+                   (dP.textFilesPath / 'B' /
                     'B_HQ10000_G1.0_198_093_Rlim_10000_20_RBins.txt',
                     'B_HQ10000_G1.0_198_093_Rlim_10000_20_RBins')
-                   (textFilesPath + 'B/' +
+                   (dP.textFilesPath / 'B' /
                     'B_HQ10000_G1.0_199_093_Rlim_10000_20_RBins.txt',
                     'B_HQ10000_G1.0_199_093_Rlim_10000_20_RBins'),
                    ]
 
-FileLstB_SecondLast_R5000 = [(textFilesPath + 'B/' +
+FileLstB_SecondLast_R5000 = [(dP.textFilesPath / 'B' /
                               'B_HQ10000_G1.0_198_093_Rlim_5000.txt',
                               'B_HQ10000_G1.0_198_093_Rlim_5000'),
-                             (textFilesPath + 'B/' +
+                             (dP.textFilesPath / 'B' /
                               'B_HQ10000_G1.0_198_093_Rlim_5000_20_RBins.txt',
                               'B_HQ10000_G1.0_198_093_Rlim_5000_20_RBins')
                              ]
 
-FileLstB_Rlimit32_50bins = [(textFilesPath + 'B/' +
+FileLstB_Rlimit32_50bins = [(dP.textFilesPath / 'B' /
                              'B_HQ10000_G1.0_0_000_Rlim_32_50_RBins.txt',
                              'B_HQ10000_G1.0_0_000_Rlim_32_50_RBins'),
-                            (textFilesPath + 'B/' +
+                            (dP.textFilesPath / 'B' /
                              'B_HQ10000_G1.0_199_093_Rlim_32_50_RBins.txt',
                              'B_HQ10000_G1.0_199_093_Rlim_32_50_RBins')
                             ]
 
-fileLstC_IC = [(textFilesPath + 'CS1/' +
+fileLstC_IC = [(dP.textFilesPath / 'CS1' /
                 'CS1_OM10000_G1.0_0_000.txt',
                 'CS1_OM10000_G1.0_0_000'),
-               (textFilesPath + 'CS2/' +
+               (dP.textFilesPath / 'CS2' /
                 'CS2_OM10000_G1.0_0_000.txt',
                 'CS2_OM10000_G1.0_0_000'),
-               (textFilesPath + 'CS3/' +
+               (dP.textFilesPath / 'CS3' /
                 'CS3_OM10000_G1.0_0_000.txt',
                 'CS3_OM10000_G1.0_0_000'),
-               (textFilesPath + 'CS1/' +
+               (dP.textFilesPath / 'CS1' /
                 'CS1_OM10000_G1.0_0_000_20_RBins.txt',
                 'CS1_OM10000_G1.0_0_000_20_RBins'),
-               (textFilesPath + 'CS2/' +
+               (dP.textFilesPath / 'CS2' /
                 'CS2_OM10000_G1.0_0_000_20_RBins.txt',
                 'CS2_OM10000_G1.0_0_000_20_RBins'),
-               (textFilesPath + 'CS3/' +
+               (dP.textFilesPath / 'CS3' /
                 'CS3_OM10000_G1.0_0_000_20_RBins.txt',
                 'CS3_OM10000_G1.0_0_000_20_RBins')
-               (textFilesPath + 'CS4/' +
+               (dP.textFilesPath / 'CS4' /
                 'CS4_OM10000_G1.0_0_000.txt',
                 'CS4_OM10000_G1.0_0_000'),
-               (textFilesPath + 'CS5/' +
+               (dP.textFilesPath / 'CS5' /
                 'CS5_OM10000_G1.0_0_000.txt',
                 'CS5_OM10000_G1.0_0_000'),
-               (textFilesPath + 'CS6/' +
+               (dP.textFilesPath / 'CS6' /
                 'CS6_OM10000_G1.0_0_000.txt',
                 'CS6_OM10000_G1.0_0_000'),
-               (textFilesPath + 'CS4/' +
+               (dP.textFilesPath / 'CS4' /
                 'CS4_OM10000_G1.0_0_000_20_RBins.txt',
                 'CS4_OM10000_G1.0_0_000_20_RBins'),
-               (textFilesPath + 'CS5/' +
+               (dP.textFilesPath / 'CS5' /
                 'CS5_OM10000_G1.0_0_000_20_RBins.txt',
                 'CS5_OM10000_G1.0_0_000_20_RBins'),
-               (textFilesPath + 'CS6/' +
+               (dP.textFilesPath / 'CS6' /
                 'CS6_OM10000_G1.0_0_000_20_RBins.txt',
                 'CS6_OM10000_G1.0_0_000_20_RBins')
                ]
 
-fileLstCS4CS5CS6_R10000 = [(textFilesPath + 'CS4/' +
+fileLstCS4CS5CS6_R10000 = [(dP.textFilesPath / 'CS4' /
                             'CS4_OM10000_G1.0_0_000_Rlim_10000.txt',
                             'CS4_OM10000_G1.0_0_000_Rlim_10000'),
-                           (textFilesPath + 'CS5/' +
+                           (dP.textFilesPath / 'CS5' /
                             'CS5_OM10000_G1.0_0_000_Rlim_10000.txt',
                             'CS5_OM10000_G1.0_0_000_Rlim_10000'),
-                           (textFilesPath + 'CS6/' +
+                           (dP.textFilesPath + 'CS6/' +
                             'CS6_OM10000_G1.0_0_000_Rlim_10000.txt',
                             'CS6_OM10000_G1.0_0_000_Rlim_10000'),
-                           (textFilesPath + 'CS4/' +
+                           (dP.textFilesPath + 'CS4/' +
                             'CS4_OM10000_G1.0_0_000_Rlim_10000_20_RBins.txt',
                             'CS4_OM10000_G1.0_0_000_Rlim_10000_20_RBins'),
-                           (textFilesPath + 'CS5/' +
+                           (dP.textFilesPath + 'CS5/' +
                             'CS5_OM10000_G1.0_0_000_Rlim_10000_20_RBins.txt',
                             'CS5_OM10000_G1.0_0_000_Rlim_10000_20_RBins'),
-                           (textFilesPath + 'CS6/' +
+                           (dP.textFilesPath + 'CS6/' +
                             'CS6_OM10000_G1.0_0_000_Rlim_10000_20_RBins.txt',
                             'CS6_OM10000_G1.0_0_000_Rlim_10000_20_RBins'),
-                           (textFilesPath + 'CS4/' +
+                           (dP.textFilesPath + 'CS4/' +
                             'CS4_OM10000_G1.0_48_093_Rlim_10000.txt',
                             'CS4_OM10000_G1.0_48_093_Rlim_10000'),
-                           (textFilesPath + 'CS5/' +
+                           (dP.textFilesPath + 'CS5/' +
                             'CS5_OM10000_G1.0_48_093_Rlim_10000.txt',
                             'CS5_OM10000_G1.0_48_093_Rlim_10000'),
-                           (textFilesPath + 'CS6/' +
+                           (dP.textFilesPath + 'CS6/' +
                             'CS6_OM10000_G1.0_48_093_Rlim_10000.txt',
                             'CS6_OM10000_G1.0_48_093_Rlim_10000'),
-                           (textFilesPath + 'CS4/' +
+                           (dP.textFilesPath + 'CS4/' +
                             'CS4_OM10000_G1.0_48_093_Rlim_10000_20_RBins.txt',
                             'CS4_OM10000_G1.0_48_093_Rlim_10000_20_RBins'),
-                           (textFilesPath + 'CS5/' +
+                           (dP.textFilesPath + 'CS5/' +
                             'CS5_OM10000_G1.0_48_093_Rlim_10000_20_RBins.txt',
                             'CS5_OM10000_G1.0_48_093_Rlim_10000_20_RBins'),
-                           (textFilesPath + 'CS6/' +
+                           (dP.textFilesPath + 'CS6/' +
                             'CS6_OM10000_G1.0_48_093_Rlim_10000_20_RBins.txt',
                             'CS6_OM10000_G1.0_48_093_Rlim_10000_20_RBins')
                            ]

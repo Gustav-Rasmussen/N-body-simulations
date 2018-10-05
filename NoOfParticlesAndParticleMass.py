@@ -1,6 +1,8 @@
 
-
 # Total number of particles:
+
+F = 'IamAtestFileName'
+
 if F.startswith(('A_', 'B_', 'E_')):
     N = 10 ** 6
 elif F.startswith(('CS4_', 'CS5_', 'CS6_', 'DS1_', 'D2_', 'Soft_D2_')):

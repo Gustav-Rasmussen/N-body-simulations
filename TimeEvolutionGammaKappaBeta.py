@@ -11,22 +11,12 @@ import seaborn as sns
 import os
 import fileLsts as lsts
 import colorsAndSymbols
-
-UserPath = os.getcwd()
-DesktopPath = UserPath + 'Desktop/'
-GADGET_G_path = DesktopPath + 'RunGadget/G_Perts/'
-StablePath = 'G_Perts/StableStructures/'
-figurePath = DesktopPath + StablePath + 'figures/'
-text_files_path = DesktopPath + StablePath + 'text_files/'
-MartinPath = 'Martin_IC_and_Final_Edd_and_OM/'
-hdf5_path = DesktopPath + 'G_Perts/hdf5_files/'
-nosyncPath = UserPath + 'nosync/RunGadget/'
+from definePaths import *
 
 # Datasets below are structured as follows:
 # Column 0: lnr, Column 1: beta, Column 2: gamma, Column 3: kappa,
 # Column 4: VR, Column 5: r, Column 6: sigmarad2, Column 7: r_r2,
 # Column 8: rho.
-
 
 # Switches for figures -------------------------------------------------
 

@@ -7,6 +7,7 @@ Created on Wed Jun 20 21:36:43 2018
 """
 
 import numpy as np
+import matplotlib.pyplot as plt
 import readVDF2FileLst as fls
 import snapshotFiles
 
@@ -53,7 +54,8 @@ if vRvPhivTheta:
         data, label = bin3_HQ10000_G1_2_1_005[3]
         ax1.plot(data[:, 0], data[:, 1], color='Black', ls='-.', lw=2, ms=7)
         data, label = bin4_HQ10000_G1_2_1_005[1]
-        ax1.plot(data[:, 0], data[:, 1], color='Green', label=r'$v_r$', lw=2, ms=7)
+        ax1.plot(data[:, 0], data[:, 1], color='Green', label=r'$v_r$', lw=2,
+                 ms=7)
         data, label = bin4_HQ10000_G1_2_1_005[2]
         ax1.plot(data[:, 0], data[:, 1], color='Red', label=r'$v_{\theta}$',
                  lw=2, ms=7)
@@ -88,12 +90,12 @@ if vRvPhivTheta:
         ax2.plot(data[:, 0], data[:, 1], color='Black',
                  label=r'$\gamma = -2.5$', ls='-.', lw=2, ms=7)
         data, label = bin4_HQ10000_G1_2_1_005[5]
-        ax2.plot(data[:,0], data[:,1],color = 'Green',lw=2,ms=7 )
+        ax2.plot(data[:, 0], data[:, 1],color='Green', lw=2, ms=7)
         data, label = bin4_HQ10000_G1_2_1_005[6]
-        ax2.plot(data[:,0], data[:,1],color = 'Red',lw=2,ms=7 )
+        ax2.plot(data[:, 0], data[:, 1], color='Red', lw=2, ms=7)
         data, label = bin4_HQ10000_G1_2_1_005[7]
-        ax2.plot(data[:,0], data[:,1],color = 'Black',
-                 label=r'$\gamma = -3.0 $',lw=2,ms=7 )
+        ax2.plot(data[:, 0], data[:, 1], color='Black',
+                 label=r'$\gamma = -3.0 $', lw=2, ms=7)
         ax2.set_ylabel(r'$f\left(\log \left( |u_n|,u_p \right)\right)$',
                        fontsize=20)
         ax2.legend(prop=dict(size=13), numpoints=2, ncol=1,
@@ -104,30 +106,30 @@ if vRvPhivTheta:
         ax3.plot(data[:, 0], data[:, 1], color='Green',
                  label=r'$\gamma = -1.5$', ls='--', lw=2, ms=7)
         data, label = bin1_HQ10000_G1_2_1_005[2]
-        ax3.plot(data[:, 0], data[:, 1], color='Red',ls =  '--',lw=2,ms=7)
+        ax3.plot(data[:, 0], data[:, 1], color='Red', ls='--', lw=2, ms=7)
         data, label = bin1_HQ10000_G1_2_1_005[3]
-        ax3.plot(data[:, 0], data[:, 1], color='Black',ls = '--',lw=2,ms=7)
+        ax3.plot(data[:, 0], data[:, 1], color='Black', ls='--', lw=2, ms=7)
         data, label = bin2_HQ10000_G1_2_1_005[1]
         ax3.plot(data[:, 0], data[:, 1], color='Green',
-                 label=r'$\gamma = -2.0 $', ls =  ':',lw=4,ms=7)
+                 label=r'$\gamma = -2.0$', ls=':', lw=4, ms=7)
         data, label = bin2_HQ10000_G1_2_1_005[2]
-        ax3.plot(data[:, 0], data[:, 1], color='Red',  ls =  ':',lw=4,ms=7)
+        ax3.plot(data[:, 0], data[:, 1], color='Red', ls=':', lw=4, ms=7)
         data, label = bin2_HQ10000_G1_2_1_005[3]
-        ax3.plot(data[:, 0], data[:, 1], color='Black',ls = ':',lw=2,ms=7)
+        ax3.plot(data[:, 0], data[:, 1], color='Black', ls=':', lw=2, ms=7)
         data, label = bin3_HQ10000_G1_2_1_005[1]
         ax3.plot(data[:, 0], data[:, 1], color='Green',
-                 label=r'$\gamma = -2.5 $', ls =  '-.',lw=2,ms=7)
+                 label=r'$\gamma = -2.5 $', ls='-.', lw=2, ms=7)
         data, label = bin3_HQ10000_G1_2_1_005[2]
-        ax3.plot(data[:, 0], data[:, 1], color='Red', ls =  '-.',lw=2,ms=7)
+        ax3.plot(data[:, 0], data[:, 1], color='Red', ls='-.', lw=2, ms=7)
         data, label = bin3_HQ10000_G1_2_1_005[3]
-        ax3.plot(data[:, 0], data[:, 1], color='Black', ls =  '-.',lw=2,ms=7)
+        ax3.plot(data[:, 0], data[:, 1], color='Black', ls='-.', lw=2, ms=7)
         data, label = bin4_HQ10000_G1_2_1_005[1]
         ax3.plot(data[:, 0], data[:, 1], color='Green',
-                 label=r'$\gamma = -3.0 $',lw=2,ms=7)
+                 label=r'$\gamma = -3.0 $', lw=2, ms=7)
         data, label = bin4_HQ10000_G1_2_1_005[2]
-        ax3.plot(data[:, 0], data[:, 1], color='Red',lw=2,ms=7)
+        ax3.plot(data[:, 0], data[:, 1], color='Red', lw=2, ms=7)
         data, label = bin4_HQ10000_G1_2_1_005[3]
-        ax3.plot(data[:, 0], data[:, 1], color='Black',lw=2,ms=7)
+        ax3.plot(data[:, 0], data[:, 1], color='Black', lw=2, ms=7)
         ax3.set_xlabel(r'$u_r$, $u_{\theta}$ and $u_{\phi}$', fontsize=20)
         ax3.set_ylabel(r'$\log \left( f(u) \right)$', fontsize=20)
         ax3.grid()
@@ -146,7 +148,7 @@ if vRvPhivTheta:
         data, label = bin2_HQ10000_G1_2_1_005[6]
         ax4.plot(data[:, 0], data[:, 1], color='Red', ls=':', lw=2, ms=7)
         data, label = bin2_HQ10000_G1_2_1_005[7]
-        ax4.plot(data[:, 0], data[:, 1], color='Black', ls=':', lw=2,ms=7)
+        ax4.plot(data[:, 0], data[:, 1], color='Black', ls=':', lw=2, ms=7)
         data, label = bin3_HQ10000_G1_2_1_005[5]
         ax4.plot(data[:, 0], data[:, 1], color='Green',
                  label=r'$\gamma = -2.5$', ls='-.', lw=2, ms=7)
@@ -293,10 +295,12 @@ if vRvPhivTheta:
         ax4.plot(data[:,0], data[:,1],color = 'Red',lw=2,ms=7)
         data, label = bin4_different_gammas_test2_HQ10000_G1_0_0_000[7]
         ax4.plot(data[:,0], data[:,1],color = 'Black',lw=2,ms=7)
-        ax4.set_xlabel(r'$\log \left( |u_rn|,u_rp \right)$, $\log \left( |u_{\theta}n|,u_{\theta}p \right)$ and $\log \left( |u_{\phi}n|,u_{\phi}p \right)$',
+        ax4.set_xlabel(r'$\log \left( |u_rn|, u_rp \right)$,\
+                       $\log \left( |u_{\theta}n|,u_{\theta}p \right)$ and\
+                       $\log \left( |u_{\phi}n|,u_{\phi}p \right)$',
                        fontsize=20)
-        ax4.set_ylabel(r'$\log \left( f\left(\log \left( |u_n|,u_p \right)\right) \right)$',
-                       fontsize=20)
+        ax4.set_ylabel(r'$\log \left(f\left(\log \left(|u_n|,\
+                       u_p \right)\right) \right)$', fontsize=20)
         ax4.grid()
         ax4.set_yscale('log')
 
@@ -308,50 +312,57 @@ if Fig_vr_vphi_vtheta_with_fit:
         popt, pcov = curve_fit(func_2, data[:,0], data[:,1])
         y_fit = func_2(data[:, 0], popt[0], popt[1])
         ax1.plot(data[:,0],y_fit,'.-',lw=3,color='cyan',
-                 label=r'$ radial: axe^{-bx^2}$, $ a,b = %.3f,%.3f$' %(popt[0], popt[1]))
+                 label=r'$ radial: axe^{-bx^2}$, $ a,b = %.3f,%.3f$'
+                       % (popt[0], popt[1]))
         data, label = bin2_HQ10000_G1_2_1_005[2]
         ax1.plot(data[:,0], data[:,1],color = 'Red',lw=4,ms=7 )
         popt, pcov = curve_fit(func_2, data[:,0], data[:,1])
         y_fit = func_2(data[:, 0], popt[0], popt[1])
         ax1.plot(data[:,0],y_fit,'.-',lw=3,color='Pink',
-                 label=r'$ \theta: axe^{-bx^2}$, $ a,b = %.3f,%.3f $' %(popt[0], popt[1]))
+                 label=r'$ \theta: axe^{-bx^2}$, $ a,b = %.3f,%.3f $'
+                       % (popt[0], popt[1]))
         data, label = bin2_HQ10000_G1_2_1_005[3]
         ax1.plot(data[:, 0], data[:, 1], color='Black', lw=2, ms=7)
         popt, pcov = curve_fit(func_2, data[:,0], data[:,1])
         y_fit = func_2(data[:,0],popt[0],popt[1])
         ax1.plot(data[:,0],y_fit,'.-',lw=3,color='Brown',
-                 label=r'$ \phi: axe^{-bx^2}$, $ a,b = %.3f,%.3f $' %(popt[0], popt[1]))
+                 label=r'$ \phi: axe^{-bx^2}$, $ a,b = %.3f,%.3f $'
+                       % (popt[0], popt[1]))
         ax1.set_xticklabels([])
         ax1.set_ylabel(r'$f\left( u \right)$', fontsize=20)
-        ax1.set_title(r'Fits to file = %s, $\gamma = -2.0 $' %HQ12 ,
+        ax1.set_title(r'Fits to file = %s, $\gamma = -2.0 $' % HQ12,
                       fontsize=20)
         ax1.legend(prop=dict(size=13), numpoints=2, ncol=1,
                    frameon=True, loc=0, handlelength=2.5)
         ax1.grid()
 
         data, label = bin2_HQ10000_G1_2_1_005[5]
-        ax2.plot(data[:,0], data[:,1],color = 'Green',
-                 label=r'$ \frac{v_r}{\sigma_r} $',lw=2,ms=7 )
-        popt, pcov = curve_fit(func_1_log, data[:,0], data[:,1])
-        y_fit = func_1_log(data[:,0],popt[0],popt[1])
-        ax2.plot(data[:,0],y_fit,'.-',lw=3,color='cyan',
-                 label=r'$ radial: a\log xe^{-b \log(x)^2}$, $ a,b = %.3f,%.3f $' %(popt[0], popt[1]))
+        ax2.plot(data[:, 0], data[:, 1], color='Green',
+                 label=r'$ \frac{v_r}{\sigma_r} $', lw=2, ms=7)
+        popt, pcov = curve_fit(func_1_log, data[:, 0], data[:, 1])
+        y_fit = func_1_log(data[:, 0], popt[0], popt[1])
+        ax2.plot(data[:, 0], y_fit, '.-', lw=3, color='cyan',
+                 label=r'$ radial: a\log xe^{-b \log(x)^2}$, $ a,b = %.3f,%.3f $'
+                 % (popt[0], popt[1]))
         data, label = bin2_HQ10000_G1_2_1_005[6]
-        ax2.plot(data[:,0], data[:,1],color = 'Red',
-                 label=r'$ \frac{v_{\theta}}{\sigma_{\theta}} $',lw=2,ms=7 )
+        ax2.plot(data[:, 0], data[:, 1], color='Red',
+                 label=r'$ \frac{v_{\theta}}{\sigma_{\theta}} $', lw=2, ms=7)
         popt, pcov = curve_fit(func_1_log, data[:,0], data[:,1])
-        y_fit = func_1_log(data[:,0],popt[0],popt[1])
-        ax2.plot(data[:,0],y_fit,'.-',lw=3,color='Pink',
-                 label=r'$ \theta: a\log xe^{-b \log(x)^2}$, $ a,b = %.3f,%.3f $' %(popt[0], popt[1]))
+        y_fit = func_1_log(data[:, 0], popt[0], popt[1])
+        ax2.plot(data[:, 0], y_fit, '.-', lw=3, color='Pink',
+                 label=r'$ \theta: a\log xe^{-b \log(x)^2}$, $ a,b = %.3f,%.3f $'
+                 % (popt[0], popt[1]))
         data, label = bin2_HQ10000_G1_2_1_005[7]
-        ax2.plot(data[:,0], data[:,1],color = 'Black',
+        ax2.plot(data[:, 0], data[:, 1], color='Black',
                  label=r'$ \frac{v_{\phi}}{\sigma_{\phi}} $',lw=2,ms=7 )
         popt, pcov = curve_fit(func_1_log, data[:,0], data[:,1])
         y_fit = func_1_log(data[:,0],popt[0],popt[1])
         ax2.plot(data[:,0],y_fit,'.-',lw=3,color='Brown',
-                 label=r'$ \phi: a\log xe^{-b \log(x)^2}$, $ a,b = %.3f,%.3f $' %(popt[0], popt[1]))
+                 label=r'$ \phi: a\log xe^{-b \log(x)^2}$, $ a,b = %.3f,%.3f $'
+                 % (popt[0], popt[1]))
         ax2.set_xticklabels([])
-        ax2.set_ylabel(r'$f\left(\log \left( |u_n|,u_p \right)\right)$', fontsize=20)
+        ax2.set_ylabel(r'$f\left(\log \left( |u_n|,u_p \right)\right)$',
+                       fontsize=20)
         ax2.legend(prop=dict(size=13), numpoints=2, ncol=1,
                    frameon=True, loc=0, handlelength=2.5)
         ax2.grid()

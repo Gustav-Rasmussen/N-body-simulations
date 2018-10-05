@@ -1,4 +1,5 @@
 import os
+from pathlib import Path
 import regexUpper
 from contextlib import contextmanager
 
@@ -15,9 +16,7 @@ def change_dir(destination):
         os.chdir(cwd)
 
 
-# txtFilePath = f'{os.getcwd()}/Desktop/GperturbNew/StableStructures/textFiles'
-txtFilePath = '/Users/gustavcollinrasmussen/Desktop/\
-               GperturbNew/StableStructures/textFiles'
+txtFilePath = Path.cwd() / 'Desktop/GperturbNew/StableStructures/textFiles'
 
 sims = ['A', 'B', 'CS1', 'CS2', 'CS3', 'CS4', 'CS5', 'CS6', 'D2', 'DS1', 'E',
         'MartinICandFinalEddandOM', 'softD2']
@@ -60,7 +59,7 @@ def rename_files(files):
         os.rename(f, new_file)
 
 
-modules = ["fileLsts", "readVDF2", "VDFnetwork", "readVDF", "readVDF_2_new",
+modules = ["readVDF_2_new", "fileLsts", "readVDF2", "VDFnetwork", "readVDF",
            "TimeEvolutionGammaKappaBeta", "Sigma", "readVDF_2_new"
            ]
 
@@ -112,6 +111,22 @@ with open(readfile, "r") as rf:
                 line = line.replace('R_limit', 'Rlim')
             if 'Almost_Final' in line:
                 line = line.replace('Almost_Final', 'SecondLast')
+            if any(x in line for x in ['Sigmarad', 'sigmarad']):
+                line = line.replace('rad', 'R')
+            if any(x in line for x in ['Sigmatan', 'sigmatan']):
+                line = line.replace('tan', 'T')
+            if ('phi' in line):
+                line = line.replace('phi', 'Phi')
+            if ('theta' in line):
+                line = line.replace('theta', 'Theta')
+            if ('_new_R_middle_' in line):
+                line = line.replace('_new_R_middle_', '')
+            if ('large_R_middle_19_95_' in line):
+                line = line.replace('large_R_middle_19_95_', 'bin5')
+            if ('large_R_middle_31_62_' in line):
+                line = line.replace('large_R_middle_31_62_', 'bin6')
+            if ('_large_R_middle_' in line):
+                line = line.replace('_large_R_middle_', '')
             if '\'/Users/gustav.c.rasmussen' in line:
                 line = line.replace('\'/Users/gustav.c.rasmussen',
                                     'os.getcwd() + \'')

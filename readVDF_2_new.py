@@ -12,36 +12,35 @@ Gamma_on = 1
 Beta_on = 0
 
 # Figures ---------------------------------------------------------
-Fig1_vr_vphi_vtheta = 0  # Works for test and test2
-Fig1_vr_vphi_vtheta_with_fit = 0  # Works for test and test2
+Fig1_vr_vPhi_vTheta = 0  # Works for test and test2
+Fig1_vr_vPhi_vTheta_with_fit = 0  # Works for test and test2
 Fig1_vt = 0  # Works for test and test2
 Fig1_vt_with_fit = 0  # Works for test, test2 and B
 
-Fig2_vr_vphi_vtheta_divided_by_gauss = 0  # Works for test and test2
+Fig2_vr_vPhi_vTheta_divided_by_gauss = 0  # Works for test and test2
 Fig2a_vt_divided_by_gauss = 0  # Works for test and test2
 
 Fig6_GPerts_same_gammas_as_IC_vr = 0  # Works for test. test2?
 Fig6_GPerts_G1_2_same_gammas_as_IC_vt = 0  # Not yet created
 
-Fig7_GPerts_different_gammas_vr_vphi_vtheta = 0  # Not yet created
+Fig7_GPerts_different_gammas_vr_vPhi_vTheta = 0  # Not yet created
 
-Fig8_GPerts_different_gammas_vr_vphi_vtheta_divided_by_gauss = 0  # Not yet created
+# Not yet created
+Fig8_GPerts_different_gammas_vr_vPhi_vTheta_divided_by_gauss = 0
 
 Fig9_GPerts_different_gammas_vr = 0  # Not yet created
 
 Fig10_GPerts_different_gammas_vt = 0  # Works for test, test2 and B
 
-Fig11_GPerts_gammas_1_5_vt_divided_by_gauss_and_Tsallis = 0  # Works for test, test2, B
+# Next 4 figures works for test, test2, B:
+Fig11_GPerts_gammas_1_5_vt_divided_by_gauss_and_Tsallis = 0
+Fig12_GPerts_gammas_2_0_vt_divided_by_gauss_and_Tsallis = 0
+Fig13_GPerts_gammas_2_5_vt_divided_by_gauss_and_Tsallis = 0
+Fig14_GPerts_gammas_3_0_vt_divided_by_gauss_and_Tsallis = 0
 
-Fig12_GPerts_gammas_2_0_vt_divided_by_gauss_and_Tsallis = 0  # Works for test, test2, B
-
-Fig13_GPerts_gammas_2_5_vt_divided_by_gauss_and_Tsallis = 0  # Works for test, test2, B
-
-Fig14_GPerts_gammas_3_0_vt_divided_by_gauss_and_Tsallis = 0  # Works for test, test2, B
-
-Fig15_GPerts_R_middle_19_95_vt_divided_by_gauss_and_Tsallis = 0  # Works for A, B
-
-Fig16_GPerts_R_middle_31_62_vt_divided_by_gauss_and_Tsallis = 0  # Works for A, B
+# Next 2 figures works for A, B:
+Fig15_GPerts_R_middle_19_95_vt_divided_by_gauss_and_Tsallis = 0
+Fig16_GPerts_R_middle_31_62_vt_divided_by_gauss_and_Tsallis = 0
 
 # Files ---------------------------------------------------------
 G_Pert_HQ10000_G1_0_0_000 = 1
@@ -83,13 +82,18 @@ test2_G_Pert_different_gammas_HQ10000_G1_0_20_005 = 1
 test2_G_Pert_different_gammas_HQ10000_G1_0_25_005 = 1
 
 # Create new files (for Edd A, HQ, N = 10^6)
-A_G_Pert_different_gammas_HQ10000_G1_0_0_000 = 1  # already exist (test2 files)
-A_G_Pert_different_gammas_HQ10000_G1_0_5_005 = 1  # already exist (test2 files)
-A_G_Pert_different_gammas_HQ10000_G1_0_10_005 = 1  # already exist (test2 files)
+
+# Next 3 files already exist (test2 files)
+A_G_Pert_different_gammas_HQ10000_G1_0_0_000 = 1
+A_G_Pert_different_gammas_HQ10000_G1_0_5_005 = 1
+A_G_Pert_different_gammas_HQ10000_G1_0_10_005 = 1
+
 A_G_Pert_different_gammas_HQ10000_G1_0_40_005 = 1
 A_G_Pert_different_gammas_HQ10000_G1_2_46_005 = 1
 A_G_Pert_different_gammas_HQ10000_G0_8_47_005 = 1
-A_G_Pert_different_gammas_HQ10000_G1_0_48_009 = 1  # Not yet listed in readVDF_2.py
+
+# Not yet listed in readVDF_2.py
+A_G_Pert_different_gammas_HQ10000_G1_0_48_009 = 1
 A_G_Pert_different_gammas_HQ10000_G1_0_48_093 = 1
 
 # Create new files (for Edd B, HQ, N = 10^6)
@@ -107,7 +111,9 @@ C_G_Pert_different_gammas_HQ10000_G1_0_10_005 = 1
 C_G_Pert_different_gammas_HQ10000_G1_0_40_005 = 1
 C_G_Pert_different_gammas_HQ10000_G1_2_46_005 = 1
 C_G_Pert_different_gammas_HQ10000_G0_8_47_005 = 1
-C_G_Pert_different_gammas_HQ10000_G1_0_48_009 = 0  # Not yet listed in readVDF_2.py
+
+# Not yet listed in readVDF_2.py
+C_G_Pert_different_gammas_HQ10000_G1_0_48_009 = 0
 C_G_Pert_different_gammas_HQ10000_G1_0_48_093 = 1
 
 # Create new files (for OM D, HQ, N = 10^6)
@@ -117,314 +123,319 @@ D_G_Pert_different_gammas_HQ10000_G1_0_10_005 = 1
 D_G_Pert_different_gammas_HQ10000_G1_0_160_005 = 1
 D_G_Pert_different_gammas_HQ10000_G1_05_196_005 = 1
 D_G_Pert_different_gammas_HQ10000_G0_95_197_005 = 1
-D_G_Pert_different_gammas_HQ10000_G1_0_198_009 = 0  # Not yet listed in readVDF_2.py
+
+# Not yet listed in readVDF_2.py
+D_G_Pert_different_gammas_HQ10000_G1_0_198_009 = 0
 D_G_Pert_different_gammas_HQ10000_G1_0_198_093 = 1
 
-# [5],[6],[7] : log9, log7, log8 : r, theta, phi
+# [5],[6],[7] : log9, log7, log8 : r, Theta, Phi
 
 if B_G_Pert_different_gammas_HQ10000_G1_0_0_000:
     B_HQ0 = 'B_HQ10000_G1.0_0_000'
 
-# _new_R_middle_VT_i_average_inside_bin_sigmatan_gamma_
-# _large_R_middle_VT_i_average_inside_bin_sigmatan_R_middle
-# _new_R_middle_logx10_gamma_-1.50.txt' 10 9 7 8
-# _average_logx10_gamma_%.2f.txt'
+    # VT_i_average_inside_bin_sigmaT_gamma_
+    # VT_i_average_inside_bin_sigmaT_R_middle
+    # logx10_gamma_-1.50.txt' 10 9 7 8
+    # _average_logx10_gamma_%.2f.txt'
 
-    FileLstbin1HQ10000_G1_0_0_000 = [(B_HQ0 + '_new_R_middle_VT_i_average_inside_bin_sigmatan_gamma_-1.50.txt',
-                                      B_HQ0 + '_new_R_middle_VT_i_average_inside_bin_sigmatan_gamma_-1.50'),
-                                     (B_HQ0 + '_new_R_middle_VR_i_average_inside_bin_sigmarad_gamma_-1.50.txt',
-                                      B_HQ0 + '_new_R_middle_VR_i_average_inside_bin_sigmarad_gamma_-1.50'),
-                                     (B_HQ0 + '_new_R_middle_VTheta_i_average_inside_bin_sigmatheta_gamma_-1.50.txt',
-                                      B_HQ0 + '_new_R_middle_VTheta_i_average_inside_bin_sigmatheta_gamma_-1.50'),
-                                     (B_HQ0 + '_new_R_middle_VPhi_i_average_inside_bin_sigmaphi_gamma_-1.50.txt',
-                                      B_HQ0 + '_new_R_middle_VPhi_i_average_inside_bin_sigmaphi_gamma_-1.50'),
-                                     (B_HQ0 + '_new_R_middle_average_logx10_gamma_-1.50.txt',
-                                      B_HQ0 + '_new_R_middle_average_logx10_gamma_-1.50'),
-                                     (B_HQ0 + '_new_R_middle_average_logx9_gamma_-1.50.txt',
-                                      B_HQ0 + '_new_R_middle_average_logx9_gamma_-1.50'),
-                                     (B_HQ0 + '_new_R_middle_average_logx7_gamma_-1.50.txt',
-                                      B_HQ0 + '_new_R_middle_average_logx7_gamma_-1.50'),
-                                     (B_HQ0 + '_new_R_middle_average_logx8_gamma_-1.50.txt',
-                                      B_HQ0 + '_new_R_middle_average_logx8_gamma_-1.50')]
+    FileLstbin1HQ10000_G1_0_0_000 = [(B_HQ0 + 'VT_i_average_inside_bin_sigmaT_gamma_-1.50.txt',
+                                      B_HQ0 + 'VT_i_average_inside_bin_sigmaT_gamma_-1.50'),
+                                     (B_HQ0 + 'VR_i_average_inside_bin_sigmaR_gamma_-1.50.txt',
+                                      B_HQ0 + 'VR_i_average_inside_bin_sigmaR_gamma_-1.50'),
+                                     (B_HQ0 + 'VTheta_i_average_inside_bin_sigmaTheta_gamma_-1.50.txt',
+                                      B_HQ0 + 'VTheta_i_average_inside_bin_sigmaTheta_gamma_-1.50'),
+                                     (B_HQ0 + 'VPhi_i_average_inside_bin_sigmaPhi_gamma_-1.50.txt',
+                                      B_HQ0 + 'VPhi_i_average_inside_bin_sigmaPhi_gamma_-1.50'),
+                                     (B_HQ0 + 'average_logx10_gamma_-1.50.txt',
+                                      B_HQ0 + 'average_logx10_gamma_-1.50'),
+                                     (B_HQ0 + 'average_logx9_gamma_-1.50.txt',
+                                      B_HQ0 + 'average_logx9_gamma_-1.50'),
+                                     (B_HQ0 + 'average_logx7_gamma_-1.50.txt',
+                                      B_HQ0 + 'average_logx7_gamma_-1.50'),
+                                     (B_HQ0 + 'average_logx8_gamma_-1.50.txt',
+                                      B_HQ0 + 'average_logx8_gamma_-1.50')]
 
-    FileLstbin2HQ10000_G1_0_0_000 = [(B_HQ0 + '_new_R_middle_VT_i_average_inside_bin_sigmatan_gamma_-2.00.txt',
-                                     B_HQ0 + '_new_R_middle_VT_i_average_inside_bin_sigmatan_gamma_-2.00'),
-                                    (B_HQ0 + '_new_R_middle_VR_i_average_inside_bin_sigmarad_gamma_-2.00.txt',
-                                     B_HQ0 + '_new_R_middle_VR_i_average_inside_bin_sigmarad_gamma_-2.00'),
-                                    (B_HQ0 + '_new_R_middle_VTheta_i_average_inside_bin_sigmatheta_gamma_-2.00.txt',
-                                     B_HQ0 + '_new_R_middle_VTheta_i_average_inside_bin_sigmatheta_gamma_-2.00'),
-                                    (B_HQ0 + '_new_R_middle_VPhi_i_average_inside_bin_sigmaphi_gamma_-2.00.txt',
-                                     B_HQ0 + '_new_R_middle_VPhi_i_average_inside_bin_sigmaphi_gamma_-2.00'),
-                                    (B_HQ0 + '_new_R_middle_average_logx10_gamma_-2.00.txt',
-                                     B_HQ0 + '_new_R_middle_average_logx10_gamma_-2.00'),
-                                    (B_HQ0 + '_new_R_middle_average_logx9_gamma_-2.00.txt',
-                                     B_HQ0 + '_new_R_middle_average_logx9_gamma_-2.00'),
-                                    (B_HQ0 + '_new_R_middle_average_logx7_gamma_-2.00.txt',
-                                     B_HQ0 + '_new_R_middle_average_logx7_gamma_-2.00'),
-                                    (B_HQ0 + '_new_R_middle_average_logx8_gamma_-2.00.txt',
-                                     B_HQ0 + '_new_R_middle_average_logx8_gamma_-2.00')]
+    FileLstbin2HQ10000_G1_0_0_000 = [(B_HQ0 + 'VT_i_average_inside_bin_sigmaT_gamma_-2.00.txt',
+                                      B_HQ0 + 'VT_i_average_inside_bin_sigmaT_gamma_-2.00'),
+                                     (B_HQ0 + 'VR_i_average_inside_bin_sigmaR_gamma_-2.00.txt',
+                                      B_HQ0 + 'VR_i_average_inside_bin_sigmaR_gamma_-2.00'),
+                                     (B_HQ0 + 'VTheta_i_average_inside_bin_sigmaTheta_gamma_-2.00.txt',
+                                      B_HQ0 + 'VTheta_i_average_inside_bin_sigmaTheta_gamma_-2.00'),
+                                     (B_HQ0 + 'VPhi_i_average_inside_bin_sigmaPhi_gamma_-2.00.txt',
+                                      B_HQ0 + 'VPhi_i_average_inside_bin_sigmaPhi_gamma_-2.00'),
+                                     (B_HQ0 + 'average_logx10_gamma_-2.00.txt',
+                                      B_HQ0 + 'average_logx10_gamma_-2.00'),
+                                     (B_HQ0 + 'average_logx9_gamma_-2.00.txt',
+                                      B_HQ0 + 'average_logx9_gamma_-2.00'),
+                                     (B_HQ0 + 'average_logx7_gamma_-2.00.txt',
+                                      B_HQ0 + 'average_logx7_gamma_-2.00'),
+                                     (B_HQ0 + 'average_logx8_gamma_-2.00.txt',
+                                      B_HQ0 + 'average_logx8_gamma_-2.00')]
 
-    FileLstbin3HQ10000_G1_0_0_000 = [(B_HQ0 + '_new_R_middle_VT_i_average_inside_bin_sigmatan_gamma_-2.50.txt',
-                                      B_HQ0 + '_new_R_middle_VT_i_average_inside_bin_sigmatan_gamma_-2.50'),
-                                     (B_HQ0 + '_new_R_middle_VR_i_average_inside_bin_sigmarad_gamma_-2.50.txt',
-                                      B_HQ0 + '_new_R_middle_VR_i_average_inside_bin_sigmarad_gamma_-2.50'),
-                                     (B_HQ0 + '_new_R_middle_VTheta_i_average_inside_bin_sigmatheta_gamma_-2.50.txt',
-                                      B_HQ0 + '_new_R_middle_VTheta_i_average_inside_bin_sigmatheta_gamma_-2.50'),
-                                     (B_HQ0 + '_new_R_middle_VPhi_i_average_inside_bin_sigmaphi_gamma_-2.50.txt',
-                                      B_HQ0 + '_new_R_middle_VPhi_i_average_inside_bin_sigmaphi_gamma_-2.50'),
-                                     (B_HQ0 + '_new_R_middle_average_logx10_gamma_-2.50.txt',
-                                      B_HQ0 + '_new_R_middle_average_logx10_gamma_-2.50'),
-                                     (B_HQ0 + '_new_R_middle_average_logx9_gamma_-2.50.txt',
-                                      B_HQ0 + '_new_R_middle_average_logx9_gamma_-2.50'),
-                                     (B_HQ0 + '_new_R_middle_average_logx7_gamma_-2.50.txt',
-                                      B_HQ0 + '_new_R_middle_average_logx7_gamma_-2.50'),
-                                     (B_HQ0 + '_new_R_middle_average_logx8_gamma_-2.50.txt',
-                                      B_HQ0 + '_new_R_middle_average_logx8_gamma_-2.50')]
+    FileLstbin3HQ10000_G1_0_0_000 = [(B_HQ0 + 'VT_i_average_inside_bin_sigmaT_gamma_-2.50.txt',
+                                      B_HQ0 + 'VT_i_average_inside_bin_sigmaT_gamma_-2.50'),
+                                     (B_HQ0 + 'VR_i_average_inside_bin_sigmaR_gamma_-2.50.txt',
+                                      B_HQ0 + 'VR_i_average_inside_bin_sigmaR_gamma_-2.50'),
+                                     (B_HQ0 + 'VTheta_i_average_inside_bin_sigmaTheta_gamma_-2.50.txt',
+                                      B_HQ0 + 'VTheta_i_average_inside_bin_sigmaTheta_gamma_-2.50'),
+                                     (B_HQ0 + 'VPhi_i_average_inside_bin_sigmaPhi_gamma_-2.50.txt',
+                                      B_HQ0 + 'VPhi_i_average_inside_bin_sigmaPhi_gamma_-2.50'),
+                                     (B_HQ0 + 'average_logx10_gamma_-2.50.txt',
+                                      B_HQ0 + 'average_logx10_gamma_-2.50'),
+                                     (B_HQ0 + 'average_logx9_gamma_-2.50.txt',
+                                      B_HQ0 + 'average_logx9_gamma_-2.50'),
+                                     (B_HQ0 + 'average_logx7_gamma_-2.50.txt',
+                                      B_HQ0 + 'average_logx7_gamma_-2.50'),
+                                     (B_HQ0 + 'average_logx8_gamma_-2.50.txt',
+                                      B_HQ0 + 'average_logx8_gamma_-2.50')]
 
-    FileLstbin4HQ10000_G1_0_0_000 = [(B_HQ0 + '_new_R_middle_VT_i_average_inside_bin_sigmatan_gamma_-3.00.txt',
-                                      B_HQ0 + '_new_R_middle_VT_i_average_inside_bin_sigmatan_gamma_-3.00'),
-                                     (B_HQ0 + '_new_R_middle_VR_i_average_inside_bin_sigmarad_gamma_-3.00.txt',
-                                      B_HQ0 + '_new_R_middle_VR_i_average_inside_bin_sigmarad_gamma_-3.00'),
-                                     (B_HQ0 + '_new_R_middle_VTheta_i_average_inside_bin_sigmatheta_gamma_-3.00.txt',
-                                      B_HQ0 + '_new_R_middle_VTheta_i_average_inside_bin_sigmatheta_gamma_-3.00'),
-                                     (B_HQ0 + '_new_R_middle_VPhi_i_average_inside_bin_sigmaphi_gamma_-3.00.txt',
-                                      B_HQ0 + '_new_R_middle_VPhi_i_average_inside_bin_sigmaphi_gamma_-3.00'),
-                                     (B_HQ0 + '_new_R_middle_average_logx10_gamma_-3.00.txt',
-                                      B_HQ0 + '_new_R_middle_average_logx10_gamma_-3.00'),
-                                     (B_HQ0 + '_new_R_middle_average_logx9_gamma_-3.00.txt',
-                                      B_HQ0 + '_new_R_middle_average_logx9_gamma_-3.00'),
-                                     (B_HQ0 + '_new_R_middle_average_logx7_gamma_-3.00.txt',
-                                      B_HQ0 + '_new_R_middle_average_logx7_gamma_-3.00'),
-                                     (B_HQ0 + '_new_R_middle_average_logx8_gamma_-3.00.txt',
-                                      B_HQ0 + '_new_R_middle_average_logx8_gamma_-3.00')]
+    FileLstbin4HQ10000_G1_0_0_000 = [(B_HQ0 + 'VT_i_average_inside_bin_sigmaT_gamma_-3.00.txt',
+                                      B_HQ0 + 'VT_i_average_inside_bin_sigmaT_gamma_-3.00'),
+                                     (B_HQ0 + 'VR_i_average_inside_bin_sigmaR_gamma_-3.00.txt',
+                                      B_HQ0 + 'VR_i_average_inside_bin_sigmaR_gamma_-3.00'),
+                                     (B_HQ0 + 'VTheta_i_average_inside_bin_sigmaTheta_gamma_-3.00.txt',
+                                      B_HQ0 + 'VTheta_i_average_inside_bin_sigmaTheta_gamma_-3.00'),
+                                     (B_HQ0 + 'VPhi_i_average_inside_bin_sigmaPhi_gamma_-3.00.txt',
+                                      B_HQ0 + 'VPhi_i_average_inside_bin_sigmaPhi_gamma_-3.00'),
+                                     (B_HQ0 + 'average_logx10_gamma_-3.00.txt',
+                                      B_HQ0 + 'average_logx10_gamma_-3.00'),
+                                     (B_HQ0 + 'average_logx9_gamma_-3.00.txt',
+                                      B_HQ0 + 'average_logx9_gamma_-3.00'),
+                                     (B_HQ0 + 'average_logx7_gamma_-3.00.txt',
+                                      B_HQ0 + 'average_logx7_gamma_-3.00'),
+                                     (B_HQ0 + 'average_logx8_gamma_-3.00.txt',
+                                      B_HQ0 + 'average_logx8_gamma_-3.00')]
 
-    FileLstlarge_R_middle_19_95_HQ10000_G1_0_0_000 = [(B_HQ0 + '_large_R_middle_VT_i_average_inside_bin_sigmatan_R_middle_19.95.txt',
-                                                       B_HQ0 + '_large_R_middle_VT_i_average_inside_bin_sigmatan_R_middle_19.95'),
-                                                      (B_HQ0 + '_large_R_middle_VR_i_average_inside_bin_sigmarad_R_middle_19.95.txt',
-                                                       B_HQ0 + '_large_R_middle_VR_i_average_inside_bin_sigmarad_R_middle_19.95'),
-                                                      (B_HQ0 + '_large_R_middle_VTheta_i_average_inside_bin_sigmatheta_R_middle_19.95.txt',
-                                                       B_HQ0 + '_large_R_middle_VTheta_i_average_inside_bin_sigmatheta_R_middle_19.95'),
-                                                      (B_HQ0 + '_large_R_middle_VPhi_i_average_inside_bin_sigmaphi_R_middle_19.95.txt',
-                                                       B_HQ0 + '_large_R_middle_VPhi_i_average_inside_bin_sigmaphi_R_middle_19.95'),
-                                                      (B_HQ0 + '_large_R_middle_average_logx10_R_middle_19.95.txt',
-                                                       B_HQ0 + '_large_R_middle_average_logx10_R_middle_19.95'),
-                                                      (B_HQ0 + '_large_R_middle_average_logx9_R_middle_19.95.txt',
-                                                       B_HQ0 + '_large_R_middle_average_logx9_R_middle_19.95'),
-                                                      (B_HQ0 + '_large_R_middle_average_logx7_R_middle_19.95.txt',
-                                                       B_HQ0 + '_large_R_middle_average_logx7_R_middle_19.95'),
-                                                      (B_HQ0 + '_large_R_middle_average_logx8_R_middle_19.95.txt',
-                                                       B_HQ0 + '_large_R_middle_average_logx8_R_middle_19.95')]
+    FileLstbin5HQ10000_G1_0_0_000 = [(B_HQ0 + 'VT_i_average_inside_bin_sigmaT_R_middle_19.95.txt',
+                                      B_HQ0 + 'VT_i_average_inside_bin_sigmaT_R_middle_19.95'),
+                                     (B_HQ0 + 'VR_i_average_inside_bin_sigmaR_R_middle_19.95.txt',
+                                      B_HQ0 + 'VR_i_average_inside_bin_sigmaR_R_middle_19.95'),
+                                     (B_HQ0 + 'VTheta_i_average_inside_bin_sigmaTheta_R_middle_19.95.txt',
+                                      B_HQ0 + 'VTheta_i_average_inside_bin_sigmaTheta_R_middle_19.95'),
+                                     (B_HQ0 + 'VPhi_i_average_inside_bin_sigmaPhi_R_middle_19.95.txt',
+                                      B_HQ0 + 'VPhi_i_average_inside_bin_sigmaPhi_R_middle_19.95'),
+                                     (B_HQ0 + 'average_logx10_R_middle_19.95.txt',
+                                      B_HQ0 + 'average_logx10_R_middle_19.95'),
+                                     (B_HQ0 + 'average_logx9_R_middle_19.95.txt',
+                                      B_HQ0 + 'average_logx9_R_middle_19.95'),
+                                     (B_HQ0 + 'average_logx7_R_middle_19.95.txt',
+                                      B_HQ0 + 'average_logx7_R_middle_19.95'),
+                                     (B_HQ0 + 'average_logx8_R_middle_19.95.txt',
+                                      B_HQ0 + 'average_logx8_R_middle_19.95')]
 
-    FileLstlarge_R_middle_31_62_HQ10000_G1_0_0_000 = [(B_HQ0 + '_large_R_middle_VT_i_average_inside_bin_sigmatan_R_middle_31.62.txt',
-                                                       B_HQ0 + '_large_R_middle_VT_i_average_inside_bin_sigmatan_R_middle_31.62'),
-                                                      (B_HQ0 + '_large_R_middle_VR_i_average_inside_bin_sigmarad_R_middle_31.62.txt',
-                                                       B_HQ0 + '_large_R_middle_VR_i_average_inside_bin_sigmarad_R_middle_31.62'),
-                                                      (B_HQ0 + '_large_R_middle_VTheta_i_average_inside_bin_sigmatheta_R_middle_31.62.txt',
-                                                       B_HQ0 + '_large_R_middle_VTheta_i_average_inside_bin_sigmatheta_R_middle_31.62'),
-                                                      (B_HQ0 + '_large_R_middle_VPhi_i_average_inside_bin_sigmaphi_R_middle_31.62.txt',
-                                                       B_HQ0 + '_large_R_middle_VPhi_i_average_inside_bin_sigmaphi_R_middle_31.62'),
-                                                      (B_HQ0 + '_large_R_middle_average_logx10_R_middle_31.62.txt',
-                                                       B_HQ0 + '_large_R_middle_average_logx10_R_middle_31.62'),
-                                                      (B_HQ0 + '_large_R_middle_average_logx9_R_middle_31.62.txt',
-                                                       B_HQ0 + '_large_R_middle_average_logx9_R_middle_31.62'),
-                                                      (B_HQ0 + '_large_R_middle_average_logx7_R_middle_31.62.txt',
-                                                       B_HQ0 + '_large_R_middle_average_logx7_R_middle_31.62'),
-                                                      (B_HQ0 + '_large_R_middle_average_logx8_R_middle_31.62.txt',
-                                                       B_HQ0 + '_large_R_middle_average_logx8_R_middle_31.62')]
+    FileLstbin6HQ10000_G1_0_0_000 = [(B_HQ0 + 'VT_i_average_inside_bin_sigmaT_R_middle_31.62.txt',
+                                      B_HQ0 + 'VT_i_average_inside_bin_sigmaT_R_middle_31.62'),
+                                     (B_HQ0 + 'VR_i_average_inside_bin_sigmaR_R_middle_31.62.txt',
+                                      B_HQ0 + 'VR_i_average_inside_bin_sigmaR_R_middle_31.62'),
+                                     (B_HQ0 + 'VTheta_i_average_inside_bin_sigmaTheta_R_middle_31.62.txt',
+                                      B_HQ0 + 'VTheta_i_average_inside_bin_sigmaTheta_R_middle_31.62'),
+                                     (B_HQ0 + 'VPhi_i_average_inside_bin_sigmaPhi_R_middle_31.62.txt',
+                                      B_HQ0 + 'VPhi_i_average_inside_bin_sigmaPhi_R_middle_31.62'),
+                                     (B_HQ0 + 'average_logx10_R_middle_31.62.txt',
+                                      B_HQ0 + 'average_logx10_R_middle_31.62'),
+                                     (B_HQ0 + 'average_logx9_R_middle_31.62.txt',
+                                      B_HQ0 + 'average_logx9_R_middle_31.62'),
+                                     (B_HQ0 + 'average_logx7_R_middle_31.62.txt',
+                                      B_HQ0 + 'average_logx7_R_middle_31.62'),
+                                     (B_HQ0 + 'average_logx8_R_middle_31.62.txt',
+                                      B_HQ0 + 'average_logx8_R_middle_31.62')]
 
     bin1_different_gammas_B_HQ10000_G1_0_0_000 = [(pylab.loadtxt(f), l) for f, l in FileLstbin1HQ10000_G1_0_0_000]
     bin2_different_gammas_B_HQ10000_G1_0_0_000 = [(pylab.loadtxt(f), l) for f, l in FileLstbin2HQ10000_G1_0_0_000]
     bin3_different_gammas_B_HQ10000_G1_0_0_000 = [(pylab.loadtxt(f), l) for f, l in FileLstbin3HQ10000_G1_0_0_000]
     bin4_different_gammas_B_HQ10000_G1_0_0_000 = [(pylab.loadtxt(f), l) for f, l in FileLstbin4HQ10000_G1_0_0_000]
-    datalist_large_R_middle_19_95_different_gammas_B_HQ10000_G1_0_0_000 = [(pylab.loadtxt(f), l) for f, l in FileLstlarge_R_middle_19_95_HQ10000_G1_0_0_000]
-    datalist_large_R_middle_31_62_different_gammas_B_HQ10000_G1_0_0_000 = [(pylab.loadtxt(f), l) for f, l in FileLstlarge_R_middle_31_62_HQ10000_G1_0_0_000]
+    datalist_bin5different_gammas_B_HQ10000_G1_0_0_000 = [(pylab.loadtxt(f), l) for f, l in FileLstbin5HQ10000_G1_0_0_000]
+    datalist_bin6different_gammas_B_HQ10000_G1_0_0_000 = [(pylab.loadtxt(f), l) for f, l in FileLstbin6HQ10000_G1_0_0_000]
 
 if B_G_Pert_different_gammas_HQ10000_G1_0_5_005:
     B_HQ36 = 'B_HQ10000_G1.0_5_005'
 
-    FileLstbin1HQ10000_G1_0_5_005 = [(B_HQ36 + '_new_R_middle_VT_i_average_inside_bin_sigmatan_gamma_-1.50.txt',
-                                      B_HQ36 + '_new_R_middle_VT_i_average_inside_bin_sigmatan_gamma_-1.50'),
-                                     (B_HQ36 + '_new_R_middle_VR_i_average_inside_bin_sigmarad_gamma_-1.50.txt',
-                                      B_HQ36 + '_new_R_middle_VR_i_average_inside_bin_sigmarad_gamma_-1.50'),
-                                     (B_HQ36 + '_new_R_middle_VTheta_i_average_inside_bin_sigmatheta_gamma_-1.50.txt',
-                                      B_HQ36 + '_new_R_middle_VTheta_i_average_inside_bin_sigmatheta_gamma_-1.50'),
-                                     (B_HQ36 + '_new_R_middle_VPhi_i_average_inside_bin_sigmaphi_gamma_-1.50.txt',
-                                      B_HQ36 + '_new_R_middle_VPhi_i_average_inside_bin_sigmaphi_gamma_-1.50'),
-                                     (B_HQ36 + '_new_R_middle_average_logx10_gamma_-1.50.txt',
-                                      B_HQ36 + '_new_R_middle_average_logx10_gamma_-1.50'),
-                                     (B_HQ36 + '_new_R_middle_average_logx9_gamma_-1.50.txt',
-                                      B_HQ36 + '_new_R_middle_average_logx9_gamma_-1.50'),
-                                     (B_HQ36 + '_new_R_middle_average_logx7_gamma_-1.50.txt',
-                                      B_HQ36 + '_new_R_middle_average_logx7_gamma_-1.50'),
-                                     (B_HQ36 + '_new_R_middle_average_logx8_gamma_-1.50.txt',
-                                      B_HQ36 + '_new_R_middle_average_logx8_gamma_-1.50')]
+    FileLstbin1HQ10000_G1_0_5_005 = [(B_HQ36 + 'VT_i_average_inside_bin_sigmaT_gamma_-1.50.txt',
+                                      B_HQ36 + 'VT_i_average_inside_bin_sigmaT_gamma_-1.50'),
+                                     (B_HQ36 + 'VR_i_average_inside_bin_sigmaR_gamma_-1.50.txt',
+                                      B_HQ36 + 'VR_i_average_inside_bin_sigmaR_gamma_-1.50'),
+                                     (B_HQ36 + 'VTheta_i_average_inside_bin_sigmaTheta_gamma_-1.50.txt',
+                                      B_HQ36 + 'VTheta_i_average_inside_bin_sigmaTheta_gamma_-1.50'),
+                                     (B_HQ36 + 'VPhi_i_average_inside_bin_sigmaPhi_gamma_-1.50.txt',
+                                      B_HQ36 + 'VPhi_i_average_inside_bin_sigmaPhi_gamma_-1.50'),
+                                     (B_HQ36 + 'average_logx10_gamma_-1.50.txt',
+                                      B_HQ36 + 'average_logx10_gamma_-1.50'),
+                                     (B_HQ36 + 'average_logx9_gamma_-1.50.txt',
+                                      B_HQ36 + 'average_logx9_gamma_-1.50'),
+                                     (B_HQ36 + 'average_logx7_gamma_-1.50.txt',
+                                      B_HQ36 + 'average_logx7_gamma_-1.50'),
+                                     (B_HQ36 + 'average_logx8_gamma_-1.50.txt',
+                                      B_HQ36 + 'average_logx8_gamma_-1.50')]
 
-    FileLstbin2HQ10000_G1_0_5_005 = [(B_HQ36 + '_new_R_middle_VT_i_average_inside_bin_sigmatan_gamma_-2.00.txt',
-                                      B_HQ36 + '_new_R_middle_VT_i_average_inside_bin_sigmatan_gamma_-2.00'),
-                                     (B_HQ36 + '_new_R_middle_VR_i_average_inside_bin_sigmarad_gamma_-2.00.txt',
-                                      B_HQ36 + '_new_R_middle_VR_i_average_inside_bin_sigmarad_gamma_-2.00'),
-                                     (B_HQ36 + '_new_R_middle_VTheta_i_average_inside_bin_sigmatheta_gamma_-2.00.txt',
-                                      B_HQ36 + '_new_R_middle_VTheta_i_average_inside_bin_sigmatheta_gamma_-2.00'),
-                                     (B_HQ36 + '_new_R_middle_VPhi_i_average_inside_bin_sigmaphi_gamma_-2.00.txt',
-                                      B_HQ36 + '_new_R_middle_VPhi_i_average_inside_bin_sigmaphi_gamma_-2.00'),
-                                     (B_HQ36 + '_new_R_middle_average_logx10_gamma_-2.00.txt',
-                                      B_HQ36 + '_new_R_middle_average_logx10_gamma_-2.00'),
-                                     (B_HQ36 + '_new_R_middle_average_logx9_gamma_-2.00.txt',
-                                      B_HQ36 + '_new_R_middle_average_logx9_gamma_-2.00'),
-                                     (B_HQ36 + '_new_R_middle_average_logx7_gamma_-2.00.txt',
-                                      B_HQ36 + '_new_R_middle_average_logx7_gamma_-2.00'),
-                                     (B_HQ36 + '_new_R_middle_average_logx8_gamma_-2.00.txt',
-                                      B_HQ36 + '_new_R_middle_average_logx8_gamma_-2.00')]
+    FileLstbin2HQ10000_G1_0_5_005 = [(B_HQ36 + 'VT_i_average_inside_bin_sigmaT_gamma_-2.00.txt',
+                                      B_HQ36 + 'VT_i_average_inside_bin_sigmaT_gamma_-2.00'),
+                                     (B_HQ36 + 'VR_i_average_inside_bin_sigmaR_gamma_-2.00.txt',
+                                      B_HQ36 + 'VR_i_average_inside_bin_sigmaR_gamma_-2.00'),
+                                     (B_HQ36 + 'VTheta_i_average_inside_bin_sigmaTheta_gamma_-2.00.txt',
+                                      B_HQ36 + 'VTheta_i_average_inside_bin_sigmaTheta_gamma_-2.00'),
+                                     (B_HQ36 + 'VPhi_i_average_inside_bin_sigmaPhi_gamma_-2.00.txt',
+                                      B_HQ36 + 'VPhi_i_average_inside_bin_sigmaPhi_gamma_-2.00'),
+                                     (B_HQ36 + 'average_logx10_gamma_-2.00.txt',
+                                      B_HQ36 + 'average_logx10_gamma_-2.00'),
+                                     (B_HQ36 + 'average_logx9_gamma_-2.00.txt',
+                                      B_HQ36 + 'average_logx9_gamma_-2.00'),
+                                     (B_HQ36 + 'average_logx7_gamma_-2.00.txt',
+                                      B_HQ36 + 'average_logx7_gamma_-2.00'),
+                                     (B_HQ36 + 'average_logx8_gamma_-2.00.txt',
+                                      B_HQ36 + 'average_logx8_gamma_-2.00')]
 
-    FileLstbin3HQ10000_G1_0_5_005 = [(B_HQ36 + '_new_R_middle_VT_i_average_inside_bin_sigmatan_gamma_-2.50.txt',
-                                      B_HQ36 + '_new_R_middle_VT_i_average_inside_bin_sigmatan_gamma_-2.50'),
-                                     (B_HQ36 + '_new_R_middle_VR_i_average_inside_bin_sigmarad_gamma_-2.50.txt',
-                                      B_HQ36 + '_new_R_middle_VR_i_average_inside_bin_sigmarad_gamma_-2.50'),
-                                     (B_HQ36 + '_new_R_middle_VTheta_i_average_inside_bin_sigmatheta_gamma_-2.50.txt',
-                                      B_HQ36 + '_new_R_middle_VTheta_i_average_inside_bin_sigmatheta_gamma_-2.50'),
-                                     (B_HQ36 + '_new_R_middle_VPhi_i_average_inside_bin_sigmaphi_gamma_-2.50.txt',
-                                      B_HQ36 + '_new_R_middle_VPhi_i_average_inside_bin_sigmaphi_gamma_-2.50'),
-                                     (B_HQ36 + '_new_R_middle_average_logx10_gamma_-2.50.txt',
-                                      B_HQ36 + '_new_R_middle_average_logx10_gamma_-2.50'),
-                                     (B_HQ36 + '_new_R_middle_average_logx9_gamma_-2.50.txt',
-                                      B_HQ36 + '_new_R_middle_average_logx9_gamma_-2.50'),
-                                     (B_HQ36 + '_new_R_middle_average_logx7_gamma_-2.50.txt',
-                                      B_HQ36 + '_new_R_middle_average_logx7_gamma_-2.50'),
-                                     (B_HQ36 + '_new_R_middle_average_logx8_gamma_-2.50.txt',
-                                      B_HQ36 + '_new_R_middle_average_logx8_gamma_-2.50')]
+    FileLstbin3HQ10000_G1_0_5_005 = [(B_HQ36 + 'VT_i_average_inside_bin_sigmaT_gamma_-2.50.txt',
+                                      B_HQ36 + 'VT_i_average_inside_bin_sigmaT_gamma_-2.50'),
+                                     (B_HQ36 + 'VR_i_average_inside_bin_sigmaR_gamma_-2.50.txt',
+                                      B_HQ36 + 'VR_i_average_inside_bin_sigmaR_gamma_-2.50'),
+                                     (B_HQ36 + 'VTheta_i_average_inside_bin_sigmaTheta_gamma_-2.50.txt',
+                                      B_HQ36 + 'VTheta_i_average_inside_bin_sigmaTheta_gamma_-2.50'),
+                                     (B_HQ36 + 'VPhi_i_average_inside_bin_sigmaPhi_gamma_-2.50.txt',
+                                      B_HQ36 + 'VPhi_i_average_inside_bin_sigmaPhi_gamma_-2.50'),
+                                     (B_HQ36 + 'average_logx10_gamma_-2.50.txt',
+                                      B_HQ36 + 'average_logx10_gamma_-2.50'),
+                                     (B_HQ36 + 'average_logx9_gamma_-2.50.txt',
+                                      B_HQ36 + 'average_logx9_gamma_-2.50'),
+                                     (B_HQ36 + 'average_logx7_gamma_-2.50.txt',
+                                      B_HQ36 + 'average_logx7_gamma_-2.50'),
+                                     (B_HQ36 + 'average_logx8_gamma_-2.50.txt',
+                                      B_HQ36 + 'average_logx8_gamma_-2.50')]
 
-    FileLstbin4HQ10000_G1_0_5_005 = [(B_HQ36 + '_new_R_middle_VT_i_average_inside_bin_sigmatan_gamma_-3.00.txt',
-                                      B_HQ36 + '_new_R_middle_VT_i_average_inside_bin_sigmatan_gamma_-3.00'),
-                                     (B_HQ36 + '_new_R_middle_VR_i_average_inside_bin_sigmarad_gamma_-3.00.txt',
-                                      B_HQ36 + '_new_R_middle_VR_i_average_inside_bin_sigmarad_gamma_-3.00'),
-                                     (B_HQ36 + '_new_R_middle_VTheta_i_average_inside_bin_sigmatheta_gamma_-3.00.txt',
-                                      B_HQ36 + '_new_R_middle_VTheta_i_average_inside_bin_sigmatheta_gamma_-3.00'),
-                                     (B_HQ36 + '_new_R_middle_VPhi_i_average_inside_bin_sigmaphi_gamma_-3.00.txt',
-                                      B_HQ36 + '_new_R_middle_VPhi_i_average_inside_bin_sigmaphi_gamma_-3.00'),
-                                     (B_HQ36 + '_new_R_middle_average_logx10_gamma_-3.00.txt',
-                                      B_HQ36 + '_new_R_middle_average_logx10_gamma_-3.00'),
-                                     (B_HQ36 + '_new_R_middle_average_logx9_gamma_-3.00.txt',
-                                      B_HQ36 + '_new_R_middle_average_logx9_gamma_-3.00'),
-                                     (B_HQ36 + '_new_R_middle_average_logx7_gamma_-3.00.txt',
-                                      B_HQ36 + '_new_R_middle_average_logx7_gamma_-3.00'),
-                                     (B_HQ36 + '_new_R_middle_average_logx8_gamma_-3.00.txt',
-                                      B_HQ36 + '_new_R_middle_average_logx8_gamma_-3.00')]
+    FileLstbin4HQ10000_G1_0_5_005 = [(B_HQ36 + 'VT_i_average_inside_bin_sigmaT_gamma_-3.00.txt',
+                                      B_HQ36 + 'VT_i_average_inside_bin_sigmaT_gamma_-3.00'),
+                                     (B_HQ36 + 'VR_i_average_inside_bin_sigmaR_gamma_-3.00.txt',
+                                      B_HQ36 + 'VR_i_average_inside_bin_sigmaR_gamma_-3.00'),
+                                     (B_HQ36 + 'VTheta_i_average_inside_bin_sigmaTheta_gamma_-3.00.txt',
+                                      B_HQ36 + 'VTheta_i_average_inside_bin_sigmaTheta_gamma_-3.00'),
+                                     (B_HQ36 + 'VPhi_i_average_inside_bin_sigmaPhi_gamma_-3.00.txt',
+                                      B_HQ36 + 'VPhi_i_average_inside_bin_sigmaPhi_gamma_-3.00'),
+                                     (B_HQ36 + 'average_logx10_gamma_-3.00.txt',
+                                      B_HQ36 + 'average_logx10_gamma_-3.00'),
+                                     (B_HQ36 + 'average_logx9_gamma_-3.00.txt',
+                                      B_HQ36 + 'average_logx9_gamma_-3.00'),
+                                     (B_HQ36 + 'average_logx7_gamma_-3.00.txt',
+                                      B_HQ36 + 'average_logx7_gamma_-3.00'),
+                                     (B_HQ36 + 'average_logx8_gamma_-3.00.txt',
+                                      B_HQ36 + 'average_logx8_gamma_-3.00')]
 
-    FileLstlarge_R_middle_19_95_HQ10000_G1_0_5_005 = [(B_HQ36 + '_large_R_middle_VT_i_average_inside_bin_sigmatan_R_middle_19.95.txt',
-                                                       B_HQ36 + '_large_R_middle_VT_i_average_inside_bin_sigmatan_R_middle_19.95'),
-                                                      (B_HQ36 + '_large_R_middle_VR_i_average_inside_bin_sigmarad_R_middle_19.95.txt',
-                                                       B_HQ36 + '_large_R_middle_VR_i_average_inside_bin_sigmarad_R_middle_19.95'),
-                                                      (B_HQ36 + '_large_R_middle_VTheta_i_average_inside_bin_sigmatheta_R_middle_19.95.txt',
-                                                       B_HQ36 + '_large_R_middle_VTheta_i_average_inside_bin_sigmatheta_R_middle_19.95'),
-                                                      (B_HQ36 + '_large_R_middle_VPhi_i_average_inside_bin_sigmaphi_R_middle_19.95.txt',
-                                                       B_HQ36 + '_large_R_middle_VPhi_i_average_inside_bin_sigmaphi_R_middle_19.95'),
-                                                      (B_HQ36 + '_large_R_middle_average_logx10_R_middle_19.95.txt',
-                                                       B_HQ36 + '_large_R_middle_average_logx10_R_middle_19.95'),
-                                                      (B_HQ36 + '_large_R_middle_average_logx9_R_middle_19.95.txt',
-                                                       B_HQ36 + '_large_R_middle_average_logx9_R_middle_19.95'),
-                                                      (B_HQ36 + '_large_R_middle_average_logx7_R_middle_19.95.txt',
-                                                       B_HQ36 + '_large_R_middle_average_logx7_R_middle_19.95'),
-                                                      (B_HQ36 + '_large_R_middle_average_logx8_R_middle_19.95.txt',
-                                                       B_HQ36 + '_large_R_middle_average_logx8_R_middle_19.95')]
+    FileLstbin5HQ10000_G1_0_5_005 = [(B_HQ36 + 'VT_i_average_inside_bin_sigmaT_R_middle_19.95.txt',
+                                      B_HQ36 + 'VT_i_average_inside_bin_sigmaT_R_middle_19.95'),
+                                     (B_HQ36 + 'VR_i_average_inside_bin_sigmaR_R_middle_19.95.txt',
+                                      B_HQ36 + 'VR_i_average_inside_bin_sigmaR_R_middle_19.95'),
+                                     (B_HQ36 + 'VTheta_i_average_inside_bin_sigmaTheta_R_middle_19.95.txt',
+                                      B_HQ36 + 'VTheta_i_average_inside_bin_sigmaTheta_R_middle_19.95'),
+                                     (B_HQ36 + 'VPhi_i_average_inside_bin_sigmaPhi_R_middle_19.95.txt',
+                                      B_HQ36 + 'VPhi_i_average_inside_bin_sigmaPhi_R_middle_19.95'),
+                                     (B_HQ36 + 'average_logx10_R_middle_19.95.txt',
+                                      B_HQ36 + 'average_logx10_R_middle_19.95'),
+                                     (B_HQ36 + 'average_logx9_R_middle_19.95.txt',
+                                      B_HQ36 + 'average_logx9_R_middle_19.95'),
+                                     (B_HQ36 + 'average_logx7_R_middle_19.95.txt',
+                                      B_HQ36 + 'average_logx7_R_middle_19.95'),
+                                     (B_HQ36 + 'average_logx8_R_middle_19.95.txt',
+                                      B_HQ36 + 'average_logx8_R_middle_19.95')]
 
-    FileLstlarge_R_middle_31_62_HQ10000_G1_0_5_005 = [(B_HQ36 + '_large_R_middle_VT_i_average_inside_bin_sigmatan_R_middle_31.62.txt',
-                                                       B_HQ36 + '_large_R_middle_VT_i_average_inside_bin_sigmatan_R_middle_31.62'),
-                                                      (B_HQ36 + '_large_R_middle_VR_i_average_inside_bin_sigmarad_R_middle_31.62.txt',
-                                                       B_HQ36 + '_large_R_middle_VR_i_average_inside_bin_sigmarad_R_middle_31.62'),
-                                                      (B_HQ36 + '_large_R_middle_VTheta_i_average_inside_bin_sigmatheta_R_middle_31.62.txt',
-                                                       B_HQ36 + '_large_R_middle_VTheta_i_average_inside_bin_sigmatheta_R_middle_31.62'),
-                                                      (B_HQ36 + '_large_R_middle_VPhi_i_average_inside_bin_sigmaphi_R_middle_31.62.txt',
-                                                       B_HQ36 + '_large_R_middle_VPhi_i_average_inside_bin_sigmaphi_R_middle_31.62'),
-                                                      (B_HQ36 + '_large_R_middle_average_logx10_R_middle_31.62.txt',
-                                                       B_HQ36 + '_large_R_middle_average_logx10_R_middle_31.62'),
-                                                      (B_HQ36 + '_large_R_middle_average_logx9_R_middle_31.62.txt',
-                                                       B_HQ36 + '_large_R_middle_average_logx9_R_middle_31.62'),
-                                                      (B_HQ36 + '_large_R_middle_average_logx7_R_middle_31.62.txt',
-                                                       B_HQ36 + '_large_R_middle_average_logx7_R_middle_31.62'),
-                                                      (B_HQ36 + '_large_R_middle_average_logx8_R_middle_31.62.txt',
-                                                       B_HQ36 + '_large_R_middle_average_logx8_R_middle_31.62')]
+    FileLstbin6HQ10000_G1_0_5_005 = [(B_HQ36 + 'VT_i_average_inside_bin_sigmaT_R_middle_31.62.txt',
+                                      B_HQ36 + 'VT_i_average_inside_bin_sigmaT_R_middle_31.62'),
+                                     (B_HQ36 + 'VR_i_average_inside_bin_sigmaR_R_middle_31.62.txt',
+                                      B_HQ36 + 'VR_i_average_inside_bin_sigmaR_R_middle_31.62'),
+                                     (B_HQ36 + 'VTheta_i_average_inside_bin_sigmaTheta_R_middle_31.62.txt',
+                                      B_HQ36 + 'VTheta_i_average_inside_bin_sigmaTheta_R_middle_31.62'),
+                                     (B_HQ36 + 'VPhi_i_average_inside_bin_sigmaPhi_R_middle_31.62.txt',
+                                      B_HQ36 + 'VPhi_i_average_inside_bin_sigmaPhi_R_middle_31.62'),
+                                     (B_HQ36 + 'average_logx10_R_middle_31.62.txt',
+                                      B_HQ36 + 'average_logx10_R_middle_31.62'),
+                                     (B_HQ36 + 'average_logx9_R_middle_31.62.txt',
+                                      B_HQ36 + 'average_logx9_R_middle_31.62'),
+                                     (B_HQ36 + 'average_logx7_R_middle_31.62.txt',
+                                      B_HQ36 + 'average_logx7_R_middle_31.62'),
+                                     (B_HQ36 + 'average_logx8_R_middle_31.62.txt',
+                                      B_HQ36 + 'average_logx8_R_middle_31.62')]
 
     # This works.
-    # FileLstbin1HQ10000_G1_0_5_005 = [tuple(map(lambda i: str.replace(i, '_new_R_middle_VT_sigmatan_gamma_','_new_R_middle_VT_i_average_inside_bin_sigmatan_gamma_'), tup)) for tup in FileLstbin1HQ10000_G1_0_5_005]
+    # FileLstbin1HQ10000_G1_0_5_005 =
+    # [tuple(map(lambda i: str.replace(i, 'VT_sigmaT_gamma_',
+    #  'VT_i_average_inside_bin_sigmaT_gamma_'), tup))
+    # for tup in FileLstbin1HQ10000_G1_0_5_005]
     # print('FileLstbin1HQ10000_G1_0_5_005', FileLstbin1HQ10000_G1_0_5_005)
 
     bin1_different_gammas_B_HQ10000_G1_0_5_005 = [(pylab.loadtxt(f), l) for f, l in FileLstbin1HQ10000_G1_0_5_005]
     bin2_different_gammas_B_HQ10000_G1_0_5_005 = [(pylab.loadtxt(f), l) for f, l in FileLstbin2HQ10000_G1_0_5_005]
     bin3_different_gammas_B_HQ10000_G1_0_5_005 = [(pylab.loadtxt(f), l) for f, l in FileLstbin3HQ10000_G1_0_5_005]
     bin4_different_gammas_B_HQ10000_G1_0_5_005 = [(pylab.loadtxt(f), l) for f, l in FileLstbin4HQ10000_G1_0_5_005]
-    datalist_large_R_middle_19_95_different_gammas_B_HQ10000_G1_0_5_005 = [(pylab.loadtxt(f), l) for f, l in FileLstlarge_R_middle_19_95_HQ10000_G1_0_5_005]
-    datalist_large_R_middle_31_62_different_gammas_B_HQ10000_G1_0_5_005 = [(pylab.loadtxt(f), l) for f, l in FileLstlarge_R_middle_31_62_HQ10000_G1_0_5_005]
+    datalist_bin5different_gammas_B_HQ10000_G1_0_5_005 = [(pylab.loadtxt(f), l) for f, l in FileLstbin5HQ10000_G1_0_5_005]
+    datalist_bin6different_gammas_B_HQ10000_G1_0_5_005 = [(pylab.loadtxt(f), l) for f, l in FileLstbin6HQ10000_G1_0_5_005]
 
 if B_G_Pert_different_gammas_HQ10000_G1_0_10_005:
     B_HQ66 = 'B_HQ10000_G1.0_10_005'
 
-    FileLstbin1HQ10000_G1_0_10_005 = [(B_HQ66 + '_new_R_middle_VT_i_average_inside_bin_sigmatan_gamma_-1.50.txt',
-                                       B_HQ66 + '_new_R_middle_VT_i_average_inside_bin_sigmatan_gamma_-1.50'),
-                                      (B_HQ66 + '_new_R_middle_VR_i_average_inside_bin_sigmarad_gamma_-1.50.txt',
-                                       B_HQ66 + '_new_R_middle_VR_i_average_inside_bin_sigmarad_gamma_-1.50'),
-                                      (B_HQ66 + '_new_R_middle_VTheta_i_average_inside_bin_sigmatheta_gamma_-1.50.txt',
-                                       B_HQ66 + '_new_R_middle_VTheta_i_average_inside_bin_sigmatheta_gamma_-1.50'),
-                                      (B_HQ66 + '_new_R_middle_VPhi_i_average_inside_bin_sigmaphi_gamma_-1.50.txt',
-                                       B_HQ66 + '_new_R_middle_VPhi_i_average_inside_bin_sigmaphi_gamma_-1.50'),
-                                      (B_HQ66 + '_new_R_middle_average_logx10_gamma_-1.50.txt',
-                                       B_HQ66 + '_new_R_middle_average_logx10_gamma_-1.50'),
-                                      (B_HQ66 + '_new_R_middle_average_logx9_gamma_-1.50.txt',
-                                       B_HQ66 + '_new_R_middle_average_logx9_gamma_-1.50'),
-                                      (B_HQ66 + '_new_R_middle_average_logx7_gamma_-1.50.txt',
-                                       B_HQ66 + '_new_R_middle_average_logx7_gamma_-1.50'),
-                                      (B_HQ66 + '_new_R_middle_average_logx8_gamma_-1.50.txt',
-                                       B_HQ66 + '_new_R_middle_average_logx8_gamma_-1.50')]
+    FileLstbin1HQ10000_G1_0_10_005 = [(B_HQ66 + 'VT_i_average_inside_bin_sigmaT_gamma_-1.50.txt',
+                                       B_HQ66 + 'VT_i_average_inside_bin_sigmaT_gamma_-1.50'),
+                                      (B_HQ66 + 'VR_i_average_inside_bin_sigmaR_gamma_-1.50.txt',
+                                       B_HQ66 + 'VR_i_average_inside_bin_sigmaR_gamma_-1.50'),
+                                      (B_HQ66 + 'VTheta_i_average_inside_bin_sigmaTheta_gamma_-1.50.txt',
+                                       B_HQ66 + 'VTheta_i_average_inside_bin_sigmaTheta_gamma_-1.50'),
+                                      (B_HQ66 + 'VPhi_i_average_inside_bin_sigmaPhi_gamma_-1.50.txt',
+                                       B_HQ66 + 'VPhi_i_average_inside_bin_sigmaPhi_gamma_-1.50'),
+                                      (B_HQ66 + 'average_logx10_gamma_-1.50.txt',
+                                       B_HQ66 + 'average_logx10_gamma_-1.50'),
+                                      (B_HQ66 + 'average_logx9_gamma_-1.50.txt',
+                                       B_HQ66 + 'average_logx9_gamma_-1.50'),
+                                      (B_HQ66 + 'average_logx7_gamma_-1.50.txt',
+                                       B_HQ66 + 'average_logx7_gamma_-1.50'),
+                                      (B_HQ66 + 'average_logx8_gamma_-1.50.txt',
+                                       B_HQ66 + 'average_logx8_gamma_-1.50')]
 
-    FileLstbin2HQ10000_G1_0_10_005 = [(B_HQ66 + '_new_R_middle_VT_i_average_inside_bin_sigmatan_gamma_-2.00.txt',
-                                       B_HQ66 + '_new_R_middle_VT_i_average_inside_bin_sigmatan_gamma_-2.00'),
-                                      (B_HQ66 + '_new_R_middle_VR_i_average_inside_bin_sigmarad_gamma_-2.00.txt',
-                                       B_HQ66 + '_new_R_middle_VR_i_average_inside_bin_sigmarad_gamma_-2.00'),
-                                      (B_HQ66 + '_new_R_middle_VTheta_i_average_inside_bin_sigmatheta_gamma_-2.00.txt',
-                                       B_HQ66 + '_new_R_middle_VTheta_i_average_inside_bin_sigmatheta_gamma_-2.00'),
-                                      (B_HQ66 + '_new_R_middle_VPhi_i_average_inside_bin_sigmaphi_gamma_-2.00.txt',
-                                       B_HQ66 + '_new_R_middle_VPhi_i_average_inside_bin_sigmaphi_gamma_-2.00'),
-                                      (B_HQ66 + '_new_R_middle_average_logx10_gamma_-2.00.txt',
-                                       B_HQ66 + '_new_R_middle_average_logx10_gamma_-2.00'),
-                                      (B_HQ66 + '_new_R_middle_average_logx9_gamma_-2.00.txt',
-                                       B_HQ66 + '_new_R_middle_average_logx9_gamma_-2.00'),
-                                      (B_HQ66 + '_new_R_middle_average_logx7_gamma_-2.00.txt',
-                                       B_HQ66 + '_new_R_middle_average_logx7_gamma_-2.00'),
-                                      (B_HQ66 + '_new_R_middle_average_logx8_gamma_-2.00.txt',
-                                       B_HQ66 + '_new_R_middle_average_logx8_gamma_-2.00')]
+    FileLstbin2HQ10000_G1_0_10_005 = [(B_HQ66 + 'VT_i_average_inside_bin_sigmaT_gamma_-2.00.txt',
+                                       B_HQ66 + 'VT_i_average_inside_bin_sigmaT_gamma_-2.00'),
+                                      (B_HQ66 + 'VR_i_average_inside_bin_sigmaR_gamma_-2.00.txt',
+                                       B_HQ66 + 'VR_i_average_inside_bin_sigmaR_gamma_-2.00'),
+                                      (B_HQ66 + 'VTheta_i_average_inside_bin_sigmaTheta_gamma_-2.00.txt',
+                                       B_HQ66 + 'VTheta_i_average_inside_bin_sigmaTheta_gamma_-2.00'),
+                                      (B_HQ66 + 'VPhi_i_average_inside_bin_sigmaPhi_gamma_-2.00.txt',
+                                       B_HQ66 + 'VPhi_i_average_inside_bin_sigmaPhi_gamma_-2.00'),
+                                      (B_HQ66 + 'average_logx10_gamma_-2.00.txt',
+                                       B_HQ66 + 'average_logx10_gamma_-2.00'),
+                                      (B_HQ66 + 'average_logx9_gamma_-2.00.txt',
+                                       B_HQ66 + 'average_logx9_gamma_-2.00'),
+                                      (B_HQ66 + 'average_logx7_gamma_-2.00.txt',
+                                       B_HQ66 + 'average_logx7_gamma_-2.00'),
+                                      (B_HQ66 + 'average_logx8_gamma_-2.00.txt',
+                                       B_HQ66 + 'average_logx8_gamma_-2.00')]
 
-    FileLstbin3HQ10000_G1_0_10_005 = [(B_HQ66 + '_new_R_middle_VT_i_average_inside_bin_sigmatan_gamma_-2.50.txt',
-                                       B_HQ66 + '_new_R_middle_VT_i_average_inside_bin_sigmatan_gamma_-2.50'),
-                                      (B_HQ66 + '_new_R_middle_VR_i_average_inside_bin_sigmarad_gamma_-2.50.txt',
-                                       B_HQ66 + '_new_R_middle_VR_i_average_inside_bin_sigmarad_gamma_-2.50'),
-                                      (B_HQ66 + '_new_R_middle_VTheta_i_average_inside_bin_sigmatheta_gamma_-2.50.txt',
-                                       B_HQ66 + '_new_R_middle_VTheta_i_average_inside_bin_sigmatheta_gamma_-2.50'),
-                                      (B_HQ66 + '_new_R_middle_VPhi_i_average_inside_bin_sigmaphi_gamma_-2.50.txt',
-                                       B_HQ66 + '_new_R_middle_VPhi_i_average_inside_bin_sigmaphi_gamma_-2.50'),
-                                      (B_HQ66 + '_new_R_middle_average_logx10_gamma_-2.50.txt',
-                                       B_HQ66 + '_new_R_middle_average_logx10_gamma_-2.50'),
-                                      (B_HQ66 + '_new_R_middle_average_logx9_gamma_-2.50.txt',
-                                       B_HQ66 + '_new_R_middle_average_logx9_gamma_-2.50'),
-                                      (B_HQ66 + '_new_R_middle_average_logx7_gamma_-2.50.txt',
-                                       B_HQ66 + '_new_R_middle_average_logx7_gamma_-2.50'),
-                                      (B_HQ66 + '_new_R_middle_average_logx8_gamma_-2.50.txt',
-                                       B_HQ66 + '_new_R_middle_average_logx8_gamma_-2.50')]
+    FileLstbin3HQ10000_G1_0_10_005 = [(B_HQ66 + 'VT_i_average_inside_bin_sigmaT_gamma_-2.50.txt',
+                                       B_HQ66 + 'VT_i_average_inside_bin_sigmaT_gamma_-2.50'),
+                                      (B_HQ66 + 'VR_i_average_inside_bin_sigmaR_gamma_-2.50.txt',
+                                       B_HQ66 + 'VR_i_average_inside_bin_sigmaR_gamma_-2.50'),
+                                      (B_HQ66 + 'VTheta_i_average_inside_bin_sigmaTheta_gamma_-2.50.txt',
+                                       B_HQ66 + 'VTheta_i_average_inside_bin_sigmaTheta_gamma_-2.50'),
+                                      (B_HQ66 + 'VPhi_i_average_inside_bin_sigmaPhi_gamma_-2.50.txt',
+                                       B_HQ66 + 'VPhi_i_average_inside_bin_sigmaPhi_gamma_-2.50'),
+                                      (B_HQ66 + 'average_logx10_gamma_-2.50.txt',
+                                       B_HQ66 + 'average_logx10_gamma_-2.50'),
+                                      (B_HQ66 + 'average_logx9_gamma_-2.50.txt',
+                                       B_HQ66 + 'average_logx9_gamma_-2.50'),
+                                      (B_HQ66 + 'average_logx7_gamma_-2.50.txt',
+                                       B_HQ66 + 'average_logx7_gamma_-2.50'),
+                                      (B_HQ66 + 'average_logx8_gamma_-2.50.txt',
+                                       B_HQ66 + 'average_logx8_gamma_-2.50')]
 
-    FileLstbin4HQ10000_G1_0_10_005 = [(B_HQ66 + '_new_R_middle_VT_i_average_inside_bin_sigmatan_gamma_-3.00.txt',
-                                       B_HQ66 + '_new_R_middle_VT_i_average_inside_bin_sigmatan_gamma_-3.00'),
-                                      (B_HQ66 + '_new_R_middle_VR_i_average_inside_bin_sigmarad_gamma_-3.00.txt',
-                                       B_HQ66 + '_new_R_middle_VR_i_average_inside_bin_sigmarad_gamma_-3.00'),
-                                      (B_HQ66 + '_new_R_middle_VTheta_i_average_inside_bin_sigmatheta_gamma_-3.00.txt',
-                                       B_HQ66 + '_new_R_middle_VTheta_i_average_inside_bin_sigmatheta_gamma_-3.00'),
-                                      (B_HQ66 + '_new_R_middle_VPhi_i_average_inside_bin_sigmaphi_gamma_-3.00.txt',
-                                       B_HQ66 + '_new_R_middle_VPhi_i_average_inside_bin_sigmaphi_gamma_-3.00'),
-                                      (B_HQ66 + '_new_R_middle_average_logx10_gamma_-3.00.txt',
-                                       B_HQ66 + '_new_R_middle_average_logx10_gamma_-3.00'),
-                                      (B_HQ66 + '_new_R_middle_average_logx9_gamma_-3.00.txt',
-                                       B_HQ66 + '_new_R_middle_average_logx9_gamma_-3.00'),
-                                      (B_HQ66 + '_new_R_middle_average_logx7_gamma_-3.00.txt',
-                                       B_HQ66 + '_new_R_middle_average_logx7_gamma_-3.00'),
-                                      (B_HQ66 + '_new_R_middle_average_logx8_gamma_-3.00.txt',
-                                       B_HQ66 + '_new_R_middle_average_logx8_gamma_-3.00')]
+    FileLstbin4HQ10000_G1_0_10_005 = [(B_HQ66 + 'VT_i_average_inside_bin_sigmaT_gamma_-3.00.txt',
+                                       B_HQ66 + 'VT_i_average_inside_bin_sigmaT_gamma_-3.00'),
+                                      (B_HQ66 + 'VR_i_average_inside_bin_sigmaR_gamma_-3.00.txt',
+                                       B_HQ66 + 'VR_i_average_inside_bin_sigmaR_gamma_-3.00'),
+                                      (B_HQ66 + 'VTheta_i_average_inside_bin_sigmaTheta_gamma_-3.00.txt',
+                                       B_HQ66 + 'VTheta_i_average_inside_bin_sigmaTheta_gamma_-3.00'),
+                                      (B_HQ66 + 'VPhi_i_average_inside_bin_sigmaPhi_gamma_-3.00.txt',
+                                       B_HQ66 + 'VPhi_i_average_inside_bin_sigmaPhi_gamma_-3.00'),
+                                      (B_HQ66 + 'average_logx10_gamma_-3.00.txt',
+                                       B_HQ66 + 'average_logx10_gamma_-3.00'),
+                                      (B_HQ66 + 'average_logx9_gamma_-3.00.txt',
+                                       B_HQ66 + 'average_logx9_gamma_-3.00'),
+                                      (B_HQ66 + 'average_logx7_gamma_-3.00.txt',
+                                       B_HQ66 + 'average_logx7_gamma_-3.00'),
+                                      (B_HQ66 + 'average_logx8_gamma_-3.00.txt',
+                                       B_HQ66 + 'average_logx8_gamma_-3.00')]
 
     bin1_different_gammas_B_HQ10000_G1_0_10_005 = [(pylab.loadtxt(f), l) for f, l in FileLstbin1HQ10000_G1_0_10_005 ]
     bin2_different_gammas_B_HQ10000_G1_0_10_005 = [(pylab.loadtxt(f), l) for f, l in FileLstbin2HQ10000_G1_0_10_005 ]
@@ -434,73 +445,73 @@ if B_G_Pert_different_gammas_HQ10000_G1_0_10_005:
 if B_G_Pert_different_gammas_HQ10000_G1_0_198_000:
     B_HQ294 = 'B_HQ10000_G1.0_198_000'
 
-    FileLstbin1HQ10000_G1_0_198_000 = [(B_HQ294 + '_new_R_middle_VT_i_average_inside_bin_sigmatan_gamma_-1.50.txt',
-                                        B_HQ294 + '_new_R_middle_VT_i_average_inside_bin_sigmatan_gamma_-1.50'),
-                                       (B_HQ294 + '_new_R_middle_VR_i_average_inside_bin_sigmarad_gamma_-1.50.txt',
-                                        B_HQ294 + '_new_R_middle_VR_i_average_inside_bin_sigmarad_gamma_-1.50'),
-                                       (B_HQ294 + '_new_R_middle_VTheta_i_average_inside_bin_sigmatheta_gamma_-1.50.txt',
-                                        B_HQ294 + '_new_R_middle_VTheta_i_average_inside_bin_sigmatheta_gamma_-1.50'),
-                                       (B_HQ294 + '_new_R_middle_VPhi_i_average_inside_bin_sigmaphi_gamma_-1.50.txt',
-                                        B_HQ294 + '_new_R_middle_VPhi_i_average_inside_bin_sigmaphi_gamma_-1.50'),
-                                       (B_HQ294 + '_new_R_middle_average_logx10_gamma_-1.50.txt',
-                                        B_HQ294 + '_new_R_middle_average_logx10_gamma_-1.50'),
-                                       (B_HQ294 + '_new_R_middle_average_logx9_gamma_-1.50.txt',
-                                        B_HQ294 + '_new_R_middle_average_logx9_gamma_-1.50'),
-                                       (B_HQ294 + '_new_R_middle_average_logx7_gamma_-1.50.txt',
-                                        B_HQ294 + '_new_R_middle_average_logx7_gamma_-1.50'),
-                                       (B_HQ294 + '_new_R_middle_average_logx8_gamma_-1.50.txt',
-                                        B_HQ294 + '_new_R_middle_average_logx8_gamma_-1.50')]
+    FileLstbin1HQ10000_G1_0_198_000 = [(B_HQ294 + 'VT_i_average_inside_bin_sigmaT_gamma_-1.50.txt',
+                                        B_HQ294 + 'VT_i_average_inside_bin_sigmaT_gamma_-1.50'),
+                                       (B_HQ294 + 'VR_i_average_inside_bin_sigmaR_gamma_-1.50.txt',
+                                        B_HQ294 + 'VR_i_average_inside_bin_sigmaR_gamma_-1.50'),
+                                       (B_HQ294 + 'VTheta_i_average_inside_bin_sigmaTheta_gamma_-1.50.txt',
+                                        B_HQ294 + 'VTheta_i_average_inside_bin_sigmaTheta_gamma_-1.50'),
+                                       (B_HQ294 + 'VPhi_i_average_inside_bin_sigmaPhi_gamma_-1.50.txt',
+                                        B_HQ294 + 'VPhi_i_average_inside_bin_sigmaPhi_gamma_-1.50'),
+                                       (B_HQ294 + 'average_logx10_gamma_-1.50.txt',
+                                        B_HQ294 + 'average_logx10_gamma_-1.50'),
+                                       (B_HQ294 + 'average_logx9_gamma_-1.50.txt',
+                                        B_HQ294 + 'average_logx9_gamma_-1.50'),
+                                       (B_HQ294 + 'average_logx7_gamma_-1.50.txt',
+                                        B_HQ294 + 'average_logx7_gamma_-1.50'),
+                                       (B_HQ294 + 'average_logx8_gamma_-1.50.txt',
+                                        B_HQ294 + 'average_logx8_gamma_-1.50')]
 
-    FileLstbin2HQ10000_G1_0_198_000 = [(B_HQ294 + '_new_R_middle_VT_i_average_inside_bin_sigmatan_gamma_-2.00.txt',
-                                        B_HQ294 + '_new_R_middle_VT_i_average_inside_bin_sigmatan_gamma_-2.00'),
-                                       (B_HQ294 + '_new_R_middle_VR_i_average_inside_bin_sigmarad_gamma_-2.00.txt',
-                                        B_HQ294 + '_new_R_middle_VR_i_average_inside_bin_sigmarad_gamma_-2.00'),
-                                       (B_HQ294 + '_new_R_middle_VTheta_i_average_inside_bin_sigmatheta_gamma_-2.00.txt',
-                                        B_HQ294 + '_new_R_middle_VTheta_i_average_inside_bin_sigmatheta_gamma_-2.00'),
-                                       (B_HQ294 + '_new_R_middle_VPhi_i_average_inside_bin_sigmaphi_gamma_-2.00.txt',
-                                        B_HQ294 + '_new_R_middle_VPhi_i_average_inside_bin_sigmaphi_gamma_-2.00'),
-                                       (B_HQ294 + '_new_R_middle_average_logx10_gamma_-2.00.txt',
-                                        B_HQ294 + '_new_R_middle_average_logx10_gamma_-2.00'),
-                                       (B_HQ294 + '_new_R_middle_average_logx9_gamma_-2.00.txt',
-                                        B_HQ294 + '_new_R_middle_average_logx9_gamma_-2.00'),
-                                       (B_HQ294 + '_new_R_middle_average_logx7_gamma_-2.00.txt',
-                                        B_HQ294 + '_new_R_middle_average_logx7_gamma_-2.00'),
-                                       (B_HQ294 + '_new_R_middle_average_logx8_gamma_-2.00.txt',
-                                        B_HQ294 + '_new_R_middle_average_logx8_gamma_-2.00')]
+    FileLstbin2HQ10000_G1_0_198_000 = [(B_HQ294 + 'VT_i_average_inside_bin_sigmaT_gamma_-2.00.txt',
+                                        B_HQ294 + 'VT_i_average_inside_bin_sigmaT_gamma_-2.00'),
+                                       (B_HQ294 + 'VR_i_average_inside_bin_sigmaR_gamma_-2.00.txt',
+                                        B_HQ294 + 'VR_i_average_inside_bin_sigmaR_gamma_-2.00'),
+                                       (B_HQ294 + 'VTheta_i_average_inside_bin_sigmaTheta_gamma_-2.00.txt',
+                                        B_HQ294 + 'VTheta_i_average_inside_bin_sigmaTheta_gamma_-2.00'),
+                                       (B_HQ294 + 'VPhi_i_average_inside_bin_sigmaPhi_gamma_-2.00.txt',
+                                        B_HQ294 + 'VPhi_i_average_inside_bin_sigmaPhi_gamma_-2.00'),
+                                       (B_HQ294 + 'average_logx10_gamma_-2.00.txt',
+                                        B_HQ294 + 'average_logx10_gamma_-2.00'),
+                                       (B_HQ294 + 'average_logx9_gamma_-2.00.txt',
+                                        B_HQ294 + 'average_logx9_gamma_-2.00'),
+                                       (B_HQ294 + 'average_logx7_gamma_-2.00.txt',
+                                        B_HQ294 + 'average_logx7_gamma_-2.00'),
+                                       (B_HQ294 + 'average_logx8_gamma_-2.00.txt',
+                                        B_HQ294 + 'average_logx8_gamma_-2.00')]
 
-    FileLstbin3HQ10000_G1_0_198_000 = [(B_HQ294 + '_new_R_middle_VT_i_average_inside_bin_sigmatan_gamma_-2.50.txt',
-                                        B_HQ294 + '_new_R_middle_VT_i_average_inside_bin_sigmatan_gamma_-2.50'),
-                                       (B_HQ294 + '_new_R_middle_VR_i_average_inside_bin_sigmarad_gamma_-2.50.txt',
-                                        B_HQ294 + '_new_R_middle_VR_i_average_inside_bin_sigmarad_gamma_-2.50'),
-                                       (B_HQ294 + '_new_R_middle_VTheta_i_average_inside_bin_sigmatheta_gamma_-2.50.txt',
-                                        B_HQ294 + '_new_R_middle_VTheta_i_average_inside_bin_sigmatheta_gamma_-2.50'),
-                                       (B_HQ294 + '_new_R_middle_VPhi_i_average_inside_bin_sigmaphi_gamma_-2.50.txt',
-                                        B_HQ294 + '_new_R_middle_VPhi_i_average_inside_bin_sigmaphi_gamma_-2.50'),
-                                       (B_HQ294 + '_new_R_middle_average_logx10_gamma_-2.50.txt',
-                                        B_HQ294 + '_new_R_middle_average_logx10_gamma_-2.50'),
-                                       (B_HQ294 + '_new_R_middle_average_logx9_gamma_-2.50.txt',
-                                        B_HQ294 + '_new_R_middle_average_logx9_gamma_-2.50'),
-                                       (B_HQ294 + '_new_R_middle_average_logx7_gamma_-2.50.txt',
-                                        B_HQ294 + '_new_R_middle_average_logx7_gamma_-2.50'),
-                                       (B_HQ294 + '_new_R_middle_average_logx8_gamma_-2.50.txt',
-                                        B_HQ294 + '_new_R_middle_average_logx8_gamma_-2.50')]
+    FileLstbin3HQ10000_G1_0_198_000 = [(B_HQ294 + 'VT_i_average_inside_bin_sigmaT_gamma_-2.50.txt',
+                                        B_HQ294 + 'VT_i_average_inside_bin_sigmaT_gamma_-2.50'),
+                                       (B_HQ294 + 'VR_i_average_inside_bin_sigmaR_gamma_-2.50.txt',
+                                        B_HQ294 + 'VR_i_average_inside_bin_sigmaR_gamma_-2.50'),
+                                       (B_HQ294 + 'VTheta_i_average_inside_bin_sigmaTheta_gamma_-2.50.txt',
+                                        B_HQ294 + 'VTheta_i_average_inside_bin_sigmaTheta_gamma_-2.50'),
+                                       (B_HQ294 + 'VPhi_i_average_inside_bin_sigmaPhi_gamma_-2.50.txt',
+                                        B_HQ294 + 'VPhi_i_average_inside_bin_sigmaPhi_gamma_-2.50'),
+                                       (B_HQ294 + 'average_logx10_gamma_-2.50.txt',
+                                        B_HQ294 + 'average_logx10_gamma_-2.50'),
+                                       (B_HQ294 + 'average_logx9_gamma_-2.50.txt',
+                                        B_HQ294 + 'average_logx9_gamma_-2.50'),
+                                       (B_HQ294 + 'average_logx7_gamma_-2.50.txt',
+                                        B_HQ294 + 'average_logx7_gamma_-2.50'),
+                                       (B_HQ294 + 'average_logx8_gamma_-2.50.txt',
+                                        B_HQ294 + 'average_logx8_gamma_-2.50')]
 
-    FileLstbin4HQ10000_G1_0_198_000 = [(B_HQ294 + '_new_R_middle_VT_i_average_inside_bin_sigmatan_gamma_-3.00.txt',
-                                        B_HQ294 + '_new_R_middle_VT_i_average_inside_bin_sigmatan_gamma_-3.00'),
-                                       (B_HQ294 + '_new_R_middle_VR_i_average_inside_bin_sigmarad_gamma_-3.00.txt',
-                                        B_HQ294 + '_new_R_middle_VR_i_average_inside_bin_sigmarad_gamma_-3.00'),
-                                       (B_HQ294 + '_new_R_middle_VTheta_i_average_inside_bin_sigmatheta_gamma_-3.00.txt',
-                                        B_HQ294 + '_new_R_middle_VTheta_i_average_inside_bin_sigmatheta_gamma_-3.00'),
-                                       (B_HQ294 + '_new_R_middle_VPhi_i_average_inside_bin_sigmaphi_gamma_-3.00.txt',
-                                        B_HQ294 + '_new_R_middle_VPhi_i_average_inside_bin_sigmaphi_gamma_-3.00'),
-                                       (B_HQ294 + '_new_R_middle_average_logx10_gamma_-3.00.txt',
-                                        B_HQ294 + '_new_R_middle_average_logx10_gamma_-3.00'),
-                                       (B_HQ294 + '_new_R_middle_average_logx9_gamma_-3.00.txt',
-                                        B_HQ294 + '_new_R_middle_average_logx9_gamma_-3.00'),
-                                       (B_HQ294 + '_new_R_middle_average_logx7_gamma_-3.00.txt',
-                                        B_HQ294 + '_new_R_middle_average_logx7_gamma_-3.00'),
-                                       (B_HQ294 + '_new_R_middle_average_logx8_gamma_-3.00.txt',
-                                        B_HQ294 + '_new_R_middle_average_logx8_gamma_-3.00')]
+    FileLstbin4HQ10000_G1_0_198_000 = [(B_HQ294 + 'VT_i_average_inside_bin_sigmaT_gamma_-3.00.txt',
+                                        B_HQ294 + 'VT_i_average_inside_bin_sigmaT_gamma_-3.00'),
+                                       (B_HQ294 + 'VR_i_average_inside_bin_sigmaR_gamma_-3.00.txt',
+                                        B_HQ294 + 'VR_i_average_inside_bin_sigmaR_gamma_-3.00'),
+                                       (B_HQ294 + 'VTheta_i_average_inside_bin_sigmaTheta_gamma_-3.00.txt',
+                                        B_HQ294 + 'VTheta_i_average_inside_bin_sigmaTheta_gamma_-3.00'),
+                                       (B_HQ294 + 'VPhi_i_average_inside_bin_sigmaPhi_gamma_-3.00.txt',
+                                        B_HQ294 + 'VPhi_i_average_inside_bin_sigmaPhi_gamma_-3.00'),
+                                       (B_HQ294 + 'average_logx10_gamma_-3.00.txt',
+                                        B_HQ294 + 'average_logx10_gamma_-3.00'),
+                                       (B_HQ294 + 'average_logx9_gamma_-3.00.txt',
+                                        B_HQ294 + 'average_logx9_gamma_-3.00'),
+                                       (B_HQ294 + 'average_logx7_gamma_-3.00.txt',
+                                        B_HQ294 + 'average_logx7_gamma_-3.00'),
+                                       (B_HQ294 + 'average_logx8_gamma_-3.00.txt',
+                                        B_HQ294 + 'average_logx8_gamma_-3.00')]
 
     bin1_different_gammas_B_HQ10000_G1_0_198_000 = [(pylab.loadtxt(f), l) for f, l in FileLstbin1HQ10000_G1_0_198_000]
     bin2_different_gammas_B_HQ10000_G1_0_198_000 = [(pylab.loadtxt(f), l) for f, l in FileLstbin2HQ10000_G1_0_198_000]
@@ -510,73 +521,73 @@ if B_G_Pert_different_gammas_HQ10000_G1_0_198_000:
 if B_G_Pert_different_gammas_HQ10000_G1_0_198_093:
     B_HQ382 = 'B_HQ10000_G1.0_198_093'
 
-    FileLstbin1HQ10000_G1_0_198_093 = [(B_HQ382 + '_new_R_middle_VT_i_average_inside_bin_sigmatan_gamma_-1.50.txt',
-                                        B_HQ382 + '_new_R_middle_VT_i_average_inside_bin_sigmatan_gamma_-1.50'),
-                                       (B_HQ382 + '_new_R_middle_VR_i_average_inside_bin_sigmarad_gamma_-1.50.txt',
-                                        B_HQ382 + '_new_R_middle_VR_i_average_inside_bin_sigmarad_gamma_-1.50'),
-                                       (B_HQ382 + '_new_R_middle_VTheta_i_average_inside_bin_sigmatheta_gamma_-1.50.txt',
-                                        B_HQ382 + '_new_R_middle_VTheta_i_average_inside_bin_sigmatheta_gamma_-1.50'),
-                                       (B_HQ382 + '_new_R_middle_VPhi_i_average_inside_bin_sigmaphi_gamma_-1.50.txt',
-                                        B_HQ382 + '_new_R_middle_VPhi_i_average_inside_bin_sigmaphi_gamma_-1.50'),
-                                       (B_HQ382 + '_new_R_middle_average_logx10_gamma_-1.50.txt',
-                                        B_HQ382 + '_new_R_middle_average_logx10_gamma_-1.50'),
-                                       (B_HQ382 + '_new_R_middle_average_logx9_gamma_-1.50.txt',
-                                        B_HQ382 + '_new_R_middle_average_logx9_gamma_-1.50'),
-                                       (B_HQ382 + '_new_R_middle_average_logx7_gamma_-1.50.txt',
-                                        B_HQ382 + '_new_R_middle_average_logx7_gamma_-1.50'),
-                                       (B_HQ382 + '_new_R_middle_average_logx8_gamma_-1.50.txt',
-                                        B_HQ382 + '_new_R_middle_average_logx8_gamma_-1.50')]
+    FileLstbin1HQ10000_G1_0_198_093 = [(B_HQ382 + 'VT_i_average_inside_bin_sigmaT_gamma_-1.50.txt',
+                                        B_HQ382 + 'VT_i_average_inside_bin_sigmaT_gamma_-1.50'),
+                                       (B_HQ382 + 'VR_i_average_inside_bin_sigmaR_gamma_-1.50.txt',
+                                        B_HQ382 + 'VR_i_average_inside_bin_sigmaR_gamma_-1.50'),
+                                       (B_HQ382 + 'VTheta_i_average_inside_bin_sigmaTheta_gamma_-1.50.txt',
+                                        B_HQ382 + 'VTheta_i_average_inside_bin_sigmaTheta_gamma_-1.50'),
+                                       (B_HQ382 + 'VPhi_i_average_inside_bin_sigmaPhi_gamma_-1.50.txt',
+                                        B_HQ382 + 'VPhi_i_average_inside_bin_sigmaPhi_gamma_-1.50'),
+                                       (B_HQ382 + 'average_logx10_gamma_-1.50.txt',
+                                        B_HQ382 + 'average_logx10_gamma_-1.50'),
+                                       (B_HQ382 + 'average_logx9_gamma_-1.50.txt',
+                                        B_HQ382 + 'average_logx9_gamma_-1.50'),
+                                       (B_HQ382 + 'average_logx7_gamma_-1.50.txt',
+                                        B_HQ382 + 'average_logx7_gamma_-1.50'),
+                                       (B_HQ382 + 'average_logx8_gamma_-1.50.txt',
+                                        B_HQ382 + 'average_logx8_gamma_-1.50')]
 
-    FileLstbin2HQ10000_G1_0_198_093 = [(B_HQ382 + '_new_R_middle_VT_i_average_inside_bin_sigmatan_gamma_-2.00.txt',
-                                        B_HQ382 + '_new_R_middle_VT_i_average_inside_bin_sigmatan_gamma_-2.00'),
-                                       (B_HQ382 + '_new_R_middle_VR_i_average_inside_bin_sigmarad_gamma_-2.00.txt',
-                                        B_HQ382 + '_new_R_middle_VR_i_average_inside_bin_sigmarad_gamma_-2.00'),
-                                       (B_HQ382 + '_new_R_middle_VTheta_i_average_inside_bin_sigmatheta_gamma_-2.00.txt',
-                                        B_HQ382 + '_new_R_middle_VTheta_i_average_inside_bin_sigmatheta_gamma_-2.00'),
-                                       (B_HQ382 + '_new_R_middle_VPhi_i_average_inside_bin_sigmaphi_gamma_-2.00.txt',
-                                        B_HQ382 + '_new_R_middle_VPhi_i_average_inside_bin_sigmaphi_gamma_-2.00'),
-                                       (B_HQ382 + '_new_R_middle_average_logx10_gamma_-2.00.txt',
-                                        B_HQ382 + '_new_R_middle_average_logx10_gamma_-2.00'),
-                                       (B_HQ382 + '_new_R_middle_average_logx9_gamma_-2.00.txt',
-                                        B_HQ382 + '_new_R_middle_average_logx9_gamma_-2.00'),
-                                       (B_HQ382 + '_new_R_middle_average_logx7_gamma_-2.00.txt',
-                                        B_HQ382 + '_new_R_middle_average_logx7_gamma_-2.00'),
-                                       (B_HQ382 + '_new_R_middle_average_logx8_gamma_-2.00.txt',
-                                        B_HQ382 + '_new_R_middle_average_logx8_gamma_-2.00')]
+    FileLstbin2HQ10000_G1_0_198_093 = [(B_HQ382 + 'VT_i_average_inside_bin_sigmaT_gamma_-2.00.txt',
+                                        B_HQ382 + 'VT_i_average_inside_bin_sigmaT_gamma_-2.00'),
+                                       (B_HQ382 + 'VR_i_average_inside_bin_sigmaR_gamma_-2.00.txt',
+                                        B_HQ382 + 'VR_i_average_inside_bin_sigmaR_gamma_-2.00'),
+                                       (B_HQ382 + 'VTheta_i_average_inside_bin_sigmaTheta_gamma_-2.00.txt',
+                                        B_HQ382 + 'VTheta_i_average_inside_bin_sigmaTheta_gamma_-2.00'),
+                                       (B_HQ382 + 'VPhi_i_average_inside_bin_sigmaPhi_gamma_-2.00.txt',
+                                        B_HQ382 + 'VPhi_i_average_inside_bin_sigmaPhi_gamma_-2.00'),
+                                       (B_HQ382 + 'average_logx10_gamma_-2.00.txt',
+                                        B_HQ382 + 'average_logx10_gamma_-2.00'),
+                                       (B_HQ382 + 'average_logx9_gamma_-2.00.txt',
+                                        B_HQ382 + 'average_logx9_gamma_-2.00'),
+                                       (B_HQ382 + 'average_logx7_gamma_-2.00.txt',
+                                        B_HQ382 + 'average_logx7_gamma_-2.00'),
+                                       (B_HQ382 + 'average_logx8_gamma_-2.00.txt',
+                                        B_HQ382 + 'average_logx8_gamma_-2.00')]
 
-    FileLstbin3HQ10000_G1_0_198_093 = [(B_HQ382 + '_new_R_middle_VT_i_average_inside_bin_sigmatan_gamma_-2.50.txt',
-                                        B_HQ382 + '_new_R_middle_VT_i_average_inside_bin_sigmatan_gamma_-2.50'),
-                                       (B_HQ382 + '_new_R_middle_VR_i_average_inside_bin_sigmarad_gamma_-2.50.txt',
-                                        B_HQ382 + '_new_R_middle_VR_i_average_inside_bin_sigmarad_gamma_-2.50'),
-                                       (B_HQ382 + '_new_R_middle_VTheta_i_average_inside_bin_sigmatheta_gamma_-2.50.txt',
-                                        B_HQ382 + '_new_R_middle_VTheta_i_average_inside_bin_sigmatheta_gamma_-2.50'),
-                                       (B_HQ382 + '_new_R_middle_VPhi_i_average_inside_bin_sigmaphi_gamma_-2.50.txt',
-                                        B_HQ382 + '_new_R_middle_VPhi_i_average_inside_bin_sigmaphi_gamma_-2.50'),
-                                       (B_HQ382 + '_new_R_middle_average_logx10_gamma_-2.50.txt',
-                                        B_HQ382 + '_new_R_middle_average_logx10_gamma_-2.50'),
-                                       (B_HQ382 + '_new_R_middle_average_logx9_gamma_-2.50.txt',
-                                        B_HQ382 + '_new_R_middle_average_logx9_gamma_-2.50'),
-                                       (B_HQ382 + '_new_R_middle_average_logx7_gamma_-2.50.txt',
-                                        B_HQ382 + '_new_R_middle_average_logx7_gamma_-2.50'),
-                                       (B_HQ382 + '_new_R_middle_average_logx8_gamma_-2.50.txt',
-                                        B_HQ382 + '_new_R_middle_average_logx8_gamma_-2.50')]
+    FileLstbin3HQ10000_G1_0_198_093 = [(B_HQ382 + 'VT_i_average_inside_bin_sigmaT_gamma_-2.50.txt',
+                                        B_HQ382 + 'VT_i_average_inside_bin_sigmaT_gamma_-2.50'),
+                                       (B_HQ382 + 'VR_i_average_inside_bin_sigmaR_gamma_-2.50.txt',
+                                        B_HQ382 + 'VR_i_average_inside_bin_sigmaR_gamma_-2.50'),
+                                       (B_HQ382 + 'VTheta_i_average_inside_bin_sigmaTheta_gamma_-2.50.txt',
+                                        B_HQ382 + 'VTheta_i_average_inside_bin_sigmaTheta_gamma_-2.50'),
+                                       (B_HQ382 + 'VPhi_i_average_inside_bin_sigmaPhi_gamma_-2.50.txt',
+                                        B_HQ382 + 'VPhi_i_average_inside_bin_sigmaPhi_gamma_-2.50'),
+                                       (B_HQ382 + 'average_logx10_gamma_-2.50.txt',
+                                        B_HQ382 + 'average_logx10_gamma_-2.50'),
+                                       (B_HQ382 + 'average_logx9_gamma_-2.50.txt',
+                                        B_HQ382 + 'average_logx9_gamma_-2.50'),
+                                       (B_HQ382 + 'average_logx7_gamma_-2.50.txt',
+                                        B_HQ382 + 'average_logx7_gamma_-2.50'),
+                                       (B_HQ382 + 'average_logx8_gamma_-2.50.txt',
+                                        B_HQ382 + 'average_logx8_gamma_-2.50')]
 
-    FileLstbin4HQ10000_G1_0_198_093 = [(B_HQ382 + '_new_R_middle_VT_i_average_inside_bin_sigmatan_gamma_-3.00.txt',
-                                        B_HQ382 + '_new_R_middle_VT_i_average_inside_bin_sigmatan_gamma_-3.00'),
-                                       (B_HQ382 + '_new_R_middle_VR_i_average_inside_bin_sigmarad_gamma_-3.00.txt',
-                                        B_HQ382 + '_new_R_middle_VR_i_average_inside_bin_sigmarad_gamma_-3.00'),
-                                       (B_HQ382 + '_new_R_middle_VTheta_i_average_inside_bin_sigmatheta_gamma_-3.00.txt',
-                                        B_HQ382 + '_new_R_middle_VTheta_i_average_inside_bin_sigmatheta_gamma_-3.00'),
-                                       (B_HQ382 + '_new_R_middle_VPhi_i_average_inside_bin_sigmaphi_gamma_-3.00.txt',
-                                        B_HQ382 + '_new_R_middle_VPhi_i_average_inside_bin_sigmaphi_gamma_-3.00'),
-                                       (B_HQ382 + '_new_R_middle_average_logx10_gamma_-3.00.txt',
-                                        B_HQ382 + '_new_R_middle_average_logx10_gamma_-3.00'),
-                                       (B_HQ382 + '_new_R_middle_average_logx9_gamma_-3.00.txt',
-                                        B_HQ382 + '_new_R_middle_average_logx9_gamma_-3.00'),
-                                       (B_HQ382 + '_new_R_middle_average_logx7_gamma_-3.00.txt',
-                                        B_HQ382 + '_new_R_middle_average_logx7_gamma_-3.00'),
-                                       (B_HQ382 + '_new_R_middle_average_logx8_gamma_-3.00.txt',
-                                        B_HQ382 + '_new_R_middle_average_logx8_gamma_-3.00')]
+    FileLstbin4HQ10000_G1_0_198_093 = [(B_HQ382 + 'VT_i_average_inside_bin_sigmaT_gamma_-3.00.txt',
+                                        B_HQ382 + 'VT_i_average_inside_bin_sigmaT_gamma_-3.00'),
+                                       (B_HQ382 + 'VR_i_average_inside_bin_sigmaR_gamma_-3.00.txt',
+                                        B_HQ382 + 'VR_i_average_inside_bin_sigmaR_gamma_-3.00'),
+                                       (B_HQ382 + 'VTheta_i_average_inside_bin_sigmaTheta_gamma_-3.00.txt',
+                                        B_HQ382 + 'VTheta_i_average_inside_bin_sigmaTheta_gamma_-3.00'),
+                                       (B_HQ382 + 'VPhi_i_average_inside_bin_sigmaPhi_gamma_-3.00.txt',
+                                        B_HQ382 + 'VPhi_i_average_inside_bin_sigmaPhi_gamma_-3.00'),
+                                       (B_HQ382 + 'average_logx10_gamma_-3.00.txt',
+                                        B_HQ382 + 'average_logx10_gamma_-3.00'),
+                                       (B_HQ382 + 'average_logx9_gamma_-3.00.txt',
+                                        B_HQ382 + 'average_logx9_gamma_-3.00'),
+                                       (B_HQ382 + 'average_logx7_gamma_-3.00.txt',
+                                        B_HQ382 + 'average_logx7_gamma_-3.00'),
+                                       (B_HQ382 + 'average_logx8_gamma_-3.00.txt',
+                                        B_HQ382 + 'average_logx8_gamma_-3.00')]
 
     bin1_different_gammas_B_HQ10000_G1_0_198_093 = [(pylab.loadtxt(f), l) for f, l in FileLstbin1HQ10000_G1_0_198_093]
     bin2_different_gammas_B_HQ10000_G1_0_198_093 = [(pylab.loadtxt(f), l) for f, l in FileLstbin2HQ10000_G1_0_198_093]
@@ -586,80 +597,80 @@ if B_G_Pert_different_gammas_HQ10000_G1_0_198_093:
 if B_G_Pert_different_gammas_HQ10000_G1_0_199_093:
     B_HQ475 = 'B_HQ10000_G1.0_199_093'
 
-    FileLstbin1HQ10000_G1_0_199_093 = [(B_HQ475 + '_new_R_middle_VT_i_average_inside_bin_sigmatan_gamma_-1.50.txt',
-                                        B_HQ475 + '_new_R_middle_VT_i_average_inside_bin_sigmatan_gamma_-1.50'),
-                                       (B_HQ475 + '_new_R_middle_VR_i_average_inside_bin_sigmarad_gamma_-1.50.txt',
-                                        B_HQ475 + '_new_R_middle_VR_i_average_inside_bin_sigmarad_gamma_-1.50'),
-                                       (B_HQ475 + '_new_R_middle_VTheta_i_average_inside_bin_sigmatheta_gamma_-1.50.txt',
-                                        B_HQ475 + '_new_R_middle_VTheta_i_average_inside_bin_sigmatheta_gamma_-1.50'),
-                                       (B_HQ475 + '_new_R_middle_VPhi_i_average_inside_bin_sigmaphi_gamma_-1.50.txt',
-                                        B_HQ475 + '_new_R_middle_VPhi_i_average_inside_bin_sigmaphi_gamma_-1.50'),
-                                       (B_HQ475 + '_new_R_middle_average_logx10_gamma_-1.50.txt',
-                                        B_HQ475 + '_new_R_middle_average_logx10_gamma_-1.50'),
-                                       (B_HQ475 + '_new_R_middle_average_logx9_gamma_-1.50.txt',
-                                        B_HQ475 + '_new_R_middle_average_logx9_gamma_-1.50'),
-                                       (B_HQ475 + '_new_R_middle_average_logx7_gamma_-1.50.txt',
-                                        B_HQ475 + '_new_R_middle_average_logx7_gamma_-1.50'),
-                                       (B_HQ475 + '_new_R_middle_average_logx8_gamma_-1.50.txt',
-                                        B_HQ475 + '_new_R_middle_average_logx8_gamma_-1.50')]
+    FileLstbin1HQ10000_G1_0_199_093 = [(B_HQ475 + 'VT_i_average_inside_bin_sigmaT_gamma_-1.50.txt',
+                                        B_HQ475 + 'VT_i_average_inside_bin_sigmaT_gamma_-1.50'),
+                                       (B_HQ475 + 'VR_i_average_inside_bin_sigmaR_gamma_-1.50.txt',
+                                        B_HQ475 + 'VR_i_average_inside_bin_sigmaR_gamma_-1.50'),
+                                       (B_HQ475 + 'VTheta_i_average_inside_bin_sigmaTheta_gamma_-1.50.txt',
+                                        B_HQ475 + 'VTheta_i_average_inside_bin_sigmaTheta_gamma_-1.50'),
+                                       (B_HQ475 + 'VPhi_i_average_inside_bin_sigmaPhi_gamma_-1.50.txt',
+                                        B_HQ475 + 'VPhi_i_average_inside_bin_sigmaPhi_gamma_-1.50'),
+                                       (B_HQ475 + 'average_logx10_gamma_-1.50.txt',
+                                        B_HQ475 + 'average_logx10_gamma_-1.50'),
+                                       (B_HQ475 + 'average_logx9_gamma_-1.50.txt',
+                                        B_HQ475 + 'average_logx9_gamma_-1.50'),
+                                       (B_HQ475 + 'average_logx7_gamma_-1.50.txt',
+                                        B_HQ475 + 'average_logx7_gamma_-1.50'),
+                                       (B_HQ475 + 'average_logx8_gamma_-1.50.txt',
+                                        B_HQ475 + 'average_logx8_gamma_-1.50')]
 
-    FileLstbin2HQ10000_G1_0_199_093 = [(B_HQ475 + '_new_R_middle_VT_i_average_inside_bin_sigmatan_gamma_-2.00.txt',
-                                        B_HQ475 + '_new_R_middle_VT_i_average_inside_bin_sigmatan_gamma_-2.00'),
-                                       (B_HQ475 + '_new_R_middle_VR_i_average_inside_bin_sigmarad_gamma_-2.00.txt',
-                                        B_HQ475 + '_new_R_middle_VR_i_average_inside_bin_sigmarad_gamma_-2.00'),
-                                       (B_HQ475 + '_new_R_middle_VTheta_i_average_inside_bin_sigmatheta_gamma_-2.00.txt',
-                                        B_HQ475 + '_new_R_middle_VTheta_i_average_inside_bin_sigmatheta_gamma_-2.00'),
-                                       (B_HQ475 + '_new_R_middle_VPhi_i_average_inside_bin_sigmaphi_gamma_-2.00.txt',
-                                        B_HQ475 + '_new_R_middle_VPhi_i_average_inside_bin_sigmaphi_gamma_-2.00'),
-                                       (B_HQ475 + '_new_R_middle_average_logx10_gamma_-2.00.txt',
-                                        B_HQ475 + '_new_R_middle_average_logx10_gamma_-2.00'),
-                                       (B_HQ475 + '_new_R_middle_average_logx9_gamma_-2.00.txt',
-                                        B_HQ475 + '_new_R_middle_average_logx9_gamma_-2.00'),
-                                       (B_HQ475 + '_new_R_middle_average_logx7_gamma_-2.00.txt',
-                                        B_HQ475 + '_new_R_middle_average_logx7_gamma_-2.00'),
-                                       (B_HQ475 + '_new_R_middle_average_logx8_gamma_-2.00.txt',
-                                        B_HQ475 + '_new_R_middle_average_logx8_gamma_-2.00')]
+    FileLstbin2HQ10000_G1_0_199_093 = [(B_HQ475 + 'VT_i_average_inside_bin_sigmaT_gamma_-2.00.txt',
+                                        B_HQ475 + 'VT_i_average_inside_bin_sigmaT_gamma_-2.00'),
+                                       (B_HQ475 + 'VR_i_average_inside_bin_sigmaR_gamma_-2.00.txt',
+                                        B_HQ475 + 'VR_i_average_inside_bin_sigmaR_gamma_-2.00'),
+                                       (B_HQ475 + 'VTheta_i_average_inside_bin_sigmaTheta_gamma_-2.00.txt',
+                                        B_HQ475 + 'VTheta_i_average_inside_bin_sigmaTheta_gamma_-2.00'),
+                                       (B_HQ475 + 'VPhi_i_average_inside_bin_sigmaPhi_gamma_-2.00.txt',
+                                        B_HQ475 + 'VPhi_i_average_inside_bin_sigmaPhi_gamma_-2.00'),
+                                       (B_HQ475 + 'average_logx10_gamma_-2.00.txt',
+                                        B_HQ475 + 'average_logx10_gamma_-2.00'),
+                                       (B_HQ475 + 'average_logx9_gamma_-2.00.txt',
+                                        B_HQ475 + 'average_logx9_gamma_-2.00'),
+                                       (B_HQ475 + 'average_logx7_gamma_-2.00.txt',
+                                        B_HQ475 + 'average_logx7_gamma_-2.00'),
+                                       (B_HQ475 + 'average_logx8_gamma_-2.00.txt',
+                                        B_HQ475 + 'average_logx8_gamma_-2.00')]
 
-    FileLstbin3HQ10000_G1_0_199_093 = [(B_HQ475 + '_new_R_middle_VT_i_average_inside_bin_sigmatan_gamma_-2.50.txt',
-                                        B_HQ475 + '_new_R_middle_VT_i_average_inside_bin_sigmatan_gamma_-2.50'),
-                                       (B_HQ475 + '_new_R_middle_VR_i_average_inside_bin_sigmarad_gamma_-2.50.txt',
-                                        B_HQ475 + '_new_R_middle_VR_i_average_inside_bin_sigmarad_gamma_-2.50'),
-                                       (B_HQ475 + '_new_R_middle_VTheta_i_average_inside_bin_sigmatheta_gamma_-2.50.txt',
-                                        B_HQ475 + '_new_R_middle_VTheta_i_average_inside_bin_sigmatheta_gamma_-2.50'),
-                                       (B_HQ475 + '_new_R_middle_VPhi_i_average_inside_bin_sigmaphi_gamma_-2.50.txt',
-                                        B_HQ475 + '_new_R_middle_VPhi_i_average_inside_bin_sigmaphi_gamma_-2.50'),
-                                       (B_HQ475 + '_new_R_middle_average_logx10_gamma_-2.50.txt',
-                                        B_HQ475 + '_new_R_middle_average_logx10_gamma_-2.50'),
-                                       (B_HQ475 + '_new_R_middle_average_logx9_gamma_-2.50.txt',
-                                        B_HQ475 + '_new_R_middle_average_logx9_gamma_-2.50'),
-                                       (B_HQ475 + '_new_R_middle_average_logx7_gamma_-2.50.txt',
-                                        B_HQ475 + '_new_R_middle_average_logx7_gamma_-2.50'),
-                                       (B_HQ475 + '_new_R_middle_average_logx8_gamma_-2.50.txt',
-                                        B_HQ475 + '_new_R_middle_average_logx8_gamma_-2.50')]
+    FileLstbin3HQ10000_G1_0_199_093 = [(B_HQ475 + 'VT_i_average_inside_bin_sigmaT_gamma_-2.50.txt',
+                                        B_HQ475 + 'VT_i_average_inside_bin_sigmaT_gamma_-2.50'),
+                                       (B_HQ475 + 'VR_i_average_inside_bin_sigmaR_gamma_-2.50.txt',
+                                        B_HQ475 + 'VR_i_average_inside_bin_sigmaR_gamma_-2.50'),
+                                       (B_HQ475 + 'VTheta_i_average_inside_bin_sigmaTheta_gamma_-2.50.txt',
+                                        B_HQ475 + 'VTheta_i_average_inside_bin_sigmaTheta_gamma_-2.50'),
+                                       (B_HQ475 + 'VPhi_i_average_inside_bin_sigmaPhi_gamma_-2.50.txt',
+                                        B_HQ475 + 'VPhi_i_average_inside_bin_sigmaPhi_gamma_-2.50'),
+                                       (B_HQ475 + 'average_logx10_gamma_-2.50.txt',
+                                        B_HQ475 + 'average_logx10_gamma_-2.50'),
+                                       (B_HQ475 + 'average_logx9_gamma_-2.50.txt',
+                                        B_HQ475 + 'average_logx9_gamma_-2.50'),
+                                       (B_HQ475 + 'average_logx7_gamma_-2.50.txt',
+                                        B_HQ475 + 'average_logx7_gamma_-2.50'),
+                                       (B_HQ475 + 'average_logx8_gamma_-2.50.txt',
+                                        B_HQ475 + 'average_logx8_gamma_-2.50')]
 
-    FileLstbin4HQ10000_G1_0_199_093 = [(B_HQ475 + '_new_R_middle_VT_i_average_inside_bin_sigmatan_gamma_-3.00.txt',
-                                        B_HQ475 + '_new_R_middle_VT_i_average_inside_bin_sigmatan_gamma_-3.00'),
-                                       (B_HQ475 + '_new_R_middle_VR_i_average_inside_bin_sigmarad_gamma_-3.00.txt',
-                                        B_HQ475 + '_new_R_middle_VR_i_average_inside_bin_sigmarad_gamma_-3.00'),
-                                       (B_HQ475 + '_new_R_middle_VTheta_i_average_inside_bin_sigmatheta_gamma_-3.00.txt',
-                                        B_HQ475 + '_new_R_middle_VTheta_i_average_inside_bin_sigmatheta_gamma_-3.00'),
-                                       (B_HQ475 + '_new_R_middle_VPhi_i_average_inside_bin_sigmaphi_gamma_-3.00.txt',
-                                        B_HQ475 + '_new_R_middle_VPhi_i_average_inside_bin_sigmaphi_gamma_-3.00'),
-                                       (B_HQ475 + '_new_R_middle_average_logx10_gamma_-3.00.txt',
-                                        B_HQ475 + '_new_R_middle_average_logx10_gamma_-3.00'),
-                                       (B_HQ475 + '_new_R_middle_average_logx9_gamma_-3.00.txt',
-                                        B_HQ475 + '_new_R_middle_average_logx9_gamma_-3.00'),
-                                       (B_HQ475 + '_new_R_middle_average_logx7_gamma_-3.00.txt',
-                                        B_HQ475 + '_new_R_middle_average_logx7_gamma_-3.00'),
-                                       (B_HQ475 + '_new_R_middle_average_logx8_gamma_-3.00.txt',
-                                        B_HQ475 + '_new_R_middle_average_logx8_gamma_-3.00')]
+    FileLstbin4HQ10000_G1_0_199_093 = [(B_HQ475 + 'VT_i_average_inside_bin_sigmaT_gamma_-3.00.txt',
+                                        B_HQ475 + 'VT_i_average_inside_bin_sigmaT_gamma_-3.00'),
+                                       (B_HQ475 + 'VR_i_average_inside_bin_sigmaR_gamma_-3.00.txt',
+                                        B_HQ475 + 'VR_i_average_inside_bin_sigmaR_gamma_-3.00'),
+                                       (B_HQ475 + 'VTheta_i_average_inside_bin_sigmaTheta_gamma_-3.00.txt',
+                                        B_HQ475 + 'VTheta_i_average_inside_bin_sigmaTheta_gamma_-3.00'),
+                                       (B_HQ475 + 'VPhi_i_average_inside_bin_sigmaPhi_gamma_-3.00.txt',
+                                        B_HQ475 + 'VPhi_i_average_inside_bin_sigmaPhi_gamma_-3.00'),
+                                       (B_HQ475 + 'average_logx10_gamma_-3.00.txt',
+                                        B_HQ475 + 'average_logx10_gamma_-3.00'),
+                                       (B_HQ475 + 'average_logx9_gamma_-3.00.txt',
+                                        B_HQ475 + 'average_logx9_gamma_-3.00'),
+                                       (B_HQ475 + 'average_logx7_gamma_-3.00.txt',
+                                        B_HQ475 + 'average_logx7_gamma_-3.00'),
+                                       (B_HQ475 + 'average_logx8_gamma_-3.00.txt',
+                                        B_HQ475 + 'average_logx8_gamma_-3.00')]
 
     bin1_different_gammas_B_HQ10000_G1_0_199_093 = [(pylab.loadtxt(f), l) for f, l in FileLstbin1HQ10000_G1_0_199_093]
     bin2_different_gammas_B_HQ10000_G1_0_199_093 = [(pylab.loadtxt(f), l) for f, l in FileLstbin2HQ10000_G1_0_199_093]
     bin3_different_gammas_B_HQ10000_G1_0_199_093 = [(pylab.loadtxt(f), l) for f, l in FileLstbin3HQ10000_G1_0_199_093]
     bin4_different_gammas_B_HQ10000_G1_0_199_093 = [(pylab.loadtxt(f), l) for f, l in FileLstbin4HQ10000_G1_0_199_093]
 
-if Fig1_vr_vphi_vtheta:
+if Fig1_vr_vPhi_vTheta:
     f, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2)
     if test:
         data, label = bin1_HQ10000_G1_2_1_005[1]
@@ -688,10 +699,10 @@ if Fig1_vr_vphi_vtheta:
                  label=r'$v_r$', lw=2, ms=7)
         data, label = bin4_HQ10000_G1_2_1_005[2]
         ax1.plot(data[:, 0], data[:, 1], color='Red',
-                 label=r'$v_{\theta}$', lw=2, ms=7)
+                 label=r'$v_{\Theta}$', lw=2, ms=7)
         data, label = bin4_HQ10000_G1_2_1_005[3]
         ax1.plot(data[:, 0], data[:, 1], color='Black',
-                 label=r'$v_{\phi}$', lw=2, ms=7)
+                 label=r'$v_{\Phi}$', lw=2, ms=7)
 
         ax1.set_ylabel(r'$f\left(u \right)$', fontsize=20)
         ax1.set_title(f'File = {HQ12}', fontsize=20)
@@ -769,7 +780,7 @@ if Fig1_vr_vphi_vtheta:
         data, label = bin4_HQ10000_G1_2_1_005[3]
         ax3.plot(data[:,0], data[:,1],color = 'Black',lw=2,ms=7 )
 
-        ax3.set_xlabel(r'$u_r$, $u_{\theta}$ and $u_{\phi}$', fontsize=20)
+        ax3.set_xlabel(r'$u_r$, $u_{\Theta}$ and $u_{\Phi}$', fontsize=20)
         ax3.set_ylabel(r'$\log \left( f(u) \right)$', fontsize=20)
         ax3.grid()
         ax3.set_yscale('log')
@@ -807,8 +818,8 @@ if Fig1_vr_vphi_vtheta:
         ax4.plot(data[:,0], data[:,1], color='Black', lw=2, ms=7)
 
         ax4.set_xlabel(r'$\log \left(|u_rn|, u_rp \right)$,\
-                       $\log \left(|u_{\theta}n|, u_{\theta}p \right)$ and\
-                       $\log \left( |u_{\phi}n|, u_{\phi}p \right)$',
+                       $\log \left(|u_{\Theta}n|, u_{\Theta}p \right)$ and\
+                       $\log \left( |u_{\Phi}n|, u_{\Phi}p \right)$',
                        fontsize=20)
         ax4.set_ylabel(r'$\log \left( f\left(\log \left( |u_n|,u_p \right)\right) \right)$',
                        fontsize=20)
@@ -840,9 +851,9 @@ if Fig1_vr_vphi_vtheta:
         data, label = bin4_different_gammas_test2_HQ10000_G1_0_0_000[1]
         ax1.plot(data[:, 0], data[:, 1], color='Green',label=r'$v_r$',lw=2,ms=7)
         data, label = bin4_different_gammas_test2_HQ10000_G1_0_0_000[2]
-        ax1.plot(data[:, 0], data[:, 1], color='Red',label=r'$v_{\theta}$',lw=2,ms=7)
+        ax1.plot(data[:, 0], data[:, 1], color='Red',label=r'$v_{\Theta}$',lw=2,ms=7)
         data, label = bin4_different_gammas_test2_HQ10000_G1_0_0_000[3]
-        ax1.plot(data[:, 0], data[:, 1], color='Black',label=r'$v_{\phi}$',lw=2,ms=7)
+        ax1.plot(data[:, 0], data[:, 1], color='Black',label=r'$v_{\Phi}$',lw=2,ms=7)
 
         ax1.set_ylabel(r'$f\left(u \right)$', fontsize=20)
         ax1.set_title(r' File = %s' %test2_HQ0 , fontsize=20)
@@ -907,11 +918,11 @@ if Fig1_vr_vphi_vtheta:
         data, label = bin4_different_gammas_test2_HQ10000_G1_0_0_000[1]
         ax3.plot(data[:,0], data[:,1],color = 'Green',label=r'$v_r$',lw=2,ms=7 )
         data, label = bin4_different_gammas_test2_HQ10000_G1_0_0_000[2]
-        ax3.plot(data[:,0], data[:,1],color = 'Red',label=r'$v_{\theta}$',lw=2,ms=7 )
+        ax3.plot(data[:,0], data[:,1],color = 'Red',label=r'$v_{\Theta}$',lw=2,ms=7 )
         data, label = bin4_different_gammas_test2_HQ10000_G1_0_0_000[3]
-        ax3.plot(data[:,0], data[:,1],color = 'Black',label=r'$v_{\phi}$',lw=2,ms=7 )
+        ax3.plot(data[:,0], data[:,1],color = 'Black',label=r'$v_{\Phi}$',lw=2,ms=7 )
 
-        ax3.set_xlabel(r'$u_r$, $u_{\theta}$ and $u_{\phi}$', fontsize=20)
+        ax3.set_xlabel(r'$u_r$, $u_{\Theta}$ and $u_{\Phi}$', fontsize=20)
         ax3.set_ylabel(r'$\log \left( f(u) \right)$', fontsize=20)
         ax3.grid()
         ax3.set_yscale('log')
@@ -944,14 +955,14 @@ if Fig1_vr_vphi_vtheta:
         data, label = bin4_different_gammas_test2_HQ10000_G1_0_0_000[7]
         ax4.plot(data[:,0], data[:,1],color = 'Black',lw=2,ms=7 )
 
-        ax4.set_xlabel(r'$\log \left( |u_rn|,u_rp \right)$, $\log \left( |u_{\theta}n|,u_{\theta}p \right)$ and $\log \left( |u_{\phi}n|,u_{\phi}p \right)$',
+        ax4.set_xlabel(r'$\log \left( |u_rn|,u_rp \right)$, $\log \left( |u_{\Theta}n|,u_{\Theta}p \right)$ and $\log \left( |u_{\Phi}n|,u_{\Phi}p \right)$',
                        fontsize=20)
         ax4.set_ylabel(r'$\log \left( f\left(\log \left( |u_n|,u_p \right)\right) \right)$',
                        fontsize=20)
         ax4.grid()
         ax4.set_yscale('log')
 
-if Fig1_vr_vphi_vtheta_with_fit:
+if Fig1_vr_vPhi_vTheta_with_fit:
     f, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2)
     if test:
         data, label = bin2_HQ10000_G1_2_1_005[1]
@@ -967,7 +978,7 @@ if Fig1_vr_vphi_vtheta_with_fit:
         popt, pcov = curve_fit(func_2, data[:,0], data[:,1])
         y_fit = func_2(data[:,0],popt[0],popt[1])
         ax1.plot(data[:,0],y_fit,'.-',lw=3,color='Pink',
-                 label=r'$ \theta: axe^{-bx^2}$, $ a,b = %.3f,%.3f $'
+                 label=r'$ \Theta: axe^{-bx^2}$, $ a,b = %.3f,%.3f $'
                  %(popt[0],popt[1]))
 
         data, label = bin2_HQ10000_G1_2_1_005[3]
@@ -975,7 +986,7 @@ if Fig1_vr_vphi_vtheta_with_fit:
         popt, pcov = curve_fit(func_2, data[:,0], data[:,1])
         y_fit = func_2(data[:,0],popt[0],popt[1])
         ax1.plot(data[:,0],y_fit,'.-',lw=3,color='Brown',
-                 label=r'$ \phi: axe^{-bx^2}$, $ a,b = %.3f,%.3f $'
+                 label=r'$ \Phi: axe^{-bx^2}$, $ a,b = %.3f,%.3f $'
                  %(popt[0],popt[1]))
 
         ax1.set_xticklabels([])
@@ -997,20 +1008,20 @@ if Fig1_vr_vphi_vtheta_with_fit:
 
         data, label = bin2_HQ10000_G1_2_1_005[6]
         ax2.plot(data[:,0], data[:,1],color = 'Red',
-                 label=r'$ \frac{v_{\theta}}{\sigma_{\theta}} $',lw=2,ms=7 )
+                 label=r'$ \frac{v_{\Theta}}{\sigma_{\Theta}} $',lw=2,ms=7 )
         popt, pcov = curve_fit(func_1_log, data[:,0], data[:,1])
         y_fit = func_1_log(data[:,0],popt[0],popt[1])
         ax2.plot(data[:,0],y_fit,'.-',lw=3,color='Pink',
-                 label=r'$ \theta: a\log xe^{-b \log(x)^2}$, $ a,b = %.3f,%.3f $'
+                 label=r'$ \Theta: a\log xe^{-b \log(x)^2}$, $ a,b = %.3f,%.3f $'
                  % (popt[0],popt[1]))
 
         data, label = bin2_HQ10000_G1_2_1_005[7]
         ax2.plot(data[:,0], data[:,1],color = 'Black',
-                 label=r'$ \frac{v_{\phi}}{\sigma_{\phi}} $',lw=2,ms=7 )
+                 label=r'$ \frac{v_{\Phi}}{\sigma_{\Phi}} $',lw=2,ms=7 )
         popt, pcov = curve_fit(func_1_log, data[:,0], data[:,1])
         y_fit = func_1_log(data[:,0],popt[0],popt[1])
         ax2.plot(data[:,0],y_fit,'.-',lw=3,color='Brown',
-                 label=r'$ \phi: a\log xe^{-b \log(x)^2}$, $ a,b = %.3f,%.3f $'
+                 label=r'$ \Phi: a\log xe^{-b \log(x)^2}$, $ a,b = %.3f,%.3f $'
                  % (popt[0],popt[1]))
 
         ax2.set_xticklabels([])
@@ -1028,7 +1039,7 @@ if Fig1_vr_vphi_vtheta_with_fit:
         data, label = bin2_HQ10000_G1_2_1_005[3]
         ax3.plot(data[:,0], data[:,1],color = 'Black',lw=2,ms=7 )
 
-        ax3.set_xlabel(r'$ u_r $, $u_{\theta}$ and $u_{\phi}$',
+        ax3.set_xlabel(r'$ u_r $, $u_{\Theta}$ and $u_{\Phi}$',
                        fontsize=20)
         ax3.set_ylabel(r'$\log \left( f\left( u \right) \right)$',
                        fontsize=20)
@@ -1043,7 +1054,7 @@ if Fig1_vr_vphi_vtheta_with_fit:
         data, label = bin2_HQ10000_G1_2_1_005[7]
         ax4.plot(data[:,0], data[:,1],color = 'Black', lw=2,ms=7 )
 
-        ax4.set_xlabel(r'$\log \left( |u_rn|,u_rp \right)$, $\log \left( |u_{\theta}n|,u_{\theta}p \right)$ and $\log \left( |u_{\phi}n|,u_{\phi}p \right)$',
+        ax4.set_xlabel(r'$\log \left( |u_rn|,u_rp \right)$, $\log \left( |u_{\Theta}n|,u_{\Theta}p \right)$ and $\log \left( |u_{\Phi}n|,u_{\Phi}p \right)$',
                        fontsize=20)
         ax4.set_ylabel(r'$\log \left( f\left(\log \left( |u_n|,u_p \right)\right) \right)$',
                        fontsize=20)
@@ -1064,7 +1075,7 @@ if Fig1_vr_vphi_vtheta_with_fit:
         popt, pcov = curve_fit(func_2, data[:,0], data[:,1])
         y_fit = func_2(data[:,0],popt[0],popt[1])
         ax1.plot(data[:,0],y_fit,'.-',lw=3,color='Pink',
-                 label=r'$ \theta: axe^{-bx^2}$, $ a,b = %.3f,%.3f $'
+                 label=r'$ \Theta: axe^{-bx^2}$, $ a,b = %.3f,%.3f $'
                  % (popt[0],popt[1]))
 
         data, label = bin2_different_gammas_test2_HQ10000_G1_0_0_000[3]
@@ -1072,7 +1083,7 @@ if Fig1_vr_vphi_vtheta_with_fit:
         popt, pcov = curve_fit(func_2, data[:,0], data[:,1])
         y_fit = func_2(data[:,0],popt[0],popt[1])
         ax1.plot(data[:,0],y_fit,'.-',lw=3,color='Brown',
-                 label=r'$ \phi: axe^{-bx^2}$, $ a,b = %.3f,%.3f $'
+                 label=r'$ \Phi: axe^{-bx^2}$, $ a,b = %.3f,%.3f $'
                  % (popt[0],popt[1]))
 
         ax1.set_xticklabels([])
@@ -1094,20 +1105,20 @@ if Fig1_vr_vphi_vtheta_with_fit:
 
         data, label = bin2_different_gammas_test2_HQ10000_G1_0_0_000[6]
         ax2.plot(data[:,0], data[:,1],color = 'Red',
-                 label=r'$ \frac{v_{\theta}}{\sigma_{\theta}} $',lw=2,ms=7 )
+                 label=r'$ \frac{v_{\Theta}}{\sigma_{\Theta}} $',lw=2,ms=7 )
         popt, pcov = curve_fit(func_1_log, data[:,0], data[:,1])
         y_fit = func_1_log(data[:,0],popt[0],popt[1])
         ax2.plot(data[:,0],y_fit,'.-',lw=3,color='Pink',
-                 label=r'$ \theta: a\log xe^{-b \log(x)^2}$, $ a,b = %.3f,%.3f $'
+                 label=r'$ \Theta: a\log xe^{-b \log(x)^2}$, $ a,b = %.3f,%.3f $'
                  % (popt[0], popt[1]))
 
         data, label = bin2_different_gammas_test2_HQ10000_G1_0_0_000[7]
         ax2.plot(data[:,0], data[:,1],color = 'Black',
-                 label=r'$ \frac{v_{\phi}}{\sigma_{\phi}} $',lw=2,ms=7 )
+                 label=r'$ \frac{v_{\Phi}}{\sigma_{\Phi}} $',lw=2,ms=7 )
         popt, pcov = curve_fit(func_1_log, data[:,0], data[:,1])
         y_fit = func_1_log(data[:,0],popt[0],popt[1])
         ax2.plot(data[:,0],y_fit,'.-',lw=3,color='Brown',
-                 label=r'$ \phi: a\log xe^{-b \log(x)^2}$, $ a,b = %.3f,%.3f $' %(popt[0],popt[1]))
+                 label=r'$ \Phi: a\log xe^{-b \log(x)^2}$, $ a,b = %.3f,%.3f $' %(popt[0],popt[1]))
 
         ax2.set_xticklabels([])
         ax2.set_ylabel(r'$f\left(\log \left( |u_n|,u_p \right)\right)$',
@@ -1124,7 +1135,7 @@ if Fig1_vr_vphi_vtheta_with_fit:
         data, label = bin2_different_gammas_test2_HQ10000_G1_0_0_000[3]
         ax3.plot(data[:,0], data[:,1],color = 'Black',lw=2,ms=7 )
 
-        ax3.set_xlabel(r'$ u_r $, $u_{\theta}$ and $u_{\phi}$', fontsize=20)
+        ax3.set_xlabel(r'$ u_r $, $u_{\Theta}$ and $u_{\Phi}$', fontsize=20)
         ax3.set_ylabel(r'$\log \left( f\left( u \right) \right)$',
                        fontsize=20)
         ax3.grid()
@@ -1138,7 +1149,7 @@ if Fig1_vr_vphi_vtheta_with_fit:
         data, label = bin2_different_gammas_test2_HQ10000_G1_0_0_000[7]
         ax4.plot(data[:,0], data[:,1],color = 'Black', lw=2,ms=7 )
 
-        ax4.set_xlabel(r'$\log \left( |u_rn|,u_rp \right)$, $\log \left( |u_{\theta}n|,u_{\theta}p \right)$ and $\log \left( |u_{\phi}n|,u_{\phi}p \right)$',
+        ax4.set_xlabel(r'$\log \left( |u_rn|,u_rp \right)$, $\log \left( |u_{\Theta}n|,u_{\Theta}p \right)$ and $\log \left( |u_{\Phi}n|,u_{\Phi}p \right)$',
                        fontsize=20)
         ax4.set_ylabel(r'$\log \left( f\left(\log \left( |u_n|,u_p \right)\right) \right)$',
                        fontsize=20)
@@ -1381,7 +1392,7 @@ if Fig1_vt_with_fit:
         ax4.grid()
         ax4.set_yscale('log')
 
-if Fig2_vr_vphi_vtheta_divided_by_gauss:
+if Fig2_vr_vPhi_vTheta_divided_by_gauss:
     f, (ax1, ax2) = plt.subplots(1, 2)
     if test:
         data, label = bin2_HQ10000_G1_2_1_005[1]
@@ -1394,16 +1405,16 @@ if Fig2_vr_vphi_vtheta_divided_by_gauss:
         ax1.plot(data[:, 0],
                  data[:, 1]
                  / (482.605 * np.exp(-.473 * data[:, 0] ** 2)),
-                 color='Red', label=r'$\theta, a=482.605, b=0.473$',
+                 color='Red', label=r'$\Theta, a=482.605, b=0.473$',
                  ls=':', lw=4, ms=7)
         data, label = bin2_HQ10000_G1_2_1_005[3]
         ax1.plot(data[:, 0],
                  data[:, 1]
                  / (502.652 * np.exp(-.477 * data[:, 0] ** 2)),
-                 color='Black', label=r'$\phi, a=502.652, b=0.477$',
+                 color='Black', label=r'$\Phi, a=502.652, b=0.477$',
                  ls=':', lw=2, ms=7)
 
-        ax1.set_xlabel(r'$ u_r $, $ u_{\theta} $ and $ u_{\phi} $',
+        ax1.set_xlabel(r'$ u_r $, $ u_{\Theta} $ and $ u_{\Phi} $',
                        fontsize=20)
         ax1.set_ylabel(r'$\frac{f\left(u \right)}{ae^{-bx^2}}$',
                        fontsize=20)
@@ -1429,7 +1440,7 @@ if Fig2_vr_vphi_vtheta_divided_by_gauss:
                  /(1405.914*10**data[:,0]*np.exp(-0.470*(10**data[:,0])**2)),
           color = 'Black', label=r'$ a=1405.914, b=0.470$',ls = ':', lw=2,ms=7 )
 
-        ax2.set_xlabel(r'$\log \left( |u_rn|,u_rp \right)$, $\log \left( |u_{\theta}n|,u_{\theta}p \right)$ and $\log \left( |u_{\phi}n|,u_{\phi}p \right)$',
+        ax2.set_xlabel(r'$\log \left( |u_rn|,u_rp \right)$, $\log \left( |u_{\Theta}n|,u_{\Theta}p \right)$ and $\log \left( |u_{\Phi}n|,u_{\Phi}p \right)$',
           fontsize=20)
         ax2.set_ylabel(r'$\frac{f\left(\log \left( |u_n|,u_p \right)\right)}{axe^{-b\log (x)^2}}$',
         fontsize=20)  # a \cdot \log(x) \cdot e^{-b \cdot log(x)^2}
@@ -1448,16 +1459,16 @@ if Fig2_vr_vphi_vtheta_divided_by_gauss:
         ax1.plot(data[:, 0],
                  data[:, 1]
                  / (482.605 * np.exp(-.473 * data[:, 0] ** 2)),
-                 color='Red', label=r'$\theta, a=482.605, b=0.473$',
+                 color='Red', label=r'$\Theta, a=482.605, b=0.473$',
                  ls=':', lw=4, ms=7)
         data, label = bin2_different_gammas_test2_HQ10000_G1_0_0_000[3]
         ax1.plot(data[:, 0],
                  data[:, 1]
                  / (502.652 * np.exp(-.477 * data[:, 0] ** 2)),
-                 color='Black', label=r'$\phi, a=502.652, b=0.477$',
+                 color='Black', label=r'$\Phi, a=502.652, b=0.477$',
                  ls=':', lw=2, ms=7)
 
-        ax1.set_xlabel(r'$ u_r $, $ u_{\theta} $ and $ u_{\phi} $',
+        ax1.set_xlabel(r'$ u_r $, $ u_{\Theta} $ and $ u_{\Phi} $',
                        fontsize=20)
         ax1.set_ylabel(r'$\frac{f\left(u \right)}{ae^{-bx^2}}$',
                        fontsize=20)
@@ -1488,7 +1499,7 @@ if Fig2_vr_vphi_vtheta_divided_by_gauss:
                  color='Black', label=r'$ a=1405.914, b=0.470$', ls=':',
                  lw=2, ms=7)
 
-        ax2.set_xlabel(r'$\log \left( |u_rn|,u_rp \right)$, $\log \left( |u_{\theta}n|,u_{\theta}p \right)$ and $\log \left( |u_{\phi}n|,u_{\phi}p \right)$',
+        ax2.set_xlabel(r'$\log \left( |u_rn|,u_rp \right)$, $\log \left( |u_{\Theta}n|,u_{\Theta}p \right)$ and $\log \left( |u_{\Phi}n|,u_{\Phi}p \right)$',
                        fontsize=20)
         ax2.set_ylabel(r'$\frac{f\left(\log \left( |u_n|,u_p \right)\right)}{axe^{-b\log (x)^2}}$',
                        fontsize=20)
@@ -6018,7 +6029,7 @@ if Fig14_GPerts_gammas_3_0_vt_divided_by_gauss_and_Tsallis:
                        fontsize=20)
         ax8.grid()
 
-# datalist_large_R_middle_19_95_different_gammas_test2_HQ10000_G1_0_25_005
+# datalist_bin5different_gammas_test2_HQ10000_G1_0_25_005
 
 if Fig15_GPerts_R_middle_19_95_vt_divided_by_gauss_and_Tsallis:
     f, ((ax1, ax2), (ax3, ax4), (ax5, ax6), (ax7, ax8)) = plt.subplots(4, 2)
@@ -6151,11 +6162,11 @@ if Fig15_GPerts_R_middle_19_95_vt_divided_by_gauss_and_Tsallis:
         ax6.grid()
 
     if test2:
-        data, label = datalist_large_R_middle_19_95_different_gammas_test2_HQ10000_G1_0_0_000[0]
+        data, label = datalist_bin5different_gammas_test2_HQ10000_G1_0_0_000[0]
         ax1.plot(data[:,0], data[:,1],color = 'Red',lw=2,ms=7 )
-        data, label = datalist_large_R_middle_19_95_different_gammas_test2_HQ10000_G1_0_10_005[0]
+        data, label = datalist_bin5different_gammas_test2_HQ10000_G1_0_10_005[0]
         ax1.plot(data[:,0], data[:,1],color = 'Black',lw=2,ms=7 )
-        data, label = datalist_large_R_middle_19_95_different_gammas_test2_HQ10000_G1_0_18_053[0]
+        data, label = datalist_bin5different_gammas_test2_HQ10000_G1_0_18_053[0]
         ax1.plot(data[:,0], data[:,1],color = 'Blue',lw=2,ms=7 )
 
         ax1.set_ylabel(r'$f\left( u_t \right)$', fontsize=20)
@@ -6166,13 +6177,13 @@ if Fig15_GPerts_R_middle_19_95_vt_divided_by_gauss_and_Tsallis:
                    frameon=True, loc=0, handlelength=2.5)
         ax1.grid()
 
-        data, label = datalist_large_R_middle_19_95_different_gammas_test2_HQ10000_G1_0_0_000[4]
+        data, label = datalist_bin5different_gammas_test2_HQ10000_G1_0_0_000[4]
         ax2.plot(data[:,0], data[:,1],color = 'Red',
                  label=r'%s ' % test2_HQ0[len('test2_HQ10000_G'):],lw=2,ms=7)
-        data, label = datalist_large_R_middle_19_95_different_gammas_test2_HQ10000_G1_0_10_005[4]
+        data, label = datalist_bin5different_gammas_test2_HQ10000_G1_0_10_005[4]
         ax2.plot(data[:,0], data[:,1],color = 'Black',
                  label=r'%s' %test2_HQ66[len('test2_HQ10000_G'):],lw=2,ms=7)
-        data, label = datalist_large_R_middle_19_95_different_gammas_test2_HQ10000_G1_0_18_053[4]
+        data, label = datalist_bin5different_gammas_test2_HQ10000_G1_0_18_053[4]
         ax2.plot(data[:,0], data[:,1],color = 'Blue',
                  label=r'%s' %test2_HQ166[len('test2_HQ10000_G'):],lw=2,ms=7)
 
@@ -6182,11 +6193,11 @@ if Fig15_GPerts_R_middle_19_95_vt_divided_by_gauss_and_Tsallis:
                    frameon=True, loc=0, handlelength=2.5)
         ax2.grid()
 
-        data, label = datalist_large_R_middle_19_95_different_gammas_test2_HQ10000_G1_0_0_000[0]
+        data, label = datalist_bin5different_gammas_test2_HQ10000_G1_0_0_000[0]
         ax3.plot(data[:,0], data[:,1],color = 'Red', lw=2,ms=7)
-        data, label = datalist_large_R_middle_19_95_different_gammas_test2_HQ10000_G1_0_10_005[0]
+        data, label = datalist_bin5different_gammas_test2_HQ10000_G1_0_10_005[0]
         ax3.plot(data[:,0], data[:,1],color = 'Black', lw=2,ms=7)
-        data, label = datalist_large_R_middle_19_95_different_gammas_test2_HQ10000_G1_0_18_053[0]
+        data, label = datalist_bin5different_gammas_test2_HQ10000_G1_0_18_053[0]
         ax3.plot(data[:,0], data[:,1],color = 'Blue', lw=2,ms=7)
 
         ax3.set_ylabel(r'$\log \left( f\left( u \right) \right)$',
@@ -6194,11 +6205,11 @@ if Fig15_GPerts_R_middle_19_95_vt_divided_by_gauss_and_Tsallis:
         ax3.grid()
         ax3.set_yscale('log')
 
-        data, label = datalist_large_R_middle_19_95_different_gammas_test2_HQ10000_G1_0_0_000[4]
+        data, label = datalist_bin5different_gammas_test2_HQ10000_G1_0_0_000[4]
         ax4.plot(data[:,0], data[:,1],color = 'Red',lw=2,ms=7)
-        data, label = datalist_large_R_middle_19_95_different_gammas_test2_HQ10000_G1_0_10_005[4]
+        data, label = datalist_bin5different_gammas_test2_HQ10000_G1_0_10_005[4]
         ax4.plot(data[:,0], data[:,1],color = 'Black', lw=2,ms=7)
-        data, label = datalist_large_R_middle_19_95_different_gammas_test2_HQ10000_G1_0_18_053[4]
+        data, label = datalist_bin5different_gammas_test2_HQ10000_G1_0_18_053[4]
         ax4.plot(data[:,0], data[:,1],color = 'Blue', lw=2,ms=7)
 
 
@@ -6207,13 +6218,13 @@ if Fig15_GPerts_R_middle_19_95_vt_divided_by_gauss_and_Tsallis:
         ax4.grid()
         ax4.set_yscale('log')
 
-        data, label = datalist_large_R_middle_19_95_different_gammas_test2_HQ10000_G1_0_0_000[0]
+        data, label = datalist_bin5different_gammas_test2_HQ10000_G1_0_0_000[0]
         ax5.plot(data[:,0], data[:,1]/(887.569*data[:,0]*np.exp(-0.922*data[:,0]**2)),
                  color = 'Red',lw=2,ms=7 )
-        data, label = datalist_large_R_middle_19_95_different_gammas_test2_HQ10000_G1_0_10_005[0]
+        data, label = datalist_bin5different_gammas_test2_HQ10000_G1_0_10_005[0]
         ax5.plot(data[:,0], data[:,1]/(887.569*data[:,0]*np.exp(-0.922*data[:,0]**2)),
                  color = 'Black',lw=2,ms=7 )
-        data, label = datalist_large_R_middle_19_95_different_gammas_test2_HQ10000_G1_0_18_053[0]
+        data, label = datalist_bin5different_gammas_test2_HQ10000_G1_0_18_053[0]
         ax5.plot(data[:,0], data[:,1]/(887.569*data[:,0]*np.exp(-0.922*data[:,0]**2)),
                  color = 'Blue',lw=2,ms=7 )
 
@@ -6221,13 +6232,13 @@ if Fig15_GPerts_R_middle_19_95_vt_divided_by_gauss_and_Tsallis:
                                 fontsize=20)
         ax5.grid()
 
-        data, label = datalist_large_R_middle_19_95_different_gammas_test2_HQ10000_G1_0_0_000[4]
+        data, label = datalist_bin5different_gammas_test2_HQ10000_G1_0_0_000[4]
         ax6.plot(data[:,0], data[:,1]/(3424.993*(10**data[:,0])**2*np.exp(-0.930*(10**data[:,0])**2)),
                  color = 'Red',lw=2,ms=7 )
-        data, label = datalist_large_R_middle_19_95_different_gammas_test2_HQ10000_G1_0_10_005[4]
+        data, label = datalist_bin5different_gammas_test2_HQ10000_G1_0_10_005[4]
         ax6.plot(data[:,0], data[:,1]/(3424.993*(10**data[:,0])**2*np.exp(-0.930*(10**data[:,0])**2)),
                  color = 'Black',lw=2,ms=7 )
-        data, label = datalist_large_R_middle_19_95_different_gammas_test2_HQ10000_G1_0_18_053[4]
+        data, label = datalist_bin5different_gammas_test2_HQ10000_G1_0_18_053[4]
         ax6.plot(data[:,0], data[:,1]/(3424.993*(10**data[:,0])**2*np.exp(-0.930*(10**data[:,0])**2)),
                  color = 'Blue',lw=2,ms=7 )
 
@@ -6238,13 +6249,13 @@ if Fig15_GPerts_R_middle_19_95_vt_divided_by_gauss_and_Tsallis:
                        fontsize=20)
         ax6.grid()
 
-        data, label = datalist_large_R_middle_19_95_different_gammas_test2_HQ10000_G1_0_0_000[0]
+        data, label = datalist_bin5different_gammas_test2_HQ10000_G1_0_0_000[0]
         ax7.plot(data[:,0], data[:,1]/(864.543*data[:,0]*(1-(1-0.946)*0.908*data[:,0]**2)**(0.946/(1-0.946))),
                  color = 'Red',lw=2,ms=7 )
-        data, label = datalist_large_R_middle_19_95_different_gammas_test2_HQ10000_G1_0_10_005[0]
+        data, label = datalist_bin5different_gammas_test2_HQ10000_G1_0_10_005[0]
         ax7.plot(data[:,0], data[:,1]/(864.543*data[:,0]*(1-(1-0.946)*0.908*data[:,0]**2)**(0.946/(1-0.946))),
                  color = 'Black',lw=2,ms=7 )
-        data, label = datalist_large_R_middle_19_95_different_gammas_test2_HQ10000_G1_0_18_053[0]
+        data, label = datalist_bin5different_gammas_test2_HQ10000_G1_0_18_053[0]
         ax7.plot(data[:, 0],
                  data[:, 1] / (864.543 * data[:, 0]
                  * (1 - (1 - .946) * .908 * data[:, 0] ** 2)
@@ -6257,19 +6268,19 @@ if Fig15_GPerts_R_middle_19_95_vt_divided_by_gauss_and_Tsallis:
                        fontsize=20)
         ax7.grid()
 
-        data, label = datalist_large_R_middle_19_95_different_gammas_test2_HQ10000_G1_0_0_000[4]
+        data, label = datalist_bin5different_gammas_test2_HQ10000_G1_0_0_000[4]
         ax8.plot(data[:, 0],
                  data[:, 1] / (3391.113 * 10 ** data[:, 0]
                  * (1 - (1 - .987) * .924 * 10 ** (data[:, 0] ** 2))
                  ** (.987 / (1. - .987))),
                  color = 'Red',lw=2,ms=7 )
-        data, label = datalist_large_R_middle_19_95_different_gammas_test2_HQ10000_G1_0_10_005[4]
+        data, label = datalist_bin5different_gammas_test2_HQ10000_G1_0_10_005[4]
         ax8.plot(data[:, 0],
                  data[:, 1] / (3391.113 * 10 ** data[:, 0]
                  * (1 - (1 - .987) * .924 * 10 ** (data[:, 0] ** 2))
                  ** (.987 / (1. - .987))),
                  color = 'Black',lw=2,ms=7 )
-        data, label = datalist_large_R_middle_19_95_different_gammas_test2_HQ10000_G1_0_18_053[4]
+        data, label = datalist_bin5different_gammas_test2_HQ10000_G1_0_18_053[4]
         ax8.plot(data[:, 0],
                  data[:, 1] / (3391.113 * 10 ** data[:, 0]
                  * (1 - (1 - .987) * .924 * 10 ** (data[:, 0] ** 2))
@@ -6283,11 +6294,11 @@ if Fig15_GPerts_R_middle_19_95_vt_divided_by_gauss_and_Tsallis:
         ax8.grid()
 
     if A:
-        data, label = datalist_large_R_middle_19_95_different_gammas_A_HQ10000_G1_0_0_000[0]
+        data, label = datalist_bin5different_gammas_A_HQ10000_G1_0_0_000[0]
         ax1.plot(data[:, 0], data[:, 1], color='Red', lw=2, ms=7)
-        data, label = datalist_large_R_middle_19_95_different_gammas_A_HQ10000_G1_0_10_005[0]
+        data, label = datalist_bin5different_gammas_A_HQ10000_G1_0_10_005[0]
         ax1.plot(data[:,0], data[:,1],color = 'Black',lw=2,ms=7)
-        data, label = datalist_large_R_middle_19_95_different_gammas_A_HQ10000_G1_0_48_093[0]
+        data, label = datalist_bin5different_gammas_A_HQ10000_G1_0_48_093[0]
         ax1.plot(data[:,0], data[:,1],color = 'Blue',lw=2,ms=7)
 
         ax1.set_ylabel(r'$f\left( u_t \right)$', fontsize=20)
@@ -6298,13 +6309,13 @@ if Fig15_GPerts_R_middle_19_95_vt_divided_by_gauss_and_Tsallis:
                    frameon=True, loc=0, handlelength=2.5)
         ax1.grid()
 
-        data, label = datalist_large_R_middle_19_95_different_gammas_A_HQ10000_G1_0_0_000[4]
+        data, label = datalist_bin5different_gammas_A_HQ10000_G1_0_0_000[4]
         ax2.plot(data[:, 0], data[:, 1], color='Red',
                  label=r'%s ' % A_HQ0[len('A_HQ10000_G'):],lw=2,ms=7 )
-        data, label = datalist_large_R_middle_19_95_different_gammas_A_HQ10000_G1_0_10_005[4]
+        data, label = datalist_bin5different_gammas_A_HQ10000_G1_0_10_005[4]
         ax2.plot(data[:,0], data[:,1],color = 'Black',
                  label=r'%s' %A_HQ66[len('A_HQ10000_G'):],lw=2,ms=7 )
-        data, label = datalist_large_R_middle_19_95_different_gammas_A_HQ10000_G1_0_48_093[4]
+        data, label = datalist_bin5different_gammas_A_HQ10000_G1_0_48_093[4]
         ax2.plot(data[:,0], data[:,1],color = 'Blue',
                  label=r'%s' %A_HQ382[len('A_HQ10000_G'):],lw=2,ms=7 )
 
@@ -6314,13 +6325,13 @@ if Fig15_GPerts_R_middle_19_95_vt_divided_by_gauss_and_Tsallis:
                    frameon=True, loc=0, handlelength=2.5)
         ax2.grid()
 
-        data, label = datalist_large_R_middle_19_95_different_gammas_A_HQ10000_G1_0_0_000[0]
+        data, label = datalist_bin5different_gammas_A_HQ10000_G1_0_0_000[0]
         ax3.plot(data[:,0], data[:,1],
                  color = 'Red', lw=2,ms=7)
-        data, label = datalist_large_R_middle_19_95_different_gammas_A_HQ10000_G1_0_10_005[0]
+        data, label = datalist_bin5different_gammas_A_HQ10000_G1_0_10_005[0]
         ax3.plot(data[:,0], data[:,1],
                  color = 'Black', lw=2,ms=7)
-        data, label = datalist_large_R_middle_19_95_different_gammas_A_HQ10000_G1_0_48_093[0]
+        data, label = datalist_bin5different_gammas_A_HQ10000_G1_0_48_093[0]
         ax3.plot(data[:,0], data[:,1],
                  color = 'Blue', lw=2,ms=7)
 
@@ -6329,11 +6340,11 @@ if Fig15_GPerts_R_middle_19_95_vt_divided_by_gauss_and_Tsallis:
         ax3.grid()
         ax3.set_yscale('log')
 
-        data, label = datalist_large_R_middle_19_95_different_gammas_A_HQ10000_G1_0_0_000[4]
+        data, label = datalist_bin5different_gammas_A_HQ10000_G1_0_0_000[4]
         ax4.plot(data[:,0], data[:,1],color = 'Red',lw=2,ms=7)
-        data, label = datalist_large_R_middle_19_95_different_gammas_A_HQ10000_G1_0_10_005[4]
+        data, label = datalist_bin5different_gammas_A_HQ10000_G1_0_10_005[4]
         ax4.plot(data[:,0], data[:,1],color = 'Black', lw=2,ms=7)
-        data, label = datalist_large_R_middle_19_95_different_gammas_A_HQ10000_G1_0_48_093[4]
+        data, label = datalist_bin5different_gammas_A_HQ10000_G1_0_48_093[4]
         ax4.plot(data[:,0], data[:,1],color = 'Blue', lw=2,ms=7)
 
         ax4.set_ylabel(r'$\log \left( f\left(\log \left( |u_tn|,u_tp \right)\right) \right)$',
@@ -6341,13 +6352,13 @@ if Fig15_GPerts_R_middle_19_95_vt_divided_by_gauss_and_Tsallis:
         ax4.grid()
         ax4.set_yscale('log')
 
-        data, label = datalist_large_R_middle_19_95_different_gammas_A_HQ10000_G1_0_0_000[0]
+        data, label = datalist_bin5different_gammas_A_HQ10000_G1_0_0_000[0]
         ax5.plot(data[:,0], data[:,1]/(887.569*data[:,0]*np.exp(-0.922*data[:,0]**2)),
                  color = 'Red',lw=2,ms=7)
-        data, label = datalist_large_R_middle_19_95_different_gammas_A_HQ10000_G1_0_10_005[0]
+        data, label = datalist_bin5different_gammas_A_HQ10000_G1_0_10_005[0]
         ax5.plot(data[:,0], data[:,1]/(887.569*data[:,0]*np.exp(-0.922*data[:,0]**2)),
                  color = 'Black',lw=2,ms=7)
-        data, label = datalist_large_R_middle_19_95_different_gammas_A_HQ10000_G1_0_48_093[0]
+        data, label = datalist_bin5different_gammas_A_HQ10000_G1_0_48_093[0]
         ax5.plot(data[:,0], data[:,1]/(887.569*data[:,0]*np.exp(-0.922*data[:,0]**2)),
                  color = 'Blue',lw=2,ms=7)
 
@@ -6355,13 +6366,13 @@ if Fig15_GPerts_R_middle_19_95_vt_divided_by_gauss_and_Tsallis:
                                 fontsize=20)
         ax5.grid()
 
-        data, label = datalist_large_R_middle_19_95_different_gammas_A_HQ10000_G1_0_0_000[4]
+        data, label = datalist_bin5different_gammas_A_HQ10000_G1_0_0_000[4]
         ax6.plot(data[:,0], data[:,1]/(3424.993*(10**data[:,0])**2*np.exp(-0.930*(10**data[:,0])**2)),
                  color = 'Red',lw=2,ms=7)
-        data, label = datalist_large_R_middle_19_95_different_gammas_A_HQ10000_G1_0_10_005[4]
+        data, label = datalist_bin5different_gammas_A_HQ10000_G1_0_10_005[4]
         ax6.plot(data[:,0], data[:,1]/(3424.993*(10**data[:,0])**2*np.exp(-0.930*(10**data[:,0])**2)),
                  color = 'Black',lw=2,ms=7)
-        data, label = datalist_large_R_middle_19_95_different_gammas_A_HQ10000_G1_0_48_093[4]
+        data, label = datalist_bin5different_gammas_A_HQ10000_G1_0_48_093[4]
         ax6.plot(data[:,0], data[:,1]/(3424.993*(10**data[:,0])**2*np.exp(-0.930*(10**data[:,0])**2)),
                  color = 'Blue',lw=2,ms=7)
 
@@ -6370,13 +6381,13 @@ if Fig15_GPerts_R_middle_19_95_vt_divided_by_gauss_and_Tsallis:
                        fontsize=20)
         ax6.grid()
 
-        data, label = datalist_large_R_middle_19_95_different_gammas_A_HQ10000_G1_0_0_000[0]
+        data, label = datalist_bin5different_gammas_A_HQ10000_G1_0_0_000[0]
         ax7.plot(data[:,0], data[:,1]/(864.543*data[:,0]*(1-(1-0.946)*0.908*data[:,0]**2)**(0.946/(1-0.946))),
                  color = 'Red',lw=2,ms=7)
-        data, label = datalist_large_R_middle_19_95_different_gammas_A_HQ10000_G1_0_10_005[0]
+        data, label = datalist_bin5different_gammas_A_HQ10000_G1_0_10_005[0]
         ax7.plot(data[:,0], data[:,1]/(864.543*data[:,0]*(1-(1-0.946)*0.908*data[:,0]**2)**(0.946/(1-0.946))),
                  color = 'Black',lw=2,ms=7)
-        data, label = datalist_large_R_middle_19_95_different_gammas_A_HQ10000_G1_0_48_093[0]
+        data, label = datalist_bin5different_gammas_A_HQ10000_G1_0_48_093[0]
         ax7.plot(data[:, 0], data[:,1]/(864.543*data[:,0]*(1-(1-0.946)*0.908*data[:,0]**2)**(0.946/(1-0.946))),
                  color='Blue',lw=2,ms=7)
 
@@ -6386,15 +6397,15 @@ if Fig15_GPerts_R_middle_19_95_vt_divided_by_gauss_and_Tsallis:
                        fontsize=20)
         ax7.grid()
 
-        data, label = datalist_large_R_middle_19_95_different_gammas_A_HQ10000_G1_0_0_000[4]
+        data, label = datalist_bin5different_gammas_A_HQ10000_G1_0_0_000[4]
         ax8.plot(data[:,0], data[:,1]/(3391.113*10**data[:,0]*(1-(1-0.987)*0.924*10**(data[:,0]**2))**(0.987/(1.-0.987))),
                  color = 'Red',lw=2,ms=7 )
 
-        data, label = datalist_large_R_middle_19_95_different_gammas_A_HQ10000_G1_0_10_005[4]
+        data, label = datalist_bin5different_gammas_A_HQ10000_G1_0_10_005[4]
         ax8.plot(data[:,0], data[:,1]/(3391.113*10**data[:,0]*(1-(1-0.987)*0.924*10**(data[:,0]**2))**(0.987/(1.-0.987))),
                  color = 'Black',lw=2,ms=7 )
 
-        data, label = datalist_large_R_middle_19_95_different_gammas_A_HQ10000_G1_0_48_093[4]
+        data, label = datalist_bin5different_gammas_A_HQ10000_G1_0_48_093[4]
         ax8.plot(data[:,0], data[:,1]/(3391.113*10**data[:,0]*(1-(1-0.987)*0.924*10**(data[:,0]**2))**(0.987/(1.-0.987))),
                  color = 'Blue',lw=2,ms=7 )
 
@@ -6405,7 +6416,7 @@ if Fig15_GPerts_R_middle_19_95_vt_divided_by_gauss_and_Tsallis:
         ax8.grid()
 
     if B:
-        data, label = datalist_large_R_middle_19_95_different_gammas_B_HQ10000_G1_0_0_000[0]
+        data, label = datalist_bin5different_gammas_B_HQ10000_G1_0_0_000[0]
         ax1.plot(data[:, 0], data[:, 1], color='Red', lw=2, ms=7)
 
         ax1.set_ylabel(r'$f\left( u_t \right)$', fontsize=20)
@@ -6416,7 +6427,7 @@ if Fig15_GPerts_R_middle_19_95_vt_divided_by_gauss_and_Tsallis:
                    frameon=True, loc=0, handlelength=2.5)
         ax1.grid()
 
-        data, label = datalist_large_R_middle_19_95_different_gammas_B_HQ10000_G1_0_0_000[4]
+        data, label = datalist_bin5different_gammas_B_HQ10000_G1_0_0_000[4]
         ax2.plot(data[:, 0], data[:, 1], color='Red',
                  label=r'%s ' % B_HQ0[len('B_HQ10000_G'):], lw=2, ms=7)
 
@@ -6426,7 +6437,7 @@ if Fig15_GPerts_R_middle_19_95_vt_divided_by_gauss_and_Tsallis:
                    frameon=True, loc=0, handlelength=2.5)
         ax2.grid()
 
-        data, label = datalist_large_R_middle_19_95_different_gammas_B_HQ10000_G1_0_0_000[0]
+        data, label = datalist_bin5different_gammas_B_HQ10000_G1_0_0_000[0]
         ax3.plot(data[:,0], data[:,1], color='Red', lw=2, ms=7)
 
         ax3.set_ylabel(r'$\log \left( f\left( u \right) \right)$',
@@ -6434,7 +6445,7 @@ if Fig15_GPerts_R_middle_19_95_vt_divided_by_gauss_and_Tsallis:
         ax3.grid()
         ax3.set_yscale('log')
 
-        data, label = datalist_large_R_middle_19_95_different_gammas_B_HQ10000_G1_0_0_000[4]
+        data, label = datalist_bin5different_gammas_B_HQ10000_G1_0_0_000[4]
         ax4.plot(data[:,0], data[:,1], color='Red', lw=2, ms=7)
 
         ax4.set_ylabel(r'$\log \left( f\left(\log \left( |u_tn|,u_tp \right)\right) \right)$',
@@ -6442,7 +6453,7 @@ if Fig15_GPerts_R_middle_19_95_vt_divided_by_gauss_and_Tsallis:
         ax4.grid()
         ax4.set_yscale('log')
 
-        data, label = datalist_large_R_middle_19_95_different_gammas_B_HQ10000_G1_0_0_000[0]
+        data, label = datalist_bin5different_gammas_B_HQ10000_G1_0_0_000[0]
         ax5.plot(data[:,0], data[:,1]/(887.569*data[:,0]*np.exp(-0.922*data[:,0]**2)),
                  color='Red', lw=2, ms=7)
 
@@ -6450,7 +6461,7 @@ if Fig15_GPerts_R_middle_19_95_vt_divided_by_gauss_and_Tsallis:
                        fontsize=20)
         ax5.grid()
 
-        data, label = datalist_large_R_middle_19_95_different_gammas_B_HQ10000_G1_0_0_000[4]
+        data, label = datalist_bin5different_gammas_B_HQ10000_G1_0_0_000[4]
         ax6.plot(data[:,0], data[:,1]/(3424.993*(10**data[:,0])**2*np.exp(-0.930*(10**data[:,0])**2)),
                  color = 'Red',lw=2,ms=7 )
 
@@ -6459,7 +6470,7 @@ if Fig15_GPerts_R_middle_19_95_vt_divided_by_gauss_and_Tsallis:
                                 fontsize=20)
         ax6.grid()
 
-        data, label = datalist_large_R_middle_19_95_different_gammas_B_HQ10000_G1_0_0_000[0]
+        data, label = datalist_bin5different_gammas_B_HQ10000_G1_0_0_000[0]
         ax7.plot(data[:,0], data[:,1]/(864.543*data[:,0]*(1-(1-0.946)*0.908*data[:,0]**2)**(0.946/(1-0.946))),
                  color = 'Red',lw=2,ms=7 )
 
@@ -6468,7 +6479,7 @@ if Fig15_GPerts_R_middle_19_95_vt_divided_by_gauss_and_Tsallis:
         ax7.set_ylabel(r'$\frac{f\left( u_t \right)}{Tsallis} $', fontsize=20)
         ax7.grid()
 
-        data, label = datalist_large_R_middle_19_95_different_gammas_B_HQ10000_G1_0_0_000[4]
+        data, label = datalist_bin5different_gammas_B_HQ10000_G1_0_0_000[4]
         ax8.plot(data[:,0], data[:,1]/(3391.113*10**data[:,0]*(1-(1-0.987)*0.924*10**(data[:,0]**2))**(0.987/(1.-0.987))),
                  color='Red', lw=2, ms=7)
 
@@ -6578,11 +6589,11 @@ if Fig16_GPerts_R_middle_31_62_vt_divided_by_gauss_and_Tsallis:
         ax6.grid()
 
     if test2:
-        data, label = datalist_large_R_middle_31_62_different_gammas_test2_HQ10000_G1_0_0_000[0]
+        data, label = datalist_bin6different_gammas_test2_HQ10000_G1_0_0_000[0]
         ax1.plot(data[:,0], data[:,1],color = 'Red',lw=2,ms=7 )
-        data, label = datalist_large_R_middle_31_62_different_gammas_test2_HQ10000_G1_0_10_005[0]
+        data, label = datalist_bin6different_gammas_test2_HQ10000_G1_0_10_005[0]
         ax1.plot(data[:,0], data[:,1],color = 'Black' ,lw=2,ms=7 )
-        data, label = datalist_large_R_middle_31_62_different_gammas_test2_HQ10000_G1_0_18_053[0]
+        data, label = datalist_bin6different_gammas_test2_HQ10000_G1_0_18_053[0]
         ax1.plot(data[:,0], data[:,1],color = 'Blue' ,lw=2,ms=7 )
 
         ax1.set_ylabel(r'$f\left( u_t \right)$', fontsize=20)
@@ -6593,13 +6604,13 @@ if Fig16_GPerts_R_middle_31_62_vt_divided_by_gauss_and_Tsallis:
                    frameon=True, loc=0, handlelength=2.5)
         ax1.grid()
 
-        data, label = datalist_large_R_middle_31_62_different_gammas_test2_HQ10000_G1_0_0_000[4]
+        data, label = datalist_bin6different_gammas_test2_HQ10000_G1_0_0_000[4]
         ax2.plot(data[:,0], data[:,1],color = 'Red',
                  label=r'%s ' % test2_HQ0[len('HQ10000_G'):],lw=2,ms=7)
-        data, label = datalist_large_R_middle_31_62_different_gammas_test2_HQ10000_G1_0_10_005[4]
+        data, label = datalist_bin6different_gammas_test2_HQ10000_G1_0_10_005[4]
         ax2.plot(data[:,0], data[:,1],color = 'Black',
                  label=r'%s' % test2_HQ66[len('HQ10000_G'):],lw=2,ms=7)
-        data, label = datalist_large_R_middle_31_62_different_gammas_test2_HQ10000_G1_0_18_053[4]
+        data, label = datalist_bin6different_gammas_test2_HQ10000_G1_0_18_053[4]
         ax2.plot(data[:,0], data[:,1],color = 'Blue',
                  label=r'%s' % test2_HQ166[len('HQ10000_G'):],lw=2,ms=7)
 
@@ -6609,11 +6620,11 @@ if Fig16_GPerts_R_middle_31_62_vt_divided_by_gauss_and_Tsallis:
                    frameon=True, loc=0, handlelength=2.5)
         ax2.grid()
 
-        data, label = datalist_large_R_middle_31_62_different_gammas_test2_HQ10000_G1_0_0_000[0]
+        data, label = datalist_bin6different_gammas_test2_HQ10000_G1_0_0_000[0]
         ax3.plot(data[:, 0], data[:, 1], color='Red', lw=2,ms=7)
-        data, label = datalist_large_R_middle_31_62_different_gammas_test2_HQ10000_G1_0_10_005[0]
+        data, label = datalist_bin6different_gammas_test2_HQ10000_G1_0_10_005[0]
         ax3.plot(data[:, 0], data[:, 1], color='Black', lw=2,ms=7)
-        data, label = datalist_large_R_middle_31_62_different_gammas_test2_HQ10000_G1_0_18_053[0]
+        data, label = datalist_bin6different_gammas_test2_HQ10000_G1_0_18_053[0]
         ax3.plot(data[:, 0], data[:, 1], color='Blue', lw=2,ms=7)
 
         ax3.set_ylabel(r'$\log \left( f\left( u_t \right) \right)$',
@@ -6621,11 +6632,11 @@ if Fig16_GPerts_R_middle_31_62_vt_divided_by_gauss_and_Tsallis:
         ax3.grid()
         ax3.set_yscale('log')
 
-        data, label = datalist_large_R_middle_31_62_different_gammas_test2_HQ10000_G1_0_0_000[4]
+        data, label = datalist_bin6different_gammas_test2_HQ10000_G1_0_0_000[4]
         ax4.plot(data[:, 0], data[:, 1], color='Red', lw=2, ms=7)
-        data, label = datalist_large_R_middle_31_62_different_gammas_test2_HQ10000_G1_0_10_005[4]
+        data, label = datalist_bin6different_gammas_test2_HQ10000_G1_0_10_005[4]
         ax4.plot(data[:, 0], data[:, 1], color='Black', lw=2, ms=7)
-        data, label = datalist_large_R_middle_31_62_different_gammas_test2_HQ10000_G1_0_18_053[4]
+        data, label = datalist_bin6different_gammas_test2_HQ10000_G1_0_18_053[4]
         ax4.plot(data[:, 0], data[:, 1], color='Blue', lw=2, ms=7)
 
         ax4.set_ylabel(r'$\log \left( f\left(\log \left( |u_tn|, u_tp\
@@ -6634,17 +6645,17 @@ if Fig16_GPerts_R_middle_31_62_vt_divided_by_gauss_and_Tsallis:
         ax4.grid()
         ax4.set_yscale('log')
 
-        data, label = datalist_large_R_middle_31_62_different_gammas_test2_HQ10000_G1_0_0_000[0]
+        data, label = datalist_bin6different_gammas_test2_HQ10000_G1_0_0_000[0]
         ax5.plot(data[:, 0],
                  data[:, 1] / (887.569 * data[:, 0]
                  * np.exp(-.922 * data[:, 0] ** 2)),
                  color = 'Red',lw=2,ms=7)
-        data, label = datalist_large_R_middle_31_62_different_gammas_test2_HQ10000_G1_0_10_005[0]
+        data, label = datalist_bin6different_gammas_test2_HQ10000_G1_0_10_005[0]
         ax5.plot(data[:, 0],
                  data[:, 1] / (887.569 * data[:, 0]
                  * np.exp(-.922 * data[:, 0] ** 2)),
                  color = 'Black',lw=2,ms=7)
-        data, label = datalist_large_R_middle_31_62_different_gammas_test2_HQ10000_G1_0_18_053[0]
+        data, label = datalist_bin6different_gammas_test2_HQ10000_G1_0_18_053[0]
         ax5.plot(data[:, 0],
                  data[:, 1] / (887.569 * data[:, 0]
                  * np.exp(-.922 * data[:, 0] ** 2)),
@@ -6655,17 +6666,17 @@ if Fig16_GPerts_R_middle_31_62_vt_divided_by_gauss_and_Tsallis:
                        fontsize=20)
         ax5.grid()
 
-        data, label = datalist_large_R_middle_31_62_different_gammas_test2_HQ10000_G1_0_0_000[4]
+        data, label = datalist_bin6different_gammas_test2_HQ10000_G1_0_0_000[4]
         ax6.plot(data[:, 0],
                  data[:, 1] / (3424.993 * (10 ** data[:, 0]) ** 2
                  * np.exp(-.930 * (10 ** data[:, 0]) ** 2)),
                  color='Red', lw=2, ms=7)
-        data, label = datalist_large_R_middle_31_62_different_gammas_test2_HQ10000_G1_0_10_005[4]
+        data, label = datalist_bin6different_gammas_test2_HQ10000_G1_0_10_005[4]
         ax6.plot(data[:,0],
                  data[:,1]/(3424.993*(10**data[:,0])**2*
                      np.exp(-0.930*(10**data[:,0])**2)),
                  color = 'Black',lw=2,ms=7 )
-        data, label = datalist_large_R_middle_31_62_different_gammas_test2_HQ10000_G1_0_18_053[4]
+        data, label = datalist_bin6different_gammas_test2_HQ10000_G1_0_18_053[4]
         ax6.plot(data[:,0],
                  data[:,1]/(3424.993*(10**data[:,0])**2*
                      np.exp(-0.930*(10**data[:,0])**2)),
@@ -6678,17 +6689,17 @@ if Fig16_GPerts_R_middle_31_62_vt_divided_by_gauss_and_Tsallis:
                        fontsize=20)
         ax6.grid()
 
-        data, label = datalist_large_R_middle_31_62_different_gammas_test2_HQ10000_G1_0_0_000[0]
+        data, label = datalist_bin6different_gammas_test2_HQ10000_G1_0_0_000[0]
         ax7.plot(data[:, 0],
                  data[:, 1] / (864.543 * data[:, 0] * (1 - (1 - .946)
                  * .908 * data[:, 0] ** 2) ** (.946 / (1 - .946))),
                  color = 'Red',lw=2,ms=7 )
-        data, label = datalist_large_R_middle_31_62_different_gammas_test2_HQ10000_G1_0_10_005[0]
+        data, label = datalist_bin6different_gammas_test2_HQ10000_G1_0_10_005[0]
         ax7.plot(data[:, 0],
                  data[:, 1] / (864.543 * data[:, 0] * (1 - (1 - .946)
                  * .908 * data[:, 0] ** 2) ** (.946 / (1 - .946))),
                  color = 'Black',lw=2,ms=7 )
-        data, label = datalist_large_R_middle_31_62_different_gammas_test2_HQ10000_G1_0_18_053[0]
+        data, label = datalist_bin6different_gammas_test2_HQ10000_G1_0_18_053[0]
         ax7.plot(data[:, 0],
                  data[:, 1] / (864.543 * data[:, 0] * (1 - (1 - .946)
                  * .908 * data[:, 0] ** 2) ** (.946 / (1 - .946))),
@@ -6700,17 +6711,17 @@ if Fig16_GPerts_R_middle_31_62_vt_divided_by_gauss_and_Tsallis:
                        fontsize=20)
         ax7.grid()
 
-        data, label = datalist_large_R_middle_31_62_different_gammas_test2_HQ10000_G1_0_0_000[4]
+        data, label = datalist_bin6different_gammas_test2_HQ10000_G1_0_0_000[4]
         ax8.plot(data[:, 0],
                  data[:,1]/(3391.113*10**data[:,0]*(1-(1-0.987)*
                  .924*10**(data[:,0]**2))**(0.987/(1.-0.987))),
                  color = 'Red',lw=2,ms=7 )
-        data, label = datalist_large_R_middle_31_62_different_gammas_test2_HQ10000_G1_0_10_005[4]
+        data, label = datalist_bin6different_gammas_test2_HQ10000_G1_0_10_005[4]
         ax8.plot(data[:, 0],
                  data[:, 1] / (3391.113 * 10 ** data[:, 0] * (1 - (1 - .987) *
                  .924 * 10 ** (data[:, 0] ** 2)) ** (.987 / (1. - .987))),
                  color = 'Black',lw=2,ms=7 )
-        data, label = datalist_large_R_middle_31_62_different_gammas_test2_HQ10000_G1_0_18_053[4]
+        data, label = datalist_bin6different_gammas_test2_HQ10000_G1_0_18_053[4]
         ax8.plot(data[:, 0],
                  data[:, 1] / (3391.113 * 10 ** data[:, 0] * (1 - (1 - .987) *
                                              .924 * 10 ** (data[:, 0] ** 2)) **
@@ -6725,11 +6736,11 @@ if Fig16_GPerts_R_middle_31_62_vt_divided_by_gauss_and_Tsallis:
         ax8.grid()
 
     if A:
-        data, label = datalist_large_R_middle_31_62_different_gammas_A_HQ10000_G1_0_0_000[0]
+        data, label = datalist_bin6different_gammas_A_HQ10000_G1_0_0_000[0]
         ax1.plot(data[:,0], data[:,1],color = 'Red',lw=2,ms=7)
-        data, label = datalist_large_R_middle_31_62_different_gammas_A_HQ10000_G1_0_10_005[0]
+        data, label = datalist_bin6different_gammas_A_HQ10000_G1_0_10_005[0]
         ax1.plot(data[:,0], data[:,1],color = 'Black' ,lw=2,ms=7 )
-        data, label = datalist_large_R_middle_31_62_different_gammas_A_HQ10000_G1_0_48_093[0]
+        data, label = datalist_bin6different_gammas_A_HQ10000_G1_0_48_093[0]
         ax1.plot(data[:,0], data[:,1],color = 'Blue' ,lw=2,ms=7 )
 
         ax1.set_ylabel(r'$f\left( u_t \right)$', fontsize=20)
@@ -6740,13 +6751,13 @@ if Fig16_GPerts_R_middle_31_62_vt_divided_by_gauss_and_Tsallis:
                    frameon=True, loc=0, handlelength=2.5)
         ax1.grid()
 
-        data, label = datalist_large_R_middle_31_62_different_gammas_A_HQ10000_G1_0_0_000[4]
+        data, label = datalist_bin6different_gammas_A_HQ10000_G1_0_0_000[4]
         ax2.plot(data[:,0], data[:,1],color = 'Red',
                  label=r'%s ' % A_HQ0[len('A_HQ10000_G'):],lw=2,ms=7 )
-        data, label = datalist_large_R_middle_31_62_different_gammas_A_HQ10000_G1_0_10_005[4]
+        data, label = datalist_bin6different_gammas_A_HQ10000_G1_0_10_005[4]
         ax2.plot(data[:,0], data[:,1],color = 'Black',
                  label=r'%s' %A_HQ66[len('A_HQ10000_G'):],lw=2,ms=7 )
-        data, label = datalist_large_R_middle_31_62_different_gammas_A_HQ10000_G1_0_48_093[4]
+        data, label = datalist_bin6different_gammas_A_HQ10000_G1_0_48_093[4]
         ax2.plot(data[:,0], data[:,1],color = 'Blue',
                  label=r'%s' %A_HQ382[len('A_HQ10000_G'):],lw=2,ms=7 )
 
@@ -6756,11 +6767,11 @@ if Fig16_GPerts_R_middle_31_62_vt_divided_by_gauss_and_Tsallis:
                    frameon=True, loc=0, handlelength=2.5)
         ax2.grid()
 
-        data, label = datalist_large_R_middle_31_62_different_gammas_A_HQ10000_G1_0_0_000[0]
+        data, label = datalist_bin6different_gammas_A_HQ10000_G1_0_0_000[0]
         ax3.plot(data[:, 0], data[:, 1], color='Red', lw=2, ms=7)
-        data, label = datalist_large_R_middle_31_62_different_gammas_A_HQ10000_G1_0_10_005[0]
+        data, label = datalist_bin6different_gammas_A_HQ10000_G1_0_10_005[0]
         ax3.plot(data[:, 0], data[:, 1], color='Black', lw=2, ms=7)
-        data, label = datalist_large_R_middle_31_62_different_gammas_A_HQ10000_G1_0_48_093[0]
+        data, label = datalist_bin6different_gammas_A_HQ10000_G1_0_48_093[0]
         ax3.plot(data[:, 0], data[:, 1], color='Blue', lw=2, ms=7)
 
         ax3.set_ylabel(r'$\log \left(f\left(u_t \right) \right)$',
@@ -6768,11 +6779,11 @@ if Fig16_GPerts_R_middle_31_62_vt_divided_by_gauss_and_Tsallis:
         ax3.grid()
         ax3.set_yscale('log')
 
-        data, label = datalist_large_R_middle_31_62_different_gammas_A_HQ10000_G1_0_0_000[4]
+        data, label = datalist_bin6different_gammas_A_HQ10000_G1_0_0_000[4]
         ax4.plot(data[:, 0], data[:, 1], color='Red', lw=2, ms=7)
-        data, label = datalist_large_R_middle_31_62_different_gammas_A_HQ10000_G1_0_10_005[4]
+        data, label = datalist_bin6different_gammas_A_HQ10000_G1_0_10_005[4]
         ax4.plot(data[:, 0], data[:, 1], color='Black', lw=2, ms=7)
-        data, label = datalist_large_R_middle_31_62_different_gammas_A_HQ10000_G1_0_48_093[4]
+        data, label = datalist_bin6different_gammas_A_HQ10000_G1_0_48_093[4]
         ax4.plot(data[:, 0], data[:, 1], color='Blue', lw=2, ms=7)
 
         ax4.set_ylabel(r'$\log \left( f\left(\log \left( |u_tn|, u_tp \right)\
@@ -6781,17 +6792,17 @@ if Fig16_GPerts_R_middle_31_62_vt_divided_by_gauss_and_Tsallis:
         ax4.grid()
         ax4.set_yscale('log')
 
-        data, label = datalist_large_R_middle_31_62_different_gammas_A_HQ10000_G1_0_0_000[0]
+        data, label = datalist_bin6different_gammas_A_HQ10000_G1_0_0_000[0]
         ax5.plot(data[:, 0],
                  data[:, 1] / (887.569 * data[:, 0] *
                      np.exp(-.922 * data[:, 0] ** 2)),
                  color='Red', lw=2, ms=7)
-        data, label = datalist_large_R_middle_31_62_different_gammas_A_HQ10000_G1_0_10_005[0]
+        data, label = datalist_bin6different_gammas_A_HQ10000_G1_0_10_005[0]
         ax5.plot(data[:, 0],
                  data[:, 1] / (887.569 * data[:, 0] *
                      np.exp(-.922 * data[:, 0] ** 2)),
                  color='Black', lw=2, ms=7)
-        data, label = datalist_large_R_middle_31_62_different_gammas_A_HQ10000_G1_0_48_093[0]
+        data, label = datalist_bin6different_gammas_A_HQ10000_G1_0_48_093[0]
         ax5.plot(data[:, 0],
                  data[:, 1] / (887.569 * data[:, 0] *
                      np.exp(-.922 * data[:, 0] ** 2)),
@@ -6802,17 +6813,17 @@ if Fig16_GPerts_R_middle_31_62_vt_divided_by_gauss_and_Tsallis:
                        fontsize=20)
         ax5.grid()
 
-        data, label = datalist_large_R_middle_31_62_different_gammas_A_HQ10000_G1_0_0_000[4]
+        data, label = datalist_bin6different_gammas_A_HQ10000_G1_0_0_000[4]
         ax6.plot(data[:, 0],
                  data[:, 1] / (3424.993 * (10 ** data[:, 0]) ** 2 *
                  np.exp(-.930 * (10 ** data[:, 0]) ** 2)),
                  color='Red', lw=2, ms=7)
-        data, label = datalist_large_R_middle_31_62_different_gammas_A_HQ10000_G1_0_10_005[4]
+        data, label = datalist_bin6different_gammas_A_HQ10000_G1_0_10_005[4]
         ax6.plot(data[:, 0],
                  data[:, 1] / (3424.993 * (10 ** data[:, 0]) ** 2 *
                  np.exp(-.930 * (10 ** data[:, 0]) ** 2)),
                  color='Black', lw=2, ms=7)
-        data, label = datalist_large_R_middle_31_62_different_gammas_A_HQ10000_G1_0_48_093[4]
+        data, label = datalist_bin6different_gammas_A_HQ10000_G1_0_48_093[4]
         ax6.plot(data[:, 0],
                  data[:, 1] / (3424.993 * (10 ** data[:, 0]) ** 2 *
                  np.exp(-.930 * (10 ** data[:, 0]) ** 2)),
@@ -6825,17 +6836,17 @@ if Fig16_GPerts_R_middle_31_62_vt_divided_by_gauss_and_Tsallis:
                        fontsize=20)
         ax6.grid()
 
-        data, label = datalist_large_R_middle_31_62_different_gammas_A_HQ10000_G1_0_0_000[0]
+        data, label = datalist_bin6different_gammas_A_HQ10000_G1_0_0_000[0]
         ax7.plot(data[:, 0],
                  data[:, 1] / (864.543 * data[:, 0] * (1 - (1 - .946) * .908 *
                  data[:, 0] ** 2) ** (.946 / (1 - .946))),
                  color='Red', lw=2, ms=7)
-        data, label = datalist_large_R_middle_31_62_different_gammas_A_HQ10000_G1_0_10_005[0]
+        data, label = datalist_bin6different_gammas_A_HQ10000_G1_0_10_005[0]
         ax7.plot(data[:, 0],
                  data[:, 1] / (864.543 * data[:, 0] * (1 - (1 - .946) * .908 *
                  data[:, 0] ** 2) ** (.946 / (1 - .946))),
                  color='Black', lw=2, ms=7)
-        data, label = datalist_large_R_middle_31_62_different_gammas_A_HQ10000_G1_0_48_093[0]
+        data, label = datalist_bin6different_gammas_A_HQ10000_G1_0_48_093[0]
         ax7.plot(data[:, 0],
                  data[:, 1] / (864.543 * data[:, 0] * (1 - (1 - .946) * .908 *
                  data[:, 0] ** 2) ** (.946 / (1 - .946))),
@@ -6846,17 +6857,17 @@ if Fig16_GPerts_R_middle_31_62_vt_divided_by_gauss_and_Tsallis:
         ax7.set_ylabel(r'$\frac{f\left( u_t \right)}{Tsallis} $', fontsize=20)
         ax7.grid()
 
-        data, label = datalist_large_R_middle_31_62_different_gammas_A_HQ10000_G1_0_0_000[4]
+        data, label = datalist_bin6different_gammas_A_HQ10000_G1_0_0_000[4]
         ax8.plot(data[:, 0],
                  data[:, 1] / (3391.113 * 10 ** data[:, 0] * (1 - (1 - .987) *
                  .924 * 10 ** (data[:, 0] ** 2)) ** (.987 / (1. - .987))),
                  color='Red', lw=2, ms=7)
-        data, label = datalist_large_R_middle_31_62_different_gammas_A_HQ10000_G1_0_10_005[4]
+        data, label = datalist_bin6different_gammas_A_HQ10000_G1_0_10_005[4]
         ax8.plot(data[:, 0],
                  data[:, 1] / (3391.113 * 10 ** data[:, 0] * (1 - (1 - .987) *
                  .924 * 10 ** (data[:, 0] ** 2)) ** (.987 / (1. -.987))),
                  color='Black', lw=2, ms=7)
-        data, label = datalist_large_R_middle_31_62_different_gammas_A_HQ10000_G1_0_48_093[4]
+        data, label = datalist_bin6different_gammas_A_HQ10000_G1_0_48_093[4]
         ax8.plot(data[:, 0],
                  data[:, 1] / (3391.113 * 10 ** data[:, 0] * (1 - (1 - .987) *
                  .924 * 10 ** (data[:, 0] ** 2)) ** (.987 / (1. - .987))),
@@ -6870,7 +6881,7 @@ if Fig16_GPerts_R_middle_31_62_vt_divided_by_gauss_and_Tsallis:
         ax8.grid()
 
     if B:
-        data, label = datalist_large_R_middle_31_62_different_gammas_B_HQ10000_G1_0_0_000[0]
+        data, label = datalist_bin6different_gammas_B_HQ10000_G1_0_0_000[0]
         ax1.plot(data[:, 0], data[:, 1], color='Red', lw=2, ms=7)
 
         ax1.set_ylabel(r'$f\left( u_t \right)$', fontsize=20)
@@ -6881,7 +6892,7 @@ if Fig16_GPerts_R_middle_31_62_vt_divided_by_gauss_and_Tsallis:
                    frameon=True, loc=0, handlelength=2.5)
         ax1.grid()
 
-        data, label = datalist_large_R_middle_31_62_different_gammas_B_HQ10000_G1_0_0_000[4]
+        data, label = datalist_bin6different_gammas_B_HQ10000_G1_0_0_000[4]
         ax2.plot(data[:, 0], data[:, 1], color='Red',
                  label=r'%s' % B_HQ0[len('B_HQ10000_G'):], lw=2, ms=7)
 
@@ -6891,7 +6902,7 @@ if Fig16_GPerts_R_middle_31_62_vt_divided_by_gauss_and_Tsallis:
                    frameon=True, loc=0, handlelength=2.5)
         ax2.grid()
 
-        data, label = datalist_large_R_middle_31_62_different_gammas_B_HQ10000_G1_0_0_000[0]
+        data, label = datalist_bin6different_gammas_B_HQ10000_G1_0_0_000[0]
         ax3.plot(data[:, 0], data[:, 1], color='Red', lw=2, ms=7)
 
         ax3.set_ylabel(r'$\log \left( f\left( u_t \right) \right)$',
@@ -6899,7 +6910,7 @@ if Fig16_GPerts_R_middle_31_62_vt_divided_by_gauss_and_Tsallis:
         ax3.grid()
         ax3.set_yscale('log')
 
-        data, label = datalist_large_R_middle_31_62_different_gammas_B_HQ10000_G1_0_0_000[4]
+        data, label = datalist_bin6different_gammas_B_HQ10000_G1_0_0_000[4]
         ax4.plot(data[:, 0], data[:, 1], color='Red', lw=2, ms=7)
 
         ax4.set_ylabel(r'$\log \left( f\left(\log \left( |u_tn|, u_tp \right)\
@@ -6918,7 +6929,7 @@ if Fig16_GPerts_R_middle_31_62_vt_divided_by_gauss_and_Tsallis:
                        fontsize=20)
         ax5.grid()
 
-        data, label = datalist_large_R_middle_31_62_different_gammas_B_HQ10000_G1_0_0_000[4]
+        data, label = datalist_bin6different_gammas_B_HQ10000_G1_0_0_000[4]
         ax6.plot(data[:, 0],
                  data[:, 1] / (3424.993 * (10 ** data[:, 0]) ** 2 *
                  np.exp(-.930 * (10 ** data[:, 0]) ** 2)),
@@ -6930,7 +6941,7 @@ if Fig16_GPerts_R_middle_31_62_vt_divided_by_gauss_and_Tsallis:
                        fontsize=20)
         ax6.grid()
 
-        data, label = datalist_large_R_middle_31_62_different_gammas_B_HQ10000_G1_0_0_000[0]
+        data, label = datalist_bin6different_gammas_B_HQ10000_G1_0_0_000[0]
         ax7.plot(data[:, 0],
                  data[:, 1] / (864.543 * data[:, 0] * (1 - (1 - .946) *
                      .908 * data[:, 0] ** 2) ** (.946 / (1 - .946))),
@@ -6941,7 +6952,7 @@ if Fig16_GPerts_R_middle_31_62_vt_divided_by_gauss_and_Tsallis:
         ax7.set_ylabel(r'$\frac{f\left( u_t \right)}{Tsallis} $', fontsize=20)
         ax7.grid()
 
-        data, label = datalist_large_R_middle_31_62_different_gammas_B_HQ10000_G1_0_0_000[4]
+        data, label = datalist_bin6different_gammas_B_HQ10000_G1_0_0_000[4]
         ax8.plot(data[:, 0],
                  data[:, 1] / (3391.113 * 10 ** data[:, 0] * (1 - (1 - .987) *
                  .924 * 10 ** (data[:, 0] ** 2)) ** (.987 / (1. - .987))),

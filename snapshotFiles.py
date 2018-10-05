@@ -1,14 +1,5 @@
-import os
 
-User_path = os.getcwd()
-Desktop_path = User_path + 'Desktop/'
-GADGET_G_path = Desktop_path + 'RunGadget/G_perturbations/'
-Stable_path = 'G_perturbations/Stable_structures/'
-figure_path = Desktop_path + Stable_path + 'figures/'
-text_files_path = Desktop_path + Stable_path + 'text_files/'
-Martin_path = 'Martin_IC_and_Final_Edd_and_OM/'
-hdf5_path = Desktop_path + 'G_perturbations/hdf5_files/'
-nosync_path = User_path + 'nosync/RunGadget/'
+from definePaths import *
 
 # Filename = hdf5Path + '0G00_IC_000.hdf5'
 # Filename = hdf5Path + '0G20_Final_000.hdf5'

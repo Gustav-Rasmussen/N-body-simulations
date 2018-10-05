@@ -11,34 +11,26 @@ from scipy.stats import norm
 from scipy.optimize import curve_fit
 import scipy as sp
 import seaborn as sns
-import os
+from pathlib import Path
 import Gammas_and_R_middles
 import getSnapshotValues
 import snapshotFiles
 import NoOfParticlesAndParticleMass
+from definePaths import *
 
-UserPath = os.getcwd()
-DesktopPath = UserPath + 'Desktop/'
-GADGET_G_path = DesktopPath + 'RunGadget/G_Perts/'
-StablePath = 'G_Perts/Stable_structures/'
-figurePath = DesktopPath + StablePath + 'figures/'
+# Paths -----------------------------------------------------------------------
 
-textFilesPath = DesktopPath + StablePath + 'text_files/'
+# text_files_path = textFilesPath / 'A/'
+# text_files_path = textFilesPath / 'B/'
+# text_files_path = textFilesPath / 'Soft_B/'
+# text_files_path = textFilesPath / 'CS4/'
+# text_files_path = textFilesPath / 'CS5/'
+# text_files_path = textFilesPath / 'CS6/'
+# text_files_path = textFilesPath / 'DS1/'
+# text_files_path = textFilesPath / 'Soft_D2/'
+# text_files_path = textFilesPath / 'E/'
 
-# text_files_path = textFilesPath + 'A/'
-# text_files_path = textFilesPath + 'B/'
-# text_files_path = textFilesPath + 'Soft_B/'
-# text_files_path = textFilesPath + 'CS4/'
-# text_files_path = textFilesPath + 'CS5/'
-# text_files_path = textFilesPath + 'CS6/'
-# text_files_path = textFilesPath + 'DS1/'
-# text_files_path = textFilesPath + 'Soft_D2/'
-# text_files_path = textFilesPath + 'E/'
-
-MartinPath = 'Martin_IC_and_Final_Edd_and_OM/'
-hdf5Path = DesktopPath + 'G_Perts/hdf5_files/'
-nosyncPath = UserPath + 'nosync/RunGadget/'
-
+# Figure switches -------------------------------------------------------------
 Fig_v_logr = 0
 Fig_v_logr_r2 = 0
 
@@ -71,6 +63,24 @@ save_combine_ASCII = 0
 Fig_combine_ASCII = 0
 save_sigma = 0
 V_vr_r_logr_panel = 0
+
+# Functions -------------------------------------------------------------------
+
+
+def chi_2(param=gamma_arr):
+    Chi2 = 0
+    i = 0
+    while (i < len(param)):
+        if isnan(param[i]):
+            print('nan at index: ', i)
+        else:
+            Chi2 += ((param[i] - y_plot[i]) ** 2) / (param[i] * .2) ** 2
+        i += 1
+    Chi2 = (1.0 / (len(param) - 1)) * Chi2
+    return Chi2
+
+
+# Figures ---------------------------------------------------------------------
 
 if Fig_x_hist:
     f, (ax1, ax2, ax3) = plt.subplots(1, 3, figsize=(13, 11))
@@ -143,16 +153,16 @@ if Fig_v_logr:
                    fontsize=30)
     # ax1.set_title(r'%s' % F, fontsize=30)
     ax1.set_title(r'A IC (I: $\Delta G,R_{lim}=10^4$)', fontsize=30)
-    # ax1.set_title(r'A 10_005 (I: $\Delta G,R_{lim}=10^4$)',
-    #                fontsize=30)
-    # ax1.set_title(r'A 48_009 (I: $\Delta G,R_{lim}=10^4$)',
+    # ax1.set_title(r'A 10_005 (I: $\Delta G, R_{lim}=10^4$)',
+    #               fontsize=30)
+    # ax1.set_title(r'A 48_009 (I: $\Delta G, R_{lim}=10^4$)',
     #               fontsize=30)
 
     ax2.plot(np.log10(r), v, 'o', color='Blue', lw=3, ms=2)
     ax2.set_xlabel(r'$\log r$', fontsize=30)
     ax2.yaxis.tick_right()
 
-    f.savefig(figurePath + 'A_IC_v_logr.png')
+    # f.savefig(figurePath + 'A_IC_v_logr.png')
     # f.savefig(figurePath + 'A_10_005_v_logr.png')
     # f.savefig(figurePath + 'A_48_009_v_logr.png')
     # f.savefig(figurePath + 'B_v_logr.png')
@@ -174,7 +184,7 @@ if Fig_v_logr_r2:
     ax1.plot(r_r2, v, 'o', color='Blue', lw=3, ms=2)
     ax1.set_xlabel(r'$\frac{r}{r_{-2}}$', fontsize=30)
     ax1.set_ylabel(r'velocity, $v = \sqrt{v_x^2+v_y^2+v_z^2}$',
-    #              fontsize=30)
+                   fontsize=30)
     # ax1.set_title(r'%s' % F, fontsize=30)
     # ax1.set_title(r'A IC (I: $\Delta G, R_{lim}=10^4$)', fontsize=30)
     # ax1.set_title(r'A 10_005 (I: $\Delta G,R_{lim}=10^4$)',
@@ -290,39 +300,38 @@ for i in range(nr_binning_bins - 2):
     min_R_bin_i = binning_arr_lin_log10[i]  # start of bin
     max_R_bin_i = binning_arr_lin_log10[i + 1]  # end of bin
     posR_par_inside_bin_i = np.where((R_hob_par > min_R_bin_i)
-                            & (R_hob_par < max_R_bin_i))
-                            # position of particles inside a radial bin
+                                     & (R_hob_par < max_R_bin_i))
+    # position of particles inside a radial bin
     # number of particles inside a radial bin
     nr_par_inside_bin_i = len(posR_par_inside_bin_i[0])
     if nr_par_inside_bin_i == 0:
         continue
     # v2 = vx ** 2 + vy ** 2 + vz ** 2
     v = (vx[posR_par_inside_bin_i] ** 2 + vy[posR_par_inside_bin_i]
-        ** 2 + vz[posR_par_inside_bin_i] ** 2) ** .5
+         ** 2 + vz[posR_par_inside_bin_i] ** 2) ** .5
     # sigma2 total
     v2_inside_bin_i = v ** 2
     sigma2_inside_bin_i = (1. / (nr_par_inside_bin_i + 1.))
-                          * np.sum(v2_inside_bin_i)
+                           * np.sum(v2_inside_bin_i)
     sigma2_arr.append(sigma2_inside_bin_i)
     bin_radius_arr.append((max_R_bin_i + min_R_bin_i) / 2)
     # sigmarad2 radial
     vrad2_inside_bin_i = v_r[posR_par_inside_bin_i] ** 2
     sigmarad2_inside_bin_i = (1. / (nr_par_inside_bin_i + 1.))
-                             * np.sum(vrad2_inside_bin_i)
+                              * np.sum(vrad2_inside_bin_i)
     sigmarad2_arr.append(sigmarad2_inside_bin_i)
     # mean_vrad2_inside_bin_i = (1. / (nr_par_inside_bin_i+1.))
-    #                           * np.sum(v_r[posR_par_inside_bin_i]
-    #                           ** 2)
+    #                           * np.sum(v_r[posR_par_inside_bin_i] ** 2)
     # mean_sigmarad2_inside_bin_i = (1. / (nr_par_inside_bin_i + 1.))
     #                               * np.sum(vrad2_inside_bin_i)
     # calculate volume of cluster:
     Volume_cl = (4. / 3.) * np.pi
-                * (max_R_bin_i ** 3 - min_R_bin_i ** 3)
+                 * (max_R_bin_i ** 3 - min_R_bin_i ** 3)
     # density
     den_cl = nr_par_inside_bin_i / Volume_cl
     rho = den_cl * m
     r_i = (x[posR_par_inside_bin_i] ** 2 + y[posR_par_inside_bin_i]
-          ** 2 + z[posR_par_inside_bin_i] ** 2) ** .5
+           ** 2 + z[posR_par_inside_bin_i] ** 2) ** .5
     Phi_i = sp.arctan2(y[posR_par_inside_bin_i],
                        x[posR_par_inside_bin_i])
     Theta_i = sp.arccos(z[posR_par_inside_bin_i] / r_i)
@@ -342,12 +351,12 @@ for i in range(nr_binning_bins - 2):
     sigmatheta2_inside_bin_i = (1. / (nr_par_inside_bin_i + 1.))
                                * np.sum(VTheta2_inside_bin_i)
     sigmatheta2_arr.append(sigmatheta2_inside_bin_i)
-    #sigmaphi2
+    # sigmaphi2
     VPhi2_inside_bin_i = VPhi_i ** 2
     sigmaphi2_inside_bin_i = (1. / (nr_par_inside_bin_i + 1.))
                              * np.sum(VPhi2_inside_bin_i)
     sigmaphi2_arr.append(sigmaphi2_inside_bin_i)
-    #sigmatan2
+    # sigmatan2
     sigmatan  = (sigmatheta2_inside_bin_i + sigmaphi2_inside_bin_i)
                 ** .5
     sigmatan2 = sigmatan ** 2
@@ -364,7 +373,7 @@ for i in range(nr_binning_bins - 2):
     VPhi.append(VPhi_i)
 
 # Change the nesessary lists into arrays
-sigma2_arr = np.array(sigma2_arr) # square of total velocity dispersion
+sigma2_arr = np.array(sigma2_arr)  # square of total velocity dispersion
 sigmarad2_arr = np.array(sigmarad2_arr)
 bin_radius_arr = np.array(bin_radius_arr)
 r_arr = np.array(r)
@@ -421,9 +430,11 @@ if Fig3_sigma:  # Dispersions
     plt.xlabel(r'$\log $r', fontsize=30)
     plt.ylabel(r'$\log (\sigma^2)$', fontsize=30)
     # plt.title(r'Velocity dispersions (File = %s)' % F, fontsize=30)
-    # plt.title(r'Velocity dispersions (B IC, $R_{limit} = 10^4$, 20 radial bins)',
+    # plt.title(r'Velocity dispersions (B IC, $R_{limit} = 10^4$,\
+    #           20 radial bins)',
     #           fontsize=30)
-    # plt.title(r'Velocity dispersions (B 198_093, $R_{limit} = 10^4$, 20 radial bins)',
+    # plt.title(r'Velocity dispersions (B 198_093, $R_{limit} = 10^4$,\
+    #           20 radial bins)',
     #           fontsize=30)
     leg = plt.legend(prop=dict(size=30), numpoints=2, ncol=1,
                      fancybox=True, loc=0, handlelength=2.5)
@@ -468,10 +479,10 @@ if Fig3_sigma_r_2:  # Dispersions
     plt.ylabel(r'$\log (\sigma^2) $', fontsize=30)
 
     # plt.title(r'Velocity dispersions (File = %s)' % F, fontsize=30)
-    plt.title(r'Velocity dispersions (B IC, $R_{limit} = 10^4$, 20 radial bins)',
-              fontsize=30)
-    # plt.title(r'Velocity dispersions (B 198_093, $R_{limit} = 10^4$, 20 radial bins)',
-    #           fontsize=30)
+    # plt.title(r'Velocity dispersions (B IC, $R_{limit} = 10^4$,\
+    #           20 radial bins)', fontsize=30)
+    # plt.title(r'Velocity dispersions (B 198_093, $R_{limit} = 10^4$,\
+    #           20 radial bins)', fontsize=30)
     # f.savefig(figurePath + 'A_sigma_r_2.png')
     # f.savefig(figurePath + 'B_IC_sigma_r_2.png')
     # f.savefig(figurePath + 'B_198_093_sigma_r_2.png')
@@ -512,13 +523,13 @@ if Fig3_sigma_divided_by_v_circ_r_2:  # Dispersions
     plt.ylabel(r'$\log (\bar{\sigma}^2)$', fontsize=30)
 
     # plt.title(r'Velocity dispersions (File = %s)' % F, fontsize=26)
-    plt.title(r'Velocity dispersions (B IC, $R_{limit} = 10^4$, 20 radial bins)'
-              , fontsize=30)
+    plt.title(r'Velocity dispersions (B IC, $R_{limit} = 10^4$,\
+              20 radial bins)', fontsize=30)
     leg = plt.legend(prop=dict(size=18), numpoints=2, ncol=1,
                      fancybox=True, loc=0, handlelength=2.5)
     leg.get_frame().set_alpha(.5)
     # f.savefig(figurePath + 'A_sigma_divided_by_v_circ_r_2.png')
-    f.savefig(figurePath + 'B_sigma_divided_by_v_circ_r_2.png')
+    # f.savefig(figurePath + 'B_sigma_divided_by_v_circ_r_2.png')
     # f.savefig(figurePath + 'Soft_B_sigma_divided_by_v_circ_r_2.png')
     # f.savefig(figurePath + 'CS1_sigma_divided_by_v_circ_r_2.png')
     # f.savefig(figurePath + 'CS2_sigma_divided_by_v_circ_r_2.png')
@@ -554,23 +565,13 @@ if Fig4_beta:  # plot beta
         plt.plot(x_plot, y_plot, '-', ms=2, mew=0, color='blue',
                  label=r'$\frac{r^2}{4^2+r^2}$')
         # plt.title(r'$\beta$ with fit (%s)' % F, fontsize=26)
-        plt.title(r'$\beta$ with analytical expression (CS6 IC with 20 radial bins)'
-                  , fontsize=30)
-        '''
-        Chi2 = 0
-        i = 0
-        while (i < len(beta_arr)):
-            if isnan(beta_arr[i]):
-                print('nan at index: ', i)
-            else:
-                Chi2 += ((beta_arr[i] - y_plot[i]) ** 2) /
-                         (beta_arr[i] * .2) ** 2
-            i += 1
-        Chi2 = (1.0 / (len(beta_arr) - 1)) * Chi2
-        print('Chi2 for betafit: ', Chi2)
+        plt.title(r'$\beta$ with analytical expression\
+                  (CS6 IC with 20 radial bins)', fontsize=30)
+
         # Dummy plot to add label to legend for chi2
-        plt.plot([], [], ls='.', c='grey', label = r'$\chi^2 = %.6f$' % Chi2)
-        '''
+        plt.plot([], [], ls='.', c='grey',
+                 label=r'$\chi^2 = %.6f$' % chi_2(beta_arr))
+
         leg = plt.legend(prop=dict(size=30), numpoints=2, ncol=1,
                          fancybox=True, loc=0, handlelength=2.5)
         leg.get_frame().set_alpha(.5)
@@ -592,43 +593,59 @@ if Fig4_beta:  # plot beta
         leg.get_frame().set_alpha(.5)
 
         # plt.title(r'$\beta$ with zero-line(%s)' % F, fontsize=30)
-        # plt.title(r'$\beta$ with zero-line (A 48_009, $R_{limit}=10^4, 20$ bins)',
+        # plt.title(r'$\beta$ with zero-line\
+        #           (A 48_009, $R_{limit}=10^4, 20$ bins)',
         #           fontsize=30)
-        # plt.title(r'$\beta$ with zero-line (B 199_093, $R_{limit}=10^4, 20$ bins)',
+        # plt.title(r'$\beta$ with zero-line\
+        #           (B 199_093, $R_{limit}=10^4, 20$ bins)',
         #           fontsize=30)
-        # plt.title(r'$\beta$ with zero-line (CS4 48_093, $R_{limit}=10^4, 20$ bins)',
+        # plt.title(r'$\beta$ with zero-line\
+        #           (CS4 48_093, $R_{limit}=10^4, 20$ bins)',
         #           fontsize=30)
-        # plt.title(r'$\beta$ with zero-line (CS5 48_093, $R_{limit}=10^4, 20$ bins)',
+        # plt.title(r'$\beta$ with zero-line\
+        #           (CS5 48_093, $R_{limit}=10^4, 20$ bins)',
         #           fontsize=30)
-        # plt.title(r'$\beta$ with zero-line (CS6 48_093, $R_{limit}=10^4, 20$ bins)',
+        # plt.title(r'$\beta$ with zero-line\
+        #           (CS6 48_093, $R_{limit}=10^4, 20$ bins)',
         #           fontsize=30)
-        # plt.title(r'$\beta$ with zero-line (DS1 49_093, $R_{limit}=10^4, 20$ bins)',
+        # plt.title(r'$\beta$ with zero-line\
+        #           (DS1 49_093, $R_{limit}=10^4, 20$ bins)',
         #           fontsize=30)
-        # plt.title(r'$\beta$ with zero-line (D2 49_093, $R_{limit}=10^4, 20$ bins)',
+        # plt.title(r'$\beta$ with zero-line\
+        #           (D2 49_093, $R_{limit}=10^4, 20$ bins)',
         #           fontsize=30)
-        # plt.title(r'$\beta$ with zero-line (Soft_D2 49_093, $R_{limit}=10^4, 20$ bins)',
+        # plt.title(r'$\beta$ with zero-line\
+        #           (Soft_D2 49_093, $R_{limit}=10^4, 20$ bins)',
         #           fontsize=30)
-        # plt.title(r'$\beta$ with zero-line (E 198_093, $R_{limit}=10^4, 20$ bins)',
+        # plt.title(r'$\beta$ with zero-line\
+        #           (E 198_093, $R_{limit}=10^4, 20$ bins)',
         #           fontsize=30)
-
-        plt.title(r'$\beta$ with zero-line (A 48_009, $R_{limit}=32, 50$ bins)',
-                  fontsize=30)
-        # plt.title(r'$\beta$ with zero-line (B 199_093, $R_{limit}=32, 50$ bins)',
+        # plt.title(r'$\beta$ with zero-line\
+        #           (A 48_009, $R_{limit}=32, 50$ bins)',
         #           fontsize=30)
-        # plt.title(r'$\beta$ with zero-line (CS4 48_093, $R_{limit}=32, 20$ bins)',
+        # plt.title(r'$\beta$ with zero-line\
+        #           (B 199_093, $R_{limit}=32, 50$ bins)',
         #           fontsize=30)
-        # plt.title(r'$\beta$ with zero-line (CS5 48_093, $R_{limit}=32, 20$ bins)',
+        # plt.title(r'$\beta$ with zero-line\
+        #           (CS4 48_093, $R_{limit}=32, 20$ bins)',
         #           fontsize=30)
-        # plt.title(r'$\beta$ with zero-line (CS6 48_093, $R_{limit}=32, 20$ bins)',
+        # plt.title(r'$\beta$ with zero-line\
+        #           (CS5 48_093, $R_{limit}=32, 20$ bins)',
         #           fontsize=30)
-        # plt.title(r'$\beta$ with zero-line (DS1 49_093, $R_{limit}=32, 20$ bins)',
+        # plt.title(r'$\beta$ with zero-line\
+        #           (CS6 48_093, $R_{limit}=32, 20$ bins)',
         #           fontsize=30)
-        # plt.title(r'$\beta$ with zero-line (D2 49_093, $R_{limit}=32, 20$ bins)',
+        # plt.title(r'$\beta$ with zero-line\
+        #           (DS1 49_093, $R_{limit}=32, 20$ bins)',
         #           fontsize=30)
-        # plt.title(r'$\beta$ with zero-line (Soft_D2 49_093, $R_{limit}=32, 20$ bins)',
+        # plt.title(r'$\beta$ with zero-line\
+        #           (D2 49_093, $R_{limit}=32, 20$ bins)',
         #           fontsize=30)
-        # plt.title(r'$\beta$ with zero-line (E 198_093, $R_{limit}=32, 50$ bins)',
+        # plt.title(r'$\beta$ with zero-line\
+        #           (Soft_D2 49_093, $R_{limit}=32, 20$ bins)',
         #           fontsize=30)
+        # plt.title(r'$\beta$ with zero-line
+        #           (E 198_093, $R_{limit}=32, 50$ bins)', fontsize=30)
 
         # f.savefig(figurePath + 'A_IC_beta_logr_I_R32.png')
         # f.savefig(figurePath + 'A_48_009_beta_logr_I_R32.png')
@@ -750,7 +767,7 @@ if Fig5_kappa:
         y_plot = (num1 + num2) / denom
 
         # print('y_plot.shape = ', y_plot.shape)
-        print('len(y_plot) = ' , len(y_plot))
+        print('len(y_plot) = ', len(y_plot))
         # print('y_plot[1.] = ', y_plot[1.])
 
         plt.plot(x_plot[0:len(y_plot) - 3], y_plot[0:len(y_plot) - 3],
@@ -760,25 +777,14 @@ if Fig5_kappa:
         #          '-', ms=2, mew=0, color='blue',
         #          label=r'Analytical shape')
         # plt.title(r'$\kappa$ with fit (%s)' % F , fontsize=30)
-        plt.title(r'$\kappa$ with analytical expression (B IC with 20 radial bins)',
-                  fontsize=30)
+        plt.title(r'$\kappa$ with analytical expression\
+                  (B IC with 20 radial bins)', fontsize=30)
         plt.ylim(-2., .5)
-        '''
-        Chi2 = 0
-        i = 0
-        while (i < len(kappa_arr)):
-            if isnan(kappa_arr[i]):
-                print('nan at index: ', i)
-            else:
-                Chi2 += ((kappa_arr[i] - y_plot[i]) ** 2) /
-                        (kappa_arr[i] * .2) ** 2
-            i += 1
-        Chi2 = (1.0 / (len(kappa_arr) - 1)) * Chi2
-        print('Chi2 for kappafit: ', Chi2)
+
         # Dummy plot to add label to legend for chi2
         plt.plot([], [], ls='.', c='grey',
-                 label=r'$\chi^2 = %.6f$' % Chi2)
-        '''
+                 label=r'$\chi^2 = %.6f$' % chi_2(kappa_arr))
+
         leg = plt.legend(prop=dict(size=30), numpoints=2, ncol=1,
                          fancybox=True, loc=0, handlelength=2.5)
         leg.get_frame().set_alpha(.5)
@@ -797,6 +803,7 @@ if Fig5_kappa:
         # f.savefig(figurePath + 'Soft_D2_kappa_logr_fit.png')
         # f.savefig(figurePath + 'Soft_D2_Final_kappa_logr_fit.png')
         # f.savefig(figurePath + 'E_kappa_logr_fit.png')
+
     else:
         leg = plt.legend(prop=dict(size=30), numpoints=2, ncol=1,
                          fancybox=True, loc=0, handlelength=2.5)
@@ -804,27 +811,30 @@ if Fig5_kappa:
 
         # plt.title(r'$\kappa$ and zero-line (%s)' % F,
         #           fontsize=30)
-        # plt.title(r'$\kappa$ and zero-line (A 48_009, $R_{limit}=10^4, 20$ bins)',
+        # plt.title(r'$\kappa$ and zero-line\
+        #           (A 48_009, $R_{limit}=10^4, 20$ bins)',
         #           fontsize=30)
-        # plt.title(r'$\kappa$ and zero-line (B 199_093, $R_{limit}=10^4, 20$ bins)',
+        # plt.title(r'$\kappa$ and zero-line\
+        #           (B 199_093, $R_{limit}=10^4, 20$ bins)',
         #           fontsize=30)
-        # plt.title(r'$\kappa$ and zero-line (CS4 48_093, $R_{limit}=10^4, 20$ bins)',
+        # plt.title(r'$\kappa$ and zero-line\
+        #           (CS4 48_093, $R_{limit}=10^4, 20$ bins)',
         #           fontsize=30)
-        # plt.title(r'$\kappa$ and zero-line (CS5 48_093, $R_{limit}=10^4, 20$ bins)',
+        # plt.title(r'$\kappa$ and zero-line\
+        #           (CS5 48_093, $R_{limit}=10^4, 20$ bins)',
         #           fontsize=30)
-        # plt.title(r'$\kappa$ and zero-line (CS6 48_093, $R_{limit}=10^4, 20$ bins)',
-        #           fontsize=30)
-        # plt.title(r'$\kappa$ and zero-line (DS1 49_093, $R_{limit}=10^4, 20$ bins)',
-        #           fontsize=30)
-        # plt.title(r'$\kappa$ and zero-line (D2 49_093, $R_{limit}=10^4, 20$ bins)',
-        #           fontsize=30)
-        # plt.title(r'$\kappa$ and zero-line (Soft_D2 49_093, $R_{limit}=10^4, 20$ bins)',
-        #           fontsize=30)
-        # plt.title(r'$\kappa$ and zero-line (E 198_093, $R_{limit}=10^4, 20$ bins)',
-        #           fontsize=30)
-
-        plt.title(r'$\kappa$ and zero-line (A 48_009, $R_{limit}=32, 50$ bins)',
-                  fontsize=30)
+        # plt.title(r'$\kappa$ and zero-line\
+        #           (CS6 48_093, $R_{limit}=10^4, 20$ bins)', fontsize=30)
+        # plt.title(r'$\kappa$ and zero-line\
+        #           (DS1 49_093, $R_{limit}=10^4, 20$ bins)', fontsize=30)
+        # plt.title(r'$\kappa$ and zero-line\
+        #           (D2 49_093, $R_{limit}=10^4, 20$ bins)', fontsize=30)
+        # plt.title(r'$\kappa$ and zero-line\
+        #           (Soft_D2 49_093, $R_{limit}=10^4, 20$ bins)', fontsize=30)
+        # plt.title(r'$\kappa$ and zero-line\
+        #           (E 198_093, $R_{limit}=10^4, 20$ bins)', fontsize=30)
+        # plt.title(r'$\kappa$ and zero-line\
+        #           (A 48_009, $R_{limit}=32, 50$ bins)', fontsize=30)
         # plt.title(r'$\kappa$ and zero-line (B 199_093, $R_{limit}=32, 50$ bins)',
         #           fontsize=30)
         # plt.title(r'$\kappa$ and zero-line (CS4 48_093, $R_{limit}=32, 20$ bins)',
@@ -844,7 +854,7 @@ if Fig5_kappa:
 
         # f.savefig(figurePath + 'A_IC_kappa_logr_I_R32.png')
         # f.savefig(figurePath + 'A_48_009_kappa_logr_I_R32.png')
-        f.savefig(figurePath + 'A_48_009_kappa_logr_I_R32_cuts.png')
+        # f.savefig(figurePath + 'A_48_009_kappa_logr_I_R32_cuts.png')
         # f.savefig(figurePath + 'B_IC_kappa_logr_I_R32.png')
         # f.savefig(figurePath + 'B_199_093_kappa_logr_I_R32.png')
         # f.savefig(figurePath + 'Soft_B_IC_kappa_logr_I_R32.png')
@@ -897,11 +907,11 @@ if Fig5_kappa_r_2:
              label=r'$\kappa$')
 
     # plt.title(r'$\kappa$ and zero-line (%s)' % F, fontsize=30)
-    plt.title(r'$\kappa$ (B IC with 20 radial bins)', fontsize=30)
+    # plt.title(r'$\kappa$ (B IC with 20 radial bins)', fontsize=30)
 
     # f.savefig(figurePath + 'A_IC_kappa_r_2_logr.png')
     # f.savefig(figurePath + 'A_Final_kappa_r_2_logr.png')
-    f.savefig(figurePath + 'B_IC_kappa_r_2_logr.png')
+    # f.savefig(figurePath + 'B_IC_kappa_r_2_logr.png')
     # f.savefig(figurePath + 'B_Final_kappa_r_2_logr.png')
     # f.savefig(figurePath + 'Soft_B_IC_kappa_r_2_logr.png')
     # f.savefig(figurePath + 'Soft_B_Final_kappa_r_2_logr.png')
@@ -937,22 +947,11 @@ if Fig6_gamma:
         y_plot = -1 - 3 * x / (1 + x)
         plt.plot(x_plot, y_plot, '-', ms=2, mew=0, color='blue',
                  label=r'$-1 -\frac{3r}{1 + r}$')
-        '''
-        Chi2 = 0
-        i = 0
-        while (i < len(gamma_arr)):
-            if isnan(gamma_arr[i]):
-                print('nan at index: ', i)
-            else:
-                Chi2 += ((gamma_arr[i] - y_plot[i]) ** 2) /
-                         (gamma_arr[i] * .2) ** 2
-            i += 1
-        Chi2 = (1.0 / (len(gamma_arr) - 1)) * Chi2
-        print('Chi2 for gammafit: ', Chi2)
+
         # Dummy plot to add label to legend for chi2
         plt.plot([], [], ls='.', c='grey',
-                 label = r'$\chi^2 = %.6f$' % Chi2)
-        '''
+                 label=r'$\chi^2 = %.6f$' % chi_2)
+
         leg = plt.legend(prop=dict(size=30), numpoints=2, ncol=1,
                          fancybox=True, loc=0, handlelength=2.5)
         leg.get_frame().set_alpha(.5)
@@ -1020,8 +1019,8 @@ if Fig6_gamma:
         #           fontsize=30)
         # plt.title('Radial density slope (A IC, $R_{limit}=32, 50$ bins)',
         #           fontsize=30)
-        plt.title('Radial density slope (A 48_009, $R_{limit}=32, 50$ bins)',
-                  fontsize=30)
+        # plt.title('Radial density slope (A 48_009, $R_{limit}=32, 50$ bins)',
+        #           fontsize=30)
         # plt.title('Radial density slope (B IC, $R_{limit}=32, 50$ bins)',
         #           fontsize=30)
         # plt.title('Radial density slope (B 199_093, $R_{limit}=32, 50$ bins)',
@@ -1100,6 +1099,7 @@ if Fig6_gamma:
         # f.savefig(figurePath + 'Soft_D2_49_093_gamma_logr.png')
         # f.savefig(figurePath + 'E_IC_gamma_logr.png')
         # f.savefig(figurePath + 'E_198_093_gamma_logr.png')
+        continue
 
 if Fig6_gamma_r_2:
     f = plt.figure(figsize=(16, 11))
@@ -1119,8 +1119,8 @@ if Fig6_gamma_r_2:
     #           fontsize=30)
     # plt.title('Radial density slope (CS4 IC with 20 radial bins)',
     #           fontsize=30)
-    plt.title('Radial density slope (CS4 Final with 20 radial bins)',
-              fontsize=30)
+    # plt.title('Radial density slope (CS4 Final with 20 radial bins)',
+    #           fontsize=30)
 
     # f.savefig(figurePath + 'A_IC_gamma_r_2_logr.png')
     # f.savefig(figurePath + 'A_Final_gamma_r_2_logr.png')
@@ -1201,9 +1201,9 @@ if save_lnr_beta_gamma_kappa_VR_r_sigma_r_rr2_rho:
         r_r2_arr = r_arr / r_2
         print('r_r2_arr = ', r_r2_arr)
         rho_arr = rho_arr[GoodIDs]
-        x = np.array((logr_arr,beta_arr,gamma_arr,kappa_arr,
-                             VR_i_average_inside_bin_arr,
-                             r_arr,sigmarad2_arr,r_r2_arr,rho_arr))
+        x = np.array((logr_arr, beta_arr, gamma_arr, kappa_arr,
+                      VR_i_average_inside_bin_arr, r_arr, sigmarad2_arr,
+                      r_r2_arr, rho_arr))
         x = x.transpose()
         # np.savetxt(Filename.strip('.hdf5') + '.txt', x, delimiter=' ')
         # np.savetxt(F + '.txt', x, delimiter=' ')
@@ -1224,7 +1224,7 @@ if save_particle_tracking_ASCII:
     #        'x[200000]', 'y[200000]', 'z[200000]', 'R_xyz[200000]',
     #        'x[300000]', 'y[300000]', 'z[300000]', 'R_xyz[300000]',
     #        'x[400000]', 'y[400000]', 'z[400000]', 'R_xyz[400000]'],
-    ## A, B IC
+    # A, B IC
     #       [100,
     #        x[100000], y[100000], z[100000], R_xyz[100000],
     #        x[200000], y[200000], z[200000], R_xyz[200000],
@@ -1236,7 +1236,7 @@ if save_particle_tracking_ASCII:
     #        'x[200000]', 'y[200000]', 'z[200000]', 'R_xyz[200000]',
     #        'x[300000]', 'y[300000]', 'z[300000]', 'R_xyz[300000]',
     #        'x[400000]', 'y[400000]', 'z[400000]', 'R_xyz[400000]'],
-    ## A,B 5_005
+    # A,B 5_005
     #       [600,
     #        x[100000], y[100000], z[100000], R_xyz[100000],
     #        x[200000], y[200000], z[200000], R_xyz[200000],
@@ -1248,7 +1248,7 @@ if save_particle_tracking_ASCII:
     #        'x[200000]', 'y[200000]', 'z[200000]', 'R_xyz[200000]',
     #        'x[300000]', 'y[300000]', 'z[300000]', 'R_xyz[300000]',
     #        'x[400000]', 'y[400000]', 'z[400000]', 'R_xyz[400000]'],
-    ## A,B 10_005
+    # A,B 10_005
     #       [1100,
     #        x[100000], y[100000], z[100000], R_xyz[100000],
     #        x[200000], y[200000], z[200000], R_xyz[200000],
@@ -1260,7 +1260,7 @@ if save_particle_tracking_ASCII:
     #        'x[200000]', 'y[200000]', 'z[200000]', 'R_xyz[200000]',
     #        'x[300000]', 'y[300000]', 'z[300000]', 'R_xyz[300000]',
     #        'x[400000]', 'y[400000]', 'z[400000]', 'R_xyz[400000]'],
-    ## A 40_005
+    # A 40_005
     #       [4100,
     #        x[100000], y[100000], z[100000], R_xyz[100000],
     #        x[200000], y[200000], z[200000], R_xyz[200000],
@@ -1272,7 +1272,7 @@ if save_particle_tracking_ASCII:
     #        'x[200000]', 'y[200000]', 'z[200000]', 'R_xyz[200000]',
     #        'x[300000]', 'y[300000]', 'z[300000]', 'R_xyz[300000]',
     #        'x[400000]', 'y[400000]', 'z[400000]', 'R_xyz[400000]'],
-    ## A 48_009
+    # A 48_009
     #       [4970,
     #        x[100000], y[100000], z[100000], R_xyz[100000],
     #        x[200000], y[200000], z[200000], R_xyz[200000],
@@ -1284,7 +1284,7 @@ if save_particle_tracking_ASCII:
     #        'x[200000]', 'y[200000]', 'z[200000]', 'R_xyz[200000]',
     #        'x[300000]', 'y[300000]', 'z[300000]', 'R_xyz[300000]',
     #        'x[400000]', 'y[400000]', 'z[400000]', 'R_xyz[400000]'],
-    ## B 198_000
+    # B 198_000
     #       [19800,
     #        x[100000], y[100000], z[100000], R_xyz[100000],
     #        x[200000], y[200000], z[200000], R_xyz[200000],
@@ -1296,7 +1296,7 @@ if save_particle_tracking_ASCII:
     #        'x[200000]', 'y[200000]', 'z[200000]', 'R_xyz[200000]',
     #        'x[300000]', 'y[300000]', 'z[300000]', 'R_xyz[300000]',
     #        'x[400000]', 'y[400000]', 'z[400000]', 'R_xyz[400000]'],
-    ## B 198_093
+    # B 198_093
     #       [22100,
     #        x[100000], y[100000], z[100000], R_xyz[100000],
     #        x[200000], y[200000], z[200000], R_xyz[200000],
@@ -1308,7 +1308,7 @@ if save_particle_tracking_ASCII:
     #        'x[200000]', 'y[200000]', 'z[200000]', 'R_xyz[200000]',
     #        'x[300000]', 'y[300000]', 'z[300000]', 'R_xyz[300000]',
     #        'x[400000]', 'y[400000]', 'z[400000]', 'R_xyz[400000]'],
-    ## B 199_093
+    # B 199_093
     #       [24400,
     #        x[100000], y[100000], z[100000], R_xyz[100000],
     #        x[200000], y[200000], z[200000], R_xyz[200000],
@@ -1422,8 +1422,10 @@ if Fig_combine_ASCII:
     # read_txt = pylab.loadtxt(text_files_path +
     #                          'A_particle_tracking.txt')
     read_txt = pylab.loadtxt(text_files_path + 'B_particle_tracking.txt')
+
     Colors = ['red', 'blue', 'black', 'brown', 'yellow', 'green'] * 3
     Symbols = ['-o', '-s', '-<', '--v', '--*', '--s', '--d', '--.'] * 3
+
     f, (ax1) = plt.subplots(1, 1, figsize=(13, 11))
     f.subplots_adjust(hspace=0, wspace=0)
     ax1.plot(read_txt[:, 0], read_txt[:, 4], Symbols[0],
@@ -1450,8 +1452,8 @@ if save_sigma:
                   sigmaphi2_arr))
     x = x.transpose()
     np.savetxt(Filename.strip('.hdf5') + '_sigma.txt', x,
-        delimiter = ' ',
-        header='  sigma2_arr       sigmarad2_arr       sigmatheta2_arr       sigmaphi2_arr   ')
+               delimiter=' ',
+               header='  sigma2_arr       sigmarad2_arr       sigmatheta2_arr       sigmaphi2_arr   ')
 
 if V_vr_r_logr_panel:
     f, (ax1, ax2, ax3) = plt.subplots(1, 3, figsize=(17, 8))

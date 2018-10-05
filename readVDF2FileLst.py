@@ -10,22 +10,10 @@ import numpy as np
 import pylab
 import os
 import RhoAndGaussianAndTsallis
-
-userPath = os.getcwd()
-desktopPath = userPath + 'Desktop/'
-GADGET_G_path = desktopPath + 'RunGadget/Gperturbations/'
-stablePath = desktopPath + 'Gperturbations/StableStructures/'
-figurePath = stablePath + 'figures/'
-textFilesPath = stablePath + 'textFiles/'
-MartinPath = 'MartinICandFinalEddandOM/'
-hdf5Path = desktopPath + 'Gperturbations/hdf5Files/'
-nosyncPath = userPath + 'nosync/RunGadget/'
-
+from definePaths import *
 
 # [5],[6],[7] : log9, log7, log8 : r, theta, phi
 # x10 is tangential part.
-
-# Write OS script to change name of files.
 
 nameLst1 = ['HQ10000_G1.0_0_000',  # 0.th/IC set of files
             'HQ10000_G1.2_1_005',

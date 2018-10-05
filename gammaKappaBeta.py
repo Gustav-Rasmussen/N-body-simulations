@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import pylab
-import os
+from pathlib import Path
 import numpy as np
 import matplotlib.lines as lines
 import matplotlib.pyplot as plt
@@ -9,20 +9,7 @@ import fileLsts as lsts
 import snapshotFiles
 import colorsAndSymbols
 import dataLsts
-
-# Use this command for running 3D plots:
-# ~/python/3dplot/bin/python gamma_kappa_beta.py
-
-desktopPath = os.getcwd()
-GADGET_G_path = desktopPath + 'RunGadget/G_perturbations/'
-StablePath = 'G_perturbations/Stable_structures/'
-desktopStablePath = desktopPath + StablePath
-figurePath = desktopStablePath + 'figures/'
-textFilesPath = desktopStablePath + 'text_files/'
-MartinPath = 'Martin_IC_and_Final_Edd_and_OM/'
-textMartinPath = textFilesPath + MartinPath
-hdf5Path = desktopPath + 'G_perturbations/hdf5_files/'
-nosyncPath = userPath + 'nosync/RunGadget/'
+from definePaths import *
 
 # Switches for figures --------------------------------------------------------
 
@@ -1724,8 +1711,8 @@ if betaGammaFunctions:
                loc=0, handlelength=2.5)
     g = gammaHQ(r)
     k = kappa(r)
-    Fit = (-.15 * g - .85 * k) /
-          ((1 + (-.15 * g - .85 * k) ** 3) ** .333333)
+    Fit = (-.15 * g - .85 * k)
+          / ((1 + (-.15 * g - .85 * k) ** 3) ** .333333)
     b = betaOM(r)
     ax3.plot(b, Fit, '-o', mew=0, color=Colors[0],
              label=r'$Fit$', lw=2, ms=7)

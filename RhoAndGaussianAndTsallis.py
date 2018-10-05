@@ -79,6 +79,7 @@ def func_7_log(log10x, a, b, q):
     x = 10.0 ** log10x
     return a * x ** 2 * (1. - (1. - q) * b * x ** 2.) ** (q / (1. - q))
 
+
 # Figure switches -------------------------------------------------------------
 
 GaussianFits = 0

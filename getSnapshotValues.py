@@ -1,11 +1,12 @@
 
 # -*- coding: utf-8 -*-
 
-import os
+import h5py
+from definePaths import *
+import numpy as np
 
-userPath = os.getcwd()
-# Filename = userPath + '/Desktop/RunGadget/G_HQ_1000000_test/output/Hernquist10000_G0.8_2_000.hdf5'
-# SnapshotFile = h5py.File(Filename, 'r')
+Filename = desktopPath / 'RunGadget/G_HQ_1000000_test/output/HQ10000_G0.8_2_000.hdf5'
+SnapshotFile = h5py.File(Filename, 'r')
 
 Pos = SnapshotFile['PartType1/Coordinates'].value
 Vel = SnapshotFile['PartType1/Velocities'].value
@@ -138,7 +139,6 @@ vx -= np.median(vx)
 vy -= np.median(vy)
 vz -= np.median(vz)
 
-
 # if test or A or B or E:
 #     nr_binning_bins = 102
 # if CS1 or CS2 or CS3:
@@ -147,4 +147,3 @@ vz -= np.median(vz)
 min_binning_R_unitRmax = .00001  # end-value of first bin
 max_binning_R_unitRmax = 1.0  # end-value of last bin
 nr_binning_bins = 1000.0  # number of bins 1000.0
-

@@ -1,21 +1,19 @@
 
 # -*- coding: utf-8 -*-
 
-import h5py
+# import h5py
 import numpy as np
-from scipy.optimize import curve_fit
+# from scipy.optimize import curve_fit
 import matplotlib.pyplot as plt
-import IPython
-from matplotlib.colors import LogNorm
-import time
-from pylab import *
-from scipy.stats import norm
-import matplotlib.mlab as mlab
-import os
+# import IPython
+# from matplotlib.colors import LogNorm
+# import time
+# from pylab import *
+# from scipy.stats import norm
+# import matplotlib.mlab as mlab
 import getSnapshotValues
 
-# userPath = os.getcwd()
-# Filename = userPath + '/Desktop/RunGadget/G_HQ_1000000_test/output/Hernquist10000_G0.8_2_000.hdf5'
+# Filename = desktopPath / 'RunGadget/G_HQ_1000000_test/output/HQ10000_G0.8_2_000.hdf5'
 # Filename = 'OMG20_Final_000.hdf5'
 # SnapshotFile = h5py.File('0G00_IC_000.hdf5', 'r')
 # SnapshotFile = h5py.File('0G20_Final_000.hdf5', 'r')
@@ -36,12 +34,12 @@ for i in range(1000000):
                        linalg.norm(Rvector[:, i]))
     v_t[i] = np.divide(np.cross(Rvector[:, i], v_vector[:, i], axis=0),
                        linalg.norm(Rvector[:, i]))
-    v_theta[i] = (vxnew[i] * ycl[i] - xcl[i] * vynew[i]) /
-                 (xcl[i] ** 2 + ycl[i] ** 2)
-    v_phi[i] = (zcl[i] * (xcl[i] * vxnew[i] + ycl[i] * vynew[i])
-               - (xcl[i] ** 2 + ycl[i] ** 2) * vznew[i]) /
-               ((xcl[i] ** 2 + ycl[i] ** 2 + zcl[i] ** 2)
-               * np.sqrt(xcl[i] ** 2 + ycl[i] ** 2))
+    v_theta[i] = ((vxnew[i] * ycl[i] - xcl[i] * vynew[i]) /
+                  (xcl[i] ** 2 + ycl[i] ** 2))
+    v_phi[i] = ((zcl[i] * (xcl[i] * vxnew[i] + ycl[i] * vynew[i])
+                - (xcl[i] ** 2 + ycl[i] ** 2) * vznew[i]) /
+                ((xcl[i] ** 2 + ycl[i] ** 2 + zcl[i] ** 2)
+                * np.sqrt(xcl[i] ** 2 + ycl[i] ** 2)))
 
 plt.figure(1)
 plt.xlabel(r'$v_r, v_{\theta}$ and $v_{\phi}$')
