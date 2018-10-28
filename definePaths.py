@@ -4,8 +4,8 @@ from pathlib import Path
 userPath = Path.cwd()
 desktopPath = userPath / 'Desktop'
 
-GADGET_G_path = desktopPath / 'RunGadget/G_Perts/'
-StablePath = 'G_Perts/Stable_structures/'
+GADGET_Gpath = desktopPath / 'RunGadget/G_Perts/'
+StablePath = 'GperturbNew/StableStructures/'
 desktopStablePath = desktopPath / StablePath
 figurePath = desktopStablePath / 'figures/'
 textFilesPath = desktopStablePath / 'text_files/'

@@ -4,6 +4,7 @@ from __future__ import division
 import numpy as np
 import matplotlib.pyplot as plt
 from pylab import *
+import VDF
 # from mpl_toolkits.mplot3d import Axes3D
 # import GaussianAndTsallis
 # import Gammas_and_R_middles
@@ -22,55 +23,44 @@ print_sigma_binned_lin_radius = 0
 Fig_vr_vtheta_vphi_vt_sigma = 0
 Fig_vr_vtheta_vphi_vt_sigma_bin_average = 0
 
-if Fig_sigmas:
-    f = plt.figure()
-    plt.subplot(121)
-    x_plot = np.log10(bin_radius_arr)
-    y_plot = np.log10(sigma2)
-    plt.plot(x_plot, y_plot, '-o', ms=8, mew=0, color='red',
-             label=r'$\log \sigma_{total}^2$')
-    y_plot = np.log10(sigmarad2)
-    plt.plot(x_plot, y_plot, '--s', ms=8, mew=0, color='blue',
-             label=r'$\log \sigma_{r}^2$')
-    y_plot = np.log10(sigmatheta2)
-    plt.plot(x_plot, y_plot, '--v', ms=8, mew=0, color='green',
-             label=r'$\log \sigma_{\theta}^2$')
-    y_plot = np.log10(sigmaphi2)
-    plt.plot(x_plot, y_plot, '--^', ms=8, mew=0, color='black',
-             label=r'$\log \sigma_{\phi}^2$')
-    y_plot = np.log10(sigmatan2)
-    plt.plot(x_plot, y_plot, '--^', ms=8, mew=0, color='Violet',
-             label=r'$\log \sigma_{tan}^2$')
-    plt.xlabel(r'$\log $r (kpc)', fontsize=20)
-    plt.ylabel(r'$\log \sigma^2$', fontsize=20)
-    plt.title(r'Velocity dispersions (File = %s, $\gamma=%.2f$)'
-              % (F, Gamma), fontsize=20)
-    plt.legend(prop=dict(size=13), numpoints=2, ncol=2,
-               frameon=True, loc=3, handlelength=2.5)
-    plt.grid()
 
-    plt.subplot(122)
+def plot_xy(ax, y_plot, Ms, Color, Label):
+    return ax.plot(x_plot, y_plot, Ms, ms=8, mew=0, color=Color, label=Label)
+
+
+if Fig_sigmas:
     x_plot = np.log10(bin_radius_arr)
-    y_plot = np.log10(sigma)
-    plt.plot(x_plot, y_plot, '-o', ms=8, mew=0, color='red',
-             label=r'$\log \sigma_{total}$')
-    y_plot = np.log10(sigmarad)
-    plt.plot(x_plot, y_plot, '--s', ms=8, mew=0, color='blue',
-             label=r'$\log \sigma_r$')
-    y_plot = np.log10(sigmatheta)
-    plt.plot(x_plot, y_plot, '--v', ms=8, mew=0, color='green',
-             label=r'$\log \sigma_{\theta}$')
-    y_plot = np.log10(sigmaphi)
-    plt.plot(x_plot, y_plot, '--^', ms=8, mew=0, color='black',
-             label=r'$\log \sigma_{\phi}$')
-    y_plot = np.log10(sigmatan)
-    plt.plot(x_plot, y_plot, '--^', ms=8, mew=0, color='Violet',
-             label=r'$\log \sigma_{tan}$')
-    plt.xlabel(r'$\log $r (kpc)', fontsize=20)
-    plt.ylabel(r'$\log \sigma$', fontsize=20)
-    plt.legend(prop=dict(size=13), numpoints=2, ncol=2,
+    f, (ax1, ax2) = plt.subplots(1, 2, figsize=(13, 11))
+
+    plot_xy(ax1, np.log10(sigma2), '-o', 'red', r'$\log \sigma_{total}^2$')
+    plot_xy(ax1, np.log10(sigmarad2), '--s', 'blue', r'$\log \sigma_{r}^2$')
+    plot_xy(ax1, np.log10(sigmatheta2), '--v', 'green',
+            r'$\log \sigma_{\theta}^2$')
+    plot_xy(ax1, np.log10(sigmaphi2), '--^', 'black',
+            r'$\log \sigma_{\phi}^2$')
+    plot_xy(ax1, np.log10(sigmatan2), '--^', 'Violet',
+            r'$\log \sigma_{tan}^2$')
+
+    ax1.set_xlabel(r'$\log $r (kpc)', fontsize=20)
+    ax1.set_ylabel(r'$\log \sigma^2$', fontsize=20)
+    ax1.set_title(r'Velocity dispersions (File = %s, $\gamma=%.2f$)'
+                  % (F, Gamma), fontsize=20)
+    ax1.legend(prop=dict(size=13), numpoints=2, ncol=2,
                frameon=True, loc=3, handlelength=2.5)
-    plt.grid()
+    ax1.grid()
+
+    plot_xy(ax2, np.log10(sigma), '-o', 'red', r'$\log \sigma_{total}$')
+    plot_xy(ax2, np.log10(sigmarad), '--s', 'blue', r'$\log \sigma_r$')
+    plot_xy(ax2, np.log10(sigmatheta), '--v', 'green',
+            r'$\log \sigma_{\theta}$')
+    plot_xy(ax2, np.log10(sigmaphi), '--^', 'black', r'$\log \sigma_{\phi}$')
+    plot_xy(ax2, np.log10(sigmatan), '--^', 'Violet', r'$\log \sigma_{tan}$')
+
+    ax2.set_xlabel(r'$\log $r (kpc)', fontsize=20)
+    ax2.set_ylabel(r'$\log \sigma$', fontsize=20)
+    ax2.set_legend(prop=dict(size=13), numpoints=2, ncol=2,
+                   frameon=True, loc=3, handlelength=2.5)
+    ax2.grid()
 
 if vspherical_sigma:
     (VR_sigmarad_p, VR_sigmarad_n, VTheta_sigmatheta_p,
@@ -210,6 +200,19 @@ def hist_to_txt(x, txtNameSuffix, param=Gamma):
                       header='    bins                         n')
 
 
+RmiddleStatesLst = ['keep_IC_R_middle', 'new_R_middle', 'large_R_middle']
+
+# Choose Rmiddle
+State = RmiddleStatesLst[1]
+
+
+def getRmiddleState(state):
+    RmiddleStates = {'keep_IC_R_middle': '',
+                     'new_R_middle': 'new_R_middle',
+                     'large_R_middle': 'large_R_middle'}
+    return RmiddleStates.get(state, 'That state does not exist!')
+
+
 if Fig_vr_vtheta_vphi_vt_sigma:
     x7 = np.asarray(list(VTheta_sigmatheta_p_arr)
                     + list(np.absolute(VTheta_sigmatheta_n_arr)))
@@ -222,192 +225,71 @@ if Fig_vr_vtheta_vphi_vt_sigma:
 
     f, (ax1, ax2) = plt.subplots(2)
 
-    if keep_IC_R_middle:
-        plt.title(r'$N=%i$, $\gamma = %.2f$, File = %s'
-                  % (len(x), Gamma, F))
+    plt.title(r'$N=%i$, $\gamma = %.2f$, File = %s'
+              % (len(x), Gamma, F))
 
-        x = hist_func(VT_sigmatan,
-                      label=r'$f\left(\frac{v_t}{\sigma_t}\right)$',
-                      color='Black')
-        # print 'x.shape:', x.shape
-        hist_to_txt(x, '_VT_sigmatan_gamma_{}.txt')
-        # print 'F + _VT_sigmatan_gamma_%.2f.txt % Gamma = ',
-        #        F + '_VT_sigmatan_gamma_%.2f.txt' % Gamma
+    x = hist_func(VT_sigmatan,
+                  label=r'$f\left(\frac{v_t}{\sigma_t}\right)$',
+                  color='Black')
+    # print 'x.shape:', x.shape
+    hist_to_txt(x, f'{getRmiddleState(State)}_VT_sigmatan_gamma_{}.txt')
+    # print 'F + _VT_sigmatan_gamma_%.2f.txt % Gamma = ',
+    #        F + '_VT_sigmatan_gamma_%.2f.txt' % Gamma
 
-        x = hist_func(VR_sigmarad,
-                      label=r'$f\left(\frac{v_r}{\sigma_r}\right)$',
-                      color='red')
-        hist_to_txt(x, '_VR_sigmarad_gamma_{}.txt')
+    x = hist_func(VR_sigmarad,
+                  label=r'$f\left(\frac{v_r}{\sigma_r}\right)$',
+                  color='red')
+    hist_to_txt(x, f'{getRmiddleState(State)}_VR_sigmarad_gamma_{}.txt')
 
-        x = hist_func(VTheta_sigmatheta,
-                      label=r'$f\left(\frac{v_{\theta}}\
-                            {\sigma_{\theta}}\right)$', color='blue')
-        hist_to_txt(x, '_VTheta_sigmatheta_gamma_{}.txt')
+    x = hist_func(VTheta_sigmatheta,
+                  label=r'$f\left(\frac{v_{\theta}}\
+                        {\sigma_{\theta}}\right)$', color='blue')
+    hist_to_txt(x, f'{getRmiddleState(State)}_VTheta_sigmatheta_gamma_{}.txt')
 
-        x = hist_func(VPhi_sigmaphi,
-                      label=r'$f\left(\frac{v_{\phi}}{\sigma_{\phi}}\right)$',
-                      color='green')
-        hist_to_txt(x, '_VPhi_sigmaphi_gamma_{}.txt')
+    x = hist_func(VPhi_sigmaphi,
+                  label=r'$f\left(\frac{v_{\phi}}{\sigma_{\phi}}\right)$',
+                  color='green')
+    hist_to_txt(x, f'{getRmiddleState(State)}_VPhi_sigmaphi_gamma_{}.txt')
 
-        plt.xlabel(r'$ u_t $, $ u_r $, $ u_{\theta}$ and $ u_{\phi}$')
-        plt.ylabel(r'$f\left( u \right)$')
-        ax1.legend(prop=dict(size=13), numpoints=2, ncol=1,
-                   frameon=True, loc=1, handlelength=2.5)
-        plt.grid()
+    plt.xlabel(r'$ u_t $, $ u_r $, $ u_{\theta}$ and $ u_{\phi}$')
+    plt.ylabel(r'$f\left( u \right)$')
+    ax1.legend(prop=dict(size=13), numpoints=2, ncol=1,
+               frameon=True, loc=1, handlelength=2.5)
+    plt.grid()
 
-        x = hist_func(np.log10(x10),
-                      label=r'$f\left(\log \left(\frac{|v_tn|,\
-                            v_tp}{\sigma_t}\right)\right)$', color='Black')
-        hist_to_txt(x, '_logx10_gamma_{}.txt')
+    x = hist_func(np.log10(x10),
+                  label=r'$f\left(\log \left(\frac{|v_tn|,\
+                        v_tp}{\sigma_t}\right)\right)$', color='Black')
+    hist_to_txt(x, f'{getRmiddleState(State)}_logx10_gamma_{}.txt')
 
-        x = hist_func(np.log10(x9),
-                      label=r'$f\left(\log \left( \frac{|v_rn|,\
-                            v_rp}{\sigma_r}\right)\right)$', color='red')
-        hist_to_txt(x, '_logx9_gamma_{}.txt')
+    x = hist_func(np.log10(x9),
+                  label=r'$f\left(\log \left( \frac{|v_rn|,\
+                        v_rp}{\sigma_r}\right)\right)$', color='red')
+    hist_to_txt(x, f'{getRmiddleState(State)}_logx9_gamma_{}.txt')
 
-        x = hist_func(np.log10(x7),
-                      label=r'$f\left(\log \left(\frac{\
-                            |v_{\theta}n|, v_{\theta}p}\
-                            {\sigma_{\theta}}\right)\right)$', color='blue')
-        hist_to_txt(x, '_logx7_gamma_{}.txt')
+    x = hist_func(np.log10(x7),
+                  label=r'$f\left(\log \left(\frac{\
+                        |v_{\theta}n|, v_{\theta}p}\
+                        {\sigma_{\theta}}\right)\right)$', color='blue')
+    hist_to_txt(x, f'{getRmiddleState(State)}_logx7_gamma_{}.txt')
 
-        x = hist_func(np.log10(x8),
-                      label=r'$f\left(\log\left(\frac{|v_{\phi}\
-                            n|,v_{\phi}p}{\sigma_{\phi}}\right)\right)$',
-                      color='green')
-        hist_to_txt(x, '_logx8_gamma_{}.txt')
+    x = hist_func(np.log10(x8),
+                  label=r'$f\left(\log\left(\frac{|v_{\phi}\
+                        n|,v_{\phi}p}{\sigma_{\phi}}\right)\right)$',
+                  color='green')
+    hist_to_txt(x, f'{getRmiddleState(State)}_logx8_gamma_{}.txt')
 
-        ax2.set_yscale('log')
-        # plt.ylim(10 ** -1, 10 ** 3)
-        # plt.xlim(-3.5, 0)
-        plt.xlabel(r'$\log \left( |u_tn|,u_tp \right)$, $\log \left( |u_rn|,\
-                   u_rp \right)$, $\log \left( |u_{\theta}n|,u_{\theta}p\
-                   \right)$ and $\log \left( |u_{\phi}n|,u_{\phi}p \right)$')
-        plt.ylabel(r'$\log \left( f\left(\log \left( |u_n|,\
-                   u_p \right)\right) \right)$')
-        plt.legend(prop=dict(size=13), numpoints=2, ncol=1,
-                   frameon=True, loc=2, handlelength=2.5)
-        plt.grid()
-
-    if new_R_middle:
-        plt.title(r'$N=%i$, $\gamma = %.2f$,File=%s,new R_middle'
-                  % (len(x), Gamma, F))
-
-        x = hist_func(VT_sigmatan,
-                      label=r'$f\left(\frac{v_t}{\sigma_t}\right)$',
-                      color='Black')
-        hist_to_txt(x, '_new_R_middle_VT_sigmatan_gamma_{}.txt')
-
-        x = hist_func(VR_sigmarad,
-                      label=r'$f\left(\frac{v_r}{\sigma_r}\right)$',
-                      color='red')
-        hist_to_txt(x, '_new_R_middle_VR_sigmarad_gamma_{}.txt')
-
-        x = hist_func(VTheta_sigmatheta,
-                      label=r'$f\left(\frac{v_{\theta}}\
-                            {\sigma_{\theta}}\right)$', color='blue')
-        hist_to_txt(x, '_new_R_middle_VTheta_sigmatheta_gamma_{}.txt')
-
-        x = hist_func(VPhi_sigmaphi,
-                      label=r'$f\left(\frac{v_{\phi}}{\sigma_{\phi}}\right)$',
-                      color='green')
-        hist_to_txt(x, '_new_R_middle_VPhi_sigmaphi_gamma_{}.txt')
-
-        plt.xlabel(r'$ u_t $, $ u_r $, $ u_{\theta} $ and $ u_{\phi}$')
-        plt.ylabel(r'$f\left( u \right)$')
-        ax1.legend(prop=dict(size=13), numpoints=2, ncol=1,
-                   frameon=True, loc=1, handlelength=2.5)
-        plt.grid()
-
-        x = hist_func(np.log10(x10),
-                      label=r'$f\left(\log \left( \frac{|v_tn|,\
-                            v_tp}{\sigma_t}\right)\right)$',
-                      color='Black')
-        hist_to_txt(x, '_new_R_middle_logx10_gamma_{}.txt')
-
-        x = hist_func(np.log10(x9),
-                      label=r'$f\left(\log \left( \frac{|v_rn|,\
-                            v_rp}{\sigma_r}\right)\right)$',
-                      color='red')
-        hist_to_txt(x, '_new_R_middle_logx9_gamma_{}.txt')
-
-        x = hist_func(np.log10(x7),
-                      label=r'$f\left(\log \left(\frac{|v_{\theta}n|,\
-                            v_{\theta}p}{\sigma_{\theta}}\right)\right)$',
-                      color='blue')
-        hist_to_txt(x, '_new_R_middle_logx7_gamma_{}.txt')
-
-        x = hist_func(np.log10(x8),
-                      label=r'$f\left(\log\left(\frac{|v_{\phi}\
-                            n|,v_{\phi}p}{\sigma_{\phi}}\right)\right)$',
-                      color='green')
-        hist_to_txt(x, '_new_R_middle_logx8_gamma_{}.txt')
-
-        ax2.set_yscale('log')
-        plt.xlabel(r'$\log \left( |u_tn|,u_tp \right)$, $\log \left( |u_rn|,\
-                   u_rp \right)$, $\log \left( |u_{\theta}n|,u_{\theta}p\
-                   \right)$ and $\log \left( |u_{\phi}n|,u_{\phi}p \right)$')
-        plt.ylabel(r'$\log \left( f\left(\log \left( |u_n|,u_p \right)\right)\
-                   \right)$')
-        ax2.legend(prop=dict(size=13), numpoints=2, ncol=1,
-                   frameon=True, loc=2, handlelength=2.5)
-        plt.grid()
-
-    if large_R_middle:
-        plt.title(r'$N=%i$, $R_{middle} = %.2f$, File = %s , new R_middle'
-                  % (len(x), R_middle, F))
-
-        x = hist_func(VT_sigmatan, label=r'$f\left(u_t \right)$',
-                      color='Black')
-        hist_to_txt(x, '_large_R_middle_VT_sigmatan_R_middle_{}.txt')
-
-        x = hist_func(VR_sigmarad, label=r'$f\left( u_r \right)$', color='red')
-        hist_to_txt(x, '_large_R_middle_VR_sigmarad_R_middle_{}.txt')
-
-        x = hist_func(VTheta_sigmatheta,
-                      label=r'$f\left( u_{\theta} \right)$', color='blue')
-        hist_to_txt(x, '_large_R_middle_VTheta_sigmatheta_R_middle_{}.txt')
-
-        x = hist_func(VPhi_sigmaphi,
-                      label=r'$f\left( u_{\phi} \right)$', color='green')
-        hist_to_txt(x, '_large_R_middle_VPhi_sigmaphi_R_middle_{}.txt')
-
-        plt.xlabel(r'$ u_t $, $ u_r $, $ u_{\theta} $ and $ u_{\phi}$')
-        plt.ylabel(r'$f\left( u \right)$')
-        ax1.legend(prop=dict(size=13), numpoints=2, ncol=1,
-                   frameon=True, loc=1, handlelength=2.5)
-        plt.grid()
-
-        x = hist_func(np.log10(x10),
-                      label=r'$f\left(\log\left(|u_tn|, u_tp \right)\right)$',
-                      color='Black')
-        hist_to_txt(x, '_large_R_middle_logx10_R_middle_{}.txt')
-
-        x = hist_func(np.log10(x9),
-                      label=r'$f\left(\log\left(|u_rn|,\
-                            u_rp \right)\right)$', color='red')
-        hist_to_txt(x, '_large_R_middle_logx9_R_middle_{}.txt')
-
-        x = hist_func(np.log10(x7),
-                      label=r'$f\left(\log\left(|u_{\theta}n|,u_{\theta}p\
-                            \right)\right)$', color='blue')
-        hist_to_txt(x, '_large_R_middle_logx7_R_middle_{}.txt')
-
-        x = hist_func(np.log10(x8),
-                      label=r'$f\left(\log \left(|u_{\phi}n|, u_{\phi}p\
-                            \right)\right)$', color='green')
-        hist_to_txt(x, '_large_R_middle_logx8_R_middle_{}.txt')
-
-        ax2.set_yscale('log')
-        plt.xlabel(r'$\log \left( |u_tn|,u_tp \right)$, $\log \left(\
-                   |u_rn|,u_rp \right)$, $\log \left( |u_{\theta}n|,\
-                   u_{\theta}p \right)$ and $\log \left( |u_{\phi}n|,\
-                   u_{\phi}p \right)$')
-        plt.ylabel(r'$\log \left( f\left(\log \left( |u_n|,\
-                   u_p \right)\right) \right)$')
-        ax2.legend(prop=dict(size=13), numpoints=2, ncol=1,
-                   frameon=True, loc=2, handlelength=2.5)
-        plt.grid()
+    ax2.set_yscale('log')
+    # plt.ylim(10 ** -1, 10 ** 3)
+    # plt.xlim(-3.5, 0)
+    plt.xlabel(r'$\log \left( |u_tn|,u_tp \right)$, $\log \left( |u_rn|,\
+               u_rp \right)$, $\log \left( |u_{\theta}n|,u_{\theta}p\
+               \right)$ and $\log \left( |u_{\phi}n|,u_{\phi}p \right)$')
+    plt.ylabel(r'$\log \left( f\left(\log \left( |u_n|,\
+               u_p \right)\right) \right)$')
+    plt.legend(prop=dict(size=13), numpoints=2, ncol=1,
+               frameon=True, loc=2, handlelength=2.5)
+    plt.grid()
 
 if Fig_vr_vtheta_vphi_vt_sigma_bin_average:
     x7 = np.asarray(list(VTheta_i_average_inside_bin_sigmatheta_p_arr)
@@ -421,214 +303,68 @@ if Fig_vr_vtheta_vphi_vt_sigma_bin_average:
 
     f, (ax1, ax2) = plt.subplots(2)
 
-    if keep_IC_R_middle:
-        plt.title(r'$N=%i$, $\gamma = %.2f$, File = %s'
-                  % (len(x), Gamma, F))
+    plt.title(r'$N=%i$, $\gamma = %.2f$, File = %s'
+              % (len(x), Gamma, F) + ', ' + getRmiddleState(State))
 
-        x = hist_func(VT_i_average_inside_bin_sigmatan,
-                      label=r'$f\left(\frac{v_t}{\sigma_t}\right)$',
-                      color='Black')
-        hist_to_txt(x, '_VT_i_average_inside_bin_sigmatan_gamma_{}.txt')
+    x = hist_func(VT_i_average_inside_bin_sigmatan,
+                  label=r'$f\left(\frac{v_t}{\sigma_t}\right)$',
+                  color='Black')
+    hist_to_txt(x, f'{getRmiddleState(State)}_VT_i_average_inside_bin_sigmatan_gamma_{}.txt')
 
-        x = hist_func(VR_i_average_inside_bin_sigmarad,
-                      label=r'$f\left(\frac{v_r}{\sigma_r}\right)$',
-                      color='red')
-        hist_to_txt(x, '_VR_i_average_inside_bin_sigmarad_gamma_{}.txt')
+    x = hist_func(VR_i_average_inside_bin_sigmarad,
+                  label=r'$f\left(\frac{v_r}{\sigma_r}\right)$',
+                  color='red')
+    hist_to_txt(x, f'{getRmiddleState(State)}_VR_i_average_inside_bin_sigmarad_gamma_{}.txt')
 
-        x = hist_func(VTheta_i_average_inside_bin_sigmatheta,
-                      label=r'$f\left(\frac{v_{\theta}}\
-                            {\sigma_{\theta}}\right)$',
-                      color='blue')
-        hist_to_txt(x, '_VTheta_i_average_inside_bin_sigmatheta_gamma_{}.txt')
+    x = hist_func(VTheta_i_average_inside_bin_sigmatheta,
+                  label=r'$f\left(\frac{v_{\theta}}\
+                        {\sigma_{\theta}}\right)$',
+                  color='blue')
+    hist_to_txt(x, f'{getRmiddleState(State)}_VTheta_i_average_inside_bin_sigmatheta_gamma_{}.txt')
 
-        x = hist_func(VPhi_i_average_inside_bin_sigmaphi,
-                      label=r'$f\left(\frac{v_{\phi}}\
-                            {\sigma_{\phi}}\right)$', color='green')
-        hist_to_txt(x, '_VPhi_i_average_inside_bin_sigmaphi_gamma_{}.txt')
+    x = hist_func(VPhi_i_average_inside_bin_sigmaphi,
+                  label=r'$f\left(\frac{v_{\phi}}\
+                        {\sigma_{\phi}}\right)$', color='green')
+    hist_to_txt(x, f'{getRmiddleState(State)}_VPhi_i_average_inside_bin_sigmaphi_gamma_{}.txt')
 
-        plt.xlabel(r'$ u_t $, $ u_r $, $ u_{\theta}$ and $ u_{\phi}$')
-        plt.ylabel(r'$f\left( u \right)$')
-        ax1.legend(prop=dict(size=13), numpoints=2, ncol=1,
-                   frameon=True, loc=1, handlelength=2.5)
-        plt.grid()
+    plt.xlabel(r'$ u_t $, $ u_r $, $ u_{\theta}$ and $ u_{\phi}$')
+    plt.ylabel(r'$f\left( u \right)$')
+    ax1.legend(prop=dict(size=13), numpoints=2, ncol=1,
+               frameon=True, loc=1, handlelength=2.5)
+    plt.grid()
 
-        x = hist_func(np.log10(x10),
-                      label=r'$f\left(\log \left(\frac{\
-                            |v_tn|,v_tp}{\sigma_t}\right)\right)$',
-                      color='Black')
-        hist_to_txt(x, '_average_logx10_gamma_{}.txt')
+    x = hist_func(np.log10(x10),
+                  label=r'$f\left(\log \left(\frac{\
+                        |v_tn|,v_tp}{\sigma_t}\right)\right)$',
+                  color='Black')
+    hist_to_txt(x, f'{getRmiddleState(State)}_average_logx10_gamma_{}.txt')
 
-        x = hist_func(np.log10(x9),
-                      label=r'$f\left(\log\left(\frac{|v_rn|,v_rp}{\sigma_r}\
-                            \right)\right)$', color='red')
-        hist_to_txt(x, '_average_logx9_gamma_{}.txt')
+    x = hist_func(np.log10(x9),
+                  label=r'$f\left(\log\left(\frac{|v_rn|,v_rp}{\sigma_r}\
+                        \right)\right)$', color='red')
+    hist_to_txt(x, f'{getRmiddleState(State)}_average_logx9_gamma_{}.txt')
 
-        x = hist_func(np.log10(x7),
-                      label=r'$f\left(\log \left(\frac{\
-                            |v_{\theta}n|, v_{\theta}p}\
-                            {\sigma_{\theta}}\right)\right)$', color='blue')
-        hist_to_txt(x, '_average_logx7_gamma_{}.txt')
+    x = hist_func(np.log10(x7),
+                  label=r'$f\left(\log \left(\frac{\
+                        |v_{\theta}n|, v_{\theta}p}\
+                        {\sigma_{\theta}}\right)\right)$', color='blue')
+    hist_to_txt(x, f'{getRmiddleState(State)}_average_logx7_gamma_{}.txt')
 
-        x = hist_func(np.log10(x8),
-                      label=r'$f\left(\log \left( \frac{\
-                            |v_{\phi}n|,v_{\phi}p}{\sigma_{\phi}}\right)\
-                            \right)$', color='green')
-        hist_to_txt(x, '_average_logx8_gamma_{}.txt')
+    x = hist_func(np.log10(x8),
+                  label=r'$f\left(\log \left( \frac{\
+                        |v_{\phi}n|,v_{\phi}p}{\sigma_{\phi}}\right)\
+                        \right)$', color='green')
+    hist_to_txt(x, f'{getRmiddleState(State)}_average_logx8_gamma_{}.txt')
 
-        ax2.set_yscale('log')
-        plt.xlabel(r'$\log \left( |u_tn|,u_tp \right)$, $\log \left(\
-                   |u_rn|,u_rp \right)$, $\log \left( |u_{\theta}n|,\
-                   u_{\theta}p \right)$ and $\log \left( |u_{\phi}n|,\
-                   u_{\phi}p \right)$')
-        plt.ylabel(r'$\log \left( f\left(\log \left( |u_n|,\
-                   u_p \right)\right) \right)$')
-        plt.legend(prop=dict(size=13), numpoints=2, ncol=1,
-                   frameon=True, loc=2, handlelength=2.5)
-        plt.grid()
-
-    if new_R_middle:
-        plt.title(r'$N=%i$, $\gamma = %.2f$,File = %s, new R_middle'
-                  % (len(x), Gamma, F))
-
-        x = hist_func(VT_i_average_inside_bin_sigmatan,
-                      label=r'$f\left(\frac{v_t}{\sigma_t}\right)$',
-                      color='Black')
-        hist_to_txt(x, '_new_R_middle_VT_i_average_inside\
-                       _bin_sigmatan_gamma_{}.txt')
-
-        x = hist_func(VR_i_average_inside_bin_sigmarad,
-                      label=r'$f\left(\frac{v_r}{\sigma_r}\right)$',
-                      color='red')
-        hist_to_txt(x, '_new_R_middle_VR_i_average_inside\
-                       _bin_sigmarad_gamma_{}.txt')
-
-        x = hist_func(VTheta_i_average_inside_bin_sigmatheta,
-                      label=r'$f\left(\frac{v_{\theta}}\
-                            {\sigma_{\theta}}\right)$',
-                      color='blue')
-        hist_to_txt(x, '_new_R_middle_VTheta_i_average_inside\
-                       _bin_sigmatheta_gamma_{}.txt')
-
-        x = hist_func(VPhi_i_average_inside_bin_sigmaphi,
-                      label=r'$f\left(\frac{v_{\phi}}{\sigma_{\phi}}\right)$',
-                      color='green')
-        hist_to_txt(x, '_new_R_middle_VPhi_i_average_inside\
-                       _bin_sigmaphi_gamma_{}.txt')
-
-        plt.xlabel(r'$ u_t $, $ u_r $, $ u_{\theta} $ and $ u_{\phi}$')
-        plt.ylabel(r'$f\left( u \right)$')
-        ax1.legend(prop=dict(size=13), numpoints=2, ncol=1,
-                   frameon=True, loc=1, handlelength=2.5)
-        plt.grid()
-
-        x = hist_func(np.log10(x10),
-                      label=r'$f\left(\log \left( \frac{|v_tn|,v_tp}{\sigma_t}\
-                            \right)\right)$', color='Black')
-        hist_to_txt(x, '_new_R_middle_average_logx10_gamma_{}.txt')
-
-        x = hist_func(np.log10(x9),
-                      label=r'$f\left(\log \left( \frac{|v_rn|,v_rp}{\sigma_r}\
-                            \right)\right)$', color='red')
-        hist_to_txt(x, '_new_R_middle_average_logx9_gamma_{}.txt')
-
-        x = hist_func(np.log10(x7),
-                      label=r'$f\left(\log \left( \frac{\
-                            |v_{\theta}n|,v_{\theta}p}{\sigma_{\theta}}\
-                            \right)\right)$',
-                      color='blue')
-        hist_to_txt(x, '_new_R_middle_average_logx7_gamma_{}.txt')
-
-        x = hist_func(np.log10(x8),
-                      label=r'$f\left(\log \left( \frac{\
-                            |v_{\phi}n|, v_{\phi}p}{\sigma_{\phi}}\
-                            \right)\right)$',
-                      color='green')
-        hist_to_txt(x, '_new_R_middle_average_logx8_gamma_{}.txt')
-
-        ax2.set_yscale('log')
-        plt.xlabel(r'$\log \left( |u_tn|,u_tp \right)$, $\log \left(\
-                   |u_rn|,u_rp \right)$, $\log \left( |u_{\theta}n|,\
-                   u_{\theta}p \right)$ and $\log \left( |u_{\phi}n|,\
-                   u_{\phi}p \right)$')
-        plt.ylabel(r'$\log \left( f\left(\log \left( |u_n|,u_p \right)\
-                   \right) \right)$')
-        ax2.legend(prop=dict(size=13), numpoints=2, ncol=1,
-                   frameon=True, loc=2, handlelength=2.5)
-        plt.grid()
-
-    if large_R_middle:
-        plt.title(r'$N=%i$, $R_{middle} = %.2f$,File = %s, new R_middle'
-                  % (len(x), R_middle, F))
-
-        x = hist_func(VT_i_average_inside_bin_sigmatan,
-                      label=r'$f\left(u_t \right)$',
-                      color='Black')
-        hist_to_txt(x, '_large_R_middle_VT_i_average_inside\
-                    _bin_sigmatan_R_middle_{}.txt',
-                    R_middle)
-
-        x = hist_func(VR_i_average_inside_bin_sigmarad,
-                      label=r'$f\left(u_r \right)$',
-                      color='red')
-        hist_to_txt(x, '_large_R_middle_VR_i_average_inside\
-                    _bin_sigmarad_R_middle_%.2f.txt',
-                    R_middle)
-
-        x = hist_func(VTheta_i_average_inside_bin_sigmatheta,
-                      label=r'$f\left( u_{\theta} \right)$',
-                      color='blue')
-        hist_to_txt(x, '_large_R_middle_VTheta_i_average_inside\
-                       _bin_sigmatheta_R_middle_{}.txt',
-                    R_middle)
-
-        x = hist_func(VPhi_i_average_inside_bin_sigmaphi,
-                      label=r'$f\left( u_{\phi} \right)$',
-                      color='green')
-        hist_to_txt(x, '_large_R_middle_VPhi_i_average_inside\
-                    _bin_sigmaphi_R_middle_{}.txt',
-                    R_middle)
-
-        plt.xlabel(r'$ u_t $, $ u_r $, $ u_{\theta} $ and $ u_{\phi}$')
-        plt.ylabel(r'$f\left( u \right)$')
-        ax1.legend(prop=dict(size=13), numpoints=2, ncol=1,
-                   frameon=True, loc=1, handlelength=2.5)
-        plt.grid()
-
-        x = hist_func(np.log10(x10),
-                      label=r'$f\left(\log \left( |u_tn|,u_tp \right)\right)$',
-                      color='Black')
-        hist_to_txt(x, '_large_R_middle_average_logx10_R_middle_{}.txt',
-                    R_middle)
-
-        x = hist_func(np.log10(x9),
-                      label=r'$f\left(\log \left( |u_rn|,u_rp \right)\right)$',
-                      color='red')
-        hist_to_txt(x, '_large_R_middle_average_logx9_R_middle_{}.txt',
-                    R_middle)
-
-        x = hist_func(np.log10(x7),
-                      label=r'$f\left(\log \left(|u_{\theta}n|, u_{\theta}p\
-                            \right)\right)$',
-                      color='blue')
-        hist_to_txt(x, '_large_R_middle_average_logx7_R_middle_{}.txt',
-                    R_middle)
-
-        x = hist_func(np.log10(x8),
-                      label=r'$f\left(\log \left(|u_{\phi}n|, u_{\phi}p\
-                            \right)\right)$',
-                      color='green')
-        hist_to_txt(x, '_large_R_middle_average_logx8_R_middle_{}.txt',
-                    R_middle)
-
-        ax2.set_yscale('log')
-        plt.xlabel(r'$\log \left( |u_tn|, u_tp \right)$, $\log\
-                   \left( |u_rn|, u_rp \right)$, $\log \left(\
-                   |u_{\theta}n|,u_{\theta}p \right)$ and $\log \left(\
-                   |u_{\phi}n|,u_{\phi}p \right)$')
-        plt.ylabel(r'$\log \left( f\left(\log \left( |u_n|,\
-                   u_p \right)\right) \right)$')
-        ax2.legend(prop=dict(size=13), numpoints=2, ncol=1,
-                   frameon=True, loc=2, handlelength=2.5)
-        plt.grid()
+    ax2.set_yscale('log')
+    plt.xlabel(r'$\log \left( |u_tn|,u_tp \right)$, $\log \left(\
+               |u_rn|,u_rp \right)$, $\log \left( |u_{\theta}n|,\
+               u_{\theta}p \right)$ and $\log \left( |u_{\phi}n|,\
+               u_{\phi}p \right)$')
+    plt.ylabel(r'$\log \left( f\left(\log \left( |u_n|,\
+               u_p \right)\right) \right)$')
+    plt.legend(prop=dict(size=13), numpoints=2, ncol=1,
+               frameon=True, loc=2, handlelength=2.5)
+    plt.grid()
 
 plt.show()

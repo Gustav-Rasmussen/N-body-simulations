@@ -138,14 +138,22 @@ if B_G_Pert_different_gammas_HQ10000_G1_0_0_000:
     # logx10_gamma_-1.50.txt' 10 9 7 8
     # _average_logx10_gamma_%.2f.txt'
 
-    FileLstbin1HQ10000_G1_0_0_000 = [(B_HQ0 + 'VT_i_average_inside_bin_sigmaT_gamma_-1.50.txt',
-                                      B_HQ0 + 'VT_i_average_inside_bin_sigmaT_gamma_-1.50'),
-                                     (B_HQ0 + 'VR_i_average_inside_bin_sigmaR_gamma_-1.50.txt',
-                                      B_HQ0 + 'VR_i_average_inside_bin_sigmaR_gamma_-1.50'),
-                                     (B_HQ0 + 'VTheta_i_average_inside_bin_sigmaTheta_gamma_-1.50.txt',
-                                      B_HQ0 + 'VTheta_i_average_inside_bin_sigmaTheta_gamma_-1.50'),
-                                     (B_HQ0 + 'VPhi_i_average_inside_bin_sigmaPhi_gamma_-1.50.txt',
-                                      B_HQ0 + 'VPhi_i_average_inside_bin_sigmaPhi_gamma_-1.50'),
+    FileLstbin1HQ10000_G1_0_0_000 = [(B_HQ0 +
+                                      'VT_i_average_inside_bin_sigmaT_gamma_-1.50.txt',
+                                      B_HQ0 +
+                                      'VT_i_average_inside_bin_sigmaT_gamma_-1.50'),
+                                     (B_HQ0 +
+                                      'VR_i_average_inside_bin_sigmaR_gamma_-1.50.txt',
+                                      B_HQ0 +
+                                      'VR_i_average_inside_bin_sigmaR_gamma_-1.50'),
+                                     (B_HQ0 +
+                                      'VTheta_i_average_inside_bin_sigmaTheta_gamma_-1.50.txt',
+                                      B_HQ0 +
+                                      'VTheta_i_average_inside_bin_sigmaTheta_gamma_-1.50'),
+                                     (B_HQ0 +
+                                      'VPhi_i_average_inside_bin_sigmaPhi_gamma_-1.50.txt',
+                                      B_HQ0 +
+                                      'VPhi_i_average_inside_bin_sigmaPhi_gamma_-1.50'),
                                      (B_HQ0 + 'average_logx10_gamma_-1.50.txt',
                                       B_HQ0 + 'average_logx10_gamma_-1.50'),
                                      (B_HQ0 + 'average_logx9_gamma_-1.50.txt',
@@ -155,7 +163,8 @@ if B_G_Pert_different_gammas_HQ10000_G1_0_0_000:
                                      (B_HQ0 + 'average_logx8_gamma_-1.50.txt',
                                       B_HQ0 + 'average_logx8_gamma_-1.50')]
 
-    FileLstbin2HQ10000_G1_0_0_000 = [(B_HQ0 + 'VT_i_average_inside_bin_sigmaT_gamma_-2.00.txt',
+    FileLstbin2HQ10000_G1_0_0_000 = [(B_HQ0 +
+                                      'VT_i_average_inside_bin_sigmaT_gamma_-2.00.txt',
                                       B_HQ0 + 'VT_i_average_inside_bin_sigmaT_gamma_-2.00'),
                                      (B_HQ0 + 'VR_i_average_inside_bin_sigmaR_gamma_-2.00.txt',
                                       B_HQ0 + 'VR_i_average_inside_bin_sigmaR_gamma_-2.00'),
@@ -172,7 +181,8 @@ if B_G_Pert_different_gammas_HQ10000_G1_0_0_000:
                                      (B_HQ0 + 'average_logx8_gamma_-2.00.txt',
                                       B_HQ0 + 'average_logx8_gamma_-2.00')]
 
-    FileLstbin3HQ10000_G1_0_0_000 = [(B_HQ0 + 'VT_i_average_inside_bin_sigmaT_gamma_-2.50.txt',
+    FileLstbin3HQ10000_G1_0_0_000 = [(B_HQ0 +
+                                      'VT_i_average_inside_bin_sigmaT_gamma_-2.50.txt',
                                       B_HQ0 + 'VT_i_average_inside_bin_sigmaT_gamma_-2.50'),
                                      (B_HQ0 + 'VR_i_average_inside_bin_sigmaR_gamma_-2.50.txt',
                                       B_HQ0 + 'VR_i_average_inside_bin_sigmaR_gamma_-2.50'),
@@ -189,7 +199,8 @@ if B_G_Pert_different_gammas_HQ10000_G1_0_0_000:
                                      (B_HQ0 + 'average_logx8_gamma_-2.50.txt',
                                       B_HQ0 + 'average_logx8_gamma_-2.50')]
 
-    FileLstbin4HQ10000_G1_0_0_000 = [(B_HQ0 + 'VT_i_average_inside_bin_sigmaT_gamma_-3.00.txt',
+    FileLstbin4HQ10000_G1_0_0_000 = [(B_HQ0 +
+                                      'VT_i_average_inside_bin_sigmaT_gamma_-3.00.txt',
                                       B_HQ0 + 'VT_i_average_inside_bin_sigmaT_gamma_-3.00'),
                                      (B_HQ0 + 'VR_i_average_inside_bin_sigmaR_gamma_-3.00.txt',
                                       B_HQ0 + 'VR_i_average_inside_bin_sigmaR_gamma_-3.00'),
@@ -206,7 +217,8 @@ if B_G_Pert_different_gammas_HQ10000_G1_0_0_000:
                                      (B_HQ0 + 'average_logx8_gamma_-3.00.txt',
                                       B_HQ0 + 'average_logx8_gamma_-3.00')]
 
-    FileLstbin5HQ10000_G1_0_0_000 = [(B_HQ0 + 'VT_i_average_inside_bin_sigmaT_R_middle_19.95.txt',
+    FileLstbin5HQ10000_G1_0_0_000 = [(B_HQ0 +
+                                      'VT_i_average_inside_bin_sigmaT_R_middle_19.95.txt',
                                       B_HQ0 + 'VT_i_average_inside_bin_sigmaT_R_middle_19.95'),
                                      (B_HQ0 + 'VR_i_average_inside_bin_sigmaR_R_middle_19.95.txt',
                                       B_HQ0 + 'VR_i_average_inside_bin_sigmaR_R_middle_19.95'),
@@ -223,7 +235,8 @@ if B_G_Pert_different_gammas_HQ10000_G1_0_0_000:
                                      (B_HQ0 + 'average_logx8_R_middle_19.95.txt',
                                       B_HQ0 + 'average_logx8_R_middle_19.95')]
 
-    FileLstbin6HQ10000_G1_0_0_000 = [(B_HQ0 + 'VT_i_average_inside_bin_sigmaT_R_middle_31.62.txt',
+    FileLstbin6HQ10000_G1_0_0_000 = [(B_HQ0 +
+                                      'VT_i_average_inside_bin_sigmaT_R_middle_31.62.txt',
                                       B_HQ0 + 'VT_i_average_inside_bin_sigmaT_R_middle_31.62'),
                                      (B_HQ0 + 'VR_i_average_inside_bin_sigmaR_R_middle_31.62.txt',
                                       B_HQ0 + 'VR_i_average_inside_bin_sigmaR_R_middle_31.62'),
@@ -240,7 +253,9 @@ if B_G_Pert_different_gammas_HQ10000_G1_0_0_000:
                                      (B_HQ0 + 'average_logx8_R_middle_31.62.txt',
                                       B_HQ0 + 'average_logx8_R_middle_31.62')]
 
-    bin1_different_gammas_B_HQ10000_G1_0_0_000 = [(pylab.loadtxt(f), l) for f, l in FileLstbin1HQ10000_G1_0_0_000]
+    bin1_different_gammas_B_HQ10000_G1_0_0_000 = [(pylab.loadtxt(f), l)
+                                                  for f, l in
+                                                  FileLstbin1HQ10000_G1_0_0_000]
     bin2_different_gammas_B_HQ10000_G1_0_0_000 = [(pylab.loadtxt(f), l) for f, l in FileLstbin2HQ10000_G1_0_0_000]
     bin3_different_gammas_B_HQ10000_G1_0_0_000 = [(pylab.loadtxt(f), l) for f, l in FileLstbin3HQ10000_G1_0_0_000]
     bin4_different_gammas_B_HQ10000_G1_0_0_000 = [(pylab.loadtxt(f), l) for f, l in FileLstbin4HQ10000_G1_0_0_000]

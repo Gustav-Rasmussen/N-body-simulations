@@ -16,7 +16,8 @@ def change_dir(destination):
         os.chdir(cwd)
 
 
-txtFilePath = Path.cwd() / 'Desktop/GperturbNew/StableStructures/textFiles'
+# txtFilePath = Path.cwd() / 'Desktop/GperturbNew/StableStructures/textFiles'
+txtFilePath = Path.cwd().parent / 'textFiles'
 
 sims = ['A', 'B', 'CS1', 'CS2', 'CS3', 'CS4', 'CS5', 'CS6', 'D2', 'DS1', 'E',
         'MartinICandFinalEddandOM', 'softD2']
@@ -52,13 +53,21 @@ def rename_files(files):
             file_name = file_name.replace('phi', 'Phi')
         if ('theta' in file_name):
             file_name = file_name.replace('theta', 'Theta')
-
+        if ('Gamma_-1.50' in file_name):
+            file_name = file_name.replace('Gamma_-1.50', 'Gamma_-1.5')
+        if ('Gamma_-2.00' in file_name):
+            file_name = file_name.replace('Gamma_-2.00', 'Gamma_-2.0')
+        if ('Gamma_-2.50' in file_name):
+            file_name = file_name.replace('Gamma_-2.50', 'Gamma_-2.5')
+        if ('Gamma_-3.00' in file_name):
+            file_name = file_name.replace('Gamma_-3.00', 'Gamma_-3.0')
         new_name = regexUpper.regex_sub_upper(file_name)
         new_file = f'{new_name}{file_ext}'
         # print(f'{new_file}')
         os.rename(f, new_file)
 
 
+'''
 modules = ["readVDF_2_new", "fileLsts", "readVDF2", "VDFnetwork", "readVDF",
            "TimeEvolutionGammaKappaBeta", "Sigma", "readVDF_2_new"
            ]
@@ -131,12 +140,13 @@ with open(readfile, "r") as rf:
                 line = line.replace('\'/Users/gustav.c.rasmussen',
                                     'os.getcwd() + \'')
             wf.write(line)
-
 '''
+
 with change_dir(A):
     # print(os.listdir())
     rename_files(os.listdir())
 
+'''
 with change_dir(B):
     rename_files(os.listdir())
 

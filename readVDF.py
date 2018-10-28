@@ -55,336 +55,61 @@ bin1 = [(pylab.loadtxt(f), l) for f, l in FileLstbin1]
 bin2 = [(pylab.loadtxt(f), l) for f, l in FileLstbin2]
 bin3 = [(pylab.loadtxt(f), l) for f, l in FileLstbin3]
 
+
+def plot_binData_with_fit(figNum, binIndex1, binIndex2, title3, binNum, Gamma,
+                          Bin):
+    plt.figure(figNum)
+    f, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2,
+                                               sharex='col', sharey='row')
+    data, label = Bin[binIndex1]
+    popt, pcov = curve_fit(ragat.func_2_add, data[:, 0], data[:, 1])
+    y_fit = ragat.func_2_add(data[:, 0], popt[0], popt[1], popt[2])
+    ax1.plot(data[:, 0], data[:, 1], color='Blue', label=label, lw=2, ms=7)
+    ax1.plot(data[:, 0], y_fit, '--', lw=3, color='red')
+    ax1.set_title(r'f($v_r$)')
+    ax1.grid()
+
+    data, label = Bin[binIndex2]
+    popt, pcov = curve_fit(ragat.func_1_add, data[:, 0], data[:, 1])
+    y_fit = ragat.func_1_add(data[:, 0], popt[0], popt[1], popt[2])
+    ax2.plot(data[:, 0], data[:, 1], color='Blue', label=label, lw=2, ms=7)
+    ax2.plot(data[:, 0], y_fit, '--', lw=3, color='red')
+    ax2.set_title(r'f($v_t$)')
+    ax2.grid()
+
+    data, label = Bin[binIndex1]
+    popt, pcov = curve_fit(ragat.func_2_add, data[:, 0], data[:, 1])
+    y_fit = ragat.func_2_add(data[:, 0], popt[0], popt[1], popt[2])
+    ax3.plot(data[:, 0], np.log10(data[:, 1]), color='Black',
+             label=label, lw=2, ms=7)
+    ax3.plot(data[:, 0], np.log10(y_fit), '--', lw=3, color='green')
+    ax3.set_title(f'HQ10000_G{title3}')
+    ax3.grid()
+
+    data, label = Bin[binIndex2]
+    popt, pcov = curve_fit(ragat.func_1_add, data[:, 0], data[:, 1])
+    y_fit = ragat.func_1_add(data[:, 0], popt[0], popt[1], popt[2])
+    ax4.plot(data[:, 0], np.log10(data[:, 1]), color='Black',
+             label=label, lw=2, ms=7)
+    ax4.plot(data[:, 0], np.log10(y_fit), '--', lw=3, color='green')
+    ax4.set_title(r'bin {0}, $\gamma = {1}$'.format(binNum, Gamma))
+    ax4.grid()
+    # return
+
+
 # innerbin
-plt.figure(1)
-f, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2, sharex='col', sharey='row')
-data, label = bin1[0]
-popt, pcov = curve_fit(ragat.func_2_add, data[:, 0], data[:, 1])
-y_fit = ragat.func_2_add(data[:, 0], popt[0], popt[1], popt[2])
-ax1.plot(data[:, 0], data[:, 1], color='Blue', label=label, lw=2, ms=7)
-ax1.plot(data[:, 0], y_fit, '--', lw=3, color='red')
-ax1.set_title(r'f($v_r$)')
-ax1.grid()
-
-data, label = bin1[1]
-popt, pcov = curve_fit(ragat.func_1_add, data[:, 0], data[:, 1])
-y_fit = ragat.func_1_add(data[:, 0], popt[0], popt[1], popt[2])
-ax2.plot(data[:, 0], data[:, 1], color='Blue', label=label, lw=2, ms=7)
-ax2.plot(data[:, 0], y_fit, '--', lw=3, color='red')
-ax2.set_title(r'f($v_t$)')
-ax2.grid()
-
-data, label = bin1[0]
-popt, pcov = curve_fit(ragat.func_2_add, data[:, 0], data[:, 1])
-y_fit = ragat.func_2_add(data[:, 0], popt[0], popt[1], popt[2])
-ax3.plot(data[:, 0], np.log10(data[:, 1]), color='Black',
-         label=label, lw=2, ms=7)
-ax3.plot(data[:, 0], np.log10(y_fit), '--', lw=3, color='green')
-ax3.set_title('HQ10000_G0.8_2_000')
-ax3.grid()
-
-data, label = bin1[1]
-popt, pcov = curve_fit(ragat.func_1_add, data[:, 0], data[:, 1])
-y_fit = ragat.func_1_add(data[:, 0], popt[0], popt[1], popt[2])
-ax4.plot(data[:, 0], np.log10(data[:, 1]), color='Black',
-         label=label, lw=2, ms=7)
-ax4.plot(data[:, 0], np.log10(y_fit), '--', lw=3, color='green')
-ax4.set_title(r'bin 3, $\gamma = -0.5$')
-ax4.grid()
-
-plt.figure(2)
-f, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2, sharex='col', sharey='row')
-data, label = bin1[2]
-popt, pcov = curve_fit(ragat.func_2_add, data[:, 0], data[:, 1])
-y_fit = ragat.func_2(data[:, 0], popt[0], popt[1], popt[2])
-ax1.plot(data[:, 0], data[:, 1], color='Blue', label=label, lw=2, ms=7)
-ax1.plot(data[:, 0], y_fit, '--', lw=3, color='red')
-ax1.set_title(r'f($v_r$)')
-ax1.grid()
-
-data, label = bin1[3]
-popt, pcov = curve_fit(ragat.func_1_add, data[:, 0], data[:, 1])
-y_fit = ragat.func_1_add(data[:, 0], popt[0], popt[1], popt[2])
-ax2.plot(data[:, 0], data[:, 1], color='Blue', label=label, lw=2, ms=7)
-ax2.plot(data[:, 0], y_fit, '--', lw=3, color='red')
-ax2.set_title(r'f($v_t$)')
-ax2.grid()
-
-data, label = bin1[2]
-popt, pcov = curve_fit(ragat.func_2_add, data[:, 0], data[:, 1])
-y_fit = ragat.func_2_add(data[:, 0], popt[0], popt[1], popt[2])
-ax3.plot(data[:, 0], np.log10(data[:, 1]), color='Black', label=label,
-         lw=2, ms=7)
-ax3.plot(data[:, 0], np.log10(y_fit), '--', lw=3, color='green')
-ax3.set_title('HQ10000_G1.2_3_005')
-ax3.grid()
-
-data, label = bin1[3]
-popt, pcov = curve_fit(ragat.func_1_add, data[:, 0], data[:, 1])
-y_fit = ragat.func_1_add(data[:, 0], popt[0], popt[1], popt[2])
-ax4.plot(data[:, 0], np.log10(data[:, 1]), color='Black', label=label,
-         lw=2, ms=7)
-ax4.plot(data[:, 0], np.log10(y_fit), '--', lw=3, color='green')
-ax4.set_title(r'bin 4, $\gamma = -0.5$')
-ax4.grid()
-
-plt.figure(3)
-f, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2, sharex='col', sharey='row')
-data, label = bin1[4]
-popt, pcov = curve_fit(ragat.func_2_add, data[:, 0], data[:, 1])
-y_fit = ragat.func_2_add(data[:, 0], popt[0], popt[1], popt[2])
-ax1.plot(data[:, 0], data[:, 1], color='Blue', label=label, lw=2, ms=7)
-ax1.plot(data[:, 0], y_fit, '--', lw=3, color='red')
-ax1.set_title(r'f($v_r$)')
-ax1.grid()
-
-data, label = bin1[5]
-popt, pcov = curve_fit(ragat.func_1, data[:, 0], data[:, 1])
-y_fit = ragat.func_1(data[:, 0], popt[0], popt[1], popt[2])
-ax2.plot(data[:, 0], data[:, 1], color='Blue', label=label, lw=2, ms=7)
-ax2.plot(data[:, 0], y_fit, '--', lw=3, color='red')
-ax2.set_title(r'f($v_t$)')
-ax2.grid()
-
-data, label = bin1[4]
-popt, pcov = curve_fit(ragat.func_2, data[:, 0], data[:, 1])
-y_fit = ragat.func_2(data[:, 0], popt[0], popt[1], popt[2])
-ax3.plot(data[:, 0], np.log10(data[:, 1]), color='Black', label=label, lw=2,
-         ms=7)
-ax3.plot(data[:, 0], np.log10(y_fit), '--', lw=3, color='green')
-ax3.set_title('HQ10000_G1.2_9_005')
-ax3.grid()
-
-data, label = bin1[5]
-popt, pcov = curve_fit(ragat.func_1, data[:, 0], data[:, 1])
-y_fit = ragat.func_1(data[:, 0], popt[0], popt[1], popt[2])
-ax4.plot(data[:, 0], np.log10(data[:, 1]), color='Black', label=label, lw=2,
-         ms=7)
-ax4.plot(data[:, 0], np.log10(y_fit), '--', lw=3, color='green')
-ax4.set_title(r'bin 5, $\gamma = -0.5$')
-ax4.grid()
+plot_binData_with_fit(1, 0, 1, '0.8_2_000', 3, -0.5, bin1)
+plot_binData_with_fit(2, 2, 3, '1.2_3_005', 4, -0.5, bin1)
+plot_binData_with_fit(3, 4, 5, '1.2_9_005', 5, -0.5, bin1)
 
 # middlebin
-plt.figure(4)
-f, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2, sharex='col', sharey='row')
-data, label = datalist_middlebin[0]
-popt, pcov = curve_fit(ragat.func_2, data[:, 0], data[:, 1])
-y_fit = ragat.func_2(data[:, 0], popt[0], popt[1], popt[2])
-ax1.plot(data[:, 0], data[:, 1], color='Blue',
-         label=label, lw=2, ms=7)
-ax1.plot(data[:, 0], y_fit, '--', lw=3, color='red')
-ax1.set_title(r'f($v_r$)')
-ax1.grid()
-
-data, label = datalist_middlebin[1]
-popt, pcov = curve_fit(ragat.func_1, data[:, 0], data[:, 1])
-y_fit = ragat.func_1(data[:, 0], popt[0], popt[1], popt[2])
-ax2.plot(data[:, 0], data[:, 1], color='Blue',
-         label=label, lw=2, ms=7)
-ax2.plot(data[:, 0], y_fit, '--', lw=3, color='red')
-ax2.set_title(r'f($v_t$)')
-ax2.grid()
-
-data, label = datalist_middlebin[0]
-popt, pcov = curve_fit(ragat.func_2, data[:, 0], data[:, 1])
-y_fit = ragat.func_2(data[:, 0], popt[0], popt[1], popt[2])
-ax3.plot(data[:, 0], np.log10(data[:, 1]), color='Black',
-         label=label, lw=2, ms=7)
-ax3.plot(data[:, 0], np.log10(y_fit), '--', lw=3, color='green')
-ax3.set_title('HQ10000_G0.8_2_000')
-ax3.grid()
-
-data, label = datalist_middlebin[1]
-popt, pcov = curve_fit(ragat.func_1, data[:, 0], data[:, 1])
-y_fit = ragat.func_1(data[:, 0], popt[0], popt[1], popt[2])
-ax4.plot(data[:, 0], np.log10(data[:, 1]), color='Black',
-         label=label, lw=2, ms=7)
-ax4.plot(data[:, 0], np.log10(y_fit), '--', lw=3, color='green')
-ax4.set_title(r'bin 6, $\gamma = -1.5$')
-ax4.grid()
-
-plt.figure(5)
-f, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2, sharex='col', sharey='row')
-data, label = datalist_middlebin[2]
-popt, pcov = curve_fit(ragat.func_2, data[:, 0], data[:, 1])
-y_fit = ragat.func_2(data[:, 0], popt[0], popt[1], popt[2])
-ax1.plot(data[:, 0], data[:, 1], color='Blue', label=label, lw=2, ms=7)
-ax1.plot(data[:, 0], y_fit, '--', lw=3, color='red')
-ax1.set_title(r'f($v_r$)')
-ax1.grid()
-
-data, label = datalist_middlebin[3]
-popt, pcov = curve_fit(ragat.func_1, data[:, 0], data[:, 1])
-y_fit = ragat.func_1(data[:, 0], popt[0], popt[1], popt[2])
-ax2.plot(data[:, 0], data[:, 1], color='Blue',
-         label=label, lw=2, ms=7)
-ax2.plot(data[:, 0], y_fit, '--', lw=3, color='red')
-ax2.set_title(r'f($v_t$)')
-ax2.grid()
-
-data, label = datalist_middlebin[2]
-popt, pcov = curve_fit(ragat.func_2, data[:, 0], data[:, 1])
-y_fit = ragat.func_2(data[:, 0], popt[0], popt[1], popt[2])
-ax3.plot(data[:, 0], np.log10(data[:, 1]), color='Black',
-         label=label, lw=2, ms=7)
-ax3.plot(data[:, 0], np.log10(y_fit), '--', lw=3, color='green')
-ax3.set_title('HQ10000_G1.2_3_005')
-ax3.grid()
-
-data, label = datalist_middlebin[3]
-popt, pcov = curve_fit(ragat.func_1, data[:, 0], data[:, 1])
-y_fit = ragat.func_1(data[:, 0], popt[0], popt[1], popt[2])
-ax4.plot(data[:, 0], np.log10(data[:, 1]), color='Black',
-         label=label, lw=2, ms=7)
-ax4.plot(data[:, 0], np.log10(y_fit), '--', lw=3, color='green')
-ax4.set_title(r'bin 10, $\gamma = -2.5$')
-ax4.grid()
-
-plt.figure(6)
-f, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2, sharex='col', sharey='row')
-data, label = datalist_middlebin[4]
-popt, pcov = curve_fit(ragat.func_2, data[:, 0], data[:, 1])
-y_fit = ragat.func_2(data[:, 0], popt[0], popt[1], popt[2])
-ax1.plot(data[:, 0], data[:, 1], color='Blue',
-         label=label, lw=2, ms=7)
-ax1.plot(data[:, 0], y_fit, '--', lw=3, color='red')
-ax1.set_title(r'f($v_r$)')
-ax1.grid()
-
-data, label = datalist_middlebin[5]
-popt, pcov = curve_fit(ragat.func_1, data[:, 0], data[:, 1])
-y_fit = ragat.func_1(data[:, 0], popt[0], popt[1], popt[2])
-ax2.plot(data[:, 0], data[:, 1], color='Blue',
-         label=label, lw=2, ms=7)
-ax2.plot(data[:, 0], y_fit, '--', lw=3, color='red')
-ax2.set_title(r'f($v_t$)')
-ax2.grid()
-
-data, label = datalist_middlebin[4]
-popt, pcov = curve_fit(ragat.func_2, data[:, 0], data[:, 1])
-y_fit = ragat.func_2(data[:, 0], popt[0], popt[1], popt[2])
-ax3.plot(data[:, 0], np.log10(data[:, 1]), color='Black',
-         label=label, lw=2, ms=7)
-ax3.plot(data[:, 0], np.log10(y_fit), '--', lw=3, color='green')
-ax3.set_title('HQ10000_G1.2_9_005')
-ax3.grid()
-
-data, label = datalist_middlebin[5]
-popt, pcov = curve_fit(ragat.func_1, data[:, 0], data[:, 1])
-y_fit = ragat.func_1(data[:, 0], popt[0], popt[1], popt[2])
-ax4.plot(data[:, 0], np.log10(data[:, 1]), color='Black',
-         label=label, lw=2, ms=7)
-ax4.plot(data[:, 0], np.log10(y_fit), '--', lw=3, color='green')
-ax4.set_title(r'bin 6, $\gamma = -1$')
-ax4.grid()
+plot_binData_with_fit(4, 0, 1, '0.8_2_000', 6, -1.5, bin2)
+plot_binData_with_fit(5, 2, 3, '1.2_3_005', 10, -2.5, bin2)
+plot_binData_with_fit(6, 4, 5, '1.2_9_005', 6, -1, bin2)
 
 # outerbin
-plt.figure(7)
-f, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2, sharex='col', sharey='row')
-data, label = bin4[0]
-popt, pcov = curve_fit(ragat.func_2, data[:, 0], data[:, 1])
-y_fit = ragat.func_2(data[:, 0], popt[0], popt[1], popt[2])
-ax1.plot(data[:, 0], data[:, 1], color='Blue', label=label, lw=2, ms=7)
-ax1.plot(data[:, 0], y_fit, '--', lw=3, color='red')
-ax1.set_title(r'f($v_r$)')
-ax1.grid()
-
-data, label = bin4[1]
-popt, pcov = curve_fit(ragat.func_1, data[:, 0], data[:, 1])
-y_fit = ragat.func_1(data[:, 0], popt[0], popt[1], popt[2])
-ax2.plot(data[:, 0], data[:, 1], color='Blue', label=label, lw=2, ms=7)
-ax2.plot(data[:, 0], y_fit, '--', lw=3, color='red')
-ax2.set_title(r'f($v_t$)')
-ax2.grid()
-
-data, label = bin4[0]
-popt, pcov = curve_fit(ragat.func_2, data[:, 0], data[:, 1])
-y_fit = ragat.func_2(data[:, 0], popt[0], popt[1], popt[2])
-ax3.plot(data[:, 0], np.log10(data[:, 1]), color='Black',
-         label=label, lw=2, ms=7)
-ax3.plot(data[:, 0], np.log10(y_fit), '--', lw=3, color='green')
-ax3.set_title('HQ10000_G0.8_2_000')
-ax3.grid()
-
-data, label = bin4[1]
-popt, pcov = curve_fit(ragat.func_1, data[:, 0], data[:, 1])
-y_fit = ragat.func_1(data[:, 0], popt[0], popt[1], popt[2])
-ax4.plot(data[:, 0], np.log10(data[:, 1]), color='Black',
-         label=label, lw=2, ms=7)
-ax4.plot(data[:, 0], np.log10(y_fit), '--', lw=3, color='green')
-ax4.set_title(r'bin 10, $\gamma = -2.5$')
-ax4.grid()
-
-plt.figure(8)
-f, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2, sharex='col', sharey='row')
-data, label = bin4[2]
-popt, pcov = curve_fit(ragat.func_2, data[:, 0], data[:, 1])
-y_fit = ragat.func_2(data[:, 0], popt[0], popt[1], popt[2])
-ax1.plot(data[:, 0], data[:, 1], color='Blue', label=label, lw=2, ms=7)
-ax1.plot(data[:, 0], y_fit, '--', lw=3, color='red')
-ax1.set_title(r'f($v_r$)')
-ax1.grid()
-
-data, label = bin4[3]
-popt, pcov = curve_fit(ragat.func_1, data[:, 0], data[:, 1])
-y_fit = ragat.func_1(data[:, 0], popt[0], popt[1], popt[2])
-ax2.plot(data[:, 0], data[:, 1], color='Blue', label=label, lw=2, ms=7)
-ax2.plot(data[:, 0], y_fit, '--', lw=3, color='red')
-ax2.set_title(r'f($v_t$)')
-ax2.grid()
-
-data, label = bin4[2]
-popt, pcov = curve_fit(ragat.func_2, data[:, 0], data[:, 1])
-y_fit = ragat.func_2(data[:, 0], popt[0], popt[1], popt[2])
-ax3.plot(data[:, 0], np.log10(data[:, 1]), color='Black',
-         label=label, lw=2, ms=7)
-ax3.plot(data[:, 0], np.log10(y_fit), '--', lw=3, color='green')
-ax3.set_title('HQ10000_G1.2_3_005')
-ax3.grid()
-
-data, label = bin4[3]
-popt, pcov = curve_fit(func_1, data[:, 0], data[:, 1])
-y_fit = ragat.func_1(data[:, 0], popt[0], popt[1], popt[2])
-ax4.plot(data[:, 0], np.log10(data[:, 1]), color='Black',
-         label=label, lw=2, ms=7)
-ax4.plot(data[:, 0], np.log10(y_fit), '--', lw=3, color='green')
-ax4.set_title(r'bin 13, $\gamma = -3$')
-ax4.grid()
-
-plt.figure(9)
-f, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2, sharex='col', sharey='row')
-data, label = bin4[4]
-popt, pcov = curve_fit(ragat.func_2, data[:, 0], data[:, 1])
-y_fit = ragat.func_2(data[:, 0], popt[0], popt[1], popt[2])
-ax1.plot(data[:, 0], data[:, 1], color='Blue', label=label, lw=2, ms=7)
-ax1.plot(data[:, 0], y_fit, '--', lw=3, color='red')
-ax1.set_title(r'f($v_r$)')
-ax1.grid()
-
-data, label = bin4[5]
-popt, pcov = curve_fit(ragat.func_1, data[:, 0], data[:, 1])
-y_fit = ragat.func_1(data[:, 0], popt[0], popt[1], popt[2])
-ax2.plot(data[:, 0], data[:, 1], color='Blue', label=label, lw=2, ms=7)
-ax2.plot(data[:, 0], y_fit, '--', lw=3, color='red')
-ax2.set_title(r'f($v_t$)')
-ax2.grid()
-
-data, label = bin4[4]
-popt, pcov = curve_fit(ragat.func_2, data[:, 0], data[:, 1])
-y_fit = ragat.func_2(data[:, 0], popt[0], popt[1], popt[2])
-ax3.plot(data[:, 0], np.log10(data[:, 1]), color='Black',
-         label=label, lw=2, ms=7)
-ax3.plot(data[:, 0], np.log10(y_fit), '--', lw=3, color='green')
-ax3.set_title('HQ10000_G1.2_9_005')
-ax3.grid()
-
-data, label = bin4[5]
-popt, pcov = curve_fit(ragat.func_1, data[:, 0], data[:, 1])
-y_fit = ragat.func_1(data[:, 0], popt[0], popt[1], popt[2])
-ax4.plot(data[:, 0], np.log10(data[:, 1]), color='Black',
-         label=label, lw=2, ms=7)
-ax4.plot(data[:, 0], np.log10(y_fit), '--', lw=3, color='green')
-ax4.set_title(r'bin 10, $\gamma = -2.5$')
-ax4.grid()
+plot_binData_with_fit(7, 0, 1, '0.8_2_000', 10, -2.5, bin3)
+plot_binData_with_fit(8, 2, 3, '1.2_3_005', 13, -3, bin3)
+plot_binData_with_fit(9, 4, 5, '1.2_9_005', 10, -2.5, bin3)
 
 plt.show()
