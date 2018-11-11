@@ -20,15 +20,11 @@ from definePaths import *
 
 # Paths -----------------------------------------------------------------------
 
-# text_files_path = textFilesPath / 'A/'
-# text_files_path = textFilesPath / 'B/'
-# text_files_path = textFilesPath / 'Soft_B/'
-# text_files_path = textFilesPath / 'CS4/'
-# text_files_path = textFilesPath / 'CS5/'
-# text_files_path = textFilesPath / 'CS6/'
-# text_files_path = textFilesPath / 'DS1/'
-# text_files_path = textFilesPath / 'Soft_D2/'
-# text_files_path = textFilesPath / 'E/'
+simulations = ['A/', 'B/', 'Soft_B/', 'CS4/', 'CS5/', 'CS6/', 'DS1/',
+               'Soft_D2/', 'E/'
+               ]
+
+text_files_path = textFilesPath / simulations[0]
 
 # Figure switches -------------------------------------------------------------
 Fig_v_logr = 0
@@ -113,8 +109,10 @@ if Fig_x_hist:
     ax3.tick_params(axis='both', which='both', bottom='on', top='off',
                     labelbottom='on', right='off', left='off',
                     labelleft='off')
-    # f.savefig(figurePath + 'Fig_x_hist.png')
-    f.savefig(figurePath + 'Fig_CS4_Final_x_hist_I.png')
+
+    fig_titles = ['x_hist', 'CS4_Final_x_hist_I']
+
+    f.savefig(figurePath + 'Fig_' + fig_titles[0] + '.png')
 
 if Fig_x_hist2d:
     f = plt.figure(figsize=(13, 11))
@@ -125,8 +123,10 @@ if Fig_x_hist2d:
     plt.ylim(-4, 4)
     plt.title(r'Histogram of centralized positions x and y (200 hexbins)',
               fontsize=30)
-    # f.savefig(figurePath + 'Fig_x_hist2d.png')
-    f.savefig(figurePath + 'Fig_CS4_Final_x_hist2d_I.png')
+
+    fig_titles = ['x_hist2d', 'CS4_Final_x_hist2d_I']
+
+    f.savefig(figurePath + 'Fig_' + fig_titles[0] + '.png')
 
 R_hob_par = R[GoodIDs]
 
@@ -143,6 +143,8 @@ r = (x ** 2 + y ** 2 + z ** 2) ** .5
 v = (vx ** 2 + vy ** 2 + vz ** 2) ** .5
 r_r2 = r / r_2
 
+snapshot_num = ['IC', '10_005', '48_009', '198_093'
+                ]
 
 if Fig_v_logr:
     f, (ax1, ax2) = plt.subplots(1, 2, figsize=(13, 11))
@@ -151,32 +153,23 @@ if Fig_v_logr:
     ax1.set_xlabel('r', fontsize=30)
     ax1.set_ylabel(r'velocity, $v = \sqrt{v_x^2 + v_y^2 + v_z^2}$',
                    fontsize=30)
+
+    ax1.set_title(r'A {0}(I: $\Delta G,\
+                  R_{lim}=10^4$)'.format(snapshot_num[0]),
+                  fontsize=30)
     # ax1.set_title(r'%s' % F, fontsize=30)
-    ax1.set_title(r'A IC (I: $\Delta G,R_{lim}=10^4$)', fontsize=30)
-    # ax1.set_title(r'A 10_005 (I: $\Delta G, R_{lim}=10^4$)',
-    #               fontsize=30)
-    # ax1.set_title(r'A 48_009 (I: $\Delta G, R_{lim}=10^4$)',
-    #               fontsize=30)
 
     ax2.plot(np.log10(r), v, 'o', color='Blue', lw=3, ms=2)
     ax2.set_xlabel(r'$\log r$', fontsize=30)
     ax2.yaxis.tick_right()
 
-    # f.savefig(figurePath + 'A_IC_v_logr.png')
-    # f.savefig(figurePath + 'A_10_005_v_logr.png')
-    # f.savefig(figurePath + 'A_48_009_v_logr.png')
-    # f.savefig(figurePath + 'B_v_logr.png')
-    # f.savefig(figurePath + 'Soft_B_v_logr.png')
-    # f.savefig(figurePath + 'CS1_v_logr.png')
-    # f.savefig(figurePath + 'CS2_v_logr.png')
-    # f.savefig(figurePath + 'CS3_v_logr.png')
-    # f.savefig(figurePath + 'CS4_v_logr.png')
-    # f.savefig(figurePath + 'CS5_v_logr.png')
-    # f.savefig(figurePath + 'CS6_v_logr.png')
-    # f.savefig(figurePath + 'DS1_v_logr.png')
-    # f.savefig(figurePath + 'D2_v_logr.png')
-    # f.savefig(figurePath + 'Soft_D2_v_logr.png')
-    # f.savefig(figurePath + 'E_v_logr.png')
+    fig_names = ['A_IC_v_logr', 'A_10_005_v_logr', 'A_48_009_v_logr',
+                 'B_v_logr', 'Soft_B_v_logr', 'CS1_v_logr', 'CS2_v_logr',
+                 'CS3_v_logr', 'CS4_v_logr', 'CS5_v_logr', 'CS6_v_logr',
+                 'DS1_v_logr', 'D2_v_logr', 'Soft_D2_v_logr', 'E_v_logr'
+                 ]
+
+    f.savefig(figurePath + fig_names[0] + '.png')
 
 if Fig_v_logr_r2:
     f, (ax1, ax2) = plt.subplots(1, 2, figsize=(13, 11))
@@ -185,32 +178,25 @@ if Fig_v_logr_r2:
     ax1.set_xlabel(r'$\frac{r}{r_{-2}}$', fontsize=30)
     ax1.set_ylabel(r'velocity, $v = \sqrt{v_x^2+v_y^2+v_z^2}$',
                    fontsize=30)
-    # ax1.set_title(r'%s' % F, fontsize=30)
-    # ax1.set_title(r'A IC (I: $\Delta G, R_{lim}=10^4$)', fontsize=30)
-    # ax1.set_title(r'A 10_005 (I: $\Delta G,R_{lim}=10^4$)',
-    #               fontsize=30)
-    ax1.set_title(r'A 48_009 (I: $\Delta G, R_{lim}=10^4$)',
+
+    ax1.set_title(r'A {0}(I: $\Delta G,\
+                  R_{lim}=10^4$)'.format(snapshot_num[0]),
                   fontsize=30)
+
+    # ax1.set_title(r'%s' % F, fontsize=30)
 
     ax2.plot(np.log10(r_r2), v, 'o', color='Blue', lw=3, ms=2)
     ax2.set_xlabel(r'$\log (\frac{r}{r_{-2}})$', fontsize=30)
     ax2.yaxis.tick_right()
 
-    # f.savefig(figurePath + 'A_IC_v_logr_r2.png')
-    # f.savefig(figurePath + 'A_10_005_v_logr_r2.png')
-    # f.savefig(figurePath + 'A_48_009_v_logr_r2.png')
-    # f.savefig(figurePath + 'B_v_logr_r2.png')
-    # f.savefig(figurePath + 'Soft_B_v_logr_r2.png')
-    # f.savefig(figurePath + 'CS1_v_logr_r2.png')
-    # f.savefig(figurePath + 'CS2_v_logr_r2.png')
-    # f.savefig(figurePath + 'CS3_v_logr_r2.png')
-    # f.savefig(figurePath + 'CS4_v_logr_r2.png')
-    # f.savefig(figurePath + 'CS5_v_logr_r2.png')
-    # f.savefig(figurePath + 'CS6_v_logr_r2.png')
-    # f.savefig(figurePath + 'DS1_v_logr_r2.png')
-    # f.savefig(figurePath + 'D2_v_logr_r2.png')
-    # f.savefig(figurePath + 'Soft_D2_v_logr_r2.png')
-    # f.savefig(figurePath + 'E_v_logr_r2.png')
+    fig_names = ['A_IC_v_logr_r2', 'A_10_005_v_logr_r2', 'A_48_009_v_logr_r2',
+                 'B_v_logr_r2', 'Soft_B_v_logr_r2', 'CS1_v_logr_r2',
+                 'CS2_v_logr_r2', 'CS3_v_logr_r2', 'CS4_v_logr_r2',
+                 'CS5_v_logr_r2', 'CS6_v_logr_r2', 'DS1_v_logr_r2',
+                 'D2_v_logr_r2', 'Soft_D2_v_logr_r2', 'E_v_logr_r2'
+                 ]
+
+    f.savefig(figurePath + fig_names[0] + '.png')
 
 # Calculates the median of vx, vy, vz for all particles
 # which are inside the cluster.
@@ -239,19 +225,11 @@ if Fig2_v:  # 3 plots of the velocities as function of x.
     plt.plot(x, vz, 'o', ms=2, mew=0, color='blue')
     setp(ax3.get_yticklabels(), visible=False)
 
-    # f.savefig(figurePath + 'A_v.png')
-    # f.savefig(figurePath + 'B_v.png')
-    # f.savefig(figurePath + 'Soft_B_v.png')
-    # f.savefig(figurePath + 'CS1_v.png')
-    # f.savefig(figurePath + 'CS2_v.png')
-    # f.savefig(figurePath + 'CS3_v.png')
-    # f.savefig(figurePath + 'CS4_v.png')
-    # f.savefig(figurePath + 'CS5_v.png')
-    # f.savefig(figurePath + 'CS6_v.png')
-    # f.savefig(figurePath + 'DS1_v.png')
-    # f.savefig(figurePath + 'D2_v.png')
-    # f.savefig(figurePath + 'Soft_D2_v.png')
-    # f.savefig(figurePath + 'E_v.png')
+    fig_names = ['A_v', 'B_v', 'Soft_B_v', 'CS1_v', 'CS2_v', 'CS3_v', 'CS4_v',
+                 'CS5_v', 'CS6_v', 'DS1_v', 'D2_v', 'Soft_D2_v', 'E_v'
+                 ]
+
+    f.savefig(figurePath + fig_names[0] + '.png')
 
 # plot sigma ** 2 as a function of radius.
 # Make bins and calculate mean(v ** 2) for the particles in each bin.
@@ -429,30 +407,24 @@ if Fig3_sigma:  # Dispersions
 
     plt.xlabel(r'$\log $r', fontsize=30)
     plt.ylabel(r'$\log (\sigma^2)$', fontsize=30)
+
+    plt.title(r'Velocity dispersions (B {}, $R_{limit} = 10^4$,\
+              20 radial bins)'.format(snapshot_num[0]),
+              fontsize=30)
+
     # plt.title(r'Velocity dispersions (File = %s)' % F, fontsize=30)
-    # plt.title(r'Velocity dispersions (B IC, $R_{limit} = 10^4$,\
-    #           20 radial bins)',
-    #           fontsize=30)
-    # plt.title(r'Velocity dispersions (B 198_093, $R_{limit} = 10^4$,\
-    #           20 radial bins)',
-    #           fontsize=30)
+
     leg = plt.legend(prop=dict(size=30), numpoints=2, ncol=1,
                      fancybox=True, loc=0, handlelength=2.5)
     leg.get_frame().set_alpha(.5)
-    # f.savefig(figurePath + 'A_sigma.png')
-    # f.savefig(figurePath + 'B_IC_sigma.png')
-    # f.savefig(figurePath + 'B_198_093_sigma.png')
-    # f.savefig(figurePath + 'Soft_B_sigma.png')
-    # f.savefig(figurePath + 'CS1_sigma.png')
-    # f.savefig(figurePath + 'CS2_sigma.png')
-    # f.savefig(figurePath + 'CS3_sigma.png')
-    # f.savefig(figurePath + 'CS4_sigma.png')
-    # f.savefig(figurePath + 'CS5_sigma.png')
-    # f.savefig(figurePath + 'CS6_sigma.png')
-    # f.savefig(figurePath + 'DS1_sigma.png')
-    # f.savefig(figurePath + 'D2_sigma.png')
-    # f.savefig(figurePath + 'Soft_D2_sigma.png')
-    # f.savefig(figurePath + 'E_sigma.png')
+
+    fig_names = ['A_sigma', 'B_IC_sigma', 'B_198_093_sigma', 'Soft_B_sigma',
+                 'CS1_sigma', 'CS2_sigma', 'CS3_sigma', 'CS4_sigma',
+                 'CS5_sigma', 'CS6_sigma', 'DS1_sigma', 'D2_sigma',
+                 'Soft_D2_sigma', 'E_sigma'
+                 ]
+
+    f.savefig(figurePath + fig_names[0] + '.png')
 
 if Fig3_sigma_r_2:  # Dispersions
     f = plt.figure(figsize=(16, 11))
@@ -478,25 +450,20 @@ if Fig3_sigma_r_2:  # Dispersions
     plt.xlabel(r'$\log (\frac{r}{r_{-2}})$', fontsize=30)
     plt.ylabel(r'$\log (\sigma^2) $', fontsize=30)
 
+    plt.title(r'Velocity dispersions (B {}, $R_{limit} = 10^4$,\
+              20 radial bins)'.format(snapshot_num[0]),
+              fontsize=30)
+
     # plt.title(r'Velocity dispersions (File = %s)' % F, fontsize=30)
-    # plt.title(r'Velocity dispersions (B IC, $R_{limit} = 10^4$,\
-    #           20 radial bins)', fontsize=30)
-    # plt.title(r'Velocity dispersions (B 198_093, $R_{limit} = 10^4$,\
-    #           20 radial bins)', fontsize=30)
-    # f.savefig(figurePath + 'A_sigma_r_2.png')
-    # f.savefig(figurePath + 'B_IC_sigma_r_2.png')
-    # f.savefig(figurePath + 'B_198_093_sigma_r_2.png')
-    # f.savefig(figurePath + 'Soft_B_sigma_r_2.png')
-    # f.savefig(figurePath + 'CS1_sigma_r_2.png')
-    # f.savefig(figurePath + 'CS2_sigma_r_2.png')
-    # f.savefig(figurePath + 'CS3_sigma_r_2.png')
-    # f.savefig(figurePath + 'CS4_sigma_r_2.png')
-    # f.savefig(figurePath + 'CS5_sigma_r_2.png')
-    # f.savefig(figurePath + 'CS6_sigma_r_2.png')
-    # f.savefig(figurePath + 'DS1_sigma_r_2.png')
-    # f.savefig(figurePath + 'D2_sigma_r_2.png')
-    # f.savefig(figurePath + 'Soft_D2_sigma_r_2.png')
-    # f.savefig(figurePath + 'E_sigma_r_2.png')
+
+    fig_names = ['A_sigma_r_2', 'B_IC_sigma_r_2', 'B_198_093_sigma_r_2',
+                 'Soft_B_sigma_r_2', 'CS1_sigma_r_2', 'CS2_sigma_r_2',
+                 'CS3_sigma_r_2', 'CS4_sigma_r_2', 'CS5_sigma_r_2',
+                 'CS6_sigma_r_2', 'DS1_sigma_r_2', 'D2_sigma_r_2',
+                 'Soft_D2_sigma_r_2', 'E_sigma_r_2'
+                 ]
+
+    f.savefig(figurePath + fig_names[0] + '.png')
 
 if Fig3_sigma_divided_by_v_circ_r_2:  # Dispersions
     f = plt.figure(figsize=(16, 11))
@@ -522,25 +489,59 @@ if Fig3_sigma_divided_by_v_circ_r_2:  # Dispersions
     # plt.ylabel(r'$\log (\frac{\sigma^2}{v_{circ,2}})$', fontsize=26)
     plt.ylabel(r'$\log (\bar{\sigma}^2)$', fontsize=30)
 
+    plt.title(r'Velocity dispersions (B {}, $R_{limit} = 10^4$,\
+              20 radial bins)'.format(snapshot_num[0]),
+              fontsize=30)
+
     # plt.title(r'Velocity dispersions (File = %s)' % F, fontsize=26)
-    plt.title(r'Velocity dispersions (B IC, $R_{limit} = 10^4$,\
-              20 radial bins)', fontsize=30)
+
     leg = plt.legend(prop=dict(size=18), numpoints=2, ncol=1,
                      fancybox=True, loc=0, handlelength=2.5)
     leg.get_frame().set_alpha(.5)
-    # f.savefig(figurePath + 'A_sigma_divided_by_v_circ_r_2.png')
-    # f.savefig(figurePath + 'B_sigma_divided_by_v_circ_r_2.png')
-    # f.savefig(figurePath + 'Soft_B_sigma_divided_by_v_circ_r_2.png')
-    # f.savefig(figurePath + 'CS1_sigma_divided_by_v_circ_r_2.png')
-    # f.savefig(figurePath + 'CS2_sigma_divided_by_v_circ_r_2.png')
-    # f.savefig(figurePath + 'CS3_sigma_divided_by_v_circ_r_2.png')
-    # f.savefig(figurePath + 'CS4_sigma_divided_by_v_circ_r_2.png')
-    # f.savefig(figurePath + 'CS5_sigma_divided_by_v_circ_r_2.png')
-    # f.savefig(figurePath + 'CS6_sigma_divided_by_v_circ_r_2.png')
-    # f.savefig(figurePath + 'DS1_sigma_divided_by_v_circ_r_2.png')
-    # f.savefig(figurePath + 'D2_sigma_divided_by_v_circ_r_2.png')
-    # f.savefig(figurePath + 'Soft_D2_sigma_divided_by_v_circ_r_2.png')
-    # f.savefig(figurePath + 'E_sigma_divided_by_v_circ_r_2.png')
+
+    fig_names = ['A_sigma_divided_by_v_circ_r_2',
+                 'B_sigma_divided_by_v_circ_r_2',
+                 'Soft_B_sigma_divided_by_v_circ_r_2',
+                 'CS1_sigma_divided_by_v_circ_r_2',
+                 'CS2_sigma_divided_by_v_circ_r_2',
+                 'CS3_sigma_divided_by_v_circ_r_2',
+                 'CS4_sigma_divided_by_v_circ_r_2',
+                 'CS5_sigma_divided_by_v_circ_r_2',
+                 'CS6_sigma_divided_by_v_circ_r_2',
+                 'DS1_sigma_divided_by_v_circ_r_2',
+                 'D2_sigma_divided_by_v_circ_r_2',
+                 'Soft_D2_sigma_divided_by_v_circ_r_2',
+                 'E_sigma_divided_by_v_circ_r_2'
+                 ]
+
+    f.savefig(figurePath + fig_names[0] + '.png')
+
+sim = ['A', 'B', 'CS4', 'CS5', 'CS6', 'DS1', 'D2', 'Soft_D2',
+       'E',
+       ]
+
+snap = ['48_009', '48_093', '49_093', '198_093', '199_093',
+        ]
+
+sim_snap = [sim[0] + snap[0],  # A 48_009, rlimit=10^4, bins=20
+            sim[1] + snap[4],  # B 199_093, rlimit=10^4, bins=20
+            sim[2] + snap[1],  # CS4 48_093, rlimit=10^4, bins=20
+            sim[3] + snap[1],  # CS5 48_093, rlimit=10^4, bins=20
+            sim[4] + snap[1],  # CS6 48_093, rlimit=10^4, bins=20
+            sim[5] + snap[2],  # DS1 49_093, rlimit=10^4, bins=20
+            sim[6] + snap[2],  # D2 49_093, rlimit=10^4, bins=20
+            sim[7] + snap[2],  # Soft_D2 49_093, rlimit=10^4, bins=20
+            sim[8] + snap[3],  # E 198_093, rlimit=10^4, bins=20
+            sim[0] + snap[0],  # A 48_009, rlimit=32, bins=50
+            sim[1] + snap[4],  # B 199_093, rlimit=32, bins=50
+            sim[2] + snap[1],  # CS4 48_093, rlimit=32, bins=20
+            sim[3] + snap[1],  # CS5 48_093, rlimit=32, bins=20
+            sim[4] + snap[1],  # CS6 48_093, rlimit=32, bins=20
+            sim[5] + snap[2],  # DS1 49_093, rlimit=32, bins=20
+            sim[6] + snap[2],  # D2 49_093, rlimit=32, bins=20
+            sim[7] + snap[2],  # Soft_D2 49_093, rlimit=32, bins=20
+            sim[8] + snap[3]  # E 198_093, rlimit=32, bins=50
+            ]
 
 if Fig4_beta:  # plot beta
     f = plt.figure(figsize=(16, 11))
@@ -549,9 +550,7 @@ if Fig4_beta:  # plot beta
     y_plot = beta_arr
     plt.xlabel(r'$\log$r', fontsize=30)
     plt.ylabel(r'$\beta$', fontsize=30)
-    plt.plot(x_plot, y_plot, '-o', ms=7, lw=2, mew=0, color='black')
-    # plt.plot(x_plot, y_plot, '-o', ms=7, lw=2, mew=0, color='black',
-    #          label=r'$\beta$')
+    plt.plot(x_plot, y_plot, '-o', ms=7, lw=2, mew=0, color='black')  # label=r'$\beta$')
     # from this graph we see that beta is below zero.
     # this means sigmatheta2_arr/sigmarad2_arr > 1,
     # which in turn means that sigmatheta2_arr > sigmarad2_arr.
@@ -575,122 +574,81 @@ if Fig4_beta:  # plot beta
         leg = plt.legend(prop=dict(size=30), numpoints=2, ncol=1,
                          fancybox=True, loc=0, handlelength=2.5)
         leg.get_frame().set_alpha(.5)
-        # f.savefig(figurePath + 'A_IC_beta_logr_fit.png')
-        # f.savefig(figurePath + 'B_IC_beta_logr_fit.png')
-        # f.savefig(figurePath + 'Soft_B_IC_beta_logr_fit.png')
-        # f.savefig(figurePath + 'CS1_IC_beta_logr_fit.png')
-        # f.savefig(figurePath + 'CS4_IC_beta_logr_fit.png')
-        # f.savefig(figurePath + 'CS5_IC_beta_logr_fit.png')
-        # f.savefig(figurePath + 'CS6_IC_beta_logr_fit.png')
-        # f.savefig(figurePath + 'DS1_IC_beta_logr_fit.png')
-        # f.savefig(figurePath + 'D2_beta_logr_fit.png')
-        # f.savefig(figurePath + 'Soft_D2_beta_logr_fit.png')
-        # f.savefig(figurePath + 'Soft_D2_Final_beta_logr_fit.png')
-        # f.savefig(figurePath + 'E_beta_logr_fit.png')
+
+        fig_names = ['A_IC_beta_logr_fit', 'B_IC_beta_logr_fit',
+                     'Soft_B_IC_beta_logr_fit', 'CS1_IC_beta_logr_fit',
+                     'CS4_IC_beta_logr_fit', 'CS5_IC_beta_logr_fit',
+                     'CS6_IC_beta_logr_fit', 'DS1_IC_beta_logr_fit',
+                     'D2_beta_logr_fit', 'Soft_D2_beta_logr_fit',
+                     'Soft_D2_Final_beta_logr_fit', 'E_beta_logr_fit'
+                     ]
+
+    f.savefig(figurePath + fig_names[0] + '.png')
+
     else:
         leg = plt.legend(prop=dict(size=30), numpoints=2, ncol=1,
                          fancybox=True, loc=0, handlelength=2.5)
         leg.get_frame().set_alpha(.5)
 
+        # rlimits = ['10^4', '32']
+        # bins = ['20', '50']
+
+        plt.title(r'$\beta$ with zero-line\
+                  ({0}, $R_{limit}$=10^4, 20 bins)'.format(sim_snap[0]),
+                  fontsize=30)
+
         # plt.title(r'$\beta$ with zero-line(%s)' % F, fontsize=30)
-        # plt.title(r'$\beta$ with zero-line\
-        #           (A 48_009, $R_{limit}=10^4, 20$ bins)',
-        #           fontsize=30)
-        # plt.title(r'$\beta$ with zero-line\
-        #           (B 199_093, $R_{limit}=10^4, 20$ bins)',
-        #           fontsize=30)
-        # plt.title(r'$\beta$ with zero-line\
-        #           (CS4 48_093, $R_{limit}=10^4, 20$ bins)',
-        #           fontsize=30)
-        # plt.title(r'$\beta$ with zero-line\
-        #           (CS5 48_093, $R_{limit}=10^4, 20$ bins)',
-        #           fontsize=30)
-        # plt.title(r'$\beta$ with zero-line\
-        #           (CS6 48_093, $R_{limit}=10^4, 20$ bins)',
-        #           fontsize=30)
-        # plt.title(r'$\beta$ with zero-line\
-        #           (DS1 49_093, $R_{limit}=10^4, 20$ bins)',
-        #           fontsize=30)
-        # plt.title(r'$\beta$ with zero-line\
-        #           (D2 49_093, $R_{limit}=10^4, 20$ bins)',
-        #           fontsize=30)
-        # plt.title(r'$\beta$ with zero-line\
-        #           (Soft_D2 49_093, $R_{limit}=10^4, 20$ bins)',
-        #           fontsize=30)
-        # plt.title(r'$\beta$ with zero-line\
-        #           (E 198_093, $R_{limit}=10^4, 20$ bins)',
-        #           fontsize=30)
-        # plt.title(r'$\beta$ with zero-line\
-        #           (A 48_009, $R_{limit}=32, 50$ bins)',
-        #           fontsize=30)
-        # plt.title(r'$\beta$ with zero-line\
-        #           (B 199_093, $R_{limit}=32, 50$ bins)',
-        #           fontsize=30)
-        # plt.title(r'$\beta$ with zero-line\
-        #           (CS4 48_093, $R_{limit}=32, 20$ bins)',
-        #           fontsize=30)
-        # plt.title(r'$\beta$ with zero-line\
-        #           (CS5 48_093, $R_{limit}=32, 20$ bins)',
-        #           fontsize=30)
-        # plt.title(r'$\beta$ with zero-line\
-        #           (CS6 48_093, $R_{limit}=32, 20$ bins)',
-        #           fontsize=30)
-        # plt.title(r'$\beta$ with zero-line\
-        #           (DS1 49_093, $R_{limit}=32, 20$ bins)',
-        #           fontsize=30)
-        # plt.title(r'$\beta$ with zero-line\
-        #           (D2 49_093, $R_{limit}=32, 20$ bins)',
-        #           fontsize=30)
-        # plt.title(r'$\beta$ with zero-line\
-        #           (Soft_D2 49_093, $R_{limit}=32, 20$ bins)',
-        #           fontsize=30)
-        # plt.title(r'$\beta$ with zero-line
-        #           (E 198_093, $R_{limit}=32, 50$ bins)', fontsize=30)
 
-        # f.savefig(figurePath + 'A_IC_beta_logr_I_R32.png')
-        # f.savefig(figurePath + 'A_48_009_beta_logr_I_R32.png')
-        # f.savefig(figurePath + 'A_48_009_beta_logr_I_R32_cuts.png')
-        # f.savefig(figurePath + 'B_IC_beta_logr_I_R32.png')
-        # f.savefig(figurePath + 'B_199_093_beta_logr_I_R32.png')
-        # f.savefig(figurePath + 'Soft_B_IC_beta_logr_I_R32.png')
-        # f.savefig(figurePath + 'Soft_B_Final_beta_logr_I_R32.png')
-        # f.savefig(figurePath + 'CS1_IC_beta_logr_I_R32.png')
-        # f.savefig(figurePath + 'CS4_IC_beta_logr_I_R32.png')
-        # f.savefig(figurePath + 'CS4_48_093_beta_logr_I_R32.png')
-        # f.savefig(figurePath + 'CS5_IC_beta_logr_I_R32.png')
-        # f.savefig(figurePath + 'CS5_48_093_beta_logr_I_R32.png')
-        # f.savefig(figurePath + 'CS6_IC_beta_logr_I_R32.png')
-        # f.savefig(figurePath + 'CS6_48_093_beta_logr_I_R32.png')
-        # f.savefig(figurePath + 'DS1_IC_beta_logr_I_R32.png')
-        # f.savefig(figurePath + 'DS1_49_093_beta_logr_I_R32.png')
-        # f.savefig(figurePath + 'D2_beta_logr_I_R32.png')
-        # f.savefig(figurePath + 'D2_49_093_beta_logr_I_R32.png')
-        # f.savefig(figurePath + 'Soft_D2_beta_logr_I_R32.png')
-        # f.savefig(figurePath + 'Soft_D2_49_093_beta_logr_I_R32.png')
-        # f.savefig(figurePath + 'E_beta_logr_I_R32.png')
-        # f.savefig(figurePath + 'E_198_093_beta_logr_I_R32.png')
+        fig_names_I_R32 = ['A_IC_beta_logr_I_R32',
+                           'A_48_009_beta_logr_I_R32',
+                           'A_48_009_beta_logr_I_R32_cuts',
+                           'B_IC_beta_logr_I_R32',
+                           'B_199_093_beta_logr_I_R32',
+                           'Soft_B_IC_beta_logr_I_R32',
+                           'Soft_B_Final_beta_logr_I_R32',
+                           'CS1_IC_beta_logr_I_R32',
+                           'CS4_IC_beta_logr_I_R32',
+                           'CS4_48_093_beta_logr_I_R32',
+                           'CS5_IC_beta_logr_I_R32',
+                           'CS5_48_093_beta_logr_I_R32',
+                           'CS6_IC_beta_logr_I_R32',
+                           'CS6_48_093_beta_logr_I_R32',
+                           'DS1_IC_beta_logr_I_R32',
+                           'DS1_49_093_beta_logr_I_R32',
+                           'D2_beta_logr_I_R32',
+                           'D2_49_093_beta_logr_I_R32',
+                           'Soft_D2_beta_logr_I_R32',
+                           'Soft_D2_49_093_beta_logr_I_R32',
+                           'E_beta_logr_I_R32',
+                           'E_198_093_beta_logr_I_R32'
+                           ]
 
-        # f.savefig(figurePath + 'A_IC_beta_logr.png')
-        # f.savefig(figurePath + 'A_48_009_beta_logr.png')
-        # f.savefig(figurePath + 'B_IC_beta_logr.png')
-        # f.savefig(figurePath + 'B_199_093_beta_logr.png')
-        # f.savefig(figurePath + 'Soft_B_IC_beta_logr.png')
-        # f.savefig(figurePath + 'Soft_B_Final_beta_logr.png')
-        # f.savefig(figurePath + 'CS1_IC_beta_logr.png')
-        # f.savefig(figurePath + 'CS4_IC_beta_logr.png')
-        # f.savefig(figurePath + 'CS4_48_093_beta_logr.png')
-        # f.savefig(figurePath + 'CS5_IC_beta_logr.png')
-        # f.savefig(figurePath + 'CS5_48_093_beta_logr.png')
-        # f.savefig(figurePath + 'CS6_IC_beta_logr.png')
-        # f.savefig(figurePath + 'CS6_48_093_beta_logr.png')
-        # f.savefig(figurePath + 'DS1_IC_beta_logr.png')
-        # f.savefig(figurePath + 'DS1_49_093_beta_logr.png')
-        # f.savefig(figurePath + 'D2_beta_logr.png')
-        # f.savefig(figurePath + 'D2_49_093_beta_logr.png')
-        # f.savefig(figurePath + 'Soft_D2_beta_logr.png')
-        # f.savefig(figurePath + 'Soft_D2_49_093_beta_logr.png')
-        # f.savefig(figurePath + 'E_beta_logr.png')
-        # f.savefig(figurePath + 'E_198_093_beta_logr.png')
+        f.savefig(figurePath + fig_names_I_R32[0] + '.png')
+
+        fig_names = ['A_IC_beta_logr',
+                     'A_48_009_beta_logr',
+                     'B_IC_beta_logr',
+                     'B_199_093_beta_logr',
+                     'Soft_B_IC_beta_logr',
+                     'Soft_B_Final_beta_logr',
+                     'CS1_IC_beta_logr',
+                     'CS4_IC_beta_logr',
+                     'CS4_48_093_beta_logr',
+                     'CS5_IC_beta_logr',
+                     'CS5_48_093_beta_logr',
+                     'CS6_IC_beta_logr',
+                     'CS6_48_093_beta_logr',
+                     'DS1_IC_beta_logr',
+                     'DS1_49_093_beta_logr',
+                     'D2_beta_logr',
+                     'D2_49_093_beta_logr',
+                     'Soft_D2_beta_logr',
+                     'Soft_D2_49_093_beta_logr',
+                     'E_beta_logr',
+                     'E_198_093_beta_logr'
+                     ]
+
+        # f.savefig(figurePath + fig_names[0] + '.png')
 
 if Fig4_beta_r_2:  # plot beta
     f = plt.figure(figsize=(16, 11))
@@ -706,29 +664,22 @@ if Fig4_beta_r_2:  # plot beta
     plt.plot(x_plot, 0 * x_plot, '--', lw=2, color='grey')
     # plt.title(r'$\beta$ with zero-line(%s)' % F , fontsize=30)
     # plt.title(r'Velocity anisotropy (CS6 IC with 20 radial bins)',
-    # fontsize=30)
+    #           fontsize=30)
 
-    # f.savefig(figurePath + 'A_IC_beta_r_2_logr.png')
-    # f.savefig(figurePath + 'A_Final_beta_r_2_logr.png')
-    # f.savefig(figurePath + 'B_IC_beta_r_2_logr.png')
-    # f.savefig(figurePath + 'B_Final_beta_r_2_logr.png')
-    # f.savefig(figurePath + 'Soft_B_IC_beta_r_2_logr.png')
-    # f.savefig(figurePath + 'Soft_B_Final_beta_r_2_logr.png')
-    # f.savefig(figurePath + 'CS1_IC_beta_r_2_logr.png')
-    # f.savefig(figurePath + 'CS4_IC_beta_r_2_logr.png')
-    # f.savefig(figurePath + 'CS4_Final_beta_r_2_logr.png')
-    # f.savefig(figurePath + 'CS5_IC_beta_r_2_logr.png')
-    # f.savefig(figurePath + 'CS5_Final_beta_r_2_logr.png')
-    # f.savefig(figurePath + 'CS6_IC_beta_r_2_logr.png')
-    # f.savefig(figurePath + 'CS6_Final_beta_r_2_logr.png')
-    # f.savefig(figurePath + 'DS1_IC_beta_r_2_logr.png')
-    # f.savefig(figurePath + 'DS1_Final_beta_r_2_logr.png')
-    # f.savefig(figurePath + 'D2_beta_r_2_logr.png')
-    # f.savefig(figurePath + 'D2_Final_beta_r_2_logr.png')
-    # f.savefig(figurePath + 'Soft_D2_beta_r_2_logr.png')
-    # f.savefig(figurePath + 'Soft_D2_Final_beta_r_2_logr.png')
-    # f.savefig(figurePath + 'E_beta_r_2_logr.png')
-    # f.savefig(figurePath + 'E_Final_beta_r_2_logr.png')
+    fig_names = ['A_IC_beta_r_2_logr', 'A_Final_beta_r_2_logr',
+                 'B_IC_beta_r_2_logr', 'B_Final_beta_r_2_logr',
+                 'Soft_B_IC_beta_r_2_logr', 'Soft_B_Final_beta_r_2_logr',
+                 'CS1_IC_beta_r_2_logr', 'CS4_IC_beta_r_2_logr',
+                 'CS4_Final_beta_r_2_logr', 'CS5_IC_beta_r_2_logr',
+                 'CS5_Final_beta_r_2_logr', 'CS6_IC_beta_r_2_logr',
+                 'CS6_Final_beta_r_2_logr', 'DS1_IC_beta_r_2_logr',
+                 'DS1_Final_beta_r_2_logr', 'D2_beta_r_2_logr',
+                 'D2_Final_beta_r_2_logr', 'Soft_D2_beta_r_2_logr',
+                 'Soft_D2_Final_beta_r_2_logr', 'E_beta_r_2_logr',
+                 'E_Final_beta_r_2_logr'
+                 ]
+
+    f.savefig(figurePath + fig_names[0] + '.png')
 
 if Fig5_kappa:
     f = plt.figure(figsize=(16, 11))
@@ -766,16 +717,14 @@ if Fig5_kappa:
 
         y_plot = (num1 + num2) / denom
 
-        # print('y_plot.shape = ', y_plot.shape)
-        print('len(y_plot) = ', len(y_plot))
-        # print('y_plot[1.] = ', y_plot[1.])
+        print('y_plot.shape = ', y_plot.shape,
+              'len(y_plot) = ', len(y_plot),
+              'y_plot[1.] = ', y_plot[1.])
 
         plt.plot(x_plot[0:len(y_plot) - 3], y_plot[0:len(y_plot) - 3],
                  '-', ms=2, mew=0, color='blue',
                  label=r'Analytical shape')
-        # plt.plot(x_plot[1:len(y_plot) - 3], y_plot[1:len(y_plot) - 3],
-        #          '-', ms=2, mew=0, color='blue',
-        #          label=r'Analytical shape')
+
         # plt.title(r'$\kappa$ with fit (%s)' % F , fontsize=30)
         plt.title(r'$\kappa$ with analytical expression\
                   (B IC with 20 radial bins)', fontsize=30)
@@ -789,113 +738,65 @@ if Fig5_kappa:
                          fancybox=True, loc=0, handlelength=2.5)
         leg.get_frame().set_alpha(.5)
 
-        # f.savefig(figurePath + 'A_IC_kappa_logr_fit.png')
-        # f.savefig(figurePath + 'B_IC_kappa_logr_fit.png')
-        # f.savefig(figurePath + 'Soft_B_IC_kappa_logr_fit.png')
-        # f.savefig(figurePath + 'CS1_IC_kappa_logr_fit.png')
-        # f.savefig(figurePath + 'CS2_IC_kappa_logr_fit.png')
-        # f.savefig(figurePath + 'CS3_IC_kappa_logr_fit.png')
-        # f.savefig(figurePath + 'CS4_IC_kappa_logr_fit.png')
-        # f.savefig(figurePath + 'CS5_IC_kappa_logr_fit.png')
-        # f.savefig(figurePath + 'CS6_IC_kappa_logr_fit.png')
-        # f.savefig(figurePath + 'DS1_IC_kappa_logr_fit.png')
-        # f.savefig(figurePath + 'D2_kappa_logr_fit.png')
-        # f.savefig(figurePath + 'Soft_D2_kappa_logr_fit.png')
-        # f.savefig(figurePath + 'Soft_D2_Final_kappa_logr_fit.png')
-        # f.savefig(figurePath + 'E_kappa_logr_fit.png')
+        fig_names = ['A_IC_kappa_logr_fit', 'B_IC_kappa_logr_fit',
+                     'Soft_B_IC_kappa_logr_fit', 'CS1_IC_kappa_logr_fit',
+                     'CS2_IC_kappa_logr_fit', 'CS3_IC_kappa_logr_fit',
+                     'CS4_IC_kappa_logr_fit', 'CS5_IC_kappa_logr_fit',
+                     'CS6_IC_kappa_logr_fit', 'DS1_IC_kappa_logr_fit',
+                     'D2_kappa_logr_fit', 'Soft_D2_kappa_logr_fit',
+                     'Soft_D2_Final_kappa_logr_fit', 'E_kappa_logr_fit'
+                     ]
+
+        f.savefig(figurePath + fig_names[0] + '.png')
 
     else:
         leg = plt.legend(prop=dict(size=30), numpoints=2, ncol=1,
                          fancybox=True, loc=0, handlelength=2.5)
         leg.get_frame().set_alpha(.5)
 
+        plt.title(r'$\kappa$ and zero-line\
+                  ({0}, $R_{limit}$=10^4, 20 bins)'.format(sim_snap[0]),
+                  fontsize=30)
+
         # plt.title(r'$\kappa$ and zero-line (%s)' % F,
         #           fontsize=30)
-        # plt.title(r'$\kappa$ and zero-line\
-        #           (A 48_009, $R_{limit}=10^4, 20$ bins)',
-        #           fontsize=30)
-        # plt.title(r'$\kappa$ and zero-line\
-        #           (B 199_093, $R_{limit}=10^4, 20$ bins)',
-        #           fontsize=30)
-        # plt.title(r'$\kappa$ and zero-line\
-        #           (CS4 48_093, $R_{limit}=10^4, 20$ bins)',
-        #           fontsize=30)
-        # plt.title(r'$\kappa$ and zero-line\
-        #           (CS5 48_093, $R_{limit}=10^4, 20$ bins)',
-        #           fontsize=30)
-        # plt.title(r'$\kappa$ and zero-line\
-        #           (CS6 48_093, $R_{limit}=10^4, 20$ bins)', fontsize=30)
-        # plt.title(r'$\kappa$ and zero-line\
-        #           (DS1 49_093, $R_{limit}=10^4, 20$ bins)', fontsize=30)
-        # plt.title(r'$\kappa$ and zero-line\
-        #           (D2 49_093, $R_{limit}=10^4, 20$ bins)', fontsize=30)
-        # plt.title(r'$\kappa$ and zero-line\
-        #           (Soft_D2 49_093, $R_{limit}=10^4, 20$ bins)', fontsize=30)
-        # plt.title(r'$\kappa$ and zero-line\
-        #           (E 198_093, $R_{limit}=10^4, 20$ bins)', fontsize=30)
-        # plt.title(r'$\kappa$ and zero-line\
-        #           (A 48_009, $R_{limit}=32, 50$ bins)', fontsize=30)
-        # plt.title(r'$\kappa$ and zero-line (B 199_093, $R_{limit}=32, 50$ bins)',
-        #           fontsize=30)
-        # plt.title(r'$\kappa$ and zero-line (CS4 48_093, $R_{limit}=32, 20$ bins)',
-        #           fontsize=30)
-        # plt.title(r'$\kappa$ and zero-line (CS5 48_093, $R_{limit}=32, 20$ bins)',
-        #           fontsize=30)
-        # plt.title(r'$\kappa$ and zero-line (CS6 48_093, $R_{limit}=32, 20$ bins)',
-        #           fontsize=30)
-        # plt.title(r'$\kappa$ and zero-line (DS1 49_093, $R_{limit}=32, 20$ bins)',
-        #           fontsize=30)
-        # plt.title(r'$\kappa$ and zero-line (D2 49_093, $R_{limit}=32, 20$ bins)',
-        #           fontsize=30)
-        # plt.title(r'$\kappa$ and zero-line (Soft_D2 49_093, $R_{limit}=32, 20$ bins)',
-        #           fontsize=30)
-        # plt.title(r'$\kappa$ and zero-line (E 198_093, $R_{limit}=32, 50$ bins)',
-        #           fontsize=30)
 
-        # f.savefig(figurePath + 'A_IC_kappa_logr_I_R32.png')
-        # f.savefig(figurePath + 'A_48_009_kappa_logr_I_R32.png')
-        # f.savefig(figurePath + 'A_48_009_kappa_logr_I_R32_cuts.png')
-        # f.savefig(figurePath + 'B_IC_kappa_logr_I_R32.png')
-        # f.savefig(figurePath + 'B_199_093_kappa_logr_I_R32.png')
-        # f.savefig(figurePath + 'Soft_B_IC_kappa_logr_I_R32.png')
-        # f.savefig(figurePath + 'Soft_B_Final_kappa_logr_I_R32.png')
-        # f.savefig(figurePath + 'CS1_IC_kappa_logr_I_R32.png')
-        # f.savefig(figurePath + 'CS4_IC_kappa_logr_I_R32.png')
-        # f.savefig(figurePath + 'CS4_48_093_kappa_logr_I_R32.png')
-        # f.savefig(figurePath + 'CS5_IC_kappa_logr_I_R32.png')
-        # f.savefig(figurePath + 'CS5_48_093_kappa_logr_I_R32.png')
-        # f.savefig(figurePath + 'CS6_IC_kappa_logr_I_R32.png')
-        # f.savefig(figurePath + 'CS6_48_093_kappa_logr_I_R32.png')
-        # f.savefig(figurePath + 'DS1_IC_kappa_logr_I_R32.png')
-        # f.savefig(figurePath + 'DS1_49_093_kappa_logr_I_R32.png')
-        # f.savefig(figurePath + 'D2_kappa_logr_I_R32.png')
-        # f.savefig(figurePath + 'D2_49_093_kappa_logr_I_R32.png')
-        # f.savefig(figurePath + 'Soft_D2_kappa_logr_I_R32.png')
-        # f.savefig(figurePath + 'Soft_D2_49_093_kappa_logr_I_R32.png')
-        # f.savefig(figurePath + 'E_kappa_logr_I_R32.png')
-        # f.savefig(figurePath + 'E_198_093_kappa_logr_I_R32.png')
+        fig_names_I_32 = ['A_IC_kappa_logr_I_R32', 'A_48_009_kappa_logr_I_R32',
+                          'A_48_009_kappa_logr_I_R32_cuts',
+                          'B_IC_kappa_logr_I_R32',
+                          'B_199_093_kappa_logr_I_R32',
+                          'Soft_B_IC_kappa_logr_I_R32',
+                          'Soft_B_Final_kappa_logr_I_R32',
+                          'CS1_IC_kappa_logr_I_R32', 'CS4_IC_kappa_logr_I_R32',
+                          'CS4_48_093_kappa_logr_I_R32',
+                          'CS5_IC_kappa_logr_I_R32',
+                          'CS5_48_093_kappa_logr_I_R32',
+                          'CS6_IC_kappa_logr_I_R32',
+                          'CS6_48_093_kappa_logr_I_R32',
+                          'DS1_IC_kappa_logr_I_R32',
+                          'DS1_49_093_kappa_logr_I_R32', 'D2_kappa_logr_I_R32',
+                          'D2_49_093_kappa_logr_I_R32',
+                          'Soft_D2_kappa_logr_I_R32',
+                          'Soft_D2_49_093_kappa_logr_I_R32',
+                          'E_kappa_logr_I_R32', 'E_198_093_kappa_logr_I_R32'
+                          ]
 
-        # f.savefig(figurePath + 'A_IC_kappa_logr.png')
-        # f.savefig(figurePath + 'A_48_009_kappa_logr.png')
-        # f.savefig(figurePath + 'B_IC_kappa_logr.png')
-        # f.savefig(figurePath + 'B_199_093_kappa_logr.png')
-        # f.savefig(figurePath + 'Soft_B_IC_kappa_logr.png')
-        # f.savefig(figurePath + 'Soft_B_Final_kappa_logr.png')
-        # f.savefig(figurePath + 'CS1_IC_kappa_logr.png')
-        # f.savefig(figurePath + 'CS4_IC_kappa_logr.png')
-        # f.savefig(figurePath + 'CS4_48_093_kappa_logr.png')
-        # f.savefig(figurePath + 'CS5_IC_kappa_logr.png')
-        # f.savefig(figurePath + 'CS5_48_093_kappa_logr.png')
-        # f.savefig(figurePath + 'CS6_IC_kappa_logr.png')
-        # f.savefig(figurePath + 'CS6_48_093_kappa_logr.png')
-        # f.savefig(figurePath + 'DS1_IC_kappa_logr.png')
-        # f.savefig(figurePath + 'DS1_49_093_kappa_logr.png')
-        # f.savefig(figurePath + 'D2_kappa_logr.png')
-        # f.savefig(figurePath + 'D2_49_093_kappa_logr.png')
-        # f.savefig(figurePath + 'Soft_D2_kappa_logr.png')
-        # f.savefig(figurePath + 'Soft_D2_49_093_kappa_logr.png')
-        # f.savefig(figurePath + 'E_kappa_logr.png')
-        # f.savefig(figurePath + 'E_198_093_kappa_logr.png')
+        f.savefig(figurePath + fig_names_I_32[0] + '.png')
+
+        fig_names = ['A_IC_kappa_logr', 'A_48_009_kappa_logr',
+                     'B_IC_kappa_logr', 'B_199_093_kappa_logr',
+                     'Soft_B_IC_kappa_logr', 'Soft_B_Final_kappa_logr',
+                     'CS1_IC_kappa_logr', 'CS4_IC_kappa_logr',
+                     'CS4_48_093_kappa_logr', 'CS5_IC_kappa_logr',
+                     'CS5_48_093_kappa_logr', 'CS6_IC_kappa_logr',
+                     'CS6_48_093_kappa_logr', 'DS1_IC_kappa_logr',
+                     'DS1_49_093_kappa_logr', 'D2_kappa_logr',
+                     'D2_49_093_kappa_logr', 'Soft_D2_kappa_logr',
+                     'Soft_D2_49_093_kappa_logr', 'E_kappa_logr',
+                     'E_198_093_kappa_logr'
+                     ]
+
+        f.savefig(figurePath + fig_names[0] + '.png')
 
 if Fig5_kappa_r_2:
     f = plt.figure(figsize=(16, 11))
@@ -909,27 +810,20 @@ if Fig5_kappa_r_2:
     # plt.title(r'$\kappa$ and zero-line (%s)' % F, fontsize=30)
     # plt.title(r'$\kappa$ (B IC with 20 radial bins)', fontsize=30)
 
-    # f.savefig(figurePath + 'A_IC_kappa_r_2_logr.png')
-    # f.savefig(figurePath + 'A_Final_kappa_r_2_logr.png')
-    # f.savefig(figurePath + 'B_IC_kappa_r_2_logr.png')
-    # f.savefig(figurePath + 'B_Final_kappa_r_2_logr.png')
-    # f.savefig(figurePath + 'Soft_B_IC_kappa_r_2_logr.png')
-    # f.savefig(figurePath + 'Soft_B_Final_kappa_r_2_logr.png')
-    # f.savefig(figurePath + 'CS1_IC_kappa_r_2_logr.png')
-    # f.savefig(figurePath + 'CS4_IC_kappa_r_2_logr.png')
-    # f.savefig(figurePath + 'CS4_Final_kappa_r_2_logr.png')
-    # f.savefig(figurePath + 'CS5_IC_kappa_r_2_logr.png')
-    # f.savefig(figurePath + 'CS5_Final_kappa_r_2_logr.png')
-    # f.savefig(figurePath + 'CS6_IC_kappa_r_2_logr.png')
-    # f.savefig(figurePath + 'CS6_Final_kappa_r_2_logr.png')
-    # f.savefig(figurePath + 'DS1_IC_kappa_r_2_logr.png')
-    # f.savefig(figurePath + 'DS1_Final_kappa_r_2_logr.png')
-    # f.savefig(figurePath + 'D2_kappa_r_2_logr.png')
-    # f.savefig(figurePath + 'D2_Final_kappa_r_2_logr.png')
-    # f.savefig(figurePath + 'Soft_D2_kappa_r_2_logr.png')
-    # f.savefig(figurePath + 'Soft_D2_Final_kappa_r_2_logr.png')
-    # f.savefig(figurePath + 'E_kappa_r_2_logr.png')
-    # f.savefig(figurePath + 'E_Final_kappa_r_2_logr.png')
+    fig_names = ['A_IC_kappa_r_2_logr', 'A_Final_kappa_r_2_logr',
+                 'B_IC_kappa_r_2_logr', 'B_Final_kappa_r_2_logr',
+                 'Soft_B_IC_kappa_r_2_logr', 'Soft_B_Final_kappa_r_2_logr',
+                 'CS1_IC_kappa_r_2_logr', 'CS4_IC_kappa_r_2_logr',
+                 'CS4_Final_kappa_r_2_logr', 'CS5_IC_kappa_r_2_logr',
+                 'CS5_Final_kappa_r_2_logr', 'CS6_IC_kappa_r_2_logr',
+                 'CS6_Final_kappa_r_2_logr', 'DS1_IC_kappa_r_2_logr',
+                 'DS1_Final_kappa_r_2_logr', 'D2_kappa_r_2_logr',
+                 'D2_Final_kappa_r_2_logr',  'Soft_D2_kappa_r_2_logr',
+                 'Soft_D2_Final_kappa_r_2_logr', 'E_kappa_r_2_logr',
+                 'E_Final_kappa_r_2_logr'
+                 ]
+
+    f.savefig(figurePath + fig_names[0] + '.png')
 
 if Fig6_gamma:
     f = plt.figure(figsize=(16, 11))
@@ -955,151 +849,113 @@ if Fig6_gamma:
         leg = plt.legend(prop=dict(size=30), numpoints=2, ncol=1,
                          fancybox=True, loc=0, handlelength=2.5)
         leg.get_frame().set_alpha(.5)
+        
+        plt.title(f'Radial density slope with analytical expression\
+                  ({sim[1]} {snapshot_num[0]} with 20 radial bins)',
+                  fontsize=30)  # 'B IC', 'CS4 IC', 'CS5 IC', 'CS6 IC'
+
         # plt.title('Radial density slope with analytical expression (%s)' % F,
         #           fontsize=18)
-        # plt.title('Radial density slope with analytical expression (B IC with 20 radial bins)',
-        #           fontsize=30)
-        # plt.title('Radial density slope with analytical expression (CS6 IC with 20 radial bins)',
-        #           fontsize=30)
-        # plt.title('Radial density slope with analytical expression (CS5 IC with 20 radial bins)',
-        #           fontsize=30)
-        # plt.title('Radial density slope with analytical expression (CS4 IC with 20 radial bins)',
-        #           fontsize=30)
 
-        # f.savefig(figurePath + 'A_IC_gamma_logr_fit.png')
-        # f.savefig(figurePath + 'A_Final_gamma_logr_fit.png')
-        # f.savefig(figurePath + 'B_IC_gamma_logr_fit.png')
-        # f.savefig(figurePath + 'B_Final_gamma_logr_fit.png')
-        # f.savefig(figurePath + 'Soft_B_IC_gamma_logr_fit.png')
-        # f.savefig(figurePath + 'Soft_B_Final_gamma_logr_fit.png')
-        # f.savefig(figurePath + 'CS1_IC_gamma_logr_fit.png')
-        # f.savefig(figurePath + 'CS2_IC_gamma_logr_fit.png')
-        # f.savefig(figurePath + 'CS3_IC_gamma_logr_fit.png')
-        # f.savefig(figurePath + 'CS4_IC_gamma_logr_fit.png')
-        # f.savefig(figurePath + 'CS4_Final_gamma_logr_fit.png')
-        # f.savefig(figurePath + 'CS5_IC_gamma_logr_fit.png')
-        # f.savefig(figurePath + 'CS5_Final_gamma_logr_fit.png')
-        # f.savefig(figurePath + 'CS6_IC_gamma_logr_fit.png')
-        # f.savefig(figurePath + 'CS6_Final_gamma_logr_fit.png')
-        # f.savefig(figurePath + 'DS1_IC_gamma_logr_fit.png')
-        # f.savefig(figurePath + 'DS1_Final_gamma_logr_fit.png')
-        # f.savefig(figurePath + 'D2_IC_gamma_logr_fit.png')
-        # f.savefig(figurePath + 'D2_Final_gamma_logr_fit.png')
-        # f.savefig(figurePath + 'Soft_D2_IC_gamma_logr_fit.png')
-        # f.savefig(figurePath + 'Soft_D2_Final_gamma_logr_fit.png')
-        # f.savefig(figurePath + 'E_IC_gamma_logr_fit.png')
-        # f.savefig(figurePath + 'E_Final_gamma_logr_fit.png')
+        fig_names = ['A_IC_gamma_logr_fit', 'A_Final_gamma_logr_fit',
+                     'B_IC_gamma_logr_fit', 'B_Final_gamma_logr_fit',
+                     'Soft_B_IC_gamma_logr_fit', 'Soft_B_Final_gamma_logr_fit',
+                     'CS1_IC_gamma_logr_fit', 'CS2_IC_gamma_logr_fit',
+                     'CS3_IC_gamma_logr_fit', 'CS4_IC_gamma_logr_fit',
+                     'CS4_Final_gamma_logr_fit', 'CS5_IC_gamma_logr_fit',
+                     'CS5_Final_gamma_logr_fit', 'CS6_IC_gamma_logr_fit',
+                     'CS6_Final_gamma_logr_fit', 'DS1_IC_gamma_logr_fit',
+                     'DS1_Final_gamma_logr_fit', 'D2_IC_gamma_logr_fit',
+                     'D2_Final_gamma_logr_fit', 'Soft_D2_IC_gamma_logr_fit',
+                     'Soft_D2_Final_gamma_logr_fit', 'E_IC_gamma_logr_fit',
+                     'E_Final_gamma_logr_fit'
+                     ]
+
+        f.savefig(figurePath + fig_names[0] + '.png')
+
     else:
         # leg = plt.legend(prop=dict(size=30), numpoints=2, ncol=1,
         #                  fancybox=True, loc=0, handlelength=2.5)
         # leg.get_frame().set_alpha(.5)
 
+        plt.title(f'Radial density slope\
+                  ({sim[0]} {snapshot_num[0]}, $R_{limit}$=10^4, 20 bins),
+                  fontsize=30)
+        # sim, snapshot_num, R_limit, bins
+        # A, 48_009, 10^4, 20
+        # B, 199_093, 10^4, 20
+        # CS4, Final, 10^4, 20
+        # CS5, Final, 10^4, 20
+        # CS6, Final, 10^4, 20
+        # DS1, IC, 10^4, 20
+        # DS1, 49_093, 10^4, 20
+        # Soft_D2, IC, 10^4, 20
+        # Soft_D2, 49_093, 10^4, 20
+        # E, IC, 10^4, 20
+        # E, 198_093, 10^4, 20
+        # A, IC, 32, 50
+        # A, 48_009, 32, 50
+        # B, IC, 32, 50
+        # B, 199_093, 32, 50
+        # CS4, IC, 32, 20
+        # CS4, 48_093, 32, 20
+        # CS5, IC, 32, 20
+        # CS5, 48_093, 32, 20
+        # CS6, IC, 32, 20
+        # CS6, 48_093, 32, 20
+        # DS1, IC, 32, 20
+        # DS1, 49_093, 32, 20
+        # Soft_D2, IC, 32, 20
+        # Soft_D2, 49_093, 32, 20
+        # E, IC, 32, 50
+        # E, 198_093, 32, 50
+
         # plt.title('Radial density slope (%s)' % F, fontsize=30)
-        # plt.title('Radial density slope (A 48_009, $R_{limit}=10^4, 20$ bins)',
-        #           fontsize=30)
-        # plt.title('Radial density slope (B 199_093, $R_{limit}=10^4, 20$ bins)',
-        #           fontsize=30)
-        # plt.title('Radial density slope (CS4 Final, $R_{limit}=10^4, 20$ bins)',
-        #           fontsize=30)
-        # plt.title('Radial density slope (CS5 Final, $R_{limit}=10^4, 20$ bins)',
-        #           fontsize=30)
-        # plt.title('Radial density slope (CS6 Final, $R_{limit}=10^4, 20$ bins)',
-        #           fontsize=30)
-        # plt.title('Radial density slope (DS1 IC, $R_{limit}=10^4, 20$ bins)',
-        #           fontsize=30)
-        # plt.title('Radial density slope (DS1 49_093, $R_{limit}=10^4, 20$ bins)',
-        #           fontsize=30)
-        # plt.title('Radial density slope (Soft_D2 IC, $R_{limit}=10^4, 20$ bins)',
-        #           fontsize=30)
-        # plt.title('Radial density slope (Soft_D2 49_093, $R_{limit}=10^4, 20$ bins)',
-        #           fontsize=30)
-        # plt.title('Radial density slope (E IC, $R_{limit}=10^4, 20$ bins)',
-        #           fontsize=30)
-        # plt.title('Radial density slope (E 198_093, $R_{limit}=10^4, 20$ bins)',
-        #           fontsize=30)
-        # plt.title('Radial density slope (A IC, $R_{limit}=32, 50$ bins)',
-        #           fontsize=30)
-        # plt.title('Radial density slope (A 48_009, $R_{limit}=32, 50$ bins)',
-        #           fontsize=30)
-        # plt.title('Radial density slope (B IC, $R_{limit}=32, 50$ bins)',
-        #           fontsize=30)
-        # plt.title('Radial density slope (B 199_093, $R_{limit}=32, 50$ bins)',
-        #           fontsize=30)
-        # plt.title('Radial density slope (CS4 IC, $R_{limit}=32, 20$ bins)',
-        #           fontsize=30)
-        # plt.title('Radial density slope (CS4 48_093, $R_{limit}=32, 20$ bins)',
-        #           fontsize=30)
-        # plt.title('Radial density slope (CS5 IC, $R_{limit}=32, 20$ bins)',
-        #           fontsize=30)
-        # plt.title('Radial density slope (CS5 48_093, $R_{limit}=32, 20$ bins)',
-        #           fontsize=30)
-        # plt.title('Radial density slope (CS6 IC, $R_{limit}=32, 20$ bins)',
-        #           fontsize=30)
-        # plt.title('Radial density slope (CS6 48_093, $R_{limit}=32, 20$ bins)',
-        #           fontsize=30)
-        # plt.title('Radial density slope (DS1 IC, $R_{limit}=32, 20$ bins)',
-        #           fontsize=30)
-        # plt.title('Radial density slope (DS1 49_093, $R_{limit}=32, 20$ bins)',
-        #           fontsize=30)
-        # plt.title('Radial density slope (Soft_D2 IC, $R_{limit}=32, 20$ bins)',
-        #           fontsize=30)
-        # plt.title('Radial density slope (Soft_D2 49_093, $R_{limit}=32, 20$ bins)',
-        #           fontsize=30)
-        # plt.title('Radial density slope (E IC, $R_{limit}=32, 50$ bins)',
-        #           fontsize=30)
-        # plt.title('Radial density slope (E 198_093, $R_{limit}=32, 50$ bins)',
-        #           fontsize=30)
 
-        # f.savefig(figurePath + 'A_IC_gamma_logr_I_R32.png')
-        # f.savefig(figurePath + 'A_48_009_gamma_logr_I_R32.png')
-        # f.savefig(figurePath + 'A_48_009_gamma_logr_I_R32_cuts.png')
-        # f.savefig(figurePath + 'A_48_009_gamma_r_I_R32.png')
-        # f.savefig(figurePath + 'B_IC_gamma_logr_I_R32.png')
-        # f.savefig(figurePath + 'B_199_093_gamma_logr_I_R32.png')
-        # f.savefig(figurePath + 'Soft_B_IC_gamma_logr_I_R32.png')
-        # f.savefig(figurePath + 'Soft_B_Final_gamma_logr_I_R32.png')
-        # f.savefig(figurePath + 'CS1_IC_gamma_logr_I_R32.png')
-        # f.savefig(figurePath + 'CS2_IC_gamma_logr_I_R32.png')
-        # f.savefig(figurePath + 'CS3_IC_gamma_logr_I_R32.png')
-        # f.savefig(figurePath + 'CS4_IC_gamma_logr_I_R32.png')
-        # f.savefig(figurePath + 'CS4_48_093_gamma_logr_I_R32.png')
-        # f.savefig(figurePath + 'CS5_IC_gamma_logr_I_R32.png')
-        # f.savefig(figurePath + 'CS5_48_093_gamma_logr_I_R32.png')
-        # f.savefig(figurePath + 'CS6_IC_gamma_logr_I_R32.png')
-        # f.savefig(figurePath + 'CS6_48_093_gamma_logr_I_R32.png')
-        # f.savefig(figurePath + 'DS1_IC_gamma_logr_I_R32.png')
-        # f.savefig(figurePath + 'DS1_49_093_gamma_logr_I_R32.png')
-        # f.savefig(figurePath + 'D2_IC_gamma_logr_I_R32.png')
-        # f.savefig(figurePath + 'D2_Final_gamma_logr_I_R32.png')
-        # f.savefig(figurePath + 'Soft_D2_IC_gamma_logr_I_R32.png')
-        # f.savefig(figurePath + 'Soft_D2_49_093_gamma_logr_I_R32.png')
-        # f.savefig(figurePath + 'E_IC_gamma_logr_I_R32.png')
-        # f.savefig(figurePath + 'E_198_093_gamma_logr_I_R32.png')
+        fig_names_I_32 = ['A_IC_gamma_logr_I_R32',
+                          'A_48_009_gamma_logr_I_R32',
+                          'A_48_009_gamma_logr_I_R32_cuts',
+                          'A_48_009_gamma_r_I_R32',
+                          'B_IC_gamma_logr_I_R32',
+                          'B_199_093_gamma_logr_I_R32',
+                          'Soft_B_IC_gamma_logr_I_R32',
+                          'Soft_B_Final_gamma_logr_I_R32',
+                          'CS1_IC_gamma_logr_I_R32',
+                          'CS2_IC_gamma_logr_I_R32',
+                          'CS3_IC_gamma_logr_I_R32',
+                          'CS4_IC_gamma_logr_I_R32',
+                          'CS4_48_093_gamma_logr_I_R32',
+                          'CS5_IC_gamma_logr_I_R32',
+                          'CS5_48_093_gamma_logr_I_R32',
+                          'CS6_IC_gamma_logr_I_R32',
+                          'CS6_48_093_gamma_logr_I_R32',
+                          'DS1_IC_gamma_logr_I_R32',
+                          'DS1_49_093_gamma_logr_I_R32',
+                          'D2_IC_gamma_logr_I_R32',
+                          'D2_Final_gamma_logr_I_R32',
+                          'Soft_D2_IC_gamma_logr_I_R32',
+                          'Soft_D2_49_093_gamma_logr_I_R32',
+                          'E_IC_gamma_logr_I_R32',
+                          'E_198_093_gamma_logr_I_R32'
+                          ]
 
-        # f.savefig(figurePath + 'A_IC_gamma_logr.png')
-        # f.savefig(figurePath + 'A_48_009_gamma_logr.png')
-        # f.savefig(figurePath + 'B_IC_gamma_logr.png')
-        # f.savefig(figurePath + 'B_199_093_gamma_logr.png')
-        # f.savefig(figurePath + 'Soft_B_IC_gamma_logr.png')
-        # f.savefig(figurePath + 'Soft_B_Final_gamma_logr.png')
-        # f.savefig(figurePath + 'CS1_IC_gamma_logr.png')
-        # f.savefig(figurePath + 'CS2_IC_gamma_logr.png')
-        # f.savefig(figurePath + 'CS3_IC_gamma_logr.png')
-        # f.savefig(figurePath + 'CS4_IC_gamma_logr.png')
-        # f.savefig(figurePath + 'CS4_Final_gamma_logr.png')
-        # f.savefig(figurePath + 'CS5_IC_gamma_logr.png')
-        # f.savefig(figurePath + 'CS5_Final_gamma_logr.png')
-        # f.savefig(figurePath + 'CS6_IC_gamma_logr.png')
-        # f.savefig(figurePath + 'CS6_Final_gamma_logr.png')
-        # f.savefig(figurePath + 'DS1_IC_gamma_logr.png')
-        # f.savefig(figurePath + 'DS1_49_093_gamma_logr.png')
-        # f.savefig(figurePath + 'D2_IC_gamma_logr.png')
-        # f.savefig(figurePath + 'D2_Final_gamma_logr.png')
-        # f.savefig(figurePath + 'Soft_D2_IC_gamma_logr.png')
-        # f.savefig(figurePath + 'Soft_D2_49_093_gamma_logr.png')
-        # f.savefig(figurePath + 'E_IC_gamma_logr.png')
-        # f.savefig(figurePath + 'E_198_093_gamma_logr.png')
-        continue
+        f.savefig(figurePath + fig_names_I_32[0] + '.png')
+
+        fig_names = ['A_IC_gamma_logr', 'A_48_009_gamma_logr',
+                     'B_IC_gamma_logr', 'B_199_093_gamma_logr',
+                     'Soft_B_IC_gamma_logr', 'Soft_B_Final_gamma_logr',
+                     'CS1_IC_gamma_logr', 'CS2_IC_gamma_logr',
+                     'CS3_IC_gamma_logr', 'CS4_IC_gamma_logr',
+                     'CS4_Final_gamma_logr', 'CS5_IC_gamma_logr',
+                     'CS5_Final_gamma_logr', 'CS6_IC_gamma_logr',
+                     'CS6_Final_gamma_logr', 'DS1_IC_gamma_logr',
+                     'DS1_49_093_gamma_logr', 'D2_IC_gamma_logr',
+                     'D2_Final_gamma_logr', 'Soft_D2_IC_gamma_logr',
+                     'Soft_D2_49_093_gamma_logr', 'E_IC_gamma_logr',
+                     'E_198_093_gamma_logr'
+                     ]
+
+        # f.savefig(figurePath + fig_names[0] + '.png')
 
 if Fig6_gamma_r_2:
     f = plt.figure(figsize=(16, 11))
@@ -1110,41 +966,33 @@ if Fig6_gamma_r_2:
     plt.plot(x_plot, y_plot, '-o', ms=7, lw=2, mew=0, color='black',
              label=r'$\gamma$')
 
-    # plt.title('Radial density slope (%s)' % F, fontsize=30)
-    # plt.title('Radial density slope  (B IC with 20 radial bins)',
-    #           fontsize=30)
-    # plt.title('Radial density slope (CS6 IC with 20 radial bins)',
-    #           fontsize=30)
-    # plt.title('Radial density slope (CS5 IC with 20 radial bins)',
-    #           fontsize=30)
-    # plt.title('Radial density slope (CS4 IC with 20 radial bins)',
-    #           fontsize=30)
-    # plt.title('Radial density slope (CS4 Final with 20 radial bins)',
-    #           fontsize=30)
+    plt.title(f'Radial density slope\
+              ({sim[1]} {snapshot_num[0]} with 20 radial bins),
+              fontsize=30)
+    # sim, snapshot_num
+    # B, IC
+    # CS6, IC
+    # CS5, IC
+    # CS4, IC
+    # CS4, Final
 
-    # f.savefig(figurePath + 'A_IC_gamma_r_2_logr.png')
-    # f.savefig(figurePath + 'A_Final_gamma_r_2_logr.png')
-    # f.savefig(figurePath + 'B_IC_gamma_r_2_logr.png')
-    # f.savefig(figurePath + 'B_Final_gamma_r_2_logr.png')
-    # f.savefig(figurePath + 'Soft_B_IC_gamma_r_2_logr.png')
-    # f.savefig(figurePath + 'Soft_B_Final_gamma_r_2_logr.png')
-    # f.savefig(figurePath + 'CS1_IC_gamma_r_2_logr.png')
-    # f.savefig(figurePath + 'CS2_IC_gamma_r_2_logr.png')
-    # f.savefig(figurePath + 'CS3_IC_gamma_r_2_logr.png')
-    # f.savefig(figurePath + 'CS4_IC_gamma_r_2_logr.png')
-    # f.savefig(figurePath + 'CS4_Final_gamma_r_2_logr.png')
-    # f.savefig(figurePath + 'CS5_IC_gamma_r_2_logr.png')
-    # f.savefig(figurePath + 'CS5_Final_gamma_r_2_logr.png')
-    # f.savefig(figurePath + 'CS6_IC_gamma_r_2_logr.png')
-    # f.savefig(figurePath + 'CS6_Final_gamma_r_2_logr.png')
-    # f.savefig(figurePath + 'DS1_IC_gamma_r_2_logr.png')
-    # f.savefig(figurePath + 'DS1_Final_gamma_r_2_logr.png')
-    # f.savefig(figurePath + 'D2_IC_gamma_r_2_logr.png')
-    # f.savefig(figurePath + 'D2_Final_gamma_r_2_logr.png')
-    # f.savefig(figurePath + 'Soft_D2_IC_gamma_r_2_logr.png')
-    # f.savefig(figurePath + 'Soft_D2_Final_gamma_r_2_logr.png')
-    # f.savefig(figurePath + 'E_IC_gamma_r_2_logr.png')
-    # f.savefig(figurePath + 'E_Final_gamma_r_2_logr.png')
+    # plt.title('Radial density slope (%s)' % F, fontsize=30)
+
+    fig_names = ['A_IC_gamma_r_2_logr', 'A_Final_gamma_r_2_logr',
+                 'B_IC_gamma_r_2_logr', 'B_Final_gamma_r_2_logr',
+                 'Soft_B_IC_gamma_r_2_logr', 'Soft_B_Final_gamma_r_2_logr',
+                 'CS1_IC_gamma_r_2_logr', 'CS2_IC_gamma_r_2_logr',
+                 'CS3_IC_gamma_r_2_logr', 'CS4_IC_gamma_r_2_logr',
+                 'CS4_Final_gamma_r_2_logr', 'CS5_IC_gamma_r_2_logr',
+                 'CS5_Final_gamma_r_2_logr', 'CS6_IC_gamma_r_2_logr',
+                 'CS6_Final_gamma_r_2_logr', 'DS1_IC_gamma_r_2_logr',
+                 'DS1_Final_gamma_r_2_logr', 'D2_IC_gamma_r_2_logr',
+                 'D2_Final_gamma_r_2_logr', 'Soft_D2_IC_gamma_r_2_logr',
+                 'Soft_D2_Final_gamma_r_2_logr', 'E_IC_gamma_r_2_logr',
+                 'E_Final_gamma_r_2_logr'
+                 ]
+
+    f.savefig(figurePath + fig_names[0] + '.png')
 
 if Fig7_betagamma:
     f = plt.figure()
@@ -1164,19 +1012,14 @@ if Fig7_betagamma:
     plt.title(r'$\kappa$ vs $\beta$', fontsize=30)
     plt.plot(x_plot, y_plot, '-o', ms=2, mew=0, color='black')
 
-    # f.savefig(figurePath + 'A_betagamma.png')
-    # f.savefig(figurePath + 'B_betagamma.png')
-    # f.savefig(figurePath + 'Soft_B_betagamma.png')
-    # f.savefig(figurePath + 'CS1_betagamma.png')
-    # f.savefig(figurePath + 'CS2_betagamma.png')
-    # f.savefig(figurePath + 'CS3_betagamma.png')
-    # f.savefig(figurePath + 'CS4_betagamma.png')
-    # f.savefig(figurePath + 'CS5_betagamma.png')
-    # f.savefig(figurePath + 'CS6_betagamma.png')
-    # f.savefig(figurePath + 'DS1_betagamma.png')
-    # f.savefig(figurePath + 'D2_betagamma.png')
-    # f.savefig(figurePath + 'Soft_D2_betagamma.png')
-    # f.savefig(figurePath + 'E_betagamma.png')
+    fig_names = ['A_betagamma', 'B_betagamma', 'Soft_B_betagamma',
+                 'CS1_betagamma', 'CS2_betagamma', 'CS3_betagamma',
+                 'CS4_betagamma', 'CS5_betagamma', 'CS6_betagamma',
+                 'DS1_betagamma', 'D2_betagamma', 'Soft_D2_betagamma',
+                 'E_betagamma'
+                 ]
+
+    f.savefig(figurePath + fig_names[0] + '.png')
 
 # Save (logr, beta, gamma, kappa etc.) as text file,
 # so they can be overplotted later.
@@ -1218,6 +1061,19 @@ if save_lnr_beta_gamma_kappa_VR_r_sigma_r_rr2_rho:
         np.savetxt(out_name, x, delimiter=' ',
                    header='          logr                   beta                      gamma                  kappa                  VR_average                  r                  sigmarad2 ')
 
+out_names = ['A_particle_tracking_IC_ASCII',
+             'A_particle_tracking_5_005_ASCII',
+             'A_particle_tracking_10_005_ASCII',
+             'A_particle_tracking_40_005_ASCII',
+             'A_particle_tracking_48_009_ASCII',
+             'B_particle_tracking_IC_ASCII',
+             'B_particle_tracking_5_005_ASCII',
+             'B_particle_tracking_10_005_ASCII',
+             'B_particle_tracking_198_000_ASCII',
+             'B_particle_tracking_198_093_ASCII',
+             'B_particle_tracking_199_093_ASCII'
+             ]
+
 if save_particle_tracking_ASCII:
     # xx = [['TimeMax',
     #        'x[100000]', 'y[100000]', 'z[100000]', 'R_xyz[100000]',
@@ -1236,7 +1092,7 @@ if save_particle_tracking_ASCII:
     #        'x[200000]', 'y[200000]', 'z[200000]', 'R_xyz[200000]',
     #        'x[300000]', 'y[300000]', 'z[300000]', 'R_xyz[300000]',
     #        'x[400000]', 'y[400000]', 'z[400000]', 'R_xyz[400000]'],
-    # A,B 5_005
+    # A, B 5_005
     #       [600,
     #        x[100000], y[100000], z[100000], R_xyz[100000],
     #        x[200000], y[200000], z[200000], R_xyz[200000],
@@ -1248,7 +1104,7 @@ if save_particle_tracking_ASCII:
     #        'x[200000]', 'y[200000]', 'z[200000]', 'R_xyz[200000]',
     #        'x[300000]', 'y[300000]', 'z[300000]', 'R_xyz[300000]',
     #        'x[400000]', 'y[400000]', 'z[400000]', 'R_xyz[400000]'],
-    # A,B 10_005
+    # A, B 10_005
     #       [1100,
     #        x[100000], y[100000], z[100000], R_xyz[100000],
     #        x[200000], y[200000], z[200000], R_xyz[200000],
@@ -1315,18 +1171,7 @@ if save_particle_tracking_ASCII:
     #        x[300000], y[300000], z[300000], R_xyz[300000],
     #        x[400000], y[400000], z[400000] , R_xyz[400000]]]
 
-    # out_name = text_files_path + 'A_particle_tracking_IC_ASCII.txt'
-    # out_name = text_files_path + 'A_particle_tracking_5_005_ASCII.txt'
-    # out_name = text_files_path + 'A_particle_tracking_10_005_ASCII.txt'
-    # out_name = text_files_path + 'A_particle_tracking_40_005_ASCII.txt'
-    # out_name = text_files_path + 'A_particle_tracking_48_009_ASCII.txt'
-
-    # out_name = text_files_path + 'B_particle_tracking_IC_ASCII.txt'
-    # out_name = text_files_path + 'B_particle_tracking_5_005_ASCII.txt'
-    # out_name = text_files_path + 'B_particle_tracking_10_005_ASCII.txt'
-    # out_name = text_files_path + 'B_particle_tracking_198_000_ASCII.txt'
-    # out_name = text_files_path + 'B_particle_tracking_198_093_ASCII.txt'
-    # out_name = text_files_path + 'B_particle_tracking_199_093_ASCII.txt'
+    out_name = text_files_path + out_names[0] + '.txt'
 
     f = open(out_name, 'w')
     for i in range(len(xx)):
@@ -1351,11 +1196,14 @@ if save_particle_tracking_ASCII:
 if save_combine_ASCII:
     A = B = 0
     if A:
-        lf = [text_files_path + 'A_particle_tracking_IC_ASCII.txt',
-              text_files_path + 'A_particle_tracking_5_005_ASCII.txt',
-              text_files_path + 'A_particle_tracking_10_005_ASCII.txt',
-              text_files_path + 'A_particle_tracking_40_005_ASCII.txt',
-              text_files_path + 'A_particle_tracking_48_009_ASCII.txt']
+
+        lf = [text_files_path + out_names[0] + '.txt',
+              text_files_path + out_names[1] + '.txt',
+              text_files_path + out_names[2] + '.txt',
+              text_files_path + out_names[3] + '.txt',
+              text_files_path + out_names[4] + '.txt'
+              ]
+
         dl_lf = [pylab.loadtxt(filename) for filename in lf]
         out_name = text_files_path + 'A_particle_tracking.txt'
         f = open(out_name,'w')
@@ -1384,12 +1232,15 @@ if save_combine_ASCII:
                        dl_lf[i][15], dl_lf[i][16]))
         f.close()
     elif B:
-        lf = [text_files_path + 'B_particle_tracking_IC_ASCII.txt',
-              text_files_path + 'B_particle_tracking_5_005_ASCII.txt',
-              text_files_path + 'B_particle_tracking_10_005_ASCII.txt',
-              text_files_path + 'B_particle_tracking_198_000_ASCII.txt',
-              text_files_path + 'B_particle_tracking_198_093_ASCII.txt',
-              text_files_path + 'B_particle_tracking_199_093_ASCII.txt']
+
+        lf = [text_files_path + out_names[5] + '.txt',
+              text_files_path + out_names[6] + '.txt',
+              text_files_path + out_names[7] + '.txt',
+              text_files_path + out_names[8] + '.txt',
+              text_files_path + out_names[9] + '.txt',
+              text_files_path + out_names[10] + '.txt'
+              ]
+
         dl_lf = [pylab.loadtxt(filename) for filename in lf]
         out_name = text_files_path + 'B_particle_tracking.txt'
         f = open(out_name, 'w')
@@ -1448,8 +1299,7 @@ if Fig_combine_ASCII:
     f.savefig(figurePath + 'Fig_combine_ASCII_B.png')
 
 if save_sigma:
-    x = np.array((sigma2_arr, sigmarad2_arr, sigmatheta2_arr,
-                  sigmaphi2_arr))
+    x = np.array((sigma2_arr, sigmarad2_arr, sigmatheta2_arr, sigmaphi2_arr))
     x = x.transpose()
     np.savetxt(Filename.strip('.hdf5') + '_sigma.txt', x,
                delimiter=' ',

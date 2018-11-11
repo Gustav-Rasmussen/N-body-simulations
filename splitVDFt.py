@@ -1,7 +1,7 @@
 
 # -*- coding: utf-8 -*-
 
-# import h5py
+import h5py
 import numpy as np
 # from scipy.optimize import curve_fit
 import matplotlib.pyplot as plt
@@ -11,24 +11,25 @@ import matplotlib.pyplot as plt
 # from pylab import *
 # from scipy.stats import norm
 # import matplotlib.mlab as mlab
-import getSnapshotValues
+# import getSnapshotValues
 
-# Filename = desktopPath / 'RunGadget/G_HQ_1000000_test/output/HQ10000_G0.8_2_000.hdf5'
-# Filename = 'OMG20_Final_000.hdf5'
-# SnapshotFile = h5py.File('0G00_IC_000.hdf5', 'r')
-# SnapshotFile = h5py.File('0G20_Final_000.hdf5', 'r')
-# SnapshotFile = h5py.File('OMG00_001_IC_000.hdf5', 'r')
-# SnapshotFile = h5py.File('OMG20_Final_000.hdf5', 'r')
-# SnapshotFile = h5py.File('ics_10MPC_128_022.hdf5', 'r')
-# SnapshotFile = h5py.File('ICS_10mpc_res256_022.hdf5', 'r')
-# SnapshotFile = h5py.File(Filename, 'r')
+# Filename = desktopPath / 'RunGadget/G_HQ_1000000_test\
+#            /output/HQ10000_G0.8_2_000.hdf5'
+
+Snapshot_files = ['0G00_IC_000', '0G20_Final_000', 'OMG00_001_IC_000',
+                  'OMG20_Final_000', 'ics_10MPC_128_022',
+                  'ICS_10mpc_res256_022'
+                  ]
+
+Filename = Snapshot_files[0] + '.hdf5'
+SnapshotFile = h5py.File(Filename, 'r')
 
 # radial and tangential velocities
 v_t1_arr, v_t2_arr = ([] for i in range(2))
 
 # Initialize velocities
-v_r, v_theta, v_phi = zeros([1000000, 1])
-v_t = zeros([1000000, 3])
+v_r, v_theta, v_phi = np.zeros([1000000, 1])
+v_t = np.zeros([1000000, 3])
 for i in range(1000000):
     v_r[i] = np.divide(np.dot(Rvector[:, i], v_vector[:, i]),
                        linalg.norm(Rvector[:, i]))

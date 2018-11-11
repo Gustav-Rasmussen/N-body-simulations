@@ -1487,7 +1487,7 @@ if Fig2_vr_vPhi_vTheta_divided_by_gauss:
                        fontsize=20)
         ax1.set_ylabel(r'$\frac{f\left(u \right)}{ae^{-bx^2}}$',
                        fontsize=20)
-        ax1.set_title(r'File = %s, $\gamma = -2.0$' % test2_HQ0 ,
+        ax1.set_title(r'File = %s, $\gamma = -2.0$' % test2_HQ0,
                       fontsize=20)
         ax1.legend(prop=dict(size=13), numpoints=2, ncol=1,
                    frameon=True, loc=0, handlelength=2.5)
@@ -1526,27 +1526,28 @@ if Fig2a_vt_divided_by_gauss:
     f, (ax1, ax2) = plt.subplots(1, 2)
     if test:
         data, label = bin1_HQ10000_G1_2_1_005[0]
-        ax1.plot(data[:,0],
-                 data[:,1]/(918.083*data[:,0]*np.exp(-0.922*data[:,0]**2)),
-                 color = 'Blue',ls = '--',label=r'$ \gamma = -1.5 $',lw=3)
+        ax1.plot(data[:, 0],
+                 data[:, 1] / (918.083 * data[:, 0]
+                 * np.exp(-.922 * data[:, 0] ** 2)),
+                 color='Blue', ls='--', label=r'$ \gamma = -1.5 $', lw=3)
         data, label = bin2_HQ10000_G1_2_1_005[0]
-        ax1.plot(data[:,0],
+        ax1.plot(data[:, 0],
                  data[:,1]/(918.083*data[:,0]*np.exp(-0.922*data[:,0]**2)),
                  color = 'Blue', ls =  ':',label=r'$ \gamma = -2.0 $',lw=4,ms=7 )
         data, label = bin3_HQ10000_G1_2_1_005[0]
-        ax1.plot(data[:,0],
+        ax1.plot(data[:, 0],
                  data[:,1]/(918.083*data[:,0]*np.exp(-0.922*data[:,0]**2)),
                  color = 'Blue', ls =  '-.',label=r'$ \gamma = -2.5 $',lw=4,ms=7 )
         data, label = bin4_HQ10000_G1_2_1_005[0]
-        ax1.plot(data[:,0],
+        ax1.plot(data[:, 0],
                  data[:,1]/(918.083*data[:,0]*np.exp(-0.922*data[:,0]**2)),
                  color = 'Blue',label=r'$ \gamma = -3.0 $',lw=2,ms=7 )
 
-        ax1.set_ylim(0,2)
+        ax1.set_ylim(0, 2)
         ax1.set_xlabel(r'$ u_t $', fontsize=20)
         ax1.set_ylabel(r'$\frac{f\left( u_t \right)}{918.083xe^{-0.922x^2}}$',
                        fontsize=20)
-        ax1.set_title(r'File = %s' % HQ12 , fontsize=20)
+        ax1.set_title(r'File = %s' % HQ12, fontsize=20)
         ax1.legend(prop=dict(size=13), numpoints=2, ncol=1,
                    frameon=True, loc=0, handlelength=2.5)
         ax1.grid()

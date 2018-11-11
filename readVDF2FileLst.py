@@ -29,72 +29,24 @@ def load_files(filelst, file_name, bins):
     for file in filelst:
         for num in range(1, 5):
             vars()[f'Bin{num}{file_name}{file}'] =\
-                [(pylab.loadtxt(filename), label) for filename, label
-                 in bins[0][index]]
-            # [(f, l) for f, l in bins[index]]
+                [(pylab.loadtxt(bins[num - 1][index][0]),
+                  bins[num - 1][index][1])]
             index += 1
 
 
 # Name lists ------------------------------------------------------------------
-nameLst00 = ['HQ10000G1.0_0_000', 'HQ10000G1.2_1_005', 'HQ10000G0.8_2_005',
-             'HQ10000G1.2_3_005', 'HQ10000G1.2_5_005', 'HQ10000G1.2_7_005',
-             'HQ10000G1.2_9_005', 'HQ10000G1.0_10_009'
-             ]
+nameLstA = [f'{APath}/AHQ10000G1.0_0_000', f'{APath}/AHQ10000G1.0_5_005',
+            f'{APath}/AHQ10000G1.0_10_005', f'{APath}/AHQ10000G1.0_40_005',
+            f'{APath}/AHQ10000G1.2_46_005', f'{APath}/AHQ10000G0.8_47_005',
+            f'{APath}/AHQ10000G1.0_48_009', f'{APath}/AHQ10000G1.0_48_093',
+            ]
 
-nameLst10 = [nameLst00[1], nameLst00[3], nameLst00[4],
-             nameLst00[5], nameLst00[6]]
-
-nameLst20 = [f'{APath}/AHQ10000G1.0_0_000', f'{APath}/AHQ10000G1.0_5_005',
-             f'{APath}/AHQ10000G1.0_10_005', f'{APath}/AHQ10000G1.0_40_005',
-             f'{APath}/AHQ10000G1.0_48_009', f'{APath}/AHQ10000G1.0_48_093',
-             f'{BPath}/BHQ10000G1.0_0_000', f'{BPath}/BHQ10000G1.0_5_005',
-             f'{BPath}/BHQ10000G1.0_10_005', f'{BPath}/BHQ10000G1.0_198_000',
-             f'{BPath}/BHQ10000G1.0_198_093'
-             ]
-
-nameLst21 = [nameLst20[0], nameLst20[1], nameLst20[2], nameLst20[3],
-             f'{APath}/AHQ10000G1.2_46_005', f'{APath}/AHQ10000G0.8_47_005',
-             nameLst20[4], nameLst20[5], nameLst20[6], nameLst20[7],
-             nameLst20[8], nameLst20[9], nameLst20[10]
-             ]
+nameLstB = [f'{BPath}/BHQ10000G1.0_0_000', f'{BPath}/BHQ10000G1.0_5_005',
+            f'{BPath}/BHQ10000G1.0_10_005', f'{BPath}/BHQ10000G1.0_198_000',
+            f'{BPath}/BHQ10000G1.0_198_093'
+            ]
 
 # Bins ------------------------------------------------------------------------
-bins00 = [[(f"{i}VTSigmaTGamma_{g}.txt",
-           f"{i}VTSigmaTGamma_{g}"),
-          (f"{i}VRSigmaRGamma_{g}.txt",
-           f"{i}VRSigmaRGamma_{g}"),
-          (f"{i}VThetaSigmaThetaGamma_{g}.txt",
-           f"{i}VThetaSigmaThetaGamma_{g}"),
-          (f"{i}VPhiSigmaPhiGamma_{g}.txt",
-           f"{i}VPhiSigmaPhiGamma_{g}"),
-          (f"{i}Logx10Gamma_{g}.txt",
-           f"{i}Logx10Gamma_{g}"),
-          (f"{i}Logx9Gamma_{g}.txt",
-           f"{i}Logx9Gamma_{g}"),
-          (f"{i}Logx7Gamma_{g}.txt",
-           f"{i}Logx7Gamma_{g}"),
-          (f"{i}Logx8Gamma_{g}.txt",
-           f"{i}Logx8Gamma_{g}")
-           ] for i in nameLst00 for g in gammaLst]
-
-bins10 = [[(f"{i}NewRmiddleVTSigmaTGamma_{g}.txt",
-           f"{i}NewRmiddleVTSigmaTGamma_{g}"),
-          (f"{i}NewRmiddleVRSigmaRGamma_{g}.txt",
-           f"{i}NewRmiddleVRSigmaRGamma_{g}"),
-          (f"{i}NewRmiddleVThetaSigmaThetaGamma_{g}.txt",
-           f"{i}NewRmiddleVThetaSigmaThetaGamma_{g}"),
-          (f"{i}NewRmiddleVPhiSigmaPhiGamma_{g}.txt",
-           f"{i}NewRmiddleVPhiSigmaPhiGamma_{g}"),
-          (f"{i}NewRmiddleLogx10Gamma_{g}.txt",
-           f"{i}NewRmiddleLogx10Gamma_{g}"),
-          (f"{i}NewRmiddleLogx9Gamma_{g}.txt",
-           f"{i}NewRmiddleLogx9Gamma_{g}"),
-          (f"{i}NewRmiddleLogx7Gamma_{g}.txt",
-           f"{i}NewRmiddleLogx7Gamma_{g}"),
-          (f"{i}NewRmiddleLogx8Gamma_{g}.txt",
-           f"{i}NewRmiddleLogx8Gamma_{g}")
-           ] for i in nameLst10 for g in gammaLst]
-
 bins20 = [[(f"{i}NewRmiddleVTSigmaTGamma_{g}.txt",
             f"{pattern.findall(i)[0]}NewRmiddleVTSigmaTGamma_{g}"),
            (f"{i}NewRmiddleVRSigmaRGamma_{g}.txt",
@@ -140,17 +92,19 @@ fileLst10 = [fileLst00[1], fileLst00[3], fileLst00[4],
              fileLst00[5], fileLst00[6]]
 
 # load files ------------------------------------------------------------------
+# tests
+# loaded_file = pylab.loadtxt(bins20[0][0][0])
+# label = bins20[0][0][1]
+# load_list = [(loaded_file, label)]
+# load_list2 = [(pylab.loadtxt(bins20[0][0][0]), bins20[0][0][1])]
 
 # Must be debugged:
-vars()[f'Bin1HQ10000{fileLst00[0]}'] =\
-    [(pylab.loadtxt(filename), label) for filename, label
-     in bins00[0][0]]
+# [(pylab.loadtxt(filename), label) for filename, label in bins20[0][0]]
 
-load_files(fileLst00, 'HQ10000', bins00)
+# vars()[f'Bin1HQ10000{fileLst00[0]}'] =\
+#     [(pylab.loadtxt(bins20[0][0][0]), bins20[0][0][1])]
 
-# load_files(fileLst10, 'newRMiddleHQ10000', bins10)
-
-# load_files(fileLst10, 'differentGammasTest2HQ10000', bins20)
+load_files(fileLst10, 'differentGammasTest2HQ10000', bins20)
 
 '''
 Bin1differentGammasTest2HQ10000G1_0_0_000 =\

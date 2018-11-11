@@ -14,7 +14,8 @@ import NoOfParticlesAndParticleMass
 from definePaths import *
 
 simulationsLst = ['A', 'B', 'Soft_B', 'CS1', 'CS2', 'CS3', 'CS4',
-                  'CS5', 'CS6', 'DS1', 'D2', 'Soft_D2', 'E']
+                  'CS5', 'CS6', 'DS1', 'D2', 'Soft_D2', 'E'
+                  ]
 
 # Switches for figures -------------------------------------------------
 
@@ -70,29 +71,25 @@ for i in range(0, int(nr_binning_bins - 2)):  # loop over 0-998
 Invers_Volume_arr = np.log10(np.divide(np.ones(len(Volume_arr)),
                              Volume_arr))
 
-'''
-print('len(density_arr) = ', len(density_arr))
-print('len(rho_arr) = ', len(rho_arr))
-print('len(x) = ', len(x))
-print('len(y) = ', len(y))
-print('len(z) = ', len(z))
-print('len(R) = ', len(R))
-
-print('x[0] = ', x[0])
-print('y[0] = ', y[0])
-print('z[0] = ', z[0])
-print('R[0] = ', R[0])
-
-print('x[100] = ', x[100])
-print('y[100] = ', y[100])
-print('z[100] = ', z[100])
-print('R[100] = ', R[100])
-
-print('x[99999] = ', x[99999])
-print('y[99999] = ', y[99999])
-print('z[99999] = ', z[99999])
-print('R[99999] = ', R[99999])
-'''
+print('len(density_arr) = ', len(density_arr),
+      'len(rho_arr) = ', len(rho_arr),
+      'len(x) = ', len(x),
+      'len(y) = ', len(y),
+      'len(z) = ', len(z),
+      'len(R) = ', len(R),
+      'x[0] = ', x[0],
+      'y[0] = ', y[0],
+      'z[0] = ', z[0],
+      'R[0] = ', R[0],
+      'x[100] = ', x[100],
+      'y[100] = ', y[100],
+      'z[100] = ', z[100],
+      'R[100] = ', R[100],
+      'x[99999] = ', x[99999],
+      'y[99999] = ', y[99999],
+      'z[99999] = ', z[99999],
+      'R[99999] = ', R[99999]
+      )
 
 
 def savefigStr(simName, plotName):
@@ -125,35 +122,14 @@ if Fig2_Density:
         leg.get_frame().set_alpha(.5)
 
         plotName = '_Density_fit.png'
-        # f.savefig(savefigStr(simulationsLst[0])
-        # f.savefig(savefigStr(simulationsLst[1])
-        # f.savefig(savefigStr(simulationsLst[2])
-        # f.savefig(savefigStr(simulationsLst[3])
-        # f.savefig(savefigStr(simulationsLst[4])
-        # f.savefig(savefigStr(simulationsLst[5])
-        # f.savefig(savefigStr(simulationsLst[6])
-        # f.savefig(savefigStr(simulationsLst[7])
-        # f.savefig(savefigStr(simulationsLst[8])
-        # f.savefig(savefigStr(simulationsLst[9])
-        # f.savefig(savefigStr(simulationsLst[10])
-        # f.savefig(savefigStr(simulationsLst[11])
-        # f.savefig(savefigStr(simulationsLst[12])
+
+        f.savefig(savefigStr(simulationsLst[0]))
+
     else:
         plt.title('Density profile', fontsize=30)
         plotName = '_Density.png'
-        # f.savefig(savefigStr(simulationsLst[0])
-        # f.savefig(savefigStr(simulationsLst[1])
-        # f.savefig(savefigStr(simulationsLst[2])
-        # f.savefig(savefigStr(simulationsLst[3])
-        # f.savefig(savefigStr(simulationsLst[4])
-        # f.savefig(savefigStr(simulationsLst[5])
-        # f.savefig(savefigStr(simulationsLst[6])
-        # f.savefig(savefigStr(simulationsLst[7])
-        # f.savefig(savefigStr(simulationsLst[8])
-        # f.savefig(savefigStr(simulationsLst[9])
-        # f.savefig(savefigStr(simulationsLst[10])
-        # f.savefig(savefigStr(simulationsLst[11])
-        # f.savefig(savefigStr(simulationsLst[12])
+
+        f.savefig(savefigStr(simulationsLst[0]))
 
 if Fig2_Density_r_2:
     f = plt.figure(figsize=(16, 11))
@@ -168,19 +144,8 @@ if Fig2_Density_r_2:
     plt.title(r'Density profile (B IC with 998 radial bins)',
               fontsize=30)
     plotName = '_Density_r_2.png'
-    # f.savefig(savefigStr(simulationsLst[0])
-    # f.savefig(savefigStr(simulationsLst[1])
-    # f.savefig(savefigStr(simulationsLst[2])
-    # f.savefig(savefigStr(simulationsLst[3])
-    # f.savefig(savefigStr(simulationsLst[4])
-    # f.savefig(savefigStr(simulationsLst[5])
-    # f.savefig(savefigStr(simulationsLst[6])
-    # f.savefig(savefigStr(simulationsLst[7])
-    # f.savefig(savefigStr(simulationsLst[8])
-    # f.savefig(savefigStr(simulationsLst[9])
-    # f.savefig(savefigStr(simulationsLst[10])
-    # f.savefig(savefigStr(simulationsLst[11])
-    # f.savefig(savefigStr(simulationsLst[12])
+
+    f.savefig(savefigStr(simulationsLst[0]))
 
 if Fig3_Potential:
     f = plt.figure()
@@ -198,19 +163,8 @@ if Fig3_Potential:
     setp(ax2.get_yticklabels(), visible=False)
 
     plotName = '_Potential.png'
-    # f.savefig(savefigStr(simulationsLst[0])
-    # f.savefig(savefigStr(simulationsLst[1])
-    # f.savefig(savefigStr(simulationsLst[2])
-    # f.savefig(savefigStr(simulationsLst[3])
-    # f.savefig(savefigStr(simulationsLst[4])
-    # f.savefig(savefigStr(simulationsLst[5])
-    # f.savefig(savefigStr(simulationsLst[6])
-    # f.savefig(savefigStr(simulationsLst[7])
-    # f.savefig(savefigStr(simulationsLst[8])
-    # f.savefig(savefigStr(simulationsLst[9])
-    # f.savefig(savefigStr(simulationsLst[10])
-    # f.savefig(savefigStr(simulationsLst[11])
-    # f.savefig(savefigStr(simulationsLst[12])
+
+    f.savefig(savefigStr(simulationsLst[0]))
 
 # plot rectangular slice through cluster:
 if Fig4_xy_rectangular:
@@ -222,19 +176,8 @@ if Fig4_xy_rectangular:
     plt.colorbar()
 
     plotName = '_xy_rectangular.png'
-    # f.savefig(savefigStr(simulationsLst[0])
-    # f.savefig(savefigStr(simulationsLst[1])
-    # f.savefig(savefigStr(simulationsLst[2])
-    # f.savefig(savefigStr(simulationsLst[3])
-    # f.savefig(savefigStr(simulationsLst[4])
-    # f.savefig(savefigStr(simulationsLst[5])
-    # f.savefig(savefigStr(simulationsLst[6])
-    # f.savefig(savefigStr(simulationsLst[7])
-    # f.savefig(savefigStr(simulationsLst[8])
-    # f.savefig(savefigStr(simulationsLst[9])
-    # f.savefig(savefigStr(simulationsLst[10])
-    # f.savefig(savefigStr(simulationsLst[11])
-    # f.savefig(savefigStr(simulationsLst[12])
+
+    f.savefig(savefigStr(simulationsLst[0]))
 
 # 3 plots of the velocities as function of x.
 if Fig5_cartesian_velocities:
@@ -254,18 +197,7 @@ if Fig5_cartesian_velocities:
     setp(ax3.get_yticklabels(), visible=False)
 
     plotName = '_cartesian_velocities.png'
-    # f.savefig(savefigStr(simulationsLst[0])
-    # f.savefig(savefigStr(simulationsLst[1])
-    # f.savefig(savefigStr(simulationsLst[2])
-    # f.savefig(savefigStr(simulationsLst[3])
-    # f.savefig(savefigStr(simulationsLst[4])
-    # f.savefig(savefigStr(simulationsLst[5])
-    # f.savefig(savefigStr(simulationsLst[6])
-    # f.savefig(savefigStr(simulationsLst[7])
-    # f.savefig(savefigStr(simulationsLst[8])
-    # f.savefig(savefigStr(simulationsLst[9])
-    # f.savefig(savefigStr(simulationsLst[10])
-    # f.savefig(savefigStr(simulationsLst[11])
-    # f.savefig(savefigStr(simulationsLst[12])
+
+    f.savefig(savefigStr(simulationsLst[0]))
 
 plt.show()
