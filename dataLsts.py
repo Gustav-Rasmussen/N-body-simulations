@@ -75,3 +75,16 @@ datalistE_R32 = [(pylab.loadtxt(f), l)
 
 datalist_rfp = [(pylab.loadtxt(f), l) for f, l in lsts.FileLstrfp]
 datalist_rfp_R32 = [(pylab.loadtxt(f), l) for f, l in lsts.FileLstrfp_R32]
+
+
+def plot_test():
+    [(pylab.loadtxt(f), l) for f, l in bins3A[0]]
+    return fls.Bin1differentGammasTest2HQ10000_G1_0_0_000
+    # f, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2,
+    #                                            sharex='col', sharey='row')
+    # data, label = fls.Bin1differentGammasTest2HQ10000_G1_0_0_000[0]
+    # ax1.plot(data[:, 0], data[:, 1],\
+    #                  color={colours[fileNum]}, ls='--', lw=2, ms=7)")
+
+
+plot_test()
