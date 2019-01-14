@@ -197,7 +197,7 @@ def hist_func(data, label, color, ax=None, **kwargs):
 def hist_to_txt(x, txtNameSuffix, param=Gamma):
     return np.savetxt(F + txtNameSuffix.format(param), x,
                       delimiter=' ',
-                      header='    bins                         n')
+                      header=' \t bins \t \t \t \t n')
 
 
 RmiddleStatesLst = ['keep_IC_R_middle', 'new_R_middle', 'large_R_middle']
