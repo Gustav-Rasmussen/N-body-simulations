@@ -36,22 +36,19 @@ bins = bins_list[0]
 
 # Figure switches -------------------------------------------------------------
 
-Fig_v_logr = 0
-Fig_v_logr_r2 = 0
 Fig_x_hist = 0
 Fig_x_hist2d = 0
+Fig_v_logr = 0
+Fig_v_logr_r2 = 0
 Fig2_v = 0
 Fig3_sigma = 0
 Fig3_sigma_r_2 = 0
-Fig3_sigma_divided_by_v_circ_r_2 = 0
+Fig3_sigma_over_v_circ_r_2 = 0
 Fig4_beta = 0
-Fig4_betafit = 0
 Fig4_beta_r_2 = 0
 Fig5_kappa = 0
-Fig5_kappafit = 0
 Fig5_kappa_r_2 = 0
 Fig6_gamma = 0
-Fig6_gammafit = 0
 Fig6_gamma_r_2 = 0
 Fig7_betagamma = 0
 
@@ -299,7 +296,7 @@ if Fig3_sigma_r_2:  # Dispersions
 
     f.savefig(figurePath + fig_names[0] + '.png')
 
-if Fig3_sigma_divided_by_v_circ_r_2:  # Dispersions
+if Fig3_sigma_over_v_circ_r_2:  # Dispersions
     f = plt.figure(figsize=(16, 11))
     x_plot = np.log10(bin_radius_arr / r_2)
     y_plot = np.log10(sigma2_arr / v_circ_2 ** 2)
