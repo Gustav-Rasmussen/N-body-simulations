@@ -1,5 +1,7 @@
 # N-body-simulations
 
+![](Figures/Read_ics_1.png)
+
 INITIAL CONDITIONS:<br/>
 C-codes for Eddington and Osipkov-Merritt structures, provided by Martin Sparre<br/>
 DENSITY PROFILES:<br/>
