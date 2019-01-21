@@ -4,7 +4,10 @@
 
 ---
 
-INITIAL CONDITIONS:<br/>
+***INITIAL CONDITIONS***
+
+
+<br/>
 C-codes for Eddington and Osipkov-Merritt structures, provided by Martin Sparre<br/>
 DENSITY PROFILES:<br/>
 Hernquist and Tsallis q-fit<br/><br/>
