@@ -13,16 +13,16 @@ Hernquist and Tsallis q-fit<br/>
 Performed with GADGET-2.<br/>
 
 ***TYPES***<br/>
-G-perturbations<br/>
-Energy-perturbations<br/>
++ G-perturbations
++ Energy-perturbations
 
 ***ANALYSIS***<br/>
 Python algorithms<br/>
 
 ***BINNING***<br/>
-Radial bins<br/>
-velocity bins<br/>
-Mass bins (implemented as number bins)<br/>
++ Radial bins
++ velocity bins
++ Mass bins (implemented as number bins)
 
 ***AIM OF THIS PROJECT***<br/>
 To reproduce the Dark matter attractor shown by Steen Hansen et. al.
