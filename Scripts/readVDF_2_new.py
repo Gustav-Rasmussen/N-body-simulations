@@ -11,37 +11,6 @@ import pylab
 Gamma_on = 1
 Beta_on = 0
 
-# Figures ---------------------------------------------------------
-Fig1_vr_vPhi_vTheta = 0  # Works for test and test2
-Fig1_vr_vPhi_vTheta_with_fit = 0  # Works for test and test2
-Fig1_vt = 0  # Works for test and test2
-Fig1_vt_with_fit = 0  # Works for test, test2 and B
-
-Fig2_vr_vPhi_vTheta_divided_by_gauss = 0  # Works for test and test2
-Fig2a_vt_divided_by_gauss = 0  # Works for test and test2
-
-Fig6_GPerts_same_gammas_as_IC_vr = 0  # Works for test. test2?
-Fig6_GPerts_G1_2_same_gammas_as_IC_vt = 0  # Not yet created
-
-Fig7_GPerts_different_gammas_vr_vPhi_vTheta = 0  # Not yet created
-
-# Not yet created
-Fig8_GPerts_different_gammas_vr_vPhi_vTheta_divided_by_gauss = 0
-
-Fig9_GPerts_different_gammas_vr = 0  # Not yet created
-
-Fig10_GPerts_different_gammas_vt = 0  # Works for test, test2 and B
-
-# Next 4 figures works for test, test2, B:
-Fig11_GPerts_gammas_1_5_vt_divided_by_gauss_and_Tsallis = 0
-Fig12_GPerts_gammas_2_0_vt_divided_by_gauss_and_Tsallis = 0
-Fig13_GPerts_gammas_2_5_vt_divided_by_gauss_and_Tsallis = 0
-Fig14_GPerts_gammas_3_0_vt_divided_by_gauss_and_Tsallis = 0
-
-# Next 2 figures works for A, B:
-Fig15_GPerts_R_middle_19_95_vt_divided_by_gauss_and_Tsallis = 0
-Fig16_GPerts_R_middle_31_62_vt_divided_by_gauss_and_Tsallis = 0
-
 # Files ---------------------------------------------------------
 G_Pert_HQ10000_G1_0_0_000 = 1
 G_Pert_HQ10000_G1_2_1_005 = 1
@@ -710,16 +679,38 @@ if B_G_Pert_different_gammas_HQ10000_G1_0_199_093:
                                                     for f, l
                                                     in FileLstbin4HQ10000_G1_0_199_093]
 
-if Fig1_vr_vPhi_vTheta:
-    f, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2)
+# Figures ---------------------------------------------------------------------
+# WF: Works For, NYC:
+Fig1a_vr_vPhi_vTheta = 0  # WF: test, test2
+Fig1b_vr_vPhi_vTheta_with_fit = 0  # WF: test, test2
+Fig1c_vt = 0  # WF: test, test2
+Fig1d_vt_with_fit = 0  # WF: test, test2, B
+Fig2a_vr_vPhi_vTheta_divided_by_gauss = 0  # WF: test, test2
+Fig2b_vt_divided_by_gauss = 0  # WF: test, test2
+Fig3a_GPerts_same_gammas_as_IC_vr = 0  # WF: test. test2?
+Fig3b_GPerts_G1_2_same_gammas_as_IC_vt = 0  # Not yet created
+Fig4_GPerts_different_gammas_vt = 0  # WF: test, test2, B
+# Next 4 figures works for test, test2, B:
+Fig5a_GPerts_gammas_1_5_vt_divided_by_gauss_and_Tsallis = 0
+Fig5b_GPerts_gammas_2_0_vt_divided_by_gauss_and_Tsallis = 0
+Fig5c_GPerts_gammas_2_5_vt_divided_by_gauss_and_Tsallis = 0
+Fig5d_GPerts_gammas_3_0_vt_divided_by_gauss_and_Tsallis = 0
+# Next 2 figures works for A, B:
+Fig6a_GPerts_R_middle_19_95_vt_divided_by_gauss_and_Tsallis = 0
+Fig6b_GPerts_R_middle_31_62_vt_divided_by_gauss_and_Tsallis = 0
 
-    def Plt(i, data, cls, Label=False):
-        if Label:
-            return exec(f"ax{i}.plot({data}[0][:, 0],\
-                          {data}[0][:, 1], {cls}, label={Label},\
-                          lw=2, ms=7)")
+
+def Plt(i, data, cls, Label=False):
+    if Label:
         return exec(f"ax{i}.plot({data}[0][:, 0],\
-                      {data}[0][:, 1], {cls}, lw=2, ms=7)")
+                      {data}[0][:, 1], {cls}, label={Label},\
+                      lw=2, ms=7)")
+    return exec(f"ax{i}.plot({data}[0][:, 0],\
+                  {data}[0][:, 1], {cls}, lw=2, ms=7)")
+
+
+if Fig1a_vr_vPhi_vTheta:
+    f, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2)
 
     if test:
 
@@ -868,67 +859,41 @@ if Fig1_vr_vPhi_vTheta:
         ax2.set_ylabel(r'$f\left(\log \left( |u_n|,u_p \right)\right)$',
                        fontsize=20)
 
-        data, label = bin1_different_gammas_test2_HQ10000_G1_0_0_000[1]
-        ax3.plot(data[:, 0], data[:, 1], 'g--', lw=2, ms=7)
-        data, label = bin1_different_gammas_test2_HQ10000_G1_0_0_000[2]
-        ax3.plot(data[:, 0], data[:, 1], 'r--', lw=2, ms=7)
-        data, label = bin1_different_gammas_test2_HQ10000_G1_0_0_000[3]
-        ax3.plot(data[:, 0], data[:, 1], 'k--', lw=2, ms=7)
+        Plt(3, bin1_different_gammas_test2_HQ10000_G1_0_0_000[1], 'g--')
+        Plt(3, bin1_different_gammas_test2_HQ10000_G1_0_0_000[2], 'r--')
+        Plt(3, bin1_different_gammas_test2_HQ10000_G1_0_0_000[3], 'k--')
 
-        data, label = bin2_different_gammas_test2_HQ10000_G1_0_0_000[1]
-        ax3.plot(data[:, 0], data[:, 1], 'g:', lw=4, ms=7)
-        data, label = bin2_different_gammas_test2_HQ10000_G1_0_0_000[2]
-        ax3.plot(data[:, 0], data[:, 1], 'r:', lw=4, ms=7)
-        data, label = bin2_different_gammas_test2_HQ10000_G1_0_0_000[3]
-        ax3.plot(data[:, 0], data[:, 1], 'k:', lw=2, ms=7)
+        Plt(3, bin2_different_gammas_test2_HQ10000_G1_0_0_000[1], 'g:')
+        Plt(3, bin2_different_gammas_test2_HQ10000_G1_0_0_000[2], 'r:')
+        Plt(3, bin2_different_gammas_test2_HQ10000_G1_0_0_000[3], 'k:')
 
-        data, label = bin3_different_gammas_test2_HQ10000_G1_0_0_000[1]
-        ax3.plot(data[:, 0], data[:, 1], 'g-.', lw=2, ms=7)
-        data, label = bin3_different_gammas_test2_HQ10000_G1_0_0_000[2]
-        ax3.plot(data[:, 0], data[:, 1], 'r-.', lw=2, ms=7)
-        data, label = bin3_different_gammas_test2_HQ10000_G1_0_0_000[3]
-        ax3.plot(data[:, 0], data[:, 1], 'k-.', lw=2, ms=7)
+        Plt(3, bin3_different_gammas_test2_HQ10000_G1_0_0_000[1], 'g-.')
+        Plt(3, bin3_different_gammas_test2_HQ10000_G1_0_0_000[2], 'r-.')
+        Plt(3, bin3_different_gammas_test2_HQ10000_G1_0_0_000[3], 'k-.')
 
-        data, label = bin4_different_gammas_test2_HQ10000_G1_0_0_000[1]
-        ax3.plot(data[:, 0], data[:, 1], 'g', label=r'$v_r$', lw=2, ms=7)
-        data, label = bin4_different_gammas_test2_HQ10000_G1_0_0_000[2]
-        ax3.plot(data[:, 0], data[:, 1], 'r', label=r'$v_{\Theta}$',
-                 lw=2, ms=7)
-        data, label = bin4_different_gammas_test2_HQ10000_G1_0_0_000[3]
-        ax3.plot(data[:, 0], data[:, 1], 'k',
-                 label=r'$v_{\Phi}$', lw=2, ms=7)
+        Plt(3, bin4_different_gammas_test2_HQ10000_G1_0_0_000[1], 'g', r'$v_r$')
+        Plt(3, bin4_different_gammas_test2_HQ10000_G1_0_0_000[2], 'r', r'$v_{\Theta}$')
+        Plt(3, bin4_different_gammas_test2_HQ10000_G1_0_0_000[3], 'k', r'$v_{\Phi}$')
 
         ax3.set_xlabel(r'$u_r$, $u_{\Theta}$ and $u_{\Phi}$', fontsize=20)
         ax3.set_ylabel(r'$\log \left( f(u) \right)$', fontsize=20)
         ax3.set_yscale('log')
 
-        data, label = bin1_different_gammas_test2_HQ10000_G1_0_0_000[5]
-        ax4.plot(data[:, 0], data[:, 1], 'g--', lw=2, ms=7)
-        data, label = bin1_different_gammas_test2_HQ10000_G1_0_0_000[6]
-        ax4.plot(data[:, 0], data[:, 1], 'r--', lw=2, ms=7)
-        data, label = bin1_different_gammas_test2_HQ10000_G1_0_0_000[7]
-        ax4.plot(data[:, 0], data[:, 1], 'k--', lw=2, ms=7)
+        Plt(4, bin1_different_gammas_test2_HQ10000_G1_0_0_000[5], 'g--')
+        Plt(4, bin1_different_gammas_test2_HQ10000_G1_0_0_000[6], 'r--')
+        Plt(4, bin1_different_gammas_test2_HQ10000_G1_0_0_000[7], 'k--')
 
-        data, label = bin2_different_gammas_test2_HQ10000_G1_0_0_000[5]
-        ax4.plot(data[:, 0], data[:, 1], 'g:', lw=2, ms=7)
-        data, label = bin2_different_gammas_test2_HQ10000_G1_0_0_000[6]
-        ax4.plot(data[:, 0], data[:, 1], 'r:', lw=2, ms=7)
-        data, label = bin2_different_gammas_test2_HQ10000_G1_0_0_000[7]
-        ax4.plot(data[:, 0], data[:, 1], 'k:', lw=2, ms=7)
+        Plt(4, bin2_different_gammas_test2_HQ10000_G1_0_0_000[5], 'g:')
+        Plt(4, bin2_different_gammas_test2_HQ10000_G1_0_0_000[6], 'r:')
+        Plt(4, bin2_different_gammas_test2_HQ10000_G1_0_0_000[7], 'k:')
 
-        data, label = bin3_different_gammas_test2_HQ10000_G1_0_0_000[5]
-        ax4.plot(data[:, 0], data[:, 1], 'g-.', lw=2, ms=7)
-        data, label = bin3_different_gammas_test2_HQ10000_G1_0_0_000[6]
-        ax4.plot(data[:, 0], data[:, 1], 'r-.', lw=2, ms=7)
-        data, label = bin3_different_gammas_test2_HQ10000_G1_0_0_000[7]
-        ax4.plot(data[:, 0], data[:, 1], 'k-.', lw=2, ms=7)
+        Plt(4, bin3_different_gammas_test2_HQ10000_G1_0_0_000[5], 'g-.')
+        Plt(4, bin3_different_gammas_test2_HQ10000_G1_0_0_000[6], 'r-.')
+        Plt(4, bin3_different_gammas_test2_HQ10000_G1_0_0_000[7], 'k-.')
 
-        data, label = bin4_different_gammas_test2_HQ10000_G1_0_0_000[5]
-        ax4.plot(data[:, 0], data[:, 1], 'g', lw=2, ms=7)
-        data, label = bin4_different_gammas_test2_HQ10000_G1_0_0_000[6]
-        ax4.plot(data[:, 0], data[:, 1], 'r', lw=2, ms=7)
-        data, label = bin4_different_gammas_test2_HQ10000_G1_0_0_000[7]
-        ax4.plot(data[:, 0], data[:, 1], 'k', lw=2, ms=7)
+        Plt(4, bin4_different_gammas_test2_HQ10000_G1_0_0_000[5], 'g')
+        Plt(4, bin4_different_gammas_test2_HQ10000_G1_0_0_000[6], 'r')
+        Plt(4, bin4_different_gammas_test2_HQ10000_G1_0_0_000[7], 'k')
 
         ax4.set_xlabel(r'$\log \left( |u_rn|,u_rp \right)$, $\log \left(\
                        |u_{\Theta}n|,u_{\Theta}p \right)$ and $\log \left(\
@@ -939,7 +904,7 @@ if Fig1_vr_vPhi_vTheta:
                        fontsize=20)
         ax4.set_yscale('log')
 
-if Fig1_vr_vPhi_vTheta_with_fit:
+if Fig1b_vr_vPhi_vTheta_with_fit:
     f, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2)
 
     if test:
@@ -1141,25 +1106,18 @@ if Fig1_vr_vPhi_vTheta_with_fit:
                        fontsize=20)
         ax4.set_yscale('log')
 
-if Fig1_vt:
+if Fig1c_vt:
     f, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2)
     if test:
 
         for i in range(1, 5):
             exec(f"ax{i}.grid()")
 
-        data, label = bin1_different_gammas_test2_HQ10000_G1_0_0_000[0]
-        ax1.plot(data[:, 0], data[:, 1], 'b--',
-                 label=r'$\gamma = -1.5 $', lw=2, ms=7)
-        data, label = bin2_HQ10000_G1_2_1_005[0]
-        ax1.plot(data[:, 0], data[:, 1], 'b:',
-                 label=r'$\gamma = -2.0 $', lw=4, ms=7)
-        data, label = bin3_HQ10000_G1_2_1_005[0]
-        ax1.plot(data[:, 0], data[:, 1], 'b-.',
-                 label=r'$\gamma = -2.5 $', lw=2, ms=7)
-        data, label = bin4_HQ10000_G1_2_1_005[0]
-        ax1.plot(data[:, 0], data[:, 1], 'b',
-                 label=r'$\gamma = -3.0 $', lw=2, ms=7)
+        Plt(1, bin1_different_gammas_test2_HQ10000_G1_0_0_000[0], 'b--',
+            r'$\gamma = -1.5$')
+        Plt(1, bin2_HQ10000_G1_2_1_005[0], 'b:', r'$\gamma = -2.0$')
+        Plt(1, bin3_HQ10000_G1_2_1_005[0], 'b-.', r'$\gamma = -2.5$')
+        Plt(1, bin4_HQ10000_G1_2_1_005[0], 'b', r'$\gamma = -3.0$')
 
         ax1.set_ylabel(r'$f\left(u_t \right)$', fontsize=20)
         ax1.set_title(r' File = %s' % HQ12, fontsize=20)
@@ -1294,7 +1252,7 @@ if Fig1_vt:
                        |u_tn|,u_tp \right)\right) \right)$', fontsize=20)
         ax4.set_yscale('log')
 
-if Fig1_vt_with_fit:
+if Fig1d_vt_with_fit:
     f, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2)
     if B:
 
@@ -1380,7 +1338,7 @@ if Fig1_vt_with_fit:
                        fontsize=26)
         ax4.set_yscale('log')
 
-if Fig2_vr_vPhi_vTheta_divided_by_gauss:
+if Fig2a_vr_vPhi_vTheta_divided_by_gauss:
     f, (ax1, ax2) = plt.subplots(1, 2)
     if test:
 
@@ -1499,7 +1457,7 @@ if Fig2_vr_vPhi_vTheta_divided_by_gauss:
                        {axe^{-b\log (x)^2}}$',
                        fontsize=20)
 
-if Fig2a_vt_divided_by_gauss:
+if Fig2b_vt_divided_by_gauss:
     f, (ax1, ax2) = plt.subplots(1, 2)
     if test:
 
@@ -1633,7 +1591,7 @@ if Fig2a_vt_divided_by_gauss:
                        {3400.442x^2e^{-0.930x^2}}$',
                        fontsize=20)
 
-if Fig6_GPerts_same_gammas_as_IC_vr:
+if Fig3a_GPerts_same_gammas_as_IC_vr:
     f, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2)
 
     for i in range(1, 5):
@@ -2086,7 +2044,7 @@ if Fig6_GPerts_same_gammas_as_IC_vr:
                    \right)$', fontsize=20)
     ax4.set_yscale('log')
 
-if Fig6_GPerts_G1_2_same_gammas_as_IC_vt:
+if Fig3b_GPerts_G1_2_same_gammas_as_IC_vt:
     f, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2)
 
     for i in range(1, 5):
@@ -2311,7 +2269,7 @@ if Fig6_GPerts_G1_2_same_gammas_as_IC_vt:
                    \right)$', fontsize=20)
     ax4.set_yscale('log')
 
-if Fig10_GPerts_different_gammas_vt:
+if Fig4_GPerts_different_gammas_vt:
     f, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2)
     if test:
 
@@ -2985,7 +2943,7 @@ if Fig10_GPerts_different_gammas_vt:
                        fontsize=20)
         ax4.set_yscale('log')
 
-if Fig11_GPerts_gammas_1_5_vt_divided_by_gauss_and_Tsallis:
+if Fig5a_GPerts_gammas_1_5_vt_divided_by_gauss_and_Tsallis:
     f, ((ax1, ax2), (ax3, ax4), (ax5, ax6), (ax7, ax8)) = plt.subplots(4, 2)
     if test:
 
@@ -3666,7 +3624,7 @@ if Fig11_GPerts_gammas_1_5_vt_divided_by_gauss_and_Tsallis:
         ax8.set_ylabel(r'$\frac{f\left(\log \left( |u_tn|,u_tp \right)\right)}{Tsallis}$',
           fontsize=20)
 
-if Fig12_GPerts_gammas_2_0_vt_divided_by_gauss_and_Tsallis:
+if Fig5b_GPerts_gammas_2_0_vt_divided_by_gauss_and_Tsallis:
     f, ((ax1, ax2), (ax3, ax4), (ax5, ax6), (ax7, ax8)) = plt.subplots(4, 2)
     if test:
 
@@ -4455,7 +4413,7 @@ if Fig12_GPerts_gammas_2_0_vt_divided_by_gauss_and_Tsallis:
                        {Tsallis}$',
                        fontsize=20)
 
-if Fig13_GPerts_gammas_2_5_vt_divided_by_gauss_and_Tsallis:
+if Fig5c_GPerts_gammas_2_5_vt_divided_by_gauss_and_Tsallis:
     f, ((ax1, ax2), (ax3, ax4), (ax5, ax6), (ax7, ax8)) = plt.subplots(4, 2)
     if test:
 
@@ -5235,7 +5193,7 @@ if Fig13_GPerts_gammas_2_5_vt_divided_by_gauss_and_Tsallis:
         ax8.set_ylabel(r'$\frac{f\left(\log \left( |u_tn|,u_tp \right)\right)}{Tsallis}$',
                        fontsize=20)
 
-if Fig14_GPerts_gammas_3_0_vt_divided_by_gauss_and_Tsallis:
+if Fig5d_GPerts_gammas_3_0_vt_divided_by_gauss_and_Tsallis:
     f, ((ax1, ax2), (ax3, ax4), (ax5, ax6), (ax7, ax8)) = plt.subplots(4, 2)
     if test:
 
@@ -5961,7 +5919,7 @@ if Fig14_GPerts_gammas_3_0_vt_divided_by_gauss_and_Tsallis:
 
 # datalist_bin5different_gammas_test2_HQ10000_G1_0_25_005
 
-if Fig15_GPerts_R_middle_19_95_vt_divided_by_gauss_and_Tsallis:
+if Fig6a_GPerts_R_middle_19_95_vt_divided_by_gauss_and_Tsallis:
     f, ((ax1, ax2), (ax3, ax4), (ax5, ax6), (ax7, ax8)) = plt.subplots(4, 2)
     if test:
         
@@ -6417,7 +6375,7 @@ if Fig15_GPerts_R_middle_19_95_vt_divided_by_gauss_and_Tsallis:
         ax8.set_ylabel(r'$\frac{f\left(\log \left( |u_tn|,u_tp \right)\right)}{Tsallis}$',
                        fontsize=20)
 
-if Fig16_GPerts_R_middle_31_62_vt_divided_by_gauss_and_Tsallis:
+if Fig6b_GPerts_R_middle_31_62_vt_divided_by_gauss_and_Tsallis:
     f, ((ax1, ax2), (ax3, ax4), (ax5, ax6), (ax7, ax8)) = plt.subplots(4, 2)
     if test:
 
