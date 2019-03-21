@@ -6,25 +6,16 @@ import matplotlib.pyplot as plt
 from matplotlib.colors import LogNorm
 # from pylab import *
 # import seaborn as sns
-from pathlib import Path
+# from pathlib import Path
 # import Gammas_and_R_middles
 # import getSnapshotValues
-import snapshotFiles
-import NoOfParticlesAndParticleMass
-from definePaths import *
+# import snapshotFiles
+# import NoOfParticlesAndParticleMass
+# from definePaths import *
 
 simulationsLst = ['A', 'B', 'Soft_B', 'CS1', 'CS2', 'CS3', 'CS4',
                   'CS5', 'CS6', 'DS1', 'D2', 'Soft_D2', 'E'
                   ]
-
-# Switches for figures -------------------------------------------------
-
-Fig2_Density = 0
-Fig2_Densityfit = 0
-Fig2_Density_r_2 = 0
-Fig3_Potential = 0
-Fig4_xy_rectangular = 0
-Fig5_cartesian_velocities = 0
 
 R_hob_par = R[GoodIDs]
 
@@ -41,11 +32,11 @@ if Gamma == Gammas[1]:
 (density_arr, Volume_arr, rho_arr, rho_2_arr) = ([] for i in range(4))
 
 # Array, 0.00001-1.
-binning_arr_lin_log10_unitRmax = 10 ** ((np.arange(nr_binning_bins) /
-                                  (nr_binning_bins - 1)) *
-                                  abs(np.log10(max_binning_R_unitRmax)
-                                  - np.log10(min_binning_R_unitRmax))
-                                  + np.log10(min_binning_R_unitRmax))
+binning_arr_lin_log10_unitRmax = 10 ** ((np.arange(nr_binning_bins)
+                                 / (nr_binning_bins - 1))
+                                 * abs(np.log10(max_binning_R_unitRmax)
+                                 - np.log10(min_binning_R_unitRmax))
+                                 + np.log10(min_binning_R_unitRmax))
 
 # Array, 0-500
 binning_arr_lin_log10 = R_limit * binning_arr_lin_log10_unitRmax
@@ -53,7 +44,7 @@ for i in range(0, int(nr_binning_bins - 2)):  # loop over 0-998
     min_R_bin_i = binning_arr_lin_log10[i]  # start of bin
     max_R_bin_i = binning_arr_lin_log10[i + 1]  # end of bin
     # position of particles inside a radial bin
-    posR_par_inside_bin_i = np.where((R > min_R_bin_i) & (R < max_R_bin_i))[0]
+    posR_par_inside_bin_i = np.where(min_R_bin_i < R < max_R_bin_i)[0]
     # number of particles inside a radial bin
     nr_par_inside_bin_i = len(posR_par_inside_bin_i)
     # Volume of cluster
@@ -93,27 +84,35 @@ print('len(density_arr) = ', len(density_arr),
 
 
 def savefigStr(simName, plotName):
-    return '{}{}{}'.format(figurePath, simName, plotName)
+    return f'{figurePath}{simName}{plotName}'
 
 
-if Fig2_Density:
+# Switches for figures -------------------------------------------------
+Fig1_Density = 0
+Fig1_Densityfit = 0
+Fig2_Density_r_2 = 0
+Fig3_Potential = 0
+Fig4_xy_rectangular = 0
+Fig5_cartesian_velocities = 0
+
+if Fig1_Density:
     f = plt.figure(figsize=(16, 11))
     v = [-1, 1, -4, .5]
     plt.axis(v)
     x_plot = np.log10(binning_arr_lin_log10)
     # y_plot = density_arr
-    plt.xlabel(r'$ \log r $', fontsize=30)
-    plt.ylabel(r'$ \log \rho $', fontsize=30)
+    plt.xlabel(r'$\log r$', fontsize=30)
+    plt.ylabel(r'$\log \rho$', fontsize=30)
     plt.plot(x_plot[0:int(nr_binning_bins - 2)], np.log10(rho_arr),
-             '-o', ms=2, lw=2, mew=0, c='green', label=r'$\rho$')
+             'g-o', ms=2, lw=2, mew=0, label=r'$\rho$')
     # plt.legend(prop=dict(size=12), numpoints=2, ncol=2,
     #            frameon=True, loc=1, handlelength=2.5)
 
-    if Fig2_Densityfit:
+    if Fig1_Densityfit:
         x = binning_arr_lin_log10
         y_plot = rho_Hernquist(1. / (2 * np.pi), 1., x)
-        plt.plot(np.log10(x), np.log10(y_plot), ':o', ms=2, lw=2, mew=0,
-                 c='black', label=r'$\frac{1}{2\pi r (1+r)^3}$')
+        plt.plot(np.log10(x), np.log10(y_plot), 'k:o', ms=2, lw=2, mew=0,
+                 label=r'$\frac{1}{2\pi r (1+r)^3}$')
         plt.title(r'Density profile (B IC with 998 radial bins)',
                   fontsize=30)
 
@@ -122,14 +121,12 @@ if Fig2_Density:
         leg.get_frame().set_alpha(.5)
 
         plotName = '_Density_fit.png'
-
-        f.savefig(savefigStr(simulationsLst[0]))
+        f.savefig(savefigStr(simulationsLst[0], plotName))
 
     else:
         plt.title('Density profile', fontsize=30)
         plotName = '_Density.png'
-
-        f.savefig(savefigStr(simulationsLst[0]))
+        f.savefig(savefigStr(simulationsLst[0], plotName))
 
 if Fig2_Density_r_2:
     f = plt.figure(figsize=(16, 11))
@@ -139,13 +136,12 @@ if Fig2_Density_r_2:
     plt.xlabel(r'$ \log (\frac{r}{r_{-2}})$', fontsize=30)
     plt.ylabel(r'$ \log \rho $', fontsize=30)
     plt.plot(x_plot[0:int(nr_binning_bins - 2)], np.log10(rho_arr),
-             '-o', ms=2, lw=2, mew=0, c='green', label=r'$\rho$')
+             'g-o', ms=2, lw=2, mew=0, label=r'$\rho$')
 
     plt.title(r'Density profile (B IC with 998 radial bins)',
               fontsize=30)
     plotName = '_Density_r_2.png'
-
-    f.savefig(savefigStr(simulationsLst[0]))
+    f.savefig(savefigStr(simulationsLst[0], plotName))
 
 if Fig3_Potential:
     f = plt.figure()
@@ -153,18 +149,18 @@ if Fig3_Potential:
     plt.xlabel('r')
     plt.ylabel(r'$\Phi$')
     plt.title('Potential')
-    plt.plot(Rcl, Vcl, 'o', ms=2, mew=0, color='blue')
+    plt.plot(Rcl, Vcl, 'bo', ms=2, mew=0)
     plt.grid()
 
     ax2 = plt.subplot(122)
     plt.xlabel(r'$\log r$')
-    plt.plot(np.log10(Rcl), Vcl, 'o', ms=2, mew=0, color='blue')
+    plt.plot(np.log10(Rcl), Vcl, 'bo', ms=2, mew=0)
     plt.grid()
     setp(ax2.get_yticklabels(), visible=False)
 
     plotName = '_Potential.png'
+    f.savefig(savefigStr(simulationsLst[0], plotName))
 
-    f.savefig(savefigStr(simulationsLst[0]))
 
 # plot rectangular slice through cluster:
 if Fig4_xy_rectangular:
@@ -176,28 +172,26 @@ if Fig4_xy_rectangular:
     plt.colorbar()
 
     plotName = '_xy_rectangular.png'
-
-    f.savefig(savefigStr(simulationsLst[0]))
+    f.savefig(savefigStr(simulationsLst[0], plotName))
 
 # 3 plots of the velocities as function of x.
 if Fig5_cartesian_velocities:
     f = plt.figure()
     ax1 = plt.subplot(131)
     plt.ylabel('vxnew')
-    plt.plot(xclrec, vxnew, 'o', ms=2, mew=0, color='blue')
+    plt.plot(xclrec, vxnew, 'bo', ms=2, mew=0)
     plt.title('velocities')
     ax2 = plt.subplot(132)
     plt.xlabel('x')
     plt.ylabel('vynew')
-    plt.plot(xclrec, vynew, 'o', ms=2, mew=0, color='blue')
+    plt.plot(xclrec, vynew, 'bo', ms=2, mew=0)
     setp(ax2.get_yticklabels(), visible=False)
     ax3 = plt.subplot(133)
     plt.ylabel('vznew')
-    plt.plot(xclrec, vznew, 'o', ms=2, mew=0, color='blue')
+    plt.plot(xclrec, vznew, 'bo', ms=2, mew=0)
     setp(ax3.get_yticklabels(), visible=False)
 
     plotName = '_cartesian_velocities.png'
-
-    f.savefig(savefigStr(simulationsLst[0]))
+    f.savefig(savefigStr(simulationsLst[0], plotName))
 
 plt.show()

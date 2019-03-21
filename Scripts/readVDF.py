@@ -64,34 +64,34 @@ def plot_binData_with_fit(figNum, binIndex1, binIndex2, title3, binNum, Gamma,
     data, label = Bin[binIndex1]
     popt, pcov = curve_fit(ragat.func_2_add, data[:, 0], data[:, 1])
     y_fit = ragat.func_2_add(data[:, 0], popt[0], popt[1], popt[2])
-    ax1.plot(data[:, 0], data[:, 1], color='Blue', label=label, lw=2, ms=7)
-    ax1.plot(data[:, 0], y_fit, '--', lw=3, color='red')
+    ax1.plot(data[:, 0], data[:, 1], 'b', label=label, lw=2, ms=7)
+    ax1.plot(data[:, 0], y_fit, 'r--', lw=3)
     ax1.set_title(r'f($v_r$)')
     ax1.grid()
 
     data, label = Bin[binIndex2]
     popt, pcov = curve_fit(ragat.func_1_add, data[:, 0], data[:, 1])
     y_fit = ragat.func_1_add(data[:, 0], popt[0], popt[1], popt[2])
-    ax2.plot(data[:, 0], data[:, 1], color='Blue', label=label, lw=2, ms=7)
-    ax2.plot(data[:, 0], y_fit, '--', lw=3, color='red')
+    ax2.plot(data[:, 0], data[:, 1], 'b', label=label, lw=2, ms=7)
+    ax2.plot(data[:, 0], y_fit, 'r--', lw=3)
     ax2.set_title(r'f($v_t$)')
     ax2.grid()
 
     data, label = Bin[binIndex1]
     popt, pcov = curve_fit(ragat.func_2_add, data[:, 0], data[:, 1])
     y_fit = ragat.func_2_add(data[:, 0], popt[0], popt[1], popt[2])
-    ax3.plot(data[:, 0], np.log10(data[:, 1]), color='Black',
+    ax3.plot(data[:, 0], np.log10(data[:, 1]), 'k',
              label=label, lw=2, ms=7)
-    ax3.plot(data[:, 0], np.log10(y_fit), '--', lw=3, color='green')
+    ax3.plot(data[:, 0], np.log10(y_fit), 'g--', lw=3)
     ax3.set_title(f'HQ10000_G{title3}')
     ax3.grid()
 
     data, label = Bin[binIndex2]
     popt, pcov = curve_fit(ragat.func_1_add, data[:, 0], data[:, 1])
     y_fit = ragat.func_1_add(data[:, 0], popt[0], popt[1], popt[2])
-    ax4.plot(data[:, 0], np.log10(data[:, 1]), color='Black',
+    ax4.plot(data[:, 0], np.log10(data[:, 1]), 'k',
              label=label, lw=2, ms=7)
-    ax4.plot(data[:, 0], np.log10(y_fit), '--', lw=3, color='green')
+    ax4.plot(data[:, 0], np.log10(y_fit), 'g--', lw=3)
     ax4.set_title(r'bin {0}, $\gamma = {1}$'.format(binNum, Gamma))
     ax4.grid()
     # return
