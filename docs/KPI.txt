@@ -123,3 +123,44 @@ Number of Python scripts: 33
 
 Number of Python scripts: 32 
 
+------------------------------------------------------------
+
+2019-03-30 18:55:50.786793
+
+ Module name,	 number of lines,	 PEP-8 violations:
+
+                            readVDF2.py	12307	1441
+                  readVDF_2_new_plot.py	10614	1310
+                          gammaKappaBeta.py	1735	3
+             TimeEvolutionGammaKappaBeta.py	1516	1
+                             VDFnetwork.py	1372	24
+                          velocityCheck.py	1196	35
+                              Sigma_plot.py	909	11
+                    readVDF_2_new_files.py	675	256
+                              Sigma_calc.py	553	58
+                          readVDF2FileLst.py	546	0
+                          Sigma_calc_OOP.py	514	59
+                                fileLsts.py	464	19
+                                     VDF.py	433	11
+                         VDFvelocityBins.py	370	32
+                 RhoAndGaussianAndTsallis.py	301	2
+                       GaussianAndTsallis.py	274	2
+                                   rename.py	234	0
+                      vSphericalAnd_vBins.py	234	4
+                            snapshotFiles.py	209	9
+                                     Read.py	197	6
+                     Gammas_and_R_middles.py	195	0
+                        getSnapshotValues.py	149	2
+                               regexUpper.py	117	1
+                                  readVDF.py	115	0
+                                splitVDFt.py	107	2
+                                pylab_test.py	91	0
+                                  dataLsts.py	90	0
+                                       KPI.py	65	5
+              NoOfParticlesAndParticleMass.py	22	0
+                             terminal_code.py	21	0
+                               definePaths.py	15	0
+                          colorsAndSymbols.py	10	0
+
+Number of Python scripts: 32 
+
