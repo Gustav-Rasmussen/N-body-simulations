@@ -1917,6 +1917,7 @@ if Fig_GPerts_same_gammas_as_IC_vr:
         handlelength=2.5,
     )
 
+Plt(3, bin4_HQ10000_G1_2_9_005[5], "y")
     data, _ = bin1_HQ10000_G1_0_0_000[0]  # label=r'$\gamma = -1.5$'
     ax3.plot(
         data[:, 0],
@@ -1926,8 +1927,11 @@ if Fig_GPerts_same_gammas_as_IC_vr:
         lw=2,
         ms=7,
     )
+
     data, _ = bin1_HQ10000_G1_0_0_000[1]
     ax3.plot(data[:, 0], data[:, 1], "Skyblue", ls="--", lw=2, ms=7)
+
+Plt(3, bin4_HQ10000_G1_2_9_005[5], "y")
     data, _ = bin1_HQ10000_G1_2_1_005[0]
     ax3.plot(
         data[:, 0],
@@ -1937,8 +1941,11 @@ if Fig_GPerts_same_gammas_as_IC_vr:
         lw=2,
         ms=7,
     )
+
     data, _ = bin1_HQ10000_G1_2_1_005[1]
     ax3.plot(data[:, 0], data[:, 1], "Pink", ls="--", lw=2, ms=7)
+
+Plt(3, bin4_HQ10000_G1_2_9_005[5], "y")
     data, _ = bin1_HQ10000_G0_8_2_005[0]
     ax3.plot(
         data[:, 0],
@@ -1948,8 +1955,11 @@ if Fig_GPerts_same_gammas_as_IC_vr:
         lw=2,
         ms=7,
     )
+
     data, _ = bin1_HQ10000_G0_8_2_005[1]
     ax3.plot(data[:, 0], data[:, 1], "Chartreuse", ls="--", lw=2, ms=7)
+
+Plt(3, bin4_HQ10000_G1_2_9_005[5], "y")
     data, _ = bin1_HQ10000_G1_2_5_005[0]
     ax3.plot(
         data[:, 0],
@@ -1959,6 +1969,7 @@ if Fig_GPerts_same_gammas_as_IC_vr:
         lw=2,
         ms=7,
     )
+
     data, _ = bin1_HQ10000_G1_2_5_005[1]
     ax3.plot(data[:, 0], data[:, 1], "Brown", ls="--", lw=2, ms=7)
     data, _ = bin1_HQ10000_G1_2_9_005[0]
@@ -1971,8 +1982,12 @@ if Fig_GPerts_same_gammas_as_IC_vr:
         lw=2,
         ms=7,
     )
+
+Plt(3, bin4_HQ10000_G1_2_9_005[5], "y")
     data, _ = bin1_HQ10000_G1_2_9_005[1]
     ax3.plot(data[:, 0], data[:, 1], "y--", lw=2, ms=7)
+
+Plt(3, bin4_HQ10000_G1_2_9_005[5], "y")
     data, _ = bin1_HQ10000_G1_0_10_009[0]
     ax3.plot(
         data[:, 0],
@@ -1982,80 +1997,127 @@ if Fig_GPerts_same_gammas_as_IC_vr:
         lw=2,
         ms=7,
     )
+
     data, _ = bin1_HQ10000_G1_0_10_009[1]
     ax3.plot(data[:, 0], data[:, 1], "Violet", ls="--", lw=2, ms=7)
-    data, _ = bin2_HQ10000_G1_0_0_000[0]  # label=r'$\gamma = -2.0$'
-    ax3.plot(data[:, 0], data[:, 1], "b:", lw=4, ms=7)
+
+    Plt(3, bin2_HQ10000_G1_0_0_000[0], "b:")  # label=r'$\gamma = -2.0$'
+
     data, _ = bin2_HQ10000_G1_0_0_000[1]
     ax3.plot(data[:, 0], data[:, 1], "Skyblue", ls=":", lw=4, ms=7)
-    data, _ = bin2_HQ10000_G1_2_1_005[0]
-    ax3.plot(data[:, 0], data[:, 1], "r:", lw=4, ms=7)
+
+    Plt(3, bin2_HQ10000_G1_2_1_005[0], "r:")
+
     data, _ = bin2_HQ10000_G1_2_1_005[1]
     ax3.plot(data[:, 0], data[:, 1], "Pink", ls=":", lw=4, ms=7)
-    data, _ = bin2_HQ10000_G0_8_2_005[0]
-    ax3.plot(data[:, 0], data[:, 1], "g:", lw=4, ms=7)
+
+    Plt(3, bin2_HQ10000_G0_8_2_005[0], "g:")
+
     data, _ = bin2_HQ10000_G0_8_2_005[1]
     ax3.plot(data[:, 0], data[:, 1], "Chartreuse", ls=":", lw=4, ms=7)
+
+Plt(3, bin2_HQ10000_G0_8_2_005[0], "g:")
     data, _ = bin2_HQ10000_G1_2_5_005[0]
     ax3.plot(data[:, 0], data[:, 1], "k:", lw=4, ms=7)
+
     data, _ = bin2_HQ10000_G1_2_5_005[1]
     ax3.plot(data[:, 0], data[:, 1], "Brown", ls=":", lw=4, ms=7)
     data, _ = bin2_HQ10000_G1_2_9_005[0]
     ax3.plot(data[:, 0], data[:, 1], "Orange", ls=":", lw=4, ms=7)
+
+Plt(3, bin2_HQ10000_G0_8_2_005[0], "g:")
     data, _ = bin2_HQ10000_G1_2_9_005[1]
     ax3.plot(data[:, 0], data[:, 1], "y:", lw=4, ms=7)
+
+Plt(3, bin2_HQ10000_G0_8_2_005[0], "g:")
     data, _ = bin2_HQ10000_G1_0_10_009[0]
     ax3.plot(data[:, 0], data[:, 1], "M:", lw=4, ms=7)
+
     data, _ = bin2_HQ10000_G1_0_10_009[1]
     ax3.plot(data[:, 0], data[:, 1], "Violet", ls=":", lw=4, ms=7)
+
+Plt(3, bin2_HQ10000_G0_8_2_005[0], "g:")
     data, _ = bin3_HQ10000_G1_0_0_000[0]  # label=r'$\gamma = -2.5$'
     ax3.plot(data[:, 0], data[:, 1], "b-.", lw=4, ms=7)
+
     data, _ = bin3_HQ10000_G1_0_0_000[1]
     ax3.plot(data[:, 0], data[:, 1], "Skyblue", ls="-.", lw=4, ms=7)
+
+Plt(3, bin2_HQ10000_G0_8_2_005[0], "g:")
     data, _ = bin3_HQ10000_G1_2_1_005[0]
     ax3.plot(data[:, 0], data[:, 1], "r-.", lw=4, ms=7)
+
     data, _ = bin3_HQ10000_G1_2_1_005[1]
     ax3.plot(data[:, 0], data[:, 1], "Pink", ls="-.", lw=4, ms=7)
+
+Plt(3, bin2_HQ10000_G0_8_2_005[0], "g:")
     data, _ = bin3_HQ10000_G0_8_2_005[0]
     ax3.plot(data[:, 0], data[:, 1], "g-.", lw=4, ms=7)
+
     data, _ = bin3_HQ10000_G0_8_2_005[1]
     ax3.plot(data[:, 0], data[:, 1], "Chartreuse", ls="-.", lw=4, ms=7)
+
+Plt(3, bin2_HQ10000_G0_8_2_005[0], "g:")
     data, _ = bin3_HQ10000_G1_2_5_005[0]
     ax3.plot(data[:, 0], data[:, 1], "k-.", lw=4, ms=7)
+
     data, _ = bin3_HQ10000_G1_2_5_005[1]
     ax3.plot(data[:, 0], data[:, 1], "Brown", ls="-.", lw=4, ms=7)
     data, _ = bin3_HQ10000_G1_2_9_005[0]
     ax3.plot(data[:, 0], data[:, 1], "Orange", ls="-.", lw=4, ms=7)
+
+Plt(3, bin2_HQ10000_G0_8_2_005[0], "g:")
     data, _ = bin3_HQ10000_G1_2_9_005[1]
     ax3.plot(data[:, 0], data[:, 1], "y-.", lw=4, ms=7)
+
+Plt(3, bin2_HQ10000_G0_8_2_005[0], "g:")
     data, _ = bin3_HQ10000_G1_0_10_009[0]
     ax3.plot(data[:, 0], data[:, 1], "M-.", lw=4, ms=7)
+
     data, _ = bin3_HQ10000_G1_0_10_009[1]
     ax3.plot(data[:, 0], data[:, 1], "Violet", ls="-.", lw=4, ms=7)
+
+Plt(3, bin2_HQ10000_G0_8_2_005[0], "g:")
     data, _ = bin4_HQ10000_G1_0_0_000[0]  # label=r'$\gamma = -3.0$'
     ax3.plot(data[:, 0], data[:, 1], "b", lw=2, ms=7)
+
     data, _ = bin4_HQ10000_G1_0_0_000[1]
     ax3.plot(data[:, 0], data[:, 1], "Skyblue", lw=2, ms=7)
+
+Plt(3, bin2_HQ10000_G0_8_2_005[0], "g:")
     data, _ = bin4_HQ10000_G1_2_1_005[0]
     ax3.plot(data[:, 0], data[:, 1], "r", lw=2, ms=7)
+
     data, _ = bin4_HQ10000_G1_2_1_005[1]
     ax3.plot(data[:, 0], data[:, 1], "Pink", lw=2, ms=7)
+
+Plt(3, bin2_HQ10000_G0_8_2_005[0], "g:")
     data, _ = bin4_HQ10000_G0_8_2_005[0]
     ax3.plot(data[:, 0], data[:, 1], "g", lw=2, ms=7)
+
     data, _ = bin4_HQ10000_G0_8_2_005[1]
     ax3.plot(data[:, 0], data[:, 1], "Chartreuse", lw=2, ms=7)
+
+Plt(3, bin2_HQ10000_G0_8_2_005[0], "g:")
     data, _ = bin4_HQ10000_G1_2_5_005[0]
     ax3.plot(data[:, 0], data[:, 1], "k", lw=2, ms=7)
+
     data, _ = bin4_HQ10000_G1_2_5_005[1]
     ax3.plot(data[:, 0], data[:, 1], "Brown", lw=2, ms=7)
     data, _ = bin4_HQ10000_G1_2_9_005[0]
     ax3.plot(data[:, 0], data[:, 1], "Orange", lw=2, ms=7)
+
+Plt(3, bin2_HQ10000_G0_8_2_005[0], "g:")
     data, _ = bin4_HQ10000_G1_2_9_005[1]
     ax3.plot(data[:, 0], data[:, 1], "y", lw=2, ms=7)
+
+Plt(3, bin2_HQ10000_G0_8_2_005[0], "g:")
     data, _ = bin4_HQ10000_G1_0_10_009[0]
     ax3.plot(data[:, 0], data[:, 1], "M", lw=2, ms=7)
+
     data, _ = bin4_HQ10000_G1_0_10_009[1]
     ax3.plot(data[:, 0], data[:, 1], "Violet", lw=2, ms=7)
+
     ax3.set_xlabel(r"$ u_t $ and $ u_r $", fontsize=20)
     ax3.set_ylabel(r"$\log \left( f\left( u \right) \right)$", fontsize=20)
     ax3.legend(
