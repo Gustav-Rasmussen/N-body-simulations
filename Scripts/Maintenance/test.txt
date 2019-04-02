@@ -1,1 +1,2 @@
-## empty
+## TODO:
+# Add rename.py, RegexUpper.py & KPI.py to this folder
