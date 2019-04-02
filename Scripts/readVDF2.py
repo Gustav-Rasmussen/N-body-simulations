@@ -1917,16 +1917,7 @@ if Fig_GPerts_same_gammas_as_IC_vr:
         handlelength=2.5,
     )
 
-Plt(3, bin4_HQ10000_G1_2_9_005[5], "y")
-    data, _ = bin1_HQ10000_G1_0_0_000[0]  # label=r'$\gamma = -1.5$'
-    ax3.plot(
-        data[:, 0],
-        data[:, 1],
-        "b--",
-        label=r"%s" % HQ0[len("HQ10000_G") :],
-        lw=2,
-        ms=7,
-    )
+    Plt(3, bin1_HQ10000_G1_0_0_000[0], "b--", label=r"%s" % HQ0[len("HQ10000_G") :])
 
     data, _ = bin1_HQ10000_G1_0_0_000[1]
     ax3.plot(data[:, 0], data[:, 1], "Skyblue", ls="--", lw=2, ms=7)
