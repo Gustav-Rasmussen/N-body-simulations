@@ -2197,49 +2197,10 @@ if Fig_GPerts_G1_2_same_gammas_as_IC_vt:
     for i in range(1, 5):
         exec(f"ax{i}.grid()")
 
-Plt(1, bin4_HQ10000_G1_2_9_005[5], "y")
-    data, _ = bin1_HQ10000_G1_2_1_005[0]
-    ax1.plot(
-        data[:, 0],
-        data[:, 1],
-        "b--",
-        label=r"%s" % HQ12[len("HQ10000_G") :],
-        lw=2,
-        ms=7,
-    )
-
-Plt(1, bin4_HQ10000_G1_2_9_005[5], "y")
-    data, _ = bin1_HQ10000_G1_2_3_005[0]
-    ax1.plot(
-        data[:, 0],
-        data[:, 1],
-        "r--",
-        label=r"%s" % HQ24[len("HQ10000_G") :],
-        lw=2,
-        ms=7,
-    )
-
-Plt(1, bin4_HQ10000_G1_2_9_005[5], "y")
-    data, _ = bin1_HQ10000_G1_2_5_005[0]
-    ax1.plot(
-        data[:, 0],
-        data[:, 1],
-        "g--",
-        label=r"%s" % HQ36[len("HQ10000_G") :],
-        lw=2,
-        ms=7,
-    )
-
-Plt(1, bin4_HQ10000_G1_2_9_005[5], "y")
-    data, _ = bin1_HQ10000_G1_2_7_005[0]
-    ax1.plot(
-        data[:, 0],
-        data[:, 1],
-        "k--",
-        label=r"%s" % HQ48[len("HQ10000_G") :],
-        lw=2,
-        ms=7,
-    )
+    Plt(1, bin1_HQ10000_G1_2_1_005[0], "b--", label=r"%s" % HQ12[len("HQ10000_G") :])
+    Plt(1, bin1_HQ10000_G1_2_3_005[0], "r--", label=r"%s" % HQ24[len("HQ10000_G") :])
+    Plt(1, bin1_HQ10000_G1_2_5_005[0], "g--", label=r"%s" % HQ36[len("HQ10000_G") :])
+    Plt(1, bin1_HQ10000_G1_2_7_005[0], "k--", label=r"%s" % HQ48[len("HQ10000_G") :])
 
     data, _ = bin1_HQ10000_G1_2_9_005[0]
     ax1.plot(
@@ -2252,17 +2213,9 @@ Plt(1, bin4_HQ10000_G1_2_9_005[5], "y")
         ms=7,
     )
 
-Plt(1, bin4_HQ10000_G1_2_9_005[5], "y")
-    data, _ = bin2_HQ10000_G1_2_1_005[0]
-    ax1.plot(data[:, 0], data[:, 1], "r:", lw=4, ms=7)
-
-Plt(1, bin4_HQ10000_G1_2_9_005[5], "y")
-    data, _ = bin2_HQ10000_G1_2_3_005[0]
-    ax1.plot(data[:, 0], data[:, 1], "g:", lw=4, ms=7)
-
-Plt(1, bin4_HQ10000_G1_2_9_005[5], "y")
-    data, _ = bin2_HQ10000_G1_2_5_005[0]
-    ax1.plot(data[:, 0], data[:, 1], "k:", lw=4, ms=7)
+    Plt(1, bin2_HQ10000_G1_2_1_005[0], "r:")
+    Plt(1, bin2_HQ10000_G1_2_3_005[0], "g:")
+    Plt(1, bin2_HQ10000_G1_2_5_005[0], "k:")
 
     data, _ = bin2_HQ10000_G1_2_7_005[0]
     ax1.plot(data[:, 0], data[:, 1], "Brown", ls=":", lw=4, ms=7)
@@ -2270,17 +2223,9 @@ Plt(1, bin4_HQ10000_G1_2_9_005[5], "y")
     data, _ = bin2_HQ10000_G1_2_9_005[0]
     ax1.plot(data[:, 0], data[:, 1], "Orange", ls=":", lw=4, ms=7)
 
-Plt(1, bin4_HQ10000_G1_2_9_005[5], "y")
-    data, _ = bin3_HQ10000_G1_2_1_005[0]
-    ax1.plot(data[:, 0], data[:, 1], "r-.", lw=4, ms=7)
-
-Plt(1, bin4_HQ10000_G1_2_9_005[5], "y")
-    data, _ = bin3_HQ10000_G1_2_3_005[0]
-    ax1.plot(data[:, 0], data[:, 1], "g-.", lw=4, ms=7)
-
-Plt(1, bin4_HQ10000_G1_2_9_005[5], "y")
-    data, _ = bin3_HQ10000_G1_2_5_005[0]
-    ax1.plot(data[:, 0], data[:, 1], "k-.", lw=4, ms=7)
+    Plt(1, bin3_HQ10000_G1_2_1_005[0], "r-.")
+    Plt(1, bin3_HQ10000_G1_2_3_005[0], "g-.")
+    Plt(1, bin3_HQ10000_G1_2_5_005[0], "k-.")
 
     data, _ = bin3_HQ10000_G1_2_7_005[0]
     ax1.plot(data[:, 0], data[:, 1], "Brown", ls="-.", lw=4, ms=7)
@@ -2288,17 +2233,9 @@ Plt(1, bin4_HQ10000_G1_2_9_005[5], "y")
     data, _ = bin3_HQ10000_G1_2_9_005[0]
     ax1.plot(data[:, 0], data[:, 1], "Orange", ls="-.", lw=4, ms=7)
 
-Plt(1, bin4_HQ10000_G1_2_9_005[5], "y")
-    data, _ = bin4_HQ10000_G1_2_1_005[0]
-    ax1.plot(data[:, 0], data[:, 1], "r", lw=2, ms=7)
-
-Plt(1, bin4_HQ10000_G1_2_9_005[5], "y")
-    data, _ = bin4_HQ10000_G1_2_3_005[0]
-    ax1.plot(data[:, 0], data[:, 1], "g", lw=2, ms=7)
-
-Plt(1, bin4_HQ10000_G1_2_9_005[5], "y")
-    data, _ = bin4_HQ10000_G1_2_5_005[0]
-    ax1.plot(data[:, 0], data[:, 1], "k", lw=2, ms=7)
+    Plt(1, bin4_HQ10000_G1_2_1_005[0], "r")
+    Plt(1, bin4_HQ10000_G1_2_3_005[0], "g")
+    Plt(1, bin4_HQ10000_G1_2_5_005[0], "k")
 
     data, _ = bin4_HQ10000_G1_2_7_005[0]
     ax1.plot(data[:, 0], data[:, 1], "Brown", lw=2, ms=7)
@@ -2318,15 +2255,9 @@ Plt(1, bin4_HQ10000_G1_2_9_005[5], "y")
         handlelength=2.5,
     )
 
-    data, _ = bin1_HQ10000_G1_2_1_005[4]
-    ax2.plot(
-        data[:, 0],
-        data[:, 1],
-        "r--",
-        label=r"%s" % HQ12[len("HQ10000_G") :],
-        lw=2,
-        ms=7,
-    )
+    Plt(2, bin1_HQ10000_G1_2_1_005[4], "r--", label=r"%s" % HQ12[len("HQ10000_G") :])
+
+Plt(2, bin4_HQ10000_G1_2_5_005[0], "k")
     data, _ = bin1_HQ10000_G1_2_3_005[4]
     ax2.plot(
         data[:, 0],
@@ -2336,6 +2267,8 @@ Plt(1, bin4_HQ10000_G1_2_9_005[5], "y")
         lw=2,
         ms=7,
     )
+
+Plt(2, bin4_HQ10000_G1_2_5_005[0], "k")
     data, _ = bin1_HQ10000_G1_2_5_005[4]
     ax2.plot(
         data[:, 0],
@@ -2345,6 +2278,7 @@ Plt(1, bin4_HQ10000_G1_2_9_005[5], "y")
         lw=2,
         ms=7,
     )
+
     data, _ = bin1_HQ10000_G1_2_7_005[4]
     ax2.plot(
         data[:, 0],
@@ -2355,6 +2289,7 @@ Plt(1, bin4_HQ10000_G1_2_9_005[5], "y")
         lw=2,
         ms=7,
     )
+
     data, _ = bin1_HQ10000_G1_2_9_005[4]
     ax2.plot(
         data[:, 0],
@@ -2365,36 +2300,61 @@ Plt(1, bin4_HQ10000_G1_2_9_005[5], "y")
         lw=2,
         ms=7,
     )
+
+Plt(2, bin4_HQ10000_G1_2_5_005[0], "k")
     data, _ = bin2_HQ10000_G1_2_1_005[4]
     ax2.plot(data[:, 0], data[:, 1], "r:", lw=2, ms=7)
+
+Plt(2, bin4_HQ10000_G1_2_5_005[0], "k")
     data, _ = bin2_HQ10000_G1_2_3_005[4]
     ax2.plot(data[:, 0], data[:, 1], "g:", lw=2, ms=7)
+
+Plt(2, bin4_HQ10000_G1_2_5_005[0], "k")
     data, _ = bin2_HQ10000_G1_2_5_005[4]
     ax2.plot(data[:, 0], data[:, 1], "k:", lw=2, ms=7)
+
     data, _ = bin2_HQ10000_G1_2_7_005[4]
     ax2.plot(data[:, 0], data[:, 1], "Brown", ls=":", lw=2, ms=7)
+
     data, _ = bin2_HQ10000_G1_2_9_005[4]
     ax2.plot(data[:, 0], data[:, 1], "Orange", ls=":", lw=2, ms=7)
+
+Plt(2, bin4_HQ10000_G1_2_5_005[0], "k")
     data, _ = bin3_HQ10000_G1_2_1_005[4]
     ax2.plot(data[:, 0], data[:, 1], "r-.", lw=2, ms=7)
+
+Plt(2, bin4_HQ10000_G1_2_5_005[0], "k")
     data, _ = bin3_HQ10000_G1_2_3_005[4]
     ax2.plot(data[:, 0], data[:, 1], "g-.", lw=2, ms=7)
+
+Plt(2, bin4_HQ10000_G1_2_5_005[0], "k")
     data, _ = bin3_HQ10000_G1_2_5_005[4]
     ax2.plot(data[:, 0], data[:, 1], "k-.", lw=2, ms=7)
+
     data, _ = bin3_HQ10000_G1_2_7_005[4]
     ax2.plot(data[:, 0], data[:, 1], "Brown", ls="-.", lw=2, ms=7)
+
     data, _ = bin3_HQ10000_G1_2_9_005[4]
     ax2.plot(data[:, 0], data[:, 1], "Orange", ls="-.", lw=2, ms=7)
+
+Plt(2, bin4_HQ10000_G1_2_5_005[0], "k")
     data, _ = bin4_HQ10000_G1_2_1_005[4]
     ax2.plot(data[:, 0], data[:, 1], "r", lw=2, ms=7)
+
+Plt(2, bin4_HQ10000_G1_2_5_005[0], "k")
     data, _ = bin4_HQ10000_G1_2_3_005[4]
     ax2.plot(data[:, 0], data[:, 1], "g", lw=2, ms=7)
+
+Plt(2, bin4_HQ10000_G1_2_5_005[0], "k")
     data, _ = bin4_HQ10000_G1_2_5_005[4]
     ax2.plot(data[:, 0], data[:, 1], "k", lw=2, ms=7)
+
     data, _ = bin4_HQ10000_G1_2_7_005[4]
     ax2.plot(data[:, 0], data[:, 1], "Brown", lw=2, ms=7)
+
     data, _ = bin4_HQ10000_G1_2_9_005[4]
     ax2.plot(data[:, 0], data[:, 1], "Orange", lw=2, ms=7)
+
     ax2.set_xlabel(
         r"$\log \left( |u_tn|,u_tp \right)$ and $\log \left( |u_rn|,u_rp \right)$",
         fontsize=20,
