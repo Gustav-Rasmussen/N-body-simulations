@@ -2800,91 +2800,45 @@ if Fig_GPerts_different_gammas_vt:
             handlelength=2.5,
         )
 
-Plt(2, bin4_different_gammas_test2_HQ10000_G1_0_25_005[0], "b")
-        data, _ = bin1_different_gammas_test2_HQ10000_G1_0_0_000[4]
-        ax2.plot(data[:, 0], data[:, 1], "b--", lw=2, ms=7)
-
-Plt(2, bin4_different_gammas_test2_HQ10000_G1_0_25_005[0], "b")
-        data, _ = bin1_different_gammas_test2_HQ10000_G1_0_5_005[4]
-        ax2.plot(data[:, 0], data[:, 1], "r--", lw=2, ms=7)
-
-Plt(2, bin4_different_gammas_test2_HQ10000_G1_0_25_005[0], "b")
-        data, _ = bin1_different_gammas_test2_HQ10000_G1_0_10_005[4]
-        ax2.plot(data[:, 0], data[:, 1], "g--", lw=2, ms=7)
-
-Plt(2, bin4_different_gammas_test2_HQ10000_G1_0_25_005[0], "b")
-        data, _ = bin1_different_gammas_test2_HQ10000_G1_0_15_005[4]
-        ax2.plot(data[:, 0], data[:, 1], "k--", lw=2, ms=7)
+        Plt(2, bin1_different_gammas_test2_HQ10000_G1_0_0_000[4], "b--")
+        Plt(2, bin1_different_gammas_test2_HQ10000_G1_0_5_005[4], "r--")
+        Plt(2, bin1_different_gammas_test2_HQ10000_G1_0_10_005[4], "g--")
+        Plt(2, bin1_different_gammas_test2_HQ10000_G1_0_15_005[4], "k--")
 
         data, _ = bin1_different_gammas_test2_HQ10000_G1_0_20_005[4]
         ax2.plot(data[:, 0], data[:, 1], "Orange", ls="--", lw=2, ms=7)
 
-Plt(2, bin4_different_gammas_test2_HQ10000_G1_0_25_005[0], "b")
-        data, _ = bin1_different_gammas_test2_HQ10000_G1_0_25_005[4]
-        ax2.plot(data[:, 0], data[:, 1], "b--", lw=2, ms=7)
-
-Plt(2, bin4_different_gammas_test2_HQ10000_G1_0_25_005[0], "b")
-        data, _ = bin2_different_gammas_test2_HQ10000_G1_0_0_000[4]
-        ax2.plot(data[:, 0], data[:, 1], "r:", lw=4, ms=7)
-
-Plt(2, bin4_different_gammas_test2_HQ10000_G1_0_25_005[0], "b")
-        data, _ = bin2_different_gammas_test2_HQ10000_G1_0_5_005[4]
-        ax2.plot(data[:, 0], data[:, 1], "g:", lw=4, ms=7)
-
-Plt(2, bin4_different_gammas_test2_HQ10000_G1_0_25_005[0], "b")
-        data, _ = bin2_different_gammas_test2_HQ10000_G1_0_10_005[4]
-        ax2.plot(data[:, 0], data[:, 1], "k:", lw=4, ms=7)
+        Plt(2, bin1_different_gammas_test2_HQ10000_G1_0_25_005[4], "b--")
+        Plt(2, bin2_different_gammas_test2_HQ10000_G1_0_0_000[4], "r:")
+        Plt(2, bin2_different_gammas_test2_HQ10000_G1_0_5_005[4], "g:")
+        Plt(2, bin2_different_gammas_test2_HQ10000_G1_0_10_005[4], "k:")
 
         data, _ = bin2_different_gammas_test2_HQ10000_G1_0_15_005[4]
         ax2.plot(data[:, 0], data[:, 1], "Brown", ls=":", lw=4, ms=7)
         data, _ = bin2_different_gammas_test2_HQ10000_G1_0_20_005[4]
         ax2.plot(data[:, 0], data[:, 1], "Orange", ls=":", lw=4, ms=7)
 
-Plt(2, bin4_different_gammas_test2_HQ10000_G1_0_25_005[0], "b")
-        data, _ = bin2_different_gammas_test2_HQ10000_G1_0_25_005[4]
-        ax2.plot(data[:, 0], data[:, 1], "b:", lw=4, ms=7)
-
-Plt(2, bin4_different_gammas_test2_HQ10000_G1_0_25_005[0], "b")
-        data, _ = bin3_different_gammas_test2_HQ10000_G1_0_0_000[4]
-        ax2.plot(data[:, 0], data[:, 1], "r-.", lw=4, ms=7)
-
-Plt(2, bin4_different_gammas_test2_HQ10000_G1_0_25_005[0], "b")
-        data, _ = bin3_different_gammas_test2_HQ10000_G1_0_5_005[4]
-        ax2.plot(data[:, 0], data[:, 1], "g-.", lw=4, ms=7)
-
-Plt(2, bin4_different_gammas_test2_HQ10000_G1_0_25_005[0], "b")
-        data, _ = bin3_different_gammas_test2_HQ10000_G1_0_10_005[4]
-        ax2.plot(data[:, 0], data[:, 1], "k-.", lw=4, ms=7)
+        Plt(2, bin2_different_gammas_test2_HQ10000_G1_0_25_005[4], "b:")
+        Plt(2, bin3_different_gammas_test2_HQ10000_G1_0_0_000[4], "r-.")
+        Plt(2, bin3_different_gammas_test2_HQ10000_G1_0_5_005[4], "g-.")
+        Plt(2, bin3_different_gammas_test2_HQ10000_G1_0_10_005[4], "k-.")
 
         data, _ = bin3_different_gammas_test2_HQ10000_G1_0_15_005[4]
         ax2.plot(data[:, 0], data[:, 1], "Brown", ls="-.", lw=4, ms=7)
         data, _ = bin3_different_gammas_test2_HQ10000_G1_0_20_005[4]
         ax2.plot(data[:, 0], data[:, 1], "Orange", ls="-.", lw=4, ms=7)
 
-Plt(2, bin4_different_gammas_test2_HQ10000_G1_0_25_005[0], "b")
-        data, _ = bin3_different_gammas_test2_HQ10000_G1_0_25_005[4]
-        ax2.plot(data[:, 0], data[:, 1], "b-.", lw=4, ms=7)
-
-Plt(2, bin4_different_gammas_test2_HQ10000_G1_0_25_005[0], "b")
-        data, _ = bin4_different_gammas_test2_HQ10000_G1_0_0_000[4]
-        ax2.plot(data[:, 0], data[:, 1], "r", lw=2, ms=7)
-
-Plt(2, bin4_different_gammas_test2_HQ10000_G1_0_25_005[0], "b")
-        data, _ = bin4_different_gammas_test2_HQ10000_G1_0_5_005[4]
-        ax2.plot(data[:, 0], data[:, 1], "g", lw=2, ms=7)
-
-Plt(2, bin4_different_gammas_test2_HQ10000_G1_0_25_005[0], "b")
-        data, _ = bin4_different_gammas_test2_HQ10000_G1_0_10_005[4]
-        ax2.plot(data[:, 0], data[:, 1], "k", lw=2, ms=7)
+        Plt(2, bin3_different_gammas_test2_HQ10000_G1_0_25_005[4], "b-.")
+        Plt(2, bin4_different_gammas_test2_HQ10000_G1_0_0_000[4], "r")
+        Plt(2, bin4_different_gammas_test2_HQ10000_G1_0_5_005[4], "g")
+        Plt(2, bin4_different_gammas_test2_HQ10000_G1_0_10_005[4], "k")
 
         data, _ = bin4_different_gammas_test2_HQ10000_G1_0_15_005[4]
         ax2.plot(data[:, 0], data[:, 1], "Brown", lw=2, ms=7)
         data, _ = bin4_different_gammas_test2_HQ10000_G1_0_20_005[4]
         ax2.plot(data[:, 0], data[:, 1], "Orange", lw=2, ms=7)
 
-Plt(2, bin4_different_gammas_test2_HQ10000_G1_0_25_005[0], "b")
-        data, _ = bin4_different_gammas_test2_HQ10000_G1_0_25_005[4]
-        ax2.plot(data[:, 0], data[:, 1], "b", lw=2, ms=7)
+        Plt(2, bin4_different_gammas_test2_HQ10000_G1_0_25_005[4], "b")
 
         ax2.set_xlabel(r"$\log \left( |u_tn|,u_tp \right)$", fontsize=20)
         ax2.set_ylabel(
