@@ -21,12 +21,13 @@ def byte_to_str(byte_str):
 
 with open("KPI.txt", "a") as wf:
     wf.write(
-        "------------------------------------------------------------\n\n"
+        "--------------------------------------------------------------------------\n\n"
     )
-    wf.write(str(datetime.datetime.now()) + "\n\n")
+    wf.write("\n ******** Logging timestamp:\t" + str(datetime.datetime.now())
+             + " ********" + "\n\n\n")
     KPI_list = []
     wf.write(
-        "Module name,\t number of lines,\t PEP-8 violations:".rjust(50)
+        "Module name \t\t\t Number of lines \t PEP-8 violations".rjust(50)
         + "\n\n"
     )
     file_count = 0
@@ -56,10 +57,12 @@ with open("KPI.txt", "a") as wf:
             KPI_list, key=lambda KPI: KPI["lines"], reverse=True
         )
     for element in KPI_list_sorted:
-        res_str = f"{element['module']}\t{element['lines']}\t{element['PEP8_violations']}"
-        wf.write(res_str.rjust(50) + "\n")
+        # res_str = f"{element['module']}\t{element['lines']}\t{element['PEP8_violations']}"
+        # wf.write(res_str.rjust(50) + "\n")
+        res_str = f"{element['module']:<40}{element['lines']:^4}{element['PEP8_violations']:>22}"
+        wf.write(res_str + "\n")
         # print(f"{element['module']}{element['lines']:^40}{element['PEP8_violations']:>10}")
         # f"{left_aligned:<15}{center:^10}{right_aligned:>15}"
         # wf.write(f"{element['module']}, {element['lines']}, {element['PEP8_violations']}\n")
 
-    wf.write(f"\nNumber of Python scripts: {file_count} \n\n")
+    wf.write(f"\n ************** Number of Python scripts: \t{file_count} ************** \n\n")
