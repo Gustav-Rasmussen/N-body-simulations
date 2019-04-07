@@ -130,17 +130,17 @@ if Fig_vRvPhivTheta:
 
 if Fig_vr_vPhi_vTheta_with_fit:
     f, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2)
+
+    for i in range(1, 5):
+        exec(f"ax{i}.grid()")
+
+    for i in range(1, 3):
+        exec(
+            f"ax{i}.legend(prop=dict(size=13), numpoints=2, ncol=1,\
+               frameon=True, loc=0, handlelength=2.5)"
+        )
+
     if test:
-
-        for i in range(1, 5):
-            exec(f"ax{i}.grid()")
-
-        for i in range(1, 3):
-            exec(
-                f"ax{i}.legend(prop=dict(size=13), numpoints=2, ncol=1,\
-                   frameon=True, loc=0, handlelength=2.5)"
-            )
-
         data, _ = bin2_HQ10000_G1_2_1_005[1]
         ax1.plot(data[:, 0], data[:, 1], "g", lw=4, ms=7)
         popt, pcov = curve_fit(func_2, data[:, 0], data[:, 1])
@@ -281,10 +281,6 @@ if Fig_vr_vPhi_vTheta_with_fit:
         ax4.set_yscale("log")
 
     if test2:
-
-        for i in range(1, 5):
-            exec(f"ax{i}.grid()")
-
         data, _ = bin2_different_gammas_test2_HQ10000_G1_0_0_000[1]
         ax1.plot(data[:, 0], data[:, 1], "g", lw=4, ms=7)
         popt, pcov = curve_fit(func_2, data[:, 0], data[:, 1])
@@ -327,14 +323,6 @@ if Fig_vr_vPhi_vTheta_with_fit:
         ax1.set_ylabel(r"$f\left( u \right)$", fontsize=20)
         ax1.set_title(
             r"Fits to file = %s, $\gamma = -2.0 $" % test2_HQ0, fontsize=20
-        )
-        ax1.legend(
-            prop=dict(size=13),
-            numpoints=2,
-            ncol=1,
-            frameon=True,
-            loc=0,
-            handlelength=2.5,
         )
 
         data, _ = bin2_different_gammas_test2_HQ10000_G1_0_0_000[5]
@@ -399,14 +387,6 @@ if Fig_vr_vPhi_vTheta_with_fit:
         ax2.set_xticklabels([])
         ax2.set_ylabel(
             r"$f\left(\log \left( |u_n|,u_p \right)\right)$", fontsize=20
-        )
-        ax2.legend(
-            prop=dict(size=13),
-            numpoints=2,
-            ncol=1,
-            frameon=True,
-            loc=0,
-            handlelength=2.5,
         )
 
         data, _ = bin2_different_gammas_test2_HQ10000_G1_0_0_000[1]

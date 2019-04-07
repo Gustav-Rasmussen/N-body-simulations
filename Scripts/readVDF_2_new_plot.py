@@ -2733,6 +2733,15 @@ if Fig5a_GPerts_gammas_1_5_vt_divided_by_gauss_and_Tsallis:
         for i in range(1, 7):
             exec(f"ax{i}.set_xticklabels([])")
 
+        for i in range(1, 7):
+            exec(f"legend(
+                          prop=dict(size=13),
+                          numpoints=2,
+                          ncol=1,
+                          frameon=True,
+                          loc=0,
+                          handlelength=2.5)")
+
         data, _ = bin1_different_gammas_A_HQ10000_G1_0_0_000[0]
         ax1.plot(data[:, 0], data[:, 1], "r", lw=2, ms=7)
         data, _ = bin1_different_gammas_A_HQ10000_G1_0_5_005[0]
@@ -2753,14 +2762,6 @@ if Fig5a_GPerts_gammas_1_5_vt_divided_by_gauss_and_Tsallis:
             r" Time evolution of %s , different r bins, $\gamma = -1.5$"
             % A_HQ0[:-9],
             fontsize=20,
-        )
-        ax1.legend(
-            prop=dict(size=11),
-            numpoints=2,
-            ncol=1,
-            frameon=True,
-            loc=0,
-            handlelength=2.5,
         )
 
         data, _ = bin1_different_gammas_A_HQ10000_G1_0_0_000[4]
@@ -2823,14 +2824,6 @@ if Fig5a_GPerts_gammas_1_5_vt_divided_by_gauss_and_Tsallis:
         ax2.set_ylabel(
             r"$f\left(\log \left( |u_n|,u_p \right)\right)$", fontsize=20
         )
-        ax2.legend(
-            prop=dict(size=13),
-            numpoints=2,
-            ncol=1,
-            frameon=True,
-            loc=0,
-            handlelength=2.5,
-        )
 
         data, _ = bin1_different_gammas_A_HQ10000_G1_0_0_000[0]
         ax3.plot(data[:, 0], data[:, 1], "r", lw=2, ms=7)
@@ -2848,14 +2841,6 @@ if Fig5a_GPerts_gammas_1_5_vt_divided_by_gauss_and_Tsallis:
         ax3.plot(data[:, 0], data[:, 1], "b", lw=2, ms=7)
 
         ax3.set_ylabel(r"$\log \left( f\left( u \right) \right)$", fontsize=20)
-        ax3.legend(
-            prop=dict(size=13),
-            numpoints=2,
-            ncol=1,
-            frameon=True,
-            loc=0,
-            handlelength=2.5,
-        )
         ax3.set_yscale("log")
 
         data, _ = bin1_different_gammas_A_HQ10000_G1_0_0_000[4]
@@ -2876,14 +2861,6 @@ if Fig5a_GPerts_gammas_1_5_vt_divided_by_gauss_and_Tsallis:
         ax4.set_ylabel(
             r"$\log \left( f\left(\log \left( |u_n|,u_p \right)\right) \right)$",
             fontsize=20,
-        )
-        ax4.legend(
-            prop=dict(size=13),
-            numpoints=2,
-            ncol=1,
-            frameon=True,
-            loc=0,
-            handlelength=2.5,
         )
         ax4.set_yscale("log")
 
@@ -2948,14 +2925,6 @@ if Fig5a_GPerts_gammas_1_5_vt_divided_by_gauss_and_Tsallis:
         ax5.set_ylabel(
             r"$\frac{f\left( u \right)}{887.569 \cdot x \cdot e^{-0.922 \cdot x^2} }$",
             fontsize=20,
-        )
-        ax5.legend(
-            prop=dict(size=13),
-            numpoints=2,
-            ncol=1,
-            frameon=True,
-            loc=0,
-            handlelength=2.5,
         )
 
         data, _ = bin1_different_gammas_A_HQ10000_G1_0_0_000[4]
@@ -3043,14 +3012,6 @@ if Fig5a_GPerts_gammas_1_5_vt_divided_by_gauss_and_Tsallis:
         ax6.set_ylabel(
             r"$\frac{f\left(\log \left( |u_n|,u_p \right)\right)}{3424.993 \cdot x^2 \cdot e^{-0.930 \cdot x^2 }}$",
             fontsize=20,
-        )
-        ax6.legend(
-            prop=dict(size=13),
-            numpoints=2,
-            ncol=1,
-            frameon=True,
-            loc=0,
-            handlelength=2.5,
         )
 
         data, _ = bin1_different_gammas_A_HQ10000_G1_0_0_000[0]
@@ -3246,6 +3207,15 @@ if Fig5a_GPerts_gammas_1_5_vt_divided_by_gauss_and_Tsallis:
         for i in range(1, 7):
             exec(f"ax{i}.set_xticklabels([])")
 
+        for i in range(1, 7):
+            exec(f"legend(
+                          prop=dict(size=13),
+                          numpoints=2,
+                          ncol=1,
+                          frameon=True,
+                          loc=0,
+                          handlelength=2.5)")
+
         data, _ = bin1_different_gammas_B_HQ10000_G1_0_0_000[0]
         ax1.plot(data[:, 0], data[:, 1], "r", lw=2, ms=7)
         data, _ = bin1_different_gammas_B_HQ10000_G1_0_5_005[0]
@@ -3263,14 +3233,6 @@ if Fig5a_GPerts_gammas_1_5_vt_divided_by_gauss_and_Tsallis:
             r" Time evolution of %s , different r bins, $\gamma = -1.5$"
             % B_HQ0[:-9],
             fontsize=20,
-        )
-        ax1.legend(
-            prop=dict(size=11),
-            numpoints=2,
-            ncol=1,
-            frameon=True,
-            loc=0,
-            handlelength=2.5,
         )
 
         data, _ = bin1_different_gammas_B_HQ10000_G1_0_0_000[4]
@@ -3323,14 +3285,6 @@ if Fig5a_GPerts_gammas_1_5_vt_divided_by_gauss_and_Tsallis:
         ax2.set_ylabel(
             r"$f\left(\log \left( |u_n|,u_p \right)\right)$", fontsize=20
         )
-        ax2.legend(
-            prop=dict(size=13),
-            numpoints=2,
-            ncol=1,
-            frameon=True,
-            loc=0,
-            handlelength=2.5,
-        )
 
         data, _ = bin1_different_gammas_B_HQ10000_G1_0_0_000[0]
         ax3.plot(data[:, 0], data[:, 1], "r", lw=2, ms=7)
@@ -3345,14 +3299,6 @@ if Fig5a_GPerts_gammas_1_5_vt_divided_by_gauss_and_Tsallis:
         ax3.plot(data[:, 0], data[:, 1], "Orange", lw=2, ms=7)
 
         ax3.set_ylabel(r"$\log \left( f\left( u \right) \right)$", fontsize=20)
-        ax3.legend(
-            prop=dict(size=13),
-            numpoints=2,
-            ncol=1,
-            frameon=True,
-            loc=0,
-            handlelength=2.5,
-        )
         ax3.set_yscale("log")
 
         data, _ = bin1_different_gammas_B_HQ10000_G1_0_0_000[4]
@@ -3370,14 +3316,6 @@ if Fig5a_GPerts_gammas_1_5_vt_divided_by_gauss_and_Tsallis:
         ax4.set_ylabel(
             r"$\log \left( f\left(\log \left( |u_n|,u_p \right)\right) \right)$",
             fontsize=20,
-        )
-        ax4.legend(
-            prop=dict(size=13),
-            numpoints=2,
-            ncol=1,
-            frameon=True,
-            loc=0,
-            handlelength=2.5,
         )
         ax4.set_yscale("log")
 
@@ -3431,14 +3369,6 @@ if Fig5a_GPerts_gammas_1_5_vt_divided_by_gauss_and_Tsallis:
         ax5.set_ylabel(
             r"$\frac{f\left( u \right)}{914.415 \cdot x \cdot e^{-0.930 \cdot x^2} }$",
             fontsize=20,
-        )
-        ax5.legend(
-            prop=dict(size=13),
-            numpoints=2,
-            ncol=1,
-            frameon=True,
-            loc=0,
-            handlelength=2.5,
         )
 
         data, _ = bin1_different_gammas_B_HQ10000_G1_0_0_000[4]
@@ -3512,14 +3442,6 @@ if Fig5a_GPerts_gammas_1_5_vt_divided_by_gauss_and_Tsallis:
         ax6.set_ylabel(
             r"$\frac{f\left(\log \left( |u_n|,u_p \right)\right)}{3452.955 \cdot x^2 \cdot e^{-0.936 \cdot x^2 }}$",
             fontsize=20,
-        )
-        ax6.legend(
-            prop=dict(size=13),
-            numpoints=2,
-            ncol=1,
-            frameon=True,
-            loc=0,
-            handlelength=2.5,
         )
 
         data, _ = bin1_different_gammas_B_HQ10000_G1_0_0_000[0]
@@ -3678,6 +3600,7 @@ if Fig5a_GPerts_gammas_1_5_vt_divided_by_gauss_and_Tsallis:
 
 if Fig5b_GPerts_gammas_2_0_vt_divided_by_gauss_and_Tsallis:
     f, ((ax1, ax2), (ax3, ax4), (ax5, ax6), (ax7, ax8)) = plt.subplots(4, 2)
+
     if test:
 
         for i in range(1, 7):
@@ -3685,6 +3608,15 @@ if Fig5b_GPerts_gammas_2_0_vt_divided_by_gauss_and_Tsallis:
 
         for i in range(1, 7):
             exec(f"ax{i}.set_xticklabels([])")
+
+        for i in range(1, 7):
+            exec(f"legend(
+                          prop=dict(size=13),
+                          numpoints=2,
+                          ncol=1,
+                          frameon=True,
+                          loc=0,
+                          handlelength=2.5)")
 
         data, _ = bin2__different_gammas_HQ10000_G1_2_1_005[0]
         ax1.plot(data[:, 0], data[:, 1], "b", lw=2, ms=7)
@@ -3702,14 +3634,6 @@ if Fig5b_GPerts_gammas_2_0_vt_divided_by_gauss_and_Tsallis:
             r"Time evolution of files = %s, different r bins, $\gamma = -2.0$"
             % HQ0[:-9],
             fontsize=20,
-        )
-        ax1.legend(
-            prop=dict(size=11),
-            numpoints=2,
-            ncol=1,
-            frameon=True,
-            loc=0,
-            handlelength=2.5,
         )
 
         data, _ = bin2_different_gammas_HQ10000_G1_2_1_005[4]
@@ -3761,14 +3685,6 @@ if Fig5b_GPerts_gammas_2_0_vt_divided_by_gauss_and_Tsallis:
         ax2.set_ylabel(
             r"$f\left(\log \left( |u_n|,u_p \right)\right)$", fontsize=20
         )
-        ax2.legend(
-            prop=dict(size=13),
-            numpoints=2,
-            ncol=1,
-            frameon=True,
-            loc=0,
-            handlelength=2.5,
-        )
 
         data, _ = bin2_different_gammas_HQ10000_G1_2_1_005[0]
         ax3.plot(data[:, 0], data[:, 1], "r", lw=2, ms=7)
@@ -3782,14 +3698,6 @@ if Fig5b_GPerts_gammas_2_0_vt_divided_by_gauss_and_Tsallis:
         ax3.plot(data[:, 0], data[:, 1], "Orange", lw=2, ms=7)
 
         ax3.set_ylabel(r"$\log \left( f\left( u \right) \right)$", fontsize=20)
-        ax3.legend(
-            prop=dict(size=13),
-            numpoints=2,
-            ncol=1,
-            frameon=True,
-            loc=0,
-            handlelength=2.5,
-        )
         ax3.set_yscale("log")
 
         data, _ = bin2_different_gammas_HQ10000_G1_2_1_005[4]
@@ -3806,14 +3714,6 @@ if Fig5b_GPerts_gammas_2_0_vt_divided_by_gauss_and_Tsallis:
         ax4.set_ylabel(
             r"$\log \left( f\left(\log \left( |u_n|,u_p \right)\right) \right)$",
             fontsize=20,
-        )
-        ax4.legend(
-            prop=dict(size=13),
-            numpoints=2,
-            ncol=1,
-            frameon=True,
-            loc=0,
-            handlelength=2.5,
         )
         ax4.set_yscale("log")
 
@@ -3867,14 +3767,6 @@ if Fig5b_GPerts_gammas_2_0_vt_divided_by_gauss_and_Tsallis:
         ax5.set_ylabel(
             r"$\frac{f\left( u \right)}{log(x)e^{-0.5x^2}}$", fontsize=20
         )
-        ax5.legend(
-            prop=dict(size=13),
-            numpoints=2,
-            ncol=1,
-            frameon=True,
-            loc=0,
-            handlelength=2.5,
-        )
 
         data, _ = bin2_different_gammas_HQ10000_G1_2_1_005[4]
         ax6.plot(
@@ -3921,14 +3813,6 @@ if Fig5b_GPerts_gammas_2_0_vt_divided_by_gauss_and_Tsallis:
             r"$\frac{f\left(\log \left( |u_n|,u_p \right)\right)}{e^{-0.5x^2}}$",
             fontsize=20,
         )
-        ax6.legend(
-            prop=dict(size=13),
-            numpoints=2,
-            ncol=1,
-            frameon=True,
-            loc=0,
-            handlelength=2.5,
-        )
 
     if test2:
 
@@ -3937,6 +3821,15 @@ if Fig5b_GPerts_gammas_2_0_vt_divided_by_gauss_and_Tsallis:
 
         for i in range(1, 7):
             exec(f"ax{i}.set_xticklabels([])")
+
+        for i in range(1, 3):
+            exec(f"legend(
+                          prop=dict(size=13),
+                          numpoints=2,
+                          ncol=1,
+                          frameon=True,
+                          loc=0,
+                          handlelength=2.5)")
 
         data, _ = bin2_different_gammas_test2_HQ10000_G1_0_0_000[0]
         ax1.plot(data[:, 0], data[:, 1], "r", lw=2, ms=7)
@@ -3956,14 +3849,6 @@ if Fig5b_GPerts_gammas_2_0_vt_divided_by_gauss_and_Tsallis:
             r" Time evolution of files = %s , different r bins, $\gamma = -2.0$"
             % test2_HQ0[:-9],
             fontsize=20,
-        )
-        ax1.legend(
-            prop=dict(size=11),
-            numpoints=2,
-            ncol=1,
-            frameon=True,
-            loc=0,
-            handlelength=2.5,
         )
 
         data, _ = bin2_different_gammas_test2_HQ10000_G1_0_0_000[4]
@@ -4023,14 +3908,6 @@ if Fig5b_GPerts_gammas_2_0_vt_divided_by_gauss_and_Tsallis:
 
         ax2.set_ylabel(
             r"$f\left(\log \left( |u_n|,u_p \right)\right)$", fontsize=20
-        )
-        ax2.legend(
-            prop=dict(size=13),
-            numpoints=2,
-            ncol=1,
-            frameon=True,
-            loc=0,
-            handlelength=2.5,
         )
 
         data, _ = bin2_different_gammas_test2_HQ10000_G1_0_0_000[0]
@@ -4404,6 +4281,15 @@ if Fig5b_GPerts_gammas_2_0_vt_divided_by_gauss_and_Tsallis:
         for i in range(1, 7):
             exec(f"ax{i}.set_xticklabels([])")
 
+        for i in range(1, 7):
+            exec(f"legend(
+                          prop=dict(size=13),
+                          numpoints=2,
+                          ncol=1,
+                          frameon=True,
+                          loc=0,
+                          handlelength=2.5)")
+
         data, _ = bin2_different_gammas_A_HQ10000_G1_0_0_000[0]
         ax1.plot(data[:, 0], data[:, 1], "r", lw=2, ms=7)
         data, _ = bin2_different_gammas_A_HQ10000_G1_0_5_005[0]
@@ -4422,14 +4308,6 @@ if Fig5b_GPerts_gammas_2_0_vt_divided_by_gauss_and_Tsallis:
             r"Time evolution of %s, different r bins, $\gamma = -2.0$"
             % A_HQ0[:-9],
             fontsize=20,
-        )
-        ax1.legend(
-            prop=dict(size=11),
-            numpoints=2,
-            ncol=1,
-            frameon=True,
-            loc=0,
-            handlelength=2.5,
         )
 
         data, _ = bin2_different_gammas_A_HQ10000_G1_0_0_000[4]
@@ -4490,14 +4368,6 @@ if Fig5b_GPerts_gammas_2_0_vt_divided_by_gauss_and_Tsallis:
         ax2.set_ylabel(
             r"$f\left(\log \left( |u_n|,u_p \right)\right)$", fontsize=20
         )
-        ax2.legend(
-            prop=dict(size=13),
-            numpoints=2,
-            ncol=1,
-            frameon=True,
-            loc=0,
-            handlelength=2.5,
-        )
 
         data, _ = bin2_different_gammas_A_HQ10000_G1_0_0_000[0]
         ax3.plot(data[:, 0], data[:, 1], "r", lw=2, ms=7)
@@ -4513,14 +4383,6 @@ if Fig5b_GPerts_gammas_2_0_vt_divided_by_gauss_and_Tsallis:
         ax3.plot(data[:, 0], data[:, 1], "b", lw=2, ms=7)
 
         ax3.set_ylabel(r"$\log \left( f\left( u \right) \right)$", fontsize=20)
-        ax3.legend(
-            prop=dict(size=13),
-            numpoints=2,
-            ncol=1,
-            frameon=True,
-            loc=0,
-            handlelength=2.5,
-        )
         ax3.set_yscale("log")
 
         data, _ = bin2_different_gammas_A_HQ10000_G1_0_0_000[4]
@@ -4539,14 +4401,6 @@ if Fig5b_GPerts_gammas_2_0_vt_divided_by_gauss_and_Tsallis:
         ax4.set_ylabel(
             r"$\log \left( f\left(\log \left( |u_n|,u_p \right)\right) \right)$",
             fontsize=20,
-        )
-        ax4.legend(
-            prop=dict(size=13),
-            numpoints=2,
-            ncol=1,
-            frameon=True,
-            loc=0,
-            handlelength=2.5,
         )
         ax4.set_yscale("log")
 
@@ -4609,14 +4463,6 @@ if Fig5b_GPerts_gammas_2_0_vt_divided_by_gauss_and_Tsallis:
         ax5.set_ylabel(
             r"$\frac{f\left( u \right)}{887.569 \cdot x \cdot e^{-0.922 \cdot x^2}}$",
             fontsize=20,
-        )
-        ax5.legend(
-            prop=dict(size=13),
-            numpoints=2,
-            ncol=1,
-            frameon=True,
-            loc=0,
-            handlelength=2.5,
         )
 
         data, _ = bin2_different_gammas_A_HQ10000_G1_0_0_000[4]
@@ -4702,14 +4548,6 @@ if Fig5b_GPerts_gammas_2_0_vt_divided_by_gauss_and_Tsallis:
         ax6.set_ylabel(
             r"$\frac{f\left(\log \left( |u_n|,u_p \right)\right)}{3424.993 \cdot x^2 \cdot e^{-0.930 \cdot x^2 }}$",
             fontsize=20,
-        )
-        ax6.legend(
-            prop=dict(size=13),
-            numpoints=2,
-            ncol=1,
-            frameon=True,
-            loc=0,
-            handlelength=2.5,
         )
 
         data, _ = bin2_different_gammas_A_HQ10000_G1_0_0_000[0]
@@ -4902,6 +4740,15 @@ if Fig5b_GPerts_gammas_2_0_vt_divided_by_gauss_and_Tsallis:
         for i in range(1, 7):
             exec(f"ax{i}.set_xticklabels([])")
 
+        for i in range(1, 7):
+            exec(f"legend(
+                          prop=dict(size=13),
+                          numpoints=2,
+                          ncol=1,
+                          frameon=True,
+                          loc=0,
+                          handlelength=2.5)")
+
         data, _ = bin2_different_gammas_B_HQ10000_G1_0_0_000[0]
         ax1.plot(data[:, 0], data[:, 1], "r", lw=2, ms=7)
         data, _ = bin2_different_gammas_B_HQ10000_G1_0_5_005[0]
@@ -4918,14 +4765,6 @@ if Fig5b_GPerts_gammas_2_0_vt_divided_by_gauss_and_Tsallis:
             r" Time evolution of %s , different r bins, $\gamma = -2.0$"
             % B_HQ0[:-9],
             fontsize=20,
-        )
-        ax1.legend(
-            prop=dict(size=11),
-            numpoints=2,
-            ncol=1,
-            frameon=True,
-            loc=0,
-            handlelength=2.5,
         )
 
         data, _ = bin2_different_gammas_B_HQ10000_G1_0_0_000[4]
@@ -4977,14 +4816,6 @@ if Fig5b_GPerts_gammas_2_0_vt_divided_by_gauss_and_Tsallis:
         ax2.set_ylabel(
             r"$f\left(\log \left( |u_n|,u_p \right)\right)$", fontsize=20
         )
-        ax2.legend(
-            prop=dict(size=13),
-            numpoints=2,
-            ncol=1,
-            frameon=True,
-            loc=0,
-            handlelength=2.5,
-        )
 
         data, _ = bin2_different_gammas_B_HQ10000_G1_0_0_000[0]
         ax3.plot(data[:, 0], data[:, 1], "r", lw=2, ms=7)
@@ -4998,14 +4829,6 @@ if Fig5b_GPerts_gammas_2_0_vt_divided_by_gauss_and_Tsallis:
         ax3.plot(data[:, 0], data[:, 1], "Orange", lw=2, ms=7)
 
         ax3.set_ylabel(r"$\log \left( f\left( u \right) \right)$", fontsize=20)
-        ax3.legend(
-            prop=dict(size=13),
-            numpoints=2,
-            ncol=1,
-            frameon=True,
-            loc=0,
-            handlelength=2.5,
-        )
         ax3.set_yscale("log")
 
         data, _ = bin2_different_gammas_B_HQ10000_G1_0_0_000[4]
@@ -5022,14 +4845,6 @@ if Fig5b_GPerts_gammas_2_0_vt_divided_by_gauss_and_Tsallis:
         ax4.set_ylabel(
             r"$\log \left( f\left(\log \left( |u_n|,u_p \right)\right) \right)$",
             fontsize=20,
-        )
-        ax4.legend(
-            prop=dict(size=13),
-            numpoints=2,
-            ncol=1,
-            frameon=True,
-            loc=0,
-            handlelength=2.5,
         )
         ax4.set_yscale("log")
 
@@ -5083,14 +4898,6 @@ if Fig5b_GPerts_gammas_2_0_vt_divided_by_gauss_and_Tsallis:
         ax5.set_ylabel(
             r"$\frac{f\left( u \right)}{914.415 \cdot x \cdot e^{-0.930 \cdot x^2} }$",
             fontsize=20,
-        )
-        ax5.legend(
-            prop=dict(size=13),
-            numpoints=2,
-            ncol=1,
-            frameon=True,
-            loc=0,
-            handlelength=2.5,
         )
 
         data, _ = bin2_different_gammas_B_HQ10000_G1_0_0_000[4]
@@ -5164,14 +4971,6 @@ if Fig5b_GPerts_gammas_2_0_vt_divided_by_gauss_and_Tsallis:
             r"$\frac{f\left(\log \left( |u_n|,u_p \right)\right)}\
                        {3452.955 \cdot x^2 \cdot e^{-0.936 \cdot x^2 }}$",
             fontsize=20,
-        )
-        ax6.legend(
-            prop=dict(size=13),
-            numpoints=2,
-            ncol=1,
-            frameon=True,
-            loc=0,
-            handlelength=2.5,
         )
 
         data, _ = bin2_different_gammas_B_HQ10000_G1_0_0_000[0]
@@ -5338,6 +5137,15 @@ if Fig5c_GPerts_gammas_2_5_vt_divided_by_gauss_and_Tsallis:
         for i in range(1, 7):
             exec(f"ax{i}.set_xticklabels([])")
 
+        for i in range(1, 7):
+            exec(f"legend(
+                          prop=dict(size=13),
+                          numpoints=2,
+                          ncol=1,
+                          frameon=True,
+                          loc=0,
+                          handlelength=2.5)")
+
         data, _ = bin3__different_gammas_HQ10000_G1_2_1_005[0]
         ax1.plot(data[:, 0], data[:, 1], "b", lw=2, ms=7)
         data, _ = bin3_different_gammas_HQ10000_G1_2_3_005[0]
@@ -5354,14 +5162,6 @@ if Fig5c_GPerts_gammas_2_5_vt_divided_by_gauss_and_Tsallis:
             r" Time evolution of files = %s , different r bins, $\gamma = -2.5$"
             % HQ0[:-9],
             fontsize=20,
-        )
-        ax1.legend(
-            prop=dict(size=11),
-            numpoints=2,
-            ncol=1,
-            frameon=True,
-            loc=0,
-            handlelength=2.5,
         )
 
         data, _ = bin3_different_gammas_HQ10000_G1_2_1_005[4]
@@ -5413,14 +5213,6 @@ if Fig5c_GPerts_gammas_2_5_vt_divided_by_gauss_and_Tsallis:
         ax2.set_ylabel(
             r"$f\left(\log \left(|u_n|, u_p \right)\right)$", fontsize=20
         )
-        ax2.legend(
-            prop=dict(size=13),
-            numpoints=2,
-            ncol=1,
-            frameon=True,
-            loc=0,
-            handlelength=2.5,
-        )
 
         data, _ = bin3_different_gammas_HQ10000_G1_2_1_005[0]
         ax3.plot(data[:, 0], data[:, 1], "r", lw=2, ms=7)
@@ -5434,14 +5226,6 @@ if Fig5c_GPerts_gammas_2_5_vt_divided_by_gauss_and_Tsallis:
         ax3.plot(data[:, 0], data[:, 1], "Orange", lw=2, ms=7)
 
         ax3.set_ylabel(r"$\log \left( f\left( u \right) \right)$", fontsize=20)
-        ax3.legend(
-            prop=dict(size=13),
-            numpoints=2,
-            ncol=1,
-            frameon=True,
-            loc=0,
-            handlelength=2.5,
-        )
         ax3.set_yscale("log")
 
         data, _ = bin3_different_gammas_HQ10000_G1_2_1_005[4]
@@ -5459,14 +5243,6 @@ if Fig5c_GPerts_gammas_2_5_vt_divided_by_gauss_and_Tsallis:
             r"$\log \left( f\left(\log \left( |u_n|,\
                        u_p \right)\right) \right)$",
             fontsize=20,
-        )
-        ax4.legend(
-            prop=dict(size=13),
-            numpoints=2,
-            ncol=1,
-            frameon=True,
-            loc=0,
-            handlelength=2.5,
         )
         ax4.set_yscale("log")
 
@@ -5520,14 +5296,6 @@ if Fig5c_GPerts_gammas_2_5_vt_divided_by_gauss_and_Tsallis:
         ax5.set_ylabel(
             r"$\frac{f\left( u \right)}{log(x)e^{-0.5x^2}}$", fontsize=20
         )
-        ax5.legend(
-            prop=dict(size=13),
-            numpoints=2,
-            ncol=1,
-            frameon=True,
-            loc=0,
-            handlelength=2.5,
-        )
 
         data, _ = bin3_different_gammas_HQ10000_G1_2_1_005[4]
         ax6.plot(
@@ -5574,14 +5342,6 @@ if Fig5c_GPerts_gammas_2_5_vt_divided_by_gauss_and_Tsallis:
             r"$\frac{f\left(\log \left( |u_n|,u_p \right)\right)}{e^{-0.5x^2}}$",
             fontsize=20,
         )
-        ax6.legend(
-            prop=dict(size=13),
-            numpoints=2,
-            ncol=1,
-            frameon=True,
-            loc=0,
-            handlelength=2.5,
-        )
 
     if test2:
 
@@ -5590,6 +5350,15 @@ if Fig5c_GPerts_gammas_2_5_vt_divided_by_gauss_and_Tsallis:
 
         for i in range(1, 7):
             exec(f"ax{i}.set_xticklabels([])")
+
+        for i in range(1, 3):
+            exec(f"legend(
+                          prop=dict(size=13),
+                          numpoints=2,
+                          ncol=1,
+                          frameon=True,
+                          loc=0,
+                          handlelength=2.5)")
 
         data, _ = bin3_different_gammas_test2_HQ10000_G1_0_0_000[0]
         ax1.plot(data[:, 0], data[:, 1], "r", lw=2, ms=7)
@@ -5609,14 +5378,6 @@ if Fig5c_GPerts_gammas_2_5_vt_divided_by_gauss_and_Tsallis:
             r"Time evolution of files = %s , different r bins, $\gamma = -2.5$"
             % test2_HQ0[:-9],
             fontsize=20,
-        )
-        ax1.legend(
-            prop=dict(size=11),
-            numpoints=2,
-            ncol=1,
-            frameon=True,
-            loc=0,
-            handlelength=2.5,
         )
 
         data, _ = bin3_different_gammas_test2_HQ10000_G1_0_0_000[4]
@@ -5676,14 +5437,6 @@ if Fig5c_GPerts_gammas_2_5_vt_divided_by_gauss_and_Tsallis:
 
         ax2.set_ylabel(
             r"$f\left(\log \left( |u_n|,u_p \right)\right)$", fontsize=20
-        )
-        ax2.legend(
-            prop=dict(size=13),
-            numpoints=2,
-            ncol=1,
-            frameon=True,
-            loc=0,
-            handlelength=2.5,
         )
 
         data, _ = bin3_different_gammas_test2_HQ10000_G1_0_0_000[0]
@@ -6060,6 +5813,15 @@ if Fig5c_GPerts_gammas_2_5_vt_divided_by_gauss_and_Tsallis:
         for i in range(1, 7):
             exec(f"ax{i}.set_xticklabels([])")
 
+        for i in range(1, 7):
+            exec(f"legend(
+                          prop=dict(size=13),
+                          numpoints=2,
+                          ncol=1,
+                          frameon=True,
+                          loc=0,
+                          handlelength=2.5)")
+
         data, _ = bin3_different_gammas_A_HQ10000_G1_0_0_000[0]
         ax1.plot(data[:, 0], data[:, 1], "r", lw=2, ms=7)
         data, _ = bin3_different_gammas_A_HQ10000_G1_0_5_005[0]
@@ -6078,14 +5840,6 @@ if Fig5c_GPerts_gammas_2_5_vt_divided_by_gauss_and_Tsallis:
             r" Time evolution of %s , different r bins, $\gamma = -2.5$"
             % A_HQ0[:-9],
             fontsize=20,
-        )
-        ax1.legend(
-            prop=dict(size=11),
-            numpoints=2,
-            ncol=1,
-            frameon=True,
-            loc=0,
-            handlelength=2.5,
         )
 
         data, _ = bin3_different_gammas_A_HQ10000_G1_0_0_000[4]
@@ -6146,14 +5900,6 @@ if Fig5c_GPerts_gammas_2_5_vt_divided_by_gauss_and_Tsallis:
         ax2.set_ylabel(
             r"$f\left(\log \left( |u_n|,u_p \right)\right)$", fontsize=20
         )
-        ax2.legend(
-            prop=dict(size=13),
-            numpoints=2,
-            ncol=1,
-            frameon=True,
-            loc=0,
-            handlelength=2.5,
-        )
 
         data, _ = bin3_different_gammas_A_HQ10000_G1_0_0_000[0]
         ax3.plot(data[:, 0], data[:, 1], "r", lw=2, ms=7)
@@ -6169,14 +5915,6 @@ if Fig5c_GPerts_gammas_2_5_vt_divided_by_gauss_and_Tsallis:
         ax3.plot(data[:, 0], data[:, 1], "b", lw=2, ms=7)
 
         ax3.set_ylabel(r"$\log \left( f\left( u \right) \right)$", fontsize=20)
-        ax3.legend(
-            prop=dict(size=13),
-            numpoints=2,
-            ncol=1,
-            frameon=True,
-            loc=0,
-            handlelength=2.5,
-        )
         ax3.set_yscale("log")
 
         data, _ = bin3_different_gammas_A_HQ10000_G1_0_0_000[4]
@@ -6196,14 +5934,6 @@ if Fig5c_GPerts_gammas_2_5_vt_divided_by_gauss_and_Tsallis:
             r"$\log \left( f\left(\log \left( |u_n|,\
                        u_p \right)\right) \right)$",
             fontsize=20,
-        )
-        ax4.legend(
-            prop=dict(size=13),
-            numpoints=2,
-            ncol=1,
-            frameon=True,
-            loc=0,
-            handlelength=2.5,
         )
         ax4.set_yscale("log")
 
@@ -6266,14 +5996,6 @@ if Fig5c_GPerts_gammas_2_5_vt_divided_by_gauss_and_Tsallis:
         ax5.set_ylabel(
             r"$\frac{f\left( u \right)}{887.569 \cdot x \cdot e^{-0.922 \cdot x^2} }$",
             fontsize=20,
-        )
-        ax5.legend(
-            prop=dict(size=13),
-            numpoints=2,
-            ncol=1,
-            frameon=True,
-            loc=0,
-            handlelength=2.5,
         )
 
         data, _ = bin3_different_gammas_A_HQ10000_G1_0_0_000[4]
@@ -6361,14 +6083,6 @@ if Fig5c_GPerts_gammas_2_5_vt_divided_by_gauss_and_Tsallis:
                        \right)}{3424.993 \cdot x^2 \cdot e^{-0.930\
                        \cdot x^2 }}$",
             fontsize=20,
-        )
-        ax6.legend(
-            prop=dict(size=13),
-            numpoints=2,
-            ncol=1,
-            frameon=True,
-            loc=0,
-            handlelength=2.5,
         )
 
         data, _ = bin3_different_gammas_A_HQ10000_G1_0_0_000[0]
@@ -6561,6 +6275,15 @@ if Fig5c_GPerts_gammas_2_5_vt_divided_by_gauss_and_Tsallis:
         for i in range(1, 7):
             exec(f"ax{i}.set_xticklabels([])")
 
+        for i in range(1, 7):
+            exec(f"legend(
+                          prop=dict(size=13),
+                          numpoints=2,
+                          ncol=1,
+                          frameon=True,
+                          loc=0,
+                          handlelength=2.5)")
+
         data, _ = bin3_different_gammas_B_HQ10000_G1_0_0_000[0]
         ax1.plot(data[:, 0], data[:, 1], "r", lw=2, ms=7)
         data, _ = bin3_different_gammas_B_HQ10000_G1_0_5_005[0]
@@ -6577,14 +6300,6 @@ if Fig5c_GPerts_gammas_2_5_vt_divided_by_gauss_and_Tsallis:
             r"Time evolution of %s, different r bins, $\gamma = -2.5$"
             % B_HQ0[:-9],
             fontsize=20,
-        )
-        ax1.legend(
-            prop=dict(size=11),
-            numpoints=2,
-            ncol=1,
-            frameon=True,
-            loc=0,
-            handlelength=2.5,
         )
 
         data, _ = bin3_different_gammas_B_HQ10000_G1_0_0_000[4]
@@ -6636,14 +6351,6 @@ if Fig5c_GPerts_gammas_2_5_vt_divided_by_gauss_and_Tsallis:
         ax2.set_ylabel(
             r"$f\left(\log \left( |u_n|,u_p \right)\right)$", fontsize=20
         )
-        ax2.legend(
-            prop=dict(size=13),
-            numpoints=2,
-            ncol=1,
-            frameon=True,
-            loc=0,
-            handlelength=2.5,
-        )
 
         data, _ = bin3_different_gammas_B_HQ10000_G1_0_0_000[0]
         ax3.plot(data[:, 0], data[:, 1], "r", lw=2, ms=7)
@@ -6657,14 +6364,6 @@ if Fig5c_GPerts_gammas_2_5_vt_divided_by_gauss_and_Tsallis:
         ax3.plot(data[:, 0], data[:, 1], "Orange", lw=2, ms=7)
 
         ax3.set_ylabel(r"$\log \left( f\left( u \right) \right)$", fontsize=20)
-        ax3.legend(
-            prop=dict(size=13),
-            numpoints=2,
-            ncol=1,
-            frameon=True,
-            loc=0,
-            handlelength=2.5,
-        )
         ax3.set_yscale("log")
 
         data, _ = bin3_different_gammas_B_HQ10000_G1_0_0_000[4]
@@ -6682,14 +6381,6 @@ if Fig5c_GPerts_gammas_2_5_vt_divided_by_gauss_and_Tsallis:
             r"$\log \left( f\left(\log \left( |u_n|,\
                        u_p \right)\right) \right)$",
             fontsize=20,
-        )
-        ax4.legend(
-            prop=dict(size=13),
-            numpoints=2,
-            ncol=1,
-            frameon=True,
-            loc=0,
-            handlelength=2.5,
         )
         ax4.set_yscale("log")
 
@@ -6743,14 +6434,6 @@ if Fig5c_GPerts_gammas_2_5_vt_divided_by_gauss_and_Tsallis:
         ax5.set_ylabel(
             r"$\frac{f\left( u \right)}{914.415 \cdot x \cdot e^{-0.930 \cdot x^2} }$",
             fontsize=20,
-        )
-        ax5.legend(
-            prop=dict(size=13),
-            numpoints=2,
-            ncol=1,
-            frameon=True,
-            loc=0,
-            handlelength=2.5,
         )
 
         data, _ = bin3_different_gammas_B_HQ10000_G1_0_0_000[4]
@@ -6825,14 +6508,6 @@ if Fig5c_GPerts_gammas_2_5_vt_divided_by_gauss_and_Tsallis:
                        u_p \right)\right)}{3452.955 \cdot x^2\
                        \cdot e^{-0.936 \cdot x^2 }}$",
             fontsize=20,
-        )
-        ax6.legend(
-            prop=dict(size=13),
-            numpoints=2,
-            ncol=1,
-            frameon=True,
-            loc=0,
-            handlelength=2.5,
         )
 
         data, _ = bin3_different_gammas_B_HQ10000_G1_0_0_000[0]
@@ -6998,6 +6673,15 @@ if Fig5d_GPerts_gammas_3_0_vt_divided_by_gauss_and_Tsallis:
         for i in range(1, 7):
             exec(f"ax{i}.set_xticklabels([])")
 
+        for i in range(1, 7):
+            exec(f"legend(
+                          prop=dict(size=13),
+                          numpoints=2,
+                          ncol=1,
+                          frameon=True,
+                          loc=0,
+                          handlelength=2.5)")
+
         data, _ = bin4__different_gammas_HQ10000_G1_2_1_005[0]
         ax1.plot(data[:, 0], data[:, 1], "b", lw=2, ms=7)
         data, _ = bin4_different_gammas_HQ10000_G1_2_3_005[0]
@@ -7014,14 +6698,6 @@ if Fig5d_GPerts_gammas_3_0_vt_divided_by_gauss_and_Tsallis:
             r" Time evolution of files = %s , different r bins, $\gamma = -3.0$"
             % HQ0[:-9],
             fontsize=20,
-        )
-        ax1.legend(
-            prop=dict(size=11),
-            numpoints=2,
-            ncol=1,
-            frameon=True,
-            loc=0,
-            handlelength=2.5,
         )
 
         data, _ = bin4_different_gammas_HQ10000_G1_2_1_005[4]
@@ -7073,14 +6749,6 @@ if Fig5d_GPerts_gammas_3_0_vt_divided_by_gauss_and_Tsallis:
         ax2.set_ylabel(
             r"$f\left(\log \left( |u_n|,u_p \right)\right)$", fontsize=20
         )
-        ax2.legend(
-            prop=dict(size=13),
-            numpoints=2,
-            ncol=1,
-            frameon=True,
-            loc=0,
-            handlelength=2.5,
-        )
 
         data, _ = bin4_different_gammas_HQ10000_G1_2_1_005[0]
         ax3.plot(data[:, 0], data[:, 1], "r", lw=2, ms=7)
@@ -7094,14 +6762,6 @@ if Fig5d_GPerts_gammas_3_0_vt_divided_by_gauss_and_Tsallis:
         ax3.plot(data[:, 0], data[:, 1], "Orange", lw=2, ms=7)
 
         ax3.set_ylabel(r"$\log \left( f\left( u \right) \right)$", fontsize=20)
-        ax3.legend(
-            prop=dict(size=13),
-            numpoints=2,
-            ncol=1,
-            frameon=True,
-            loc=0,
-            handlelength=2.5,
-        )
         ax3.set_yscale("log")
 
         data, _ = bin4_different_gammas_HQ10000_G1_2_1_005[4]
@@ -7118,14 +6778,6 @@ if Fig5d_GPerts_gammas_3_0_vt_divided_by_gauss_and_Tsallis:
         ax4.set_ylabel(
             r"$\log \left( f\left(\log \left( |u_n|,u_p \right)\right) \right)$",
             fontsize=20,
-        )
-        ax4.legend(
-            prop=dict(size=13),
-            numpoints=2,
-            ncol=1,
-            frameon=True,
-            loc=0,
-            handlelength=2.5,
         )
         ax4.set_yscale("log")
 
@@ -7179,14 +6831,6 @@ if Fig5d_GPerts_gammas_3_0_vt_divided_by_gauss_and_Tsallis:
         ax5.set_ylabel(
             r"$\frac{f\left( u \right)}{log(x)e^{-0.5x^2}}$", fontsize=20
         )
-        ax5.legend(
-            prop=dict(size=13),
-            numpoints=2,
-            ncol=1,
-            frameon=True,
-            loc=0,
-            handlelength=2.5,
-        )
 
         data, _ = bin4_different_gammas_HQ10000_G1_2_1_005[4]
         ax6.plot(
@@ -7233,14 +6877,6 @@ if Fig5d_GPerts_gammas_3_0_vt_divided_by_gauss_and_Tsallis:
             r"$\frac{f\left(\log \left( |u_n|,u_p \right)\right)}{e^{-0.5x^2}}$",
             fontsize=20,
         )
-        ax6.legend(
-            prop=dict(size=13),
-            numpoints=2,
-            ncol=1,
-            frameon=True,
-            loc=0,
-            handlelength=2.5,
-        )
 
     if test2:
 
@@ -7249,6 +6885,15 @@ if Fig5d_GPerts_gammas_3_0_vt_divided_by_gauss_and_Tsallis:
 
         for i in range(1, 7):
             exec(f"ax{i}.set_xticklabels([])")
+
+        for i in range(1, 3):
+            exec(f"legend(
+                          prop=dict(size=13),
+                          numpoints=2,
+                          ncol=1,
+                          frameon=True,
+                          loc=0,
+                          handlelength=2.5)")
 
         data, _ = bin4_different_gammas_test2_HQ10000_G1_0_0_000[0]
         ax1.plot(data[:, 0], data[:, 1], "r", lw=2, ms=7)
@@ -7268,14 +6913,6 @@ if Fig5d_GPerts_gammas_3_0_vt_divided_by_gauss_and_Tsallis:
             r" Time evolution of files = %s , different r bins, $\gamma = -3.0 $"
             % test2_HQ0[:-9],
             fontsize=20,
-        )
-        ax1.legend(
-            prop=dict(size=11),
-            numpoints=2,
-            ncol=1,
-            frameon=True,
-            loc=0,
-            handlelength=2.5,
         )
 
         data, _ = bin4_different_gammas_test2_HQ10000_G1_0_0_000[4]
@@ -7335,14 +6972,6 @@ if Fig5d_GPerts_gammas_3_0_vt_divided_by_gauss_and_Tsallis:
 
         ax2.set_ylabel(
             r"$f\left(\log \left(|u_n|,u_p \right)\right)$", fontsize=20
-        )
-        ax2.legend(
-            prop=dict(size=13),
-            numpoints=2,
-            ncol=1,
-            frameon=True,
-            loc=0,
-            handlelength=2.5,
         )
 
         data, _ = bin4_different_gammas_test2_HQ10000_G1_0_0_000[0]
@@ -7715,6 +7344,15 @@ if Fig5d_GPerts_gammas_3_0_vt_divided_by_gauss_and_Tsallis:
         for i in range(1, 7):
             exec(f"ax{i}.set_xticklabels([])")
 
+        for i in range(1, 7):
+            exec(f"legend(
+                          prop=dict(size=13),
+                          numpoints=2,
+                          ncol=1,
+                          frameon=True,
+                          loc=0,
+                          handlelength=2.5)")
+
         data, _ = bin4_different_gammas_A_HQ10000_G1_0_0_000[0]
         ax1.plot(data[:, 0], data[:, 1], "r", lw=2, ms=7)
         data, _ = bin4_different_gammas_A_HQ10000_G1_0_5_005[0]
@@ -7733,14 +7371,6 @@ if Fig5d_GPerts_gammas_3_0_vt_divided_by_gauss_and_Tsallis:
             r" Time evolution of %s , different r bins, $\gamma = -3.0$"
             % A_HQ0[:-9],
             fontsize=20,
-        )
-        ax1.legend(
-            prop=dict(size=11),
-            numpoints=2,
-            ncol=1,
-            frameon=True,
-            loc=0,
-            handlelength=2.5,
         )
 
         data, _ = bin4_different_gammas_A_HQ10000_G1_0_0_000[4]
@@ -7801,14 +7431,6 @@ if Fig5d_GPerts_gammas_3_0_vt_divided_by_gauss_and_Tsallis:
         ax2.set_ylabel(
             r"$f\left(\log \left( |u_n|,u_p \right)\right)$", fontsize=20
         )
-        ax2.legend(
-            prop=dict(size=13),
-            numpoints=2,
-            ncol=1,
-            frameon=True,
-            loc=0,
-            handlelength=2.5,
-        )
 
         data, _ = bin4_different_gammas_A_HQ10000_G1_0_0_000[0]
         ax3.plot(data[:, 0], data[:, 1], "r", lw=2, ms=7)
@@ -7824,14 +7446,6 @@ if Fig5d_GPerts_gammas_3_0_vt_divided_by_gauss_and_Tsallis:
         ax3.plot(data[:, 0], data[:, 1], "b", lw=2, ms=7)
 
         ax3.set_ylabel(r"$\log \left( f\left( u \right) \right)$", fontsize=20)
-        ax3.legend(
-            prop=dict(size=13),
-            numpoints=2,
-            ncol=1,
-            frameon=True,
-            loc=0,
-            handlelength=2.5,
-        )
         ax3.set_yscale("log")
 
         data, _ = bin4_different_gammas_A_HQ10000_G1_0_0_000[4]
@@ -7850,14 +7464,6 @@ if Fig5d_GPerts_gammas_3_0_vt_divided_by_gauss_and_Tsallis:
         ax4.set_ylabel(
             r"$\log \left( f\left(\log \left( |u_n|,u_p \right)\right) \right)$",
             fontsize=20,
-        )
-        ax4.legend(
-            prop=dict(size=13),
-            numpoints=2,
-            ncol=1,
-            frameon=True,
-            loc=0,
-            handlelength=2.5,
         )
         ax4.set_yscale("log")
 
@@ -7920,14 +7526,6 @@ if Fig5d_GPerts_gammas_3_0_vt_divided_by_gauss_and_Tsallis:
         ax5.set_ylabel(
             r"$\frac{f\left( u \right)}{887.569 \cdot x \cdot e^{-0.922 \cdot x^2} }$",
             fontsize=20,
-        )
-        ax5.legend(
-            prop=dict(size=13),
-            numpoints=2,
-            ncol=1,
-            frameon=True,
-            loc=0,
-            handlelength=2.5,
         )
 
         data, _ = bin4_different_gammas_A_HQ10000_G1_0_0_000[4]
@@ -8013,14 +7611,6 @@ if Fig5d_GPerts_gammas_3_0_vt_divided_by_gauss_and_Tsallis:
         ax6.set_ylabel(
             r"$\frac{f\left(\log \left( |u_n|,u_p \right)\right)}{3424.993 \cdot x^2 \cdot e^{-0.930 \cdot x^2 }}$",
             fontsize=20,
-        )
-        ax6.legend(
-            prop=dict(size=13),
-            numpoints=2,
-            ncol=1,
-            frameon=True,
-            loc=0,
-            handlelength=2.5,
         )
 
         data, _ = bin4_different_gammas_A_HQ10000_G1_0_0_000[0]
@@ -8212,6 +7802,15 @@ if Fig5d_GPerts_gammas_3_0_vt_divided_by_gauss_and_Tsallis:
         for i in range(1, 7):
             exec(f"ax{i}.set_xticklabels([])")
 
+        for i in range(1, 7):
+            exec(f"legend(
+                          prop=dict(size=13),
+                          numpoints=2,
+                          ncol=1,
+                          frameon=True,
+                          loc=0,
+                          handlelength=2.5)")
+
         data, _ = bin4_different_gammas_B_HQ10000_G1_0_0_000[0]
         ax1.plot(data[:, 0], data[:, 1], "r", lw=2, ms=7)
         data, _ = bin4_different_gammas_B_HQ10000_G1_0_5_005[0]
@@ -8228,14 +7827,6 @@ if Fig5d_GPerts_gammas_3_0_vt_divided_by_gauss_and_Tsallis:
             r"Time evolution of %s, different r bins, $\gamma=-3.0$"
             % B_HQ0[:-9],
             fontsize=20,
-        )
-        ax1.legend(
-            prop=dict(size=11),
-            numpoints=2,
-            ncol=1,
-            frameon=True,
-            loc=0,
-            handlelength=2.5,
         )
 
         data, _ = bin4_different_gammas_B_HQ10000_G1_0_0_000[4]
@@ -8287,14 +7878,6 @@ if Fig5d_GPerts_gammas_3_0_vt_divided_by_gauss_and_Tsallis:
         ax2.set_ylabel(
             r"$f\left(\log \left( |u_n|,u_p \right)\right)$", fontsize=20
         )
-        ax2.legend(
-            prop=dict(size=13),
-            numpoints=2,
-            ncol=1,
-            frameon=True,
-            loc=0,
-            handlelength=2.5,
-        )
 
         data, _ = bin4_different_gammas_B_HQ10000_G1_0_0_000[0]
         ax3.plot(data[:, 0], data[:, 1], "r", lw=2, ms=7)
@@ -8308,14 +7891,6 @@ if Fig5d_GPerts_gammas_3_0_vt_divided_by_gauss_and_Tsallis:
         ax3.plot(data[:, 0], data[:, 1], "Orange", lw=2, ms=7)
 
         ax3.set_ylabel(r"$\log \left( f\left( u \right) \right)$", fontsize=20)
-        ax3.legend(
-            prop=dict(size=13),
-            numpoints=2,
-            ncol=1,
-            frameon=True,
-            loc=0,
-            handlelength=2.5,
-        )
         ax3.set_yscale("log")
 
         data, _ = bin4_different_gammas_B_HQ10000_G1_0_0_000[4]
@@ -8332,14 +7907,6 @@ if Fig5d_GPerts_gammas_3_0_vt_divided_by_gauss_and_Tsallis:
         ax4.set_ylabel(
             r"$\log \left( f\left(\log \left( |u_n|,u_p \right)\right) \right)$",
             fontsize=20,
-        )
-        ax4.legend(
-            prop=dict(size=13),
-            numpoints=2,
-            ncol=1,
-            frameon=True,
-            loc=0,
-            handlelength=2.5,
         )
         ax4.set_yscale("log")
 
@@ -8393,14 +7960,6 @@ if Fig5d_GPerts_gammas_3_0_vt_divided_by_gauss_and_Tsallis:
         ax5.set_ylabel(
             r"$\frac{f\left( u \right)}{914.415 \cdot x \cdot e^{-0.930 \cdot x^2} }$",
             fontsize=20,
-        )
-        ax5.legend(
-            prop=dict(size=13),
-            numpoints=2,
-            ncol=1,
-            frameon=True,
-            loc=0,
-            handlelength=2.5,
         )
 
         data, _ = bin4_different_gammas_B_HQ10000_G1_0_0_000[4]
@@ -8473,14 +8032,6 @@ if Fig5d_GPerts_gammas_3_0_vt_divided_by_gauss_and_Tsallis:
         ax6.set_ylabel(
             r"$\frac{f\left(\log \left( |u_n|,u_p \right)\right)}{3452.955 \cdot x^2 \cdot e^{-0.936 \cdot x^2 }}$",
             fontsize=20,
-        )
-        ax6.legend(
-            prop=dict(size=13),
-            numpoints=2,
-            ncol=1,
-            frameon=True,
-            loc=0,
-            handlelength=2.5,
         )
 
         data, _ = bin4_different_gammas_B_HQ10000_G1_0_0_000[0]
@@ -8648,6 +8199,15 @@ if Fig6a_GPerts_R_middle_19_95_vt_divided_by_gauss_and_Tsallis:
         for i in range(1, 7):
             exec(f"ax{i}.set_xticklabels([])")
 
+        for i in range(1, 7):
+            exec(f"legend(
+                          prop=dict(size=13),
+                          numpoints=2,
+                          ncol=1,
+                          frameon=True,
+                          loc=0,
+                          handlelength=2.5)")
+
         data, _ = bin1_different_gammas_HQ10000_G1_2_1_005[0]
         ax1.plot(data[:, 0], data[:, 1], "b", lw=2, ms=7)
         data, _ = bin1_different_gammas_HQ10000_G1_2_3_005[0]
@@ -8664,14 +8224,6 @@ if Fig6a_GPerts_R_middle_19_95_vt_divided_by_gauss_and_Tsallis:
             r" Time evolution of files = %s , different r bins, $\gamma = -1.5$"
             % HQ0[:-9],
             fontsize=20,
-        )
-        ax1.legend(
-            prop=dict(size=11),
-            numpoints=2,
-            ncol=1,
-            frameon=True,
-            loc=0,
-            handlelength=2.5,
         )
 
         data, _ = bin1_different_gammas_HQ10000_G1_2_1_005[4]
@@ -8723,14 +8275,6 @@ if Fig6a_GPerts_R_middle_19_95_vt_divided_by_gauss_and_Tsallis:
         ax2.set_ylabel(
             r"$f\left(\log \left( |u_n|,u_p \right)\right)$", fontsize=20
         )
-        ax2.legend(
-            prop=dict(size=13),
-            numpoints=2,
-            ncol=1,
-            frameon=True,
-            loc=0,
-            handlelength=2.5,
-        )
 
         data, _ = bin1_different_gammas_HQ10000_G1_2_1_005[0]
         ax3.plot(data[:, 0], data[:, 1], "r", lw=2, ms=7)
@@ -8744,14 +8288,6 @@ if Fig6a_GPerts_R_middle_19_95_vt_divided_by_gauss_and_Tsallis:
         ax3.plot(data[:, 0], data[:, 1], "Orange", lw=2, ms=7)
 
         ax3.set_ylabel(r"$\log \left( f\left( u \right) \right)$", fontsize=20)
-        ax3.legend(
-            prop=dict(size=13),
-            numpoints=2,
-            ncol=1,
-            frameon=True,
-            loc=0,
-            handlelength=2.5,
-        )
         ax3.set_yscale("log")
 
         data, _ = bin1_different_gammas_HQ10000_G1_2_1_005[4]
@@ -8768,14 +8304,6 @@ if Fig6a_GPerts_R_middle_19_95_vt_divided_by_gauss_and_Tsallis:
         ax4.set_ylabel(
             r"$\log \left( f\left(\log \left( |u_n|,u_p \right)\right) \right)$",
             fontsize=20,
-        )
-        ax4.legend(
-            prop=dict(size=13),
-            numpoints=2,
-            ncol=1,
-            frameon=True,
-            loc=0,
-            handlelength=2.5,
         )
         ax4.set_yscale("log")
 
@@ -8828,14 +8356,6 @@ if Fig6a_GPerts_R_middle_19_95_vt_divided_by_gauss_and_Tsallis:
         ax5.set_ylabel(
             r"$\frac{f\left( u \right)}{log(x)e^{-0.5x^2}}$", fontsize=20
         )
-        ax5.legend(
-            prop=dict(size=13),
-            numpoints=2,
-            ncol=1,
-            frameon=True,
-            loc=0,
-            handlelength=2.5,
-        )
 
         data, _ = bin1_different_gammas_HQ10000_G1_2_1_005[4]
         ax6.plot(
@@ -8882,19 +8402,20 @@ if Fig6a_GPerts_R_middle_19_95_vt_divided_by_gauss_and_Tsallis:
             r"$\frac{f\left(\log \left( |u_n|,u_p \right)\right)}{e^{-0.5x^2}}$",
             fontsize=20,
         )
-        ax6.legend(
-            prop=dict(size=13),
-            numpoints=2,
-            ncol=1,
-            frameon=True,
-            loc=0,
-            handlelength=2.5,
-        )
 
     if test2:
 
         for i in range(1, 9):
             exec(f"ax{i}.grid()")
+
+        for i in range(1, 3):
+            exec(f"legend(
+                          prop=dict(size=13),
+                          numpoints=2,
+                          ncol=1,
+                          frameon=True,
+                          loc=0,
+                          handlelength=2.5)")
 
         data, _ = datalist_bin5different_gammas_test2_HQ10000_G1_0_0_000[0]
         ax1.plot(data[:, 0], data[:, 1], "r", lw=2, ms=7)
@@ -8908,14 +8429,6 @@ if Fig6a_GPerts_R_middle_19_95_vt_divided_by_gauss_and_Tsallis:
             r" Time evolution of files = %s ,  $ R_{middle} = 19.95$"
             % test2_HQ0[:-9],
             fontsize=20,
-        )
-        ax1.legend(
-            prop=dict(size=11),
-            numpoints=2,
-            ncol=1,
-            frameon=True,
-            loc=0,
-            handlelength=2.5,
         )
 
         data, _ = datalist_bin5different_gammas_test2_HQ10000_G1_0_0_000[4]
@@ -8948,14 +8461,6 @@ if Fig6a_GPerts_R_middle_19_95_vt_divided_by_gauss_and_Tsallis:
 
         ax2.set_ylabel(
             r"$f\left(\log \left( |u_n|,u_p \right)\right)$", fontsize=20
-        )
-        ax2.legend(
-            prop=dict(size=13),
-            numpoints=2,
-            ncol=1,
-            frameon=True,
-            loc=0,
-            handlelength=2.5,
         )
 
         data, _ = datalist_bin5different_gammas_test2_HQ10000_G1_0_0_000[0]
@@ -9164,6 +8669,15 @@ if Fig6a_GPerts_R_middle_19_95_vt_divided_by_gauss_and_Tsallis:
         for i in range(1, 9):
             exec(f"ax{i}.grid()")
 
+        for i in range(1, 3):
+            exec(f"legend(
+                          prop=dict(size=13),
+                          numpoints=2,
+                          ncol=1,
+                          frameon=True,
+                          loc=0,
+                          handlelength=2.5)")
+
         data, _ = datalist_bin5different_gammas_A_HQ10000_G1_0_0_000[0]
         ax1.plot(data[:, 0], data[:, 1], "r", lw=2, ms=7)
         data, _ = datalist_bin5different_gammas_A_HQ10000_G1_0_10_005[0]
@@ -9175,14 +8689,6 @@ if Fig6a_GPerts_R_middle_19_95_vt_divided_by_gauss_and_Tsallis:
         ax1.set_title(
             r"Time evolution of files = %s, $R_{middle} = 19.95$" % A_HQ0[:-9],
             fontsize=20,
-        )
-        ax1.legend(
-            prop=dict(size=11),
-            numpoints=2,
-            ncol=1,
-            frameon=True,
-            loc=0,
-            handlelength=2.5,
         )
 
         data, _ = datalist_bin5different_gammas_A_HQ10000_G1_0_0_000[4]
@@ -9215,14 +8721,6 @@ if Fig6a_GPerts_R_middle_19_95_vt_divided_by_gauss_and_Tsallis:
 
         ax2.set_ylabel(
             r"$f\left(\log \left( |u_n|,u_p \right)\right)$", fontsize=20
-        )
-        ax2.legend(
-            prop=dict(size=13),
-            numpoints=2,
-            ncol=1,
-            frameon=True,
-            loc=0,
-            handlelength=2.5,
         )
 
         data, _ = datalist_bin5different_gammas_A_HQ10000_G1_0_0_000[0]
@@ -9431,6 +8929,15 @@ if Fig6a_GPerts_R_middle_19_95_vt_divided_by_gauss_and_Tsallis:
         for i in range(1, 9):
             exec(f"ax{i}.grid()")
 
+        for i in range(1, 3):
+            exec(f"legend(
+                          prop=dict(size=13),
+                          numpoints=2,
+                          ncol=1,
+                          frameon=True,
+                          loc=0,
+                          handlelength=2.5)")
+
         data, _ = datalist_bin5different_gammas_B_HQ10000_G1_0_0_000[0]
         ax1.plot(data[:, 0], data[:, 1], "r", lw=2, ms=7)
 
@@ -9438,14 +8945,6 @@ if Fig6a_GPerts_R_middle_19_95_vt_divided_by_gauss_and_Tsallis:
         ax1.set_title(
             r"Time evolution of files = %s, $R_{middle} = 19.95$" % B_HQ0[:-9],
             fontsize=20,
-        )
-        ax1.legend(
-            prop=dict(size=11),
-            numpoints=2,
-            ncol=1,
-            frameon=True,
-            loc=0,
-            handlelength=2.5,
         )
 
         data, _ = datalist_bin5different_gammas_B_HQ10000_G1_0_0_000[4]
@@ -9460,14 +8959,6 @@ if Fig6a_GPerts_R_middle_19_95_vt_divided_by_gauss_and_Tsallis:
 
         ax2.set_ylabel(
             r"$f\left(\log \left( |u_n|,u_p \right)\right)$", fontsize=20
-        )
-        ax2.legend(
-            prop=dict(size=13),
-            numpoints=2,
-            ncol=1,
-            frameon=True,
-            loc=0,
-            handlelength=2.5,
         )
 
         data, _ = datalist_bin5different_gammas_B_HQ10000_G1_0_0_000[0]
@@ -9571,6 +9062,15 @@ if Fig6b_GPerts_R_middle_31_62_vt_divided_by_gauss_and_Tsallis:
         for i in range(1, 7):
             exec(f"ax{i}.set_xticklabels([])")
 
+        for i in range(1, 7):
+            exec(f"legend(
+                          prop=dict(size=13),
+                          numpoints=2,
+                          ncol=1,
+                          frameon=True,
+                          loc=0,
+                          handlelength=2.5)")
+
         ax1.plot(data[:, 0], data[:, 1], "b", lw=2, ms=7)
         ax1.plot(data[:, 0], data[:, 1], "r", lw=2, ms=7)
         ax1.plot(data[:, 0], data[:, 1], "g", lw=2, ms=7)
@@ -9582,14 +9082,6 @@ if Fig6b_GPerts_R_middle_31_62_vt_divided_by_gauss_and_Tsallis:
             r" Time evolution of files = %s , different r bins, $\gamma = -2.0$"
             % HQ0[:-9],
             fontsize=20,
-        )
-        ax1.legend(
-            prop=dict(size=11),
-            numpoints=2,
-            ncol=1,
-            frameon=True,
-            loc=0,
-            handlelength=2.5,
         )
 
         ax2.plot(
@@ -9636,14 +9128,6 @@ if Fig6b_GPerts_R_middle_31_62_vt_divided_by_gauss_and_Tsallis:
         ax2.set_ylabel(
             r"$f\left(\log \left( |u_n|,u_p \right)\right)$", fontsize=20
         )
-        ax2.legend(
-            prop=dict(size=13),
-            numpoints=2,
-            ncol=1,
-            frameon=True,
-            loc=0,
-            handlelength=2.5,
-        )
 
         ax3.plot(data[:, 0], data[:, 1], "r", lw=2, ms=7)
         ax3.plot(data[:, 0], data[:, 1], "g", lw=2, ms=7)
@@ -9652,14 +9136,6 @@ if Fig6b_GPerts_R_middle_31_62_vt_divided_by_gauss_and_Tsallis:
         ax3.plot(data[:, 0], data[:, 1], "Orange", lw=2, ms=7)
 
         ax3.set_ylabel(r"$\log \left( f\left( u \right) \right)$", fontsize=20)
-        ax3.legend(
-            prop=dict(size=13),
-            numpoints=2,
-            ncol=1,
-            frameon=True,
-            loc=0,
-            handlelength=2.5,
-        )
         ax3.set_yscale("log")
 
         ax4.plot(data[:, 0], data[:, 1], "r", lw=2, ms=7)
@@ -9671,14 +9147,6 @@ if Fig6b_GPerts_R_middle_31_62_vt_divided_by_gauss_and_Tsallis:
         ax4.set_ylabel(
             r"$\log \left( f\left(\log \left( |u_n|,u_p \right)\right) \right)$",
             fontsize=20,
-        )
-        ax4.legend(
-            prop=dict(size=13),
-            numpoints=2,
-            ncol=1,
-            frameon=True,
-            loc=0,
-            handlelength=2.5,
         )
         ax4.set_yscale("log")
 
@@ -9726,14 +9194,6 @@ if Fig6b_GPerts_R_middle_31_62_vt_divided_by_gauss_and_Tsallis:
         ax5.set_ylabel(
             r"$\frac{f\left( u \right)}{log(x)e^{-0.5x^2}}$", fontsize=20
         )
-        ax5.legend(
-            prop=dict(size=13),
-            numpoints=2,
-            ncol=1,
-            frameon=True,
-            loc=0,
-            handlelength=2.5,
-        )
 
         ax6.plot(
             data[:, 0],
@@ -9775,19 +9235,20 @@ if Fig6b_GPerts_R_middle_31_62_vt_divided_by_gauss_and_Tsallis:
             r"$\frac{f\left(\log \left( |u_n|,u_p \right)\right)}{e^{-0.5x^2}}$",
             fontsize=20,
         )
-        ax6.legend(
-            prop=dict(size=13),
-            numpoints=2,
-            ncol=1,
-            frameon=True,
-            loc=0,
-            handlelength=2.5,
-        )
 
     if test2:
 
         for i in range(1, 9):
             exec(f"ax{i}.grid()")
+
+        for i in range(1, 3):
+            exec(f"legend(
+                          prop=dict(size=13),
+                          numpoints=2,
+                          ncol=1,
+                          frameon=True,
+                          loc=0,
+                          handlelength=2.5)")
 
         data, _ = datalist_bin6different_gammas_test2_HQ10000_G1_0_0_000[0]
         ax1.plot(data[:, 0], data[:, 1], "r", lw=2, ms=7)
@@ -9801,14 +9262,6 @@ if Fig6b_GPerts_R_middle_31_62_vt_divided_by_gauss_and_Tsallis:
             r" Time evolution of files = %s , $ R_{middle} = 31.62$"
             % test2_HQ0[:-9],
             fontsize=20,
-        )
-        ax1.legend(
-            prop=dict(size=11),
-            numpoints=2,
-            ncol=1,
-            frameon=True,
-            loc=0,
-            handlelength=2.5,
         )
 
         data, _ = datalist_bin6different_gammas_test2_HQ10000_G1_0_0_000[4]
@@ -9841,14 +9294,6 @@ if Fig6b_GPerts_R_middle_31_62_vt_divided_by_gauss_and_Tsallis:
 
         ax2.set_ylabel(
             r"$f\left(\log \left( |u_tn|,u_tp \right)\right)$", fontsize=20
-        )
-        ax2.legend(
-            prop=dict(size=13),
-            numpoints=2,
-            ncol=1,
-            frameon=True,
-            loc=0,
-            handlelength=2.5,
         )
 
         data, _ = datalist_bin6different_gammas_test2_HQ10000_G1_0_0_000[0]
@@ -10062,6 +9507,15 @@ if Fig6b_GPerts_R_middle_31_62_vt_divided_by_gauss_and_Tsallis:
         for i in range(1, 9):
             exec(f"ax{i}.grid()")
 
+        for i in range(1, 3):
+            exec(f"legend(
+                          prop=dict(size=13),
+                          numpoints=2,
+                          ncol=1,
+                          frameon=True,
+                          loc=0,
+                          handlelength=2.5)")
+
         data, _ = datalist_bin6different_gammas_A_HQ10000_G1_0_0_000[0]
         ax1.plot(data[:, 0], data[:, 1], "r", lw=2, ms=7)
         data, _ = datalist_bin6different_gammas_A_HQ10000_G1_0_10_005[0]
@@ -10074,14 +9528,6 @@ if Fig6b_GPerts_R_middle_31_62_vt_divided_by_gauss_and_Tsallis:
             r" Time evolution of files = %s, $ R_{middle} = 31.62 $"
             % A_HQ0[:-9],
             fontsize=20,
-        )
-        ax1.legend(
-            prop=dict(size=11),
-            numpoints=2,
-            ncol=1,
-            frameon=True,
-            loc=0,
-            handlelength=2.5,
         )
 
         data, _ = datalist_bin6different_gammas_A_HQ10000_G1_0_0_000[4]
@@ -10114,14 +9560,6 @@ if Fig6b_GPerts_R_middle_31_62_vt_divided_by_gauss_and_Tsallis:
 
         ax2.set_ylabel(
             r"$f\left(\log \left(|u_tn|, u_tp \right)\right)$", fontsize=20
-        )
-        ax2.legend(
-            prop=dict(size=13),
-            numpoints=2,
-            ncol=1,
-            frameon=True,
-            loc=0,
-            handlelength=2.5,
         )
 
         data, _ = datalist_bin6different_gammas_A_HQ10000_G1_0_0_000[0]
@@ -10333,6 +9771,15 @@ if Fig6b_GPerts_R_middle_31_62_vt_divided_by_gauss_and_Tsallis:
         for i in range(1, 9):
             exec(f"ax{i}.grid()")
 
+        for i in range(1, 3):
+            exec(f"legend(
+                          prop=dict(size=13),
+                          numpoints=2,
+                          ncol=1,
+                          frameon=True,
+                          loc=0,
+                          handlelength=2.5)")
+
         data, _ = datalist_bin6different_gammas_B_HQ10000_G1_0_0_000[0]
         ax1.plot(data[:, 0], data[:, 1], "r", lw=2, ms=7)
 
@@ -10340,14 +9787,6 @@ if Fig6b_GPerts_R_middle_31_62_vt_divided_by_gauss_and_Tsallis:
         ax1.set_title(
             r"Time evolution of files = %s, $R_{middle} = 31.62$" % B_HQ0[:-9],
             fontsize=20,
-        )
-        ax1.legend(
-            prop=dict(size=11),
-            numpoints=2,
-            ncol=1,
-            frameon=True,
-            loc=0,
-            handlelength=2.5,
         )
 
         data, _ = datalist_bin6different_gammas_B_HQ10000_G1_0_0_000[4]
@@ -10362,14 +9801,6 @@ if Fig6b_GPerts_R_middle_31_62_vt_divided_by_gauss_and_Tsallis:
 
         ax2.set_ylabel(
             r"$f\left(\log \left( |u_tn|,u_tp \right)\right)$", fontsize=20
-        )
-        ax2.legend(
-            prop=dict(size=13),
-            numpoints=2,
-            ncol=1,
-            frameon=True,
-            loc=0,
-            handlelength=2.5,
         )
 
         data, _ = datalist_bin6different_gammas_B_HQ10000_G1_0_0_000[0]
