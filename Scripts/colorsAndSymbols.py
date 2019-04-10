@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
 
-Colors = ['red', 'blue', 'black', 'brown', 'yellow', 'green',
-          'maroon', 'cyan', 'grey', 'SkyBlue', 'orange'
-          ]
+Colors = ['r', 'b', 'k', 'y', 'g', 'm', 'c']
 
 Symbols = ['-o', '-s', '-<', '--v', '--*', '--s', '--d', '--.',
            '--.', '--s', '--o', '--v', '--^', '--<', '-->',

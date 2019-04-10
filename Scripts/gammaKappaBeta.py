@@ -1,29 +1,32 @@
 # -*- coding: utf-8 -*-
 
-import pylab
-from pathlib import Path
-import numpy as np
+# import pylab
+# from pathlib import Path
 import matplotlib.lines as lines
 import matplotlib.pyplot as plt
-import fileLsts as lsts
-import snapshotFiles
-import colorsAndSymbols
-import dataLsts
-from definePaths import *
-import sigma_calc
+import numpy as np
+# import fileLsts as lsts
+# import snapshotFiles
+# import colorsAndSymbols
+# import dataLsts
+# from definePaths import *
+# import sigma_calc
 
 # Functions -------------------------------------------------------------------
 
 
 def rhoHQ(r, rho0, rS):
-        return rho0 / ((r / rS) * (1 + r / rS) ** 3.)
+    """Return Hernquist density profile."""
+    return rho0 / ((r / rS) * (1 + r / rS) ** 3.)
 
 
 def betaOM(r, rA=1.20):
+    """Return Osipkov-Merritt beta profile."""
     return 1. / (1. + (rA / r) ** 2)
 
 
 def sigmaRad2():
+    """Return the square of the radial velocity dispersion."""
     x, y, z, vx, vy, vz = np.linspace(.01, 1.2)
     binningArrLinLog10 = np.logspace(minBinningR, maxBinningR,
                                         nrBinningBins)
@@ -75,37 +78,36 @@ if logrR2BetaABCS4CS5CS6DS1D2E_ICFinalRLimit32:
     # A
     data, label = datalistA_R32[0]
     ax1.plot(np.log10(data[:, 7]), data[:, 1],
-             Symbols[0], color=Colors[0], label=label[:-52], lw=2, ms=7)
+             'r-o', label=label[:-52], lw=2, ms=7)
     # B
     data, label = datalistB_R32[0]
     ax1.plot(np.log10(data[:, 7]), data[:, 1],
-             Symbols[1], color=Colors[1], label=label[:-52],
-             lw=2, ms=7)
+             'b-s', label=label[:-52], lw=2, ms=7)
     # CS4
     data, label = datalistCS4_R32[0]
     ax1.plot(np.log10(data[:, 7]), data[:, 1],
-             Symbols[2], color=Colors[2], label=label[:-58], lw=2, ms=7)
+             'k-<', label=label[:-58], lw=2, ms=7)
     # CS5
     data, label = datalistCS5_R32[0]
     ax1.plot(np.log10(data[:, 7]), data[:, 1],
-             Symbols[3], color=Colors[3], label=label[:-58], lw=2, ms=7)
+             'y--v', label=label[:-58], lw=2, ms=7)
     # CS6
     data, label = datalistCS6_R32[0]
     ax1.plot(np.log10(data[:, 7]), data[:, 1],
-             Symbols[4], color=Colors[4], label=label[:-58], lw=2, ms=7)
+             'g--*', label=label[:-58], lw=2, ms=7)
     # DS1
     data, label = datalistDS1_R32[0]
     ax1.plot(np.log10(data[:, 7]), data[:, 1],
-             Symbols[5], color=Colors[5], label=label[:-58], lw=2, ms=7)
+             'm--s', label=label[:-58], lw=2, ms=7)
     # Soft D2
     data, label = datalistSoftD2_R32[0]
     ax1.plot(np.log10(data[:, 7]), data[:, 1],
-             Symbols[6], color=Colors[0], label='Soft_' + label[5:-52],
-             lw=2, ms=7)
+             'c--d', label='Soft_' + label[5:-52], lw=2, ms=7)
     # E
     data, label = datalistE_R32[0]
     ax1.plot(np.log10(data[:, 7]), data[:, 1],
-             Symbols[7], color=Colors[1], label=label[:-52], lw=2, ms=7)
+             'r--.', label=label[:-52], lw=2, ms=7)
+
     ax1.set_xlabel(r'$\log (\frac{r}{r_{-2}})$', fontsize=30)
     ax1.set_ylabel(r'$\beta$', fontsize=30)
     ax1.set_ylim(-.4, 1.)
@@ -115,36 +117,36 @@ if logrR2BetaABCS4CS5CS6DS1D2E_ICFinalRLimit32:
     # A
     data, label = datalistA_R32[1]
     ax2.plot(np.log10(data[:, 7]), data[:, 1],
-             Symbols[0], color=Colors[0], label=label[:-53], lw=2, ms=7)
+             'r-o', label=label[:-53], lw=2, ms=7)
     # B
     data, label = datalistB_R32[1]
     ax2.plot(np.log10(data[:, 7]), data[:, 1],
-             Symbols[1], color=Colors[1], label=label[:-54], lw=2, ms=7)
+             'b-s', label=label[:-54], lw=2, ms=7)
     # CS4
     data, label = datalistCS4_R32[1]
     ax2.plot(np.log10(data[:, 7]), data[:, 1],
-             Symbols[2], color=Colors[2], label=label[:-59], lw=2, ms=7)
+             'k-<', label=label[:-59], lw=2, ms=7)
     # CS5
     data, label = datalistCS5_R32[1]
     ax2.plot(np.log10(data[:, 7]), data[:, 1],
-             Symbols[3], color=Colors[3], label=label[:-59], lw=2, ms=7)
+             'y--v', label=label[:-59], lw=2, ms=7)
     # CS6
     data, label = datalistCS6_R32[1]
     ax2.plot(np.log10(data[:, 7]), data[:, 1],
-             Symbols[4], color=Colors[4], label=label[:-63], lw=2, ms=7)
+             'g--*', label=label[:-63], lw=2, ms=7)
     # DS1
     data, label = datalistDS1_R32[1]
     ax2.plot(np.log10(data[:, 7]), data[:, 1],
-             Symbols[5], color=Colors[5], label=label[:-59], lw=2, ms=7)
+             'm--s', label=label[:-59], lw=2, ms=7)
     # Soft_D2
     data, label = datalistSoftD2_R32[1]
     ax2.plot(np.log10(data[:, 7]), data[:, 1],
-             Symbols[6], color=Colors[0], label='Soft_' + label[5:-53],
-             lw=2, ms=7)
+             'c--d', label='Soft_' + label[5:-53], lw=2, ms=7)
     # E
     data, label = datalistE_R32[1]
     ax2.plot(np.log10(data[:, 7]), data[:, 1],
-             Symbols[7], color=Colors[1], label=label[:-54], lw=2, ms=7)
+             'r--.', label=label[:-54], lw=2, ms=7)
+
     ax2.yaxis.tick_right()
     ax2.set_ylim(-.4, 1.)
     ax2.set_xlabel(r'$\log (\frac{r}{r_{-2}})$', fontsize=30)
@@ -162,36 +164,37 @@ if logrR2KappaABCS4CS5CS6DS1D2E_ICFinalRLimit32:
     # A
     data, label = datalistA_R32[0]
     ax1.plot(np.log10(data[:, 7]), data[:, 3],
-             Symbols[0], color=Colors[0], label=label[:-52], lw=2, ms=7)
+             'r-o', label=label[:-52], lw=2, ms=7)
     # B
     data, label = datalistB_R32[0]
     ax1.plot(np.log10(data[:, 7]), data[:, 3],
-             Symbols[1], color=Colors[1], label=label[:-52], lw=2, ms=7)
+             'b-s', label=label[:-52], lw=2, ms=7)
     # CS4
     data, label = datalistCS4_R32[0]
     ax1.plot(np.log10(data[:, 7]), data[:, 3],
-             Symbols[2], color=Colors[2], label=label[:-58], lw=2, ms=7)
+             'k-<', label=label[:-58], lw=2, ms=7)
     # CS5
     data, label = datalistCS5_R32[0]
     ax1.plot(np.log10(data[:, 7]), data[:, 3],
-             Symbols[3], color=Colors[3], label=label[:-58], lw=2, ms=7)
+             'y--v', label=label[:-58], lw=2, ms=7)
     # CS6
     data, label = datalistCS6_R32[0]
     ax1.plot(np.log10(data[:, 7]), data[:, 3],
-             Symbols[4], color=Colors[4], label=label[:-58], lw=2, ms=7)
+             'g--*', label=label[:-58], lw=2, ms=7)
     # DS1
     data, label = datalistDS1_R32[0]
     ax1.plot(np.log10(data[:, 7]), data[:, 3],
-             Symbols[5], color=Colors[5], label=label[:-58], lw=2, ms=7)
+             'm--s', label=label[:-58], lw=2, ms=7)
     # Soft_D2
     data, label = datalistSoftD2_R32[0]
     ax1.plot(np.log10(data[:, 7]), data[:, 3],
-             Symbols[6], color=Colors[0], label='Soft_' + label[5:-52],
+             'c--d', label='Soft_' + label[5:-52],
              lw=2, ms=7)
     # E
     data, label = datalistE_R32[0]
     ax1.plot(np.log10(data[:, 7]), data[:, 3],
-             Symbols[7], color=Colors[1], label=label[:-52], lw=2, ms=7)
+             'r--.', label=label[:-52], lw=2, ms=7)
+
     ax1.set_xlabel(r'$\log (\frac{r}{r_{-2}})$', fontsize=30)
     ax1.set_ylabel(r'$\kappa$', fontsize=30)
     ax1.set_ylim(-2., 2.)
@@ -200,36 +203,36 @@ if logrR2KappaABCS4CS5CS6DS1D2E_ICFinalRLimit32:
     # A
     data, label = datalistA_R32[1]
     ax2.plot(np.log10(data[:, 7]), data[:, 3],
-             Symbols[0], color=Colors[0], label=label[:-53], lw=2, ms=7)
+             'r-o', label=label[:-53], lw=2, ms=7)
     # B
     data, label = datalistB_R32[1]
     ax2.plot(np.log10(data[:, 7]), data[:, 3],
-             Symbols[1], color=Colors[1], label=label[:-54], lw=2, ms=7)
+             'b-s', label=label[:-54], lw=2, ms=7)
     # CS4
     data, label = datalistCS4_R32[1]
     ax2.plot(np.log10(data[:, 7]), data[:, 3],
-             Symbols[2], color=Colors[2], label=label[:-59], lw=2, ms=7)
+             'k-<', label=label[:-59], lw=2, ms=7)
     # CS5
     data, label = datalistCS5_R32[1]
     ax2.plot(np.log10(data[:, 7]), data[:, 3],
-             Symbols[3], color=Colors[3], label=label[:-59], lw=2, ms=7)
+             'y--v', label=label[:-59], lw=2, ms=7)
     # CS6
     data, label = datalistCS6_R32[1]
     ax2.plot(np.log10(data[:, 7]), data[:, 3],
-             Symbols[4], color=Colors[4], label=label[:-63], lw=2, ms=7)
+             'g--*', label=label[:-63], lw=2, ms=7)
     # DS1
     data, label = datalistDS1_R32[1]
     ax2.plot(np.log10(data[:, 7]), data[:, 3],
-             Symbols[5], color=Colors[5], label=label[:-59], lw=2, ms=7)
+             'm--s', label=label[:-59], lw=2, ms=7)
     # Soft_D2
     data, label = datalistSoftD2_R32[1]
     ax2.plot(np.log10(data[:, 7]), data[:, 3],
-             Symbols[6], color=Colors[0], label='Soft_' + label[5:-53],
-             lw=2, ms=7)
+             'c--d', label='Soft_' + label[5:-53], lw=2, ms=7)
     # E
     data, label = datalistE_R32[1]
     ax2.plot(np.log10(data[:, 7]), data[:, 3],
-             Symbols[7], color=Colors[1], label=label[:-54], lw=2, ms=7)
+             'r--.', label=label[:-54], lw=2, ms=7)
+
     ax2.yaxis.tick_right()
     ax2.set_ylim(-1.5, .5)
     ax2.set_xlabel(r'$\log (\frac{r}{r_{-2}})$', fontsize=30)
@@ -247,36 +250,36 @@ if logrR2GammaABCS4CS5CS6DS1D2E_ICFinalRLimit32:
     # A
     data, label = datalistA_R32[0]
     ax1.plot(np.log10(data[:, 7]), data[:, 2],
-             Symbols[0], color=Colors[0], label=label[:-52], lw=2, ms=7)
+             'r-o', label=label[:-52], lw=2, ms=7)
     # B
     data, label = datalistB_R32[0]
     ax1.plot(np.log10(data[:, 7]), data[:, 2],
-             Symbols[1], color=Colors[1], label=label[:-52], lw=2, ms=7)
+             'b-s', label=label[:-52], lw=2, ms=7)
     # CS4
     data, label = datalistCS4_R32[0]
     ax1.plot(np.log10(data[:, 7]), data[:, 2],
-             Symbols[2], color=Colors[2], label=label[:-58], lw=2, ms=7)
+             'k-<', label=label[:-58], lw=2, ms=7)
     # CS5
     data, label = datalistCS5_R32[0]
     ax1.plot(np.log10(data[:, 7]), data[:, 2],
-             Symbols[3], color=Colors[3], label=label[:-58], lw=2, ms=7)
+             'y--v', label=label[:-58], lw=2, ms=7)
     # CS6
     data, label = datalistCS6_R32[0]
     ax1.plot(np.log10(data[:, 7]), data[:, 2],
-             Symbols[4], color=Colors[4], label=label[:-58], lw=2, ms=7)
+             'g--*', label=label[:-58], lw=2, ms=7)
     # DS1
     data, label = datalistDS1_R32[0]
     ax1.plot(np.log10(data[:, 7]), data[:, 2],
-             Symbols[5], color=Colors[5], label=label[:-58], lw=2, ms=7)
+             'm--s', label=label[:-58], lw=2, ms=7)
     # Soft_D2
     data, label = datalistSoftD2_R32[0]
     ax1.plot(np.log10(data[:, 7]), data[:, 2],
-             Symbols[6], color=Colors[0], label='Soft_' + label[5:-52],
-             lw=2, ms=7)
+             'c--d', label='Soft_' + label[5:-52], lw=2, ms=7)
     # E
     data, label = datalistE_R32[0]
     ax1.plot(np.log10(data[:, 7]), data[:, 2],
-             Symbols[7], color=Colors[1], label=label[:-52], lw=2, ms=7)
+             'r--.', label=label[:-52], lw=2, ms=7)
+
     ax1.set_xlabel(r'$\log (\frac{r}{r_{-2}})$', fontsize=30)
     ax1.set_ylabel(r'$\gamma$', fontsize=30)
     ax1.set_ylim(-5., 0.)
@@ -285,36 +288,36 @@ if logrR2GammaABCS4CS5CS6DS1D2E_ICFinalRLimit32:
     # A
     data, label = datalistA_R32[1]
     ax2.plot(np.log10(data[:, 7]), data[:, 2],
-             Symbols[0], color=Colors[0], label=label[:-53], lw=2, ms=7)
+             'r-o', label=label[:-53], lw=2, ms=7)
     # B
     data, label = datalistB_R32[1]
     ax2.plot(np.log10(data[:, 7]), data[:, 2],
-             Symbols[1], color=Colors[1], label=label[:-54], lw=2, ms=7)
+             'b-s', label=label[:-54], lw=2, ms=7)
     # CS4
     data, label = datalistCS4_R32[1]
     ax2.plot(np.log10(data[:, 7]), data[:, 2],
-             Symbols[2], color=Colors[2], label=label[:-59], lw=2, ms=7)
+             'k-<', label=label[:-59], lw=2, ms=7)
     # CS5
     data, label = datalistCS5_R32[1]
     ax2.plot(np.log10(data[:, 7]), data[:, 2],
-             Symbols[3], color=Colors[3], label=label[:-59], lw=2, ms=7)
+             'y--v', label=label[:-59], lw=2, ms=7)
     # CS6
     data, label = datalistCS6_R32[1]
     ax2.plot(np.log10(data[:, 7]), data[:, 2],
-             Symbols[4], color=Colors[4], label=label[:-63], lw=2, ms=7)
+             'g--*', label=label[:-63], lw=2, ms=7)
     # DS1
     data, label = datalistDS1_R32[1]
     ax2.plot(np.log10(data[:, 7]), data[:, 2],
-             Symbols[5], color=Colors[5], label=label[:-59], lw=2, ms=7)
+             'm--s', label=label[:-59], lw=2, ms=7)
     # Soft_D2
     data, label = datalistSoftD2_R32[1]
     ax2.plot(np.log10(data[:, 7]), data[:, 2],
-             Symbols[6], color=Colors[0], label='Soft_' + label[5:-53],
-             lw=2, ms=7)
+             'c--d', label='Soft_' + label[5:-53], lw=2, ms=7)
     # E
     data, label = datalistE_R32[1]
     ax2.plot(np.log10(data[:, 7]), data[:, 2],
-             Symbols[7], color=Colors[1], label=label[:-54], lw=2, ms=7)
+             'r--.', label=label[:-54], lw=2, ms=7)
+
     ax2.yaxis.tick_right()
     ax2.set_ylim(-4., 1.)
     ax2.set_xlabel(r'$\log (\frac{r}{r_{-2}})$', fontsize=30)
@@ -331,75 +334,58 @@ if logrBetaABCS4CS5CS6DS1D2E_ICFinalRLimit32:
     # IC
     # A
     data, label = datalistA_R32[0]
-    ax1.plot(data[:, 0], data[:, 1],
-             Symbols[0], color=Colors[0], label=label[:-52], lw=2, ms=7)
+    ax1.plot(data[:, 0], data[:, 1], 'r-o', label=label[:-52], lw=2, ms=7)
     # B
     data, label = datalistB_R32[0]
-    ax1.plot(data[:, 0], data[:, 1],
-             Symbols[1], color=Colors[1], label=label[:-52], lw=2, ms=7)
+    ax1.plot(data[:, 0], data[:, 1], 'b-s', label=label[:-52], lw=2, ms=7)
     # CS4
     data, label = datalistCS4_R32[0]
-    ax1.plot(data[:, 0], data[:, 1],
-             Symbols[2], color=Colors[2], label=label[:-58], lw=2, ms=7)
+    ax1.plot(data[:, 0], data[:, 1], 'k-<', label=label[:-58], lw=2, ms=7)
     # CS5
     data, label = datalistCS5_R32[0]
-    ax1.plot(data[:, 0], data[:, 1],
-             Symbols[3], color=Colors[3], label=label[:-58], lw=2, ms=7)
+    ax1.plot(data[:, 0], data[:, 1], 'y--v', label=label[:-58], lw=2, ms=7)
     # CS6
     data, label = datalistCS6_R32[0]
-    ax1.plot(data[:, 0], data[:, 1],
-             Symbols[4], color=Colors[4], label=label[:-58], lw=2, ms=7)
+    ax1.plot(data[:, 0], data[:, 1], 'g--*', label=label[:-58], lw=2, ms=7)
     # DS1
     data, label = datalistDS1_R32[0]
-    ax1.plot(data[:, 0], data[:, 1],
-             Symbols[5], color=Colors[5], label=label[:-58], lw=2, ms=7)
+    ax1.plot(data[:, 0], data[:, 1], 'm--s', label=label[:-58], lw=2, ms=7)
     # Soft_D2
     data, label = datalistSoftD2_R32[0]
     ax1.plot(data[:, 0], data[:, 1],
-             Symbols[6], color=Colors[0], label='Soft_' +
-             label[5:-52], lw=2, ms=7)
+             'c--d', label='Soft_' + label[5:-52], lw=2, ms=7)
     # E
     data, label = datalistE_R32[0]
-    ax1.plot(data[:, 0], data[:, 1],
-             Symbols[7], color=Colors[1], label=label[:-52], lw=2, ms=7)
+    ax1.plot(data[:, 0], data[:, 1], 'r--.', label=label[:-52], lw=2, ms=7)
+
     ax1.set_xlabel(r'$\log r$', fontsize=30)
     ax1.set_ylabel(r'$\beta$', fontsize=30)
     ax1.set_ylim(-.4, 1.)
     ax1.set_title(r'IC ($R_{limit} = 32$)', fontsize=30)
     # Final
-    # A
-    data, label = datalistA_R32[1]
-    ax2.plot(data[:, 0], data[:, 1],
-             Symbols[0], color=Colors[0], label=label[:-53], lw=2, ms=7)
-    # B
-    data, label = datalistB_R32[1]
-    ax2.plot(data[:, 0], data[:, 1],
-             Symbols[1], color=Colors[1], label=label[:-54], lw=2, ms=7)
-    # CS4
-    data, label = datalistCS4_R32[1]
-    ax2.plot(data[:, 0], data[:, 1],
-             Symbols[2], color=Colors[2], label=label[:-59], lw=2, ms=7)
+    data, label = datalistA_R32[1]  # A
+    ax2.plot(data[:, 0], data[:, 1], 'r-o', label=label[:-53], lw=2, ms=7)
+    data, label = datalistB_R32[1]  # B
+    ax2.plot(data[:, 0], data[:, 1], 'b-s', label=label[:-54], lw=2, ms=7)
+    data, label = datalistCS4_R32[1]  # CS4
+    ax2.plot(data[:, 0], data[:, 1], 'k-<', label=label[:-59], lw=2, ms=7)
     # CS5
     data, label = datalistCS5_R32[1]
-    ax2.plot(data[:, 0], data[:, 1],
-             Symbols[3], color=Colors[3], label=label[:-59], lw=2, ms=7)
+    ax2.plot(data[:, 0], data[:, 1], 'y--v', label=label[:-59], lw=2, ms=7)
     # CS6
     data, label = datalistCS6_R32[1]
-    ax2.plot(data[:, 0], data[:, 1],
-             Symbols[4], color=Colors[4], label=label[:-63], lw=2, ms=7)
+    ax2.plot(data[:, 0], data[:, 1], 'g--*', label=label[:-63], lw=2, ms=7)
     # DS1
     data, label = datalistDS1_R32[1]
-    ax2.plot(data[:, 0], data[:, 1],
-             Symbols[5], color=Colors[5], label=label[:-59], lw=2, ms=7)
+    ax2.plot(data[:, 0], data[:, 1], 'm--s', label=label[:-59], lw=2, ms=7)
     # Soft_D2
     data, label = datalistSoftD2_R32[1]
     ax2.plot(data[:, 0], data[:, 1],
-             Symbols[6], color=Colors[0], label='Soft_' +
-             label[5:-53], lw=2, ms=7)
+             'c--d', label='Soft_' + label[5:-53], lw=2, ms=7)
     # E
     data, label = datalistE_R32[1]
-    ax2.plot(data[:, 0], data[:, 1],
-             Symbols[7], color=Colors[1], label=label[:-54], lw=2, ms=7)
+    ax2.plot(data[:, 0], data[:, 1], 'r--.', label=label[:-54], lw=2, ms=7)
+
     ax2.yaxis.tick_right()
     ax2.set_ylim(-.4, 1.)
     ax2.set_xlabel(r'$\log r$', fontsize=30)
@@ -416,37 +402,31 @@ if logrKappaABCS4CS5CS6DS1D2E_ICFinalRLimit32:
     # IC
     # A
     data, label = datalistA_R32[0]
-    ax1.plot(data[:, 0], data[:, 3],
-             Symbols[0], color=Colors[0], label=label[:-52], lw=2, ms=7)
+    ax1.plot(data[:, 0], data[:, 3], 'r-o', label=label[:-52], lw=2, ms=7)
     # B
     data, label = datalistB_R32[0]
-    ax1.plot(data[:, 0], data[:, 3],
-             Symbols[1], color=Colors[1], label=label[:-52], lw=2, ms=7)
+    ax1.plot(data[:, 0], data[:, 3], 'b-s', label=label[:-52], lw=2, ms=7)
     # CS4
     data, label = datalistCS4_R32[0]
-    ax1.plot(data[:, 0], data[:, 3],
-             Symbols[2], color=Colors[2], label=label[:-58], lw=2, ms=7)
+    ax1.plot(data[:, 0], data[:, 3], 'k-<', label=label[:-58], lw=2, ms=7)
     # CS5
     data, label = datalistCS5_R32[0]
-    ax1.plot(data[:, 0], data[:, 3],
-             Symbols[3], color=Colors[3], label=label[:-58], lw=2, ms=7)
+    ax1.plot(data[:, 0], data[:, 3], 'y--v', label=label[:-58], lw=2, ms=7)
     # CS6
     data, label = datalistCS6_R32[0]
-    ax1.plot(data[:, 0], data[:, 3],
-             Symbols[4], color=Colors[4], label=label[:-58], lw=2, ms=7)
+    ax1.plot(data[:, 0], data[:, 3], 'g--*', label=label[:-58], lw=2, ms=7)
     # DS1
     data, label = datalistDS1_R32[0]
-    ax1.plot(data[:, 0], data[:, 3],
-             Symbols[5], color=Colors[5], label=label[:-58], lw=2, ms=7)
+    ax1.plot(data[:, 0], data[:, 3], 'm--s', label=label[:-58], lw=2, ms=7)
     # Soft_D2
     data, label = datalistSoftD2_R32[0]
     ax1.plot(data[:, 0], data[:, 3],
-             Symbols[6], color=Colors[0], label='Soft_' +
-             label[5:-52], lw=2, ms=7)
+             'c--d', label='Soft_' + label[5:-52], lw=2, ms=7)
     # E
     data, label = datalistE_R32[0]
     ax1.plot(data[:, 0], data[:, 3],
-             Symbols[7], color=Colors[1], label=label[:-52], lw=2, ms=7)
+             'r--.', label=label[:-52], lw=2, ms=7)
+
     ax1.set_xlabel(r'$\log r$', fontsize=30)
     ax1.set_ylabel(r'$\kappa$', fontsize=30)
     ax1.set_ylim(-2., 2.)
@@ -454,37 +434,30 @@ if logrKappaABCS4CS5CS6DS1D2E_ICFinalRLimit32:
     # Final
     # A
     data, label = datalistA_R32[1]
-    ax2.plot(data[:, 0], data[:, 3],
-             Symbols[0], color=Colors[0], label=label[:-53], lw=2, ms=7)
+    ax2.plot(data[:, 0], data[:, 3], 'r-o', label=label[:-53], lw=2, ms=7)
     # B
     data, label = datalistB_R32[1]
-    ax2.plot(data[:, 0], data[:, 3],
-             Symbols[1], color=Colors[1], label=label[:-54], lw=2, ms=7)
+    ax2.plot(data[:, 0], data[:, 3], 'b-s', label=label[:-54], lw=2, ms=7)
     # CS4
     data, label = datalistCS4_R32[1]
-    ax2.plot(data[:, 0], data[:, 3],
-             Symbols[2], color=Colors[2], label=label[:-59], lw=2, ms=7)
+    ax2.plot(data[:, 0], data[:, 3], 'k-<', label=label[:-59], lw=2, ms=7)
     # CS5
     data, label = datalistCS5_R32[1]
-    ax2.plot(data[:, 0], data[:, 3],
-             Symbols[3], color=Colors[3], label=label[:-59], lw=2, ms=7)
+    ax2.plot(data[:, 0], data[:, 3], 'y--v', label=label[:-59], lw=2, ms=7)
     # CS6
     data, label = datalistCS6_R32[1]
-    ax2.plot(data[:, 0], data[:, 3],
-             Symbols[4], color=Colors[4], label=label[:-63], lw=2, ms=7)
+    ax2.plot(data[:, 0], data[:, 3], 'g--*', label=label[:-63], lw=2, ms=7)
     # DS1
     data, label = datalistDS1_R32[1]
-    ax2.plot(data[:, 0], data[:, 3],
-             Symbols[5], color=Colors[5], label=label[:-59], lw=2, ms=7)
+    ax2.plot(data[:, 0], data[:, 3], 'm--s', label=label[:-59], lw=2, ms=7)
     # Soft_D2
     data, label = datalistSoftD2_R32[1]
     ax2.plot(data[:, 0], data[:, 3],
-             Symbols[6], color=Colors[0], label='Soft_' +
-             label[5:-53], lw=2, ms=7)
+             'c--d', label='Soft_' + label[5:-53], lw=2, ms=7)
     # E
     data, label = datalistE_R32[1]
     ax2.plot(data[:, 0], data[:, 3],
-             Symbols[7], color=Colors[1], label=label[:-54], lw=2, ms=7)
+             'r--.', label=label[:-54], lw=2, ms=7)
 
     ax2.yaxis.tick_right()
     ax2.set_ylim(-2., 2.)
@@ -502,37 +475,31 @@ if logrGammaABCS4CS5CS6DS1D2E_ICFinalRLimit32:
     # IC
     # A
     data, label = datalistA_R32[0]
-    ax1.plot(data[:, 0], data[:, 2],
-             Symbols[0], color=Colors[0], label=label[:-52], lw=2, ms=7)
+    ax1.plot(data[:, 0], data[:, 2], 'r-o', label=label[:-52], lw=2, ms=7)
     # B
     data, label = datalistB_R32[0]
-    ax1.plot(data[:, 0], data[:, 2],
-             Symbols[1], color=Colors[1], label=label[:-52], lw=2, ms=7)
+    ax1.plot(data[:, 0], data[:, 2], 'b-s', label=label[:-52], lw=2, ms=7)
     # CS4
     data, label = datalistCS4_R32[0]
-    ax1.plot(data[:, 0], data[:, 2],
-             Symbols[2], color=Colors[2], label=label[:-58], lw=2, ms=7)
+    ax1.plot(data[:, 0], data[:, 2], 'k-<', label=label[:-58], lw=2, ms=7)
     # CS5
     data, label = datalistCS5_R32[0]
-    ax1.plot(data[:, 0], data[:, 2],
-             Symbols[3], color=Colors[3], label=label[:-58], lw=2, ms=7)
+    ax1.plot(data[:, 0], data[:, 2], 'y--v', label=label[:-58], lw=2, ms=7)
     # CS6
     data, label = datalistCS6_R32[0]
-    ax1.plot(data[:, 0], data[:, 2],
-             Symbols[4], color=Colors[4], label=label[:-58], lw=2, ms=7)
+    ax1.plot(data[:, 0], data[:, 2], 'g--*', label=label[:-58], lw=2, ms=7)
     # DS1
     data, label = datalistDS1_R32[0]
-    ax1.plot(data[:, 0], data[:, 2],
-             Symbols[5], color=Colors[5], label=label[:-58], lw=2, ms=7)
+    ax1.plot(data[:, 0], data[:, 2], 'm--s', label=label[:-58], lw=2, ms=7)
     # Soft_D2
     data, label = datalistSoftD2_R32[0]
     ax1.plot(data[:, 0], data[:, 2],
-             Symbols[6], color=Colors[0], label='Soft_' +
-             label[5:-52], lw=2, ms=7)
+             'c--d', label='Soft_' + label[5:-52], lw=2, ms=7)
     # E
     data, label = datalistE_R32[0]
     ax1.plot(data[:, 0], data[:, 2],
-             Symbols[7], color=Colors[1], label=label[:-52], lw=2, ms=7)
+             'r--.', label=label[:-52], lw=2, ms=7)
+
     ax1.set_xlabel(r'$\log r$', fontsize=30)
     ax1.set_ylabel(r'$\gamma$', fontsize=30)
     ax1.set_ylim(-5., 0.)
@@ -540,37 +507,29 @@ if logrGammaABCS4CS5CS6DS1D2E_ICFinalRLimit32:
     # Final
     # A
     data, label = datalistA_R32[1]
-    ax2.plot(data[:, 0], data[:, 2],
-             Symbols[0], color=Colors[0], label=label[:-53], lw=2, ms=7)
+    ax2.plot(data[:, 0], data[:, 2], 'r-o', label=label[:-53], lw=2, ms=7)
     # B
     data, label = datalistB_R32[1]
-    ax2.plot(data[:, 0], data[:, 2],
-             Symbols[1], color=Colors[1], label=label[:-54], lw=2, ms=7)
+    ax2.plot(data[:, 0], data[:, 2], 'b-s', label=label[:-54], lw=2, ms=7)
     # CS4
     data, label = datalistCS4_R32[1]
-    ax2.plot(data[:, 0], data[:, 2],
-             Symbols[2], color=Colors[2], label=label[:-59], lw=2, ms=7)
+    ax2.plot(data[:, 0], data[:, 2], 'k-<', label=label[:-59], lw=2, ms=7)
     # CS5
     data, label = datalistCS5_R32[1]
-    ax2.plot(data[:, 0], data[:, 2],
-             Symbols[3], color=Colors[3], label=label[:-59], lw=2, ms=7)
+    ax2.plot(data[:, 0], data[:, 2], 'y--v', label=label[:-59], lw=2, ms=7)
     # CS6
     data, label = datalistCS6_R32[1]
-    ax2.plot(data[:, 0], data[:, 2],
-             Symbols[4], color=Colors[4], label=label[:-63], lw=2, ms=7)
+    ax2.plot(data[:, 0], data[:, 2], 'g--*', label=label[:-63], lw=2, ms=7)
     # DS1
     data, label = datalistDS1_R32[1]
-    ax2.plot(data[:, 0], data[:, 2],
-             Symbols[5], color=Colors[5], label=label[:-59], lw=2, ms=7)
+    ax2.plot(data[:, 0], data[:, 2], 'm--s', label=label[:-59], lw=2, ms=7)
     # Soft D2
     data, label = datalistSoftD2_R32[1]
     ax2.plot(data[:, 0], data[:, 2],
-             Symbols[6], color=Colors[0], label='Soft_' +
-             label[5:-53], lw=2, ms=7)
+             'c--d', label='Soft_' + label[5:-53], lw=2, ms=7)
     # E
     data, label = datalistE_R32[1]
-    ax2.plot(data[:, 0], data[:, 2],
-             Symbols[7], color=Colors[1], label=label[:-54], lw=2, ms=7)
+    ax2.plot(data[:, 0], data[:, 2], 'r--.', label=label[:-54], lw=2, ms=7)
 
     ax2.yaxis.tick_right()
     ax2.set_xlabel(r'$\log r$', fontsize=30)
