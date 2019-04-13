@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 
-import scipy as sp
+import numpy as np
+# import scipy as sp
+import radius_and_velocity_funcs as ravf
 
 # switches -------------------------------------------------------------
 vspherical = 0
@@ -8,21 +10,7 @@ vbin = 0
 
 # radial and tangential velocities
 if vspherical:
-    r = (x ** 2 + y ** 2 + z ** 2) ** .5
-    Phi = sp.arctan2(y, x)
-    Theta = sp.arccos(z / r)
-    VR = (
-        sp.sin(Theta) * sp.cos(Phi) * vx
-        + sp.sin(Theta) * sp.sin(Phi) * vy
-        + sp.cos(Theta) * vz
-    )
-    VTheta = (
-        sp.cos(Theta) * sp.cos(Phi) * vx
-        + sp.cos(Theta) * sp.sin(Phi) * vy
-        - sp.sin(Theta) * vz
-    )
-    VPhi = -sp.sin(Phi) * vx + sp.cos(Phi) * vy
-    VT = VTheta + VPhi
+    ravf.spherical_coords_and_velocities()
 
 if vbin:
     for i in range(nr_binning_bins_v - 2):  # loop over 0-998

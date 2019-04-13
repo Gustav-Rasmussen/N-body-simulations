@@ -12,7 +12,7 @@ from pylab import *
 import pylab
 from scipy.stats import norm
 import matplotlib.mlab as mlab
-import scipy
+# import scipy
 from astropy.io import ascii
 from mpl_toolkits.mplot3d import Axes3D
 import Gammas_and_R_middles
@@ -22,6 +22,7 @@ import RhoAndGaussianAndTsallis
 import velocityCheck
 import snapshotFiles
 import vSphericalAnd_vBins
+import radius_and_velocity_funcs as ravf
 
 # HQ1000000_150311_000.hdf5
 # Gamma | logr | r
@@ -88,7 +89,7 @@ def randrange(n, vmin, vmax):  # 3D scatterplot of positions
 
 if calc_sigma_binned_lin_radius:
     R_hob_par = R[GoodIDs]
-    v2 = vx ** 2 + vy ** 2 + vz ** 2
+    v2 = ravf.speed(vx, vy, vz) ** 2
 
     (sigma2, sigmarad2, sigmatheta2, sigmaphi2, sigmatan2, sigma,
      sigmarad, sigmatheta, sigmaphi, sigmatan, VR_sigmarad,
@@ -107,25 +108,21 @@ if calc_sigma_binned_lin_radius:
         if nr_par_inside_bin_i == 0:
             continue
 
-        r_i = np.sqrt(x[posR_par_inside_bin_i] ** 2
-                      + y[posR_par_inside_bin_i] ** 2
-                      + z[posR_par_inside_bin_i] ** 2)
-        Phi_i = scipy.arctan2(y[posR_par_inside_bin_i],
-                              x[posR_par_inside_bin_i])
-        Theta_i = scipy.arccos(z[posR_par_inside_bin_i] / r_i)
-        VR_i = scipy.sin(Theta_i) * scipy.cos(Phi_i)
-                * vx[posR_par_inside_bin_i] + scipy.sin(Theta_i)
-                * scipy.sin(Phi_i) * vy[posR_par_inside_bin_i]
-                + scipy.cos(Theta_i) * vz[posR_par_inside_bin_i]
-        VTheta_i = scipy.cos(Theta_i) * scipy.cos(Phi_i)
-                * vx[posR_par_inside_bin_i] + scipy.cos(Theta_i)
-                * scipy.sin(Phi_i) * vy[posR_par_inside_bin_i]
-                - scipy.sin(Theta_i) * vz[posR_par_inside_bin_i]
-        VPhi_i = - scipy.sin(Phi_i) * vx[posR_par_inside_bin_i]
-                 + scipy.cos(Phi_i) * vy[posR_par_inside_bin_i]
+        x = x[posR_par_inside_bin_i]
+        y = y[posR_par_inside_bin_i]
+        z = z[posR_par_inside_bin_i]
 
-        VT_i = (VTheta_i ** 2 + VPhi_i ** 2) ** .5
-        # VT_i = VTheta_i + VPhi_i
+        vx = vx[posR_par_inside_bin_i]
+        vy = vy[posR_par_inside_bin_i]
+        vz = vz[posR_par_inside_bin_i]
+
+        r_i = ravf.radius(x, y, z)
+        Phi_i = ravf.phi(x, y)
+        Theta_i = ravf.theta(r_i, z)
+        VR_i = ravf.v_R(vx, vy, vz, Theta_i, Phi_i)
+        VTheta_i = ravf.v_theta(vx, vy, vz, Theta, Phi)
+        VPhi_i = ravf.v_phi(vx, vy, Phi_i)
+        VT_i = ravf.v_tan(VTheta_i, VPhi_i)
 
         # sigmatan2
         vtan2_inside_bin_i = VT_i ** 2
@@ -238,16 +235,16 @@ if Fig14_sigmas:
     plt.subplot(121)
     x_plot = np.log10(bin_radius_arr)
     y_plot = np.log10(sigma2)
-    plt.plot(x_plot, y_plot, '-o', ms=8, mew=0, color='red',
+    plt.plot(x_plot, y_plot, '-o', ms=8, mew=0, color='r',
              label=r'$\log \sigma_{total}^2$')
     y_plot = np.log10(sigmarad2)
-    plt.plot(x_plot, y_plot, '--s', ms=8, mew=0, color='blue',
+    plt.plot(x_plot, y_plot, '--s', ms=8, mew=0, color='b',
              label=r'$\log \sigma_{r}^2$')
     y_plot = np.log10(sigmatheta2)
-    plt.plot(x_plot, y_plot, '--v', ms=8, mew=0, color='green',
+    plt.plot(x_plot, y_plot, '--v', ms=8, mew=0, color='g',
              label=r'$\log \sigma_{\theta}^2$')
     y_plot = np.log10(sigmaphi2)
-    plt.plot(x_plot, y_plot, '--^', ms=8, mew=0, color='black',
+    plt.plot(x_plot, y_plot, '--^', ms=8, mew=0, color='k',
              label=r'$\log \sigma_{\phi}^2$')
     y_plot = np.log10(sigmatan2)
     plt.plot(x_plot, y_plot, '--^', ms=8, mew=0, color='Violet',
@@ -263,16 +260,16 @@ if Fig14_sigmas:
     plt.subplot(122)
     x_plot = np.log10(bin_radius_arr)
     y_plot = np.log10(sigma)
-    plt.plot(x_plot, y_plot, '-o', ms=8, mew=0, color='red',
+    plt.plot(x_plot, y_plot, '-o', ms=8, mew=0, color='r',
              label=r'$\log \sigma_{total}$')
     y_plot = np.log10(sigmarad)
-    plt.plot(x_plot, y_plot, '--s', ms=8, mew=0, color='blue',
+    plt.plot(x_plot, y_plot, '--s', ms=8, mew=0, color='b',
              label=r'$\log \sigma_r$')
     y_plot = np.log10(sigmatheta)
-    plt.plot(x_plot, y_plot, '--v', ms=8, mew=0, color='green',
+    plt.plot(x_plot, y_plot, '--v', ms=8, mew=0, color='g',
              label=r'$\log \sigma_{\theta}$')
     y_plot = np.log10(sigmaphi)
-    plt.plot(x_plot, y_plot, '--^', ms=8, mew=0, color='black',
+    plt.plot(x_plot, y_plot, '--^', ms=8, mew=0, color='k',
              label=r'$\log \sigma_{\phi}$')
     y_plot = np.log10(sigmatan)
     plt.plot(x_plot, y_plot, '--^', ms=8, mew=0, color='Violet',
@@ -370,21 +367,21 @@ if Fig8_vspherical_hist_log_vpvn:
     plt.title(r'Positive and negative f(v) ($N=%.3f$, $\gamma = %.1f$,\
               File = %s)' % (len(x), Gamma, F))
     plt.hist(np.log10(v_thetap_arr), bins=100, histtype='step',
-             color='red', range=(-5, 1), label=r'$\log v_{\theta}p$',
+             color='r', range=(-5, 1), label=r'$\log v_{\theta}p$',
              lw=2)
     plt.hist(np.log10(v_phip_arr), bins=100, histtype='step',
              color='skyblue', range=(-5, 1), label=r'$\log v_{\phi}p$',
              lw=2)
     plt.hist(np.log10(v_rp_arr), bins=100, histtype='step',
-             color='black', range=(-5, 1), label=r'$\log v_rp$', lw=2)
+             color='k', range=(-5, 1), label=r'$\log v_rp$', lw=2)
     plt.hist(np.log10(np.absolute(v_thetan_arr)), bins=100,
-             histtype='step', color='green', range=(-5, 1),
+             histtype='step', color='g', range=(-5, 1),
              label=r'$\log v_{\theta}n$', lw=2)
     plt.hist(np.log10(np.absolute(v_phin_arr)), bins=100,
-             histtype='step', color='blue', range=(-5, 1),
+             histtype='step', color='b', range=(-5, 1),
              label=r'$\log v_{\phi}n$', lw=2)
     plt.hist(np.log10(np.absolute(v_rn_arr)), bins=100, histtype='step',
-             color='cyan', range=(-5, 1), label=r'$\log v_rn$', lw=2)
+             color='c', range=(-5, 1), label=r'$\log v_rn$', lw=2)
     plt.legend(prop=dict(size=13), numpoints=2, ncol=2,
                frameon=True, loc=2, handlelength=2.5)
 
@@ -443,15 +440,15 @@ if Fig11_vspherical_hist_log_n123:
     fig = plt.figure()
     ax = fig.add_subplot(121)
     # (mu, sigma) = norm.fit(VR)
-    n, bins, patches = plt.hist(VR, 100, histtype='step', color='red',
+    n, bins, patches = plt.hist(VR, 100, histtype='step', color='r',
                                 label=r'$ v_r $', alpha=.75)
     # (mu, sigma) = norm.fit(VTheta)
     n, bins, patches = plt.hist(VTheta, 100, histtype='step',
-                                color='blue', label=r'$v_{\theta}$',
+                                color='b', label=r'$v_{\theta}$',
                                 alpha=.75)
     # (mu, sigma) = norm.fit(VPhi)
     n, bins, patches = plt.hist(VPhi, 100, histtype='step',
-                                color='green', label=r'$ v_{\phi}$',
+                                color='g', label=r'$ v_{\phi}$',
                                 alpha=.75)
     plt.xlabel(r'$v_r$, $v_{\theta}$, $v_{\phi}$')
     plt.ylabel(r'$\log$ number of particles')
@@ -468,18 +465,18 @@ if Fig11_vspherical_hist_log_n123:
     n3 = np.absolute(x6) + x3
     # (mu, sigma) = norm.fit(np.log10(n3))
     n, bins, patches = plt.hist(np.log10(n3), 100, histtype='step',
-                                color='red',
+                                color='r',
                                 label=r'$\log (v_rp + |v_rn|)$',
                                 alpha=.75)
     # (mu, sigma) = norm.fit(np.log10(n1))
     n, bins, patches = plt.hist(np.log10(n1), 100, histtype='step',
-                                color='blue',
+                                color='b',
                                 label=r'$\log (v_{\theta}p +\
                                 |v_{\theta}n|)$',
                                 alpha=.75)
     # (mu, sigma) = norm.fit(np.log10(n2))
     n, bins, patches = plt.hist(np.log10(n2), 100, histtype='step',
-                                color='green',
+                                color='g',
                                 label=r'$\log (v_{\phi}p +\
                                 |v_{\phi}n|)$',
                                 alpha=.75)
@@ -523,17 +520,17 @@ if Fig12_n123_sigma:
     plt.figure()
     plt.subplot(221)
     n, bins, patches = plt.hist(np.log10(n3) / linalg.norm(VR), 100,
-                                histtype='step', color='red',
+                                histtype='step', color='r',
                                 label=r'$\frac{f(\log (v_rp +\
                                 |v_rn|))}{||v_r||}$',
                                 alpha=.75)
     n, bins, patches = plt.hist(np.log10(n1) / linalg.norm(VTheta), 100,
-                                histtype='step', color='blue',
+                                histtype='step', color='b',
                                 label=r'$\frac{f(\log (v_{\theta}p +\
                                 |v_{\theta}n|))}{||v_{\theta}||}$',
                                 alpha=.75)
     n, bins, patches = plt.hist(np.log10(n2) / linalg.norm(VPhi), 100,
-                                histtype='step', color='green',
+                                histtype='step', color='g',
                                 label=r'$\frac{f(\log (v_{\phi}p +\
                                 |v_{\phi}n|))}{||v_{\phi}||}$',
                                 alpha=.75)
@@ -549,17 +546,17 @@ if Fig12_n123_sigma:
 
     plt.subplot(222)
     n, bins, patches = plt.hist(VR / linalg.norm(normTXT_r_arr), 100,
-                                histtype='step', color='red',
+                                histtype='step', color='r',
                                 label=r'$f\left(\frac{v_r}{\sigma_r}\
                                 \right)$',
                                 alpha=.75)
     n, bins, patches = plt.hist(VTheta / linalg.norm(normTXT_theta_arr),
-                                100, histtype='step', color='blue',
+                                100, histtype='step', color='b',
                                 label=r'$f\left(\frac{v_{\theta}}\
                                 {\sigma_{\theta}}\right)$',
                                 alpha=.75)
     n, bins, patches = plt.hist(VPhi / linalg.norm(normTXT_phi_arr),
-                                100, histtype='step', color='green',
+                                100, histtype='step', color='g',
                                 label=r'$f\left(\frac{v_{\phi}}\
                                 {\sigma_{\phi}}\right)$',
                                 alpha=.75)
@@ -571,16 +568,16 @@ if Fig12_n123_sigma:
 
     plt.subplot(223)
     n, bins, patches = plt.hist(np.log10(n3), 100, histtype='step',
-                                color='red',
+                                color='r',
                                 label=r'$f(\log (v_rp + |v_rn|))$',
                                 alpha=.75)
     n, bins, patches = plt.hist(np.log10(n1), 100, histtype='step',
-                                color='blue',
+                                color='b',
                                 label=r'$f(\log (v_{\theta}p +\
                                 |v_{\theta}n|))$',
                                 alpha=.75)
     n, bins, patches = plt.hist(np.log10(n2), 100, histtype='step',
-                                color='green',
+                                color='g',
                                 label=r'$f(\log (v_{\phi}p +\
                                 |v_{\phi}n|))$',
                                 alpha=.75)
@@ -594,20 +591,20 @@ if Fig12_n123_sigma:
     plt.subplot(224)
     n, bins, patches = plt.hist(np.log10(n3
                                 / linalg.norm(normTXT_r_arr)), 100,
-                                histtype='step', color='red',
+                                histtype='step', color='r',
                                 label=r'$f\left(\log \left( \frac{v_rp\
                                 + |v_rn|}{\sigma_r}\right)\right)$',
                                 alpha=.75)
     n, bins, patches = plt.hist(np.log10(n1
                                 / linalg.norm(normTXT_theta_arr)), 100,
-                                histtype='step', color='blue',
+                                histtype='step', color='b',
                                 label=r'$f\left(\log \left( \frac{v_{\
                                 \theta}p + |v_{\theta}n|}{\sigma_{\
                                 \theta}}\right)\right)$',
                                 alpha=.75)
     n, bins, patches = plt.hist(np.log10(n2
                                 / linalg.norm(normTXT_phi_arr)), 100,
-                                histtype='step', color='green',
+                                histtype='step', color='g',
                                 label=r'$f\left(\log \left( \frac{v_{\
                                 \phi}p + |v_{\phi}n|}{\sigma_{\phi}}\
                                 \right)\right)$',
@@ -646,20 +643,20 @@ if Fig12_x789_sigma:
     plt.figure()
     plt.subplot(221)
     n, bins, patches = plt.hist(np.log10(x9) / linalg.norm(VR), 100,
-                                histtype='step', color='red',
+                                histtype='step', color='r',
                                 range=(-.1, .0),
                                 label=r'$f\left( \frac{\log (|v_rn|,\
                                 v_rp))}{||v_r||} \right)$',
                                 alpha=.75)
     n, bins, patches = plt.hist(np.log10(x7) / linalg.norm(VTheta), 100,
-                                histtype='step', color='blue',
+                                histtype='step', color='b',
                                 range=(-.1, .0),
                                 label=r'$f\left( \frac{\log\
                                 (|v_{\theta}n|, v_{\theta}p))}\
                                 {||v_{\theta}||} \right)$',
                                 alpha=.75)
     n, bins, patches = plt.hist(np.log10(x8) / linalg.norm(VPhi), 100,
-                                histtype='step', color='green',
+                                histtype='step', color='g',
                                 range=(-.1, .0),
                                 label=r'$f\left( \frac{\log\
                                 (|v_{\phi}n|, v_{\phi}p))}\
@@ -677,17 +674,17 @@ if Fig12_x789_sigma:
 
     plt.subplot(222)
     n, bins, patches = plt.hist(VR / linalg.norm(normTXT_r_arr), 100,
-                                histtype='step', color='red',
+                                histtype='step', color='r',
                                 label=r'$f\left(\frac{v_r}\
                                 {\sigma_r}\right)$',
                                 alpha=.75)
     n, bins, patches = plt.hist(VTheta / linalg.norm(normTXT_theta_arr),
-                                100, histtype='step', color='blue',
+                                100, histtype='step', color='b',
                                 label=r'$f\left(\frac{v_{\theta}}\
                                 {\sigma_{\theta}}\right)$',
                                 alpha=.75)
     n, bins, patches = plt.hist(VPhi / linalg.norm(normTXT_phi_arr),
-                                100, histtype='step', color='green',
+                                100, histtype='step', color='g',
                                 label=r'$f\left(\frac{v_{\phi}}\
                                 {\sigma_{\phi}}\right)$',
                                 alpha=.75)
@@ -699,16 +696,16 @@ if Fig12_x789_sigma:
 
     plt.subplot(223)
     n, bins, patches = plt.hist(np.log10(x9), 100, histtype='step',
-                                color='red', range=(-3, 0),
+                                color='r', range=(-3, 0),
                                 label=r'$f(\log (|v_rn|,v_rp))$',
                                 alpha=.75)
     n, bins, patches = plt.hist(np.log10(x7), 100, histtype='step',
-                                color='blue', range=(-3, 0),
+                                color='b', range=(-3, 0),
                                 label=r'$f(\log (|v_{\theta}n|,\
                                 v_{\theta}p))$',
                                 alpha=.75)
     n, bins, patches = plt.hist(np.log10(x8), 100, histtype='step',
-                                color='green', range=(-3, 0),
+                                color='g', range=(-3, 0),
                                 label=r'$f(\log (|v_{\phi}n|,\
                                 v_{\phi}p))$',
                                 alpha=.75)
@@ -722,7 +719,7 @@ if Fig12_x789_sigma:
     plt.subplot(224)
     n, bins, patches = plt.hist(np.log10(x9
                                 / linalg.norm(normTXT_r_arr)), 100,
-                                histtype='step', color='red',
+                                histtype='step', color='r',
                                 range=(-3, 0),
                                 label=r'$f\left(\log \left(\
                                 \frac{|v_rn|,v_rp}{\sigma_r}\right)\
@@ -730,7 +727,7 @@ if Fig12_x789_sigma:
                                 alpha=.75)
     n, bins, patches = plt.hist(np.log10(x7
                                 / linalg.norm(normTXT_theta_arr)), 100,
-                                histtype='step', color='blue',
+                                histtype='step', color='b',
                                 range=(-3, 0),
                                 label=r'$f\left(\log \left( \frac{\
                                 |v_{\theta}n|, v_{\theta}p}{\sigma_{\
@@ -738,7 +735,7 @@ if Fig12_x789_sigma:
                                 alpha=.75)
     n, bins, patches = plt.hist(np.log10(x8
                                 / linalg.norm(normTXT_phi_arr)), 100,
-                                histtype='step', color='green',
+                                histtype='step', color='g',
                                 range=(-3, 0),
                                 label=r'$f\left(\log \left( \frac{\
                                 |v_{\phi}n|,v_{\phi}p}{\sigma_{\phi}}\
@@ -769,21 +766,21 @@ if Fig12_vr_vtheta_vphi_sigma:
     plt.figure()
     plt.subplot(221)
     n, bins, patches = plt.hist(np.log10(v_rpn) / linalg.norm(VR), 100,
-                                histtype='step', color='red',
+                                histtype='step', color='r',
                                 range=(-.1, .0),
                                 label=r'$f\left( \frac{\log (|v_rn|,\
                                 v_rp)}{||v_r||}\right)$',
                                 alpha=.75)
     n, bins, patches = plt.hist(np.log10(v_thetapn)
                                 / linalg.norm(VTheta), 100,
-                                histtype='step', color='blue',
+                                histtype='step', color='b',
                                 range=(-.1, .0),
                                 label=r'$f\left( \frac{\log\
                                 (|v_{\theta}n|,v_{\theta}p))}\
                                 {||v_{\theta}||} \right)$',
                                 alpha=.75)
     n, bins, patches = plt.hist(np.log10(v_phipn) / linalg.norm(VPhi),
-                                100, histtype='step', color='green',
+                                100, histtype='step', color='g',
                                 range=(-.1, .0),
                                 label=r'$f\left( \frac{\log\
                                 (|v_{\phi}n|,v_{\phi}p))}{||v_{\phi}||}\
@@ -811,17 +808,17 @@ if Fig12_vr_vtheta_vphi_sigma:
 
     plt.subplot(222)
     n, bins, patches = plt.hist(VR_sigmarad, 100,
-                                histtype='step', color='red',
+                                histtype='step', color='r',
                                 label=r'$f\left(\frac{v_r}{\sigma_r}\
                                       \right)$',
                                 alpha=.75)
     n, bins, patches = plt.hist(VTheta_sigmatheta, 100,
-                                histtype='step', color='blue',
+                                histtype='step', color='b',
                                 label=r'$f\left(\frac{v_{\theta}}\
                                       {\sigma_{\theta}}\right)$',
                                 alpha=.75)
     n, bins, patches = plt.hist(VPhi_sigmaphi, 100,
-                                histtype='step', color='green',
+                                histtype='step', color='g',
                                 label=r'$f\left(\frac{v_{\phi}}\
                                       {\sigma_{\phi}}\right)$',
                                 alpha=.75)
@@ -842,17 +839,17 @@ if Fig12_vr_vtheta_vphi_sigma:
 
     plt.subplot(223)
     n, bins, patches = plt.hist(np.log10(v_rpn), 100, histtype='step',
-                                color='red', range=(-3, 0),
+                                color='r', range=(-3, 0),
                                 label=r'$f(\log (|v_rn|,v_rp))$',
                                 alpha=.75)
     n, bins, patches = plt.hist(np.log10(v_thetapn), 100,
-                                histtype='step', color='blue',
+                                histtype='step', color='b',
                                 range=(-3, 0),
                                 label=r'$f(\log (|v_{\theta}n|,\
                                 v_{\theta}p))$',
                                 alpha=.75)
     n, bins, patches = plt.hist(np.log10(v_phipn), 100, histtype='step',
-                                color='green', range=(-3, 0),
+                                color='g', range=(-3, 0),
                                 label=r'$f(\log (|v_{\phi}n|,\
                                 v_{\phi}p))$',
                                 alpha=.75)
@@ -875,18 +872,18 @@ if Fig12_vr_vtheta_vphi_sigma:
 
     plt.subplot(224)
     n, bins, patches = plt.hist(np.log10(x9), 100, histtype='step',
-                                color='red', range=(-3, 1),
+                                color='r', range=(-3, 1),
                                 label=r'$f\left(\log \left( \frac{\
                                       |v_rn|, v_rp}{\sigma_r}\right)\right)$',
                                 alpha=.75)
     n, bins, patches = plt.hist(np.log10(x7), 100, histtype='step',
-                                color='blue', range=(-3, 1),
+                                color='b', range=(-3, 1),
                                 label=r'$f\left(\log \left( \frac{\
                                       |v_{\theta}n|, v_{\theta}p}\
                                       {\sigma_{\theta}}\right)\right)$',
                                 alpha=.75)
     n, bins, patches = plt.hist(np.log10(x8), 100, histtype='step',
-                                color='green', range=(-3, 1),
+                                color='g', range=(-3, 1),
                                 label=r'$f\left(\log \left( \frac{\
                                       |v_{\phi}n|,v_{\phi}p}{\sigma_{\phi}}\
                                       \right)\right)$',
@@ -936,7 +933,7 @@ if Fig12_vr_vtheta_vphi_vt_sigma:
                   % (len(VR), Gamma, F))
 
         n, bins, patches = plt.hist(VT_sigmatan, 50, histtype='step',
-                                    color='Black',
+                                    color='k',
                                     label=r'$f\left(\frac{v_t}\
                                     {\sigma_t}\right)$',
                                     alpha=.75)
@@ -946,10 +943,10 @@ if Fig12_vr_vtheta_vphi_vt_sigma:
         x = x.transpose()
         np.savetxt(F + '_VT_sigmatan_gamma_%.2f.txt' % Gamma, x,
                    delimiter=' ',
-                   header='    bins                         n')
+                   header='    bins \t\t n')
 
         n, bins, patches = plt.hist(VR_sigmarad, 50, histtype='step',
-                                    color='red',
+                                    color='r',
                                     label=r'$f\left(\frac{v_r}\
                                     {\sigma_r}\right)$',
                                     alpha=.75)
@@ -959,10 +956,10 @@ if Fig12_vr_vtheta_vphi_vt_sigma:
         x = x.transpose()
         np.savetxt(F + '_VR_sigmarad_gamma_%.2f.txt' % Gamma, x,
                    delimiter=' ',
-                   header='    bins                         n')
+                   header='    bins \t\t n')
 
         n, bins, patches = plt.hist(VTheta_sigmatheta, 50,
-                                    histtype='step', color='blue',
+                                    histtype='step', color='b',
                                     label=r'$f\left(\frac{v_{\theta}}\
                                     {\sigma_{\theta}}\right)$',
                                     alpha=.75)
@@ -972,10 +969,10 @@ if Fig12_vr_vtheta_vphi_vt_sigma:
         x = x.transpose()
         np.savetxt(F + '_VTheta_sigmatheta_gamma_%.2f.txt' % Gamma, x,
                    delimiter=' ',
-                   header='    bins                         n')
+                   header='    bins \t\t n')
 
         n, bins, patches = plt.hist(VPhi_sigmaphi, 50, histtype='step',
-                                    color='green',
+                                    color='g',
                                     label=r'$f\left(\frac{v_{\phi}}\
                                     {\sigma_{\phi}}\right)$',
                                     alpha=.75)
@@ -985,7 +982,7 @@ if Fig12_vr_vtheta_vphi_vt_sigma:
         x = x.transpose()
         np.savetxt(F + '_VPhi_sigmaphi_gamma_%.2f.txt' % Gamma, x,
                    delimiter=' ',
-                   header='    bins                         n')
+                   header='    bins \t\t n')
 
         plt.xlabel(r'$ u_t $, $ u_r $, $ u_{\theta}$ and $ u_{\phi}$')
         plt.ylabel(r'$f\left( u \right)$')
@@ -994,7 +991,7 @@ if Fig12_vr_vtheta_vphi_vt_sigma:
         plt.grid()
 
         n, bins, patches = plt.hist(np.log10(x10), 50, histtype='step',
-                                    color='Black', range=(-3, 1),
+                                    color='k', range=(-3, 1),
                                     label=r'$f\left(\log \left(\
                                     \frac{|v_tn|,v_tp}{\sigma_t}\
                                     \right)\right)$',
@@ -1005,10 +1002,10 @@ if Fig12_vr_vtheta_vphi_vt_sigma:
         x = x.transpose()
         np.savetxt(F + '_logx10_gamma_%.2f.txt' % Gamma, x,
                    delimiter=' ',
-                   header='    bins                         n')
+                   header='    bins \t\t n')
 
         n, bins, patches = plt.hist(np.log10(x9), 50, histtype='step',
-                                    color='red', range=(-3, 1),
+                                    color='r', range=(-3, 1),
                                     label=r'$f\left(\log \left(\
                                     \frac{|v_rn|,v_rp}{\sigma_r}\
                                     \right)\right)$',
@@ -1019,10 +1016,10 @@ if Fig12_vr_vtheta_vphi_vt_sigma:
         x = x.transpose()
         np.savetxt(F + '_logx9_gamma_%.2f.txt' % Gamma, x,
                    delimiter=' ',
-                   header='    bins                         n')
+                   header='    bins \t\t n')
 
         n, bins, patches = plt.hist(np.log10(x7), 50, histtype='step',
-                                    color='blue', range=(-3, 1),
+                                    color='b', range=(-3, 1),
                                     label=r'$f\left(\log \left(\
                                     \frac{|v_{\theta}n|, v_{\theta}p}\
                                     {\sigma_{\theta}}\right)\right)$',
@@ -1033,10 +1030,10 @@ if Fig12_vr_vtheta_vphi_vt_sigma:
         x = x.transpose()
         np.savetxt(F + '_logx7_gamma_%.2f.txt' % Gamma, x,
                    delimiter=' ',
-                   header='    bins                         n')
+                   header='    bins \t\t n')
 
         n, bins, patches = plt.hist(np.log10(x8), 50, histtype='step',
-                                    color='green', range=(-3, 1),
+                                    color='g', range=(-3, 1),
                                     label=r'$f\left(\log \left(\
                                     \frac{|v_{\phi}n|,v_{\phi}p}\
                                     {\sigma_{\phi}}\right)\right)$',
@@ -1047,7 +1044,7 @@ if Fig12_vr_vtheta_vphi_vt_sigma:
         x = x.transpose()
         np.savetxt(F + '_logx8_gamma_%.2f.txt' % Gamma, x,
                    delimiter=' ',
-                   header='    bins                         n')
+                   header='    bins \t\t n')
 
         ax2.set_yscale('log')
         plt.xlabel(r'$\log \left( |u_tn|,u_tp \right)$, $\log \left(\
@@ -1065,7 +1062,7 @@ if Fig12_vr_vtheta_vphi_vt_sigma:
                   % (len(VR), Gamma, F))
 
         n, bins, patches = plt.hist(VT_sigmatan, 50, histtype='step',
-                                    color='Black',
+                                    color='k',
                                     label=r'$f\left(\frac{v_t}\
                                     {\sigma_t}\right)$',
                                     alpha=.75)
@@ -1075,10 +1072,10 @@ if Fig12_vr_vtheta_vphi_vt_sigma:
         x = x.transpose()
         np.savetxt(F + '_new_R_middle_VT_sigmatan_gamma_%.2f.txt'
                    % Gamma, x, delimiter=' ',
-                   header='    bins                         n')
+                   header='    bins \t\t n')
 
         n, bins, patches = plt.hist(VR_sigmarad, 50, histtype='step',
-                                    color='red',
+                                    color='r',
                                     label=r'$f\left(\frac{v_r}\
                                     {\sigma_r}\right)$',
                                     alpha=.75)
@@ -1088,10 +1085,10 @@ if Fig12_vr_vtheta_vphi_vt_sigma:
         x = x.transpose()
         np.savetxt(F + '_new_R_middle_VR_sigmarad_gamma_%.2f.txt'
                    % Gamma, x, delimiter=' ',
-                   header='    bins                         n')
+                   header='    bins \t\t n')
 
         n, bins, patches = plt.hist(VTheta_sigmatheta, 50,
-                                    histtype='step', color='blue',
+                                    histtype='step', color='b',
                                     label=r'$f\left(\frac{v_{\theta}}\
                                     {\sigma_{\theta}}\right)$',
                                     alpha=.75)
@@ -1101,10 +1098,10 @@ if Fig12_vr_vtheta_vphi_vt_sigma:
         x = x.transpose()
         np.savetxt(F + '_new_R_middle_VTheta_sigmatheta_gamma_%.2f.txt'
                    % Gamma, x, delimiter=' ',
-                   header='    bins                         n')
+                   header='    bins \t\t n')
 
         n, bins, patches = plt.hist(VPhi_sigmaphi, 50, histtype='step',
-                                    color='green',
+                                    color='g',
                                     label=r'$f\left(\frac{v_{\phi}}\
                                     {\sigma_{\phi}}\right)$',
                                     alpha=.75)
@@ -1114,7 +1111,7 @@ if Fig12_vr_vtheta_vphi_vt_sigma:
         x = x.transpose()
         np.savetxt(F + '_new_R_middle_VPhi_sigmaphi_gamma_%.2f.txt'
                    % Gamma, x, delimiter=' ',
-                   header='    bins                         n')
+                   header='    bins \t\t n')
 
         plt.xlabel(r'$ u_t $, $ u_r $, $ u_{\theta} $ and $ u_{\phi}$')
         plt.ylabel(r'$f\left( u \right)$')
@@ -1123,7 +1120,7 @@ if Fig12_vr_vtheta_vphi_vt_sigma:
         plt.grid()
 
         n, bins, patches = plt.hist(np.log10(x10), 50, histtype='step',
-                                    color='Black', range=(-3, 1),
+                                    color='k', range=(-3, 1),
                                     label=r'$f\left(\log \left(\
                                     \frac{|v_tn|,v_tp}{\sigma_t}\
                                     \right)\right)$',
@@ -1134,10 +1131,10 @@ if Fig12_vr_vtheta_vphi_vt_sigma:
         x = x.transpose()
         np.savetxt(F + '_new_R_middle_logx10_gamma_%.2f.txt'
                    % Gamma, x, delimiter=' ',
-                   header='    bins                         n')
+                   header='    bins \t\t n')
 
         n, bins, patches = plt.hist(np.log10(x9), 50, histtype='step',
-                                    color='red', range=(-3, 1),
+                                    color='r', range=(-3, 1),
                                     label=r'$f\left(\log \left(\
                                     \frac{|v_rn|,v_rp}{\sigma_r}\
                                     \right)\right)$',
@@ -1148,10 +1145,10 @@ if Fig12_vr_vtheta_vphi_vt_sigma:
         x = x.transpose()
         np.savetxt(F + '_new_R_middle_logx9_gamma_%.2f.txt' % Gamma, x,
                    delimiter=' ',
-                   header='    bins                         n')
+                   header='    bins \t\t n')
 
         n, bins, patches = plt.hist(np.log10(x7), 50, histtype='step',
-                                    color='blue', range=(-3, 1),
+                                    color='b', range=(-3, 1),
                                     label=r'$f\left(\log \left(\
                                     \frac{|v_{\theta}n|, v_{\theta}p}\
                                     {\sigma_{\theta}}\right)\right)$',
@@ -1162,10 +1159,10 @@ if Fig12_vr_vtheta_vphi_vt_sigma:
         x = x.transpose()
         np.savetxt(F + '_new_R_middle_logx7_gamma_%.2f.txt' % Gamma, x,
                    delimiter=' ',
-                   header='    bins                         n')
+                   header='    bins \t\t n')
 
         n, bins, patches = plt.hist(np.log10(x8), 50, histtype='step',
-                                    color='green', range=(-3, 1),
+                                    color='g', range=(-3, 1),
                                     label=r'$f\left(\log \left(\
                                           \frac{|v_{\phi}n|,v_{\phi}p}{\
                                           \sigma_{\phi}}\right)\right)$',
@@ -1176,7 +1173,7 @@ if Fig12_vr_vtheta_vphi_vt_sigma:
         x = x.transpose()
         np.savetxt(F + '_new_R_middle_logx8_gamma_%.2f.txt' % Gamma, x,
                    delimiter=' ',
-                   header='    bins                         n')
+                   header='    bins \t\t n')
 
         ax2.set_yscale('log')
         plt.xlabel(r'$\log \left( |u_tn|,u_tp \right)$, $\log\
@@ -1194,7 +1191,7 @@ if Fig12_vr_vtheta_vphi_vt_sigma:
                   % (len(VR), R_middle, F))
 
         n, bins, patches = plt.hist(VT_sigmatan, 50, histtype='step',
-                                    color='Black',
+                                    color='k',
                                     label=r'$f\left( u_t \right)$',
                                     alpha=.75)
         xdata = bins[0:-1] + (bins[1] - bins[0]) * .5
@@ -1203,10 +1200,10 @@ if Fig12_vr_vtheta_vphi_vt_sigma:
         x = x.transpose()
         np.savetxt(F + '_large_R_middle_VT_sigmatan_R_middle_%.2f.txt'
                    % R_middle, x, delimiter=' ',
-                   header='    bins                         n')
+                   header='    bins \t\t n')
 
         n, bins, patches = plt.hist(VR_sigmarad, 50, histtype='step',
-                                    color='red',
+                                    color='r',
                                     label=r'$f\left( u_r \right)$',
                                     alpha=.75)
         xdata = bins[0:-1] + (bins[1] - bins[0]) * .5
@@ -1215,10 +1212,10 @@ if Fig12_vr_vtheta_vphi_vt_sigma:
         x = x.transpose()
         np.savetxt(F + '_large_R_middle_VR_sigmarad_R_middle_%.2f.txt'
                    % R_middle, x, delimiter=' ',
-                   header='    bins                         n')
+                   header='    bins \t\t n')
 
         n, bins, patches = plt.hist(VTheta_sigmatheta, 50,
-                                    histtype='step', color='blue',
+                                    histtype='step', color='b',
                                     label=r'$f\left( u_{\theta} \right)$',
                                     alpha=.75)
         xdata = bins[0:-1] + (bins[1] - bins[0]) * .5
@@ -1227,10 +1224,10 @@ if Fig12_vr_vtheta_vphi_vt_sigma:
         x = x.transpose()
         np.savetxt(F + '_large_R_middle_VTheta_sigmatheta_R_middle_%.2f.txt'
                    % R_middle, x, delimiter=' ',
-                   header='    bins                         n')
+                   header='    bins \t\t n')
 
         n, bins, patches = plt.hist(VPhi_sigmaphi, 50, histtype='step',
-                                    color='green',
+                                    color='g',
                                     label=r'$f\left( u_{\phi} \right)$',
                                     alpha=.75)
         xdata = bins[0:-1] + (bins[1] - bins[0]) * .5
@@ -1239,7 +1236,7 @@ if Fig12_vr_vtheta_vphi_vt_sigma:
         x = x.transpose()
         np.savetxt(F + '_large_R_middle_VPhi_sigmaphi_R_middle_%.2f.txt'
                    % R_middle, x, delimiter=' ',
-                   header='    bins                         n')
+                   header='    bins \t\t n')
 
         plt.xlabel(r'$ u_t $, $ u_r $, $ u_{\theta} $ and $ u_{\phi}$')
         plt.ylabel(r'$f\left( u \right)$')
@@ -1248,7 +1245,7 @@ if Fig12_vr_vtheta_vphi_vt_sigma:
         plt.grid()
 
         n, bins, patches = plt.hist(np.log10(x10), 50, histtype='step',
-                                    color='Black', range=(-3, 1),
+                                    color='k', range=(-3, 1),
                                     label=r'$f\left(\log \left( |u_tn|,\
                                           u_tp \right)\right)$',
                                     alpha=.75)
@@ -1258,10 +1255,10 @@ if Fig12_vr_vtheta_vphi_vt_sigma:
         x = x.transpose()
         np.savetxt(F + '_large_R_middle_logx10_R_middle_%.2f.txt'
                    % R_middle, x, delimiter=' ',
-                   header='    bins                         n')
+                   header='    bins \t\t n')
 
         n, bins, patches = plt.hist(np.log10(x9), 50, histtype='step',
-                                    color='red', range=(-3, 1),
+                                    color='r', range=(-3, 1),
                                     label=r'$f\left(\log \left( |u_rn|,\
                                           u_rp \right)\right)$',
                                     alpha=.75)
@@ -1271,10 +1268,10 @@ if Fig12_vr_vtheta_vphi_vt_sigma:
         x = x.transpose()
         np.savetxt(F + '_large_R_middle_logx9_R_middle_%.2f.txt'
                    % R_middle, x, delimiter=' ',
-                   header='    bins                         n')
+                   header='    bins \t\t n')
 
         n, bins, patches = plt.hist(np.log10(x7), 50, histtype='step',
-                                    color='blue', range=(-3, 1),
+                                    color='b', range=(-3, 1),
                                     label=r'$f\left(\log \left( |u_{\theta}n|,\
                                           u_{\theta}p \right)\right)$',
                                     alpha=.75)
@@ -1284,10 +1281,10 @@ if Fig12_vr_vtheta_vphi_vt_sigma:
         x = x.transpose()
         np.savetxt(F + '_large_R_middle_logx7_R_middle_%.2f.txt'
                    % R_middle, x, delimiter=' ',
-                   header='    bins                         n')
+                   header='    bins \t\t n')
 
         n, bins, patches = plt.hist(np.log10(x8), 50, histtype='step',
-                                    color='green', range=(-3, 1),
+                                    color='g', range=(-3, 1),
                                     label=r'$f\left(\log \left(|u_{\phi}n|,\
                                           u_{\phi}p \right)\right)$',
                                     alpha=.75)
@@ -1297,7 +1294,7 @@ if Fig12_vr_vtheta_vphi_vt_sigma:
         x = x.transpose()
         np.savetxt(F + '_large_R_middle_logx8_R_middle_%.2f.txt'
                    % R_middle, x, delimiter=' ',
-                   header='    bins                         n')
+                   header='    bins \t\t n')
 
         ax2.set_yscale('log')
         plt.xlabel(r'$\log \left( |u_tn|,u_tp \right)$, $\log\
@@ -1314,7 +1311,7 @@ if Fig13_vspherical_hist_old:
     plt.figure()
     (mu, sigma) = norm.fit(v_t_arr[6])  # best fit of data
     n, bins, patches = plt.hist(v_t_arr[6], 100, normed=1,
-                                color='green', alpha=.75)
+                                color='g', alpha=.75)
     # add a 'best fit' line
     # y = mlab.normpdf( bins, mu, sigma)
     # l = plt.plot(bins, y, 'r--', linewidth=2)
@@ -1335,12 +1332,12 @@ if Fig13_vspherical_hist_old:
     x = x.transpose()
     print 'x.shape:', x.shape
     np.savetxt('HQ10000_G1.2_9_005_bin6_VDFt.txt', x, delimiter=' ',
-               header='    bins                         n')
+               header='    bins \t\t n')
 
     plt.figure()
     (mu, sigma) = norm.fit(v_r_arr[6])
     # the histogram of the data
-    n, bins, patches = plt.hist(v_r_arr[6], 100, normed=1, color='blue',
+    n, bins, patches = plt.hist(v_r_arr[6], 100, normed=1, color='b',
                                 alpha=.75)
     xdata = bins[0:-1] + (bins[1] - bins[0]) * .5
     ydata = n
@@ -1358,7 +1355,7 @@ if Fig13_vspherical_hist_old:
     print('x.shape:', x.shape)
     np.savetxt('HQ10000_G1.2_9_005_bin6_VDFr.txt', x,
                delimiter=' ',
-               header='    bins                         n')
+               header='    bins \t\t n')
 
 plt.show()
 
@@ -1368,5 +1365,4 @@ if save_r_v_as_txt:
     print('x.shape:', x.shape)
     np.savetxt('HQ10000_G1.2_9_005_bin0_05to0_25kpc_VDF.txt', x,
                delimiter=' ',
-               header=' xcl2      ycl2      zcl2      vxnew2\
-                        vynew2      vznew2 ')
+               header=' xcl2 \t ycl2 \t zcl2 \t vxnew2 \t vynew2 \t vznew2 ')

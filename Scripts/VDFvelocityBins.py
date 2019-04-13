@@ -32,11 +32,11 @@ if Fig_sigmas:
     x_plot = np.log10(bin_radius_arr)
     f, (ax1, ax2) = plt.subplots(1, 2, figsize=(13, 11))
 
-    plot_xy(ax1, np.log10(sigma2), '-o', 'red', r'$\log \sigma_{total}^2$')
-    plot_xy(ax1, np.log10(sigmarad2), '--s', 'blue', r'$\log \sigma_{r}^2$')
-    plot_xy(ax1, np.log10(sigmatheta2), '--v', 'green',
+    plot_xy(ax1, np.log10(sigma2), 'r-o', r'$\log \sigma_{total}^2$')
+    plot_xy(ax1, np.log10(sigmarad2), 'b--s', r'$\log \sigma_{r}^2$')
+    plot_xy(ax1, np.log10(sigmatheta2), 'g--v',
             r'$\log \sigma_{\theta}^2$')
-    plot_xy(ax1, np.log10(sigmaphi2), '--^', 'black',
+    plot_xy(ax1, np.log10(sigmaphi2), 'k--^',
             r'$\log \sigma_{\phi}^2$')
     plot_xy(ax1, np.log10(sigmatan2), '--^', 'Violet',
             r'$\log \sigma_{tan}^2$')
@@ -49,11 +49,11 @@ if Fig_sigmas:
                frameon=True, loc=3, handlelength=2.5)
     ax1.grid()
 
-    plot_xy(ax2, np.log10(sigma), '-o', 'red', r'$\log \sigma_{total}$')
-    plot_xy(ax2, np.log10(sigmarad), '--s', 'blue', r'$\log \sigma_r$')
-    plot_xy(ax2, np.log10(sigmatheta), '--v', 'green',
+    plot_xy(ax2, np.log10(sigma), 'r-o', r'$\log \sigma_{total}$')
+    plot_xy(ax2, np.log10(sigmarad), 'b--s', r'$\log \sigma_r$')
+    plot_xy(ax2, np.log10(sigmatheta), 'g--v',
             r'$\log \sigma_{\theta}$')
-    plot_xy(ax2, np.log10(sigmaphi), '--^', 'black', r'$\log \sigma_{\phi}$')
+    plot_xy(ax2, np.log10(sigmaphi), 'k--^', r'$\log \sigma_{\phi}$')
     plot_xy(ax2, np.log10(sigmatan), '--^', 'Violet', r'$\log \sigma_{tan}$')
 
     ax2.set_xlabel(r'$\log $r (kpc)', fontsize=20)
@@ -230,7 +230,7 @@ if Fig_vr_vtheta_vphi_vt_sigma:
 
     x = hist_func(VT_sigmatan,
                   label=r'$f\left(\frac{v_t}{\sigma_t}\right)$',
-                  color='Black')
+                  color='k')
     # print 'x.shape:', x.shape
     hist_to_txt(x, f'{getRmiddleState(State)}_VT_sigmatan_gamma_{}.txt')
     # print 'F + _VT_sigmatan_gamma_%.2f.txt % Gamma = ',
@@ -238,17 +238,17 @@ if Fig_vr_vtheta_vphi_vt_sigma:
 
     x = hist_func(VR_sigmarad,
                   label=r'$f\left(\frac{v_r}{\sigma_r}\right)$',
-                  color='red')
+                  color='r')
     hist_to_txt(x, f'{getRmiddleState(State)}_VR_sigmarad_gamma_{}.txt')
 
     x = hist_func(VTheta_sigmatheta,
                   label=r'$f\left(\frac{v_{\theta}}\
-                        {\sigma_{\theta}}\right)$', color='blue')
+                        {\sigma_{\theta}}\right)$', color='b')
     hist_to_txt(x, f'{getRmiddleState(State)}_VTheta_sigmatheta_gamma_{}.txt')
 
     x = hist_func(VPhi_sigmaphi,
                   label=r'$f\left(\frac{v_{\phi}}{\sigma_{\phi}}\right)$',
-                  color='green')
+                  color='g')
     hist_to_txt(x, f'{getRmiddleState(State)}_VPhi_sigmaphi_gamma_{}.txt')
 
     plt.xlabel(r'$ u_t $, $ u_r $, $ u_{\theta}$ and $ u_{\phi}$')
@@ -259,24 +259,24 @@ if Fig_vr_vtheta_vphi_vt_sigma:
 
     x = hist_func(np.log10(x10),
                   label=r'$f\left(\log \left(\frac{|v_tn|,\
-                        v_tp}{\sigma_t}\right)\right)$', color='Black')
+                        v_tp}{\sigma_t}\right)\right)$', color='k')
     hist_to_txt(x, f'{getRmiddleState(State)}_logx10_gamma_{}.txt')
 
     x = hist_func(np.log10(x9),
                   label=r'$f\left(\log \left( \frac{|v_rn|,\
-                        v_rp}{\sigma_r}\right)\right)$', color='red')
+                        v_rp}{\sigma_r}\right)\right)$', color='r')
     hist_to_txt(x, f'{getRmiddleState(State)}_logx9_gamma_{}.txt')
 
     x = hist_func(np.log10(x7),
                   label=r'$f\left(\log \left(\frac{\
                         |v_{\theta}n|, v_{\theta}p}\
-                        {\sigma_{\theta}}\right)\right)$', color='blue')
+                        {\sigma_{\theta}}\right)\right)$', color='b')
     hist_to_txt(x, f'{getRmiddleState(State)}_logx7_gamma_{}.txt')
 
     x = hist_func(np.log10(x8),
                   label=r'$f\left(\log\left(\frac{|v_{\phi}\
                         n|,v_{\phi}p}{\sigma_{\phi}}\right)\right)$',
-                  color='green')
+                  color='g')
     hist_to_txt(x, f'{getRmiddleState(State)}_logx8_gamma_{}.txt')
 
     ax2.set_yscale('log')
@@ -308,23 +308,23 @@ if Fig_vr_vtheta_vphi_vt_sigma_bin_average:
 
     x = hist_func(VT_i_average_inside_bin_sigmatan,
                   label=r'$f\left(\frac{v_t}{\sigma_t}\right)$',
-                  color='Black')
+                  color='k')
     hist_to_txt(x, f'{getRmiddleState(State)}_VT_i_average_inside_bin_sigmatan_gamma_{}.txt')
 
     x = hist_func(VR_i_average_inside_bin_sigmarad,
                   label=r'$f\left(\frac{v_r}{\sigma_r}\right)$',
-                  color='red')
+                  color='r')
     hist_to_txt(x, f'{getRmiddleState(State)}_VR_i_average_inside_bin_sigmarad_gamma_{}.txt')
 
     x = hist_func(VTheta_i_average_inside_bin_sigmatheta,
                   label=r'$f\left(\frac{v_{\theta}}\
                         {\sigma_{\theta}}\right)$',
-                  color='blue')
+                  color='b')
     hist_to_txt(x, f'{getRmiddleState(State)}_VTheta_i_average_inside_bin_sigmatheta_gamma_{}.txt')
 
     x = hist_func(VPhi_i_average_inside_bin_sigmaphi,
                   label=r'$f\left(\frac{v_{\phi}}\
-                        {\sigma_{\phi}}\right)$', color='green')
+                        {\sigma_{\phi}}\right)$', color='g')
     hist_to_txt(x, f'{getRmiddleState(State)}_VPhi_i_average_inside_bin_sigmaphi_gamma_{}.txt')
 
     plt.xlabel(r'$ u_t $, $ u_r $, $ u_{\theta}$ and $ u_{\phi}$')
@@ -336,24 +336,24 @@ if Fig_vr_vtheta_vphi_vt_sigma_bin_average:
     x = hist_func(np.log10(x10),
                   label=r'$f\left(\log \left(\frac{\
                         |v_tn|,v_tp}{\sigma_t}\right)\right)$',
-                  color='Black')
+                  color='k')
     hist_to_txt(x, f'{getRmiddleState(State)}_average_logx10_gamma_{}.txt')
 
     x = hist_func(np.log10(x9),
                   label=r'$f\left(\log\left(\frac{|v_rn|,v_rp}{\sigma_r}\
-                        \right)\right)$', color='red')
+                        \right)\right)$', color='r')
     hist_to_txt(x, f'{getRmiddleState(State)}_average_logx9_gamma_{}.txt')
 
     x = hist_func(np.log10(x7),
                   label=r'$f\left(\log \left(\frac{\
                         |v_{\theta}n|, v_{\theta}p}\
-                        {\sigma_{\theta}}\right)\right)$', color='blue')
+                        {\sigma_{\theta}}\right)\right)$', color='b')
     hist_to_txt(x, f'{getRmiddleState(State)}_average_logx7_gamma_{}.txt')
 
     x = hist_func(np.log10(x8),
                   label=r'$f\left(\log \left( \frac{\
                         |v_{\phi}n|,v_{\phi}p}{\sigma_{\phi}}\right)\
-                        \right)$', color='green')
+                        \right)$', color='g')
     hist_to_txt(x, f'{getRmiddleState(State)}_average_logx8_gamma_{}.txt')
 
     ax2.set_yscale('log')
