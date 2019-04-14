@@ -25,6 +25,7 @@ Fig_vr_vtheta_vphi_vt_sigma_bin_average = 0
 
 
 def plot_xy(ax, y_plot, Ms, Color, Label):
+    """Return plot."""
     return ax.plot(x_plot, y_plot, Ms, ms=8, mew=0, color=Color, label=Label)
 
 
@@ -197,7 +198,7 @@ def hist_func(data, label, color, ax=None, **kwargs):
 def hist_to_txt(x, txtNameSuffix, param=Gamma):
     return np.savetxt(F + txtNameSuffix.format(param), x,
                       delimiter=' ',
-                      header=' \t bins \t \t \t \t n')
+                      header='\t bins \t \t \t \t n')
 
 
 RmiddleStatesLst = ['keep_IC_R_middle', 'new_R_middle', 'large_R_middle']

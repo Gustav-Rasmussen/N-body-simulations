@@ -77,9 +77,13 @@ def main():
 
     speed(vx, vy, vz)
     v_R(vx, vy, vz, Theta, Phi)
-    v_theta(vx, vy, vz, Theta, Phi)
-    v_phi(vx, vy, Phi)
+
+    VTheta = v_theta(vx, vy, vz, Theta, Phi)
+    VPhi = v_phi(vx, vy, Phi)
+    print(VTheta)
+    print(VPhi)
     v_tan(VTheta, VPhi)
+
     spherical_coords_and_velocities()
 
 

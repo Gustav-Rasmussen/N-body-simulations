@@ -35,7 +35,9 @@ Filename = GADGET_G_path + test_path + 'HQ10000_G1.0_0_000.hdf5'
 SnapshotFile = h5py.File(Filename, 'r')
 F = 'test' + Filename[len(GADGET_G_path + test_path):-5]
 
+
 def switch_R_middle_depending_on_Gamma(Gamma):
+    """Switch case."""
     return {
         -1.5: lambda: 10 ** -.70,
         -2.0: lambda: 10 ** -.25,
@@ -104,7 +106,8 @@ if velocitycheck:  # Use 3 simple particles to check vr and vtheta (continued)
           f'VPhi[1] = {VPhi[1]} \n'  # -1.0
           f'VR[2] = {VR[2]} \n'  # 1.0
           f'VTheta[2] = {VTheta[2]} \n'  # -4.37114e-08
-          f'VPhi[2] = {VPhi[2]} \n')  # 0.0
+          f'VPhi[2] = {VPhi[2]} \n'
+          )  # 0.0
 
 if vsphericalold:
     Rvector, vvector = np.array([x, y, z]), np.array([vx, vy, vz])
@@ -120,7 +123,8 @@ if vsphericalold:
     print(f'v_r = {v_r} \n'
           f'v_r.shape = {v_r.shape} \n'
           f'v_t = {v_t} \n'
-          f'v_t.shape = {v_t.shape} \n')
+          f'v_t.shape = {v_t.shape} \n'
+          )
 
     v = ravf.speed(vx, vy, vz)
 
@@ -131,24 +135,28 @@ if vsphericalold:
             v_theta[i] = (x[i] * vy[i] - y[i] * vx[i]) \
                         / (x[i] ** 2 + y[i] ** 2)
     for i in range(len(x)):
-        if ((x[i] ** 2 + y[i] ** 2 + z[i] ** 2) ** .5 > 0.) * (z[i]
-           != (x[i] ** 2 + y[i] ** 2 + z[i] ** 2) ** .5):
-            v_phi[i] = ((x[i] ** 2 + y[i] ** 2 + z[i] ** 2)
-                        ** .5 * vz[i] - z[i] * v_r[i])\
-                        / ((x[i] ** 2 + y[i] ** 2 + z[i] ** 2)
-                            * (1 - (z[i] / ((x[i] ** 2 + y[i] ** 2 + z[i] ** 2)
-                                            ** .5)) ** 2) ** .5)
+        if ((ravf.radius(x[i], y[i], z[i]) > 0.)
+            * (z[i] != ravf.radius(x[i], y[i], z[i])):
+            v_phi[i] = (ravf.radius(x[i], y[i], z[i])
+                        * vz[i] - z[i] * v_r[i])
+                        / (ravf.radius(x[i], y[i], z[i]) ** 2)
+                            * (1 - (z[i]
+                                    / ravf.radius(x[i], y[i], z[i])
+                                    ) ** 2) ** .5)
 
-        #  v_phi[i] = (z[i] * (x[i] * vx[i] + y[i] * vy[i])
-        #             - (x[i] ** 2 + y[i] ** 2) * vz[i])\
-        #             / ((x[i] ** 2 + y[i] ** 2 + z[i] ** 2)
-        #             * (x[i] ** 2 + y[i] ** 2) ** .5)
-        #  v_theta[i] = np.dot()
-        #  v_phi[i] = np.cross()
+        '''
+        v_phi[i] = (z[i] * (x[i] * vx[i] + y[i] * vy[i])
+                   - (x[i] ** 2 + y[i] ** 2) * vz[i])\
+                   / ((x[i] ** 2 + y[i] ** 2 + z[i] ** 2)
+                   * (x[i] ** 2 + y[i] ** 2) ** .5)
+        v_theta[i] = np.dot()
+        v_phi[i] = np.cross()
+        '''
 
     print(f'v_r[0] = {v_r[0]}'  # [0.]
           f'v_theta[0] = {v_theta[0]}'  # [0.]
-          f'v_phi[0] = {v_phi[0]}')  # [0.]
+          f'v_phi[0] = {v_phi[0]}'
+          )  # [0.]
 
 if plotvelocitycheckold:  # Check old velocities are correct
     y1 = v_theta ** 2 + v_phi ** 2  # v_t^2
@@ -275,7 +283,7 @@ if Fig5_vspherical_hist_logfail_new:
     ydata = n
     # popt, pcov = curve_fit(func_4, xdata, ydata)
     # y_fit = func_4(xdata, popt[0], popt[1], popt[2])
-    # plt.plot(xdata, y_fit, '--', lw=3, color='red',
+    # plt.plot(xdata, y_fit, 'r--', lw=3,
     #         label=r'$v_r-fit= a \cdot (1- (1 - q )\cdot b\
     #         \cdot x^2)^{(\frac{q}{1 - q})}$, $q = %.3f$' % popt[1])
     # popt, pcov = curve_fit(func_2, xdata, ydata)
@@ -430,12 +438,14 @@ if print_vp_vn:
           f'v_phip_arr = {v_phip_arr}'
           f'v_phip_arr.shape = {v_phip_arr.shape}'
           f'v_phin_arr = {v_phin_arr}'
-          f'v_phin_arr.shape = {v_phin_arr.shape}')
+          f'v_phin_arr.shape = {v_phin_arr.shape}'
+          )
 
     print(f'v_tp_arr = {v_tp_arr} \n'
           f'v_tp_arr.shape = {v_tp_arr.shape} \n'
           f'v_tn_arr = {v_tn_arr} \n'
-          f'v_tn_arr.shape = {v_tn_arr.shape} \n')
+          f'v_tn_arr.shape = {v_tn_arr.shape} \n'
+          )
 
 if Fig8_vspherical_hist_log_vpvn:
     f = plt.figure()
@@ -461,7 +471,6 @@ if Fig8_vspherical_hist_log_vpvn:
              color='c', range=(-5, 1), label=r'$\log v_rn$', lw=2)
     plt.legend(prop=dict(size=13), numpoints=2, ncol=2,
                frameon=True, loc=2, handlelength=2.5)
-
 
 x1 = list(v_thetap_arr)
 x2 = list(v_phip_arr)
@@ -508,10 +517,11 @@ if print_x123456:
           f'x3 = {x3}'
           f'x3.shape = {x3.shape}'
           f'x6.shape = {x6.shape}'
-          f'type(x1) = {type(x1)}')
+          f'type(x1) = {type(x1)}'
+          )
 
 if Fig9_VPhiminus:  # test VPhi and VPhiminus = -VPhi
-    VPhiminus = sp.sin(Phi) * vx - sp.cos(Phi) * vy
+    VPhiminus = np.sin(Phi) * vx - np.cos(Phi) * vy
     f = plt.figure()
     plt.subplot(121)
     plt.xlabel(r'$v_{\phi}$, $-v_{\phi}$,\
@@ -638,7 +648,8 @@ if print_Vp_Vn:
           f'VT_sigmatan_p_arr = {VT_sigmatan_p_arr}'
           f'VT_sigmatan_p_arr.shape = {VT_sigmatan_p_arr.shape}'
           f'VT_sigmatan_n_arr = {VT_sigmatan_n_arr}'
-          f'VT_sigmatan_n_arr.shape = {VT_sigmatan_n_arr.shape}')
+          f'VT_sigmatan_n_arr.shape = {VT_sigmatan_n_arr.shape}'
+          )
 
     # VTheta = np.array(VTheta)
     # VPhi = np.array(VPhi)
@@ -669,11 +680,11 @@ if print_Vp_Vn:
               f'VR_sigmarad = {VR / sigmarad}'
               f'np.where(sigmarad == 0) = {np.where(sigmarad == 0)}'
               f'np.where(sigmatheta == 0) = {np.where(sigmatheta == 0)}'
-              f'np.where(sigmaphi == 0) = {np.where(sigmaphi == 0)}')
+              f'np.where(sigmaphi == 0) = {np.where(sigmaphi == 0)}'
+              )
 
-        # pass
-
-if Fig10_concatenate_x789:  # check new log, concatenate lists x1 and x4, x2 and x5, x3 and x6.
+if Fig10_concatenate_x789:
+    # check new log, concatenate lists x1 and x4, x2 and x5, x3 and x6.
     x7 = np.asarray(x1 + list(np.absolute(v_thetan_arr)))
     x8 = np.asarray(x2 + list(np.absolute(v_phin_arr)))
     x9 = np.asarray(x3 + list(np.absolute(v_rn_arr)))
@@ -714,7 +725,7 @@ if Fig10_concatenate_x789:  # check new log, concatenate lists x1 and x4, x2 and
                frameon=True, loc=2, handlelength=2.5)
 
 if Fig11_vspherical_hist_log_n123:
-    f  = plt.figure()
+    f = plt.figure()
     ax = f.add_subplot(121)
     # (mu, sigma) = norm.fit(VR)
     n, bins, patches = plt.hist(VR, 100, histtype='step', color='r',
@@ -774,10 +785,11 @@ if Fig12_n123_sigma:
     txt = Filename.strip('.hdf5') + 'Sigma.txt'
     TXT = pylab.loadtxt(txt)
     if print_sigma:
-        print(r'$\sigma_{tot}^2$, TXT[:, 0] = ', TXT[:, 0])
-        print(r'$\sigma_r^2$, TXT[:, 1] = ', TXT[:, 1])
-        print(r'$\sigma_{\theta}^2$, TXT[:, 2] = ', TXT[:, 2])
-        print(r'$\sigma_{\phi}^2$, TXT[:, 3] = ', TXT[:, 3])
+        print(r'$\sigma_{tot}^2$, TXT[:, 0] = ', TXT[:, 0],
+              r'$\sigma_r^2$, TXT[:, 1] = ', TXT[:, 1],
+              r'$\sigma_{\theta}^2$, TXT[:, 2] = ', TXT[:, 2],
+              r'$\sigma_{\phi}^2$, TXT[:, 3] = ', TXT[:, 3]
+              )
 
     TXT_tot_arr = np.asarray(TXT[:, 0])
     TXT_r_arr = np.asarray(TXT[:, 1])
@@ -890,10 +902,11 @@ if Fig12_x789_sigma:
     TXT = pylab.loadtxt(txt)
 
     if print_sigma:
-        print(r'$\sigma_{tot}^2$, TXT[:, 0] = ', TXT[:, 0])
-        print(r'$\sigma_r^2$, TXT[:, 1] = ', TXT[:, 1])
-        print(r'$\sigma_{\theta}^2$, TXT[:, 2] = ', TXT[:, 2])
-        print(r'$\sigma_{\phi}^2$, TXT[:, 3] = ', TXT[:, 3])
+        print(r'$\sigma_{tot}^2$, TXT[:, 0] = ', TXT[:, 0],
+              r'$\sigma_r^2$, TXT[:, 1] = ', TXT[:, 1],
+              r'$\sigma_{\theta}^2$, TXT[:, 2] = ', TXT[:, 2],
+              r'$\sigma_{\phi}^2$, TXT[:, 3] = ', TXT[:, 3]
+              )
 
     TXT_tot_arr = np.asarray(TXT[:, 0])
     TXT_r_arr = np.asarray(TXT[:, 1])
@@ -959,7 +972,7 @@ if Fig12_x789_sigma:
                                 color='r', range=(-3, 0),
                                 label=r'$f(\log (|v_rn|,v_rp))$', alpha=.75)
     n, bins, patches = plt.hist(np.log10(x7), 100, histtype='step',
-                                color='blue', range=(-3, 0),
+                                color='b', range=(-3, 0),
                                 label=r'$f(\log (|v_{\theta}n|,v_{\theta}p))$',
                                 alpha=.75)
     n, bins, patches = plt.hist(np.log10(x8), 100, histtype='step',
@@ -1002,14 +1015,22 @@ if Fig12_x789_sigma:
     plt.grid()
 
 if Fig12_vr_vtheta_vphi_vt_sigma:
-    v_rpn = np.asarray(list(v_rp_arr) + list(np.absolute(v_rn_arr)))
-    v_thetapn = np.asarray(list(v_thetap_arr) + list(np.absolute(v_thetan_arr)))
-    v_phipn = np.asarray(list(v_phip_arr) + list(np.absolute(v_phin_arr)))
-    v_tpn = np.asarray(list(v_tp_arr) + list(np.absolute(v_tn_arr)))
-    x7  = np.asarray(list(VTheta_sigmatheta_p_arr) + list(np.absolute(VTheta_sigmatheta_n_arr)))
-    x8  = np.asarray(list(VPhi_sigmaphi_p_arr) + list(np.absolute(VPhi_sigmaphi_n_arr)))
-    x9  = np.asarray(list(VR_sigmarad_p_arr) + list(np.absolute(VR_sigmarad_n_arr)))
-    x10 = np.asarray(list(VT_sigmatan_p_arr) + list(np.absolute(VT_sigmatan_n_arr)))
+    v_rpn = np.asarray(list(v_rp_arr)
+                       + list(np.absolute(v_rn_arr)))
+    v_thetapn = np.asarray(list(v_thetap_arr)
+                           + list(np.absolute(v_thetan_arr)))
+    v_phipn = np.asarray(list(v_phip_arr)
+                         + list(np.absolute(v_phin_arr)))
+    v_tpn = np.asarray(list(v_tp_arr)
+                       + list(np.absolute(v_tn_arr)))
+    x7 = np.asarray(list(VTheta_sigmatheta_p_arr)
+                    + list(np.absolute(VTheta_sigmatheta_n_arr)))
+    x8 = np.asarray(list(VPhi_sigmaphi_p_arr)
+                    + list(np.absolute(VPhi_sigmaphi_n_arr)))
+    x9 = np.asarray(list(VR_sigmarad_p_arr)
+                    + list(np.absolute(VR_sigmarad_n_arr)))
+    x10 = np.asarray(list(VT_sigmatan_p_arr)
+                     + list(np.absolute(VT_sigmatan_n_arr)))
 
     f = plt.figure()
     plt.subplot(221)
@@ -1153,7 +1174,7 @@ if Fig13_vspherical_hist_old:
     x = x.transpose()
     print('x.shape:', x.shape)
     np.savetxt('HQ10000_G1.2_9_005_bin6_VDFt.txt', x, delimiter=' ',
-               header='    bins                         n')
+               header='\t bins \t\t n')
 
     f = plt.figure()
     (mu, sigma) = norm.fit(v_r_arr[6])
@@ -1177,14 +1198,13 @@ if Fig13_vspherical_hist_old:
     x = x.transpose()
     print('x.shape:', x.shape)
     np.savetxt('HQ10000_G1.2_9_005_bin6_VDFr.txt', x, delimiter=' ',
-               header='    bins                         n')
+               header='\t bins \t\t n')
 
 if save_r_v_as_txt:
     x = np.array((xcl2, ycl2, zcl2, vxnew2, vynew2, vznew2)).transpose()
     print('x.shape:', x.shape)
     np.savetxt('HQ10000_G1.2_9_005_bin0_05to0_25kpc_VDF.txt', x,
                delimiter=' ',
-               header=' xcl2      ycl2      zcl2      vxnew2 \
-               vynew2      vznew2 ')
+               header=' xcl2 \t ycl2 \t zcl2 \t vxnew2 \t vynew2 \t vznew2 ')
 
 plt.show()

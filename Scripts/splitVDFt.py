@@ -16,8 +16,11 @@ import matplotlib.pyplot as plt
 # Filename = desktopPath / 'RunGadget/G_HQ_1000000_test\
 #            /output/HQ10000_G0.8_2_000.hdf5'
 
-Snapshot_files = ['0G00_IC_000', '0G20_Final_000', 'OMG00_001_IC_000',
-                  'OMG20_Final_000', 'ics_10MPC_128_022',
+Snapshot_files = ['0G00_IC_000',
+                  '0G20_Final_000',
+                  'OMG00_001_IC_000',
+                  'OMG20_Final_000',
+                  'ics_10MPC_128_022',
                   'ICS_10mpc_res256_022'
                   ]
 
@@ -48,13 +51,13 @@ plt.xlabel(r'$v_r, v_{\theta}$ and $v_{\phi}$')
 #            from centre of structure')
 plt.ylabel('Number of particles')
 plt.title(r'VDF of Hernquist structure with $10^6$ particles')
-plt.hist(v_theta, bins=40, histtype='step', color='red', range=(-2, 2),
+plt.hist(v_theta, bins=40, histtype='step', color='r', range=(-2, 2),
          label=r'$v_{\theta}$', lw=2)
-# plt.hist(v_theta, bins=300, histtype='step', color='red',
+# plt.hist(v_theta, bins=300, histtype='step', color='r',
 #          range=(-2, 2), label=r'$v_{\theta}$', normed=True, lw=2)
 plt.hist(v_phi, bins=40, histtype='step', color='skyblue',
          range=(-2, 2), label=r'$v_{\phi}$', lw=2)
-plt.hist(v_r, bins=40, histtype='step', color='black',
+plt.hist(v_r, bins=40, histtype='step', color='k',
          range=(-2, 2), label=r'$v_r$', lw=2)
 plt.legend(prop=dict(size=13), numpoints=2, ncol=2,
            frameon=True, loc=2, handlelength=2.5)
@@ -72,7 +75,7 @@ print('v_ttrans = ', v_ttrans)
 # Components of first direction vector for tangent plane
 
 bx = np.ones(1000000)
-by = -(vxnew*zcl - vznew*xcl)/(vznew*ycl - vynew*zcl)
+by = -(vxnew*zcl - vznew*xcl) / (vznew*ycl - vynew*zcl)
 bz = -(xcl + ycl*by)/(zcl)
 
 # direction vectors for tangent plane
