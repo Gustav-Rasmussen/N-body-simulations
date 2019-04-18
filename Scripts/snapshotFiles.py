@@ -1,97 +1,137 @@
 from definePaths import *
 import h5py
 
-# Filename = hdf5Path + '0G00_IC_000.hdf5'
-# Filename = hdf5Path + '0G20_Final_000.hdf5'
-# Filename = hdf5Path + 'OMG00_001_IC_000.hdf5'
-# Filename = hdf5Path + 'OMG20_Final_000.hdf5'
+hdf5_str = "hdf5Path{}"
 
-# Filename = 'HQ1000000_150311_000.hdf5'
-# Filename = 'OM_150310_000.hdf5'
+Sparre_sims = ['0G00_IC_000.hdf5',
+               '0G20_Final_000.hdf5',
+               'OMG00_001_IC_000.hdf5',
+               'OMG20_Final_000.hdf5',
+               'OM_150310_000.hdf5'
+               ]
+
+# Filename = hdf5_str.format(Sparre_sims[0])
+
+# 'HQ1000000_150311_000.hdf5'
 
 testPath = "GHQ1000000test/output/"
-# Filename = GADGET_Gpath + test_path + 'HQ10000G1.0_0_000.hdf5'
-# Filename = GADGET_Gpath + test_path + 'HQ10000G1.2_1_005.hdf5'
-# Filename = GADGET_Gpath + test_path + 'HQ10000G0.8_2_000.hdf5'
-# Filename = GADGET_Gpath + test_path + 'HQ10000G0.8_2_005.hdf5'
-# Filename = GADGET_Gpath + test_path + 'HQ10000G1.2_3_005.hdf5'
-# Filename = GADGET_Gpath + test_path + 'HQ10000G1.2_5_005.hdf5'
-# Filename = GADGET_Gpath + test_path + 'HQ10000G1.2_7_005.hdf5'
-# Filename = GADGET_Gpath + test_path + 'HQ10000G1.2_9_005.hdf5'
-# Filename = GADGET_Gpath + test_path + 'HQ10000G1.0_10_009.hdf5'
+
+test_str = GADGET_Gpath + testPath
+
+test_sims = ['HQ10000G1.0_0_000.hdf5',
+             'HQ10000G1.2_1_005.hdf5',
+             'HQ10000G0.8_2_000.hdf5',
+             'HQ10000G0.8_2_005.hdf5',
+             'HQ10000G1.2_3_005.hdf5',
+             'HQ10000G1.2_5_005.hdf5',
+             'HQ10000G1.2_7_005.hdf5',
+             'HQ10000G1.2_9_005.hdf5',
+             'HQ10000G1.0_10_009.hdf5'
+             ]
+
+# Filename = test_str + test_sims[0]
 
 test2Path = "GHQ1000000test2/output/"
-# Filename = GADGET_Gpath + test2Path + 'HQ10000G1.0_0_000.hdf5'
-# Filename = GADGET_Gpath + test2Path + 'HQ10000G1.0_5_005.hdf5'
-# Filename = GADGET_Gpath + test2Path + 'HQ10000G1.0_10_005.hdf5'
-# Filename = GADGET_Gpath + test2Path + 'HQ10000G1.0_15_005.hdf5'
-# Filename = GADGET_Gpath + test2Path + 'HQ10000G1.0_18_005.hdf5'
-# Filename = GADGET_Gpath + test2Path + 'HQ10000G1.0_18_010.hdf5'
-# Filename = GADGET_Gpath + test2Path + 'HQ10000G1.0_18_015.hdf5'
-# Filename = GADGET_Gpath + test2Path + 'HQ10000G1.0_18_020.hdf5'
-# Filename = GADGET_Gpath + test2Path + 'HQ10000G1.0_18_025.hdf5'
-# Filename = GADGET_Gpath + test2Path + 'HQ10000G1.0_18_030.hdf5'
-# Filename = GADGET_Gpath + test2Path + 'HQ10000G1.0_18_035.hdf5'
-# Filename = GADGET_Gpath + test2Path + 'HQ10000G1.0_18_040.hdf5'
-# Filename = GADGET_Gpath + test2Path + 'HQ10000G1.0_18_045.hdf5'
-# Filename = GADGET_Gpath + test2Path + 'HQ10000G1.0_18_053.hdf5'
-# Filename = GADGET_Gpath + test2Path + 'HQ10000G1.0_20_005.hdf5'
-# Filename = GADGET_Gpath + test2Path + 'HQ10000G1.0_25_005.hdf5'
+
+test2_str = GADGET_Gpath + test2Path
+
+test2_sims = ['HQ10000G1.0_0_000.hdf5',
+              'HQ10000G1.0_5_005.hdf5',
+              'HQ10000G1.0_10_005.hdf5',
+              'HQ10000G1.0_15_005.hdf5',
+              'HQ10000G1.0_18_005.hdf5',
+              'HQ10000G1.0_18_010.hdf5',
+              'HQ10000G1.0_18_015.hdf5',
+              'HQ10000G1.0_18_020.hdf5',
+              'HQ10000G1.0_18_025.hdf5',
+              'HQ10000G1.0_18_030.hdf5',
+              'HQ10000G1.0_18_035.hdf5',
+              'HQ10000G1.0_18_040.hdf5',
+              'HQ10000G1.0_18_045.hdf5',
+              'HQ10000G1.0_18_053.hdf5',
+              'HQ10000G1.0_20_005.hdf5',
+              'HQ10000G1.0_25_005.hdf5'
+              ]
+
+# Filename = test2_str + test2_sims[0]
 
 Apath = "GHQ1000000A/output/"
-# Below 3 files are already run in VDF.py, from test2. re-use those ones.
-# Filename = GADGET_Gpath + Apath + 'HQ10000G1.0_0_000.hdf5'
-# Filename = GADGET_Gpath + Apath + 'HQ10000G1.0_5_005.hdf5'
-# Filename = GADGET_Gpath + Apath + 'HQ10000G1.0_10_005.hdf5'
 
-# Filename = GADGET_Gpath + Apath + 'HQ10000G1.0_40_005.hdf5'
-# Filename = GADGET_Gpath + Apath + 'HQ10000G1.0_48_009.hdf5'
-# Filename = GADGET_Gpath + Apath + 'HQ10000G1.0_48_093.hdf5'
+A_str = GADGET_Gpath + Apath
 
-# Below 2 files has not yet been analysed:
-# Filename = GADGET_Gpath + Apath + 'HQ10000G1.2_46_005.hdf5'
-# Filename = GADGET_Gpath + Apath + 'HQ10000G0.8_47_005.hdf5'
+A_sims = ['HQ10000G1.0_0_000.hdf5',
+          'HQ10000G1.0_5_005.hdf5',
+          'HQ10000G1.0_10_005.hdf5',
+          'HQ10000G1.0_40_005.hdf5',
+          'HQ10000G1.0_48_009.hdf5',
+          'HQ10000G1.0_48_093.hdf5',
+          'HQ10000G1.2_46_005.hdf5',
+          'HQ10000G0.8_47_005.hdf5'
+          ]
+
+# Filename = A_str + A_sims[0]
 
 Bpath = "GHQ1000000B/output/"
-# This file is already run in VDF.py, from test2. re-use that one:
-# Filename = GADGET_Gpath + Bpath + 'HQ10000G1.0_0_000.hdf5'
 
-# Filename = GADGET_Gpath + Bpath + 'HQ10000G1.0_5_005.hdf5'
-# Filename = GADGET_Gpath + Bpath + 'HQ10000G1.0_10_005.hdf5'
-# Filename = GADGET_Gpath + Bpath + 'HQ10000G1.0_198_000.hdf5'
-# Filename = GADGET_Gpath + Bpath + 'HQ10000G1.0_198_093.hdf5'
-# Filename = GADGET_Gpath + Bpath + 'HQ10000G1.0_199_093.hdf5'
-# #Filename = GADGET_Gpath + Bpath + 'HQ10000G1.0_160_005.hdf5'
-# #Filename = GADGET_Gpath + Bpath + 'HQ10000G1.05_196_005.hdf5'
-# #Filename = GADGET_Gpath + Bpath + 'HQ10000G0.95_197_005.hdf5'
+B_str = GADGET_Gpath + Bpath
+
+B_sims = ['HQ10000G1.0_0_000.hdf5',
+          'HQ10000G1.0_5_005.hdf5',
+          'HQ10000G1.0_10_005.hdf5',
+          'HQ10000G1.0_198_000.hdf5',
+          'HQ10000G1.0_198_093.hdf5',
+          'HQ10000G1.0_199_093.hdf5',
+          'HQ10000G1.0_160_005.hdf5',
+          'HQ10000G1.05_196_005.hdf5',
+          'HQ10000G0.95_197_005.hdf5'
+          ]
+
+# Filename = B_str + B_sims[0]
 
 SoftBpath = "SoftGHQ1000000B/output/"
-# Filename = GADGET_Gpath + SoftBpath + 'HQ10000G1.0_0_000.hdf5'
-# Filename = GADGET_Gpath + SoftBpath + 'HQ10000G1.0_5_005.hdf5'
-# Filename = GADGET_Gpath + SoftBpath + 'HQ10000G1.0_10_005.hdf5'
-# Filename = GADGET_Gpath + SoftBpath + 'HQ10000G1.0_198_000.hdf5'
-# Filename = GADGET_Gpath + SoftBpath + 'HQ10000G1.0_198_093.hdf5'
-# Filename = GADGET_Gpath + SoftBpath + 'HQ10000G1.0_199_093.hdf5'
+
+SoftB_str = GADGET_Gpath + SoftBpath
+
+SoftB_sims = ['HQ10000G1.0_0_000.hdf5',
+              'HQ10000G1.0_5_005.hdf5',
+              'HQ10000G1.0_10_005.hdf5',
+              'HQ10000G1.0_198_000.hdf5',
+              'HQ10000G1.0_198_093.hdf5',
+              'HQ10000G1.0_199_093.hdf5'
+              ]
+
+# Filename = SoftB_str + SoftB_sims[0]
 
 CPath = "GHQ1000000C/output/"
-# Filename = GADGET_Gpath + CPath + 'HQ10000G1.0_0_000.hdf5'
-# Filename = GADGET_Gpath + CPath + 'HQ10000G1.0_5_005.hdf5'
-# Filename = GADGET_Gpath + CPath + 'HQ10000G1.0_10_005.hdf5'
-# Filename = GADGET_Gpath + CPath + 'HQ10000G1.0_40_005.hdf5'
-# Filename = GADGET_Gpath + CPath + 'HQ10000G1.2_46_005.hdf5'
-# Filename = GADGET_Gpath + CPath + 'HQ10000G0.8_47_005.hdf5'
-# Filename = GADGET_Gpath + CPath + 'HQ10000G1.0_48_009.hdf5'
-# Filename = GADGET_Gpath + CPath + 'HQ10000G1.0_48_093.hdf5'
+
+C_str = GADGET_Gpath + CPath
+
+C_sims = ['HQ10000G1.0_0_000.hdf5',
+          'HQ10000G1.0_5_005.hdf5',
+          'HQ10000G1.0_10_005.hdf5',
+          'HQ10000G1.0_40_005.hdf5',
+          'HQ10000G1.2_46_005.hdf5',
+          'HQ10000G0.8_47_005.hdf5',
+          'HQ10000G1.0_48_009.hdf5',
+          'HQ10000G1.0_48_093.hdf5'
+          ]
+
+# Filename = C_str + C_sims[0]
 
 DPath = "GHQ1000000_D/output/"
-# Filename = GADGET_Gpath + DPath + 'HQ10000G1.0_0_000.hdf5'
-# Filename = GADGET_Gpath + DPath + 'HQ10000G1.0_5_005.hdf5'
-# Filename = GADGET_Gpath + DPath + 'HQ10000G1.0_10_005.hdf5'
-# Filename = GADGET_Gpath + DPath + 'HQ10000G1.0_160_005.hdf5'
-# Filename = GADGET_Gpath + DPath + 'HQ10000G1.05_196_005.hdf5'
-# Filename = GADGET_Gpath + DPath + 'HQ10000G0.95_197_005.hdf5'
-# Filename = GADGET_Gpath + DPath + 'HQ10000G1.0_198_009.hdf5'
-# Filename = GADGET_Gpath + DPath + 'HQ10000G1.0_198_093.hdf5'
+
+D_str = GADGET_Gpath + DPath
+
+D_sims = ['HQ10000G1.0_0_000.hdf5',
+          'HQ10000G1.0_5_005.hdf5',
+          'HQ10000G1.0_10_005.hdf5',
+          'HQ10000G1.0_160_005.hdf5',
+          'HQ10000G1.05_196_005.hdf5',
+          'HQ10000G0.95_197_005.hdf5',
+          'HQ10000G1.0_198_009.hdf5',
+          'HQ10000G1.0_198_093.hdf5'
+
+# Filename = D_str + D_sims[0]
 
 CS1path = "GOM10000C1/output/"
 # Filename = GADGET_Gpath + CS1path + 'OM10000G1.0_0_000.hdf5'
@@ -130,14 +170,21 @@ SoftD2path = "SoftG0_5_100000D2/output/"
 # Filename = GADGET_Gpath + SoftD2path + 'HQ10000G1.0_49_093.hdf5'
 
 Epath = "GHQ1000000E/output/"
-# Filename = GADGET_Gpath + Epath + 'HQ10000G1.0_0_000.hdf5'
-# Filename = GADGET_Gpath + Epath + 'HQ10000G1.0_5_005.hdf5'
-# Filename = GADGET_Gpath + Epath + 'HQ10000G1.0_10_005.hdf5'
-# Filename = GADGET_Gpath + Epath + 'HQ10000G1.0_160_005.hdf5'
-# Filename = GADGET_Gpath + Epath + 'HQ10000G1.05_196_005.hdf5'
-# Filename = GADGET_Gpath + Epath + 'HQ10000G0.95_197_005.hdf5'
-# Filename = GADGET_Gpath + Epath + 'HQ10000G1.0_198_009.hdf5'
-# Filename = GADGET_Gpath + Epath + 'HQ10000G1.0_198_093.hdf5'
+
+E_str = GADGET_Gpath + Epath
+
+E_sims = ['HQ10000G1.0_0_000.hdf5',
+          'HQ10000G1.0_5_005.hdf5',
+          'HQ10000G1.0_10_005.hdf5',
+          'HQ10000G1.0_160_005.hdf5',
+          'HQ10000G1.05_196_005.hdf5',
+          'HQ10000G0.95_197_005.hdf5',
+          'HQ10000G1.0_198_009.hdf5',
+          'HQ10000G1.0_198_093.hdf5'
+          ]
+
+# Filename = E_str + E_sims[0]
+
 
 # Bound particles only:
 BrfpPath = "GHQ1000000B/rfpOutput/"
@@ -168,32 +215,37 @@ Soft_D2_rfp_path = "Soft_G_0_5_100000_D2/rfp_output/"
 
 SnapshotFile = h5py.File(Filename, "r")
 
-# F = 'test_' + Filename[len(GADGET_G_path + test_path):-5]
-# F = 'A_' + Filename[len(GADGET_G_path + A_path):-5]
-# F = 'A_' + Filename[len(nosync_path + A_path):-5]
-# F = 'B_' + Filename[len(GADGET_G_path + B_path):-5]
-# F = 'Soft_B_' + Filename[len(GADGET_G_path + Soft_B_path):-5]
-# F = 'CS1_' + Filename[len(GADGET_G_path + CS1_path):-5]
-# F = 'CS2_' + Filename[len(GADGET_G_path + CS2_path):-5]
-# F = 'CS3_' + Filename[len(GADGET_G_path + CS3_path):-5]
-# F = 'CS4_' + Filename[len(GADGET_G_path + CS4_path):-5]
-# F = 'CS5_' + Filename[len(GADGET_G_path + CS5_path):-5]
-# F = 'CS6_' + Filename[len(GADGET_G_path + CS6_path):-5]
-# F = 'DS1_' + Filename[len(GADGET_G_path + DS1_path):-5]
-# F = 'D2_' + Filename[len(GADGET_G_path + D2_path):-5]
-# F = 'Soft_D2_' + Filename[len(GADGET_G_path + Soft_D2_path):-5]
-# F = 'E_' + Filename[len(GADGET_G_path + E_path):-5]
+F_str = f"{}_{Filename[len(GADGET_G_path{}):-5]}"
 
-# Bound particles only:
-# F = 'B_bound_particles_' + Filename[len(GADGET_G_path + B_rfp_path + 'B_'):-5]
-# F = 'Soft_B_bound_particles_' + Filename[len(GADGET_G_path + Soft_B_rfp_path + 'B_'):-5]
-# F = 'CS4_bound_particles_' + Filename[len(GADGET_G_path + CS4_rfp_path + 'CS4_'):-5]
-# F = 'CS5_bound_particles_' + Filename[len(GADGET_G_path + CS5_rfp_path + 'CS5_'):-5]
-# F = 'CS6_bound_particles_' + Filename[len(GADGET_G_path + CS6_rfp_path + 'CS6_'):-5]
-# F = 'DS1_bound_particles_' + Filename[len(GADGET_G_path + DS1_rfp_path + 'DS1_'):-5]
-# F = 'D2_bound_particles_' + Filename[len(GADGET_G_path + D2_rfp_path + 'D2_'):-5]
-# F = 'Soft_D2_bound_particles_' + Filename[len(GADGET_G_path + Soft_D2_rfp_path + 'D2_'):-5]
-# F = 'E_bound_particles_' + Filename[len(GADGET_G_path + E_rfp_path + 'E_'):-5]
+sim_and_path = [('test', test_path),
+            ('A', A_path),
+            ('B', B_path),
+            ('Soft_B', Soft_B_path),
+            ('CS1', CS1_path),
+            ('CS2', CS2_path),
+            ('CS3', CS3_path),
+            ('CS4', CS4_path),
+            ('CS5', CS5_path),
+            ('CS6', CS6_path),
+            ('DS1', DS1_path),
+            ('D2', D2_path),
+            ('Soft_D2', Soft_D2_path),
+            ('E', E_path),
+            ('B_bound_particles', B_rfp_path + 'B_'),
+            ('Soft_B_bound_particles', Soft_B_rfp_path + 'B_'),
+            ('CS4_bound_particles', CS4_rfp_path + 'CS4_'),
+            ('CS5_bound_particles', CS5_rfp_path + 'CS5_'),
+            ('CS6_bound_particles', CS6_rfp_path + 'CS6_'),
+            ('DS1_bound_particles', DS1_rfp_path + 'DS1_'),
+            ('D2_bound_particles', D2_rfp_path + 'D2_'),
+            ('Soft_D2_bound_particles', Soft_D2_rfp_path + 'D2_'),
+            ('E_bound_particles', E_rfp_path + 'E_')
+            ]
+
+# F = F_str.format(sim_and_path[0][0], sim_and_path[0][1])
+# F = F_str.format(sim_and_path[1][0], sim_and_path[1][1])
+
+# F = 'A_' + Filename[len(nosync_path + A_path):-5]
 
 test = 0
 A = 0
@@ -201,7 +253,7 @@ B = 0
 CS1 = 0
 CS2 = 0
 CS3 = 0
-CS4 = 0  # These files are not yet incorporated into VDF.py
+CS4 = 0
 CS5 = 0
 CS6 = 0
 DS1 = 0
