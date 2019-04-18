@@ -52,41 +52,34 @@ Fig6_gamma = 0
 Fig6_gamma_r_2 = 0
 Fig7_betagamma = 0
 
-
 Fig_combine_ASCII = 0
 # save_sigma = 0
 V_vr_r_logr_panel = 0
 
-snapshot_num = ['IC', '10_005', '48_009', '198_093'
-                ]
+snapshot_num = ['IC', '10_005', '48_009', '198_093']
+sim = ['A', 'B', 'CS4', 'CS5', 'CS6', 'DS1', 'D2', 'Soft_D2', 'E']
+snap = ['48_009', '48_093', '49_093', '198_093', '199_093']
 
-sim = ['A', 'B', 'CS4', 'CS5', 'CS6', 'DS1', 'D2', 'Soft_D2',
-       'E',
-       ]
-
-snap = ['48_009', '48_093', '49_093', '198_093', '199_093',
-        ]
-
-sim_snap = [sim[0] + snap[0],  # A 48_009, rlimit=10^4, bins=20
-            sim[1] + snap[4],  # B 199_093, rlimit=10^4, bins=20
-            sim[2] + snap[1],  # CS4 48_093, rlimit=10^4, bins=20
-            sim[3] + snap[1],  # CS5 48_093, rlimit=10^4, bins=20
-            sim[4] + snap[1],  # CS6 48_093, rlimit=10^4, bins=20
-            sim[5] + snap[2],  # DS1 49_093, rlimit=10^4, bins=20
-            sim[6] + snap[2],  # D2 49_093, rlimit=10^4, bins=20
-            sim[7] + snap[2],  # Soft_D2 49_093, rlimit=10^4, bins=20
-            sim[8] + snap[3],  # E 198_093, rlimit=10^4, bins=20
-            sim[0] + snap[0],  # A 48_009, rlimit=32, bins=50
-            sim[1] + snap[4],  # B 199_093, rlimit=32, bins=50
-            sim[2] + snap[1],  # CS4 48_093, rlimit=32, bins=20
-            sim[3] + snap[1],  # CS5 48_093, rlimit=32, bins=20
-            sim[4] + snap[1],  # CS6 48_093, rlimit=32, bins=20
-            sim[5] + snap[2],  # DS1 49_093, rlimit=32, bins=20
-            sim[6] + snap[2],  # D2 49_093, rlimit=32, bins=20
-            sim[7] + snap[2],  # Soft_D2 49_093, rlimit=32, bins=20
-            sim[8] + snap[3]  # E 198_093, rlimit=32, bins=50
+# rlimit, bins
+sim_snap = [sim[0] + snap[0],  # 10^4, 20
+            sim[1] + snap[4],  # 10^4, 20
+            sim[2] + snap[1],  # 10^4, 20
+            sim[3] + snap[1],  # 10^4, 20
+            sim[4] + snap[1],  # 10^4, 20
+            sim[5] + snap[2],  # 10^4, 20
+            sim[6] + snap[2],  # 10^4, 20
+            sim[7] + snap[2],  # 10^4, 20
+            sim[8] + snap[3],  # 10^4, 20
+            sim[0] + snap[0],  # 32, 50
+            sim[1] + snap[4],  # 32, 50
+            sim[2] + snap[1],  # 32, 20
+            sim[3] + snap[1],  # 32, 20
+            sim[4] + snap[1],  # 32, 20
+            sim[5] + snap[2],  # 32, 20
+            sim[6] + snap[2],  # 32, 20
+            sim[7] + snap[2],  # 32, 20
+            sim[8] + snap[3]  # 32, 50
             ]
-
 
 # Figures ---------------------------------------------------------------------
 
@@ -123,8 +116,7 @@ if Fig_x_hist:
                     labelleft='off')
 
     fig_titles = ['x_hist', 'CS4_Final_x_hist_I']
-
-    f.savefig(figurePath + 'Fig_' + fig_titles[0] + '.png')
+    f.savefig(f"{figurePath}Fig_{fig_titles[0]}.png")
 
 if Fig_x_hist2d:
     f = plt.figure(figsize=(13, 11))
@@ -137,13 +129,12 @@ if Fig_x_hist2d:
               fontsize=30)
 
     fig_titles = ['x_hist2d', 'CS4_Final_x_hist2d_I']
-
-    f.savefig(figurePath + 'Fig_' + fig_titles[0] + '.png')
+    f.savefig(f"{figurePath}Fig_{fig_titles[0]}.png")
 
 if Fig_v_logr:
     f, (ax1, ax2) = plt.subplots(1, 2, figsize=(13, 11))
     f.subplots_adjust(hspace=0, wspace=0)
-    ax1.plot(r, v, 'o', color='Blue', lw=3, ms=2)
+    ax1.plot(r, v, 'bo', lw=3, ms=2)
     ax1.set_xlabel('r', fontsize=30)
     ax1.set_ylabel(r'velocity, $v = \sqrt{v_x^2 + v_y^2 + v_z^2}$',
                    fontsize=30)
@@ -153,7 +144,7 @@ if Fig_v_logr:
                   fontsize=30)
     # ax1.set_title(r'%s' % F, fontsize=30)
 
-    ax2.plot(np.log10(r), v, 'o', color='Blue', lw=3, ms=2)
+    ax2.plot(np.log10(r), v, 'bo', lw=3, ms=2)
     ax2.set_xlabel(r'$\log r$', fontsize=30)
     ax2.yaxis.tick_right()
 
@@ -163,12 +154,12 @@ if Fig_v_logr:
                  'DS1_v_logr', 'D2_v_logr', 'Soft_D2_v_logr', 'E_v_logr'
                  ]
 
-    f.savefig(figurePath + fig_names[0] + '.png')
+    f.savefig(f"{figurePath}{fig_names[0]}.png")
 
 if Fig_v_logr_r2:
     f, (ax1, ax2) = plt.subplots(1, 2, figsize=(13, 11))
     f.subplots_adjust(hspace=0, wspace=0)
-    ax1.plot(r_r2, v, 'o', color='Blue', lw=3, ms=2)
+    ax1.plot(r_r2, v, 'bo', lw=3, ms=2)
     ax1.set_xlabel(r'$\frac{r}{r_{-2}}$', fontsize=30)
     ax1.set_ylabel(r'velocity, $v = \sqrt{v_x^2+v_y^2+v_z^2}$',
                    fontsize=30)
@@ -179,7 +170,7 @@ if Fig_v_logr_r2:
 
     # ax1.set_title(r'%s' % F, fontsize=30)
 
-    ax2.plot(np.log10(r_r2), v, 'o', color='Blue', lw=3, ms=2)
+    ax2.plot(np.log10(r_r2), v, 'bo', lw=3, ms=2)
     ax2.set_xlabel(r'$\log (\frac{r}{r_{-2}})$', fontsize=30)
     ax2.yaxis.tick_right()
 
@@ -190,50 +181,50 @@ if Fig_v_logr_r2:
                  'D2_v_logr_r2', 'Soft_D2_v_logr_r2', 'E_v_logr_r2'
                  ]
 
-    f.savefig(figurePath + fig_names[0] + '.png')
+    f.savefig(f"{figurePath}{fig_names[0]}.png")
 
 if Fig2_v:  # 3 plots of the velocities as function of x.
     f = plt.figure()
     ax1 = plt.subplot(131)
     plt.ylabel('vx', fontsize=30)
-    plt.plot(x, vx, 'o', ms=2, mew=0, color='blue')
+    plt.plot(x, vx, 'bo', ms=2, mew=0)
 
     ax2 = plt.subplot(132)
     plt.xlabel('x', fontsize=30)
     plt.ylabel('vy', fontsize=30)
     plt.title('Velocities (File = %s)' % F, fontsize=30)
-    plt.plot(x, vy, 'o', ms=2, mew=0, color='blue')
+    plt.plot(x, vy, 'bo', ms=2, mew=0)
     setp(ax2.get_yticklabels(), visible=False)
 
     ax3 = plt.subplot(133)
     plt.ylabel('vz', fontsize=30)
-    plt.plot(x, vz, 'o', ms=2, mew=0, color='blue')
+    plt.plot(x, vz, 'bo', ms=2, mew=0)
     setp(ax3.get_yticklabels(), visible=False)
 
     fig_names = ['A_v', 'B_v', 'Soft_B_v', 'CS1_v', 'CS2_v', 'CS3_v', 'CS4_v',
                  'CS5_v', 'CS6_v', 'DS1_v', 'D2_v', 'Soft_D2_v', 'E_v'
                  ]
 
-    f.savefig(figurePath + fig_names[0] + '.png')
+    f.savefig(f"{figurePath}{fig_names[0]}.png")
 
 if Fig3_sigma:  # Dispersions
     f = plt.figure(figsize=(16, 11))
     x_plot = np.log10(bin_radius_arr)
     y_plot = np.log10(sigma2_arr)
 
-    plt.plot(x_plot, y_plot, '-o', ms=8, mew=0, color='red',
+    plt.plot(x_plot, y_plot, 'r-o', ms=8, mew=0,
              label=r'$\log (\sigma_{total}^2)$')
     y_plot = np.log10(sigmarad2_arr)
-    plt.plot(x_plot, y_plot, '--s', ms=8, mew=0, color='blue',
+    plt.plot(x_plot, y_plot, 'b--s', ms=8, mew=0,
              label=r'$\log (\sigma_{r}^2)$')
     y_plot = np.log10(sigmatheta2_arr)
-    plt.plot(x_plot, y_plot, '--v', ms=8, mew=0, color='green',
+    plt.plot(x_plot, y_plot, 'g--v', ms=8, mew=0,
              label=r'$\log (\sigma_{\theta}^2)$')
     y_plot = np.log10(sigmaphi2_arr)
-    plt.plot(x_plot, y_plot, '--^', ms=8, mew=0, color='black',
+    plt.plot(x_plot, y_plot, 'k--^', ms=8, mew=0,
              label=r'$\log (\sigma_{\phi}^2)$')
     y_plot = np.log10(sigmatan2_arr)  # plot sigma_tan
-    plt.plot(x_plot, y_plot, '--^', ms=8, mew=0, color='Violet',
+    plt.plot(x_plot, y_plot, 'c--^', ms=8, mew=0,
              label=r'$\log (\sigma_{tan}^2)$')
 
     plt.xlabel(r'$\log $r', fontsize=30)
@@ -255,25 +246,25 @@ if Fig3_sigma:  # Dispersions
                  'Soft_D2_sigma', 'E_sigma'
                  ]
 
-    f.savefig(figurePath + fig_names[0] + '.png')
+    f.savefig(f"{figurePath}{fig_names[0]}.png")
 
 if Fig3_sigma_r_2:  # Dispersions
     f = plt.figure(figsize=(16, 11))
     x_plot = np.log10(bin_radius_arr / r_2)
     y_plot = np.log10(sigma2_arr)
-    plt.plot(x_plot, y_plot, '-o', ms=8, mew=0, color='red',
+    plt.plot(x_plot, y_plot, 'r-o', ms=8, mew=0,
              label=r'$\log (\sigma_{total}^2)$')
     y_plot = np.log10(sigmarad2_arr)
-    plt.plot(x_plot, y_plot, '--s', ms=8, mew=0, color='blue',
+    plt.plot(x_plot, y_plot, 'b--s', ms=8, mew=0,
              label=r'$\log (\sigma_{r}^2)$')
     y_plot = np.log10(sigmatheta2_arr)
-    plt.plot(x_plot, y_plot, '--v', ms=8, mew=0, color='green',
+    plt.plot(x_plot, y_plot, 'g--v', ms=8, mew=0,
              label=r'$\log (\sigma_{\theta}^2)$')
     y_plot = np.log10(sigmaphi2_arr)
-    plt.plot(x_plot, y_plot, '--^', ms=8, mew=0, color='black',
+    plt.plot(x_plot, y_plot, 'k--^', ms=8, mew=0,
              label=r'$\log (\sigma_{\phi}^2)$')
     y_plot = np.log10(sigmatan2_arr)  # plot sigma_tan
-    plt.plot(x_plot, y_plot, '--^', ms=8, mew=0, color='Violet',
+    plt.plot(x_plot, y_plot, 'c--^', ms=8, mew=0,
              label=r'$\log (\sigma_{\tan}^2)$')
     leg = plt.legend(prop=dict(size=30), numpoints=2, ncol=1,
                      fancybox=True, loc=0, handlelength=2.5)
@@ -294,26 +285,26 @@ if Fig3_sigma_r_2:  # Dispersions
                  'Soft_D2_sigma_r_2', 'E_sigma_r_2'
                  ]
 
-    f.savefig(figurePath + fig_names[0] + '.png')
+    f.savefig(f"{figurePath}{fig_names[0]}.png")
 
 if Fig3_sigma_over_v_circ_r_2:  # Dispersions
     f = plt.figure(figsize=(16, 11))
     x_plot = np.log10(bin_radius_arr / r_2)
     y_plot = np.log10(sigma2_arr / v_circ_2 ** 2)
     # label=r'$\log ((\frac{\sigma_{total}}{v_{circ,2}})^2)$'
-    plt.plot(x_plot, y_plot, '-o', ms=8, mew=0, color='red',
+    plt.plot(x_plot, y_plot, 'r-o', ms=8, mew=0,
              label=r'$\log (\bar{\sigma_{total}}^2)$')
     y_plot = np.log10(sigmarad2_arr / v_circ_2 ** 2)
-    plt.plot(x_plot, y_plot, '--s', ms=8, mew=0, color='blue',
+    plt.plot(x_plot, y_plot, 'b--s', ms=8, mew=0,
              label=r'$\log (\bar{\sigma_{r}}^2)$')
     y_plot = np.log10(sigmatheta2_arr / v_circ_2 ** 2)
-    plt.plot(x_plot, y_plot, '--v', ms=8, mew=0, color='green',
+    plt.plot(x_plot, y_plot, 'g--v', ms=8, mew=0,
              label=r'$\log (\bar{\sigma_{\theta}}^2)$')
     y_plot = np.log10(sigmaphi2_arr / v_circ_2 ** 2)
-    plt.plot(x_plot, y_plot, '--^', ms=8, mew=0, color='black',
+    plt.plot(x_plot, y_plot, 'k--^', ms=8, mew=0,
              label=r'$\log (\bar{\sigma_{\phi}}^2)$')
     y_plot = np.log10(sigmatan2_arr / v_circ_2 ** 2)  # plot sigma_tan
-    plt.plot(x_plot, y_plot, '--^', ms=8, mew=0, color='Violet',
+    plt.plot(x_plot, y_plot, 'c--^', ms=8, mew=0,
              label=r'$\log (\bar{\sigma_{\tan}}^2)$')
 
     plt.xlabel(r'$\log (\frac{r}{r_{-2}})$', fontsize=30)
@@ -345,7 +336,7 @@ if Fig3_sigma_over_v_circ_r_2:  # Dispersions
                  'E_sigma_divided_by_v_circ_r_2'
                  ]
 
-    f.savefig(figurePath + fig_names[0] + '.png')
+    f.savefig(f"{figurePath}{fig_names[0]}.png")
 
 if Fig4_beta:  # plot beta
     f = plt.figure(figsize=(16, 11))
@@ -354,25 +345,25 @@ if Fig4_beta:  # plot beta
     y_plot = beta_arr
     plt.xlabel(r'$\log$r', fontsize=30)
     plt.ylabel(r'$\beta$', fontsize=30)
-    plt.plot(x_plot, y_plot, '-o', ms=7, lw=2, mew=0, color='black')
+    plt.plot(x_plot, y_plot, 'k-o', ms=7, lw=2, mew=0)
     # from this graph we see that beta is below zero.
     # this means sigmatheta2_arr/sigmarad2_arr > 1,
     # which in turn means that sigmatheta2_arr > sigmarad2_arr.
-    plt.plot(x_plot, 0 * x_plot, '--', lw=2, color='grey')
+    plt.plot(x_plot, 0 * x_plot, 'c--', lw=2)
     plt.plot((-.5, -.5), (-1., 1.), 'r-', label=r'inner cut')
     # plt.plot((1., 1.), (-1., 1.), 'b-', label=r'outer cut')
 
     if Fig4_betafit:  # fitting beta with two different profiles
         x = 10 ** x_plot
         y_plot = x ** 2 / (4 ** 2 + x ** 2)
-        plt.plot(x_plot, y_plot, '-', ms=2, mew=0, color='blue',
+        plt.plot(x_plot, y_plot, 'b-', ms=2, mew=0,
                  label=r'$\frac{r^2}{4^2+r^2}$')
         # plt.title(r'$\beta$ with fit (%s)' % F, fontsize=26)
         plt.title(r'$\beta$ with analytical expression\
                   (CS6 IC with 20 radial bins)', fontsize=30)
 
         # Dummy plot to add label to legend for chi2
-        plt.plot([], [], ls='.', c='grey',
+        plt.plot([], [], 'm.',
                  label=r'$\chi^2 = %.6f$' % chi_2(beta_arr))
 
         leg = plt.legend(prop=dict(size=30), numpoints=2, ncol=1,
@@ -387,7 +378,7 @@ if Fig4_beta:  # plot beta
                      'Soft_D2_Final_beta_logr_fit', 'E_beta_logr_fit'
                      ]
 
-        f.savefig(figurePath + fig_names[0] + '.png')
+        f.savefig(f"{figurePath}{fig_names[0]}.png")
 
     else:
         leg = plt.legend(prop=dict(size=30), numpoints=2, ncol=1,
@@ -427,7 +418,7 @@ if Fig4_beta:  # plot beta
                            'E_198_093_beta_logr_I_R32'
                            ]
 
-        f.savefig(figurePath + fig_names_I_R32[0] + '.png')
+        f.savefig(f"{figurePath}{fig_names_I_R32[0]}.png")
 
         fig_names = ['A_IC_beta_logr',
                      'A_48_009_beta_logr',
@@ -452,7 +443,7 @@ if Fig4_beta:  # plot beta
                      'E_198_093_beta_logr'
                      ]
 
-        # f.savefig(figurePath + fig_names[0] + '.png')
+        # f.savefig(f"{figurePath}{fig_names[0]}.png")
 
 if Fig4_beta_r_2:  # plot beta
     f = plt.figure(figsize=(16, 11))
@@ -460,12 +451,11 @@ if Fig4_beta_r_2:  # plot beta
     y_plot = beta_arr
     plt.xlabel(r'$\log (\frac{r}{r_{-2}})$', fontsize=30)
     plt.ylabel(r'$\beta$', fontsize=30)
-    plt.plot(x_plot, y_plot, '-o', ms=7, lw=2, mew=0, color='black',
-             label=r'$\beta$')
+    plt.plot(x_plot, y_plot, 'k-o', ms=7, lw=2, mew=0, label=r'$\beta$')
     # from this graph we see that beta is below zero.
     # this means sigmatheta2_arr/sigmarad2_arr > 1,
     # which in turn means that sigmatheta2_arr > sigmarad2_arr.
-    plt.plot(x_plot, 0 * x_plot, '--', lw=2, color='grey')
+    plt.plot(x_plot, 0 * x_plot, 'b--', lw=2)
     # plt.title(r'$\beta$ with zero-line(%s)' % F , fontsize=30)
     # plt.title(r'Velocity anisotropy (CS6 IC with 20 radial bins)',
     #           fontsize=30)
@@ -483,7 +473,7 @@ if Fig4_beta_r_2:  # plot beta
                  'E_Final_beta_r_2_logr'
                  ]
 
-    f.savefig(figurePath + fig_names[0] + '.png')
+    f.savefig(f"{figurePath}{fig_names[0]}.png")
 
 if Fig5_kappa:
     f = plt.figure(figsize=(16, 11))
@@ -492,9 +482,8 @@ if Fig5_kappa:
     plt.xlabel(r'$\log $r', fontsize=30)
     plt.ylabel(r'$\kappa$', fontsize=30)
     plt.ylim(-4., .4)
-    plt.plot(x_plot, y_plot, '-o', ms=4, mew=0, color='black')
-    # plt.plot(x_plot, y_plot, '-o', ms=4, mew=0, color='black',
-    #          label=r'$\kappa$')
+    plt.plot(x_plot, y_plot, 'k-o', ms=4, mew=0)
+    # plt.plot(x_plot, y_plot, 'k-o', ms=4, mew=0, label=r'$\kappa$')
     # plt.plot(x_plot, 0 * x_plot, '--', lw=2, color='grey')
     plt.plot((-.92, -.92), (-5., 25.), 'r-', label=r'inner cut')
     # plt.plot((1., 1.), (-4., 4.), 'b-', label=r'outer cut')
@@ -526,8 +515,7 @@ if Fig5_kappa:
               'y_plot[1.] = ', y_plot[1.])
 
         plt.plot(x_plot[0:len(y_plot) - 3], y_plot[0:len(y_plot) - 3],
-                 '-', ms=2, mew=0, color='blue',
-                 label=r'Analytical shape')
+                 'b-', ms=2, mew=0, label=r'Analytical shape')
 
         # plt.title(r'$\kappa$ with fit (%s)' % F , fontsize=30)
         plt.title(r'$\kappa$ with analytical expression\
@@ -535,7 +523,7 @@ if Fig5_kappa:
         plt.ylim(-2., .5)
 
         # Dummy plot to add label to legend for chi2
-        plt.plot([], [], ls='.', c='grey',
+        plt.plot([], [], 'g.',
                  label=r'$\chi^2 = %.6f$' % chi_2(kappa_arr))
 
         leg = plt.legend(prop=dict(size=30), numpoints=2, ncol=1,
@@ -551,7 +539,7 @@ if Fig5_kappa:
                      'Soft_D2_Final_kappa_logr_fit', 'E_kappa_logr_fit'
                      ]
 
-        f.savefig(figurePath + fig_names[0] + '.png')
+        f.savefig(f"{figurePath}{fig_names[0]}.png")
 
     else:
         leg = plt.legend(prop=dict(size=30), numpoints=2, ncol=1,
@@ -562,8 +550,7 @@ if Fig5_kappa:
                   ({0}, $R_{limit}$=10^4, 20 bins)'.format(sim_snap[0]),
                   fontsize=30)
 
-        # plt.title(r'$\kappa$ and zero-line (%s)' % F,
-        #           fontsize=30)
+        # plt.title(r'$\kappa$ and zero-line (%s)' % F, fontsize=30)
 
         fig_names_I_32 = ['A_IC_kappa_logr_I_R32', 'A_48_009_kappa_logr_I_R32',
                           'A_48_009_kappa_logr_I_R32_cuts',
@@ -585,7 +572,7 @@ if Fig5_kappa:
                           'E_kappa_logr_I_R32', 'E_198_093_kappa_logr_I_R32'
                           ]
 
-        f.savefig(figurePath + fig_names_I_32[0] + '.png')
+        f.savefig(f"{figurePath}{fig_names_I_32[0]}.png")
 
         fig_names = ['A_IC_kappa_logr', 'A_48_009_kappa_logr',
                      'B_IC_kappa_logr', 'B_199_093_kappa_logr',
@@ -600,7 +587,7 @@ if Fig5_kappa:
                      'E_198_093_kappa_logr'
                      ]
 
-        f.savefig(figurePath + fig_names[0] + '.png')
+        f.savefig(f"{figurePath}{fig_names[0]}.png")
 
 if Fig5_kappa_r_2:
     f = plt.figure(figsize=(16, 11))
@@ -608,8 +595,7 @@ if Fig5_kappa_r_2:
     y_plot = kappa_arr
     plt.xlabel(r'$\log (\frac{r}{r_{-2}})$', fontsize=30)
     plt.ylabel(r'$\kappa$', fontsize=30)
-    plt.plot(x_plot, y_plot, '-o', ms=4, mew=0, color='black',
-             label=r'$\kappa$')
+    plt.plot(x_plot, y_plot, 'k-o', ms=4, mew=0, label=r'$\kappa$')
 
     # plt.title(r'$\kappa$ and zero-line (%s)' % F, fontsize=30)
     # plt.title(r'$\kappa$ (B IC with 20 radial bins)', fontsize=30)
@@ -627,7 +613,7 @@ if Fig5_kappa_r_2:
                  'E_Final_kappa_r_2_logr'
                  ]
 
-    f.savefig(figurePath + fig_names[0] + '.png')
+    f.savefig(f"{figurePath}{fig_names[0]}.png")
 
 if Fig6_gamma:
     f = plt.figure(figsize=(16, 11))
@@ -636,19 +622,18 @@ if Fig6_gamma:
     y_plot = gamma_arr
     plt.xlabel(r'$\log $r', fontsize=30)
     plt.ylabel(r'$\gamma$', fontsize=30)
-    plt.plot(x_plot, y_plot, '-o', ms=7, lw=2, mew=0, color='black')
+    plt.plot(x_plot, y_plot, 'k-o', ms=7, lw=2, mew=0)
     plt.plot((-.5, -.5), (-4., 4.), 'r-', label=r'inner cut')
     plt.plot((1., 1.), (-4., 4.), 'b-', label=r'outer cut')
 
     if Fig6_gammafit:
         x = 10 ** x_plot
         y_plot = -1 - 3 * x / (1 + x)
-        plt.plot(x_plot, y_plot, '-', ms=2, mew=0, color='blue',
+        plt.plot(x_plot, y_plot, 'c-', ms=2, mew=0,
                  label=r'$-1 -\frac{3r}{1 + r}$')
 
         # Dummy plot to add label to legend for chi2
-        plt.plot([], [], ls='.', c='grey',
-                 label=r'$\chi^2 = %.6f$' % chi_2)
+        plt.plot([], [], 'm.', label=r'$\chi^2 = %.6f$' % chi_2)
 
         leg = plt.legend(prop=dict(size=30), numpoints=2, ncol=1,
                          fancybox=True, loc=0, handlelength=2.5)
@@ -675,7 +660,7 @@ if Fig6_gamma:
                      'E_Final_gamma_logr_fit'
                      ]
 
-        f.savefig(figurePath + fig_names[0] + '.png')
+        f.savefig(f"{figurePath}{fig_names[0]}.png")
 
     else:
         # leg = plt.legend(prop=dict(size=30), numpoints=2, ncol=1,
@@ -753,7 +738,7 @@ if Fig6_gamma:
                           'E_198_093_gamma_logr_I_R32'
                           ]
 
-        f.savefig(figurePath + fig_names_I_32[0] + '.png')
+        f.savefig(f"{figurePath}{fig_names_I_32[0]}.png")
 
         fig_names = ['A_IC_gamma_logr', 'A_48_009_gamma_logr',
                      'B_IC_gamma_logr', 'B_199_093_gamma_logr',
@@ -769,7 +754,7 @@ if Fig6_gamma:
                      'E_198_093_gamma_logr'
                      ]
 
-        # f.savefig(figurePath + fig_names[0] + '.png')
+        # f.savefig(f"{figurePath}{fig_names[0]}.png")
 
 if Fig6_gamma_r_2:
     f = plt.figure(figsize=(16, 11))
@@ -777,8 +762,7 @@ if Fig6_gamma_r_2:
     y_plot = gamma_arr
     plt.xlabel(r'$\log (\frac{r}{r_{-2}})$', fontsize=30)
     plt.ylabel(r'$\gamma$', fontsize=30)
-    plt.plot(x_plot, y_plot, '-o', ms=7, lw=2, mew=0, color='black',
-             label=r'$\gamma$')
+    plt.plot(x_plot, y_plot, 'k-o', ms=7, lw=2, mew=0, label=r'$\gamma$')
 
     plt.title(f'Radial density slope\
               ({sim[1]} {snapshot_num[0]} with 20 radial bins)',
@@ -806,7 +790,7 @@ if Fig6_gamma_r_2:
                  'E_Final_gamma_r_2_logr'
                  ]
 
-    f.savefig(figurePath + fig_names[0] + '.png')
+    f.savefig(f"{figurePath}{fig_names[0]}.png")
 
 if Fig7_betagamma:
     f = plt.figure()
@@ -816,7 +800,7 @@ if Fig7_betagamma:
     plt.xlabel(r'$\beta$', fontsize=30)
     plt.ylabel(r'$\gamma$', fontsize=30)
     plt.title(r'$\gamma$ vs $\beta$ (%s)' % F, fontsize=30)
-    plt.plot(x_plot, y_plot, '-o', ms=2, mew=0, color='black')
+    plt.plot(x_plot, y_plot, 'k-o', ms=2, mew=0)
 
     subplot(122)
     x_plot = beta_arr
@@ -824,7 +808,7 @@ if Fig7_betagamma:
     plt.xlabel(r'$\beta$', fontsize=30)
     plt.ylabel(r'$\kappa$', fontsize=30)
     plt.title(r'$\kappa$ vs $\beta$', fontsize=30)
-    plt.plot(x_plot, y_plot, '-o', ms=2, mew=0, color='black')
+    plt.plot(x_plot, y_plot, 'k-o', ms=2, mew=0)
 
     fig_names = ['A_betagamma', 'B_betagamma', 'Soft_B_betagamma',
                  'CS1_betagamma', 'CS2_betagamma', 'CS3_betagamma',
@@ -833,7 +817,7 @@ if Fig7_betagamma:
                  'E_betagamma'
                  ]
 
-    f.savefig(figurePath + fig_names[0] + '.png')
+    f.savefig(f"{figurePath}{fig_names[0]}.png")
 
 if Fig_combine_ASCII:
 
@@ -842,21 +826,19 @@ if Fig_combine_ASCII:
     read_txt = pylab.loadtxt(text_files_path +
                              f'{sim_names[1]}_particle_tracking.txt')
 
-    Colors = ['red', 'blue', 'black', 'brown', 'yellow', 'green'] * 3
-    Symbols = ['-o', '-s', '-<', '--v', '--*', '--s', '--d', '--.'] * 3
-
     f, (ax1) = plt.subplots(1, 1, figsize=(13, 11))
     f.subplots_adjust(hspace=0, wspace=0)
-    ax1.plot(read_txt[:, 0], read_txt[:, 4], Symbols[0],
-             color=Colors[0], label='Particle 100000', lw=2, ms=7)
-    ax1.plot(read_txt[:, 0], read_txt[:, 8], Symbols[1],
-             color=Colors[1], label='Particle 200000', lw=2, ms=7)
-    ax1.plot(read_txt[:, 0], read_txt[:, 12], Symbols[2],
-             color=Colors[2], label='Particle 300000', lw=2, ms=7)
-    ax1.plot(read_txt[:, 0], read_txt[:, 16], Symbols[3],
-             color=Colors[3], label='Particle 400000', lw=2, ms=7)
-    ax1.set_ylabel(r'Radius', fontsize=30)
-    ax1.set_xlabel(r'Simulation time', fontsize=30)
+    ax1.plot(read_txt[:, 0], read_txt[:, 4], 'r-o',
+             label='Particle 100000', lw=2, ms=7)
+    ax1.plot(read_txt[:, 0], read_txt[:, 8], 'b-s',
+             label='Particle 200000', lw=2, ms=7)
+    ax1.plot(read_txt[:, 0], read_txt[:, 12], 'k-<',
+             label='Particle 300000', lw=2, ms=7)
+    ax1.plot(read_txt[:, 0], read_txt[:, 16], 'c--v',
+             label='Particle 400000', lw=2, ms=7)
+
+    ax1.set_ylabel('Radius', fontsize=30)
+    ax1.set_xlabel('Simulation time', fontsize=30)
     leg = ax1.legend(prop=dict(size=13), numpoints=2, ncol=1,
                      fancybox=True, loc=0, handlelength=2.5)
     leg.get_frame().set_alpha(.5)
@@ -877,18 +859,18 @@ if V_vr_r_logr_panel:
     Theta = Sigma_calc.theta(z, r)
     VR = Sigma_calc.radial_velocity(Theta, Phi, vx, vy, vz)
 
-    ax1.plot(r, VR, 'o', color='Blue', lw=2, ms=1)
+    ax1.plot(r, VR, 'bo', lw=2, ms=1)
     a = F[:-14]
     ax1.set_title(r'$v_r$', fontsize=20)
-    ax1.set_xlabel(r'$r$', fontsize=20)
+    ax1.set_xlabel('r', fontsize=20)
 
-    ax2.plot(np.log10(r), VR, 'o', color='Blue', lw=2, ms=1)
+    ax2.plot(np.log10(r), VR, 'bo', lw=2, ms=1)
     ax2.set_title(r'%s' % a, fontsize=20)
     ax2.set_xlabel(r'$\log r$', fontsize=20)
     ax2.axes.get_yaxis().set_visible(False)
 
-    ax3.plot(np.log10(r), V, 'o', color='Blue', lw=2, ms=1)
-    ax3.set_title(r'Potential', fontsize=20)
+    ax3.plot(np.log10(r), V, 'bo', lw=2, ms=1)
+    ax3.set_title('Potential', fontsize=20)
     ax3.set_xlabel(r'$\log r$', fontsize=20)
     ax3.yaxis.tick_right()
 
