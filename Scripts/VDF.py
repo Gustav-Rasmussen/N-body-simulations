@@ -22,6 +22,7 @@ import RhoAndGaussianAndTsallis
 import getSnapshotValues
 import snapshotFiles
 from definePaths import *
+import radius_and_velocity_funcs as ravf
 
 # Run 3D plots with this command from terminal:
 # ~/python/3dplot/bin/python VDF.py
@@ -57,6 +58,7 @@ if Fig_xz:
 
 
 def randrange(n, vmin, vmax):  # 3D scatterplot of positions
+    """."""
     return (vmax - vmin) * np.random.rand(n) + vmin
 
 
@@ -77,25 +79,23 @@ if Fig_3D_xyz:
 
 # radial and tangential velocities
 if vspherical:
-    r = (x ** 2 + y ** 2 + z ** 2) ** 0.5
-    Phi = sp.arctan2(y, x)
-    Theta = sp.arccos(z / r)
-    VR = (
-        sp.sin(Theta) * sp.cos(Phi) * vx
-        + sp.sin(Theta) * sp.sin(Phi) * vy
-        + sp.cos(Theta) * vz
-    )
-    VTheta = (
-        sp.cos(Theta) * sp.cos(Phi) * vx
-        + sp.cos(Theta) * sp.sin(Phi) * vy
-        - sp.sin(Theta) * vz
-    )
-    VPhi = -sp.sin(Phi) * vx + sp.cos(Phi) * vy
-    VT = VTheta + VPhi
+    r = ravf.radius(x, y, z)
+    Phi = ravf.phi(x, y)
+    Theta = ravf.theta(r, z)
+    VR = ravf.v_R(vx, vy, vz, Theta, Phi)
+    VTheta = ravf.v_theta(vx, vy, vz, Theta, Phi)
+    VPhi = ravf.v_phi(vx, vy, Phi)
+    VT = ravf.v_tan(VTheta, VPhi)
+
+
+def sigma2(num=nr_par_inside_bin_i, v2):
+    """num: number of particles. v2: velocity squared"""
+    return (1.0 / (num + 1.0)) * np.sum(v2)
+
 
 if calc_sigma_binned_lin_radius:
     R_hob_par = R[GoodIDs]
-    v2 = vx ** 2 + vy ** 2 + vz ** 2
+    v2 = ravf.speed(vx, vy, vz) ** 2
 
     (
         sigma2,
@@ -152,88 +152,71 @@ if calc_sigma_binned_lin_radius:
             continue
         print("+", i)
 
-        r_i = (
-            x[posR_par_inside_bin_i] ** 2
-            + y[posR_par_inside_bin_i] ** 2
-            + z[posR_par_inside_bin_i] ** 2
-        ) ** 0.5
-        Phi_i = sp.arctan2(y[posR_par_inside_bin_i], x[posR_par_inside_bin_i])
-        Theta_i = sp.arccos(z[posR_par_inside_bin_i] / r_i)
-        VR_i = (
-            sp.sin(Theta_i) * sp.cos(Phi_i) * vx[posR_par_inside_bin_i]
-            + sp.sin(Theta_i) * sp.sin(Phi_i) * vy[posR_par_inside_bin_i]
-            + sp.cos(Theta_i) * vz[posR_par_inside_bin_i]
-        )
-        VTheta_i = (
-            sp.cos(Theta_i) * sp.cos(Phi_i) * vx[posR_par_inside_bin_i]
-            + sp.cos(Theta_i) * sp.sin(Phi_i) * vy[posR_par_inside_bin_i]
-            - sp.sin(Theta_i) * vz[posR_par_inside_bin_i]
-        )
-        VPhi_i = (
-            -sp.sin(Phi_i) * vx[posR_par_inside_bin_i]
-            + sp.cos(Phi_i) * vy[posR_par_inside_bin_i]
-        )
-        VT_i = (VTheta_i ** 2 + VPhi_i ** 2) ** 0.5
+        r_i = ravf.radius(x[posR_par_inside_bin_i],
+                          y[posR_par_inside_bin_i],
+                          z[posR_par_inside_bin_i])
+        Phi_i = ravf.phi(x[posR_par_inside_bin_i], y[posR_par_inside_bin_i])
+        Theta_i = ravf.theta(r_i, z[posR_par_inside_bin_i])
+        VR_i = ravf.v_R(vx[posR_par_inside_bin_i],
+                        vy[posR_par_inside_bin_i],
+                        vz[posR_par_inside_bin_i],
+                        Theta_i,
+                        Phi_i
+                        )
+        VTheta_i = ravf.v_theta(vx[posR_par_inside_bin_i],
+                                vy[posR_par_inside_bin_i],
+                                vz[posR_par_inside_bin_i],
+                                Theta_i,
+                                Phi_i
+                                )
+        VPhi_i = ravf.v_phi(vx[posR_par_inside_bin_i],
+                            vy[posR_par_inside_bin_i],
+                            Phi_i
+                            )
+
+        VT_i = (VTheta_i ** 2 + VPhi_i ** 2) ** .5
 
         # sigma2 total
         v2_inside_bin_i = v2[posR_par_inside_bin_i]
-        sigma2_inside_bin_i = (1.0 / (nr_par_inside_bin_i + 1.0)) * np.sum(
-            v2_inside_bin_i
-        )
+        sigma2_inside_bin_i = sigma2(v2_inside_bin_i)
         sigma2.append(sigma2_inside_bin_i)
         bin_radius_arr.append((max_R_bin_i + min_R_bin_i) / 2)
 
         # sigmatan2
         vtan2_inside_bin_i = VT_i ** 2
-        sigmatan2_inside_bin_i = (1.0 / (nr_par_inside_bin_i + 1.0)) * np.sum(
-            vtan2_inside_bin_i
-        )
+        sigmatan2_inside_bin_i = sigma2(vtan2_inside_bin_i)
         sigmatan2.append(sigmatan2_inside_bin_i)
 
         # sigmarad2 radial
         vrad2_inside_bin_i = VR_i ** 2
-        sigmarad2_inside_bin_i = (1.0 / (nr_par_inside_bin_i + 1.0)) * np.sum(
-            vrad2_inside_bin_i
-        )
+        sigmarad2_inside_bin_i = sigma2(vrad2_inside_bin_i)
         sigmarad2.append(sigmarad2_inside_bin_i)
 
         # sigmatheta2
         VTheta2_inside_bin_i = VTheta_i ** 2
-        sigmatheta2_inside_bin_i = (
-            1.0 / (nr_par_inside_bin_i + 1.0)
-        ) * np.sum(VTheta2_inside_bin_i)
+        sigmatheta2_inside_bin_i = sigma2(VTheta2_inside_bin_i)
         sigmatheta2.append(sigmatheta2_inside_bin_i)
 
         # sigmaphi2
         VPhi2_inside_bin_i = VPhi_i ** 2
-        sigmaphi2_inside_bin_i = (1.0 / (nr_par_inside_bin_i + 1.0)) * np.sum(
-            VPhi2_inside_bin_i
-        )
+        sigmaphi2_inside_bin_i = sigma2(VPhi2_inside_bin_i)
         sigmaphi2.append(sigmaphi2_inside_bin_i)
 
-        VR_i_average_inside_bin_i = (
-            1.0 / (nr_par_inside_bin_i + 1.0)
-        ) * np.sum(VR_i)
-        VT_i_average_inside_bin_i = (
-            1.0 / (nr_par_inside_bin_i + 1.0)
-        ) * np.sum(VT_i)
-        VTheta_i_average_inside_bin_i = (
-            1.0 / (nr_par_inside_bin_i + 1.0)
-        ) * np.sum(VTheta_i)
-        VPhi_i_average_inside_bin_i = (
-            1.0 / (nr_par_inside_bin_i + 1.0)
-        ) * np.sum(VPhi_i)
+        VR_i_average_inside_bin_i = sigma2(VR_i)
+        VT_i_average_inside_bin_i = sigma2(VT_i)
+        VTheta_i_average_inside_bin_i = sigma2(VTheta_i)
+        VPhi_i_average_inside_bin_i = sigma2(VPhi_i)
 
         VR_i_average_inside_bin.append(VR_i_average_inside_bin_i)
         VT_i_average_inside_bin.append(VT_i_average_inside_bin_i)
         VTheta_i_average_inside_bin.append(VTheta_i_average_inside_bin_i)
         VPhi_i_average_inside_bin.append(VPhi_i_average_inside_bin_i)
 
-        sigma_i = (sigma2[j]) ** 0.5
-        sigmarad_i = (sigmarad2[j]) ** 0.5
-        sigmatheta_i = (sigmatheta2[j]) ** 0.5
-        sigmaphi_i = (sigmaphi2[j]) ** 0.5
-        sigmatan_i = (sigmatan2[j]) ** 0.5
+        sigma_i = (sigma2[j]) ** .5
+        sigmarad_i = (sigmarad2[j]) ** .5
+        sigmatheta_i = (sigmatheta2[j]) ** .5
+        sigmaphi_i = (sigmaphi2[j]) ** .5
+        sigmatan_i = (sigmatan2[j]) ** .5
 
         sigma.append(sigma_i)
         sigmarad.append(sigmarad_i)
