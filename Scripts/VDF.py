@@ -44,13 +44,13 @@ if Fig_xz:
     f.subplots_adjust(hspace=0, wspace=0)
 
     ax1.plot(x, y, "o", ms=1)
-    ax1.set_xlabel(r"$x$", fontsize=30)
-    ax1.set_ylabel(r"$y$", fontsize=30)
+    ax1.set_xlabel("x", fontsize=30)
+    ax1.set_ylabel("y", fontsize=30)
     ax1.set_title(r"positions ($N = %i$)" % len(x), fontsize=30)
 
     ax2.plot(x, z, "o", ms=1)
-    ax2.set_xlabel(r"$x$", fontsize=30)
-    ax2.set_ylabel(r"$z$", fontsize=30)
+    ax2.set_xlabel("x", fontsize=30)
+    ax2.set_ylabel("z", fontsize=30)
     ax2.yaxis.tick_right()
     ax2.yaxis.set_label_position("right")
 
@@ -151,28 +151,21 @@ if calc_sigma_binned_lin_radius:
             print("-", i)
             continue
         print("+", i)
+        
+        x = x[posR_par_inside_bin_i]
+        y = y[posR_par_inside_bin_i]
+        z = z[posR_par_inside_bin_i]
 
-        r_i = ravf.radius(x[posR_par_inside_bin_i],
-                          y[posR_par_inside_bin_i],
-                          z[posR_par_inside_bin_i])
-        Phi_i = ravf.phi(x[posR_par_inside_bin_i], y[posR_par_inside_bin_i])
-        Theta_i = ravf.theta(r_i, z[posR_par_inside_bin_i])
-        VR_i = ravf.v_R(vx[posR_par_inside_bin_i],
-                        vy[posR_par_inside_bin_i],
-                        vz[posR_par_inside_bin_i],
-                        Theta_i,
-                        Phi_i
-                        )
-        VTheta_i = ravf.v_theta(vx[posR_par_inside_bin_i],
-                                vy[posR_par_inside_bin_i],
-                                vz[posR_par_inside_bin_i],
-                                Theta_i,
-                                Phi_i
-                                )
-        VPhi_i = ravf.v_phi(vx[posR_par_inside_bin_i],
-                            vy[posR_par_inside_bin_i],
-                            Phi_i
-                            )
+        vx = vx[posR_par_inside_bin_i]
+        vy = vy[posR_par_inside_bin_i]
+        vz = vz[posR_par_inside_bin_i]        
+
+        r_i = ravf.radius(x, y, z)
+        Phi_i = ravf.phi(x, y)
+        Theta_i = ravf.theta(r_i, z)
+        VR_i = ravf.v_R(vx, vy, vz, Theta_i, Phi_i)
+        VTheta_i = ravf.v_theta(vx, vy, vz, Theta_i, Phi_i)
+        VPhi_i = ravf.v_phi(vx, vy, Phi_i)
 
         VT_i = (VTheta_i ** 2 + VPhi_i ** 2) ** .5
 
