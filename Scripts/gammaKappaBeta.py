@@ -603,17 +603,13 @@ if betaGammaABCS4CS5CS6DS1D2E_ICFinal20BinsRLimit10000:
     f, (ax1, ax2) = plt.subplots(1, 2, figsize=(13, 11))
     f.subplots_adjust(hspace=0, wspace=0)
 
-    cls = ['r-o', 'b-s', 'k-<', 'y--v', 'g--*', 'm--s', 'r--.']
-
     # IC ------------------------------------------------------------
     # A
     data, label = datalistA_R10000[0]
-    ax1.plot(data[:, 1], data[:, 2],
-             Symbols[0], color=Colors[0], label=label[:-55], lw=2, ms=7)
+    ax1.plot(data[:, 1], data[:, 2], 'r-o', label=label[:-55], lw=2, ms=7)
     # B
     data, label = datalistB_R10000[2]
-    ax1.plot(data[:, 1], data[:, 2],
-             Symbols[1], color=Colors[1], label=label[:-55], lw=2, ms=7)
+    ax1.plot(data[:, 1], data[:, 2], 'b-s', label=label[:-55], lw=2, ms=7)
     # CS4, CS5 and CS6
     for i in range(3):
         data, label = datalistCS4CS5CS6_R10000[i]
@@ -622,21 +618,18 @@ if betaGammaABCS4CS5CS6DS1D2E_ICFinal20BinsRLimit10000:
                  lw=2, ms=7)
     # DS1
     data, label = datalistDS1_SoftD2_R10000[0]
-    ax1.plot(data[:, 1], data[:, 2],
-             Symbols[5], color=Colors[5], label=label[:-61], lw=2, ms=7)
+    ax1.plot(data[:, 1], data[:, 2], 'm--s', label=label[:-61], lw=2, ms=7)
     # Soft D2
     data, label = datalistDS1_SoftD2_R10000[1]
-    ax1.plot(data[:, 1], data[:, 2],
-             Symbols[6], color=Colors[0], label='Soft_' +
-             label[:-55], lw=2, ms=7)
+    ax1.plot(data[:, 1], data[:, 2], 'c--d',
+             label='Soft_' + label[:-55], lw=2, ms=7)
     # E
     data, label = datalistE_R10000[0]
-    ax1.plot(data[:, 1], data[:, 2],
-             Symbols[7], color=Colors[1], label=label[:-55], lw=2, ms=7)
+    ax1.plot(data[:, 1], data[:, 2], 'r--.', label=label[:-55], lw=2, ms=7)
     # Restriction
     x = np.linspace(-.3, 1.1)
     y = -2 * x
-    ax1.plot(x, y, 'Pink', lw=2, ms=7)
+    ax1.plot(x, y, 'm', lw=2, ms=7)
     ax1.fill_between(x, 10, y, color='Violet')
     ax1.set_ylabel(r'$\gamma$', fontsize=30)
     ax1.set_xlabel(r'$\beta$', fontsize=30)
@@ -650,40 +643,40 @@ if betaGammaABCS4CS5CS6DS1D2E_ICFinal20BinsRLimit10000:
     # Final ------------------------------------------------------------
     # A
     data, label = datalistA_R10000[1]
-    ax2.plot(data[1:-9, 1], data[1:-9, 2],
-             Symbols[0], color=Colors[0], label=label[:-55], lw=2, ms=7)
+    ax2.plot(data[1:-9, 1], data[1:-9, 2], 'r-o',
+             label=label[:-55], lw=2, ms=7)
     # B
     data, label = datalistB_R10000[3]
-    ax2.plot(data[3:-5, 1], data[3:-5, 2],
-             Symbols[1], color=Colors[1], label=label[:-55], lw=2, ms=7)
+    ax2.plot(data[3:-5, 1], data[3:-5, 2], 'b-s',
+             label=label[:-55], lw=2, ms=7)
     # CS4
     data, label = datalistCS4CS5CS6_R10000[3]
-    ax2.plot(data[5:-7, 1], data[5:-7, 2],
-             Symbols[2], color=Colors[2], label=label[:-61], lw=2, ms=7)
+    ax2.plot(data[5:-7, 1], data[5:-7, 2], 'k-<',
+             label=label[:-61], lw=2, ms=7)
     # CS5
     data, label = datalistCS4CS5CS6_R10000[4]
-    ax2.plot(data[4:-6, 1], data[4:-6, 2],
-             Symbols[3], color=Colors[3], label=label[:-61], lw=2, ms=7)
+    ax2.plot(data[4:-6, 1], data[4:-6, 2], 'y--v',
+             label=label[:-61], lw=2, ms=7)
     # CS6
     data, label = datalistCS4CS5CS6_R10000[5]
-    ax2.plot(data[3:-7, 1], data[3:-7, 2],
-             Symbols[4], color=Colors[4], label=label[:-61], lw=2, ms=7)
+    ax2.plot(data[3:-7, 1], data[3:-7, 2], 'g--*',
+             label=label[:-61], lw=2, ms=7)
     # DS1
     data, label = datalistDS1_SoftD2_R10000[2]
-    ax2.plot(data[2:-8, 1], data[2:-8, 2],
-             Symbols[5], color=Colors[5], label=label[:-61], lw=2, ms=7)
+    ax2.plot(data[2:-8, 1], data[2:-8, 2], 'm--s',
+             label=label[:-61], lw=2, ms=7)
     # Soft_D2
     data, label = datalistDS1_SoftD2_R10000[3]
-    ax2.plot(data[4:-9, 1], data[4:-9, 2],
-             Symbols[6], color=Colors[0], label='Soft_' +
-             label[:-55], lw=2, ms=7)
+    ax2.plot(data[4:-9, 1], data[4:-9, 2], 'c--d',
+             label='Soft_' + label[:-55], lw=2, ms=7)
     # E
     data, label = datalistE_R10000[1]
-    ax2.plot(data[2:-6, 1], data[2:-6, 2],
-             Symbols[7], color=Colors[1], label=label[:-55], lw=2, ms=7)
+    ax2.plot(data[2:-6, 1], data[2:-6, 2], 'r--.',
+             label=label[:-55], lw=2, ms=7)
+
     # Restriction
     x = np.linspace(-10., 2.)
-    ax2.plot(x, y, 'Pink', lw=2, ms=7)
+    ax2.plot(x, y, 'm', lw=2, ms=7)
     ax2.fill_between(x, 10, y, color='Violet')
     ax2.yaxis.tick_right()
     ax2.set_xlim(-.1, .25)
@@ -697,17 +690,14 @@ if betaGammaKappaCS1CS2CS3_20_50Bins:
     f.subplots_adjust(hspace=0, wspace=0)
 
     data, label = datalistC_IC[0]  # IC 50 bins
-    ax1.plot(data[:, 1], data[:, 2],
-             Symbols[6], color=Colors[6], label='CS1', lw=2, ms=7)
+    ax1.plot(data[:, 1], data[:, 2], 'r-o', label='CS1', lw=2, ms=7)
     data, label = datalistC_IC[1]
-    ax1.plot(data[:, 1], data[:, 2],
-             Symbols[7], color=Colors[7], label='CS2', lw=2, ms=7)
+    ax1.plot(data[:, 1], data[:, 2], 'b-s', label='CS2', lw=2, ms=7)
     data, label = datalistC_IC[2]
-    ax1.plot(data[:, 1], data[:, 2],
-             Symbols[8], color=Colors[8], label='CS3', lw=2, ms=7)
+    ax1.plot(data[:, 1], data[:, 2], 'k-<', label='CS3', lw=2, ms=7)
     x = np.linspace(-2., 2.)
     y = -2 * x
-    ax1.plot(x, y, 'Pink', label=r'$\beta=-\frac{\gamma }{2}$', lw=2, ms=7)
+    ax1.plot(x, y, 'm', label=r'$\beta=-\frac{\gamma }{2}$', lw=2, ms=7)
     ax1.fill_between(x, 4, y, color='Violet',
                      label=r'$\beta > -\frac{\gamma}{2}$')
     # Unstable region.
@@ -719,18 +709,15 @@ if betaGammaKappaCS1CS2CS3_20_50Bins:
     ax1.tick_params(axis='both', which='both', bottom='on', top='off',
                     labelbottom='on', right='off', left='on', labelleft='on')
 
-    data, label = datalistC_IC[3]         # IC 20 bins
-    ax2.plot(data[:, 1], data[:, 2],
-             Symbols[6], color=Colors[6], label='CS1', lw=2, ms=7)
+    data, label = datalistC_IC[3]  # IC 20 bins
+    ax2.plot(data[:, 1], data[:, 2], 'r-o', label='CS1', lw=2, ms=7)
     data, label = datalistC_IC[4]
-    ax2.plot(data[:, 1], data[:, 2],
-             Symbols[7], color=Colors[7], label='CS2', lw=2, ms=7)
+    ax2.plot(data[:, 1], data[:, 2], 'b-s', label='CS2', lw=2, ms=7)
     data, label = datalistC_IC[5]
-    ax2.plot(data[:, 1], data[:, 2],
-             Symbols[8], color=Colors[8], label='CS3', lw=2, ms=7)
+    ax2.plot(data[:, 1], data[:, 2], 'k-<', label='CS3', lw=2, ms=7)
     x = np.linspace(-2., 2.)
     y = -2 * x
-    ax2.plot(x, y, 'Pink', label=r'$\beta=-\frac{\gamma}{2}$', lw=2, ms=7)
+    ax2.plot(x, y, 'm', label=r'$\beta=-\frac{\gamma}{2}$', lw=2, ms=7)
     ax2.fill_between(x, 4, y, color='Violet',
                      label=r'$\beta > -\frac{\gamma}{2}$')
     # Unstable region.
@@ -741,28 +728,22 @@ if betaGammaKappaCS1CS2CS3_20_50Bins:
     ax2.yaxis.tick_right()
 
     data, label = datalistC_IC[0]  # IC 50 bins
-    ax3.plot(data[:, 1], data[:, 3],
-             Symbols[6], color=Colors[6], label='CS1', lw=2, ms=7)
+    ax3.plot(data[:, 1], data[:, 3], 'r-o', label='CS1', lw=2, ms=7)
     data, label = datalistC_IC[1]
-    ax3.plot(data[:, 1], data[:, 3],
-             Symbols[7], color=Colors[7], label='CS2', lw=2, ms=7)
+    ax3.plot(data[:, 1], data[:, 3], 'b-s', label='CS2', lw=2, ms=7)
     data, label = datalistC_IC[2]
-    ax3.plot(data[:, 1], data[:, 3],
-             Symbols[8], color=Colors[8], label='CS3', lw=2, ms=7)
+    ax3.plot(data[:, 1], data[:, 3], 'k-<', label='CS3', lw=2, ms=7)
     ax3.set_xlabel(r'$\beta$', fontsize=30)
     ax3.set_ylabel(r'$\kappa$', fontsize=30)
     ax3.set_xlim(-2.5, 1.1)
     ax3.set_ylim(-10., 7.)
 
     data, label = datalistC_IC[3]  # IC 20 bins
-    ax4.plot(data[:, 1], data[:, 3],
-             Symbols[6], color=Colors[6], label='CS1', lw=2, ms=7)
+    ax4.plot(data[:, 1], data[:, 3], 'r-o', label='CS1', lw=2, ms=7)
     data, label = datalistC_IC[4]
-    ax4.plot(data[:, 1], data[:, 3],
-             Symbols[7], color=Colors[7], label='CS2', lw=2, ms=7)
+    ax4.plot(data[:, 1], data[:, 3], 'b-s', label='CS2', lw=2, ms=7)
     data, label = datalistC_IC[5]
-    ax4.plot(data[:, 1], data[:, 3],
-             Symbols[8], color=Colors[8], label='CS3', lw=2, ms=7)
+    ax4.plot(data[:, 1], data[:, 3], 'k-<', label='CS3', lw=2, ms=7)
     ax4.set_xlim(-.7, 1.1)
     ax4.set_ylim(-2.3, .8)
     leg = ax4.legend(prop=dict(size=13), numpoints=2, ncol=1,
@@ -776,18 +757,15 @@ if betaGammaKappaCS4CS5CS6_20_50Bins:
     f, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2, figsize=(13, 11))
     f.subplots_adjust(hspace=0, wspace=0)
 
-    data, label = datalistC_IC[6]
-    ax1.plot(data[:, 1], data[:, 2],
-             Symbols[6], color=Colors[6], label='CS4', lw=2, ms=7)
-    data, label = datalistC_IC[7]
-    ax1.plot(data[:, 1], data[:, 2],
-             Symbols[7], color=Colors[7], label='CS5', lw=2, ms=7)
-    data, label = datalistC_IC[8]
-    ax1.plot(data[:, 1], data[:, 2],
-             Symbols[8], color=Colors[8], label='CS6', lw=2, ms=7)
+    data, _ = datalistC_IC[6]
+    ax1.plot(data[:, 1], data[:, 2], 'r-o', label='CS4', lw=2, ms=7)
+    data, _ = datalistC_IC[7]
+    ax1.plot(data[:, 1], data[:, 2], 'b-s', label='CS5', lw=2, ms=7)
+    data, _ = datalistC_IC[8]
+    ax1.plot(data[:, 1], data[:, 2], 'k-<', label='CS6', lw=2, ms=7)
     x = np.linspace(-2., 2.)
     y = -2 * x
-    ax1.plot(x, y, 'Pink', label=r'$\beta=-\frac{\gamma }{2}$', lw=2, ms=7)
+    ax1.plot(x, y, 'm', label=r'$\beta=-\frac{\gamma }{2}$', lw=2, ms=7)
     ax1.fill_between(x, 4, y, color='Violet',
                      label=r'$\beta > -\frac{\gamma }{2}$')
     # Unstable region
@@ -797,18 +775,15 @@ if betaGammaKappaCS4CS5CS6_20_50Bins:
     ax1.set_ylim(-4.7, -1.)
     ax1.axes.get_xaxis().set_visible(False)
 
-    data, label = datalistC_IC[9]
-    ax2.plot(data[:, 1], data[:, 2],
-             Symbols[6], color=Colors[6], label='CS4', lw=2, ms=7)
-    data, label = datalistC_IC[10]
-    ax2.plot(data[:, 1], data[:, 2],
-             Symbols[7], color=Colors[7], label='CS5', lw=2, ms=7)
-    data, label = datalistC_IC[11]
-    ax2.plot(data[:, 1], data[:, 2],
-             Symbols[8], color=Colors[8], label='CS6', lw=2, ms=7)
+    data, _ = datalistC_IC[9]
+    ax2.plot(data[:, 1], data[:, 2], 'r-o', label='CS4', lw=2, ms=7)
+    data, _ = datalistC_IC[10]
+    ax2.plot(data[:, 1], data[:, 2], 'b-s', label='CS5', lw=2, ms=7)
+    data, _ = datalistC_IC[11]
+    ax2.plot(data[:, 1], data[:, 2], 'k-<', label='CS6', lw=2, ms=7)
     x = np.linspace(-2., 2.)
     y = -2 * x
-    ax2.plot(x, y, 'Pink', label=r'$\beta=-\frac{\gamma }{2}$', lw=2, ms=7)
+    ax2.plot(x, y, 'm', label=r'$\beta=-\frac{\gamma }{2}$', lw=2, ms=7)
     # Unstable region
     ax2.fill_between(x, 4, y, color='Violet',
                      label=r'$\beta > -\frac{\gamma }{2}$')
@@ -818,29 +793,23 @@ if betaGammaKappaCS4CS5CS6_20_50Bins:
     ax2.axes.get_xaxis().set_visible(False)
     ax2.axes.get_yaxis().set_visible(False)
 
-    data, label = datalistC_IC[6]
-    ax3.plot(data[:, 1], data[:, 3],
-             Symbols[6], color=Colors[6], label='CS4', lw=2, ms=7)
-    data, label = datalistC_IC[7]
-    ax3.plot(data[:, 1], data[:, 3],
-             Symbols[7], color=Colors[7], label='CS5', lw=2, ms=7)
-    data, label = datalistC_IC[8]
-    ax3.plot(data[:, 1], data[:, 3],
-             Symbols[8], color=Colors[8], label='CS6', lw=2, ms=7)
+    data, _ = datalistC_IC[6]
+    ax3.plot(data[:, 1], data[:, 3], 'r-o', label='CS4', lw=2, ms=7)
+    data, _ = datalistC_IC[7]
+    ax3.plot(data[:, 1], data[:, 3], 'b-s', label='CS5', lw=2, ms=7)
+    data, _ = datalistC_IC[8]
+    ax3.plot(data[:, 1], data[:, 3], 'k-<', label='CS6', lw=2, ms=7)
     ax3.set_xlabel(r'$\beta$', fontsize=24)
     ax3.set_ylabel(r'$\kappa$', fontsize=24)
     ax3.set_xlim(-.3, 1.1)
     ax3.set_ylim(-6., 3.)
 
     data, label = datalistC_IC[9]
-    ax4.plot(data[:, 1], data[:, 3],
-             Symbols[6], color=Colors[6], label=label[:-15], lw=2, ms=7)
+    ax4.plot(data[:, 1], data[:, 3], 'r-o', label=label[:-15], lw=2, ms=7)
     data, label = datalistC_IC[10]
-    ax4.plot(data[:, 1], data[:, 3],
-             Symbols[7], color=Colors[7], label=label[:-15], lw=2, ms=7)
+    ax4.plot(data[:, 1], data[:, 3], 'b-s', label=label[:-15], lw=2, ms=7)
     data, label = datalistC_IC[11]
-    ax4.plot(data[:, 1], data[:, 3],
-             Symbols[8], color=Colors[8], label=label[:-15], lw=2, ms=7)
+    ax4.plot(data[:, 1], data[:, 3], 'k-<', label=label[:-15], lw=2, ms=7)
     ax4.set_xlim(-.2, 1.1)
     ax4.set_ylim(-6., 3.)
     ax4.axes.get_yaxis().set_visible(False)
@@ -862,17 +831,18 @@ if betaGammaKappaBCS4CS5CS6DS1D2_ICFinal20_50Bins:
     # IC ------------------------------------------------------------
     # B
     data, label = datalistB[0]
-    ax1.plot(data[:, 1], data[:, 2] + data[:, 3],
-             Symbols[0], color=Colors[0], label=label, lw=2, ms=7)
+    ax1.plot(data[:, 1], data[:, 2] + data[:, 3], 'r-o',
+             label=label, lw=2, ms=7)
     # CS4, CS5 and CS6
     for i in range(6, 9):
         data, label = datalistC_IC[i]
         ax1.plot(data[:, 1], data[:, 2] + data[:, 3],
                  Symbols[i - 5], color=Colors[i - 5], label=label, lw=2, ms=7)
+
     # Restriction
     x = np.linspace(-.3, 1.1)
     y = -2 * x
-    ax1.plot(x, y, 'Pink', lw=2, ms=7)
+    ax1.plot(x, y, 'm', lw=2, ms=7)
     ax1.fill_between(x, 10, y, color='Violet')
     ax1.set_title(r'IC $\gamma + \kappa$', fontsize=20)
     ax1.set_ylabel(r'50 bins', fontsize=18)
@@ -886,11 +856,11 @@ if betaGammaKappaBCS4CS5CS6DS1D2_ICFinal20_50Bins:
     # Final ------------------------------------------------------------
     # B
     data, label = datalistB[5]
-    ax2.plot(data[:, 1], data[:, 2] + data[:, 3],
-             Symbols[0], color=Colors[0], label=label, lw=2, ms=7)
+    ax2.plot(data[:, 1], data[:, 2] + data[:, 3], 'r-o',
+             label=label, lw=2, ms=7)
     # Restriction
     x = np.linspace(-10., 2.)
-    ax2.plot(x, y, 'Pink', lw=2, ms=7)
+    ax2.plot(x, y, 'm', lw=2, ms=7)
     ax2.fill_between(x, 10, y, color='Violet')
     ax2.tick_params(axis='both', which='both', bottom='off', top='off',
                     labelbottom='off', right='off', left='off',
@@ -917,7 +887,7 @@ if betaGammaKappaBCS4CS5CS6DS1D2_ICFinal20_50Bins:
                  lw=2, ms=7)
     # Restriction
     x = np.linspace(-.3, 1.1)
-    ax3.plot(x, y, 'Pink', lw=2, ms=7)
+    ax3.plot(x, y, 'm', lw=2, ms=7)
     ax3.fill_between(x, 10, y, color='Violet')
     ax3.set_ylabel(r'20 bins', fontsize=18)
     ax3.set_xlim(-.3, 1.1)
@@ -927,11 +897,12 @@ if betaGammaKappaBCS4CS5CS6DS1D2_ICFinal20_50Bins:
     # Final ------------------------------------------------------------
     # B
     data, label = datalistB20[1]
-    ax4.plot(data[:, 1], data[:, 2] + data[:, 3],
-             Symbols[0], color=Colors[0], label=label[:-15], lw=2, ms=7)
+    ax4.plot(data[:, 1], data[:, 2] + data[:, 3], 'r-o',
+             label=label[:-15], lw=2, ms=7)
+
     # Restriction
     x = np.linspace(-10., 2.)
-    ax4.plot(x, y, 'Pink', lw=2, ms=7)
+    ax4.plot(x, y, 'm', lw=2, ms=7)
     ax4.fill_between(x, 10, y, color='Violet')
     ax4.tick_params(axis='both', which='both', bottom='off', top='off',
                     labelbottom='off', right='off', left='off',
@@ -946,7 +917,7 @@ if betaGammaKappaBCS4CS5CS6DS1D2_ICFinal20_50Bins:
     # Restriction
     x = np.linspace(-.3, 1.1)
     y = -2 * x
-    ax5.plot(x, y, 'Pink', lw=2, ms=7)
+    ax5.plot(x, y, 'm', lw=2, ms=7)
     ax5.fill_between(x, 10, y, color='Violet')
     ax5.set_ylabel(r'50 bins', fontsize=18)
     ax5.set_xlim(-.3, 1.1)
@@ -957,7 +928,7 @@ if betaGammaKappaBCS4CS5CS6DS1D2_ICFinal20_50Bins:
 
     # Restriction
     x = np.linspace(-10., 2.)
-    ax6.plot(x, y, 'Pink', lw=2, ms=7)
+    ax6.plot(x, y, 'm', lw=2, ms=7)
     ax6.fill_between(x, 10, y, color='Violet')
     ax6.tick_params(axis='both', which='both', bottom='off', top='off',
                     labelbottom='off', right='off', left='off',
@@ -1002,6 +973,7 @@ if overplotICFinal:
         data, label = datalistMartinFinal[i]
         ax2.plot(data[:, 4], data[:, 6],
                  Symbols[i], color=Colors[i], label=label, lw=2, ms=7)
+
     ax2.set_xlabel(r'$\beta$', fontsize=24)
     ax2.set_ylabel(r'$\kappa$', fontsize=24)
     ax2.set_xlim(-0.1, 1.1)
@@ -1021,10 +993,10 @@ if ICFinal4Subplots:
                  Symbols[i], color=Colors[i], label=label, lw=2, ms=7)
     x = np.linspace(0, 1.1)
     y = -2 * x
-    ax1.plot(x, y, 'Pink', label=r'$\beta=-\frac{\gamma }{2}$', lw=2, ms=7)
+    ax1.plot(x, y, 'm', label=r'$\beta=-\frac{\gamma }{2}$', lw=2, ms=7)
     ax1.fill_between(x, 0, y, color='Violet',
                      label=r'$\beta > -\frac{\gamma }{2}$')
-    ax1.set_title(r'IC', fontsize=30)
+    ax1.set_title('IC', fontsize=30)
     ax1.set_ylabel(r'$\gamma$', fontsize=30)
     ax1.set_xlim(-.1, 1.1)
     ax1.set_ylim(-6., 0.)
@@ -1034,7 +1006,7 @@ if ICFinal4Subplots:
         data, label = datalistMartinFinal[i]
         ax2.plot(data[:, 4], data[:, 5],
                  Symbols[i], color=Colors[i], label=label, lw=2, ms=7)
-    ax2.plot(x, y, 'Pink', label=r'$\beta=-\frac{\gamma }{2}$', lw=2, ms=7)
+    ax2.plot(x, y, 'm', label=r'$\beta=-\frac{\gamma }{2}$', lw=2, ms=7)
     ax2.fill_between(x, 0, y, color='Violet',
                      label=r'$\beta > -\frac{\gamma }{2}$')
     ax2.set_title(r'Final', fontsize=30)
@@ -1148,53 +1120,46 @@ if attractor3D:  # 3D plots of attractor, IC and Final.
     # IC ------------------------------------------------------------
     # A
     data, label = datalistA_R32[0]
-    ax.plot(2 * data[:, 1], data[:, 2], data[:, 3],
-            marker=Symbols[0], color='r', label=label, lw=2)
+    ax.plot(2 * data[:, 1], data[:, 2], data[:, 3], 'r-o', label=label, lw=2)
     # B
     data, label = datalistB_R32[0]
-    ax.plot(2 * data[:, 1], data[:, 2], data[:, 3],
-            marker=Symbols[1], color='b', label=label, lw=2)
+    ax.plot(2 * data[:, 1], data[:, 2], data[:, 3], 'b-s', label=label, lw=2)
     # CS4
     data, label = datalistCS4_R32[0]
-    ax.plot(2 * data[:, 1], data[:, 2], data[:, 3],
-            marker=Symbols[2], color='g', label=label, lw=2)
+    ax.plot(2 * data[:, 1], data[:, 2], data[:, 3], 'g-<', label=label, lw=2)
     # CS5
     data, label = datalistCS5_R32[0]
-    ax.plot(2 * data[:, 1], data[:, 2], data[:, 3],
-            marker=Symbols[3], color='k', label=label, lw=2)
+    ax.plot(2 * data[:, 1], data[:, 2], data[:, 3], 'k--v', label=label, lw=2)
     # CS6
     data, label = datalistCS6_R32[0]
-    ax.plot(2 * data[:, 1], data[:, 2], data[:, 3],
-            marker=Symbols[4], color='c', label=label, lw=2)
+    ax.plot(2 * data[:, 1], data[:, 2], data[:, 3], 'c--*', label=label, lw=2)
     # DS1
     data, label = datalistDS1_R32[0]
-    ax.plot(2 * data[:, 1], data[:, 2], data[:, 3],
-            marker=Symbols[5], color='m', label=label, lw=2)
+    ax.plot(2 * data[:, 1], data[:, 2], data[:, 3], 'm--s', label=label, lw=2)
     # Soft D2
     data, label = datalistSoftD2_R32[0]
-    ax.plot(2 * data[:, 1], data[:, 2], data[:, 3],
-            marker=Symbols[6], color='y', label=label, lw=2)
+    ax.plot(2 * data[:, 1], data[:, 2], data[:, 3], 'y--d', label=label, lw=2)
     # E
     data, label = datalistE_R32[0]
-    ax.plot(2 * data[:, 1], data[:, 2], data[:, 3],
-            marker=Symbols[7], color='r', label=label, lw=2)
+    ax.plot(2 * data[:, 1], data[:, 2], data[:, 3], 'r--.', label=label, lw=2)
+
     handles = []
     scatter1_proxy = lines.Line2D([0], [0], linestyle="none",
-                                  c='r', marker=Symbols[0])
+                                  c='r', marker='-o')
     scatter2_proxy = lines.Line2D([0], [0], linestyle="none",
-                                  c='b', marker=Symbols[1])
+                                  c='b', marker='-s')
     scatter3_proxy = lines.Line2D([0], [0], linestyle="none",
-                                  c='g', marker=Symbols[2])
+                                  c='g', marker='-<')
     scatter4_proxy = lines.Line2D([0], [0], linestyle="none",
-                                  c='k', marker=Symbols[3])
+                                  c='k', marker='--v')
     scatter5_proxy = lines.Line2D([0], [0], linestyle="none",
-                                  c='c', marker=Symbols[4])
+                                  c='c', marker='--*')
     scatter6_proxy = lines.Line2D([0], [0], linestyle="none",
-                                  c='m', marker=Symbols[5])
+                                  c='m', marker='--s')
     scatter7_proxy = lines.Line2D([0], [0], linestyle="none",
-                                  c='y', marker=Symbols[6])
+                                  c='y', marker='--d')
     scatter8_proxy = lines.Line2D([0], [0], linestyle="none",
-                                  c='r', marker=Symbols[7])
+                                  c='r', marker='--.')
     leg = ax.legend([scatter1_proxy, scatter2_proxy, scatter3_proxy,
                      scatter4_proxy, scatter5_proxy, scatter6_proxy,
                      scatter7_proxy, scatter8_proxy],
@@ -1212,53 +1177,46 @@ if attractor3D:  # 3D plots of attractor, IC and Final.
     # Final ------------------------------------------------------------
     # A
     data, label = datalistA_R32[1]
-    ax.plot(2 * data[:, 1], data[:, 2], data[:, 3],
-            marker=Symbols[0], color='r', label=label, lw=2)
+    ax.plot(2 * data[:, 1], data[:, 2], data[:, 3], 'r-o', label=label, lw=2)
     # B
     data, label = datalistB_R32[1]
-    ax.plot(2 * data[:, 1], data[:, 2], data[:, 3],
-            marker=Symbols[1], color='b', label=label, lw=2)
+    ax.plot(2 * data[:, 1], data[:, 2], data[:, 3], 'b-s', label=label, lw=2)
     # CS4
     data, label = datalistCS4_R32[1]
-    ax.plot(2 * data[:, 1], data[:, 2], data[:, 3],
-            marker=Symbols[2], color='g', label=label, lw=2)
+    ax.plot(2 * data[:, 1], data[:, 2], data[:, 3], 'g-<', label=label, lw=2)
     # CS5
     data, label = datalistCS5_R32[1]
-    ax.plot(2 * data[:, 1], data[:, 2], data[:, 3],
-            marker=Symbols[3], color='k', label=label, lw=2)
+    ax.plot(2 * data[:, 1], data[:, 2], data[:, 3], 'k--v', label=label, lw=2)
     # CS6
     data, label = datalistCS6_R32[1]
-    ax.plot(2 * data[:, 1], data[:, 2], data[:, 3],
-            marker=Symbols[4], color='c', label=label, lw=2)
+    ax.plot(2 * data[:, 1], data[:, 2], data[:, 3], 'c--*', label=label, lw=2)
     # DS1
     data, label = datalistDS1_R32[1]
-    ax.plot(2 * data[:, 1], data[:, 2], data[:, 3],
-            marker=Symbols[5], color='m', label=label, lw=2)
+    ax.plot(2 * data[:, 1], data[:, 2], data[:, 3], 'm--s', label=label, lw=2)
     # Soft D2
     data, label = datalistSoftD2_R32[1]
-    ax.plot(2 * data[:, 1], data[:, 2], data[:, 3],
-            marker=Symbols[6], color='y', label=label, lw=2)
+    ax.plot(2 * data[:, 1], data[:, 2], data[:, 3], 'y--d', label=label, lw=2)
     # E
     data, label = datalistE_R32[1]
-    ax.plot(2 * data[:, 1], data[:, 2], data[:, 3],
-            marker=Symbols[7], color='r', label=label, lw=2)
+    ax.plot(2 * data[:, 1], data[:, 2], data[:, 3], 'r--.', label=label, lw=2)
+
     handles = []
     scatter1_proxy = lines.Line2D([0], [0], linestyle="none",
-                                  c='r', marker=Symbols[0])
+                                  c='r', marker='-o')
     scatter2_proxy = lines.Line2D([0], [0], linestyle="none",
-                                  c='b', marker=Symbols[1])
+                                  c='b', marker='-s')
     scatter3_proxy = lines.Line2D([0], [0], linestyle="none",
-                                  c='g', marker=Symbols[2])
+                                  c='g', marker='-<')
     scatter4_proxy = lines.Line2D([0], [0], linestyle="none",
-                                  c='k', marker=Symbols[3])
+                                  c='k', marker='--v')
     scatter5_proxy = lines.Line2D([0], [0], linestyle="none",
-                                  c='c', marker=Symbols[4])
+                                  c='c', marker='--*')
     scatter6_proxy = lines.Line2D([0], [0], linestyle="none",
-                                  c='m', marker=Symbols[5])
+                                  c='m', marker='--s')
     scatter7_proxy = lines.Line2D([0], [0], linestyle="none",
-                                  c='y', marker=Symbols[6])
+                                  c='y', marker='--d')
     scatter8_proxy = lines.Line2D([0], [0], linestyle="none",
-                                  c='r', marker=Symbols[7])
+                                  c='r', marker='--.')
     # leg = ax.legend([scatter1_proxy, scatter2_proxy, scatter3_proxy,
     #                  scatter4_proxy, scatter5_proxy, scatter6_proxy,
     #                  scatter7_proxy, scatter8_proxy],
@@ -1285,11 +1243,11 @@ if attractor3DSparre:  # 3D plots of attractor, IC and Final.
                 marker=Symbols[i], color=Colors[i], label=label, lw=2)
     handles = []
     scatter1_proxy = lines.Line2D([0], [0], linestyle="none",
-                                  c='r', marker=Symbols[0])
+                                  c='r', marker='-o')
     scatter2_proxy = lines.Line2D([0], [0], linestyle="none",
-                                  c='b', marker=Symbols[1])
+                                  c='b', marker='-s')
     scatter3_proxy = lines.Line2D([0], [0], linestyle="none",
-                                  c='g', marker=Symbols[2])
+                                  c='g', marker='-<')
     leg = ax.legend([scatter1_proxy, scatter2_proxy, scatter3_proxy],
                     ['OMG00_001_IC_000', '0G00_IC_000', 'OMG20_IC_000'],
                     loc=0, numpoints=1, fancybox=True)
@@ -1305,20 +1263,21 @@ if attractor3DSparre:  # 3D plots of attractor, IC and Final.
         ax.plot(2 * data[:, 0], data[:, 1], data[:, 2],
                 marker=Symbols[i], color=Colors[i], label=label, lw=2)
     handles = []
+
     scatter1_proxy = lines.Line2D([0], [0], linestyle="none",
-                                  c='r', marker=Symbols[0])
+                                  c='r', marker='-o')
     scatter2_proxy = lines.Line2D([0], [0], linestyle="none",
-                                  c='b', marker=Symbols[1])
+                                  c='b', marker='-s')
     scatter3_proxy = lines.Line2D([0], [0], linestyle="none",
-                                  c='g', marker=Symbols[2])
+                                  c='g', marker='-<')
     scatter4_proxy = lines.Line2D([0], [0], linestyle="none",
-                                  c='k', marker=Symbols[3])
+                                  c='k', marker='--v')
     scatter5_proxy = lines.Line2D([0], [0], linestyle="none",
-                                  c='c', marker=Symbols[4])
+                                  c='c', marker='--*')
     scatter6_proxy = lines.Line2D([0], [0], linestyle="none",
-                                  c='m', marker=Symbols[5])
+                                  c='m', marker='--s')
     scatter7_proxy = lines.Line2D([0], [0], linestyle="none",
-                                  c='y', marker=Symbols[6])
+                                  c='y', marker='--d')
 
     leg = ax.legend([scatter1_proxy, scatter2_proxy, scatter3_proxy,
                      scatter4_proxy, scatter5_proxy, scatter6_proxy,
