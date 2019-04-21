@@ -29,12 +29,12 @@ def sigmaRad2():
     """Return the square of the radial velocity dispersion."""
     x, y, z, vx, vy, vz = np.linspace(.01, 1.2)
     binningArrLinLog10 = np.logspace(minBinningR, maxBinningR,
-                                        nrBinningBins)
+                                     nrBinningBins)
     for i in range(nrBinningBins - 2):
         minRBinI = binningArrLinLog10[i]  # start of bin
         maxRBinI = binningArrLinLog10[i + 1]  # end of bin
-        vR[i] = ((vx[i] * x[i] + vy[i] * y[i] + vz[i] * z[i]) /
-                  ((x[i] ** 2 + y[i] ** 2 + z[i] ** 2) ** .5))
+        vR[i] = ((vx[i] * x[i] + vy[i] * y[i] + vz[i] * z[i])
+                 / ((x[i] ** 2 + y[i] ** 2 + z[i] ** 2) ** .5))
         vR2[i] = vR[i] ** 2
         sigmaR2 = (1. / (len(vR2) + 1.)) * np.sum(vR2[i])
     return sigmaR2
@@ -518,36 +518,28 @@ if betaGammaKappaABCS4CS5CS6DS1D2E_ICFinal20BinsRLimit10000:
     f, (ax1, ax2) = plt.subplots(1, 2, figsize=(13, 11))
     f.subplots_adjust(hspace=0, wspace=0)
 
-    cls = ['r-o', 'b-s', 'k-<', 'y--v', 'g--*', 'm--s', 'r--.']
-
     # IC ------------------------------------------------------------
-    # A
-    data, label = datalistA_R10000[0]
-    ax1.plot(data[:, 1], data[:, 2] + data[:, 3],
-             Symbols[0], color=Colors[0], label=label[:-55], lw=2, ms=7)
-    # B
-    data, label = datalistB_R10000[2]
-    ax1.plot(data[:, 1], data[:, 2] + data[:, 3],
-             Symbols[1], color=Colors[1], label=label[:-55], lw=2, ms=7)
+    Plt(datalistA_R10000[0], 1, data[:, 1], data[:, 2] + data[:, 3],
+        'r-o', 0, -55)
+    Plt(datalistB_R10000[2], 1, data[:, 1], data[:, 2] + data[:, 3],
+        'b-s', 0, -55)
+    Plt(datalistDS1_SoftD2_R10000[0], 1, data[:, 1], data[:, 2] + data[:, 3],
+        'k-<', 0, -61)
+    Plt(datalistE_R10000[0], 1, data[:, 1], data[:, 2] + data[:, 3],
+        'g--*', 0, -55)
+
     # CS4, CS5 and CS6
     for i in range(3):
         data, label = datalistCS4CS5CS6_R10000[i]
         ax1.plot(data[:, 1], data[:, 2] + data[:, 3],
                  Symbols[i + 2], color=Colors[i + 2], label=label[:-61],
                  lw=2, ms=7)
-    # DS1
-    data, label = datalistDS1_SoftD2_R10000[0]
-    ax1.plot(data[:, 1], data[:, 2] + data[:, 3],
-             Symbols[5], color=Colors[5], label=label[:-61], lw=2, ms=7)
+
     # Soft_D2
     data, label = datalistDS1_SoftD2_R10000[1]
-    ax1.plot(data[:, 1], data[:, 2] + data[:, 3],
-             Symbols[6], color=Colors[0], label='Soft_' +
-             label[:-55], lw=2, ms=7)
-    # E
-    data, label = datalistE_R10000[0]
-    ax1.plot(data[:, 1], data[:, 2] + data[:, 3],
-             Symbols[7], color=Colors[1], label=label[:-55], lw=2, ms=7)
+    ax1.plot(data[:, 1], data[:, 2] + data[:, 3], 'r--.',
+             label='Soft_' + label[:-55], lw=2, ms=7)
+
     # Restriction
     x = np.linspace(-.3, 1.1)
     y = -2 * x
@@ -563,50 +555,39 @@ if betaGammaKappaABCS4CS5CS6DS1D2E_ICFinal20BinsRLimit10000:
     leg.get_frame().set_alpha(.5)
 
     # Final ------------------------------------------------------------
-    # A
-    data, label = datalistA_R10000[1]
-    ax2.plot(data[3:-2, 1], data[3:-2, 2] + data[3:-2, 3],
-             Symbols[0], color=Colors[0], label=label[:-55], lw=2, ms=7)
-    # B
-    data, label = datalistB_R10000[3]
-    ax2.plot(data[4:-2, 1], data[4:-2, 2] + data[4:-2, 3],
-             Symbols[1], color=Colors[1], label=label[:-55], lw=2, ms=7)
-    # CS4, CS5 and CS6
-    for i in range(3, 6):
-        data, label = datalistCS4CS5CS6_R10000[i]
-        ax2.plot(data[3:-2, 1], data[3:-2, 2] + data[3:-2, 3],
-                 Symbols[i - 1], color=Colors[i - 1], label=label[:-61],
-                 lw=2, ms=7)
-    # DS1 and Soft D2
-    data, label = datalistDS1_SoftD2_R10000[2]
-    ax2.plot(data[3:-2, 1], data[3:-2, 2] + data[3:-2, 3],
-             Symbols[5], color=Colors[5], label=label[:-61], lw=2, ms=7)
-    data, label = datalistDS1_SoftD2_R10000[3]
-    ax2.plot(data[3:-2, 1], data[3:-2, 2] + data[3:-2, 3],
-             Symbols[6], color=Colors[0], label='Soft_' +
-             label[:-55], lw=2, ms=7)
-    # E
-    data, label = datalistE_R10000[1]
-    ax2.plot(data[3:-2, 1], data[3:-2, 2] + data[3:-2, 3],
-             Symbols[7], color=Colors[1], label=label[:-55], lw=2, ms=7)
-    # A
-    data, label = datalistA_R10000[1]
-    ax2.plot(data[:, 1], data[:, 2] + data[:, 3],
-             Symbols[0], color=Colors[0], label=label[:-55], lw=2, ms=7)
-    # B
-    data, label = datalistB_R10000[3]
-    ax2.plot(data[:, 1], data[:, 2] + data[:, 3],
-             Symbols[1], color=Colors[1], label=label[:-55], lw=2, ms=7)
+    Plt(datalistA_R10000[1], 2, data[3:-2, 1], data[3:-2, 2] + data[3:-2, 3],
+        'r-o', 0, -55)
+    Plt(datalistB_R10000[3], 2, data[4:-2, 1], data[4:-2, 2] + data[4:-2, 3],
+        'b-s', 0, -55)
+    Plt(datalistDS1_SoftD2_R10000[2], 2, data[3:-2, 1],
+        data[3:-2, 2] + data[3:-2, 3], 'k-<', 0, -61)
+    Plt(datalistE_R10000[1], 2, data[3:-2, 1], data[3:-2, 2] + data[3:-2, 3],
+        'y--v', 0, -55)
+    Plt(datalistA_R10000[1], 2, data[:, 1], data[:, 2] + data[:, 3],
+        'g--*', 0, -55)
+    Plt(datalistB_R10000[3], 2, data[:, 1], data[:, 2] + data[:, 3],
+        'm--s', 0, -55)
+    Plt(datalistE_R10000[1], 2, data[:, 1], data[:, 2] + data[:, 3],
+        'r--.', 0, -55)
+
     # CS4, CS5 and CS6
     for i in range(3, 6):
         data, label = datalistCS4CS5CS6_R10000[i]
         ax2.plot(data[:, 1], data[:, 2] + data[:, 3],
                  Symbols[i - 1], color=Colors[i - 1], label=label[:-61],
                  lw=2, ms=7)
-    # E
-    data, label = datalistE_R10000[1]
-    ax2.plot(data[:, 1], data[:, 2] + data[:, 3],
-             Symbols[7], color=Colors[1], label=label[:-55], lw=2, ms=7)
+
+    # CS4, CS5 and CS6
+    for i in range(3, 6):
+        data, label = datalistCS4CS5CS6_R10000[i]
+        ax2.plot(data[3:-2, 1], data[3:-2, 2] + data[3:-2, 3],
+                 Symbols[i - 1], color=Colors[i - 1], label=label[:-61],
+                 lw=2, ms=7)
+
+    data, label = datalistDS1_SoftD2_R10000[3]
+    ax2.plot(data[3:-2, 1], data[3:-2, 2] + data[3:-2, 3],
+             'r--.', label='Soft_' + label[:-55], lw=2, ms=7)
+
     # Restriction
     x = np.linspace(-10., 2.)
     ax2.plot(x, y, 'm', lw=2, ms=7)
@@ -621,6 +602,8 @@ if betaGammaKappaABCS4CS5CS6DS1D2E_ICFinal20BinsRLimit10000:
 if betaGammaABCS4CS5CS6DS1D2E_ICFinal20BinsRLimit10000:
     f, (ax1, ax2) = plt.subplots(1, 2, figsize=(13, 11))
     f.subplots_adjust(hspace=0, wspace=0)
+
+    cls = ['r-o', 'b-s', 'k-<', 'y--v', 'g--*', 'm--s', 'r--.']
 
     # IC ------------------------------------------------------------
     # A
