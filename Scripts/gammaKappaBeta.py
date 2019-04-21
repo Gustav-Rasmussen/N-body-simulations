@@ -604,28 +604,24 @@ if betaGammaABCS4CS5CS6DS1D2E_ICFinal20BinsRLimit10000:
     f.subplots_adjust(hspace=0, wspace=0)
 
     # IC ------------------------------------------------------------
-    # A
-    data, label = datalistA_R10000[0]
-    ax1.plot(data[:, 1], data[:, 2], 'r-o', label=label[:-55], lw=2, ms=7)
-    # B
-    data, label = datalistB_R10000[2]
-    ax1.plot(data[:, 1], data[:, 2], 'b-s', label=label[:-55], lw=2, ms=7)
+    Plt(datalistA_R10000[0], 1, data[:, 1], data[:, 2], 'r-o', 0, -55)
+    Plt(datalistB_R10000[2], 1, data[:, 1], data[:, 2], 'b-s', 0, -55)
+    Plt(datalistDS1_SoftD2_R10000[0], 1, data[:, 1], data[:, 2],
+        'm--s', 0, -61)
+    Plt(datalistE_R10000[0], 1, data[:, 1], data[:, 2], 'r--.', 0, -55)
+
     # CS4, CS5 and CS6
     for i in range(3):
         data, label = datalistCS4CS5CS6_R10000[i]
         ax1.plot(data[:, 1], data[:, 2],
                  Symbols[i + 2], color=Colors[i + 2], label=label[:-61],
                  lw=2, ms=7)
-    # DS1
-    data, label = datalistDS1_SoftD2_R10000[0]
-    ax1.plot(data[:, 1], data[:, 2], 'm--s', label=label[:-61], lw=2, ms=7)
+
     # Soft D2
     data, label = datalistDS1_SoftD2_R10000[1]
     ax1.plot(data[:, 1], data[:, 2], 'c--d',
              label='Soft_' + label[:-55], lw=2, ms=7)
-    # E
-    data, label = datalistE_R10000[0]
-    ax1.plot(data[:, 1], data[:, 2], 'r--.', label=label[:-55], lw=2, ms=7)
+
     # Restriction
     x = np.linspace(-.3, 1.1)
     y = -2 * x
@@ -641,38 +637,22 @@ if betaGammaABCS4CS5CS6DS1D2E_ICFinal20BinsRLimit10000:
     leg.get_frame().set_alpha(.5)
 
     # Final ------------------------------------------------------------
-    # A
-    data, label = datalistA_R10000[1]
-    ax2.plot(data[1:-9, 1], data[1:-9, 2], 'r-o',
-             label=label[:-55], lw=2, ms=7)
-    # B
-    data, label = datalistB_R10000[3]
-    ax2.plot(data[3:-5, 1], data[3:-5, 2], 'b-s',
-             label=label[:-55], lw=2, ms=7)
-    # CS4
-    data, label = datalistCS4CS5CS6_R10000[3]
-    ax2.plot(data[5:-7, 1], data[5:-7, 2], 'k-<',
-             label=label[:-61], lw=2, ms=7)
-    # CS5
-    data, label = datalistCS4CS5CS6_R10000[4]
-    ax2.plot(data[4:-6, 1], data[4:-6, 2], 'y--v',
-             label=label[:-61], lw=2, ms=7)
-    # CS6
-    data, label = datalistCS4CS5CS6_R10000[5]
-    ax2.plot(data[3:-7, 1], data[3:-7, 2], 'g--*',
-             label=label[:-61], lw=2, ms=7)
-    # DS1
-    data, label = datalistDS1_SoftD2_R10000[2]
-    ax2.plot(data[2:-8, 1], data[2:-8, 2], 'm--s',
-             label=label[:-61], lw=2, ms=7)
+    Plt(datalistA_R10000[1], 2, data[1:-9, 1], data[1:-9, 2], 'r-o', 0, -55)
+    Plt(datalistB_R10000[3], 2, data[3:-5, 1], data[3:-5, 2], 'b-s', 0, -55)
+    Plt(datalistCS4CS5CS6_R10000[3], 2, data[5:-7, 1], data[5:-7, 2],
+        'k-<', 0, -61)
+    Plt(datalistCS4CS5CS6_R10000[4], 2, data[4:-6, 1], data[4:-6, 2],
+        'y--v', 0, -61)
+    Plt(datalistCS4CS5CS6_R10000[5], 2, data[3:-7, 1], data[3:-7, 2],
+        'g--*', 0, -61)
+    Plt(datalistDS1_SoftD2_R10000[2], 2, data[2:-8, 1], data[2:-8, 2],
+        'm--s', 0, -61)
+    Plt(datalistE_R10000[1], 2, data[2:-6, 1], data[2:-6, 2], 'r--.', 0, -55)
+
     # Soft_D2
     data, label = datalistDS1_SoftD2_R10000[3]
     ax2.plot(data[4:-9, 1], data[4:-9, 2], 'c--d',
              label='Soft_' + label[:-55], lw=2, ms=7)
-    # E
-    data, label = datalistE_R10000[1]
-    ax2.plot(data[2:-6, 1], data[2:-6, 2], 'r--.',
-             label=label[:-55], lw=2, ms=7)
 
     # Restriction
     x = np.linspace(-10., 2.)
@@ -689,11 +669,11 @@ if betaGammaKappaCS1CS2CS3_20_50Bins:
     f, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2, figsize=(13, 11))
     f.subplots_adjust(hspace=0, wspace=0)
 
-    data, label = datalistC_IC[0]  # IC 50 bins
+    data, _ = datalistC_IC[0]  # IC 50 bins
     ax1.plot(data[:, 1], data[:, 2], 'r-o', label='CS1', lw=2, ms=7)
-    data, label = datalistC_IC[1]
+    data, _ = datalistC_IC[1]
     ax1.plot(data[:, 1], data[:, 2], 'b-s', label='CS2', lw=2, ms=7)
-    data, label = datalistC_IC[2]
+    data, _ = datalistC_IC[2]
     ax1.plot(data[:, 1], data[:, 2], 'k-<', label='CS3', lw=2, ms=7)
     x = np.linspace(-2., 2.)
     y = -2 * x
@@ -709,11 +689,11 @@ if betaGammaKappaCS1CS2CS3_20_50Bins:
     ax1.tick_params(axis='both', which='both', bottom='on', top='off',
                     labelbottom='on', right='off', left='on', labelleft='on')
 
-    data, label = datalistC_IC[3]  # IC 20 bins
+    data, _ = datalistC_IC[3]  # IC 20 bins
     ax2.plot(data[:, 1], data[:, 2], 'r-o', label='CS1', lw=2, ms=7)
-    data, label = datalistC_IC[4]
+    data, _ = datalistC_IC[4]
     ax2.plot(data[:, 1], data[:, 2], 'b-s', label='CS2', lw=2, ms=7)
-    data, label = datalistC_IC[5]
+    data, _ = datalistC_IC[5]
     ax2.plot(data[:, 1], data[:, 2], 'k-<', label='CS3', lw=2, ms=7)
     x = np.linspace(-2., 2.)
     y = -2 * x
@@ -727,22 +707,22 @@ if betaGammaKappaCS1CS2CS3_20_50Bins:
     ax2.axes.get_xaxis().set_visible(False)
     ax2.yaxis.tick_right()
 
-    data, label = datalistC_IC[0]  # IC 50 bins
+    data, _ = datalistC_IC[0]  # IC 50 bins
     ax3.plot(data[:, 1], data[:, 3], 'r-o', label='CS1', lw=2, ms=7)
-    data, label = datalistC_IC[1]
+    data, _ = datalistC_IC[1]
     ax3.plot(data[:, 1], data[:, 3], 'b-s', label='CS2', lw=2, ms=7)
-    data, label = datalistC_IC[2]
+    data, _ = datalistC_IC[2]
     ax3.plot(data[:, 1], data[:, 3], 'k-<', label='CS3', lw=2, ms=7)
     ax3.set_xlabel(r'$\beta$', fontsize=30)
     ax3.set_ylabel(r'$\kappa$', fontsize=30)
     ax3.set_xlim(-2.5, 1.1)
     ax3.set_ylim(-10., 7.)
 
-    data, label = datalistC_IC[3]  # IC 20 bins
+    data, _ = datalistC_IC[3]  # IC 20 bins
     ax4.plot(data[:, 1], data[:, 3], 'r-o', label='CS1', lw=2, ms=7)
-    data, label = datalistC_IC[4]
+    data, _ = datalistC_IC[4]
     ax4.plot(data[:, 1], data[:, 3], 'b-s', label='CS2', lw=2, ms=7)
-    data, label = datalistC_IC[5]
+    data, _ = datalistC_IC[5]
     ax4.plot(data[:, 1], data[:, 3], 'k-<', label='CS3', lw=2, ms=7)
     ax4.set_xlim(-.7, 1.1)
     ax4.set_ylim(-2.3, .8)
