@@ -75,9 +75,15 @@ def Plt(data_list, i, x, y, cls, l, r, mode=None):
     """."""
     exec(f"data, label = {data_list}")
     if mode == 'log':
-        exec(f"ax{i}.plot(np.log10(x), y, cls, label=label[{l}:{r}], lw=2, ms=7)")
+        exec(f"ax{i}.plot(np.log10(x), y, '{cls}', label=label[{l}:{r}], lw=2, ms=7)")
     else:
-        exec(f"ax{i}.plot(x, y, cls, label=label[{l}:{r}], lw=2, ms=7)")
+        exec(f"ax{i}.plot(x, y, '{cls}', label=label[{l}:{r}], lw=2, ms=7)")
+
+
+def Plt_nl(data_list, i, x, y, cls, label):
+    """."""
+    exec(f"data, label = {data_list}")
+    exec(f"ax{i}.plot(x, y, '{cls}', label='{label}', lw=2, ms=7)")
 
 
 if logrR2BetaABCS4CS5CS6DS1D2E_ICFinalRLimit32:
@@ -669,12 +675,10 @@ if betaGammaKappaCS1CS2CS3_20_50Bins:
     f, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2, figsize=(13, 11))
     f.subplots_adjust(hspace=0, wspace=0)
 
-    data, _ = datalistC_IC[0]  # IC 50 bins
-    ax1.plot(data[:, 1], data[:, 2], 'r-o', label='CS1', lw=2, ms=7)
-    data, _ = datalistC_IC[1]
-    ax1.plot(data[:, 1], data[:, 2], 'b-s', label='CS2', lw=2, ms=7)
-    data, _ = datalistC_IC[2]
-    ax1.plot(data[:, 1], data[:, 2], 'k-<', label='CS3', lw=2, ms=7)
+    Plt_nl(datalistC_IC[0], 1, data[:, 1], data[:, 2], 'r-o', 'CS1')
+    Plt_nl(datalistC_IC[1], 1, data[:, 1], data[:, 2], 'b-s', 'CS2')
+    Plt_nl(datalistC_IC[2], 1, data[:, 1], data[:, 2], 'k-<', 'CS3')
+
     x = np.linspace(-2., 2.)
     y = -2 * x
     ax1.plot(x, y, 'm', label=r'$\beta=-\frac{\gamma }{2}$', lw=2, ms=7)
@@ -689,12 +693,10 @@ if betaGammaKappaCS1CS2CS3_20_50Bins:
     ax1.tick_params(axis='both', which='both', bottom='on', top='off',
                     labelbottom='on', right='off', left='on', labelleft='on')
 
-    data, _ = datalistC_IC[3]  # IC 20 bins
-    ax2.plot(data[:, 1], data[:, 2], 'r-o', label='CS1', lw=2, ms=7)
-    data, _ = datalistC_IC[4]
-    ax2.plot(data[:, 1], data[:, 2], 'b-s', label='CS2', lw=2, ms=7)
-    data, _ = datalistC_IC[5]
-    ax2.plot(data[:, 1], data[:, 2], 'k-<', label='CS3', lw=2, ms=7)
+    Plt_nl(datalistC_IC[3], 2, data[:, 1], data[:, 2], 'r-o', 'CS1')
+    Plt_nl(datalistC_IC[4], 2, data[:, 1], data[:, 2], 'b-s', 'CS2')
+    Plt_nl(datalistC_IC[5], 2, data[:, 1], data[:, 2], 'k-<', 'CS3')
+
     x = np.linspace(-2., 2.)
     y = -2 * x
     ax2.plot(x, y, 'm', label=r'$\beta=-\frac{\gamma}{2}$', lw=2, ms=7)
@@ -707,23 +709,19 @@ if betaGammaKappaCS1CS2CS3_20_50Bins:
     ax2.axes.get_xaxis().set_visible(False)
     ax2.yaxis.tick_right()
 
-    data, _ = datalistC_IC[0]  # IC 50 bins
-    ax3.plot(data[:, 1], data[:, 3], 'r-o', label='CS1', lw=2, ms=7)
-    data, _ = datalistC_IC[1]
-    ax3.plot(data[:, 1], data[:, 3], 'b-s', label='CS2', lw=2, ms=7)
-    data, _ = datalistC_IC[2]
-    ax3.plot(data[:, 1], data[:, 3], 'k-<', label='CS3', lw=2, ms=7)
+    Plt_nl(datalistC_IC[0], 3, data[:, 1], data[:, 3], 'r-o', 'CS1')
+    Plt_nl(datalistC_IC[1], 3, data[:, 1], data[:, 3], 'b-s', 'CS2')
+    Plt_nl(datalistC_IC[2], 3, data[:, 1], data[:, 3], 'k-<', 'CS3')
+
     ax3.set_xlabel(r'$\beta$', fontsize=30)
     ax3.set_ylabel(r'$\kappa$', fontsize=30)
     ax3.set_xlim(-2.5, 1.1)
     ax3.set_ylim(-10., 7.)
 
-    data, _ = datalistC_IC[3]  # IC 20 bins
-    ax4.plot(data[:, 1], data[:, 3], 'r-o', label='CS1', lw=2, ms=7)
-    data, _ = datalistC_IC[4]
-    ax4.plot(data[:, 1], data[:, 3], 'b-s', label='CS2', lw=2, ms=7)
-    data, _ = datalistC_IC[5]
-    ax4.plot(data[:, 1], data[:, 3], 'k-<', label='CS3', lw=2, ms=7)
+    Plt_nl(datalistC_IC[3], 4, data[:, 1], data[:, 3], 'r-o', 'CS1')
+    Plt_nl(datalistC_IC[4], 4, data[:, 1], data[:, 3], 'b-s', 'CS2')
+    Plt_nl(datalistC_IC[5], 4, data[:, 1], data[:, 3], 'k-<', 'CS3')
+
     ax4.set_xlim(-.7, 1.1)
     ax4.set_ylim(-2.3, .8)
     leg = ax4.legend(prop=dict(size=13), numpoints=2, ncol=1,
@@ -737,12 +735,10 @@ if betaGammaKappaCS4CS5CS6_20_50Bins:
     f, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2, figsize=(13, 11))
     f.subplots_adjust(hspace=0, wspace=0)
 
-    data, _ = datalistC_IC[6]
-    ax1.plot(data[:, 1], data[:, 2], 'r-o', label='CS4', lw=2, ms=7)
-    data, _ = datalistC_IC[7]
-    ax1.plot(data[:, 1], data[:, 2], 'b-s', label='CS5', lw=2, ms=7)
-    data, _ = datalistC_IC[8]
-    ax1.plot(data[:, 1], data[:, 2], 'k-<', label='CS6', lw=2, ms=7)
+    Plt_nl(datalistC_IC[6], 1, data[:, 1], data[:, 2], 'r-o', 'CS4')
+    Plt_nl(datalistC_IC[7], 1, data[:, 1], data[:, 2], 'b-s', 'CS5')
+    Plt_nl(datalistC_IC[8], 1, data[:, 1], data[:, 2], 'k-<', 'CS6')
+
     x = np.linspace(-2., 2.)
     y = -2 * x
     ax1.plot(x, y, 'm', label=r'$\beta=-\frac{\gamma }{2}$', lw=2, ms=7)
@@ -755,12 +751,10 @@ if betaGammaKappaCS4CS5CS6_20_50Bins:
     ax1.set_ylim(-4.7, -1.)
     ax1.axes.get_xaxis().set_visible(False)
 
-    data, _ = datalistC_IC[9]
-    ax2.plot(data[:, 1], data[:, 2], 'r-o', label='CS4', lw=2, ms=7)
-    data, _ = datalistC_IC[10]
-    ax2.plot(data[:, 1], data[:, 2], 'b-s', label='CS5', lw=2, ms=7)
-    data, _ = datalistC_IC[11]
-    ax2.plot(data[:, 1], data[:, 2], 'k-<', label='CS6', lw=2, ms=7)
+    Plt_nl(datalistC_IC[9], 2, data[:, 1], data[:, 2], 'r-o', 'CS4')
+    Plt_nl(datalistC_IC[10], 2, data[:, 1], data[:, 2], 'b-s', 'CS5')
+    Plt_nl(datalistC_IC[11], 2, data[:, 1], data[:, 2], 'k-<', 'CS6')
+
     x = np.linspace(-2., 2.)
     y = -2 * x
     ax2.plot(x, y, 'm', label=r'$\beta=-\frac{\gamma }{2}$', lw=2, ms=7)
@@ -773,23 +767,19 @@ if betaGammaKappaCS4CS5CS6_20_50Bins:
     ax2.axes.get_xaxis().set_visible(False)
     ax2.axes.get_yaxis().set_visible(False)
 
-    data, _ = datalistC_IC[6]
-    ax3.plot(data[:, 1], data[:, 3], 'r-o', label='CS4', lw=2, ms=7)
-    data, _ = datalistC_IC[7]
-    ax3.plot(data[:, 1], data[:, 3], 'b-s', label='CS5', lw=2, ms=7)
-    data, _ = datalistC_IC[8]
-    ax3.plot(data[:, 1], data[:, 3], 'k-<', label='CS6', lw=2, ms=7)
+    Plt_nl(datalistC_IC[6], 3, data[:, 1], data[:, 3], 'r-o', 'CS4')
+    Plt_nl(datalistC_IC[7], 3, data[:, 1], data[:, 3], 'b-s', 'CS5')
+    Plt_nl(datalistC_IC[8], 3, data[:, 1], data[:, 3], 'k-<', 'CS6')
+
     ax3.set_xlabel(r'$\beta$', fontsize=24)
     ax3.set_ylabel(r'$\kappa$', fontsize=24)
     ax3.set_xlim(-.3, 1.1)
     ax3.set_ylim(-6., 3.)
 
-    data, label = datalistC_IC[9]
-    ax4.plot(data[:, 1], data[:, 3], 'r-o', label=label[:-15], lw=2, ms=7)
-    data, label = datalistC_IC[10]
-    ax4.plot(data[:, 1], data[:, 3], 'b-s', label=label[:-15], lw=2, ms=7)
-    data, label = datalistC_IC[11]
-    ax4.plot(data[:, 1], data[:, 3], 'k-<', label=label[:-15], lw=2, ms=7)
+    Plt(datalistC_IC[9], 4, data[:, 1], data[:, 3], 'r-o', 0, -15)
+    Plt(datalistC_IC[10], 4, data[:, 1], data[:, 3], 'b-s', 0, -15)
+    Plt(datalistC_IC[11], 4, data[:, 1], data[:, 3], 'k-<', 0, -15)
+
     ax4.set_xlim(-.2, 1.1)
     ax4.set_ylim(-6., 3.)
     ax4.axes.get_yaxis().set_visible(False)
