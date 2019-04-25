@@ -31,6 +31,7 @@ with open("KPI.txt", "a") as wf:
         + "\n\n"
     )
     file_count = 0
+    total_line_count = 0
     for root, dirs, files in os.walk("."):
         for filename in files:
             if (filename in (".DS_Store", "KPI.log")) | any(
@@ -53,6 +54,7 @@ with open("KPI.txt", "a") as wf:
                 }
             )
             file_count += 1
+            total_line_count += int(byte_to_str(lines))
         KPI_list_sorted = sorted(
             KPI_list, key=lambda KPI: KPI["lines"], reverse=True
         )
@@ -66,3 +68,4 @@ with open("KPI.txt", "a") as wf:
         # wf.write(f"{element['module']}, {element['lines']}, {element['PEP8_violations']}\n")
 
     wf.write(f"\n ************** Number of Python scripts: \t{file_count} ************** \n\n")
+    wf.write(f"\n ************** Total number of code-lines: \t{total_line_count} ************** \n\n")
