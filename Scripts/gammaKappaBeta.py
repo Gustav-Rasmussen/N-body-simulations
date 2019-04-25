@@ -128,8 +128,7 @@ if logrR2BetaABCS4CS5CS6DS1D2E_ICFinalRLimit32:
     leg = ax2.legend(prop=dict(size=13), numpoints=1, ncol=1,
                      fancybox=True, loc=0, handlelength=2.5)
     leg.get_frame().set_alpha(.5)
-    f.savefig(figurePath +
-              'logrR2BetaABCS4CS5CS6DS1D2E_ICFinalRLimit32.png')
+    f.savefig(figurePath + 'logrR2BetaABCS4CS5CS6DS1D2E_ICFinalRLimit32.png')
 
 if logrR2KappaABCS4CS5CS6DS1D2E_ICFinalRLimit32:
     f, (ax1, ax2) = plt.subplots(1, 2, figsize=(13, 11))
@@ -146,8 +145,7 @@ if logrR2KappaABCS4CS5CS6DS1D2E_ICFinalRLimit32:
     # Soft_D2
     data, label = datalistSoftD2_R32[0]
     ax1.plot(np.log10(data[:, 7]), data[:, 3],
-             'c--d', label='Soft_' + label[5:-52],
-             lw=2, ms=7)
+             'c--d', label='Soft_' + label[5:-52], lw=2, ms=7)
 
     ax1.set_xlabel(r'$\log (\frac{r}{r_{-2}})$', fontsize=30)
     ax1.set_ylabel(r'$\kappa$', fontsize=30)
@@ -174,8 +172,7 @@ if logrR2KappaABCS4CS5CS6DS1D2E_ICFinalRLimit32:
     leg = ax2.legend(prop=dict(size=13), numpoints=1, ncol=1,
                      fancybox=True, loc=0, handlelength=2.5)
     leg.get_frame().set_alpha(.5)
-    f.savefig(figurePath +
-              'logrR2KappaABCS4CS5CS6DS1D2E_ICFinalRLimit32.png')
+    f.savefig(figurePath + 'logrR2KappaABCS4CS5CS6DS1D2E_ICFinalRLimit32.png')
 
 if logrR2GammaABCS4CS5CS6DS1D2E_ICFinalRLimit32:
     f, (ax1, ax2) = plt.subplots(1, 2, figsize=(13, 11))
@@ -221,8 +218,7 @@ if logrR2GammaABCS4CS5CS6DS1D2E_ICFinalRLimit32:
     leg = ax2.legend(prop=dict(size=13), numpoints=1, ncol=1, fancybox=True,
                      loc=0, handlelength=2.5)
     leg.get_frame().set_alpha(.5)
-    f.savefig(figurePath +
-              'logrR2GammaABCS4CS5CS6DS1D2E_ICFinalRLimit32.png')
+    f.savefig(figurePath + 'logrR2GammaABCS4CS5CS6DS1D2E_ICFinalRLimit32.png')
 
 if logrBetaABCS4CS5CS6DS1D2E_ICFinalRLimit32:
     f, (ax1, ax2) = plt.subplots(1, 2, figsize=(13, 11))
@@ -268,8 +264,7 @@ if logrBetaABCS4CS5CS6DS1D2E_ICFinalRLimit32:
     leg = ax2.legend(prop=dict(size=13), numpoints=2, ncol=1,
                      fancybox=True, loc=0, handlelength=2.5)
     leg.get_frame().set_alpha(.5)
-    f.savefig(figurePath +
-              'logrBetaABCS4CS5CS6DS1D2E_ICFinalRLimit32.png')
+    f.savefig(figurePath + 'logrBetaABCS4CS5CS6DS1D2E_ICFinalRLimit32.png')
 
 if logrKappaABCS4CS5CS6DS1D2E_ICFinalRLimit32:
     f, (ax1, ax2) = plt.subplots(1, 2, figsize=(13, 11))
@@ -315,8 +310,7 @@ if logrKappaABCS4CS5CS6DS1D2E_ICFinalRLimit32:
     leg = ax2.legend(prop=dict(size=13), numpoints=2, ncol=1,
                      fancybox=True, loc=0, handlelength=2.5)
     leg.get_frame().set_alpha(.5)
-    f.savefig(figurePath +
-              'logrKappaABCS4CS5CS6DS1D2E_ICFinalRLimit32.png')
+    f.savefig(figurePath + 'logrKappaABCS4CS5CS6DS1D2E_ICFinalRLimit32.png')
 
 if logrGammaABCS4CS5CS6DS1D2E_ICFinalRLimit32:
     f, (ax1, ax2) = plt.subplots(1, 2, figsize=(13, 11))
@@ -361,8 +355,7 @@ if logrGammaABCS4CS5CS6DS1D2E_ICFinalRLimit32:
     leg = ax2.legend(prop=dict(size=13), numpoints=2, ncol=1,
                      fancybox=True, loc=0, handlelength=2.5)
     leg.get_frame().set_alpha(.5)
-    f.savefig(figurePath +
-              'logrGammaABCS4CS5CS6DS1D2E_ICFinalRLimit32.png')
+    f.savefig(figurePath + 'logrGammaABCS4CS5CS6DS1D2E_ICFinalRLimit32.png')
 
 if betaGammaKappaABCS4CS5CS6DS1D2E_ICFinalRLimit32:
     f, (ax1, ax2) = plt.subplots(1, 2, figsize=(13, 11))
@@ -398,7 +391,7 @@ if betaGammaKappaABCS4CS5CS6DS1D2E_ICFinalRLimit32:
     x = np.linspace(-.3, 1.1)
     y = -2 * x
     ax1.plot(x, y, 'm', lw=2, ms=7)
-    ax1.fill_between(x, 10, y, color='Violet')
+    ax1.fill_between(x, 10, y, color='b')
     ax1.set_xlim(-.3, 1.1)
     ax1.set_ylim(-4., 0.)
     ax1.set_ylabel(r'$\gamma + \kappa$', fontsize=30)
@@ -435,7 +428,7 @@ if betaGammaKappaABCS4CS5CS6DS1D2E_ICFinalRLimit32:
     x = np.linspace(-10., 2.)
     y = -2 * x
     ax2.plot(x, y, 'm', lw=2, ms=7)
-    ax2.fill_between(x, 10, y, color='Violet')
+    ax2.fill_between(x, 10, y, color='b')
     y = -5 * x - .8
     ax2.plot(x, y, 'k', label=r'$\beta=-0.2(\gamma + 0.8)$', lw=2, ms=7)
     ax2.yaxis.tick_right()
@@ -476,7 +469,7 @@ if betaGammaABCS4CS5CS6DS1D2E_ICFinalRLimit32:
     x = np.linspace(-.3, 1.1)
     y = -2 * x
     ax1.plot(x, y, 'm', lw=2, ms=7)
-    ax1.fill_between(x, 10, y, color='Violet')
+    ax1.fill_between(x, 10, y, color='b')
     ax1.set_xlim(-.2, 1.)
     ax1.set_ylim(-4., 0.)
     ax1.set_ylabel(r'$\gamma$', fontsize=30)
@@ -506,7 +499,7 @@ if betaGammaABCS4CS5CS6DS1D2E_ICFinalRLimit32:
     x = np.linspace(-10., 2.)
     y = -2 * x
     ax2.plot(x, y, 'm', lw=2, ms=7)
-    ax2.fill_between(x, 10, y, color='Violet')
+    ax2.fill_between(x, 10, y, color='b')
     y = -5 * x - .8
     ax2.plot(x, y, 'k', label=r'$\beta=-0.2(\gamma + 0.8)$', lw=2,ms=7)
     ax2.yaxis.tick_right()
@@ -517,8 +510,7 @@ if betaGammaABCS4CS5CS6DS1D2E_ICFinalRLimit32:
     leg = ax2.legend(prop=dict(size=13), numpoints=2, ncol=1,
                      fancybox=True, loc=0, handlelength=2.5)
     leg.get_frame().set_alpha(.5)
-    f.savefig(figurePath +
-              'betaGammaABCS4CS5CS6DS1D2E_ICFinalRLimit32.png')
+    f.savefig(figurePath + 'betaGammaABCS4CS5CS6DS1D2E_ICFinalRLimit32.png')
 
 if betaGammaKappaABCS4CS5CS6DS1D2E_ICFinal20BinsRLimit10000:
     f, (ax1, ax2) = plt.subplots(1, 2, figsize=(13, 11))
@@ -550,7 +542,7 @@ if betaGammaKappaABCS4CS5CS6DS1D2E_ICFinal20BinsRLimit10000:
     x = np.linspace(-.3, 1.1)
     y = -2 * x
     ax1.plot(x, y, 'm', lw=2, ms=7)
-    ax1.fill_between(x, 10, y, color='Violet')
+    ax1.fill_between(x, 10, y, color='b')
     ax1.set_ylabel(r'$\gamma + \kappa$', fontsize=30)
     ax1.set_xlabel(r'$\beta$', fontsize=30)
     ax1.set_xlim(-.3, 1.1)
@@ -597,7 +589,7 @@ if betaGammaKappaABCS4CS5CS6DS1D2E_ICFinal20BinsRLimit10000:
     # Restriction
     x = np.linspace(-10., 2.)
     ax2.plot(x, y, 'm', lw=2, ms=7)
-    ax2.fill_between(x, 10, y, color='Violet')
+    ax2.fill_between(x, 10, y, color='b')
     ax2.yaxis.tick_right()
     ax2.set_xlim(-.3, 1.)
     ax2.set_ylim(-5.2, 1.2)
@@ -632,7 +624,7 @@ if betaGammaABCS4CS5CS6DS1D2E_ICFinal20BinsRLimit10000:
     x = np.linspace(-.3, 1.1)
     y = -2 * x
     ax1.plot(x, y, 'm', lw=2, ms=7)
-    ax1.fill_between(x, 10, y, color='Violet')
+    ax1.fill_between(x, 10, y, color='b')
     ax1.set_ylabel(r'$\gamma$', fontsize=30)
     ax1.set_xlabel(r'$\beta$', fontsize=30)
     ax1.set_xlim(-.2, 1.)
@@ -663,7 +655,7 @@ if betaGammaABCS4CS5CS6DS1D2E_ICFinal20BinsRLimit10000:
     # Restriction
     x = np.linspace(-10., 2.)
     ax2.plot(x, y, 'm', lw=2, ms=7)
-    ax2.fill_between(x, 10, y, color='Violet')
+    ax2.fill_between(x, 10, y, color='b')
     ax2.yaxis.tick_right()
     ax2.set_xlim(-.1, .25)
     ax2.set_ylim(-4., .1)
@@ -682,8 +674,7 @@ if betaGammaKappaCS1CS2CS3_20_50Bins:
     x = np.linspace(-2., 2.)
     y = -2 * x
     ax1.plot(x, y, 'm', label=r'$\beta=-\frac{\gamma }{2}$', lw=2, ms=7)
-    ax1.fill_between(x, 4, y, color='Violet',
-                     label=r'$\beta > -\frac{\gamma}{2}$')
+    ax1.fill_between(x, 4, y, color='b', label=r'$\beta > -\frac{\gamma}{2}$')
     # Unstable region.
     ax1.set_title(r'IC. 50 bins', fontsize=30)
     ax1.set_ylabel(r'$\gamma$', fontsize=30)
@@ -700,8 +691,7 @@ if betaGammaKappaCS1CS2CS3_20_50Bins:
     x = np.linspace(-2., 2.)
     y = -2 * x
     ax2.plot(x, y, 'm', label=r'$\beta=-\frac{\gamma}{2}$', lw=2, ms=7)
-    ax2.fill_between(x, 4, y, color='Violet',
-                     label=r'$\beta > -\frac{\gamma}{2}$')
+    ax2.fill_between(x, 4, y, color='b', label=r'$\beta > -\frac{\gamma}{2}$')
     # Unstable region.
     ax2.set_title('20 bins', fontsize=30)
     ax2.set_xlim(-.7, 1.1)
@@ -728,8 +718,7 @@ if betaGammaKappaCS1CS2CS3_20_50Bins:
                      fancybox=True, loc=0, handlelength=2.5)
     leg.get_frame().set_alpha(.5)
     ax4.yaxis.tick_right()
-    f.savefig(figurePath +
-              'betaGammaKappaCS1CS2CS3_20_50Bins.png')
+    f.savefig(figurePath + 'betaGammaKappaCS1CS2CS3_20_50Bins.png')
 
 if betaGammaKappaCS4CS5CS6_20_50Bins:
     f, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2, figsize=(13, 11))
@@ -742,8 +731,7 @@ if betaGammaKappaCS4CS5CS6_20_50Bins:
     x = np.linspace(-2., 2.)
     y = -2 * x
     ax1.plot(x, y, 'm', label=r'$\beta=-\frac{\gamma }{2}$', lw=2, ms=7)
-    ax1.fill_between(x, 4, y, color='Violet',
-                     label=r'$\beta > -\frac{\gamma }{2}$')
+    ax1.fill_between(x, 4, y, color='b', label=r'$\beta > -\frac{\gamma }{2}$')
     # Unstable region
     ax1.set_title(r'Initial conditions. 50 bins', fontsize=20)
     ax1.set_ylabel(r'$\gamma$', fontsize=24)
@@ -759,8 +747,7 @@ if betaGammaKappaCS4CS5CS6_20_50Bins:
     y = -2 * x
     ax2.plot(x, y, 'm', label=r'$\beta=-\frac{\gamma }{2}$', lw=2, ms=7)
     # Unstable region
-    ax2.fill_between(x, 4, y, color='Violet',
-                     label=r'$\beta > -\frac{\gamma }{2}$')
+    ax2.fill_between(x, 4, y, color='b', label=r'$\beta > -\frac{\gamma }{2}$')
     ax2.set_title('20 bins', fontsize=20)
     ax2.set_xlim(-.2, 1.1)
     ax2.set_ylim(-4.7, -1.)
@@ -799,10 +786,9 @@ if betaGammaKappaBCS4CS5CS6DS1D2_ICFinal20_50Bins:
     f.subplots_adjust(hspace=0, wspace=0)
 
     # IC ------------------------------------------------------------
-    # B
-    data, label = datalistB[0]
-    ax1.plot(data[:, 1], data[:, 2] + data[:, 3], 'r-o',
-             label=label, lw=2, ms=7)
+    Plt(datalistB[0], 1, data[:, 1], data[:, 2] + data[:, 3],
+        'r-o', 0, len(label)+1)
+
     # CS4, CS5 and CS6
     for i in range(6, 9):
         data, label = datalistC_IC[i]
@@ -813,9 +799,9 @@ if betaGammaKappaBCS4CS5CS6DS1D2_ICFinal20_50Bins:
     x = np.linspace(-.3, 1.1)
     y = -2 * x
     ax1.plot(x, y, 'm', lw=2, ms=7)
-    ax1.fill_between(x, 10, y, color='Violet')
+    ax1.fill_between(x, 10, y, color='b')
     ax1.set_title(r'IC $\gamma + \kappa$', fontsize=20)
-    ax1.set_ylabel(r'50 bins', fontsize=18)
+    ax1.set_ylabel('50 bins', fontsize=18)
     ax1.set_xlim(-.3, 1.1)
     ax1.set_ylim(-10., 10.)
     leg = ax1.legend(prop=dict(size=13), numpoints=2, ncol=1,
@@ -824,14 +810,13 @@ if betaGammaKappaBCS4CS5CS6DS1D2_ICFinal20_50Bins:
     ax1.axes.get_xaxis().set_visible(False)
 
     # Final ------------------------------------------------------------
-    # B
-    data, label = datalistB[5]
-    ax2.plot(data[:, 1], data[:, 2] + data[:, 3], 'r-o',
-             label=label, lw=2, ms=7)
+    Plt(datalistB[5], 2, data[:, 1], data[:, 2] + data[:, 3],
+        'r-o', 0, len(label)+1)
+
     # Restriction
     x = np.linspace(-10., 2.)
     ax2.plot(x, y, 'm', lw=2, ms=7)
-    ax2.fill_between(x, 10, y, color='Violet')
+    ax2.fill_between(x, 10, y, color='b')
     ax2.tick_params(axis='both', which='both', bottom='off', top='off',
                     labelbottom='off', right='off', left='off',
                     labelleft='off')
@@ -845,10 +830,8 @@ if betaGammaKappaBCS4CS5CS6DS1D2_ICFinal20_50Bins:
     ax2.yaxis.set_label_position("right")
 
     # IC ------------------------------------------------------------
-    # B
-    data, label = datalistB20[0]
-    ax3.plot(data[:, 1], data[:, 2] + data[:, 3],
-             Symbols[0], color=Colors[0], label=label[:-15], lw=2, ms=7)
+    Plt(datalistB20[0], 3, data[:, 1], data[:, 2] + data[:, 3], 'r-o', 0, -15)
+
     # CS4, CS5 and CS6
     for i in range(9, 12):
         data, label = datalistC_IC[i]
@@ -858,22 +841,19 @@ if betaGammaKappaBCS4CS5CS6DS1D2_ICFinal20_50Bins:
     # Restriction
     x = np.linspace(-.3, 1.1)
     ax3.plot(x, y, 'm', lw=2, ms=7)
-    ax3.fill_between(x, 10, y, color='Violet')
+    ax3.fill_between(x, 10, y, color='b')
     ax3.set_ylabel(r'20 bins', fontsize=18)
     ax3.set_xlim(-.3, 1.1)
     ax3.set_ylim(-10., 10.)
     ax3.axes.get_xaxis().set_visible(False)
 
     # Final ------------------------------------------------------------
-    # B
-    data, label = datalistB20[1]
-    ax4.plot(data[:, 1], data[:, 2] + data[:, 3], 'r-o',
-             label=label[:-15], lw=2, ms=7)
+    Plt(datalistB20[1], 4, data[:, 1], data[:, 2] + data[:, 3], 'r-o', 0, -15)
 
     # Restriction
     x = np.linspace(-10., 2.)
     ax4.plot(x, y, 'm', lw=2, ms=7)
-    ax4.fill_between(x, 10, y, color='Violet')
+    ax4.fill_between(x, 10, y, color='b')
     ax4.tick_params(axis='both', which='both', bottom='off', top='off',
                     labelbottom='off', right='off', left='off',
                     labelleft='off')
@@ -888,8 +868,8 @@ if betaGammaKappaBCS4CS5CS6DS1D2_ICFinal20_50Bins:
     x = np.linspace(-.3, 1.1)
     y = -2 * x
     ax5.plot(x, y, 'm', lw=2, ms=7)
-    ax5.fill_between(x, 10, y, color='Violet')
-    ax5.set_ylabel(r'50 bins', fontsize=18)
+    ax5.fill_between(x, 10, y, color='b')
+    ax5.set_ylabel('50 bins', fontsize=18)
     ax5.set_xlim(-.3, 1.1)
     ax5.set_ylim(-10., 10.)
     ax5.axes.get_xaxis().set_visible(False)
@@ -899,7 +879,7 @@ if betaGammaKappaBCS4CS5CS6DS1D2_ICFinal20_50Bins:
     # Restriction
     x = np.linspace(-10., 2.)
     ax6.plot(x, y, 'm', lw=2, ms=7)
-    ax6.fill_between(x, 10, y, color='Violet')
+    ax6.fill_between(x, 10, y, color='b')
     ax6.tick_params(axis='both', which='both', bottom='off', top='off',
                     labelbottom='off', right='off', left='off',
                     labelleft='off')
@@ -907,7 +887,6 @@ if betaGammaKappaBCS4CS5CS6DS1D2_ICFinal20_50Bins:
     ax6.set_ylim(-10., 10.)
     ax6.set_ylabel(r'$R_{limit} = 10^4$', fontsize=18)
     ax6.yaxis.set_label_position("right")
-    # IC
 
     f.savefig(figurePath +
               'betaGammaKappaBCS4CS5CS6DS1D2_ICFinal20_50Bins.png')
@@ -927,8 +906,7 @@ if overplotICFinal:
     x = np.linspace(0, 1.1)
     y = -2 * x
     ax1.plot(x, y, 'm', label=r'$\beta=-\frac{\gamma }{2}$', lw=2, ms=7)
-    ax1.fill_between(x, 0, y, color='Violet',
-                     label=r'$\beta > -\frac{\gamma }{2}$')
+    ax1.fill_between(x, 0, y, color='b', label=r'$\beta > -\frac{\gamma }{2}$')
     ax1.set_title(r'IC and Final', fontsize=20)
     ax1.set_ylabel(r'$\gamma$', fontsize=24)
     ax1.set_xlim(-0.1, 1.1)
@@ -964,8 +942,7 @@ if ICFinal4Subplots:
     x = np.linspace(0, 1.1)
     y = -2 * x
     ax1.plot(x, y, 'm', label=r'$\beta=-\frac{\gamma }{2}$', lw=2, ms=7)
-    ax1.fill_between(x, 0, y, color='Violet',
-                     label=r'$\beta > -\frac{\gamma }{2}$')
+    ax1.fill_between(x, 0, y, color='b', label=r'$\beta > -\frac{\gamma }{2}$')
     ax1.set_title('IC', fontsize=30)
     ax1.set_ylabel(r'$\gamma$', fontsize=30)
     ax1.set_xlim(-.1, 1.1)
@@ -977,8 +954,7 @@ if ICFinal4Subplots:
         ax2.plot(data[:, 4], data[:, 5],
                  Symbols[i], color=Colors[i], label=label, lw=2, ms=7)
     ax2.plot(x, y, 'm', label=r'$\beta=-\frac{\gamma }{2}$', lw=2, ms=7)
-    ax2.fill_between(x, 0, y, color='Violet',
-                     label=r'$\beta > -\frac{\gamma }{2}$')
+    ax2.fill_between(x, 0, y, color='b', label=r'$\beta > -\frac{\gamma }{2}$')
     ax2.set_title(r'Final', fontsize=30)
     ax2.set_xlim(-.1, 1.1)
     ax2.set_ylim(-6., 0.)
@@ -1030,8 +1006,7 @@ if finalGammaBetaFit:
     # plt.plot(x, y4, color='k', label=r'Logistic function', lw=2, ms=7)
     # plt.plot(x, y5, color='k', label=r'arccot fit', lw=2, ms=7)
     # plt.plot(x, y6, color='k', label=r'Exponential fit', lw=2, ms=7)
-    plt.fill_between(x, 0, y, color='c',
-                     label=r'$\beta > -\frac{\gamma }{2}$')
+    plt.fill_between(x, 0, y, color='b', label=r'$\beta > -\frac{\gamma }{2}$')
     plt.title(r'Final', fontsize=20)
     plt.xlim(-.1, 1.1)
     plt.ylim(-6., 0.)
@@ -1053,8 +1028,7 @@ if betaVsGammaPlusKappa:
     x = np.linspace(0, 1.2)
     y = -2 * x
     ax1.plot(x, y, 'm', label=r'$\beta=-\frac{\gamma }{2}$', lw=2, ms=7)
-    ax1.fill_between(x, 0, y, color='Violet',
-                     label=r'$\beta > -\frac{\gamma }{2}$')
+    ax1.fill_between(x, 0, y, color='b', label=r'$\beta > -\frac{\gamma }{2}$')
     ax1.set_title(r'$\gamma + \kappa$', fontsize=30)
     ax1.set_xlabel(r'$\beta$', fontsize=30)
     ax1.set_ylabel(r'IC', fontsize=30)
@@ -1070,8 +1044,7 @@ if betaVsGammaPlusKappa:
         ax2.plot(data[:, 4], data[:, 5] + data[:, 6],
                  Symbols[i], color=Colors[i], label=label, lw=2, ms=7)
     ax2.plot(x, y, 'm', label=r'$\beta=-\frac{\gamma }{2}$', lw=2, ms=7)
-    ax2.fill_between(x, 0, y, color='Violet',
-                     label=r'$\beta > -\frac{\gamma }{2}$')
+    ax2.fill_between(x, 0, y, color='b', label=r'$\beta > -\frac{\gamma }{2}$')
     leg = ax2.legend(prop=dict(size=13), numpoints=2, ncol=2,
                      fancybox=True, loc=0, handlelength=2.5)
     leg.get_frame().set_alpha(.5)
@@ -1088,28 +1061,20 @@ if attractor3D:  # 3D plots of attractor, IC and Final.
     n = 100
 
     # IC ------------------------------------------------------------
-    # A
     data, label = datalistA_R32[0]
     ax.plot(2 * data[:, 1], data[:, 2], data[:, 3], 'r-o', label=label, lw=2)
-    # B
     data, label = datalistB_R32[0]
     ax.plot(2 * data[:, 1], data[:, 2], data[:, 3], 'b-s', label=label, lw=2)
-    # CS4
     data, label = datalistCS4_R32[0]
     ax.plot(2 * data[:, 1], data[:, 2], data[:, 3], 'g-<', label=label, lw=2)
-    # CS5
     data, label = datalistCS5_R32[0]
     ax.plot(2 * data[:, 1], data[:, 2], data[:, 3], 'k--v', label=label, lw=2)
-    # CS6
     data, label = datalistCS6_R32[0]
     ax.plot(2 * data[:, 1], data[:, 2], data[:, 3], 'c--*', label=label, lw=2)
-    # DS1
     data, label = datalistDS1_R32[0]
     ax.plot(2 * data[:, 1], data[:, 2], data[:, 3], 'm--s', label=label, lw=2)
-    # Soft D2
     data, label = datalistSoftD2_R32[0]
     ax.plot(2 * data[:, 1], data[:, 2], data[:, 3], 'y--d', label=label, lw=2)
-    # E
     data, label = datalistE_R32[0]
     ax.plot(2 * data[:, 1], data[:, 2], data[:, 3], 'r--.', label=label, lw=2)
 
@@ -1145,28 +1110,20 @@ if attractor3D:  # 3D plots of attractor, IC and Final.
     n = 100
 
     # Final ------------------------------------------------------------
-    # A
     data, label = datalistA_R32[1]
     ax.plot(2 * data[:, 1], data[:, 2], data[:, 3], 'r-o', label=label, lw=2)
-    # B
     data, label = datalistB_R32[1]
     ax.plot(2 * data[:, 1], data[:, 2], data[:, 3], 'b-s', label=label, lw=2)
-    # CS4
     data, label = datalistCS4_R32[1]
     ax.plot(2 * data[:, 1], data[:, 2], data[:, 3], 'g-<', label=label, lw=2)
-    # CS5
     data, label = datalistCS5_R32[1]
     ax.plot(2 * data[:, 1], data[:, 2], data[:, 3], 'k--v', label=label, lw=2)
-    # CS6
     data, label = datalistCS6_R32[1]
     ax.plot(2 * data[:, 1], data[:, 2], data[:, 3], 'c--*', label=label, lw=2)
-    # DS1
     data, label = datalistDS1_R32[1]
     ax.plot(2 * data[:, 1], data[:, 2], data[:, 3], 'm--s', label=label, lw=2)
-    # Soft D2
     data, label = datalistSoftD2_R32[1]
     ax.plot(2 * data[:, 1], data[:, 2], data[:, 3], 'y--d', label=label, lw=2)
-    # E
     data, label = datalistE_R32[1]
     ax.plot(2 * data[:, 1], data[:, 2], data[:, 3], 'r--.', label=label, lw=2)
 
@@ -1200,6 +1157,7 @@ if attractor3D:  # 3D plots of attractor, IC and Final.
     ax.set_xlim(-2., 2.)
     ax.set_ylim(-4., 0.)
     ax.set_zlim(-2., 1.)
+
     f.savefig(figurePath + 'Attractor3D.png')
 
 if attractor3DSparre:  # 3D plots of attractor, IC and Final.
@@ -1228,10 +1186,12 @@ if attractor3DSparre:  # 3D plots of attractor, IC and Final.
     ax.set_title('IC', fontsize=30)
     ax = f.add_subplot(122, projection='3d')
     n = 100
+
     for i in range(len(datalistMartinFinal)):
         data, label = datalistMartinFinal[i]
         ax.plot(2 * data[:, 0], data[:, 1], data[:, 2],
                 marker=Symbols[i], color=Colors[i], label=label, lw=2)
+
     handles = []
 
     scatter1_proxy = lines.Line2D([0], [0], linestyle="none",
@@ -1271,7 +1231,7 @@ if betaGammaFunctions:
     x = np.linspace(0., 1.2)
     y = -2 * x
     ax1.plot(x, y, 'm', label=r'$\beta=-\frac{\gamma}{2}$', lw=2, ms=7)
-    ax1.fill_between(x, 0, y, color='Violet',
+    ax1.fill_between(x, 0, y, color='b',
                      label=r'$\beta > -\frac{\gamma}{2}$')
 
     # print(f'betaOM(r, 1.20) = {betaOM(r)}')
@@ -1313,7 +1273,7 @@ if betaGammaFunctions:
              lw=2, ms=7)
     ax2.plot(x, y, 'm', lw=2, ms=7)
 
-    ax2.fill_between(x, 0, y, color='Violet')
+    ax2.fill_between(x, 0, y, color='b')
     ax2.set_xlim(0., .5)
     ax2.set_xlabel(r'$\beta$', fontsize=20)
     ax2.set_ylabel(r'$\gamma$', fontsize=20)
@@ -1328,7 +1288,7 @@ if betaGammaFunctions:
     Fit = ((-.15 * g - .85 * k)
            / ((1 + (-.15 * g - .85 * k) ** 3) ** .333333))
     b = betaOM(r)
-    ax3.plot(b, Fit, 'r-o', mew=0, label=r'$Fit$', lw=2, ms=7)
+    ax3.plot(b, Fit, 'r-o', mew=0, label='Fit', lw=2, ms=7)
     ax3.set_xlim(0., .5)
     ax3.set_xlabel(r'$\beta$', fontsize=20)
     ax3.set_ylabel('Fit', fontsize=20)
@@ -1337,7 +1297,7 @@ if betaGammaFunctions:
                frameon=True, loc=0, handlelength=2.5)
 
     ax4.plot(x, y, 'm', lw=2, ms=7)
-    ax4.fill_between(x, 0, y, color='Violet')
+    ax4.fill_between(x, 0, y, color='b')
     ax4.plot(betaOM(r, .2), gammaHQ(r, x=1.5), 'r-o', mew=0,
              label=r'$rA = 0.2, rS = 1.5$', lw=2, ms=7)
     ax4.plot(betaOM(r, .3), gammaHQ(r, x=2.), 'b-o', mew=0,
@@ -1346,8 +1306,8 @@ if betaGammaFunctions:
              label=r'$rA = 0.5, rS = 1$', lw=2, ms=7)
 
     ax4.set_xlim(0., 1.)
-    ax4.set_xlabel(r'', fontsize=20)
-    ax4.set_ylabel(r'', fontsize=20)
+    ax4.set_xlabel(r'$\beta$', fontsize=20)
+    ax4.set_ylabel(r'$\gamma$', fontsize=20)
     ax4.set_title(r'$rS$ and $rA$ tuning ($\rho0=\frac{1}{2\pi}$)',
                   fontsize=20)
     ax4.legend(prop=dict(size=13), numpoints=2, ncol=1, frameon=True,
