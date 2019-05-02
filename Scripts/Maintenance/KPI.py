@@ -21,8 +21,9 @@ def byte_to_str(byte_str):
 
 with open("KPI.txt", "a") as wf:
     wf.write("-"*75 + "\n\n")
-    wf.write("\n ******** Logging timestamp:\t" + str(datetime.datetime.now())
-             + " ********" + "\n\n\n")
+    wf.write("\n ********   Logging timestamp:\t "
+             + str(datetime.datetime.now())
+             + "   ********" + "\n\n\n")
     KPI_list = []
     wf.write(
         "Module name \t\t\t Number of lines \t PEP-8 violations".rjust(50)
@@ -30,12 +31,16 @@ with open("KPI.txt", "a") as wf:
     )
     file_count = 0
     total_line_count = 0
-    for root, dirs, files in os.walk("."):
-        for filename in files:
-            if (filename in (".DS_Store", "KPI.log")) | any(
-                x in filename for x in [".pyc", ".txt"]
+    # for root, dirs, files in os.walk("."):
+    root = "."
+    for item in os.listdir(root):
+        if ((not os.path.isfile(os.path.join(root, item))) or
+            (item == ".DS_Store") or
+            any(x in item for x in [".pyc", ".txt"])
             ):
-                continue
+            continue
+        else:
+            filename = item
             lines = subprocess.check_output(
                 line_count.format(filename), shell=True
             )
@@ -54,12 +59,13 @@ with open("KPI.txt", "a") as wf:
         KPI_list_sorted = sorted(
             KPI_list, key=lambda KPI: KPI["lines"], reverse=True
         )
-    for element in KPI_list_sorted:
-        res_str = f"{element['module']:<40}{element['lines']:^4}{element['PEP8_violations']:>22}"
+    for e in KPI_list_sorted:
+        res_str = f"{e['module']:<40}{e['lines']:^4}{e['PEP8_violations']:>22}"
         wf.write(res_str + "\n")
 
-    wf.write("\n" + "*"*14 + f"Number of Python scripts: \t{file_count}"
-             + "*"*14 + "\n\n")
+    wf.write("\n\n" + "*"*14
+             + f"   Number of Python scripts: \t{file_count}      "
+             + "*"*14 + "\n")
     wf.write("\n" + "*"*14
-             + f"Total number of code-lines: \t{total_line_count}"
+             + f"   Total number of code-lines: \t{total_line_count}   "
              + "*"*14 + "\n\n")
