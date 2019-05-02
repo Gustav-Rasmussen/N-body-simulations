@@ -1,60 +1,13 @@
---------------------------------------------------------------------------
+---------------------------------------------------------------------------
 
 
- ******** Logging timestamp:	2019-04-25 16:59:59.487725 ********
-
-
-Module name 			 Number of lines 	 PEP-8 violations
-
-readVDF2.py                             10230                  6984
-readVDF_2_new_plot.py                   9903                  1310
-TimeEvolutionGammaKappaBeta.py          1446                     8
-gammaKappaBeta.py                       1358                     4
-VDFnetwork.py                           1271                     9
-velocityCheck.py                        1210                    36
-Sigma_plot.py                           891                     11
-readVDF_2_new_files.py                  675                    256
-Sigma_calc.py                           553                     58
-readVDF2FileLst.py                      546                      0
-Sigma_calc_OOP.py                       514                     59
-fileLsts.py                             464                     19
-VDF.py                                  409                      2
-VDFvelocityBins.py                      371                     32
-GaussianAndTsallis.py                   290                      5
-RhoAndGaussianAndTsallis.py             290                      2
-snapshotFiles.py                        261                     71
-vSphericalAnd_vBins.py                  222                      0
-Read.py                                 197                      6
-Gammas_and_R_middles.py                 195                      0
-rename.py                               176                      0
-getSnapshotValues.py                    149                      2
-regexUpper.py                           117                      1
-readVDF.py                              115                      0
-splitVDFt.py                            110                      2
-radius_and_velocity_funcs.py             91                      4
-pylab_test.py                            91                      0
-dataLsts.py                              90                      0
-KPI.py                                   71                     10
-NoOfParticlesAndParticleMass.py          22                      0
-terminal_code.py                         21                      0
-definePaths.py                           15                      0
-colorsAndSymbols.py                      8                       0
-
- ************** Number of Python scripts: 	33 ************** 
-
-
- ************** Total number of code-lines: 	32372 ************** 
-
---------------------------------------------------------------------------
-
-
- ******** Logging timestamp:	2019-04-28 16:47:23.371857 ********
+ ********   Logging timestamp:	 2019-05-02 17:08:29.663373   ********
 
 
 Module name 			 Number of lines 	 PEP-8 violations
 
 readVDF_2_new_plot.py                   9903                  1310
-readVDF2.py                             9793                  6920
+readVDF2.py                             9764                  6884
 TimeEvolutionGammaKappaBeta.py          1446                     8
 gammaKappaBeta.py                       1318                     4
 VDFnetwork.py                           1271                     9
@@ -73,22 +26,17 @@ snapshotFiles.py                        261                     71
 vSphericalAnd_vBins.py                  222                      0
 Read.py                                 197                      6
 Gammas_and_R_middles.py                 195                      0
-rename.py                               176                      0
 getSnapshotValues.py                    149                      2
-regexUpper.py                           117                      1
 readVDF.py                              115                      0
 splitVDFt.py                            110                      2
 radius_and_velocity_funcs.py             91                      4
-pylab_test.py                            91                      0
 dataLsts.py                              90                      0
-KPI.py                                   71                     10
 NoOfParticlesAndParticleMass.py          22                      0
-terminal_code.py                         21                      0
 definePaths.py                           15                      0
 colorsAndSymbols.py                      8                       0
 
- ************** Number of Python scripts: 	33 ************** 
 
+**************   Number of Python scripts: 	28      **************
 
- ************** Total number of code-lines: 	31900 ************** 
+**************   Total number of code-lines: 	31395   **************
 
