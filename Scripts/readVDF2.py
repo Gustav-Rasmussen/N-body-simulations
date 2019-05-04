@@ -145,38 +145,26 @@ if Fig_vr_vPhi_vTheta_with_fit:
         ax1.plot(data[:, 0], data[:, 1], "g", lw=4, ms=7)
         popt, pcov = curve_fit(func_2, data[:, 0], data[:, 1])
         y_fit = func_2(data[:, 0], popt[0], popt[1])
-        ax1.plot(
-            data[:, 0],
-            y_fit,
-            "c.-",
-            lw=3,
-            label=r"$radial: axe^{-bx^2}$, $ a,b = %.3f,%.3f$"
-            % (popt[0], popt[1]),
-        )
+        ax1.plot(data[:, 0], y_fit, "c.-", lw=3,
+                 label=r"$radial: axe^{-bx^2}$, $ a,b = %.3f,%.3f$"
+                         % (popt[0], popt[1]))
+
         data, _ = bin2_HQ10000_G1_2_1_005[2]
         ax1.plot(data[:, 0], data[:, 1], "r", lw=4, ms=7)
         popt, pcov = curve_fit(func_2, data[:, 0], data[:, 1])
         y_fit = func_2(data[:, 0], popt[0], popt[1])
-        ax1.plot(
-            data[:, 0],
-            y_fit,
-            "m.-",
-            lw=3,
-            label=r"$ \Theta: axe^{-bx^2}$, $ a,b = %.3f,%.3f $"
-            % (popt[0], popt[1]),
-        )
+        ax1.plot(data[:, 0], y_fit, "m.-", lw=3,
+                 label=r"$ \Theta: axe^{-bx^2}$, $ a,b = %.3f,%.3f$"
+                         % (popt[0], popt[1]))
+
         data, _ = bin2_HQ10000_G1_2_1_005[3]
         ax1.plot(data[:, 0], data[:, 1], "k", lw=2, ms=7)
         popt, pcov = curve_fit(func_2, data[:, 0], data[:, 1])
         y_fit = func_2(data[:, 0], popt[0], popt[1])
-        ax1.plot(
-            data[:, 0],
-            y_fit,
-            "k.-",
-            lw=3,
-            label=r"$ \Phi: axe^{-bx^2}$, $ a,b = %.3f,%.3f $"
-            % (popt[0], popt[1]),
-        )
+        ax1.plot(data[:, 0], y_fit, "k.-", lw=3,
+                 label=r"$ \Phi: axe^{-bx^2}$, $ a,b = %.3f,%.3f $"
+                         % (popt[0], popt[1]))
+
         ax1.set_xticklabels([])
         ax1.set_ylabel(r"$f\left( u \right)$", fontsize=20)
         ax1.set_title(
@@ -184,62 +172,35 @@ if Fig_vr_vPhi_vTheta_with_fit:
         )
 
         data, _ = bin2_HQ10000_G1_2_1_005[5]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "g",
-            label=r"$ \frac{v_r}{\sigma_r} $",
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1], "g",
+            label=r"$ \frac{v_r}{\sigma_r} $", lw=2, ms=7)
+
         popt, pcov = curve_fit(func_1_log, data[:, 0], data[:, 1])
         y_fit = func_1_log(data[:, 0], popt[0], popt[1])
-        ax2.plot(
-            data[:, 0],
-            y_fit,
-            "c.-",
-            lw=3,
-            label=r"$radial: a\log xe^{-b \log(x)^2}$, $ a,b = %.3f,%.3f$"
-            % (popt[0], popt[1]),
-        )
+        ax2.plot(data[:, 0], y_fit, "c.-", lw=3,
+                 label=r"$radial: a\log xe^{-b \log(x)^2}$, $a,b = %.3f,%.3f$"
+                         % (popt[0], popt[1]))
+
         data, _ = bin2_HQ10000_G1_2_1_005[6]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "r",
-            label=r"$ \frac{v_{\Theta}}{\sigma_{\Theta}} $",
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1], "r",
+                 label=r"$ \frac{v_{\Theta}}{\sigma_{\Theta}}$", lw=2, ms=7)
+
         popt, pcov = curve_fit(func_1_log, data[:, 0], data[:, 1])
         y_fit = func_1_log(data[:, 0], popt[0], popt[1])
-        ax2.plot(
-            data[:, 0],
-            y_fit,
-            "m.-",
-            lw=3,
-            label=r"$\Theta: a\log xe^{-b \log(x)^2}$, $ a,b = %.3f,%.3f$"
-            % (popt[0], popt[1]),
-        )
+        ax2.plot(data[:, 0], y_fit, "m.-", lw=3,
+                 label=r"$\Theta: a\log xe^{-b \log(x)^2}$, $a,b = %.3f,%.3f$"
+                         % (popt[0], popt[1]))
+
         data, _ = bin2_HQ10000_G1_2_1_005[7]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "k",
-            label=r"$ \frac{v_{\Phi}}{\sigma_{\Phi}} $",
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1], "k",
+                 label=r"$ \frac{v_{\Phi}}{\sigma_{\Phi}} $", lw=2, ms=7)
+
         popt, pcov = curve_fit(func_1_log, data[:, 0], data[:, 1])
         y_fit = func_1_log(data[:, 0], popt[0], popt[1])
-        ax2.plot(
-            data[:, 0],
-            y_fit,
-            "b.-",
-            lw=3,
-            label=r"$ \Phi: a\log xe^{-b \log(x)^2}$, $ a,b = %.3f,%.3f $"
-            % (popt[0], popt[1]),
-        )
+        ax2.plot(data[:, 0], y_fit, "b.-", lw=3,
+                 label=r"$ \Phi: a\log xe^{-b \log(x)^2}$, $a,b = %.3f,%.3f$"
+                         % (popt[0], popt[1]))
+
         ax2.set_xticklabels([])
         ax2.set_ylabel(
             r"$f\left(\log \left( |u_n|,u_p \right)\right)$", fontsize=20
@@ -281,102 +242,62 @@ if Fig_vr_vPhi_vTheta_with_fit:
         ax1.plot(data[:, 0], data[:, 1], "g", lw=4, ms=7)
         popt, pcov = curve_fit(func_2, data[:, 0], data[:, 1])
         y_fit = func_2(data[:, 0], popt[0], popt[1])
-        ax1.plot(
-            data[:, 0],
-            y_fit,
-            "c.-",
-            lw=3,
-            label=r"$radial: axe^{-bx^2}$, $ a,b = %.3f,%.3f $"
-            % (popt[0], popt[1]),
-        )
+        ax1.plot(data[:, 0], y_fit, "c.-", lw=3,
+                 label=r"$radial: axe^{-bx^2}$, $ a,b = %.3f,%.3f $"
+                         % (popt[0], popt[1]))
+
         data, _ = bin2_different_gammas_test2_HQ10000_G1_0_0_000[2]
         ax1.plot(data[:, 0], data[:, 1], "r", lw=4, ms=7)
         popt, pcov = curve_fit(func_2, data[:, 0], data[:, 1])
         y_fit = func_2(data[:, 0], popt[0], popt[1])
-        ax1.plot(
-            data[:, 0],
-            y_fit,
-            "m.-",
-            lw=3,
-            label=r"$\Theta: axe^{-bx^2}$, $ a,b = %.3f,%.3f$"
-            % (popt[0], popt[1]),
-        )
+        ax1.plot(data[:, 0], y_fit, "m.-", lw=3,
+                 label=r"$\Theta: axe^{-bx^2}$, $ a,b = %.3f,%.3f$"
+                         % (popt[0], popt[1]))
+
         data, _ = bin2_different_gammas_test2_HQ10000_G1_0_0_000[3]
         ax1.plot(data[:, 0], data[:, 1], "k", lw=2, ms=7)
         popt, pcov = curve_fit(func_2, data[:, 0], data[:, 1])
         y_fit = func_2(data[:, 0], popt[0], popt[1])
-        ax1.plot(
-            data[:, 0],
-            y_fit,
-            "y.-",
-            lw=3,
-            label=r"$ \Phi: axe^{-bx^2}$, $ a,b = %.3f,%.3f $"
-            % (popt[0], popt[1]),
-        )
+        ax1.plot(data[:, 0], y_fit, "y.-", lw=3,
+                 label=r"$\Phi: axe^{-bx^2}$, $ a,b = %.3f,%.3f$"
+                         % (popt[0], popt[1]))
+
         ax1.set_xticklabels([])
         ax1.set_ylabel(r"$f\left( u \right)$", fontsize=20)
-        ax1.set_title(
-            r"Fits to file = %s, $\gamma = -2.0 $" % test2_HQ0, fontsize=20
-        )
+        ax1.set_title(r"Fits to file = %s, $\gamma = -2.0$" % test2_HQ0,
+                      fontsize=20)
 
         data, _ = bin2_different_gammas_test2_HQ10000_G1_0_0_000[5]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "g",
-            label=r"$ \frac{v_r}{\sigma_r} $",
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1], "g",
+                 label=r"$ \frac{v_r}{\sigma_r}$", lw=2, ms=7)
+
         popt, pcov = curve_fit(func_1_log, data[:, 0], data[:, 1])
         y_fit = func_1_log(data[:, 0], popt[0], popt[1])
-        ax2.plot(
-            data[:, 0],
-            y_fit,
-            "c.-",
-            lw=3,
-            label=r"$radial: a\log xe^{-b \log(x)^2}$, $ a,b = %.3f,%.3f $"
-            % (popt[0], popt[1]),
-        )
+        ax2.plot(data[:, 0], y_fit, "c.-", lw=3,
+                 label=r"$radial: a\log xe^{-b \log(x)^2}$, $a,b = %.3f,%.3f$"
+                         % (popt[0], popt[1]))
+
         data, _ = bin2_different_gammas_test2_HQ10000_G1_0_0_000[6]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "r",
-            label=r"$ \frac{v_{\Theta}}{\sigma_{\Theta}} $",
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1], "r",
+                 label=r"$ \frac{v_{\Theta}}{\sigma_{\Theta}} $", lw=2, ms=7)
+
         popt, pcov = curve_fit(func_1_log, data[:, 0], data[:, 1])
         y_fit = func_1_log(data[:, 0], popt[0], popt[1])
-        ax2.plot(
-            data[:, 0],
-            y_fit,
-            "b",
-            ".-",
-            lw=3,
-            label=r"$ \Theta: a\log xe^{-b \log(x)^2}$, $ a,b = %.3f,%.3f $"
-            % (popt[0], popt[1]),
-        )
+        ax2.plot(data[:, 0], y_fit, "b", ".-", lw=3,
+                 label=r"$ \Theta: a\log xe^{-b \log(x)^2}$,\
+                         $a,b = %.3f,%.3f $"
+                         % (popt[0], popt[1]))
+
         data, _ = bin2_different_gammas_test2_HQ10000_G1_0_0_000[7]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "k",
-            label=r"$ \frac{v_{\Phi}}{\sigma_{\Phi}} $",
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1], "k",
+                 label=r"$ \frac{v_{\Phi}}{\sigma_{\Phi}} $", lw=2, ms=7)
+
         popt, pcov = curve_fit(func_1_log, data[:, 0], data[:, 1])
         y_fit = func_1_log(data[:, 0], popt[0], popt[1])
-        ax2.plot(
-            data[:, 0],
-            y_fit,
-            "m.-",
-            lw=3,
-            label=r"$ \Phi: a\log xe^{-b \log(x)^2}$, $ a,b = %.3f,%.3f $"
-            % (popt[0], popt[1]),
-        )
+        ax2.plot(data[:, 0], y_fit, "m.-", lw=3,
+                 label=r"$ \Phi: a\log xe^{-b \log(x)^2}$, $ a,b = %.3f,%.3f $"
+                         % (popt[0], popt[1]))
+
         ax2.set_xticklabels([])
         ax2.set_ylabel(
             r"$f\left(\log \left( |u_n|,u_p \right)\right)$", fontsize=20
@@ -419,26 +340,17 @@ if Fig_vt:
         for i in range(1, 5):
             exec(f"ax{i}.grid()")
 
-        Plt(
-            1,
-            bin1_different_gammas_test2_HQ10000_G1_0_0_000[0],
-            "b--",
-            r"$\gamma = -1.5$",
-        )
+        Plt(1, bin1_different_gammas_test2_HQ10000_G1_0_0_000[0],
+            "b--", r"$\gamma = -1.5$")
+
         Plt(1, bin2_HQ10000_G1_2_1_005[0], "b:", r"$\gamma = -2.0$")
         Plt(1, bin3_HQ10000_G1_2_1_005[0], "b-.", r"$\gamma = -2.5$")
         Plt(1, bin4_HQ10000_G1_2_1_005[0], "b", r"$\gamma = -3.0$")
 
         ax1.set_ylabel(r"$f\left(u_t \right)$", fontsize=20)
         ax1.set_title(r"File = %s" % HQ12, fontsize=20)
-        ax1.legend(
-            prop=dict(size=13),
-            numpoints=2,
-            ncol=1,
-            frameon=True,
-            loc=0,
-            handlelength=2.5,
-        )
+        ax1.legend(prop=dict(size=13), numpoints=2, ncol=1,
+                   frameon=True, loc=0, handlelength=2.5)
 
         Plt(2, bin1_HQ10000_G1_2_1_005[4], "b--", r"$\gamma = -1.5$")
         Plt(2, bin2_HQ10000_G1_2_1_005[4], "b:", r"$\gamma = -2.0$")
@@ -465,7 +377,7 @@ if Fig_vt:
         Plt(4, bin3_HQ10000_G1_2_1_005[4], "b-.", r"$\gamma = -2.5$")
         Plt(4, bin4_HQ10000_G1_2_1_005[4], "b", r"$\gamma = -3.0$")
 
-        ax4.set_xlabel(r"$\log \left( |u_tn|,u_tp \right)$", fontsize=20)
+        ax4.set_xlabel(r"$\log \left(|u_tn|,u_tp \right)$", fontsize=20)
         ax4.set_ylabel(
             r"$\log \left( f\left(\log \left(\
                        |u_tn|,u_tp \right)\right) \right)$",
@@ -478,30 +390,17 @@ if Fig_vt:
         for i in range(1, 5):
             exec(f"ax{i}.grid()")
 
-        Plt(
-            1,
-            bin1_different_gammas_test2_HQ10000_G1_0_0_000[0],
-            "b--",
-            r"$\gamma = -1.5$",
-        )
-        Plt(
-            1,
-            bin2_different_gammas_test2_HQ10000_G1_0_0_000[0],
-            "b:",
-            r"$\gamma = -2.0$",
-        )
-        Plt(
-            1,
-            bin3_different_gammas_test2_HQ10000_G1_0_0_000[0],
-            "b-.",
-            r"$\gamma = -2.5$",
-        )
-        Plt(
-            1,
-            bin4_different_gammas_test2_HQ10000_G1_0_0_000[0],
-            "b",
-            r"$\gamma = -3.0$",
-        )
+        Plt(1, bin1_different_gammas_test2_HQ10000_G1_0_0_000[0],
+            "b--", r"$\gamma = -1.5$")
+
+        Plt(1, bin2_different_gammas_test2_HQ10000_G1_0_0_000[0],
+            "b:", r"$\gamma = -2.0$")
+
+        Plt(1, bin3_different_gammas_test2_HQ10000_G1_0_0_000[0],
+            "b-.", r"$\gamma = -2.5$")
+
+        Plt(1, bin4_different_gammas_test2_HQ10000_G1_0_0_000[0],
+            "b", r"$\gamma = -3.0$")
 
         ax1.set_ylabel(r"$f\left(u_t \right)$", fontsize=20)
         ax1.set_title(r"File = %s" % test2_HQ0, fontsize=20)
@@ -514,90 +413,51 @@ if Fig_vt:
             handlelength=2.5,
         )
 
-        Plt(
-            2,
-            bin1_different_gammas_test2_HQ10000_G1_0_0_000[4],
-            "b--",
-            r"$\gamma = -1.5$",
-        )
-        Plt(
-            2,
-            bin2_different_gammas_test2_HQ10000_G1_0_0_000[4],
-            "b:",
-            r"$\gamma = -2.0$",
-        )
-        Plt(
-            2,
-            bin3_different_gammas_test2_HQ10000_G1_0_0_000[4],
-            "b-.",
-            r"$\gamma = -2.5$",
-        )
-        Plt(
-            2,
-            bin4_different_gammas_test2_HQ10000_G1_0_0_000[4],
-            "b",
-            r"$\gamma = -3.0$",
-        )
+        Plt(2, bin1_different_gammas_test2_HQ10000_G1_0_0_000[4],
+            "b--", r"$\gamma = -1.5$")
+
+        Plt(2, bin2_different_gammas_test2_HQ10000_G1_0_0_000[4],
+            "b:", r"$\gamma = -2.0$")
+
+        Plt(2, bin3_different_gammas_test2_HQ10000_G1_0_0_000[4],
+            "b-.", r"$\gamma = -2.5$")
+
+        Plt(2, bin4_different_gammas_test2_HQ10000_G1_0_0_000[4],
+            "b", r"$\gamma = -3.0$")
 
         ax2.set_ylabel(
             r"$f\left(\log \left( |u_tn|,u_tp \right)\right)$", fontsize=20
         )
 
-        Plt(
-            3,
-            bin1_different_gammas_test2_HQ10000_G1_0_0_000[0],
-            "b--",
-            r"$\gamma = -1.5$",
-        )
-        Plt(
-            3,
-            bin2_different_gammas_test2_HQ10000_G1_0_0_000[0],
-            "b:",
-            r"$\gamma = -2.0$",
-        )
-        Plt(
-            3,
-            bin3_different_gammas_test2_HQ10000_G1_0_0_000[0],
-            "b-.",
-            r"$\gamma = -2.5$",
-        )
-        Plt(
-            3,
-            bin4_different_gammas_test2_HQ10000_G1_0_0_000[0],
-            "b",
-            r"$\gamma = -3.0$",
-        )
+        Plt(3, bin1_different_gammas_test2_HQ10000_G1_0_0_000[0],
+            "b--", r"$\gamma = -1.5$")
 
-        ax3.set_xlabel(r"$ u_t $", fontsize=20)
+        Plt(3, bin2_different_gammas_test2_HQ10000_G1_0_0_000[0],
+            "b:", r"$\gamma = -2.0$")
+
+        Plt(3, bin3_different_gammas_test2_HQ10000_G1_0_0_000[0],
+            "b-.", r"$\gamma = -2.5$")
+
+        Plt(3, bin4_different_gammas_test2_HQ10000_G1_0_0_000[0],
+            "b", r"$\gamma = -3.0$")
+
+        ax3.set_xlabel(r"$u_t$", fontsize=20)
         ax3.set_ylabel(
             r"$\log \left( f\left(u_t \right) \right)$", fontsize=20
         )
         ax3.set_yscale("log")
 
-        Plt(
-            4,
-            bin1_different_gammas_test2_HQ10000_G1_0_0_000[4],
-            "b--",
-            r"$\gamma = -1.5$",
-        )
-        Plt(
-            4,
-            bin2_different_gammas_test2_HQ10000_G1_0_0_000[4],
-            "b:",
-            r"$\gamma = -2.0$",
-        )
-        Plt(
-            4,
-            bin3_different_gammas_test2_HQ10000_G1_0_0_000[4],
-            "b-.",
-            r"$\gamma = -2.5$",
-        )
-        Plt(
-            4,
-            bin4_different_gammas_test2_HQ10000_G1_0_0_000[4],
-            "b",
-            r"$\gamma = -3.0$",
-        )
+        Plt(4, bin1_different_gammas_test2_HQ10000_G1_0_0_000[4],
+            "b--", r"$\gamma = -1.5$")
+
+        Plt(4, bin2_different_gammas_test2_HQ10000_G1_0_0_000[4],
+            "b:", r"$\gamma = -2.0$")
+
+        Plt(4, bin3_different_gammas_test2_HQ10000_G1_0_0_000[4],
+            "b-.", r"$\gamma = -2.5$")
+
+        Plt(4, bin4_different_gammas_test2_HQ10000_G1_0_0_000[4],
+            "b", r"$\gamma = -3.0$")
 
         ax4.set_xlabel(r"$\log \left( |u_tn|,u_tp \right)$", fontsize=20)
         ax4.set_ylabel(
@@ -625,9 +485,9 @@ if Fig_vT_with_fit:
 
     if test:
         data, _ = bin2_HQ10000_G1_2_1_005[0]
-        ax1.plot(
-            data[:, 0], data[:, 1], "b:", label=r"$\gamma = -2.0$", lw=4, ms=7
-        )
+        ax1.plot(data[:, 0], data[:, 1], "b:",
+                 label=r"$\gamma = -2.0$", lw=4, ms=7)
+
         popt, pcov = curve_fit(func_1, data[:, 0], data[:, 1])
         y_fit = func_1(data[:, 0], popt[0], popt[1])
         ax1.plot(data[:, 0], y_fit, "c.-", lw=3,
@@ -641,24 +501,21 @@ if Fig_vT_with_fit:
         ax1.set_title(r"Fit to VDF, File = %s" % HQ12, fontsize=20)
 
         data, _ = bin2_HQ10000_G1_2_1_005[4]
-        ax2.plot(
-            data[:, 0], data[:, 1], "b:", label=r"$\gamma = -2.0$", lw=2, ms=7
-        )
+        ax2.plot(data[:, 0], data[:, 1], "b:",
+                 label=r"$\gamma = -2.0$", lw=2, ms=7)
+
         popt, pcov = curve_fit(func_3_log, data[:, 0], data[:, 1])
         y_fit = func_3_log(data[:, 0], popt[0], popt[1])
         ax2.plot(data[:, 0], y_fit, "c.-", lw=3,
-            label=r"$a\cdot \log(x)^2e^{-b\cdot \log(x)^2}$, $ a,b = %.3f,%.3f$"
-            % (popt[0], popt[1]))
+                 label=r"$a\cdot \log(x)^2e^{-b\cdot \log(x)^2}$,\
+                         $a,b = %.3f,%.3f$" % (popt[0], popt[1]))
         popt, pcov = curve_fit(func_7_log, data[:, 0], data[:, 1])
         y_fit = func_7_log(data[:, 0], popt[0], popt[1], popt[2])
-        ax2.plot(
-            data[:, 0],
-            y_fit,
-            "g:",
-            lw=3,
-            label=r"$a\cdot \log(x)^2(1- (1 - q)b \cdot \log(x)^2)^{(\frac{q}{1-q})}$, $ a,b,q = %.3f,%.3f,%.3f $"
-            % (popt[0], popt[1], popt[2]),
-        )
+        ax2.plot(data[:, 0], y_fit, "g:", lw=3,
+                 label=r"$a\cdot \log(x)^2(1- (1 - q)b \cdot \log(x)^2)^{\
+                         (\frac{q}{1-q})}$, $ a,b,q = %.3f,%.3f,%.3f $"
+                         % (popt[0], popt[1], popt[2]))
+
         ax2.set_ylabel(
             r"$f\left(\log \left( |u_tn|,u_tp \right)\right)$", fontsize=20
         )
@@ -680,63 +537,48 @@ if Fig_vT_with_fit:
         Plt(4, bin4_HQ10000_G1_2_1_005[4], "b", r"$\gamma = -3.0$")
 
         ax4.set_xlabel(r"$\log \left( |u_tn|,u_tp \right)$", fontsize=20)
-        ax4.set_ylabel(
-            r"$\log \left( f\left(\log \left( |u_tn|,u_tp \right)\right) \right)$",
-            fontsize=20,
-        )
+        ax4.set_ylabel(r"$\log \left( f\left(\log \left( |u_tn|,\
+                         u_tp \right)\right) \right)$", fontsize=20)
         ax4.set_yscale("log")
 
     if test2:
         data, _ = bin2_different_gammas_test2_HQ10000_G1_0_0_000[0]
-        ax1.plot(
-            data[:, 0], data[:, 1], "b:", label=r"$\gamma = -2.0$", lw=4, ms=7
-        )
+        ax1.plot(data[:, 0], data[:, 1], "b:",
+                 label=r"$\gamma = -2.0$", lw=4, ms=7)
+
         popt, pcov = curve_fit(func_1, data[:, 0], data[:, 1])
         y_fit = func_1(data[:, 0], popt[0], popt[1])
-        ax1.plot(
-            data[:, 0],
-            y_fit,
-            "c.-",
-            lw=3,
-            label=r"$axe^{-bx^2}$, $ a,b = %.3f,%.3f $" % (popt[0], popt[1]),
-        )
+        ax1.plot(data[:, 0], y_fit, "c.-", lw=3,
+                 label=r"$axe^{-bx^2}$,\
+                     $a,b = %.3f,%.3f $" % (popt[0], popt[1]))
+
         popt, pcov = curve_fit(func_6, data[:, 0], data[:, 1])
         y_fit = func_6(data[:, 0], popt[0], popt[1], popt[2])
-        ax1.plot(
-            data[:, 0],
-            y_fit,
-            "g:",
-            lw=3,
-            label=r"$ax(1- (1 - q)bx^2)^{(\frac{q}{1-q})}$, $ a,b,q = %.3f,%.3f,%.3f $"
-            % (popt[0], popt[1], popt[2]),
-        )
+        ax1.plot(data[:, 0], y_fit, "g:", lw=3,
+                 label=r"$ax(1- (1 - q)bx^2)^{(\frac{q}{1-q})}$,\
+                         $a,b,q = %.3f,%.3f,%.3f $"
+                         % (popt[0], popt[1], popt[2]))
+
         ax1.set_ylabel(r"$f\left( u_t \right)$", fontsize=20)
         ax1.set_title(r"Fit to VDF, File = %s" % test2_HQ0, fontsize=20)
 
         data, _ = bin2_different_gammas_test2_HQ10000_G1_0_0_000[4]
-        ax2.plot(
-            data[:, 0], data[:, 1], "b:", label=r"$\gamma = -2.0$", lw=2, ms=7
-        )
+        ax2.plot(data[:, 0], data[:, 1], "b:",
+                 label=r"$\gamma = -2.0$", lw=2, ms=7)
+
         popt, pcov = curve_fit(func_3_log, data[:, 0], data[:, 1])
         y_fit = func_3_log(data[:, 0], popt[0], popt[1])
-        ax2.plot(
-            data[:, 0],
-            y_fit,
-            "c.-",
-            lw=3,
+        ax2.plot(data[:, 0], y_fit, "c.-", lw=3,
             label=r"$a\cdot \log(x)^2e^{-b\cdot \log(x)^2}$, $ a,b = %.3f,%.3f $"
-            % (popt[0], popt[1]),
-        )
+            % (popt[0], popt[1]))
+
         popt, pcov = curve_fit(func_7_log, data[:, 0], data[:, 1])
         y_fit = func_7_log(data[:, 0], popt[0], popt[1], popt[2])
-        ax2.plot(
-            data[:, 0],
-            y_fit,
-            "g:",
-            lw=3,
-            label=r"$a\cdot \log(x)^2(1- (1 - q)b \cdot \log(x)^2)^{(\frac{q}{1-q})}$, $ a,b,q = %.3f,%.3f,%.3f $"
-            % (popt[0], popt[1], popt[2]),
-        )
+        ax2.plot(data[:, 0], y_fit, "g:", lw=3,
+                 label=r"$a\cdot \log(x)^2(1- (1 - q)b \cdot \log(x)^2)^\
+                         {(\frac{q}{1-q})}$, $ a,b,q = %.3f,%.3f,%.3f $"
+                         % (popt[0], popt[1], popt[2]))
+
         ax2.set_ylabel(
             r"$f\left(\log \left( |u_tn|,u_tp \right)\right)$", fontsize=20
         )
@@ -767,62 +609,48 @@ if Fig_vT_with_fit:
 
         ax4.set_xlabel(r"$\log \left( |u_tn|,u_tp \right)$", fontsize=20)
         ax4.set_ylabel(
-            r"$\log \left( f\left(\log \left( |u_tn|,u_tp \right)\right) \right)$",
+            r"$\log\left(f\left(\log \left(|u_tn|,u_tp\right)\right)\right)$",
             fontsize=20,
         )
         ax4.set_yscale("log")
 
     if A:
         data, _ = bin2_different_gammas_A_HQ10000_G1_0_0_000[0]
-        ax1.plot(
-            data[:, 0], data[:, 1], "b:", label=r"$\gamma = -2.0 $", lw=4, ms=7
-        )
+        ax1.plot(data[:, 0], data[:, 1], "b:",
+                 label=r"$\gamma = -2.0$", lw=4, ms=7)
+
         popt, pcov = curve_fit(func_1, data[:, 0], data[:, 1])
         y_fit = func_1(data[:, 0], popt[0], popt[1])
-        ax1.plot(
-            data[:, 0],
-            y_fit,
-            "c.-",
-            lw=3,
-            label=r"$axe^{-bx^2}$, $ a,b = %.3f,%.3f $" % (popt[0], popt[1]),
-        )
+        ax1.plot(data[:, 0], y_fit, "c.-", lw=3,
+                 label=r"$axe^{-bx^2}$, $a,b = %.3f,%.3f $"
+                         % (popt[0], popt[1]))
+
         popt, pcov = curve_fit(func_6, data[:, 0], data[:, 1])
         y_fit = func_6(data[:, 0], popt[0], popt[1], popt[2])
-        ax1.plot(
-            data[:, 0],
-            y_fit,
-            "g:",
-            lw=3,
-            label=r"$ax(1- (1 - q)bx^2)^{(\frac{q}{1-q})}$, $ a,b,q = %.3f,%.3f,%.3f $"
-            % (popt[0], popt[1], popt[2]),
-        )
-        ax1.set_ylabel(r"$f\left( u_t \right)$", fontsize=20)
+        ax1.plot(data[:, 0], y_fit, "g:", lw=3,
+                 label=r"$ax(1- (1 - q)bx^2)^{(\frac{q}{1-q})}$,\
+                         $a,b,q = %.3f,%.3f,%.3f $"
+                         % (popt[0], popt[1], popt[2]))
+
+        ax1.set_ylabel(r"$f\left(u_t \right)$", fontsize=20)
         ax1.set_title(r"Fit to %s" % A_HQ0, fontsize=20)
 
         data, _ = bin2_different_gammas_A_HQ10000_G1_0_0_000[4]
-        ax2.plot(
-            data[:, 0], data[:, 1], "b:", label=r"$\gamma = -2.0 $", lw=2, ms=7
-        )
+        ax2.plot(data[:, 0], data[:, 1], "b:",
+                 label=r"$\gamma = -2.0 $", lw=2, ms=7)
         popt, pcov = curve_fit(func_3_log, data[:, 0], data[:, 1])
         y_fit = func_3_log(data[:, 0], popt[0], popt[1])
-        ax2.plot(
-            data[:, 0],
-            y_fit,
-            "c.-",
-            lw=3,
-            label=r"$a\cdot \log(x)^2e^{-b\cdot \log(x)^2}$, $ a,b = %.3f,%.3f $"
-            % (popt[0], popt[1]),
-        )
+        ax2.plot(data[:, 0], y_fit, "c.-", lw=3,
+                 label=r"$a\cdot \log(x)^2e^{-b\cdot \log(x)^2}$,\
+                         $a,b = %.3f,%.3f $" % (popt[0], popt[1]))
+
         popt, pcov = curve_fit(func_7_log, data[:, 0], data[:, 1])
         y_fit = func_7_log(data[:, 0], popt[0], popt[1], popt[2])
-        ax2.plot(
-            data[:, 0],
-            y_fit,
-            "g:",
-            lw=3,
-            label=r"$a\cdot \log(x)^2(1- (1 - q)b \cdot \log(x)^2)^{(\frac{q}{1-q})}$, $ a,b,q = %.3f,%.3f,%.3f $"
-            % (popt[0], popt[1], popt[2])
-        )
+        ax2.plot(data[:, 0], y_fit, "g:", lw=3,
+                 label=r"$a\cdot \log(x)^2(1- (1 - q)b \cdot \log(x)^2)^\
+                         {(\frac{q}{1-q})}$, $ a,b,q = %.3f,%.3f,%.3f $"
+                         % (popt[0], popt[1], popt[2]))
+
         ax2.set_ylabel(
             r"$f\left(\log \left( |u_tn|,u_tp \right)\right)$", fontsize=20
         )
@@ -861,14 +689,13 @@ if Fig_vT_with_fit:
     if B:
         if special_fit:
             data, _ = bin2_different_gammas_B_HQ10000_G1_0_0_000[0]
-            ax1.plot(
-                data[:, 0], data[:, 1], "b:", label=r"$\gamma = -2.0 $", lw=4, ms=7
-            )
+            ax1.plot(data[:, 0], data[:, 1], "b:",
+                     label=r"$\gamma = -2.0 $", lw=4, ms=7)
             popt, pcov = curve_fit(func_3, data[:, 0], data[:, 1])
             y_fit = func_3(data[:, 0], popt[0], popt[1])
             ax1.plot(data[:, 0], y_fit, "c.-", lw=3,
-                     label=r"$axe^{-bx^2}$, $ a,b = %.3f,%.3f $" % (popt[0],
-                                                                    popt[1]))
+                     label=r"$axe^{-bx^2}$, $ a,b = %.3f,%.3f $"
+                             % (popt[0], popt[1]))
             popt, pcov = curve_fit(func_4, data[:, 0], data[:, 1])
             y_fit = func_4(data[:, 0], popt[0], popt[1], popt[2])
             ax1.plot(data[:, 0], y_fit, "g:", lw=3,
@@ -880,28 +707,26 @@ if Fig_vT_with_fit:
 
         else:
             data, _ = bin2_different_gammas_B_HQ10000_G1_0_0_000[0]
-            ax1.plot(
-                data[:, 0], data[:, 1], "b:", label=r"$\gamma = -2.0 $", lw=4, ms=7)
+            ax1.plot(data[:, 0], data[:, 1], "b:",
+                     label=r"$\gamma = -2.0 $", lw=4, ms=7)
             popt, pcov = curve_fit(func_1, data[:, 0], data[:, 1])
             y_fit = func_1(data[:, 0], popt[0], popt[1])
             ax1.plot(data[:, 0], y_fit, "c.-", lw=3,
-                label=r"$axe^{-bx^2}$, $ a,b = %.3f,%.3f $"
-                      % (popt[0], popt[1]))
+                     label=r"$axe^{-bx^2}$, $ a,b = %.3f,%.3f$"
+                     % (popt[0], popt[1]))
             popt, pcov = curve_fit(func_6, data[:, 0], data[:, 1])
             y_fit = func_6(data[:, 0], popt[0], popt[1], popt[2])
-            ax1.plot(
-                data[:, 0],
-                y_fit,
-                "g:",
-                lw=3,
-                label=r"$ax(1- (1 - q)bx^2)^{(\frac{q}{1-q})}$, $ a,b,q = %.3f,%.3f,%.3f $"
-                % (popt[0], popt[1], popt[2]),
+            ax1.plot(data[:, 0], y_fit, "g:", lw=3,
+                     label=r"$ax(1- (1 - q)bx^2)^{(\frac{q}{1-q})}$,\
+                             $a,b,q = %.3f,%.3f,%.3f $"
+                             % (popt[0], popt[1], popt[2])
             )
-            ax1.set_ylabel(r"$f\left( u_t \right)$", fontsize=20)
+
+            ax1.set_ylabel(r"$f\left(u_t \right)$", fontsize=20)
             ax1.set_title(r"Fit to %s" % B_HQ0, fontsize=20)
             ax1.axes.get_xaxis().set_visible(False)
-            ax1.set_xlim(0.0, 3.0)
-            ax1.set_ylim(0.0, 450.0)
+            ax1.set_xlim(.0, 3.0)
+            ax1.set_ylim(.0, 450.0)
 
         data, _ = bin2_different_gammas_B_HQ10000_G1_0_0_000[4]
         ax2.plot(
@@ -909,22 +734,19 @@ if Fig_vT_with_fit:
         )
         popt, pcov = curve_fit(func_3_log, data[:, 0], data[:, 1])
         y_fit = func_3_log(data[:, 0], popt[0], popt[1])
-        ax2.plot(
-            data[:, 0],
-            y_fit,
-            "c.-",
-            lw=3,
-            label=r"$a\cdot \log(x)^2e^{-b\cdot \log(x)^2}$, $ a,b = %.3f,%.3f $"
-            % (popt[0], popt[1]),
+        ax2.plot(data[:, 0], y_fit, "c.-", lw=3,
+                 label=r"$a\cdot \log(x)^2e^{-b\cdot \log(x)^2}$,\
+                         $a,b = %.3f,%.3f$" % (popt[0], popt[1]),
         )
         popt, pcov = curve_fit(func_7_log, data[:, 0], data[:, 1])
         y_fit = func_7_log(data[:, 0], popt[0], popt[1], popt[2])
         ax2.plot(data[:, 0], y_fit, "g:", lw=3,
-                 label=r"$a\cdot \log(x)^2(1- (1 - q)b \cdot \log(x)^2)^{(\frac{q}{1-q})}$, $ a,b,q = %.3f,%.3f,%.3f $"
+                 label=r"$a\cdot \log(x)^2(1- (1 - q)b \cdot \log(x)^2)^{\
+                         (\frac{q}{1-q})}$, $ a,b,q = %.3f,%.3f,%.3f $"
                          % (popt[0], popt[1], popt[2]),
         )
         ax2.set_ylabel(
-            r"$f\left(\log \left( |u_tn|,u_tp \right)\right)$", fontsize=20
+            r"$f\left(\log \left(|u_tn|,u_tp \right)\right)$", fontsize=20
         )
         ax2.yaxis.tick_right()
         ax2.tick_params(
