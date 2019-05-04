@@ -919,13 +919,9 @@ if Fig_vT_with_fit:
         )
         popt, pcov = curve_fit(func_7_log, data[:, 0], data[:, 1])
         y_fit = func_7_log(data[:, 0], popt[0], popt[1], popt[2])
-        ax2.plot(
-            data[:, 0],
-            y_fit,
-            "g:",
-            lw=3,
-            label=r"$a\cdot \log(x)^2(1- (1 - q)b \cdot \log(x)^2)^{(\frac{q}{1-q})}$, $ a,b,q = %.3f,%.3f,%.3f $"
-            % (popt[0], popt[1], popt[2]),
+        ax2.plot(data[:, 0], y_fit, "g:", lw=3,
+                 label=r"$a\cdot \log(x)^2(1- (1 - q)b \cdot \log(x)^2)^{(\frac{q}{1-q})}$, $ a,b,q = %.3f,%.3f,%.3f $"
+                         % (popt[0], popt[1], popt[2]),
         )
         ax2.set_ylabel(
             r"$f\left(\log \left( |u_tn|,u_tp \right)\right)$", fontsize=20
@@ -1014,28 +1010,22 @@ if Fig_vr_vPhi_vTheta_divided_by_gauss:
             data[:, 0],
             data[:, 1] / (478.006 * np.exp(-0.456 * data[:, 0] ** 2)),
             "g:",
-            label=r"$r, a=478.006, b=0.456$",
-            lw=4,
-            ms=7,
-        )
+            label=r"$r, a=478.006, b=0.456$", lw=4, ms=7)
+
         data, _ = bin2_HQ10000_G1_2_1_005[2]
         ax1.plot(
             data[:, 0],
             data[:, 1] / (482.605 * np.exp(-0.473 * data[:, 0] ** 2)),
             "r:",
-            label=r"$\Theta, a=482.605, b=0.473$",
-            lw=4,
-            ms=7,
-        )
+            label=r"$\Theta, a=482.605, b=0.473$", lw=4, ms=7)
+
         data, _ = bin2_HQ10000_G1_2_1_005[3]
         ax1.plot(
             data[:, 0],
             data[:, 1] / (502.652 * np.exp(-0.477 * data[:, 0] ** 2)),
             "k:",
-            label=r"$\Phi, a=502.652, b=0.477$",
-            lw=2,
-            ms=7,
-        )
+            label=r"$\Phi, a=502.652, b=0.477$", lw=2, ms=7)
+
         ax1.set_xlabel(
             r"$u_r$, $u_{\Theta}$ and $u_{\Phi}$", fontsize=20
         )
@@ -1052,10 +1042,8 @@ if Fig_vr_vPhi_vTheta_divided_by_gauss:
                 * np.exp(-0.472 * (10 ** data[:, 0]) ** 2)
             ),
             "g:",
-            label=r"$a=1433.228, b=0.472$",
-            lw=2,
-            ms=7,
-        )
+            label=r"$a=1433.228, b=0.472$", lw=2, ms=7)
+
         data, _ = bin2_HQ10000_G1_2_1_005[6]
         ax2.plot(
             data[:, 0],
@@ -1066,10 +1054,8 @@ if Fig_vr_vPhi_vTheta_divided_by_gauss:
                 * np.exp(-0.473 * (10 ** data[:, 0]) ** 2)
             ),
             "r:",
-            label=r"$ a=1416.346, b=0.473 $",
-            lw=2,
-            ms=7,
-        )
+            label=r"$ a=1416.346, b=0.473 $", lw=2, ms=7)
+
         data, _ = bin2_HQ10000_G1_2_1_005[7]
         ax2.plot(
             data[:, 0],
@@ -1080,10 +1066,8 @@ if Fig_vr_vPhi_vTheta_divided_by_gauss:
                 * np.exp(-0.470 * (10 ** data[:, 0]) ** 2)
             ),
             "k:",
-            label=r"$ a=1405.914, b=0.470$",
-            lw=2,
-            ms=7,
-        )
+            label=r"$ a=1405.914, b=0.470$", lw=2, ms=7)
+
         ax2.set_xlabel(
             r"$\log \left( |u_rn|,u_rp \right)$, $\log \left( |u_{\Theta}n|,u_{\Theta}p \right)$ and $\log \left( |u_{\Phi}n|,u_{\Phi}p \right)$",
             fontsize=20,
@@ -1099,28 +1083,22 @@ if Fig_vr_vPhi_vTheta_divided_by_gauss:
             data[:, 0],
             data[:, 1] / (478.006 * np.exp(-0.456 * data[:, 0] ** 2)),
             "g:",
-            label=r"$r, a=478.006, b=0.456$",
-            lw=4,
-            ms=7,
-        )
+            label=r"$r, a=478.006, b=0.456$", lw=4, ms=7)
+
         data, _ = bin2_different_gammas_test2_HQ10000_G1_0_0_000[2]
         ax1.plot(
             data[:, 0],
             data[:, 1] / (482.605 * np.exp(-0.473 * data[:, 0] ** 2)),
             "r:",
-            label=r"$\Theta, a=482.605, b=0.473$",
-            lw=4,
-            ms=7,
-        )
+            label=r"$\Theta, a=482.605, b=0.473$", lw=4, ms=7)
+
         data, _ = bin2_different_gammas_test2_HQ10000_G1_0_0_000[3]
         ax1.plot(
             data[:, 0],
             data[:, 1] / (502.652 * np.exp(-0.477 * data[:, 0] ** 2)),
             "k:",
-            label=r"$\Phi, a=502.652, b=0.477$",
-            lw=2,
-            ms=7,
-        )
+            label=r"$\Phi, a=502.652, b=0.477$", lw=2, ms=7)
+
         ax1.set_xlabel(
             r"$ u_r $, $ u_{\Theta} $ and $ u_{\Phi} $", fontsize=20
         )
@@ -1137,10 +1115,8 @@ if Fig_vr_vPhi_vTheta_divided_by_gauss:
                 * np.exp(-0.472 * (10 ** data[:, 0]) ** 2)
             ),
             "g:",
-            label=r"$a=1433.228, b=0.472$",
-            lw=2,
-            ms=7,
-        )
+            label=r"$a=1433.228, b=0.472$", lw=2, ms=7)
+
         data, _ = bin2_different_gammas_test2_HQ10000_G1_0_0_000[6]
         ax2.plot(
             data[:, 0],
@@ -1151,10 +1127,8 @@ if Fig_vr_vPhi_vTheta_divided_by_gauss:
                 * np.exp(-0.473 * (10 ** data[:, 0]) ** 2)
             ),
             "r:",
-            label=r"$ a=1416.346, b=0.473 $",
-            lw=2,
-            ms=7,
-        )
+            label=r"$ a=1416.346, b=0.473 $", lw=2, ms=7)
+
         data, _ = bin2_different_gammas_test2_HQ10000_G1_0_0_000[7]
         ax2.plot(
             data[:, 0],
@@ -1165,16 +1139,17 @@ if Fig_vr_vPhi_vTheta_divided_by_gauss:
                 * np.exp(-0.470 * (10 ** data[:, 0]) ** 2)
             ),
             "k:",
-            label=r"$ a=1405.914, b=0.470$",
-            lw=2,
-            ms=7,
-        )
+            label=r"$ a=1405.914, b=0.470$", lw=2, ms=7)
+    
         ax2.set_xlabel(
-            r"$\log \left( |u_rn|,u_rp \right)$, $\log \left( |u_{\Theta}n|,u_{\Theta}p \right)$ and $\log \left( |u_{\Phi}n|,u_{\Phi}p \right)$",
+            r"$\log \left( |u_rn|,u_rp \right)$, $\log \left(|u_{\Theta}n|,\
+              u_{\Theta}p\right)$ and $\log\left(|u_{\Phi}n|,\
+              u_{\Phi}p\right)$",
             fontsize=20,
         )
         ax2.set_ylabel(
-            r"$\frac{f\left(\log \left( |u_n|,u_p \right)\right)}{axe^{-b\log (x)^2}}$",
+            r"$\frac{f\left(\log \left( |u_n|,u_p \right)\right)}\
+              {axe^{-b\log (x)^2}}$",
             fontsize=20,
         )
 
@@ -1211,40 +1186,20 @@ if Fig_vt_divided_by_gauss:
     if test:
 
         data, _ = bin1_HQ10000_G1_2_1_005[0]
-        ax1.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax1(data[:, 0]),
-            "b--",
-            label=r"$ \gamma = -1.5 $",
-            lw=3,
-        )
+        ax1.plot(data[:, 0], data[:, 1] / denom_ax1(data[:, 0]), "b--",
+                 label=r"$ \gamma = -1.5 $", lw=3)
+
         data, _ = bin2_HQ10000_G1_2_1_005[0]
-        ax1.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax1(data[:, 0]),
-            "b:",
-            label=r"$ \gamma = -2.0$",
-            lw=4,
-            ms=7,
-        )
+        ax1.plot(data[:, 0], data[:, 1] / denom_ax1(data[:, 0]), "b:",
+                 label=r"$ \gamma = -2.0$", lw=4, ms=7)
+
         data, _ = bin3_HQ10000_G1_2_1_005[0]
-        ax1.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax1(data[:, 0]),
-            "b-.",
-            label=r"$ \gamma = -2.5$",
-            lw=4,
-            ms=7,
-        )
+        ax1.plot(data[:, 0], data[:, 1] / denom_ax1(data[:, 0]), "b-.",
+                 label=r"$ \gamma = -2.5$", lw=4, ms=7)
+
         data, _ = bin4_HQ10000_G1_2_1_005[0]
-        ax1.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax1(data[:, 0]),
-            "b",
-            label=r"$ \gamma = -3.0$",
-            lw=2,
-            ms=7,
-        )
+        ax1.plot(data[:, 0], data[:, 1] / denom_ax1(data[:, 0]), "b",
+                 label=r"$ \gamma = -3.0$", lw=2, ms=7)
 
         ax1.set_ylabel(
             r"$\frac{f\left( u_t \right)}{918.083xe^{-0.922x^2}}$", fontsize=20
@@ -1252,125 +1207,68 @@ if Fig_vt_divided_by_gauss:
         ax1.set_title(r" File = %s" % HQ12, fontsize=20)
 
         data, _ = bin1_HQ10000_G1_2_1_005[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax2(data[:, 0]),
-            "b--",
-            label=r"$ \gamma = -1.5$",
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1] / denom_ax2(data[:, 0]), "b--",
+                 label=r"$ \gamma = -1.5$", lw=2, ms=7)
+
         data, _ = bin2_HQ10000_G1_2_1_005[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax2(data[:, 0]),
-            "b:",
-            label=r"$ \gamma = -2.0 $",
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1] / denom_ax2(data[:, 0]), "b:",
+                 label=r"$ \gamma = -2.0 $", lw=2, ms=7)
+
         data, _ = bin3_HQ10000_G1_2_1_005[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax2(data[:, 0]),
-            "b-.",
-            label=r"$ \gamma = -2.5 $",
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1] / denom_ax2(data[:, 0]), "b-.",
+                 label=r"$ \gamma = -2.5 $", lw=2, ms=7)
+
         data, _ = bin4_HQ10000_G1_2_1_005[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax2(data[:, 0]),
-            "b",
-            label=r"$ \gamma = -3.0$",
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1] / denom_ax2(data[:, 0]), "b",
+                 label=r"$ \gamma = -3.0$", lw=2, ms=7)
+
         ax2.set_ylabel(
-            r"$\frac{f\left(\log \left( |u_tn|,u_tp \right)\right)}{3400.442x^2e^{-0.930x^2}}$",
+            r"$\frac{f\left(\log \left( |u_tn|,u_tp \right)\right)}\
+              {3400.442x^2e^{-0.930x^2}}$",
             fontsize=20,
         )  # a \cdot \log(x) \cdot e^{-b \cdot log(x)^2}
 
     if test2:
         data, _ = bin1_different_gammas_test2_HQ10000_G1_0_0_000[0]
-        ax1.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax1(data[:, 0]),
-            "b--",
-            label=r"$ \gamma = -1.5$",
-            lw=3,
-        )
+        ax1.plot(data[:, 0], data[:, 1] / denom_ax1(data[:, 0]), "b--",
+                 label=r"$ \gamma = -1.5$", lw=3)
+
         data, _ = bin2_different_gammas_test2_HQ10000_G1_0_0_000[0]
-        ax1.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax1(data[:, 0]),
-            "b:",
-            label=r"$ \gamma = -2.0$",
-            lw=4,
-            ms=7,
-        )
+        ax1.plot(data[:, 0], data[:, 1] / denom_ax1(data[:, 0]), "b:",
+                 label=r"$ \gamma = -2.0$", lw=4, ms=7)
+
         data, _ = bin3_different_gammas_test2_HQ10000_G1_0_0_000[0]
-        ax1.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax1(data[:, 0]),
-            "b-.",
-            label=r"$\gamma = -2.5$",
-            lw=4,
-            ms=7,
-        )
+        ax1.plot(data[:, 0], data[:, 1] / denom_ax1(data[:, 0]), "b-.",
+                 label=r"$\gamma = -2.5$", lw=4, ms=7)
+
         data, _ = bin4_different_gammas_test2_HQ10000_G1_0_0_000[0]
-        ax1.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax1(data[:, 0]),
-            "b",
-            label=r"$ \gamma = -3.0$",
-            lw=2,
-            ms=7,
-        )
+        ax1.plot(data[:, 0], data[:, 1] / denom_ax1(data[:, 0]), "b",
+                 label=r"$ \gamma = -3.0$", lw=2, ms=7)
+
         ax1.set_ylabel(
             r"$\frac{f\left( u_t \right)}{918.083xe^{-0.922x^2}}$", fontsize=20
         )
         ax1.set_title(r" File = %s" % test2_HQ0, fontsize=20)
 
         data, _ = bin1_different_gammas_test2_HQ10000_G1_0_0_000[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax2(data[:, 0]),
-            "b--",
-            label=r"$ \gamma = -1.5$",
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1] / denom_ax2(data[:, 0]), "b--",
+                 label=r"$ \gamma = -1.5$", lw=2, ms=7)
+
         data, _ = bin2_different_gammas_test2_HQ10000_G1_0_0_000[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax2(data[:, 0]),
-            "b:",
-            label=r"$ \gamma = -2.0$",
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1] / denom_ax2(data[:, 0]), "b:",
+                 label=r"$ \gamma = -2.0$", lw=2, ms=7)
+
         data, _ = bin3_different_gammas_test2_HQ10000_G1_0_0_000[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax2(data[:, 0]),
-            "b-.",
-            label=r"$ \gamma = -2.5$",
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1] / denom_ax2(data[:, 0]), "b-.",
+                 label=r"$ \gamma = -2.5$", lw=2, ms=7)
+
         data, _ = bin4_different_gammas_test2_HQ10000_G1_0_0_000[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax2(data[:, 0]),
-            "b",
-            label=r"$ \gamma = -3.0$",
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1] / denom_ax2(data[:, 0]), "b",
+                 label=r"$ \gamma = -3.0$", lw=2, ms=7)
+
         ax2.set_ylabel(
-            r"$\frac{f\left(\log \left( |u_tn|,u_tp \right)\right)}{3400.442x^2e^{-0.930x^2}}$",
+            r"$\frac{f\left(\log \left( |u_tn|,u_tp \right)\right)}\
+              {3400.442x^2e^{-0.930x^2}}$",
             fontsize=20,
         )
 
@@ -1497,15 +1395,8 @@ if Fig_GPerts_same_gammas_as_IC_vr:
     ax1.plot(data[:, 0], data[:, 1], "Brown", ls="--", lw=2, ms=7)
 
     data, _ = bin1_HQ10000_G1_2_9_005[0]
-    ax1.plot(
-        data[:, 0],
-        data[:, 1],
-        "Orange",
-        ls="--",
-        label=r"%s" % HQ60[len("HQ10000_G"):],
-        lw=2,
-        ms=7,
-    )
+    ax1.plot(data[:, 0], data[:, 1], "Orange", ls="--",
+        label=r"%s" % HQ60[len("HQ10000_G"):], lw=2, ms=7)
 
     Plt(1, bin1_HQ10000_G1_2_9_005[1], "y--")
     Plt(1, bin1_HQ10000_G1_0_10_009[0], "m--",
@@ -1630,15 +1521,8 @@ if Fig_GPerts_same_gammas_as_IC_vr:
     ax2.plot(data[:, 0], data[:, 1], "Brown", ls="--", lw=2, ms=7)
 
     data, _ = bin1_HQ10000_G1_2_9_005[4]
-    ax2.plot(
-        data[:, 0],
-        data[:, 1],
-        "Orange",
-        ls="--",
-        label=r"%s" % HQ60[len("HQ10000_G") :],
-        lw=2,
-        ms=7,
-    )
+    ax2.plot(data[:, 0], data[:, 1], "Orange", ls="--",
+             label=r"%s" % HQ60[len("HQ10000_G") :], lw=2, ms=7)
 
     Plt(2, bin1_HQ10000_G1_2_9_005[5], "m--",
         label=r"%s" % HQ70[len("HQ10000_G") :])
@@ -1763,15 +1647,8 @@ if Fig_GPerts_same_gammas_as_IC_vr:
     ax3.plot(data[:, 0], data[:, 1], "Brown", ls="--", lw=2, ms=7)
 
     data, _ = bin1_HQ10000_G1_2_9_005[0]
-    ax3.plot(
-        data[:, 0],
-        data[:, 1],
-        "Orange",
-        ls="--",
-        label=r"%s" % HQ60[len("HQ10000_G") :],
-        lw=2,
-        ms=7,
-    )
+    ax3.plot(data[:, 0], data[:, 1], "Orange", ls="--",
+             label=r"%s" % HQ60[len("HQ10000_G") :], lw=2, ms=7)
 
     Plt(3, bin1_HQ10000_G1_2_9_005[1], "y--")
     Plt(3, bin1_HQ10000_G1_0_10_009[0], "m--")
@@ -1892,15 +1769,8 @@ if Fig_GPerts_same_gammas_as_IC_vr:
     ax4.plot(data[:, 0], data[:, 1], "Brown", ls="--", lw=2, ms=7)
 
     data, _ = bin1_HQ10000_G1_2_9_005[4]
-    ax4.plot(
-        data[:, 0],
-        data[:, 1],
-        "Orange",
-        ls="--",
-        label=r"%s" % HQ60[len("HQ10000_G"):],
-        lw=2,
-        ms=7,
-    )
+    ax4.plot(data[:, 0], data[:, 1], "Orange", ls="--",
+             label=r"%s" % HQ60[len("HQ10000_G"):], lw=2, ms=7)
 
     Plt(4, bin1_HQ10000_G1_2_9_005[5], "y--")
     Plt(4, bin1_HQ10000_G1_0_10_009[4], "m--",
@@ -2031,13 +1901,8 @@ if Fig_GPerts_G1_2_same_gammas_as_IC_vt:
         label=r"%s" % HQ48[len("HQ10000_G"):])
 
     data, _ = bin1_HQ10000_G1_2_9_005[0]
-    ax1.plot(
-        data[:, 0],
-        data[:, 1], "c--",
-        label=r"%s" % HQ60[len("HQ10000_G"):],
-        lw=2,
-        ms=7,
-    )
+    ax1.plot(data[:, 0], data[:, 1], "c--",
+             label=r"%s" % HQ60[len("HQ10000_G"):], lw=2, ms=7)
 
     Plt(1, bin2_HQ10000_G1_2_1_005[0], "r:")
     Plt(1, bin2_HQ10000_G1_2_3_005[0], "g:")
@@ -2081,22 +1946,12 @@ if Fig_GPerts_G1_2_same_gammas_as_IC_vt:
         label=r"%s" % HQ36[len("HQ10000_G"):])
 
     data, _ = bin1_HQ10000_G1_2_7_005[4]
-    ax2.plot(
-        data[:, 0],
-        data[:, 1], "b--",
-        label=r"%s" % HQ48[len("HQ10000_G"):],
-        lw=2,
-        ms=7,
-    )
+    ax2.plot(data[:, 0], data[:, 1], "b--",
+             label=r"%s" % HQ48[len("HQ10000_G"):], lw=2, ms=7)
 
     data, _ = bin1_HQ10000_G1_2_9_005[4]
-    ax2.plot(
-        data[:, 0],
-        data[:, 1], "c--",
-        label=r"%s" % HQ60[len("HQ10000_G"):],
-        lw=2,
-        ms=7,
-    )
+    ax2.plot(data[:, 0], data[:, 1], "c--",
+             label=r"%s" % HQ60[len("HQ10000_G"):], lw=2, ms=7)
 
     Plt(2, bin2_HQ10000_G1_2_1_005[4], "r:")
     Plt(2, bin2_HQ10000_G1_2_3_005[4], "g:")
@@ -2144,22 +1999,12 @@ if Fig_GPerts_G1_2_same_gammas_as_IC_vt:
         label=r"%s" % HQ36[len("HQ10000_G"):])
 
     data, _ = bin1_HQ10000_G1_2_7_005[0]
-    ax3.plot(
-        data[:, 0],
-        data[:, 1], "b--",
-        label=r"%s" % HQ48[len("HQ10000_G"):],
-        lw=2,
-        ms=7,
-    )
+    ax3.plot(data[:, 0], data[:, 1], "b--",
+             label=r"%s" % HQ48[len("HQ10000_G"):], lw=2, ms=7)
 
     data, _ = bin1_HQ10000_G1_2_9_005[0]
-    ax3.plot(
-        data[:, 0],
-        data[:, 1], "c--",
-        label=r"%s" % HQ60[len("HQ10000_G"):],
-        lw=2,
-        ms=7,
-    )
+    ax3.plot(data[:, 0], data[:, 1], "c--",
+             label=r"%s" % HQ60[len("HQ10000_G"):], lw=2, ms=7)
 
     Plt(3, bin2_HQ10000_G1_2_1_005[0], "r:")
     Plt(3, bin2_HQ10000_G1_2_3_005[0], "g:")
@@ -2203,22 +2048,12 @@ if Fig_GPerts_G1_2_same_gammas_as_IC_vt:
         label=r"%s" % HQ36[len("HQ10000_G"):])
 
     data, _ = bin1_HQ10000_G1_2_7_005[4]
-    ax4.plot(
-        data[:, 0],
-        data[:, 1], "b--",
-        label=r"%s" % HQ48[len("HQ10000_G"):],
-        lw=2,
-        ms=7,
-    )
+    ax4.plot(data[:, 0], data[:, 1], "b--",
+             label=r"%s" % HQ48[len("HQ10000_G"):], lw=2, ms=7)
 
     data, _ = bin1_HQ10000_G1_2_9_005[4]
-    ax4.plot(
-        data[:, 0],
-        data[:, 1], "c--",
-        label=r"%s" % HQ60[len("HQ10000_G"):],
-        lw=2,
-        ms=7,
-    )
+    ax4.plot(data[:, 0], data[:, 1], "c--",
+             label=r"%s" % HQ60[len("HQ10000_G"):], lw=2, ms=7)
 
     Plt(4, bin2_HQ10000_G1_2_1_005[4], "r:")
     Plt(4, bin2_HQ10000_G1_2_3_005[4], "g:")
@@ -2288,13 +2123,8 @@ if Fig_GPerts_different_gammas_vt:
             label=r"%s" % HQ48[len("HQ10000_G"):])
 
         data, _ = bin1_different_gammas_HQ10000_G1_2_9_005[0]
-        ax1.plot(
-            data[:, 0],
-            data[:, 1], "c--",
-            label=r"%s" % HQ60[len("HQ10000_G"):],
-            lw=2,
-            ms=7,
-        )
+        ax1.plot(data[:, 0], data[:, 1], "c--",
+                 label=r"%s" % HQ60[len("HQ10000_G"):], lw=2, ms=7)
 
         Plt(1, bin2_different_gammas_HQ10000_G1_2_1_005[0], "r:")
         Plt(1, bin2_different_gammas_HQ10000_G1_2_3_005[0], "g:")
@@ -2323,10 +2153,10 @@ if Fig_GPerts_different_gammas_vt:
         data, _ = bin4_different_gammas_HQ10000_G1_2_9_005[0]
         ax1.plot(data[:, 0], data[:, 1], "c", lw=2, ms=7)
 
-        ax1.set_xlabel(r"$ u_t $", fontsize=20)
-        ax1.set_ylabel(r"$f\left( u_t \right)$", fontsize=20)
+        ax1.set_xlabel(r"$u_t$", fontsize=20)
+        ax1.set_ylabel(r"$f\left(u_t \right)$", fontsize=20)
         ax1.set_title(
-            r" Time evolution of files = %s , different r bins" % HQ0[:-9],
+            r"Time evolution of files = %s, different r bins" % HQ0[:-9],
             fontsize=20,
         )
 
@@ -2338,21 +2168,12 @@ if Fig_GPerts_different_gammas_vt:
             label=r"%s" % HQ36[len("HQ10000_G"):])
 
         data, _ = bin1_different_gammas_HQ10000_G1_2_7_005[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1], "b--",
-            label=r"%s" % HQ48[len("HQ10000_G"):],
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1], "b--",
+                 label=r"%s" % HQ48[len("HQ10000_G"):], lw=2, ms=7)
+
         data, _ = bin1_different_gammas_HQ10000_G1_2_9_005[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1], "c--",
-            label=r"%s" % HQ60[len("HQ10000_G"):],
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1], "c--",
+                 label=r"%s" % HQ60[len("HQ10000_G"):], lw=2, ms=7)
 
         Plt(2, bin2_different_gammas_HQ10000_G1_2_1_005[4], "r:")
         Plt(2, bin2_different_gammas_HQ10000_G1_2_3_005[4], "g:")
@@ -2394,21 +2215,12 @@ if Fig_GPerts_different_gammas_vt:
             label=r"%s" % HQ36[len("HQ10000_G"):])
 
         data, _ = bin1_different_gammas_HQ10000_G1_2_7_005[0]
-        ax3.plot(
-            data[:, 0],
-            data[:, 1], "b--",
-            label=r"%s" % HQ48[len("HQ10000_G"):],
-            lw=2,
-            ms=7,
-        )
+        ax3.plot(data[:, 0], data[:, 1], "b--",
+                 label=r"%s" % HQ48[len("HQ10000_G"):], lw=2, ms=7)
+
         data, _ = bin1_different_gammas_HQ10000_G1_2_9_005[0]
-        ax3.plot(
-            data[:, 0],
-            data[:, 1], "c--",
-            label=r"%s" % HQ60[len("HQ10000_G"):],
-            lw=2,
-            ms=7,
-        )
+        ax3.plot(data[:, 0], data[:, 1], "c--",
+                 label=r"%s" % HQ60[len("HQ10000_G"):], lw=2, ms=7)
 
         Plt(3, bin2_different_gammas_HQ10000_G1_2_1_005[0], "r:")
         Plt(3, bin2_different_gammas_HQ10000_G1_2_3_005[0], "g:")
@@ -2451,21 +2263,12 @@ if Fig_GPerts_different_gammas_vt:
             label=r"%s" % HQ36[len("HQ10000_G"):])
 
         data, _ = bin1_different_gammas_HQ10000_G1_2_7_005[4]
-        ax4.plot(
-            data[:, 0],
-            data[:, 1], "b--",
-            label=r"%s" % HQ48[len("HQ10000_G"):],
-            lw=2,
-            ms=7,
-        )
+        ax4.plot(data[:, 0], data[:, 1], "b--",
+                 label=r"%s" % HQ48[len("HQ10000_G"):], lw=2, ms=7)
+
         data, _ = bin1_different_gammas_HQ10000_G1_2_9_005[4]
-        ax4.plot(
-            data[:, 0],
-            data[:, 1], "c--",
-            label=r"%s" % HQ60[len("HQ10000_G"):],
-            lw=2,
-            ms=7,
-        )
+        ax4.plot(data[:, 0], data[:, 1], "c--",
+                 label=r"%s" % HQ60[len("HQ10000_G"):], lw=2, ms=7)
 
         Plt(4, bin2_different_gammas_HQ10000_G1_2_1_005[4], "r:")
         Plt(4, bin2_different_gammas_HQ10000_G1_2_3_005[4], "g:")
@@ -2512,13 +2315,9 @@ if Fig_GPerts_different_gammas_vt:
             label=r"%s" % test2_HQ96[len("test2_HQ10000_G"):])
 
         data, _ = bin1_different_gammas_test2_HQ10000_G1_0_20_005[0]
-        ax1.plot(
-            data[:, 0],
-            data[:, 1], "c--",
-            label=r"%s" % test2_HQ126[len("test2_HQ10000_G"):],
-            lw=2,
-            ms=7,
-        )
+        ax1.plot(data[:, 0], data[:, 1], "c--",
+                 label=r"%s" % test2_HQ126[len("test2_HQ10000_G"):],
+                 lw=2, ms=7)
 
         Plt(1, bin1_different_gammas_test2_HQ10000_G1_0_25_005[0], "m--",
             label=r"%s" % test2_HQ159[len("test2_HQ10000_G"):])
@@ -2728,21 +2527,12 @@ if Fig_GPerts_different_gammas_vt:
             label=r"%s" % B_HQ66[len("B_HQ10000_G"):])
 
         data, _ = bin1_different_gammas_B_HQ10000_G1_0_198_000[0]
-        ax1.plot(
-            data[:, 0],
-            data[:, 1], "b--",
-            label=r"%s" % B_HQ294[len("B_HQ10000_G"):],
-            lw=2,
-            ms=7,
-        )
+        ax1.plot(data[:, 0], data[:, 1], "b--",
+                 label=r"%s" % B_HQ294[len("B_HQ10000_G"):], lw=2, ms=7)
+
         data, _ = bin1_different_gammas_B_HQ10000_G1_0_198_093[0]
-        ax1.plot(
-            data[:, 0],
-            data[:, 1], "c--",
-            label=r"%s" % B_HQ382[len("B_HQ10000_G"):],
-            lw=2,
-            ms=7,
-        )
+        ax1.plot(data[:, 0], data[:, 1], "c--",
+                 label=r"%s" % B_HQ382[len("B_HQ10000_G"):], lw=2, ms=7)
 
         Plt(1, bin2_different_gammas_B_HQ10000_G1_0_0_000[0], "r:")
         Plt(1, bin2_different_gammas_B_HQ10000_G1_0_5_005[0], "g:")
@@ -2992,23 +2782,12 @@ if Fig_GPerts_gammas_1_5_vt_divided_by_gauss_and_Tsallis:
             label=r"%s" % HQ36[len("HQ10000_G"):])
 
         data, _ = bin1_different_gammas_HQ10000_G1_2_7_005[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "b",
-            label=r"%s" % HQ48[len("HQ10000_G"):],
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1], "b",
+                 label=r"%s" % HQ48[len("HQ10000_G"):], lw=2, ms=7)
+
         data, _ = bin1_different_gammas_HQ10000_G1_2_9_005[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "c",
-            label=r"%s" % HQ60[len("HQ10000_G"):],
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1], "c",
+                 label=r"%s" % HQ60[len("HQ10000_G"):], lw=2, ms=7)
 
         ax2.set_xticklabels([])
         ax2.set_ylabel(
@@ -3051,45 +2830,25 @@ if Fig_GPerts_gammas_1_5_vt_divided_by_gauss_and_Tsallis:
 
 
         data, _ = bin1_different_gammas_HQ10000_G1_2_1_005[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "r",
-            lw=2,
-            ms=7,
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "r", lw=2, ms=7)
+
         data, _ = bin1_different_gammas_HQ10000_G1_2_3_005[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "g",
-            lw=2,
-            ms=7,
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "g", lw=2, ms=7)
+
         data, _ = bin1_different_gammas_HQ10000_G1_2_5_005[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "k",
-            lw=2,
-            ms=7,
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "k", lw=2, ms=7)
+
         data, _ = bin1_different_gammas_HQ10000_G1_2_7_005[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "b",
-            lw=2,
-            ms=7,
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "b", lw=2, ms=7)
+
         data, _ = bin1_different_gammas_HQ10000_G1_2_9_005[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "c",
-            lw=2,
-            ms=7,
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "c", lw=2, ms=7)
+
         ax5.set_xticklabels([])
         ax5.set_ylabel(
             r"$\frac{f\left( u \right)}{log(x)e^{-0.5x^2}}$", fontsize=20
@@ -3102,45 +2861,25 @@ if Fig_GPerts_gammas_1_5_vt_divided_by_gauss_and_Tsallis:
 
 
         data, _ = bin1_different_gammas_HQ10000_G1_2_1_005[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "r",
-            lw=2,
-            ms=7,
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "r", lw=2, ms=7)
+
         data, _ = bin1_different_gammas_HQ10000_G1_2_3_005[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "g",
-            lw=2,
-            ms=7,
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "g", lw=2, ms=7)
+
         data, _ = bin1_different_gammas_HQ10000_G1_2_5_005[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "k",
-            lw=2,
-            ms=7,
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "k", lw=2, ms=7)
+
         data, _ = bin1_different_gammas_HQ10000_G1_2_7_005[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "b",
-            lw=2,
-            ms=7,
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "b", lw=2, ms=7)
+
         data, _ = bin1_different_gammas_HQ10000_G1_2_9_005[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "c",
-            lw=2,
-            ms=7,
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "c", lw=2, ms=7)
+
         ax6.set_xticklabels([])
         ax6.set_ylabel(
             r"$\frac{f\left(\log \left( |u_n|,u_p \right)\right)}{e^{-0.5x^2}}$",
@@ -3186,23 +2925,13 @@ if Fig_GPerts_gammas_1_5_vt_divided_by_gauss_and_Tsallis:
             label=r"%s" % test2_HQ66[len("test2_HQ10000_G"):])
 
         data, _ = bin1_different_gammas_test2_HQ10000_G1_0_15_005[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "b",
-            label=r"%s" % test2_HQ96[len("test2_HQ10000_G"):],
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1], "b",
+                 label=r"%s" % test2_HQ96[len("test2_HQ10000_G"):], lw=2, ms=7)
+
         data, _ = bin1_different_gammas_test2_HQ10000_G1_0_20_005[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "c",
-            label=r"%s" % test2_HQ126[len("test2_HQ10000_G"):],
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1], "c",
+                 label=r"%s" % test2_HQ126[len("test2_HQ10000_G"):],
+                 lw=2, ms=7)
 
         Plt(2, bin1_different_gammas_test2_HQ10000_G1_0_25_005[4], "m",
             label=r"%s" % test2_HQ159[len("test2_HQ10000_G"):])
@@ -3252,58 +2981,34 @@ if Fig_GPerts_gammas_1_5_vt_divided_by_gauss_and_Tsallis:
 
 
         data, _ = bin1_different_gammas_test2_HQ10000_G1_0_0_000[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "r",
-            lw=2,
-            ms=7,
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "r", lw=2, ms=7)
+
         data, _ = bin1_different_gammas_test2_HQ10000_G1_0_5_005[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "g",
-            lw=2,
-            ms=7,
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "g", lw=2, ms=7)
+
         data, _ = bin1_different_gammas_test2_HQ10000_G1_0_10_005[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "k",
-            lw=2,
-            ms=7,
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "k", lw=2, ms=7)
+
         data, _ = bin1_different_gammas_test2_HQ10000_G1_0_15_005[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "b",
-            lw=2,
-            ms=7,
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "b", lw=2, ms=7)
+
         data, _ = bin1_different_gammas_test2_HQ10000_G1_0_20_005[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "c",
-            lw=2,
-            ms=7,
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "c", lw=2, ms=7)
+
         data, _ = bin1_different_gammas_test2_HQ10000_G1_0_25_005[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "m",
-            lw=2,
-            ms=7,
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "m", lw=2, ms=7)
+
         ax5.set_xticklabels([])
         ax5.set_ylabel(
-            r"$\frac{f\left( u \right)}{887.569 \cdot x \cdot e^{-0.922 \cdot x^2} }$",
-            fontsize=20,
-        )
+            r"$\frac{f\left( u \right)}\
+              {887.569 \cdot x \cdot e^{-0.922 \cdot x^2} }$",
+            fontsize=20)
 
 
         def denom_ax6(a):
@@ -3312,57 +3017,34 @@ if Fig_GPerts_gammas_1_5_vt_divided_by_gauss_and_Tsallis:
 
 
         data, _ = bin1_different_gammas_test2_HQ10000_G1_0_0_000[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "r",
-            lw=2,
-            ms=7,
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "r", lw=2, ms=7)
+
         data, _ = bin1_different_gammas_test2_HQ10000_G1_0_5_005[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "g",
-            lw=2,
-            ms=7,
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "g", lw=2, ms=7)
+
         data, _ = bin1_different_gammas_test2_HQ10000_G1_0_10_005[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "k",
-            lw=2,
-            ms=7,
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "k", lw=2, ms=7)
+
         data, _ = bin1_different_gammas_test2_HQ10000_G1_0_15_005[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "b",
-            lw=2,
-            ms=7,
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "b", lw=2, ms=7)
+
         data, _ = bin1_different_gammas_test2_HQ10000_G1_0_20_005[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "c",
-            lw=2,
-            ms=7,
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "c", lw=2, ms=7)
+
         data, _ = bin1_different_gammas_test2_HQ10000_G1_0_25_005[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "m",
-            lw=2,
-            ms=7,
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "m", lw=2, ms=7)
+
         ax6.set_xticklabels([])
         ax6.set_ylim(0, 5)
         ax6.set_ylabel(
-            r"$\frac{f\left(\log \left( |u_tn|,u_tp \right)\right)}{3424.993 \cdot x^2 \cdot e^{-0.930 \cdot x^2 }}$",
+            r"$\frac{f\left(\log \left( |u_tn|,u_tp \right)\right)}\
+              {3424.993 \cdot x^2 \cdot e^{-0.930 \cdot x^2 }}$",
             fontsize=20,
         )
 
@@ -3374,53 +3056,29 @@ if Fig_GPerts_gammas_1_5_vt_divided_by_gauss_and_Tsallis:
 
 
         data, _ = bin1_different_gammas_test2_HQ10000_G1_0_0_000[0]
-        ax7.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax7(data[:, 0])),
-            "r",
-            lw=2,
-            ms=7,
-        )
+        ax7.plot(data[:, 0], data[:, 1] / denom_ax7(data[:, 0])),
+                "r", lw=2, ms=7)
+
         data, _ = bin1_different_gammas_test2_HQ10000_G1_0_5_005[0]
-        ax7.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax7(data[:, 0]),
-            "g",
-            lw=2,
-            ms=7,
-        )
+        ax7.plot(data[:, 0], data[:, 1] / denom_ax7(data[:, 0]),
+                 "g", lw=2, ms=7)
+
         data, _ = bin1_different_gammas_test2_HQ10000_G1_0_10_005[0]
-        ax7.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax7(data[:, 0]),
-            "k",
-            lw=2,
-            ms=7,
-        )
+        ax7.plot(data[:, 0], data[:, 1] / denom_ax7(data[:, 0]),
+                 "k", lw=2, ms=7)
+
         data, _ = bin1_different_gammas_test2_HQ10000_G1_0_15_005[0]
-        ax7.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax7(data[:, 0]),
-            "b",
-            lw=2,
-            ms=7,
-        )
+        ax7.plot(data[:, 0], data[:, 1] / denom_ax7(data[:, 0]),
+                 "b", lw=2, ms=7)
+
         data, _ = bin1_different_gammas_test2_HQ10000_G1_0_20_005[0]
-        ax7.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax7(data[:, 0]),
-            "c",
-            lw=2,
-            ms=7,
-        )
+        ax7.plot(data[:, 0], data[:, 1] / denom_ax7(data[:, 0]),
+                 "c", lw=2, ms=7)
+
         data, _ = bin1_different_gammas_test2_HQ10000_G1_0_25_005[0]
-        ax7.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax7(data[:, 0]),
-            "m",
-            lw=2,
-            ms=7,
-        )
+        ax7.plot(data[:, 0], data[:, 1] / denom_ax7(data[:, 0]),
+                 "m", lw=2, ms=7)
+
         ax7.set_ylim(0, 2)
         ax7.set_xlabel(r"$u_t$", fontsize=20)
         ax7.set_ylabel(r"$\frac{f\left( u \right)}{Tsallis} $", fontsize=20)
@@ -3434,53 +3092,29 @@ if Fig_GPerts_gammas_1_5_vt_divided_by_gauss_and_Tsallis:
 
 
         data, _ = bin1_different_gammas_test2_HQ10000_G1_0_0_000[4]
-        ax8.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax8(data[:, 0]),
-            "r",
-            lw=2,
-            ms=7,
-        )
+        ax8.plot(data[:, 0], data[:, 1] / denom_ax8(data[:, 0]),
+                 "r", lw=2, ms=7)
+
         data, _ = bin1_different_gammas_test2_HQ10000_G1_0_5_005[4]
-        ax8.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax8(data[:, 0]),
-            "g",
-            lw=2,
-            ms=7,
-        )
+        ax8.plot(data[:, 0], data[:, 1] / denom_ax8(data[:, 0]),
+                 "g", lw=2, ms=7)
+
         data, _ = bin1_different_gammas_test2_HQ10000_G1_0_10_005[4]
-        ax8.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax8(data[:, 0]),
-            "k",
-            lw=2,
-            ms=7,
-        )
+        ax8.plot(data[:, 0], data[:, 1] / denom_ax8(data[:, 0]),
+                 "k", lw=2, ms=7)
+
         data, _ = bin1_different_gammas_test2_HQ10000_G1_0_15_005[4]
-        ax8.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax8(data[:, 0]),
-            "b",
-            lw=2,
-            ms=7,
-        )
+        ax8.plot(data[:, 0], data[:, 1] / denom_ax8(data[:, 0]),
+                 "b", lw=2, ms=7)
+
         data, _ = bin1_different_gammas_test2_HQ10000_G1_0_20_005[4]
-        ax8.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax8(data[:, 0]),
-            "c",
-            lw=2,
-            ms=7,
-        )
+        ax8.plot(data[:, 0], data[:, 1] / denom_ax8(data[:, 0]),
+                 "c", lw=2, ms=7)
+
         data, _ = bin1_different_gammas_test2_HQ10000_G1_0_25_005[4]
-        ax8.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax8(data[:, 0]),
-            "m",
-            lw=2,
-            ms=7,
-        )
+        ax8.plot(data[:, 0], data[:, 1] / denom_ax8(data[:, 0]),
+                 "m", lw=2, ms=7)
+
         ax8.set_ylim(0, 5)
         ax8.set_xlabel(r"$\log \left( |u_tn|,u_tp \right)$", fontsize=20)
         ax8.set_ylabel(
@@ -3528,23 +3162,12 @@ if Fig_GPerts_gammas_1_5_vt_divided_by_gauss_and_Tsallis:
             label=r"%s" % A_HQ66[len("A_HQ10000_G"):])
 
         data, _ = bin1_different_gammas_A_HQ10000_G1_0_40_005[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "b",
-            label=r"%s" % A_HQ246[len("A_HQ10000_G"):],
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1], "b",
+                 label=r"%s" % A_HQ246[len("A_HQ10000_G"):], lw=2, ms=7)
+
         data, _ = bin1_different_gammas_A_HQ10000_G1_0_48_009[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "c",
-            label=r"%s" % A_HQ298[len("A_HQ10000_G"):],
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1], "c",
+                 label=r"%s" % A_HQ298[len("A_HQ10000_G"):], lw=2, ms=7)
 
         Plt(2, bin1_different_gammas_A_HQ10000_G1_0_48_093[4], "m",
             label=r"%s" % A_HQ382[len("A_HQ10000_G"):])
@@ -3582,7 +3205,7 @@ if Fig_GPerts_gammas_1_5_vt_divided_by_gauss_and_Tsallis:
 
         ax4.set_xticklabels([])
         ax4.set_ylabel(
-            r"$\log \left( f\left(\log \left( |u_n|,u_p \right)\right) \right)$",
+            r"$\log \left( f\left(\log \left(|u_n|,u_p \right)\right)\right)$",
             fontsize=20)
         ax4.set_yscale("log")
 
@@ -3593,57 +3216,34 @@ if Fig_GPerts_gammas_1_5_vt_divided_by_gauss_and_Tsallis:
 
 
         data, _ = bin1_different_gammas_A_HQ10000_G1_0_0_000[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "r",
-            lw=2,
-            ms=7,
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "r", lw=2, ms=7)
+
         data, _ = bin1_different_gammas_A_HQ10000_G1_0_5_005[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "g",
-            lw=2,
-            ms=7,
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "g", lw=2, ms=7)
+
         data, _ = bin1_different_gammas_A_HQ10000_G1_0_10_005[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "k",
-            lw=2,
-            ms=7,
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "k", lw=2, ms=7)
+
         data, _ = bin1_different_gammas_A_HQ10000_G1_0_40_005[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "b",
-            lw=2,
-            ms=7,
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "b", lw=2, ms=7)
+
         data, _ = bin1_different_gammas_A_HQ10000_G1_0_48_009[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "c",
-            lw=2,
-            ms=7,
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "c", lw=2, ms=7)
+
         data, _ = bin1_different_gammas_A_HQ10000_G1_0_48_093[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "m",
-            lw=2,
-            ms=7,
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "m", lw=2, ms=7)
+
         ax5.set_xticklabels([])
-        ax5.set_ylim(0.5, 1.5)
+        ax5.set_ylim(.5, 1.5)
         ax5.set_ylabel(
-            r"$\frac{f\left( u \right)}{887.569 \cdot x \cdot e^{-0.922 \cdot x^2} }$",
+            r"$\frac{f\left( u \right)}\
+              {887.569 \cdot x \cdot e^{-0.922 \cdot x^2} }$",
             fontsize=20)
 
 
@@ -3653,57 +3253,34 @@ if Fig_GPerts_gammas_1_5_vt_divided_by_gauss_and_Tsallis:
 
 
         data, _ = bin1_different_gammas_A_HQ10000_G1_0_0_000[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "r",
-            lw=2,
-            ms=7,
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "r", lw=2, ms=7)
+
         data, _ = bin1_different_gammas_A_HQ10000_G1_0_5_005[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "g",
-            lw=2,
-            ms=7,
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "g", lw=2, ms=7)
+
         data, _ = bin1_different_gammas_A_HQ10000_G1_0_10_005[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "k",
-            lw=2,
-            ms=7,
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "k", lw=2, ms=7)
+
         data, _ = bin1_different_gammas_A_HQ10000_G1_0_40_005[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "b",
-            lw=2,
-            ms=7,
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "b", lw=2, ms=7)
+
         data, _ = bin1_different_gammas_A_HQ10000_G1_0_48_009[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "c",
-            lw=2,
-            ms=7,
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "c", lw=2, ms=7)
+
         data, _ = bin1_different_gammas_A_HQ10000_G1_0_48_093[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "m",
-            lw=2,
-            ms=7,
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "m", lw=2, ms=7)
+
         ax6.set_xticklabels([])
-        ax6.set_ylim(0.5, 1.5)
+        ax6.set_ylim(.5, 1.5)
         ax6.set_ylabel(
-            r"$\frac{f\left(\log \left( |u_n|,u_p \right)\right)}{3424.993 \cdot x^2 \cdot e^{-0.930 \cdot x^2 }}$",
+            r"$\frac{f\left(\log \left( |u_n|,u_p \right)\right)}\
+              {3424.993 \cdot x^2 \cdot e^{-0.930 \cdot x^2 }}$",
             fontsize=20)
 
 
@@ -3714,56 +3291,32 @@ if Fig_GPerts_gammas_1_5_vt_divided_by_gauss_and_Tsallis:
 
 
         data, _ = bin1_different_gammas_A_HQ10000_G1_0_0_000[0]
-        ax7.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax7(data[:, 0]),
-            "r",
-            lw=2,
-            ms=7,
-        )
+        ax7.plot(data[:, 0], data[:, 1] / denom_ax7(data[:, 0]),
+                 "r", lw=2, ms=7)
+
         data, _ = bin1_different_gammas_A_HQ10000_G1_0_5_005[0]
-        ax7.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax7(data[:, 0]),
-            "g",
-            lw=2,
-            ms=7,
-        )
+        ax7.plot(data[:, 0], data[:, 1] / denom_ax7(data[:, 0]),
+                 "g", lw=2, ms=7)
+
         data, _ = bin1_different_gammas_A_HQ10000_G1_0_10_005[0]
-        ax7.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax7(data[:, 0]),
-            "k",
-            lw=2,
-            ms=7,
-        )
+        ax7.plot(data[:, 0], data[:, 1] / denom_ax7(data[:, 0]),
+                 "k", lw=2, ms=7)
+
         data, _ = bin1_different_gammas_A_HQ10000_G1_0_40_005[0]
-        ax7.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax7(data[:, 0]),
-            "b",
-            lw=2,
-            ms=7,
-        )
+        ax7.plot(data[:, 0], data[:, 1] / denom_ax7(data[:, 0]),
+                 "b", lw=2, ms=7)
+
         data, _ = bin1_different_gammas_A_HQ10000_G1_0_48_009[0]
-        ax7.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax7(data[:, 0]),
-            "c",
-            lw=2,
-            ms=7,
-        )
+        ax7.plot(data[:, 0], data[:, 1] / denom_ax7(data[:, 0]),
+                 "c", lw=2, ms=7)
+
         data, _ = bin1_different_gammas_A_HQ10000_G1_0_48_093[0]
-        ax7.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax7(data[:, 0]),
-            "m",
-            lw=2,
-            ms=7,
-        )
+        ax7.plot(data[:, 0], data[:, 1] / denom_ax7(data[:, 0]),
+                 "m", lw=2, ms=7)
+
         ax7.set_ylim(.5, 1.5)
         ax7.set_xlabel(r"$u_t$", fontsize=20)
-        ax7.set_ylabel(r"$\frac{f\left( u \right)}{Tsallis} $", fontsize=20)
+        ax7.set_ylabel(r"$\frac{f\left(u \right)}{Tsallis}$", fontsize=20)
 
 
         def denom_ax8(a):
@@ -3774,54 +3327,30 @@ if Fig_GPerts_gammas_1_5_vt_divided_by_gauss_and_Tsallis:
 
 
         data, _ = bin1_different_gammas_A_HQ10000_G1_0_0_000[4]
-        ax8.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax8(data[:, 0]),
-            "r",
-            lw=2,
-            ms=7,
-        )
+        ax8.plot(data[:, 0], data[:, 1] / denom_ax8(data[:, 0]),
+                 "r", lw=2, ms=7)
+
         data, _ = bin1_different_gammas_A_HQ10000_G1_0_5_005[4]
-        ax8.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax8(data[:, 0]),
-            "g",
-            lw=2,
-            ms=7,
-        )
+        ax8.plot(data[:, 0], data[:, 1] / denom_ax8(data[:, 0]),
+                 "g", lw=2, ms=7)
+
         data, _ = bin1_different_gammas_A_HQ10000_G1_0_10_005[4]
-        ax8.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax8(data[:, 0]),
-            "k",
-            lw=2,
-            ms=7,
-        )
+        ax8.plot(data[:, 0], data[:, 1] / denom_ax8(data[:, 0]),
+                 "k", lw=2, ms=7)
+
         data, _ = bin1_different_gammas_A_HQ10000_G1_0_40_005[4]
-        ax8.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax8(data[:, 0]),
-            "b",
-            lw=2,
-            ms=7,
-        )
+        ax8.plot(data[:, 0], data[:, 1] / denom_ax8(data[:, 0]),
+                 "b", lw=2, ms=7)
+
         data, _ = bin1_different_gammas_A_HQ10000_G1_0_48_009[4]
-        ax8.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax8(data[:, 0]),
-            "c",
-            lw=2,
-            ms=7,
-        )
+        ax8.plot(data[:, 0], data[:, 1] / denom_ax8(data[:, 0]),
+                 "c", lw=2, ms=7)
+
         data, _ = bin1_different_gammas_A_HQ10000_G1_0_48_093[4]
-        ax8.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax8(data[:, 0]),
-            "m",
-            lw=2,
-            ms=7,
-        )
-        ax8.set_ylim(0.5, 1.5)
+        ax8.plot(data[:, 0], data[:, 1] / denom_ax8(data[:, 0]),
+                 "m", lw=2, ms=7)
+
+        ax8.set_ylim(.5, 1.5)
         ax8.set_xlabel(r"$\log \left( |u_tn|,u_tp \right)$", fontsize=20)
         ax8.set_ylabel(
             r"$\frac{f\left(\log \left( |u_tn|,u_tp \right)\right)}{Tsallis}$",
@@ -3855,54 +3384,28 @@ if Fig_GPerts_gammas_1_5_vt_divided_by_gauss_and_Tsallis:
         ax1.set_ylabel(r"$f\left( u \right)$", fontsize=20)
         ax1.set_title(
             r" Time evolution of %s , different r bins, $\gamma = -1.5$"
-            % B_HQ0[:-9],
-            fontsize=20)
+            % B_HQ0[:-9], fontsize=20)
 
         data, _ = bin1_different_gammas_B_HQ10000_G1_0_0_000[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "r",
-            label=r"%s " % B_HQ0[len("B_HQ10000_G"):],
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1], "r",
+                 label=r"%s " % B_HQ0[len("B_HQ10000_G"):], lw=2, ms=7)
+
         data, _ = bin1_different_gammas_B_HQ10000_G1_0_5_005[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "g",
-            label=r"%s" % B_HQ36[len("B_HQ10000_G"):],
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1], "g",
+                 label=r"%s" % B_HQ36[len("B_HQ10000_G"):], lw=2, ms=7)
+
         data, _ = bin1_different_gammas_B_HQ10000_G1_0_10_005[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "k",
-            label=r"%s" % B_HQ66[len("B_HQ10000_G"):],
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1], "k",
+                 label=r"%s" % B_HQ66[len("B_HQ10000_G"):], lw=2, ms=7)
+
         data, _ = bin1_different_gammas_B_HQ10000_G1_0_198_000[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "b",
-            label=r"%s" % B_HQ294[len("B_HQ10000_G"):],
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1], "b",
+                 label=r"%s" % B_HQ294[len("B_HQ10000_G"):], lw=2, ms=7)
+
         data, _ = bin1_different_gammas_B_HQ10000_G1_0_198_093[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "c",
-            label=r"%s" % B_HQ382[len("B_HQ10000_G"):],
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1], "c",
+                 label=r"%s" % B_HQ382[len("B_HQ10000_G"):], lw=2, ms=7)
+
         ax2.set_xticklabels([])
         ax2.set_ylabel(
             r"$f\left(\log \left( |u_n|,u_p \right)\right)$", fontsize=20)
@@ -3933,7 +3436,7 @@ if Fig_GPerts_gammas_1_5_vt_divided_by_gauss_and_Tsallis:
         ax4.plot(data[:, 0], data[:, 1], "c", lw=2, ms=7)
         ax4.set_xticklabels([])
         ax4.set_ylabel(
-            r"$\log \left( f\left(\log \left( |u_n|,u_p \right)\right) \right)$",
+            r"$\log \left(f\left(\log \left(|u_n|,u_p \right)\right) \right)$",
             fontsize=20)
         ax4.set_yscale("log")
 
@@ -3944,48 +3447,29 @@ if Fig_GPerts_gammas_1_5_vt_divided_by_gauss_and_Tsallis:
 
 
         data, _ = bin1_different_gammas_B_HQ10000_G1_0_0_000[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "r",
-            lw=2,
-            ms=7,
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "r", lw=2, ms=7)
+
         data, _ = bin1_different_gammas_B_HQ10000_G1_0_5_005[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "g",
-            lw=2,
-            ms=7,
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "g", lw=2, ms=7)
+
         data, _ = bin1_different_gammas_B_HQ10000_G1_0_10_005[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "k",
-            lw=2,
-            ms=7,
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "k", lw=2, ms=7)
+
         data, _ = bin1_different_gammas_B_HQ10000_G1_0_198_000[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "b",
-            lw=2,
-            ms=7,
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "b", lw=2, ms=7)
+
         data, _ = bin1_different_gammas_B_HQ10000_G1_0_198_093[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "c",
-            lw=2,
-            ms=7,
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "c", lw=2, ms=7)
+
         ax5.set_xticklabels([])
         ax5.set_ylabel(
-            r"$\frac{f\left( u \right)}{914.415 \cdot x \cdot e^{-0.930 \cdot x^2} }$",
+            r"$\frac{f\left( u \right)}\
+              {914.415 \cdot x \cdot e^{-0.930 \cdot x^2} }$",
             fontsize=20)
 
 
@@ -3995,49 +3479,30 @@ if Fig_GPerts_gammas_1_5_vt_divided_by_gauss_and_Tsallis:
 
 
         data, _ = bin1_different_gammas_B_HQ10000_G1_0_0_000[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "r",
-            lw=2,
-            ms=7,
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "r", lw=2, ms=7)
+
         data, _ = bin1_different_gammas_B_HQ10000_G1_0_5_005[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "g",
-            lw=2,
-            ms=7,
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "g", lw=2, ms=7)
+
         data, _ = bin1_different_gammas_B_HQ10000_G1_0_10_005[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "k",
-            lw=2,
-            ms=7,
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "k", lw=2, ms=7)
+
         data, _ = bin1_different_gammas_B_HQ10000_G1_0_198_000[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "b",
-            lw=2,
-            ms=7,
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "b", lw=2, ms=7)
+
         data, _ = bin1_different_gammas_B_HQ10000_G1_0_198_093[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "c",
-            lw=2,
-            ms=7,
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "c", lw=2, ms=7)
+
         ax6.set_xticklabels([])
         ax6.set_ylim(0, 3)
         ax6.set_ylabel(
-            r"$\frac{f\left(\log \left( |u_n|,u_p \right)\right)}{3452.955 \cdot x^2 \cdot e^{-0.936 \cdot x^2 }}$",
+            r"$\frac{f\left(\log \left( |u_n|,u_p \right)\right)}\
+              {3452.955 \cdot x^2 \cdot e^{-0.936 \cdot x^2 }}$",
             fontsize=20)
 
 
@@ -4048,45 +3513,25 @@ if Fig_GPerts_gammas_1_5_vt_divided_by_gauss_and_Tsallis:
 
 
         data, _ = bin1_different_gammas_B_HQ10000_G1_0_0_000[0]
-        ax7.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax7(data[:, 0]),
-            "r",
-            lw=2,
-            ms=7,
-        )
+        ax7.plot(data[:, 0], data[:, 1] / denom_ax7(data[:, 0]),
+                 "r", lw=2, ms=7)
+
         data, _ = bin1_different_gammas_B_HQ10000_G1_0_5_005[0]
-        ax7.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax7(data[:, 0]),
-            "g",
-            lw=2,
-            ms=7,
-        )
+        ax7.plot(data[:, 0], data[:, 1] / denom_ax7(data[:, 0]),
+                 "g", lw=2, ms=7)
+
         data, _ = bin1_different_gammas_B_HQ10000_G1_0_10_005[0]
-        ax7.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax7(data[:, 0]),
-            "k",
-            lw=2,
-            ms=7,
-        )
+        ax7.plot(data[:, 0], data[:, 1] / denom_ax7(data[:, 0]),
+                 "k", lw=2, ms=7)
+
         data, _ = bin1_different_gammas_B_HQ10000_G1_0_198_000[0]
-        ax7.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax7(data[:, 0]),
-            "b",
-            lw=2,
-            ms=7,
-        )
+        ax7.plot(data[:, 0], data[:, 1] / denom_ax7(data[:, 0]),
+                 "b", lw=2, ms=7)
+
         data, _ = bin1_different_gammas_B_HQ10000_G1_0_198_093[0]
-        ax7.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax7(data[:, 0]),
-            "c",
-            lw=2,
-            ms=7,
-        )
+        ax7.plot(data[:, 0], data[:, 1] / denom_ax7(data[:, 0]),
+                 "c", lw=2, ms=7)
+
         ax7.set_ylim(0, 2)
         ax7.set_xlabel(r"$u_t$", fontsize=20)
         ax7.set_ylabel(r"$\frac{f\left( u \right)}{Tsallis} $", fontsize=20)
@@ -4100,45 +3545,25 @@ if Fig_GPerts_gammas_1_5_vt_divided_by_gauss_and_Tsallis:
 
 
         data, _ = bin1_different_gammas_B_HQ10000_G1_0_0_000[4]
-        ax8.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax8(data[:, 0]),
-            "r",
-            lw=2,
-            ms=7,
-        )
+        ax8.plot(data[:, 0], data[:, 1] / denom_ax8(data[:, 0]),
+                 "r", lw=2, ms=7)
+
         data, _ = bin1_different_gammas_B_HQ10000_G1_0_5_005[4]
-        ax8.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax8(data[:, 0]),
-            "g",
-            lw=2,
-            ms=7,
-        )
+        ax8.plot(data[:, 0], data[:, 1] / denom_ax8(data[:, 0]),
+                 "g", lw=2, ms=7)
+
         data, _ = bin1_different_gammas_B_HQ10000_G1_0_10_005[4]
-        ax8.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax8(data[:, 0]),
-            "k",
-            lw=2,
-            ms=7,
-        )
+        ax8.plot(data[:, 0], data[:, 1] / denom_ax8(data[:, 0]),
+                 "k", lw=2, ms=7)
+
         data, _ = bin1_different_gammas_B_HQ10000_G1_0_198_000[4]
-        ax8.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax8(data[:, 0]),
-            "b",
-            lw=2,
-            ms=7,
-        )
+        ax8.plot(data[:, 0], data[:, 1] / denom_ax8(data[:, 0]),
+                 "b", lw=2, ms=7)
+
         data, _ = bin1_different_gammas_B_HQ10000_G1_0_198_093[4]
-        ax8.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax8(data[:, 0]),
-            "c",
-            lw=2,
-            ms=7,
-        )
+        ax8.plot(data[:, 0], data[:, 1] / denom_ax8(data[:, 0]),
+                 "c", lw=2, ms=7)
+
         ax8.set_ylim(0, 5)
         ax8.set_xlabel(r"$\log \left( |u_tn|,u_tp \right)$", fontsize=20)
         ax8.set_ylabel(
@@ -4175,54 +3600,29 @@ if Fig_GPerts_gammas_2_0_vt_divided_by_gauss_and_Tsallis:
         ax1.set_xticklabels([])
         ax1.set_ylabel(r"$f\left( u \right)$", fontsize=20)
         ax1.set_title(
-            r" Time evolution of files = %s , different r bins, $\gamma = -2.0$"
+            r"Time evolution of files = %s, different r bins, $\gamma = -2.0$"
             % HQ0[:-9], fontsize=20)
 
         data, _ = bin2_different_gammas_HQ10000_G1_2_1_005[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "r",
-            label=r"%s " % HQ12[len("HQ10000_G"):],
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1], "r",
+                 label=r"%s " % HQ12[len("HQ10000_G"):], lw=2, ms=7)
+
         data, _ = bin2_different_gammas_HQ10000_G1_2_3_005[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "g",
-            label=r"%s" % HQ24[len("HQ10000_G"):],
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1], "g",
+                 label=r"%s" % HQ24[len("HQ10000_G"):], lw=2, ms=7)
+
         data, _ = bin2_different_gammas_HQ10000_G1_2_5_005[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "k",
-            label=r"%s" % HQ36[len("HQ10000_G"):],
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1], "k",
+                 label=r"%s" % HQ36[len("HQ10000_G"):], lw=2, ms=7)
+
         data, _ = bin2_different_gammas_HQ10000_G1_2_7_005[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "b",
-            label=r"%s" % HQ48[len("HQ10000_G"):],
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1], "b",
+                 label=r"%s" % HQ48[len("HQ10000_G"):], lw=2, ms=7)
+
         data, _ = bin2_different_gammas_HQ10000_G1_2_9_005[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "c",
-            label=r"%s" % HQ60[len("HQ10000_G"):],
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1], "c",
+                 label=r"%s" % HQ60[len("HQ10000_G"):], lw=2,ms=7)
+
         ax2.set_xticklabels([])
         ax2.set_ylabel(
             r"$f\left(\log \left( |u_n|,u_p \right)\right)$", fontsize=20)
@@ -4253,7 +3653,8 @@ if Fig_GPerts_gammas_2_0_vt_divided_by_gauss_and_Tsallis:
         ax4.plot(data[:, 0], data[:, 1], "c", lw=2, ms=7)
         ax4.set_xticklabels([])
         ax4.set_ylabel(
-            r"$\log \left( f\left(\log \left( |u_n|,u_p \right)\right) \right)$",
+            r"$\log \left( f\left(\log \left( |u_n|,u_p \right)\
+              \right) \right)$",
             fontsize=20,
         )
         ax4.set_yscale("log")
@@ -4265,45 +3666,25 @@ if Fig_GPerts_gammas_2_0_vt_divided_by_gauss_and_Tsallis:
 
 
         data, _ = bin2_different_gammas_HQ10000_G1_2_1_005[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "r",
-            lw=2,
-            ms=7,
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "r", lw=2, ms=7)
+
         data, _ = bin2_different_gammas_HQ10000_G1_2_3_005[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "g",
-            lw=2,
-            ms=7,
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "g", lw=2, ms=7)
+
         data, _ = bin2_different_gammas_HQ10000_G1_2_5_005[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "k",
-            lw=2,
-            ms=7,
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "k", lw=2, ms=7)
+
         data, _ = bin2_different_gammas_HQ10000_G1_2_7_005[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "b",
-            lw=2,
-            ms=7,
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "b", lw=2, ms=7)
+
         data, _ = bin2_different_gammas_HQ10000_G1_2_9_005[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "c",
-            lw=2,
-            ms=7,
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "c", lw=2, ms=7)
+
         ax5.set_xticklabels([])
         ax5.set_ylim(0, 3)
         ax5.set_ylabel(
@@ -4317,45 +3698,25 @@ if Fig_GPerts_gammas_2_0_vt_divided_by_gauss_and_Tsallis:
 
 
         data, _ = bin2_different_gammas_HQ10000_G1_2_1_005[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "r",
-            lw=2,
-            ms=7,
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "r", lw=2, ms=7)
+
         data, _ = bin2_different_gammas_HQ10000_G1_2_3_005[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "g",
-            lw=2,
-            ms=7,
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "g", lw=2, ms=7)
+
         data, _ = bin2_different_gammas_HQ10000_G1_2_5_005[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "k",
-            lw=2,
-            ms=7,
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "k", lw=2, ms=7)
+
         data, _ = bin2_different_gammas_HQ10000_G1_2_7_005[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "b",
-            lw=2,
-            ms=7,
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "b", lw=2, ms=7)
+
         data, _ = bin2_different_gammas_HQ10000_G1_2_9_005[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "c",
-            lw=2,
-            ms=7,
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "c", lw=2, ms=7)
+
         ax6.set_xticklabels([])
         ax6.set_ylabel(
             r"$\frac{f\left(\log \left( |u_n|,u_p \right)\right)}{e^{-0.5x^2}}$",
@@ -4393,59 +3754,35 @@ if Fig_GPerts_gammas_2_0_vt_divided_by_gauss_and_Tsallis:
             % test2_HQ0[:-9], fontsize=20)
 
         data, _ = bin2_different_gammas_test2_HQ10000_G1_0_0_000[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "r",
-            label=r"%s " % test2_HQ0[len("test2_HQ10000_G"):],
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1], "r",
+                 label=r"%s " % test2_HQ0[len("test2_HQ10000_G"):],
+                 lw=2, ms=7)
+
         data, _ = bin2_different_gammas_test2_HQ10000_G1_0_5_005[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "g",
-            label=r"%s" % test2_HQ36[len("test2_HQ10000_G"):],
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1], "g",
+                 label=r"%s" % test2_HQ36[len("test2_HQ10000_G"):],
+                 lw=2, ms=7)
+
         data, _ = bin2_different_gammas_test2_HQ10000_G1_0_10_005[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "k",
-            label=r"%s" % test2_HQ66[len("test2_HQ10000_G"):],
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1], "k",
+                 label=r"%s" % test2_HQ66[len("test2_HQ10000_G"):],
+                 lw=2, ms=7)
+
         data, _ = bin2_different_gammas_test2_HQ10000_G1_0_15_005[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "b",
-            label=r"%s" % test2_HQ96[len("test2_HQ10000_G"):],
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1], "b",
+                 label=r"%s" % test2_HQ96[len("test2_HQ10000_G"):],
+                 lw=2, ms=7)
+
         data, _ = bin2_different_gammas_test2_HQ10000_G1_0_20_005[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "c",
-            label=r"%s" % test2_HQ126[len("test2_HQ10000_G"):],
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1], "c",
+                 label=r"%s" % test2_HQ126[len("test2_HQ10000_G"):],
+                 lw=2, ms=7)
+
         data, _ = bin2_different_gammas_test2_HQ10000_G1_0_25_005[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "m",
-            label=r"%s" % test2_HQ159[len("test2_HQ10000_G"):],
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1], "m",
+                 label=r"%s" % test2_HQ159[len("test2_HQ10000_G"):],
+                 lw=2, ms=7)
+
         ax2.set_xticklabels([])
         ax2.set_ylabel(
             r"$f\left(\log \left( |u_n|,u_p \right)\right)$", fontsize=20)
@@ -4492,53 +3829,29 @@ if Fig_GPerts_gammas_2_0_vt_divided_by_gauss_and_Tsallis:
 
 
         data, _ = bin2_different_gammas_test2_HQ10000_G1_0_0_000[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "r",
-            lw=2,
-            ms=7,
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "r", lw=2, ms=7)
+
         data, _ = bin2_different_gammas_test2_HQ10000_G1_0_5_005[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "g",
-            lw=2,
-            ms=7,
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "g", lw=2, ms=7)
+
         data, _ = bin2_different_gammas_test2_HQ10000_G1_0_10_005[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "k",
-            lw=2,
-            ms=7,
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "k", lw=2, ms=7)
+
         data, _ = bin2_different_gammas_test2_HQ10000_G1_0_15_005[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "b",
-            lw=2,
-            ms=7,
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "b", lw=2, ms=7)
+
         data, _ = bin2_different_gammas_test2_HQ10000_G1_0_20_005[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "c",
-            lw=2,
-            ms=7,
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "c", lw=2, ms=7)
+
         data, _ = bin2_different_gammas_test2_HQ10000_G1_0_25_005[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "m",
-            lw=2,
-            ms=7,
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "m", lw=2, ms=7)
+
         ax5.set_xticklabels([])
         ax5.set_ylim(0, 3)
         ax5.set_ylabel(
@@ -4553,53 +3866,29 @@ if Fig_GPerts_gammas_2_0_vt_divided_by_gauss_and_Tsallis:
 
 
         data, _ = bin2_different_gammas_test2_HQ10000_G1_0_0_000[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "r",
-            lw=2,
-            ms=7,
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "r", lw=2, ms=7)
+
         data, _ = bin2_different_gammas_test2_HQ10000_G1_0_5_005[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "g",
-            lw=2,
-            ms=7,
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "g", lw=2, ms=7)
+
         data, _ = bin2_different_gammas_test2_HQ10000_G1_0_10_005[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "k",
-            lw=2,
-            ms=7,
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "k", lw=2, ms=7)
+
         data, _ = bin2_different_gammas_test2_HQ10000_G1_0_15_005[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "b",
-            lw=2,
-            ms=7,
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "b", lw=2, ms=7)
+
         data, _ = bin2_different_gammas_test2_HQ10000_G1_0_20_005[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "c",
-            lw=2,
-            ms=7,
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "c", lw=2, ms=7)
+
         data, _ = bin2_different_gammas_test2_HQ10000_G1_0_25_005[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "m",
-            lw=2,
-            ms=7,
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "m", lw=2, ms=7)
+
         ax6.set_xticklabels([])
         ax6.set_ylim(0, 5)
         ax6.set_ylabel(
@@ -4615,53 +3904,29 @@ if Fig_GPerts_gammas_2_0_vt_divided_by_gauss_and_Tsallis:
 
 
         data, _ = bin2_different_gammas_test2_HQ10000_G1_0_0_000[0]
-        ax7.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax7(data[:, 0]),
-            "r",
-            lw=2,
-            ms=7,
-        )
+        ax7.plot(data[:, 0], data[:, 1] / denom_ax7(data[:, 0]),
+                 "r", lw=2, ms=7)
+
         data, _ = bin2_different_gammas_test2_HQ10000_G1_0_5_005[0]
-        ax7.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax7(data[:, 0]),
-            "g",
-            lw=2,
-            ms=7,
-        )
+        ax7.plot(data[:, 0], data[:, 1] / denom_ax7(data[:, 0]),
+                 "g", lw=2, ms=7)
+
         data, _ = bin2_different_gammas_test2_HQ10000_G1_0_10_005[0]
-        ax7.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax7(data[:, 0]),
-            "k",
-            lw=2,
-            ms=7,
-        )
+        ax7.plot(data[:, 0], data[:, 1] / denom_ax7(data[:, 0]),
+                 "k", lw=2, ms=7)
+
         data, _ = bin2_different_gammas_test2_HQ10000_G1_0_15_005[0]
-        ax7.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax7(data[:, 0]),
-            "b",
-            lw=2,
-            ms=7,
-        )
+        ax7.plot(data[:, 0], data[:, 1] / denom_ax7(data[:, 0]),
+                 "b", lw=2, ms=7)
+
         data, _ = bin2_different_gammas_test2_HQ10000_G1_0_20_005[0]
-        ax7.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax7(data[:, 0]),
-            "c",
-            lw=2,
-            ms=7,
-        )
+        ax7.plot(data[:, 0], data[:, 1] / denom_ax7(data[:, 0]),
+                 "c", lw=2, ms=7)
+
         data, _ = bin2_different_gammas_test2_HQ10000_G1_0_25_005[0]
-        ax7.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax7(data[:, 0]),
-            "m",
-            lw=2,
-            ms=7,
-        )
+        ax7.plot(data[:, 0], data[:, 1] / denom_ax7(data[:, 0]),
+                 "m", lw=2, ms=7)
+
         ax7.set_ylim(0, 2)
         ax7.set_xlabel(r"$u_t$", fontsize=20)
         ax7.set_ylabel(r"$\frac{f\left( u \right)}{Tsallis} $", fontsize=20)
@@ -4675,53 +3940,29 @@ if Fig_GPerts_gammas_2_0_vt_divided_by_gauss_and_Tsallis:
 
 
         data, _ = bin2_different_gammas_test2_HQ10000_G1_0_0_000[4]
-        ax8.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax8(data[:, 0]),
-            "r",
-            lw=2,
-            ms=7,
-        )
+        ax8.plot(data[:, 0], data[:, 1] / denom_ax8(data[:, 0]),
+                 "r", lw=2, ms=7)
+
         data, _ = bin2_different_gammas_test2_HQ10000_G1_0_5_005[4]
-        ax8.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax8(data[:, 0]),
-            "g",
-            lw=2,
-            ms=7,
-        )
+        ax8.plot(data[:, 0], data[:, 1] / denom_ax8(data[:, 0]),
+                 "g", lw=2, ms=7)
+
         data, _ = bin2_different_gammas_test2_HQ10000_G1_0_10_005[4]
-        ax8.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax8(data[:, 0]),
-            "k",
-            lw=2,
-            ms=7,
-        )
+        ax8.plot(data[:, 0], data[:, 1] / denom_ax8(data[:, 0]),
+                 "k", lw=2, ms=7)
+
         data, _ = bin2_different_gammas_test2_HQ10000_G1_0_15_005[4]
-        ax8.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax8(data[:, 0]),
-            "b",
-            lw=2,
-            ms=7,
-        )
+        ax8.plot(data[:, 0], data[:, 1] / denom_ax8(data[:, 0]),
+                 "b",lw=2, ms=7)
+
         data, _ = bin2_different_gammas_test2_HQ10000_G1_0_20_005[4]
-        ax8.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax8(data[:, 0]),
-            "c",
-            lw=2,
-            ms=7,
-        )
+        ax8.plot(data[:, 0], data[:, 1] / denom_ax8(data[:, 0]),
+                 "c", lw=2, ms=7)
+
         data, _ = bin2_different_gammas_test2_HQ10000_G1_0_25_005[4]
-        ax8.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax8(data[:, 0]),
-            "m",
-            lw=2,
-            ms=7,
-        )
+        ax8.plot(data[:, 0], data[:, 1] / denom_ax8(data[:, 0]),
+                 "m", lw=2, ms=7)
+
         ax8.set_ylim(0, 5)
         ax8.set_xlabel(r"$\log \left( |u_tn|,u_tp \right)$", fontsize=20)
         ax8.set_ylabel(
@@ -4761,59 +4002,29 @@ if Fig_GPerts_gammas_2_0_vt_divided_by_gauss_and_Tsallis:
             % A_HQ0[:-9], fontsize=20)
 
         data, _ = bin2_different_gammas_A_HQ10000_G1_0_0_000[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "r",
-            label=r"%s " % A_HQ0[len("A_HQ10000_G"):],
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1], "r",
+                 label=r"%s " % A_HQ0[len("A_HQ10000_G"):], lw=2, ms=7)
+
         data, _ = bin2_different_gammas_A_HQ10000_G1_0_5_005[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "g",
-            label=r"%s" % A_HQ36[len("A_HQ10000_G"):],
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1], "g",
+                 label=r"%s" % A_HQ36[len("A_HQ10000_G"):], lw=2, ms=7)
+
         data, _ = bin2_different_gammas_A_HQ10000_G1_0_10_005[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "k",
-            label=r"%s" % A_HQ66[len("A_HQ10000_G"):],
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1], "k",
+                 label=r"%s" % A_HQ66[len("A_HQ10000_G"):], lw=2, ms=7)
+
         data, _ = bin2_different_gammas_A_HQ10000_G1_0_40_005[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "b",
-            label=r"%s" % A_HQ246[len("A_HQ10000_G"):],
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1], "b",
+                 label=r"%s" % A_HQ246[len("A_HQ10000_G"):], lw=2, ms=7)
+
         data, _ = bin2_different_gammas_A_HQ10000_G1_0_48_009[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "c",
-            label=r"%s" % A_HQ298[len("A_HQ10000_G"):],
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1], "c",
+                 label=r"%s" % A_HQ298[len("A_HQ10000_G"):], lw=2, ms=7)
+
         data, _ = bin2_different_gammas_A_HQ10000_G1_0_48_093[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "m",
-            label=r"%s" % A_HQ382[len("A_HQ10000_G"):],
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1], "m",
+                 label=r"%s" % A_HQ382[len("A_HQ10000_G"):], lw=2, ms=7)
+
         ax2.set_xticklabels([])
         ax2.set_ylabel(
             r"$f\left(\log \left( |u_n|,u_p \right)\right)$", fontsize=20)
@@ -4848,7 +4059,7 @@ if Fig_GPerts_gammas_2_0_vt_divided_by_gauss_and_Tsallis:
         ax4.plot(data[:, 0], data[:, 1], "m", lw=2, ms=7)
         ax4.set_xticklabels([])
         ax4.set_ylabel(
-            r"$\log \left( f\left(\log \left( |u_n|,u_p \right)\right) \right)$",
+            r"$\log\left(f\left(\log \left( |u_n|,u_p \right)\right) \right)$",
             fontsize=20)
         ax4.set_yscale("log")
 
@@ -4859,57 +4070,34 @@ if Fig_GPerts_gammas_2_0_vt_divided_by_gauss_and_Tsallis:
 
 
         data, _ = bin2_different_gammas_A_HQ10000_G1_0_0_000[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "r",
-            lw=2,
-            ms=7,
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "r", lw=2, ms=7)
+
         data, _ = bin2_different_gammas_A_HQ10000_G1_0_5_005[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "g",
-            lw=2,
-            ms=7,
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "g", lw=2, ms=7)
+
         data, _ = bin2_different_gammas_A_HQ10000_G1_0_10_005[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "k",
-            lw=2,
-            ms=7,
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "k", lw=2, ms=7)
+
         data, _ = bin2_different_gammas_A_HQ10000_G1_0_40_005[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "b",
-            lw=2,
-            ms=7,
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "b", lw=2, ms=7)
+
         data, _ = bin2_different_gammas_A_HQ10000_G1_0_48_009[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "c",
-            lw=2,
-            ms=7,
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "c", lw=2, ms=7)
+
         data, _ = bin2_different_gammas_A_HQ10000_G1_0_48_093[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "m",
-            lw=2,
-            ms=7,
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "m", lw=2, ms=7)
+
         ax5.set_xticklabels([])
         ax5.set_ylim(.5, 1.5)
         ax5.set_ylabel(
-            r"$\frac{f\left( u \right)}{887.569 \cdot x \cdot e^{-0.922 \cdot x^2} }$",
+            r"$\frac{f\left( u \right)}\
+              {887.569 \cdot x \cdot e^{-0.922 \cdot x^2} }$",
             fontsize=20)
 
 
@@ -4919,57 +4107,34 @@ if Fig_GPerts_gammas_2_0_vt_divided_by_gauss_and_Tsallis:
 
 
         data, _ = bin2_different_gammas_A_HQ10000_G1_0_0_000[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "r",
-            lw=2,
-            ms=7,
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "r", lw=2, ms=7)
+
         data, _ = bin2_different_gammas_A_HQ10000_G1_0_5_005[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "g",
-            lw=2,
-            ms=7,
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "g", lw=2, ms=7)
+
         data, _ = bin2_different_gammas_A_HQ10000_G1_0_10_005[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "k",
-            lw=2,
-            ms=7,
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "k", lw=2, ms=7)
+
         data, _ = bin2_different_gammas_A_HQ10000_G1_0_40_005[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "b",
-            lw=2,
-            ms=7,
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "b", lw=2, ms=7)
+
         data, _ = bin2_different_gammas_A_HQ10000_G1_0_48_009[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "c",
-            lw=2,
-            ms=7,
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "c", lw=2, ms=7)
+
         data, _ = bin2_different_gammas_A_HQ10000_G1_0_48_093[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "m",
-            lw=2,
-            ms=7,
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "m", lw=2, ms=7)
+
         ax6.set_xticklabels([])
         ax6.set_ylim(.5, 1.5)
         ax6.set_ylabel(
-            r"$\frac{f\left(\log \left( |u_n|,u_p \right)\right)}{3424.993 \cdot x^2 \cdot e^{-0.930 \cdot x^2 }}$",
+            r"$\frac{f\left(\log \left( |u_n|,u_p \right)\right)}\
+              {3424.993 \cdot x^2 \cdot e^{-0.930 \cdot x^2 }}$",
             fontsize=20)
 
 
@@ -4980,56 +4145,32 @@ if Fig_GPerts_gammas_2_0_vt_divided_by_gauss_and_Tsallis:
 
 
         data, _ = bin2_different_gammas_A_HQ10000_G1_0_0_000[0]
-        ax7.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax7(data[:, 0]),
-            "r",
-            lw=2,
-            ms=7,
-        )
+        ax7.plot(data[:, 0], data[:, 1] / denom_ax7(data[:, 0]),
+                 "r", lw=2, ms=7)
+
         data, _ = bin2_different_gammas_A_HQ10000_G1_0_5_005[0]
-        ax7.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax7(data[:, 0]),
-            "g",
-            lw=2,
-            ms=7,
-        )
+        ax7.plot(data[:, 0], data[:, 1] / denom_ax7(data[:, 0]),
+                 "g", lw=2, ms=7)
+
         data, _ = bin2_different_gammas_A_HQ10000_G1_0_10_005[0]
-        ax7.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax7(data[:, 0]),
-            "k",
-            lw=2,
-            ms=7,
-        )
+        ax7.plot(data[:, 0], data[:, 1] / denom_ax7(data[:, 0]),
+                 "k", lw=2, ms=7)
+
         data, _ = bin2_different_gammas_A_HQ10000_G1_0_40_005[0]
-        ax7.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax7(data[:, 0]),
-            "b",
-            lw=2,
-            ms=7,
-        )
+        ax7.plot(data[:, 0], data[:, 1] / denom_ax7(data[:, 0]),
+                 "b", lw=2, ms=7)
+
         data, _ = bin2_different_gammas_A_HQ10000_G1_0_48_009[0]
-        ax7.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax7(data[:, 0]),
-            "c",
-            lw=2,
-            ms=7,
-        )
+        ax7.plot(data[:, 0], data[:, 1] / denom_ax7(data[:, 0]),
+                 "c", lw=2, ms=7)
+
         data, _ = bin2_different_gammas_A_HQ10000_G1_0_48_093[0]
-        ax7.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax7(data[:, 0]),
-            "m",
-            lw=2,
-            ms=7,
-        )
+        ax7.plot(data[:, 0], data[:, 1] / denom_ax7(data[:, 0]),
+                 "m", lw=2, ms=7)
+
         ax7.set_ylim(.5, 1.5)
         ax7.set_xlabel(r"$u_t$", fontsize=20)
-        ax7.set_ylabel(r"$\frac{f\left( u \right)}{Tsallis} $", fontsize=20)
+        ax7.set_ylabel(r"$\frac{f\left( u \right)}{Tsallis}$", fontsize=20)
 
 
         def denom_ax8(a):
@@ -5040,53 +4181,29 @@ if Fig_GPerts_gammas_2_0_vt_divided_by_gauss_and_Tsallis:
 
 
         data, _ = bin2_different_gammas_A_HQ10000_G1_0_0_000[4]
-        ax8.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax8(data[:, 0]),
-            "r",
-            lw=2,
-            ms=7,
-        )
+        ax8.plot(data[:, 0], data[:, 1] / denom_ax8(data[:, 0]),
+                 "r", lw=2, ms=7)
+
         data, _ = bin2_different_gammas_A_HQ10000_G1_0_5_005[4]
-        ax8.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax8(data[:, 0]),
-            "g",
-            lw=2,
-            ms=7,
-        )
+        ax8.plot(data[:, 0], data[:, 1] / denom_ax8(data[:, 0]),
+                 "g", lw=2, ms=7)
+
         data, _ = bin2_different_gammas_A_HQ10000_G1_0_10_005[4]
-        ax8.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax8(data[:, 0]),
-            "k",
-            lw=2,
-            ms=7,
-        )
+        ax8.plot(data[:, 0], data[:, 1] / denom_ax8(data[:, 0]),
+                 "k", lw=2, ms=7)
+
         data, _ = bin2_different_gammas_A_HQ10000_G1_0_40_005[4]
-        ax8.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax8(data[:, 0]),
-            "b",
-            lw=2,
-            ms=7,
-        )
+        ax8.plot(data[:, 0], data[:, 1] / denom_ax8(data[:, 0]),
+                 "b", lw=2, ms=7)
+
         data, _ = bin2_different_gammas_A_HQ10000_G1_0_48_009[4]
-        ax8.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax8(data[:, 0]),
-            "c",
-            lw=2,
-            ms=7,
-        )
+        ax8.plot(data[:, 0], data[:, 1] / denom_ax8(data[:, 0]),
+                 "c", lw=2, ms=7)
+
         data, _ = bin2_different_gammas_A_HQ10000_G1_0_48_093[4]
-        ax8.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax8(data[:, 0]),
-            "m",
-            lw=2,
-            ms=7,
-        )
+        ax8.plot(data[:, 0], data[:, 1] / denom_ax8(data[:, 0]),
+                 "m", lw=2, ms=7)
+
         ax8.set_ylim(.5, 1.5)
         ax8.set_xlabel(r"$\log \left( |u_tn|,u_tp \right)$", fontsize=20)
         ax8.set_ylabel(
@@ -5123,50 +4240,25 @@ if Fig_GPerts_gammas_2_0_vt_divided_by_gauss_and_Tsallis:
             % B_HQ0[:-9], fontsize=20)
 
         data, _ = bin2_different_gammas_B_HQ10000_G1_0_0_000[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "r",
-            label=r"%s" % B_HQ0[len("B_HQ10000_G"):],
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1], "r",
+                 label=r"%s" % B_HQ0[len("B_HQ10000_G"):], lw=2, ms=7)
+
         data, _ = bin2_different_gammas_B_HQ10000_G1_0_5_005[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "g",
-            label=r"%s" % B_HQ36[len("B_HQ10000_G"):],
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1], "g",
+                 label=r"%s" % B_HQ36[len("B_HQ10000_G"):], lw=2, ms=7)
+
         data, _ = bin2_different_gammas_B_HQ10000_G1_0_10_005[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "k",
-            label=r"%s" % B_HQ66[len("B_HQ10000_G"):],
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1], "k",
+                 label=r"%s" % B_HQ66[len("B_HQ10000_G"):], lw=2, ms=7)
+
         data, _ = bin2_different_gammas_B_HQ10000_G1_0_198_000[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "b",
-            label=r"%s" % B_HQ294[len("B_HQ10000_G"):],
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1], "b",
+                 label=r"%s" % B_HQ294[len("B_HQ10000_G"):], lw=2, ms=7)
+
         data, _ = bin2_different_gammas_B_HQ10000_G1_0_198_093[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "c",
-            label=r"%s" % B_HQ382[len("B_HQ10000_G"):],
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1], "c",
+                 label=r"%s" % B_HQ382[len("B_HQ10000_G"):], lw=2, ms=7)
+
         ax2.set_xticklabels([])
         ax2.set_ylabel(
             r"$f\left(\log \left( |u_n|,u_p \right)\right)$", fontsize=20)
@@ -5197,7 +4289,7 @@ if Fig_GPerts_gammas_2_0_vt_divided_by_gauss_and_Tsallis:
         ax4.plot(data[:, 0], data[:, 1], "c", lw=2, ms=7)
         ax4.set_xticklabels([])
         ax4.set_ylabel(
-            r"$\log \left( f\left(\log \left( |u_n|,u_p \right)\right) \right)$",
+            r"$\log \left(f\left(\log \left( |u_n|,u_p \right)\right)\right)$",
             fontsize=20)
         ax4.set_yscale("log")
 
@@ -5208,49 +4300,30 @@ if Fig_GPerts_gammas_2_0_vt_divided_by_gauss_and_Tsallis:
 
 
         data, _ = bin2_different_gammas_B_HQ10000_G1_0_0_000[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "r",
-            lw=2,
-            ms=7,
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "r", lw=2, ms=7)
+
         data, _ = bin2_different_gammas_B_HQ10000_G1_0_5_005[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "g",
-            lw=2,
-            ms=7,
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "g", lw=2, ms=7)
+
         data, _ = bin2_different_gammas_B_HQ10000_G1_0_10_005[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "k",
-            lw=2,
-            ms=7,
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "k", lw=2, ms=7)
+
         data, _ = bin2_different_gammas_B_HQ10000_G1_0_198_000[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "b",
-            lw=2,
-            ms=7,
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "b", lw=2, ms=7)
+
         data, _ = bin2_different_gammas_B_HQ10000_G1_0_198_093[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "c",
-            lw=2,
-            ms=7,
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "c", lw=2, ms=7)
+
         ax5.set_xticklabels([])
         ax5.set_ylim(0, 3)
         ax5.set_ylabel(
-            r"$\frac{f\left( u \right)}{914.415 \cdot x \cdot e^{-0.930 \cdot x^2} }$",
+            r"$\frac{f\left( u \right)}{914.415\
+              \cdot x \cdot e^{-0.930 \cdot x^2}}$",
             fontsize=20)
 
 
@@ -5260,49 +4333,30 @@ if Fig_GPerts_gammas_2_0_vt_divided_by_gauss_and_Tsallis:
 
 
         data, _ = bin2_different_gammas_B_HQ10000_G1_0_0_000[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "r",
-            lw=2,
-            ms=7,
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "r", lw=2, ms=7)
+
         data, _ = bin2_different_gammas_B_HQ10000_G1_0_5_005[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "g",
-            lw=2,
-            ms=7,
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "g", lw=2, ms=7)
+
         data, _ = bin2_different_gammas_B_HQ10000_G1_0_10_005[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "k",
-            lw=2,
-            ms=7,
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "k", lw=2, ms=7)
+
         data, _ = bin2_different_gammas_B_HQ10000_G1_0_198_000[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "b",
-            lw=2,
-            ms=7,
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "b", lw=2, ms=7)
+
         data, _ = bin2_different_gammas_B_HQ10000_G1_0_198_093[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "c",
-            lw=2,
-            ms=7,
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "c", lw=2, ms=7)
+
         ax6.set_xticklabels([])
         ax6.set_ylim(0, 3)
         ax6.set_ylabel(
-            r"$\frac{f\left(\log \left( |u_n|,u_p \right)\right)}{3452.955 \cdot x^2 \cdot e^{-0.936 \cdot x^2 }}$",
+            r"$\frac{f\left(\log \left( |u_n|,u_p \right)\right)}\
+              {3452.955 \cdot x^2 \cdot e^{-0.936 \cdot x^2 }}$",
             fontsize=20)
 
 
@@ -5313,45 +4367,25 @@ if Fig_GPerts_gammas_2_0_vt_divided_by_gauss_and_Tsallis:
 
 
         data, _ = bin2_different_gammas_B_HQ10000_G1_0_0_000[0]
-        ax7.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax7(data[:, 0]),
-            "r",
-            lw=2,
-            ms=7,
-        )
+        ax7.plot(data[:, 0], data[:, 1] / denom_ax7(data[:, 0]),
+                 "r", lw=2, ms=7)
+
         data, _ = bin2_different_gammas_B_HQ10000_G1_0_5_005[0]
-        ax7.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax7(data[:, 0]),
-            "g",
-            lw=2,
-            ms=7,
-        )
+        ax7.plot(data[:, 0], data[:, 1] / denom_ax7(data[:, 0]),
+                 "g", lw=2, ms=7)
+
         data, _ = bin2_different_gammas_B_HQ10000_G1_0_10_005[0]
-        ax7.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax7(data[:, 0]),
-            "k",
-            lw=2,
-            ms=7,
-        )
+        ax7.plot(data[:, 0], data[:, 1] / denom_ax7(data[:, 0]),
+                 "k", lw=2, ms=7)
+
         data, _ = bin2_different_gammas_B_HQ10000_G1_0_198_000[0]
-        ax7.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax7(data[:, 0]),
-            "b",
-            lw=2,
-            ms=7,
-        )
+        ax7.plot(data[:, 0], data[:, 1] / denom_ax7(data[:, 0]),
+                 "b", lw=2, ms=7)
+
         data, _ = bin2_different_gammas_B_HQ10000_G1_0_198_093[0]
-        ax7.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax7(data[:, 0]),
-            "c",
-            lw=2,
-            ms=7,
-        )
+        ax7.plot(data[:, 0], data[:, 1] / denom_ax7(data[:, 0]),
+                 "c", lw=2, ms=7)
+
         ax7.set_ylim(0, 2)
         ax7.set_xlabel(r"$u_t$", fontsize=20)
         ax7.set_ylabel(r"$\frac{f\left( u \right)}{Tsallis} $", fontsize=20)
@@ -5365,45 +4399,25 @@ if Fig_GPerts_gammas_2_0_vt_divided_by_gauss_and_Tsallis:
 
 
         data, _ = bin2_different_gammas_B_HQ10000_G1_0_0_000[4]
-        ax8.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax8(data[:, 0]),
-            "r",
-            lw=2,
-            ms=7,
-        )
+        ax8.plot(data[:, 0], data[:, 1] / denom_ax8(data[:, 0]),
+                 "r", lw=2, ms=7)
+
         data, _ = bin2_different_gammas_B_HQ10000_G1_0_5_005[4]
-        ax8.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax8(data[:, 0]),
-            "g",
-            lw=2,
-            ms=7,
-        )
+        ax8.plot(data[:, 0], data[:, 1] / denom_ax8(data[:, 0]),
+                 "g", lw=2, ms=7)
+
         data, _ = bin2_different_gammas_B_HQ10000_G1_0_10_005[4]
-        ax8.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax8(data[:, 0]),
-            "k",
-            lw=2,
-            ms=7,
-        )
+        ax8.plot(data[:, 0], data[:, 1] / denom_ax8(data[:, 0]),
+                 "k", lw=2, ms=7)
+
         data, _ = bin2_different_gammas_B_HQ10000_G1_0_198_000[4]
-        ax8.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax8(data[:, 0]),
-            "b",
-            lw=2,
-            ms=7,
-        )
+        ax8.plot(data[:, 0], data[:, 1] / denom_ax8(data[:, 0]),
+                 "b", lw=2, ms=7)
+
         data, _ = bin2_different_gammas_B_HQ10000_G1_0_198_093[4]
-        ax8.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax8(data[:, 0]),
-            "c",
-            lw=2,
-            ms=7,
-        )
+        ax8.plot(data[:, 0], data[:, 1] / denom_ax8(data[:, 0]),
+                 "c", lw=2, ms=7)
+
         ax8.set_ylim(0, 5)
         ax8.set_xlabel(r"$\log \left( |u_tn|,u_tp \right)$", fontsize=20)
         ax8.set_ylabel(
@@ -5440,56 +4454,31 @@ if Fig_GPerts_gammas_2_5_vt_divided_by_gauss_and_Tsallis:
         ax1.set_xticklabels([])
         ax1.set_ylabel(r"$f\left( u \right)$", fontsize=20)
         ax1.set_title(
-            r"Time evolution of files = %s , different r bins, $\gamma = -2.5$"
+            r"Time evolution of files = %s, different r bins, $\gamma = -2.5$"
             % HQ0[:-9],
             fontsize=20,
         )
 
         data, _ = bin3_different_gammas_HQ10000_G1_2_1_005[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "r",
-            label=r"%s" % HQ12[len("HQ10000_G"):],
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1], "r",
+                 label=r"%s" % HQ12[len("HQ10000_G"):], lw=2, ms=7)
+
         data, _ = bin3_different_gammas_HQ10000_G1_2_3_005[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "g",
-            label=r"%s" % HQ24[len("HQ10000_G"):],
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1], "g",
+                 label=r"%s" % HQ24[len("HQ10000_G"):], lw=2, ms=7)
+
         data, _ = bin3_different_gammas_HQ10000_G1_2_5_005[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "k",
-            label=r"%s" % HQ36[len("HQ10000_G"):],
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1], "k",
+                 label=r"%s" % HQ36[len("HQ10000_G"):], lw=2, ms=7)
+
         data, _ = bin3_different_gammas_HQ10000_G1_2_7_005[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "b",
-            label=r"%s" % HQ48[len("HQ10000_G"):],
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1], "b",
+                 label=r"%s" % HQ48[len("HQ10000_G"):], lw=2, ms=7)
+
         data, _ = bin3_different_gammas_HQ10000_G1_2_9_005[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "c",
-            label=r"%s" % HQ60[len("HQ10000_G"):],
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1], "c",
+                 label=r"%s" % HQ60[len("HQ10000_G"):], lw=2, ms=7)
+
         ax2.set_xticklabels([])
         ax2.set_ylabel(
             r"$f\left(\log \left( |u_n|,u_p \right)\right)$", fontsize=20
@@ -5521,7 +4510,7 @@ if Fig_GPerts_gammas_2_5_vt_divided_by_gauss_and_Tsallis:
         ax4.plot(data[:, 0], data[:, 1], "c", lw=2, ms=7)
         ax4.set_xticklabels([])
         ax4.set_ylabel(
-            r"$\log \left( f\left(\log \left( |u_n|,u_p \right)\right) \right)$",
+            r"$\log \left(f\left(\log\left( |u_n|,u_p \right)\right) \right)$",
             fontsize=20,
         )
         ax4.set_yscale("log")
@@ -5533,45 +4522,25 @@ if Fig_GPerts_gammas_2_5_vt_divided_by_gauss_and_Tsallis:
 
 
         data, _ = bin3_different_gammas_HQ10000_G1_2_1_005[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "r",
-            lw=2,
-            ms=7,
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "r", lw=2, ms=7)
+
         data, _ = bin3_different_gammas_HQ10000_G1_2_3_005[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "g",
-            lw=2,
-            ms=7,
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "g", lw=2, ms=7)
+
         data, _ = bin3_different_gammas_HQ10000_G1_2_5_005[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "k",
-            lw=2,
-            ms=7,
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "k", lw=2, ms=7)
+
         data, _ = bin3_different_gammas_HQ10000_G1_2_7_005[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "b",
-            lw=2,
-            ms=7,
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "b", lw=2, ms=7)
+
         data, _ = bin3_different_gammas_HQ10000_G1_2_9_005[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "c",
-            lw=2,
-            ms=7,
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "c", lw=2, ms=7)
+
         ax5.set_xticklabels([])
         ax5.set_ylim(0, 3)
         ax5.set_ylabel(
@@ -5585,45 +4554,25 @@ if Fig_GPerts_gammas_2_5_vt_divided_by_gauss_and_Tsallis:
 
 
         data, _ = bin3_different_gammas_HQ10000_G1_2_1_005[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "r",
-            lw=2,
-            ms=7,
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "r", lw=2, ms=7)
+
         data, _ = bin3_different_gammas_HQ10000_G1_2_3_005[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "g",
-            lw=2,
-            ms=7,
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "g", lw=2, ms=7)
+
         data, _ = bin3_different_gammas_HQ10000_G1_2_5_005[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "k",
-            lw=2,
-            ms=7,
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "k", lw=2, ms=7)
+
         data, _ = bin3_different_gammas_HQ10000_G1_2_7_005[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "b",
-            lw=2,
-            ms=7,
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "b", lw=2, ms=7)
+
         data, _ = bin3_different_gammas_HQ10000_G1_2_9_005[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "c",
-            lw=2,
-            ms=7,
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "c", lw=2, ms=7)
+
         ax6.set_xticklabels([])
         ax6.set_ylabel(
             r"$\frac{f\left(\log \left( |u_n|,u_p \right)\right)}{e^{-0.5x^2}}$",
@@ -5657,65 +4606,41 @@ if Fig_GPerts_gammas_2_5_vt_divided_by_gauss_and_Tsallis:
         ax1.set_xticklabels([])
         ax1.set_ylabel(r"$f\left( u \right)$", fontsize=20)
         ax1.set_title(
-            r"Time evolution of files = %s , different r bins, $\gamma = -2.5 $"
+            r"Time evolution of files = %s, different r bins, $\gamma = -2.5$"
             % test2_HQ0[:-9],
             fontsize=20
         )
 
         data, _ = bin3_different_gammas_test2_HQ10000_G1_0_0_000[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "r",
-            label=r"%s " % test2_HQ0[len("test2_HQ10000_G"):],
-            lw=2,
-            ms=7
-        )
+        ax2.plot(data[:, 0], data[:, 1], "r",
+                 label=r"%s " % test2_HQ0[len("test2_HQ10000_G"):],
+                 lw=2, ms=7)
+
         data, _ = bin3_different_gammas_test2_HQ10000_G1_0_5_005[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "g",
-            label=r"%s" % test2_HQ36[len("test2_HQ10000_G"):],
-            lw=2,
-            ms=7
-        )
+        ax2.plot(data[:, 0], data[:, 1], "g",
+                 label=r"%s" % test2_HQ36[len("test2_HQ10000_G"):],
+                 lw=2, ms=7)
+
         data, _ = bin3_different_gammas_test2_HQ10000_G1_0_10_005[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "k",
-            label=r"%s" % test2_HQ66[len("test2_HQ10000_G"):],
-            lw=2,
-            ms=7
-        )
+        ax2.plot(data[:, 0], data[:, 1], "k",
+                 label=r"%s" % test2_HQ66[len("test2_HQ10000_G"):],
+                 lw=2, ms=7)
+
         data, _ = bin3_different_gammas_test2_HQ10000_G1_0_15_005[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "b",
-            label=r"%s" % test2_HQ96[len("test2_HQ10000_G"):],
-            lw=2,
-            ms=7
-        )
+        ax2.plot(data[:, 0], data[:, 1], "b",
+                 label=r"%s" % test2_HQ96[len("test2_HQ10000_G"):],
+                 lw=2, ms=7)
+
         data, _ = bin3_different_gammas_test2_HQ10000_G1_0_20_005[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "c",
-            label=r"%s" % test2_HQ126[len("test2_HQ10000_G"):],
-            lw=2,
-            ms=7
-        )
+        ax2.plot(data[:, 0], data[:, 1], "c",
+                 label=r"%s" % test2_HQ126[len("test2_HQ10000_G"):],
+                 lw=2, ms=7)
+
         data, _ = bin3_different_gammas_test2_HQ10000_G1_0_25_005[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "m",
-            label=r"%s" % test2_HQ159[len("test2_HQ10000_G"):],
-            lw=2,
-            ms=7
-        )
+        ax2.plot(data[:, 0], data[:, 1], "m",
+                 label=r"%s" % test2_HQ159[len("test2_HQ10000_G"):],
+                 lw=2, ms=7)
+
         ax2.set_xticklabels([])
         ax2.set_ylabel(
             r"$f\left(\log \left( |u_n|,u_p \right)\right)$", fontsize=20
@@ -5751,7 +4676,7 @@ if Fig_GPerts_gammas_2_5_vt_divided_by_gauss_and_Tsallis:
         ax4.plot(data[:, 0], data[:, 1], "m", lw=2, ms=7)
         ax4.set_xticklabels([])
         ax4.set_ylabel(
-            r"$\log \left( f\left(\log \left( |u_n|,u_p \right)\right) \right)$",
+            r"$\log \left( f\left(\log \left(|u_n|,u_p \right)\right)\right)$",
             fontsize=20
         )
         ax4.set_yscale("log")
@@ -5763,53 +4688,29 @@ if Fig_GPerts_gammas_2_5_vt_divided_by_gauss_and_Tsallis:
 
 
         data, _ = bin3_different_gammas_test2_HQ10000_G1_0_0_000[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "r",
-            lw=2,
-            ms=7
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "r", lw=2, ms=7)
+
         data, _ = bin3_different_gammas_test2_HQ10000_G1_0_5_005[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "g",
-            lw=2,
-            ms=7
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "g", lw=2, ms=7)
+
         data, _ = bin3_different_gammas_test2_HQ10000_G1_0_10_005[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "k",
-            lw=2,
-            ms=7
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "k", lw=2, ms=7)
+
         data, _ = bin3_different_gammas_test2_HQ10000_G1_0_15_005[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "b",
-            lw=2,
-            ms=7,
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "b", lw=2, ms=7)
+
         data, _ = bin3_different_gammas_test2_HQ10000_G1_0_20_005[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "c",
-            lw=2,
-            ms=7,
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "c", lw=2, ms=7)
+
         data, _ = bin3_different_gammas_test2_HQ10000_G1_0_25_005[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "m",
-            lw=2,
-            ms=7,
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "m", lw=2, ms=7)
+
         ax5.set_xticklabels([])
         ax5.set_ylim(0, 3)
         ax5.set_ylabel(
@@ -5825,53 +4726,29 @@ if Fig_GPerts_gammas_2_5_vt_divided_by_gauss_and_Tsallis:
 
 
         data, _ = bin3_different_gammas_test2_HQ10000_G1_0_0_000[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "r",
-            lw=2,
-            ms=7,
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "r", lw=2, ms=7)
+
         data, _ = bin3_different_gammas_test2_HQ10000_G1_0_5_005[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "g",
-            lw=2,
-            ms=7,
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "g", lw=2, ms=7)
+
         data, _ = bin3_different_gammas_test2_HQ10000_G1_0_10_005[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "k",
-            lw=2,
-            ms=7,
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "k", lw=2, ms=7)
+
         data, _ = bin3_different_gammas_test2_HQ10000_G1_0_15_005[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "b",
-            lw=2,
-            ms=7,
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "b", lw=2, ms=7)
+
         data, _ = bin3_different_gammas_test2_HQ10000_G1_0_20_005[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "c",
-            lw=2,
-            ms=7,
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "c", lw=2, ms=7)
+
         data, _ = bin3_different_gammas_test2_HQ10000_G1_0_25_005[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "m",
-            lw=2,
-            ms=7,
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "m", lw=2, ms=7)
+
         ax6.set_xticklabels([])
         ax6.set_ylim(0, 5)
         ax6.set_ylabel(
@@ -5887,53 +4764,29 @@ if Fig_GPerts_gammas_2_5_vt_divided_by_gauss_and_Tsallis:
 
 
         data, _ = bin3_different_gammas_test2_HQ10000_G1_0_0_000[0]
-        ax7.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax7(data[:, 0]),
-            "r",
-            lw=2,
-            ms=7,
-        )
+        ax7.plot(data[:, 0], data[:, 1] / denom_ax7(data[:, 0]),
+                 "r", lw=2, ms=7)
+
         data, _ = bin3_different_gammas_test2_HQ10000_G1_0_5_005[0]
-        ax7.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax7(data[:, 0]),
-            "g",
-            lw=2,
-            ms=7,
-        )
+        ax7.plot(data[:, 0], data[:, 1] / denom_ax7(data[:, 0]),
+                 "g", lw=2, ms=7)
+
         data, _ = bin3_different_gammas_test2_HQ10000_G1_0_10_005[0]
-        ax7.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax7(data[:, 0]),
-            "k",
-            lw=2,
-            ms=7,
-        )
+        ax7.plot(data[:, 0], data[:, 1] / denom_ax7(data[:, 0]),
+                 "k", lw=2, ms=7)
+
         data, _ = bin3_different_gammas_test2_HQ10000_G1_0_15_005[0]
-        ax7.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax7(data[:, 0]),
-            "b",
-            lw=2,
-            ms=7,
-        )
+        ax7.plot(data[:, 0], data[:, 1] / denom_ax7(data[:, 0]),
+                 "b", lw=2, ms=7)
+
         data, _ = bin3_different_gammas_test2_HQ10000_G1_0_20_005[0]
-        ax7.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax7(data[:, 0]),
-            "c",
-            lw=2,
-            ms=7,
-        )
+        ax7.plot(data[:, 0], data[:, 1] / denom_ax7(data[:, 0]),
+                 "c", lw=2, ms=7)
+
         data, _ = bin3_different_gammas_test2_HQ10000_G1_0_25_005[0]
-        ax7.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax7(data[:, 0]),
-            "m",
-            lw=2,
-            ms=7,
-        )
+        ax7.plot(data[:, 0], data[:, 1] / denom_ax7(data[:, 0]),
+                 "m", lw=2, ms=7)
+
         ax7.set_ylim(0, 2)
         ax7.set_xlabel(r"$u_t$", fontsize=20)
         ax7.set_ylabel(r"$\frac{f\left( u \right)}{Tsallis} $", fontsize=20)
@@ -5947,53 +4800,29 @@ if Fig_GPerts_gammas_2_5_vt_divided_by_gauss_and_Tsallis:
 
 
         data, _ = bin3_different_gammas_test2_HQ10000_G1_0_0_000[4]
-        ax8.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax8(data[:, 0]),
-            "r",
-            lw=2,
-            ms=7,
-        )
+        ax8.plot(data[:, 0], data[:, 1] / denom_ax8(data[:, 0]),
+                 "r", lw=2, ms=7)
+
         data, _ = bin3_different_gammas_test2_HQ10000_G1_0_5_005[4]
-        ax8.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax8(data[:, 0]),
-            "g",
-            lw=2,
-            ms=7,
-        )
+        ax8.plot(data[:, 0], data[:, 1] / denom_ax8(data[:, 0]),
+                 "g", lw=2, ms=7)
+
         data, _ = bin3_different_gammas_test2_HQ10000_G1_0_10_005[4]
-        ax8.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax8(data[:, 0]),
-            "k",
-            lw=2,
-            ms=7,
-        )
+        ax8.plot(data[:, 0], data[:, 1] / denom_ax8(data[:, 0]),
+                 "k", lw=2, ms=7)
+
         data, _ = bin3_different_gammas_test2_HQ10000_G1_0_15_005[4]
-        ax8.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax8(data[:, 0]),
-            "b",
-            lw=2,
-            ms=7,
-        )
+        ax8.plot(data[:, 0], data[:, 1] / denom_ax8(data[:, 0]),
+                 "b", lw=2, ms=7)
+
         data, _ = bin3_different_gammas_test2_HQ10000_G1_0_20_005[4]
-        ax8.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax8(data[:, 0]),
-            "c",
-            lw=2,
-            ms=7,
-        )
+        ax8.plot(data[:, 0], data[:, 1] / denom_ax8(data[:, 0]),
+                 "c", lw=2, ms=7)
+
         data, _ = bin3_different_gammas_test2_HQ10000_G1_0_25_005[4]
-        ax8.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax8(data[:, 0]),
-            "m",
-            lw=2,
-            ms=7,
-        )
+        ax8.plot(data[:, 0], data[:, 1] / denom_ax8(data[:, 0]),
+                 "m", lw=2, ms=7)
+
         ax8.set_ylim(0, 5)
         ax8.set_xlabel(r"$\log \left( |u_tn|,u_tp \right)$", fontsize=20)
         ax8.set_ylabel(
@@ -6034,59 +4863,35 @@ if Fig_GPerts_gammas_2_5_vt_divided_by_gauss_and_Tsallis:
             fontsize=20)
 
         data, _ = bin3_different_gammas_A_HQ10000_G1_0_0_000[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "r",
-            label=r"%s " % A_HQ0[len("A_HQ10000_G"):],
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1], "r",
+                 label=r"%s " % A_HQ0[len("A_HQ10000_G"):],
+                 lw=2, ms=7)
+
         data, _ = bin3_different_gammas_A_HQ10000_G1_0_5_005[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "g",
-            label=r"%s" % A_HQ36[len("A_HQ10000_G"):],
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1], "g",
+                 label=r"%s" % A_HQ36[len("A_HQ10000_G"):],
+                 lw=2, ms=7)
+
         data, _ = bin3_different_gammas_A_HQ10000_G1_0_10_005[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "k",
-            label=r"%s" % A_HQ66[len("A_HQ10000_G"):],
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1], "k",
+                 label=r"%s" % A_HQ66[len("A_HQ10000_G"):],
+                 lw=2, ms=7)
+
         data, _ = bin3_different_gammas_A_HQ10000_G1_0_40_005[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "b",
-            label=r"%s" % A_HQ246[len("A_HQ10000_G"):],
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1], "b",
+                 label=r"%s" % A_HQ246[len("A_HQ10000_G"):],
+                 lw=2, ms=7)
+
         data, _ = bin3_different_gammas_A_HQ10000_G1_0_48_009[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "c",
-            label=r"%s" % A_HQ298[len("A_HQ10000_G"):],
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1], "c",
+                 label=r"%s" % A_HQ298[len("A_HQ10000_G"):],
+                 lw=2, ms=7)
+
         data, _ = bin3_different_gammas_A_HQ10000_G1_0_48_093[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "m",
-            label=r"%s" % A_HQ382[len("A_HQ10000_G"):],
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1], "m",
+                 label=r"%s" % A_HQ382[len("A_HQ10000_G"):],
+                 lw=2, ms=7)
+
         ax2.set_xticklabels([])
         ax2.set_ylabel(
             r"$f\left(\log \left( |u_n|,u_p \right)\right)$", fontsize=20)
@@ -6132,57 +4937,34 @@ if Fig_GPerts_gammas_2_5_vt_divided_by_gauss_and_Tsallis:
 
 
         data, _ = bin3_different_gammas_A_HQ10000_G1_0_0_000[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "r",
-            lw=2,
-            ms=7,
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "r", lw=2, ms=7)
+
         data, _ = bin3_different_gammas_A_HQ10000_G1_0_5_005[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "g",
-            lw=2,
-            ms=7,
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "g", lw=2, ms=7)
+
         data, _ = bin3_different_gammas_A_HQ10000_G1_0_10_005[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "k",
-            lw=2,
-            ms=7,
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "k", lw=2, ms=7)
+
         data, _ = bin3_different_gammas_A_HQ10000_G1_0_40_005[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "b",
-            lw=2,
-            ms=7,
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "b", lw=2, ms=7)
+
         data, _ = bin3_different_gammas_A_HQ10000_G1_0_48_009[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "c",
-            lw=2,
-            ms=7,
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "c", lw=2, ms=7)
+
         data, _ = bin3_different_gammas_A_HQ10000_G1_0_48_093[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "m",
-            lw=2,
-            ms=7,
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "m", lw=2, ms=7)
+
         ax5.set_xticklabels([])
         ax5.set_ylim(.5, 1.5)
         ax5.set_ylabel(
-            r"$\frac{f\left( u \right)}{887.569 \cdot x \cdot e^{-0.922 \cdot x^2} }$",
+            r"$\frac{f\left( u \right)}\
+              {887.569 \cdot x \cdot e^{-0.922 \cdot x^2} }$",
             fontsize=20)
 
 
@@ -6193,53 +4975,29 @@ if Fig_GPerts_gammas_2_5_vt_divided_by_gauss_and_Tsallis:
 
 
         data, _ = bin3_different_gammas_A_HQ10000_G1_0_0_000[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "r",
-            lw=2,
-            ms=7,
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "r", lw=2, ms=7)
+
         data, _ = bin3_different_gammas_A_HQ10000_G1_0_5_005[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "g",
-            lw=2,
-            ms=7,
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "g", lw=2, ms=7)
+
         data, _ = bin3_different_gammas_A_HQ10000_G1_0_10_005[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "k",
-            lw=2,
-            ms=7,
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "k", lw=2, ms=7)
+
         data, _ = bin3_different_gammas_A_HQ10000_G1_0_40_005[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "b",
-            lw=2,
-            ms=7,
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "b", lw=2, ms=7)
+
         data, _ = bin3_different_gammas_A_HQ10000_G1_0_48_009[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "c",
-            lw=2,
-            ms=7,
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "c", lw=2, ms=7)
+
         data, _ = bin3_different_gammas_A_HQ10000_G1_0_48_093[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "m",
-            lw=2,
-            ms=7,
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "m", lw=2, ms=7)
+
         ax6.set_xticklabels([])
         ax6.set_ylim(.5, 1.5)
         ax6.set_ylabel(
@@ -6254,53 +5012,29 @@ if Fig_GPerts_gammas_2_5_vt_divided_by_gauss_and_Tsallis:
 
 
         data, _ = bin3_different_gammas_A_HQ10000_G1_0_0_000[0]
-        ax7.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax7(data[:, 0]),
-            "r",
-            lw=2,
-            ms=7,
-        )
+        ax7.plot(data[:, 0], data[:, 1] / denom_ax7(data[:, 0]),
+                 "r", lw=2, ms=7)
+
         data, _ = bin3_different_gammas_A_HQ10000_G1_0_5_005[0]
-        ax7.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax7(data[:, 0]),
-            "g",
-            lw=2,
-            ms=7,
-        )
+        ax7.plot(data[:, 0], data[:, 1] / denom_ax7(data[:, 0]),
+                 "g", lw=2, ms=7)
+
         data, _ = bin3_different_gammas_A_HQ10000_G1_0_10_005[0]
-        ax7.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax7(data[:, 0]),
-            "k",
-            lw=2,
-            ms=7,
-        )
+        ax7.plot(data[:, 0], data[:, 1] / denom_ax7(data[:, 0]),
+                 "k", lw=2, ms=7)
+
         data, _ = bin3_different_gammas_A_HQ10000_G1_0_40_005[0]
-        ax7.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax7(data[:, 0]),
-            "b",
-            lw=2,
-            ms=7,
-        )
+        ax7.plot(data[:, 0], data[:, 1] / denom_ax7(data[:, 0]),
+                 "b", lw=2, ms=7)
+
         data, _ = bin3_different_gammas_A_HQ10000_G1_0_48_009[0]
-        ax7.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax7(data[:, 0]),
-            "c",
-            lw=2,
-            ms=7,
-        )
+        ax7.plot(data[:, 0], data[:, 1] / denom_ax7(data[:, 0]),
+                 "c", lw=2, ms=7)
+
         data, _ = bin3_different_gammas_A_HQ10000_G1_0_48_093[0]
-        ax7.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax7(data[:, 0]),
-            "m",
-            lw=2,
-            ms=7,
-        )
+        ax7.plot(data[:, 0], data[:, 1] / denom_ax7(data[:, 0]),
+                 "m", lw=2, ms=7)
+
         ax7.set_ylim(.5, 1.5)
         ax7.set_xlabel(r"$u_t$", fontsize=20)
         ax7.set_ylabel(r"$\frac{f\left( u \right)}{Tsallis} $", fontsize=20)
@@ -6314,53 +5048,29 @@ if Fig_GPerts_gammas_2_5_vt_divided_by_gauss_and_Tsallis:
 
 
         data, _ = bin3_different_gammas_A_HQ10000_G1_0_0_000[4]
-        ax8.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax8(data[:, 0]),
-            "r",
-            lw=2,
-            ms=7,
-        )
+        ax8.plot(data[:, 0], data[:, 1] / denom_ax8(data[:, 0]),
+                 "r", lw=2, ms=7)
+
         data, _ = bin3_different_gammas_A_HQ10000_G1_0_5_005[4]
-        ax8.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax8(data[:, 0]),
-            "g",
-            lw=2,
-            ms=7,
-        )
+        ax8.plot(data[:, 0], data[:, 1] / denom_ax8(data[:, 0]),
+                 "g", lw=2, ms=7)
+
         data, _ = bin3_different_gammas_A_HQ10000_G1_0_10_005[4]
-        ax8.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax8(data[:, 0]),
-            "k",
-            lw=2,
-            ms=7,
-        )
+        ax8.plot(data[:, 0], data[:, 1] / denom_ax8(data[:, 0]),
+                 "k", lw=2, ms=7)
+
         data, _ = bin3_different_gammas_A_HQ10000_G1_0_40_005[4]
-        ax8.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax8(data[:, 0]),
-            "b",
-            lw=2,
-            ms=7,
-        )
+        ax8.plot(data[:, 0], data[:, 1] / denom_ax8(data[:, 0]),
+                 "b", lw=2, ms=7)
+
         data, _ = bin3_different_gammas_A_HQ10000_G1_0_48_009[4]
-        ax8.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax8(data[:, 0]),
-            "c",
-            lw=2,
-            ms=7,
-        )
+        ax8.plot(data[:, 0], data[:, 1] / denom_ax8(data[:, 0]),
+                 "c", lw=2, ms=7)
+
         data, _ = bin3_different_gammas_A_HQ10000_G1_0_48_093[4]
-        ax8.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax8(data[:, 0]),
-            "m",
-            lw=2,
-            ms=7,
-        )
+        ax8.plot(data[:, 0], data[:, 1] / denom_ax8(data[:, 0]),
+                 "m", lw=2, ms=7)
+
         ax8.set_ylim(.5, 1.5)
         ax8.set_xlabel(r"$\log \left( |u_tn|,u_tp \right)$", fontsize=20)
         ax8.set_ylabel(
@@ -6398,50 +5108,30 @@ if Fig_GPerts_gammas_2_5_vt_divided_by_gauss_and_Tsallis:
             % B_HQ0[:-9], fontsize=20)
 
         data, _ = bin3_different_gammas_B_HQ10000_G1_0_0_000[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "r",
-            label=r"%s " % B_HQ0[len("B_HQ10000_G"):],
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1], "r",
+                 label=r"%s " % B_HQ0[len("B_HQ10000_G"):],
+                 lw=2, ms=7)
+
         data, _ = bin3_different_gammas_B_HQ10000_G1_0_5_005[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "g",
-            label=r"%s" % B_HQ36[len("B_HQ10000_G"):],
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1], "g",
+                 label=r"%s" % B_HQ36[len("B_HQ10000_G"):],
+                 lw=2, ms=7)
+
         data, _ = bin3_different_gammas_B_HQ10000_G1_0_10_005[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "k",
-            label=r"%s" % B_HQ66[len("B_HQ10000_G"):],
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1], "k",
+                 label=r"%s" % B_HQ66[len("B_HQ10000_G"):],
+                 lw=2, ms=7)
+
         data, _ = bin3_different_gammas_B_HQ10000_G1_0_198_000[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "b",
-            label=r"%s" % B_HQ294[len("B_HQ10000_G"):],
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1], "b",
+                 label=r"%s" % B_HQ294[len("B_HQ10000_G"):],
+                 lw=2, ms=7)
+
         data, _ = bin3_different_gammas_B_HQ10000_G1_0_198_093[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "c",
-            label=r"%s" % B_HQ382[len("B_HQ10000_G"):],
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1], "c",
+                 label=r"%s" % B_HQ382[len("B_HQ10000_G"):],
+                 lw=2, ms=7)
+
         ax2.set_xticklabels([])
         ax2.set_ylabel(
             r"$f\left(\log \left( |u_n|,u_p \right)\right)$", fontsize=20)
@@ -6483,49 +5173,30 @@ if Fig_GPerts_gammas_2_5_vt_divided_by_gauss_and_Tsallis:
 
 
         data, _ = bin3_different_gammas_B_HQ10000_G1_0_0_000[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "r",
-            lw=2,
-            ms=7,
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "r", lw=2, ms=7)
+
         data, _ = bin3_different_gammas_B_HQ10000_G1_0_5_005[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "g",
-            lw=2,
-            ms=7,
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "g", lw=2, ms=7)
+
         data, _ = bin3_different_gammas_B_HQ10000_G1_0_10_005[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "k",
-            lw=2,
-            ms=7,
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "k", lw=2, ms=7)
+
         data, _ = bin3_different_gammas_B_HQ10000_G1_0_198_000[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "b",
-            lw=2,
-            ms=7,
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "b", lw=2, ms=7)
+
         data, _ = bin3_different_gammas_B_HQ10000_G1_0_198_093[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "c",
-            lw=2,
-            ms=7,
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "c", lw=2, ms=7)
+
         ax5.set_xticklabels([])
         ax5.set_ylim(0, 3)
         ax5.set_ylabel(
-            r"$\frac{f\left( u \right)}{914.415 \cdot x \cdot e^{-0.930 \cdot x^2} }$",
+            r"$\frac{f\left( u \right)}\
+              {914.415 \cdot x \cdot e^{-0.930 \cdot x^2} }$",
             fontsize=20)
 
 
@@ -6535,45 +5206,25 @@ if Fig_GPerts_gammas_2_5_vt_divided_by_gauss_and_Tsallis:
 
 
         data, _ = bin3_different_gammas_B_HQ10000_G1_0_0_000[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "r",
-            lw=2,
-            ms=7,
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "r", lw=2, ms=7)
+
         data, _ = bin3_different_gammas_B_HQ10000_G1_0_5_005[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "g",
-            lw=2,
-            ms=7,
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "g", lw=2, ms=7)
+
         data, _ = bin3_different_gammas_B_HQ10000_G1_0_10_005[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "k",
-            lw=2,
-            ms=7,
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "k", lw=2, ms=7)
+
         data, _ = bin3_different_gammas_B_HQ10000_G1_0_198_000[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "b",
-            lw=2,
-            ms=7,
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "b", lw=2, ms=7)
+
         data, _ = bin3_different_gammas_B_HQ10000_G1_0_198_093[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "c",
-            lw=2,
-            ms=7,
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "c", lw=2, ms=7)
+
         ax6.set_xticklabels([])
         ax6.set_ylim(0, 3)
         ax6.set_ylabel(
@@ -6588,45 +5239,25 @@ if Fig_GPerts_gammas_2_5_vt_divided_by_gauss_and_Tsallis:
 
 
         data, _ = bin3_different_gammas_B_HQ10000_G1_0_0_000[0]
-        ax7.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax7(data[:, 0]),
-            "r",
-            lw=2,
-            ms=7,
-        )
+        ax7.plot(data[:, 0], data[:, 1] / denom_ax7(data[:, 0]),
+                 "r", lw=2, ms=7)
+
         data, _ = bin3_different_gammas_B_HQ10000_G1_0_5_005[0]
-        ax7.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax7(data[:, 0]),
-            "g",
-            lw=2,
-            ms=7,
-        )
+        ax7.plot(data[:, 0], data[:, 1] / denom_ax7(data[:, 0]),
+                 "g", lw=2, ms=7)
+
         data, _ = bin3_different_gammas_B_HQ10000_G1_0_10_005[0]
-        ax7.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax7(data[:, 0]),
-            "k",
-            lw=2,
-            ms=7,
-        )
+        ax7.plot(data[:, 0], data[:, 1] / denom_ax7(data[:, 0]),
+                 "k", lw=2, ms=7)
+
         data, _ = bin3_different_gammas_B_HQ10000_G1_0_198_000[0]
-        ax7.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax7(data[:, 0]),
-            "b",
-            lw=2,
-            ms=7,
-        )
+        ax7.plot(data[:, 0], data[:, 1] / denom_ax7(data[:, 0]),
+                 "b", lw=2, ms=7)
+
         data, _ = bin3_different_gammas_B_HQ10000_G1_0_198_093[0]
-        ax7.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax7(data[:, 0]),
-            "c",
-            lw=2,
-            ms=7,
-        )
+        ax7.plot(data[:, 0], data[:, 1] / denom_ax7(data[:, 0]),
+                 "c", lw=2, ms=7)
+
         ax7.set_ylim(0, 2)
         ax7.set_xlabel(r"$u_t$", fontsize=20)
         ax7.set_ylabel(r"$\frac{f\left( u \right)}{Tsallis} $", fontsize=20)
@@ -6640,45 +5271,25 @@ if Fig_GPerts_gammas_2_5_vt_divided_by_gauss_and_Tsallis:
 
 
         data, _ = bin3_different_gammas_B_HQ10000_G1_0_0_000[4]
-        ax8.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax8(data[:, 0]),
-            "r",
-            lw=2,
-            ms=7,
-        )
+        ax8.plot(data[:, 0], data[:, 1] / denom_ax8(data[:, 0]),
+                 "r", lw=2, ms=7)
+
         data, _ = bin3_different_gammas_B_HQ10000_G1_0_5_005[4]
-        ax8.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax8(data[:, 0]),
-            "g",
-            lw=2,
-            ms=7,
-        )
+        ax8.plot(data[:, 0], data[:, 1] / denom_ax8(data[:, 0]),
+                 "g", lw=2, ms=7)
+
         data, _ = bin3_different_gammas_B_HQ10000_G1_0_10_005[4]
-        ax8.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax8(data[:, 0]),
-            "k",
-            lw=2,
-            ms=7,
-        )
+        ax8.plot(data[:, 0], data[:, 1] / denom_ax8(data[:, 0]),
+                 "k", lw=2, ms=7)
+
         data, _ = bin3_different_gammas_B_HQ10000_G1_0_198_000[4]
-        ax8.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax8(data[:, 0]),
-            "b",
-            lw=2,
-            ms=7,
-        )
+        ax8.plot(data[:, 0], data[:, 1] / denom_ax8(data[:, 0]),
+                 "b", lw=2, ms=7)
+
         data, _ = bin3_different_gammas_B_HQ10000_G1_0_198_093[4]
-        ax8.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax8(data[:, 0]),
-            "c",
-            lw=2,
-            ms=7,
-        )
+        ax8.plot(data[:, 0], data[:, 1] / denom_ax8(data[:, 0]),
+                 "c", lw=2, ms=7)
+
         ax8.set_ylim(0, 5)
         ax8.set_xlabel(r"$\log \left( |u_tn|,u_tp \right)$", fontsize=20)
         ax8.set_ylabel(
@@ -6715,54 +5326,34 @@ if Fig_GPerts_gammas_3_0_vt_divided_by_gauss_and_Tsallis:
         ax1.set_xticklabels([])
         ax1.set_ylabel(r"$f\left( u \right)$", fontsize=20)
         ax1.set_title(
-            r" Time evolution of files = %s , different r bins, $\gamma = -3.0$"
+            r"Time evolution of files = %s, different r bins, $\gamma = -3.0$"
             % HQ0[:-9], fontsize=20)
 
         data, _ = bin4_different_gammas_HQ10000_G1_2_1_005[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "r",
-            label=r"%s " % HQ12[len("HQ10000_G"):],
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1], "r",
+                 label=r"%s " % HQ12[len("HQ10000_G"):],
+                 lw=2, ms=7)
+
         data, _ = bin4_different_gammas_HQ10000_G1_2_3_005[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "g",
-            label=r"%s" % HQ24[len("HQ10000_G"):],
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1], "g",
+                 label=r"%s" % HQ24[len("HQ10000_G"):],
+                 lw=2, ms=7)
+
         data, _ = bin4_different_gammas_HQ10000_G1_2_5_005[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "k",
-            label=r"%s" % HQ36[len("HQ10000_G"):],
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1], "k",
+                 label=r"%s" % HQ36[len("HQ10000_G"):],
+                 lw=2, ms=7)
+
         data, _ = bin4_different_gammas_HQ10000_G1_2_7_005[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "b",
-            label=r"%s" % HQ48[len("HQ10000_G"):],
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1], "b",
+                 label=r"%s" % HQ48[len("HQ10000_G"):],
+                 lw=2, ms=7)
+
         data, _ = bin4_different_gammas_HQ10000_G1_2_9_005[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "c",
-            label=r"%s" % HQ60[len("HQ10000_G"):],
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1], "c",
+                 label=r"%s" % HQ60[len("HQ10000_G"):],
+                 lw=2, ms=7)
+
         ax2.set_xticklabels([])
         ax2.set_ylabel(
             r"$f\left(\log \left( |u_n|,u_p \right)\right)$", fontsize=20)
@@ -6804,45 +5395,25 @@ if Fig_GPerts_gammas_3_0_vt_divided_by_gauss_and_Tsallis:
 
 
         data, _ = bin4_different_gammas_HQ10000_G1_2_1_005[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "r",
-            lw=2,
-            ms=7,
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "r", lw=2, ms=7)
+
         data, _ = bin4_different_gammas_HQ10000_G1_2_3_005[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "g",
-            lw=2,
-            ms=7,
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "g", lw=2, ms=7)
+
         data, _ = bin4_different_gammas_HQ10000_G1_2_5_005[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "k",
-            lw=2,
-            ms=7,
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "k", lw=2, ms=7)
+
         data, _ = bin4_different_gammas_HQ10000_G1_2_7_005[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "b",
-            lw=2,
-            ms=7,
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "b", lw=2, ms=7)
+
         data, _ = bin4_different_gammas_HQ10000_G1_2_9_005[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "c",
-            lw=2,
-            ms=7,
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "c", lw=2, ms=7)
+
         ax5.set_xticklabels([])
         ax5.set_ylim(0, 3)
         ax5.set_ylabel(
@@ -6855,45 +5426,25 @@ if Fig_GPerts_gammas_3_0_vt_divided_by_gauss_and_Tsallis:
 
 
         data, _ = bin4_different_gammas_HQ10000_G1_2_1_005[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "r",
-            lw=2,
-            ms=7,
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "r", lw=2, ms=7)
+
         data, _ = bin4_different_gammas_HQ10000_G1_2_3_005[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "g",
-            lw=2,
-            ms=7,
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "g", lw=2, ms=7)
+
         data, _ = bin4_different_gammas_HQ10000_G1_2_5_005[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "k",
-            lw=2,
-            ms=7,
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "k", lw=2, ms=7)
+
         data, _ = bin4_different_gammas_HQ10000_G1_2_7_005[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "b",
-            lw=2,
-            ms=7,
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "b", lw=2, ms=7)
+
         data, _ = bin4_different_gammas_HQ10000_G1_2_9_005[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "c",
-            lw=2,
-            ms=7,
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "c", lw=2, ms=7)
+
         ax6.set_xticklabels([])
         ax6.set_ylabel(
             r"$\frac{f\left(\log \left( |u_n|,u_p \right)\right)}{e^{-0.5x^2}}$",
@@ -6931,59 +5482,35 @@ if Fig_GPerts_gammas_3_0_vt_divided_by_gauss_and_Tsallis:
             % test2_HQ0[:-9], fontsize=20)
 
         data, _ = bin4_different_gammas_test2_HQ10000_G1_0_0_000[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "r",
-            label=r"%s " % test2_HQ0[len("test2_HQ10000_G") :],
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1], "r",
+                 label=r"%s " % test2_HQ0[len("test2_HQ10000_G") :],
+                 lw=2, ms=7)
+
         data, _ = bin4_different_gammas_test2_HQ10000_G1_0_5_005[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "g",
-            label=r"%s" % test2_HQ36[len("test2_HQ10000_G") :],
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1], "g",
+                 label=r"%s" % test2_HQ36[len("test2_HQ10000_G") :],
+                 lw=2, ms=7)
+
         data, _ = bin4_different_gammas_test2_HQ10000_G1_0_10_005[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "k",
-            label=r"%s" % test2_HQ66[len("test2_HQ10000_G") :],
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1], "k",
+                 label=r"%s" % test2_HQ66[len("test2_HQ10000_G") :],
+                 lw=2, ms=7)
+
         data, _ = bin4_different_gammas_test2_HQ10000_G1_0_15_005[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "b",
-            label=r"%s" % test2_HQ96[len("test2_HQ10000_G") :],
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1], "b",
+                 label=r"%s" % test2_HQ96[len("test2_HQ10000_G") :],
+                 lw=2, ms=7)
+
         data, _ = bin4_different_gammas_test2_HQ10000_G1_0_20_005[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "c",
-            label=r"%s" % test2_HQ126[len("test2_HQ10000_G") :],
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1], "c",
+                 label=r"%s" % test2_HQ126[len("test2_HQ10000_G") :],
+                 lw=2, ms=7)
+
         data, _ = bin4_different_gammas_test2_HQ10000_G1_0_25_005[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "m",
-            label=r"%s" % test2_HQ159[len("test2_HQ10000_G") :],
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1], "m",
+                 label=r"%s" % test2_HQ159[len("test2_HQ10000_G") :],
+                 lw=2, ms=7)
+
         ax2.set_xticklabels([])
         ax2.set_ylabel(
             r"$f\left(\log \left( |u_n|,u_p \right)\right)$", fontsize=20)
@@ -7030,53 +5557,29 @@ if Fig_GPerts_gammas_3_0_vt_divided_by_gauss_and_Tsallis:
 
 
         data, _ = bin4_different_gammas_test2_HQ10000_G1_0_0_000[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "r",
-            lw=2,
-            ms=7
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "r", lw=2, ms=7)
+
         data, _ = bin4_different_gammas_test2_HQ10000_G1_0_5_005[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "g",
-            lw=2,
-            ms=7
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "g", lw=2, ms=7)
+
         data, _ = bin4_different_gammas_test2_HQ10000_G1_0_10_005[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "k",
-            lw=2,
-            ms=7
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "k", lw=2, ms=7)
+
         data, _ = bin4_different_gammas_test2_HQ10000_G1_0_15_005[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "b",
-            lw=2,
-            ms=7
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "b", lw=2, ms=7)
+
         data, _ = bin4_different_gammas_test2_HQ10000_G1_0_20_005[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "c",
-            lw=2,
-            ms=7,
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "c", lw=2, ms=7)
+
         data, _ = bin4_different_gammas_test2_HQ10000_G1_0_25_005[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "m",
-            lw=2,
-            ms=7,
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "m", lw=2, ms=7)
+
         ax5.set_xticklabels([])
         ax5.set_ylim(0, 3)
         ax5.set_ylabel(
@@ -7091,53 +5594,29 @@ if Fig_GPerts_gammas_3_0_vt_divided_by_gauss_and_Tsallis:
 
 
         data, _ = bin4_different_gammas_test2_HQ10000_G1_0_0_000[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "r",
-            lw=2,
-            ms=7,
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "r", lw=2, ms=7)
+
         data, _ = bin4_different_gammas_test2_HQ10000_G1_0_5_005[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "g",
-            lw=2,
-            ms=7,
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "g", lw=2, ms=7)
+
         data, _ = bin4_different_gammas_test2_HQ10000_G1_0_10_005[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "k",
-            lw=2,
-            ms=7,
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "k", lw=2, ms=7)
+
         data, _ = bin4_different_gammas_test2_HQ10000_G1_0_15_005[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "b",
-            lw=2,
-            ms=7,
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "b", lw=2, ms=7)
+
         data, _ = bin4_different_gammas_test2_HQ10000_G1_0_20_005[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "c",
-            lw=2,
-            ms=7,
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "c", lw=2, ms=7)
+
         data, _ = bin4_different_gammas_test2_HQ10000_G1_0_25_005[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "m",
-            lw=2,
-            ms=7,
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "m", lw=2, ms=7)
+
         ax6.set_xticklabels([])
         ax6.set_ylim(0, 5)
         ax6.set_ylabel(
@@ -7153,56 +5632,32 @@ if Fig_GPerts_gammas_3_0_vt_divided_by_gauss_and_Tsallis:
 
 
         data, _ = bin4_different_gammas_test2_HQ10000_G1_0_0_000[0]
-        ax7.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax7(data[:, 0]),
-            "r",
-            lw=2,
-            ms=7,
-        )
+        ax7.plot(data[:, 0], data[:, 1] / denom_ax7(data[:, 0]),
+                 "r", lw=2, ms=7)
+
         data, _ = bin4_different_gammas_test2_HQ10000_G1_0_5_005[0]
-        ax7.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax7(data[:, 0]),
-            "g",
-            lw=2,
-            ms=7,
-        )
+        ax7.plot(data[:, 0], data[:, 1] / denom_ax7(data[:, 0]),
+                 "g", lw=2, ms=7)
+
         data, _ = bin4_different_gammas_test2_HQ10000_G1_0_10_005[0]
-        ax7.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax7(data[:, 0]),
-            "k",
-            lw=2,
-            ms=7,
-        )
+        ax7.plot(data[:, 0], data[:, 1] / denom_ax7(data[:, 0]),
+                 "k", lw=2, ms=7)
+
         data, _ = bin4_different_gammas_test2_HQ10000_G1_0_15_005[0]
-        ax7.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax7(data[:, 0]),
-            "b",
-            lw=2,
-            ms=7,
-        )
+        ax7.plot(data[:, 0], data[:, 1] / denom_ax7(data[:, 0]),
+                 "b", lw=2, ms=7)
+
         data, _ = bin4_different_gammas_test2_HQ10000_G1_0_20_005[0]
-        ax7.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax7(data[:, 0]),
-            "c",
-            lw=2,
-            ms=7,
-        )
+        ax7.plot(data[:, 0], data[:, 1] / denom_ax7(data[:, 0]),
+                 "c", lw=2, ms=7)
+
         data, _ = bin4_different_gammas_test2_HQ10000_G1_0_25_005[0]
-        ax7.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax7(data[:, 0]),
-            "m",
-            lw=2,
-            ms=7,
-        )
+        ax7.plot(data[:, 0], data[:, 1] / denom_ax7(data[:, 0]),
+                 "m", lw=2, ms=7)
+
         ax7.set_ylim(0, 2)
         ax7.set_xlabel(r"$u_t$", fontsize=20)
-        ax7.set_ylabel(r"$\frac{f\left( u \right)}{Tsallis} $", fontsize=20)
+        ax7.set_ylabel(r"$\frac{f\left( u \right)}{Tsallis}$", fontsize=20)
 
 
         def denom_ax8(a):
@@ -7212,53 +5667,29 @@ if Fig_GPerts_gammas_3_0_vt_divided_by_gauss_and_Tsallis:
 
 
         data, _ = bin4_different_gammas_test2_HQ10000_G1_0_0_000[4]
-        ax8.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax8(data[:, 0]),
-            "r",
-            lw=2,
-            ms=7,
-        )
+        ax8.plot(data[:, 0], data[:, 1] / denom_ax8(data[:, 0]),
+                 "r", lw=2, ms=7)
+
         data, _ = bin4_different_gammas_test2_HQ10000_G1_0_5_005[4]
-        ax8.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax8(data[:, 0]),
-            "g",
-            lw=2,
-            ms=7,
-        )
+        ax8.plot(data[:, 0], data[:, 1] / denom_ax8(data[:, 0]),
+                 "g", lw=2, ms=7)
+
         data, _ = bin4_different_gammas_test2_HQ10000_G1_0_10_005[4]
-        ax8.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax8(data[:, 0]),
-            "k",
-            lw=2,
-            ms=7,
-        )
+        ax8.plot(data[:, 0], data[:, 1] / denom_ax8(data[:, 0]),
+                 "k", lw=2, ms=7)
+
         data, _ = bin4_different_gammas_test2_HQ10000_G1_0_15_005[4]
-        ax8.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax8(data[:, 0]),
-            "b",
-            lw=2,
-            ms=7,
-        )
+        ax8.plot(data[:, 0], data[:, 1] / denom_ax8(data[:, 0]),
+                 "b", lw=2, ms=7)
+
         data, _ = bin4_different_gammas_test2_HQ10000_G1_0_20_005[4]
-        ax8.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax8(data[:, 0]),
-            "c",
-            lw=2,
-            ms=7,
-        )
+        ax8.plot(data[:, 0], data[:, 1] / denom_ax8(data[:, 0]),
+                 "c", lw=2, ms=7)
+
         data, _ = bin4_different_gammas_test2_HQ10000_G1_0_25_005[4]
-        ax8.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax8(data[:, 0]),
-            "m",
-            lw=2,
-            ms=7,
-        )
+        ax8.plot(data[:, 0], data[:, 1] / denom_ax8(data[:, 0]),
+                 "m", lw=2, ms=7)
+
         ax8.set_ylim(0, 5)
         ax8.set_xlabel(r"$\log \left( |u_tn|,u_tp \right)$", fontsize=20)
         ax8.set_ylabel(
@@ -7298,59 +5729,29 @@ if Fig_GPerts_gammas_3_0_vt_divided_by_gauss_and_Tsallis:
             % A_HQ0[:-9], fontsize=20)
 
         data, _ = bin4_different_gammas_A_HQ10000_G1_0_0_000[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "r",
-            label=r"%s " % A_HQ0[len("A_HQ10000_G") :],
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1], "r",
+                 label=r"%s " % A_HQ0[len("A_HQ10000_G") :], lw=2, ms=7)
+
         data, _ = bin4_different_gammas_A_HQ10000_G1_0_5_005[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "g",
-            label=r"%s" % A_HQ36[len("A_HQ10000_G") :],
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1], "g",
+                 label=r"%s" % A_HQ36[len("A_HQ10000_G") :], lw=2, ms=7)
+
         data, _ = bin4_different_gammas_A_HQ10000_G1_0_10_005[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "k",
-            label=r"%s" % A_HQ66[len("A_HQ10000_G") :],
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1], "k",
+                 label=r"%s" % A_HQ66[len("A_HQ10000_G") :], lw=2, ms=7)
+
         data, _ = bin4_different_gammas_A_HQ10000_G1_0_40_005[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "b",
-            label=r"%s" % A_HQ246[len("A_HQ10000_G") :],
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1], "b",
+                 label=r"%s" % A_HQ246[len("A_HQ10000_G") :], lw=2, ms=7)
+
         data, _ = bin4_different_gammas_A_HQ10000_G1_0_48_009[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "c",
-            label=r"%s" % A_HQ298[len("A_HQ10000_G") :],
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1], "c",
+                 label=r"%s" % A_HQ298[len("A_HQ10000_G") :], lw=2, ms=7)
+
         data, _ = bin4_different_gammas_A_HQ10000_G1_0_48_093[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "m",
-            label=r"%s" % A_HQ382[len("A_HQ10000_G") :],
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1], "m",
+                 label=r"%s" % A_HQ382[len("A_HQ10000_G") :], lw=2, ms=7)
+
         ax2.set_xticklabels([])
         ax2.set_ylabel(
             r"$f\left(\log \left( |u_n|,u_p \right)\right)$", fontsize=20)
@@ -7396,53 +5797,29 @@ if Fig_GPerts_gammas_3_0_vt_divided_by_gauss_and_Tsallis:
 
 
         data, _ = bin4_different_gammas_A_HQ10000_G1_0_0_000[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "r",
-            lw=2,
-            ms=7
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "r", lw=2, ms=7)
+
         data, _ = bin4_different_gammas_A_HQ10000_G1_0_5_005[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "g",
-            lw=2,
-            ms=7
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "g", lw=2, ms=7)
+
         data, _ = bin4_different_gammas_A_HQ10000_G1_0_10_005[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "k",
-            lw=2,
-            ms=7
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "k", lw=2, ms=7)
+
         data, _ = bin4_different_gammas_A_HQ10000_G1_0_40_005[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "b",
-            lw=2,
-            ms=7
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "b", lw=2, ms=7)
+
         data, _ = bin4_different_gammas_A_HQ10000_G1_0_48_009[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "c",
-            lw=2,
-            ms=7
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "c", lw=2, ms=7)
+
         data, _ = bin4_different_gammas_A_HQ10000_G1_0_48_093[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "m",
-            lw=2,
-            ms=7
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "m", lw=2, ms=7)
+
         ax5.set_xticklabels([])
         ax5.set_ylim(.5, 1.5)
         ax5.set_ylabel(
@@ -7456,53 +5833,29 @@ if Fig_GPerts_gammas_3_0_vt_divided_by_gauss_and_Tsallis:
 
 
         data, _ = bin4_different_gammas_A_HQ10000_G1_0_0_000[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "r",
-            lw=2,
-            ms=7
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "r", lw=2, ms=7)
+
         data, _ = bin4_different_gammas_A_HQ10000_G1_0_5_005[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "g",
-            lw=2,
-            ms=7
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "g", lw=2, ms=7)
+
         data, _ = bin4_different_gammas_A_HQ10000_G1_0_10_005[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "k",
-            lw=2,
-            ms=7
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "k", lw=2, ms=7)
+
         data, _ = bin4_different_gammas_A_HQ10000_G1_0_40_005[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "b",
-            lw=2,
-            ms=7
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "b", lw=2, ms=7)
+
         data, _ = bin4_different_gammas_A_HQ10000_G1_0_48_009[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "c",
-            lw=2,
-            ms=7
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "c", lw=2, ms=7)
+
         data, _ = bin4_different_gammas_A_HQ10000_G1_0_48_093[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "m",
-            lw=2,
-            ms=7
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "m", lw=2, ms=7)
+
         ax6.set_xticklabels([])
         ax6.set_ylim(.5, 1.5)
         ax6.set_ylabel(
@@ -7517,53 +5870,29 @@ if Fig_GPerts_gammas_3_0_vt_divided_by_gauss_and_Tsallis:
 
 
         data, _ = bin4_different_gammas_A_HQ10000_G1_0_0_000[0]
-        ax7.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax7(data[:, 0]),
-            "r",
-            lw=2,
-            ms=7,
-        )
+        ax7.plot(data[:, 0], data[:, 1] / denom_ax7(data[:, 0]),
+                 "r", lw=2, ms=7)
+
         data, _ = bin4_different_gammas_A_HQ10000_G1_0_5_005[0]
-        ax7.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax7(data[:, 0]),
-            "g",
-            lw=2,
-            ms=7,
-        )
+        ax7.plot(data[:, 0], data[:, 1] / denom_ax7(data[:, 0]),
+                 "g", lw=2, ms=7)
+
         data, _ = bin4_different_gammas_A_HQ10000_G1_0_10_005[0]
-        ax7.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax7(data[:, 0]),
-            "k",
-            lw=2,
-            ms=7,
-        )
+        ax7.plot(data[:, 0], data[:, 1] / denom_ax7(data[:, 0]),
+                 "k", lw=2, ms=7)
+
         data, _ = bin4_different_gammas_A_HQ10000_G1_0_40_005[0]
-        ax7.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax7(data[:, 0]),
-            "b",
-            lw=2,
-            ms=7,
-        )
+        ax7.plot(data[:, 0], data[:, 1] / denom_ax7(data[:, 0]),
+                 "b", lw=2, ms=7)
+
         data, _ = bin4_different_gammas_A_HQ10000_G1_0_48_009[0]
-        ax7.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax7(data[:, 0]),
-            "c",
-            lw=2,
-            ms=7,
-        )
+        ax7.plot(data[:, 0], data[:, 1] / denom_ax7(data[:, 0]),
+                 "c", lw=2, ms=7)
+
         data, _ = bin4_different_gammas_A_HQ10000_G1_0_48_093[0]
-        ax7.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax7(data[:, 0]),
-            "m",
-            lw=2,
-            ms=7,
-        )
+        ax7.plot(data[:, 0], data[:, 1] / denom_ax7(data[:, 0]),
+                 "m", lw=2, ms=7)
+
         ax7.set_ylim(.5, 1.5)
         ax7.set_xlabel(r"$u_t$", fontsize=20)
         ax7.set_ylabel(r"$\frac{f\left( u \right)}{Tsallis}$", fontsize=20)
@@ -7576,53 +5905,29 @@ if Fig_GPerts_gammas_3_0_vt_divided_by_gauss_and_Tsallis:
 
 
         data, _ = bin4_different_gammas_A_HQ10000_G1_0_0_000[4]
-        ax8.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax8(data[:, 0]),
-            "r",
-            lw=2,
-            ms=7,
-        )
+        ax8.plot(data[:, 0], data[:, 1] / denom_ax8(data[:, 0]),
+                 "r", lw=2, ms=7)
+
         data, _ = bin4_different_gammas_A_HQ10000_G1_0_5_005[4]
-        ax8.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax8(data[:, 0]),
-            "g",
-            lw=2,
-            ms=7,
-        )
+        ax8.plot(data[:, 0], data[:, 1] / denom_ax8(data[:, 0]),
+                 "g", lw=2, ms=7)
+
         data, _ = bin4_different_gammas_A_HQ10000_G1_0_10_005[4]
-        ax8.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax8(data[:, 0]),
-            "k",
-            lw=2,
-            ms=7,
-        )
+        ax8.plot(data[:, 0], data[:, 1] / denom_ax8(data[:, 0]),
+                 "k", lw=2, ms=7)
+
         data, _ = bin4_different_gammas_A_HQ10000_G1_0_40_005[4]
-        ax8.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax8(data[:, 0]),
-            "b",
-            lw=2,
-            ms=7,
-        )
+        ax8.plot(data[:, 0], data[:, 1] / denom_ax8(data[:, 0]),
+                 "b", lw=2, ms=7)
+
         data, _ = bin4_different_gammas_A_HQ10000_G1_0_48_009[4]
-        ax8.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax8(data[:, 0]),
-            "c",
-            lw=2,
-            ms=7,
-        )
+        ax8.plot(data[:, 0], data[:, 1] / denom_ax8(data[:, 0]),
+                 "c", lw=2, ms=7)
+
         data, _ = bin4_different_gammas_A_HQ10000_G1_0_48_093[4]
-        ax8.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax8(data[:, 0]),
-            "m",
-            lw=2,
-            ms=7,
-        )
+        ax8.plot(data[:, 0], data[:, 1] / denom_ax8(data[:, 0]),
+                 "m", lw=2, ms=7)
+
         ax8.set_ylim(.5, 1.5)
         ax8.set_xlabel(r"$\log \left( |u_tn|,u_tp \right)$", fontsize=20)
         ax8.set_ylabel(
@@ -7660,50 +5965,25 @@ if Fig_GPerts_gammas_3_0_vt_divided_by_gauss_and_Tsallis:
             % B_HQ0[:-9], fontsize=20)
 
         data, _ = bin4_different_gammas_B_HQ10000_G1_0_0_000[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "r",
-            label=r"%s " % B_HQ0[len("B_HQ10000_G") :],
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1], "r",
+                 label=r"%s " % B_HQ0[len("B_HQ10000_G") :], lw=2, ms=7)
+
         data, _ = bin4_different_gammas_B_HQ10000_G1_0_5_005[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "g",
-            label=r"%s" % B_HQ36[len("B_HQ10000_G") :],
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1], "g",
+                 label=r"%s" % B_HQ36[len("B_HQ10000_G") :], lw=2, ms=7)
+
         data, _ = bin4_different_gammas_B_HQ10000_G1_0_10_005[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "k",
-            label=r"%s" % B_HQ66[len("B_HQ10000_G") :],
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1], "k",
+                 label=r"%s" % B_HQ66[len("B_HQ10000_G") :], lw=2, ms=7)
+
         data, _ = bin4_different_gammas_B_HQ10000_G1_0_198_000[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "b",
-            label=r"%s" % B_HQ294[len("B_HQ10000_G") :],
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1], "b",
+                 label=r"%s" % B_HQ294[len("B_HQ10000_G") :], lw=2, ms=7)
+
         data, _ = bin4_different_gammas_B_HQ10000_G1_0_198_093[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "c",
-            label=r"%s" % B_HQ382[len("B_HQ10000_G") :],
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1], "c",
+                 label=r"%s" % B_HQ382[len("B_HQ10000_G") :], lw=2, ms=7)
+
         ax2.set_xticklabels([])
         ax2.set_ylabel(
             r"$f\left(\log \left( |u_n|,u_p \right)\right)$", fontsize=20)
@@ -7745,45 +6025,25 @@ if Fig_GPerts_gammas_3_0_vt_divided_by_gauss_and_Tsallis:
 
 
         data, _ = bin4_different_gammas_B_HQ10000_G1_0_0_000[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "r",
-            lw=2,
-            ms=7,
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "r", lw=2, ms=7)
+
         data, _ = bin4_different_gammas_B_HQ10000_G1_0_5_005[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "g",
-            lw=2,
-            ms=7,
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "g", lw=2, ms=7)
+
         data, _ = bin4_different_gammas_B_HQ10000_G1_0_10_005[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "k",
-            lw=2,
-            ms=7,
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "k", lw=2, ms=7)
+
         data, _ = bin4_different_gammas_B_HQ10000_G1_0_198_000[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "b",
-            lw=2,
-            ms=7,
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "b", lw=2, ms=7)
+
         data, _ = bin4_different_gammas_B_HQ10000_G1_0_198_093[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "c",
-            lw=2,
-            ms=7,
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "c", lw=2, ms=7)
+
         ax5.set_xticklabels([])
         ax5.set_ylim(0, 3)
         ax5.set_ylabel(
@@ -7796,45 +6056,25 @@ if Fig_GPerts_gammas_3_0_vt_divided_by_gauss_and_Tsallis:
 
 
         data, _ = bin4_different_gammas_B_HQ10000_G1_0_0_000[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "r",
-            lw=2,
-            ms=7
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "r", lw=2, ms=7)
+
         data, _ = bin4_different_gammas_B_HQ10000_G1_0_5_005[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "g",
-            lw=2,
-            ms=7
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "g", lw=2, ms=7)
+
         data, _ = bin4_different_gammas_B_HQ10000_G1_0_10_005[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "k",
-            lw=2,
-            ms=7
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "k", lw=2, ms=7)
+
         data, _ = bin4_different_gammas_B_HQ10000_G1_0_198_000[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "b",
-            lw=2,
-            ms=7
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "b", lw=2, ms=7)
+
         data, _ = bin4_different_gammas_B_HQ10000_G1_0_198_093[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "c",
-            lw=2,
-            ms=7
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "c", lw=2, ms=7)
+
         ax6.set_xticklabels([])
         ax6.set_ylim(0, 3)
         ax6.set_ylabel(
@@ -7849,45 +6089,25 @@ if Fig_GPerts_gammas_3_0_vt_divided_by_gauss_and_Tsallis:
 
 
         data, _ = bin4_different_gammas_B_HQ10000_G1_0_0_000[0]
-        ax7.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax7(data[:, 0]),
-            "r",
-            lw=2,
-            ms=7,
-        )
+        ax7.plot(data[:, 0], data[:, 1] / denom_ax7(data[:, 0]),
+                 "r", lw=2, ms=7)
+
         data, _ = bin4_different_gammas_B_HQ10000_G1_0_5_005[0]
-        ax7.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax7(data[:, 0]),
-            "g",
-            lw=2,
-            ms=7,
-        )
+        ax7.plot(data[:, 0], data[:, 1] / denom_ax7(data[:, 0]),
+                 "g", lw=2, ms=7)
+
         data, _ = bin4_different_gammas_B_HQ10000_G1_0_10_005[0]
-        ax7.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax7(data[:, 0]),
-            "k",
-            lw=2,
-            ms=7,
-        )
+        ax7.plot(data[:, 0], data[:, 1] / denom_ax7(data[:, 0]),
+                 "k", lw=2, ms=7)
+
         data, _ = bin4_different_gammas_B_HQ10000_G1_0_198_000[0]
-        ax7.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax7(data[:, 0]),
-            "b",
-            lw=2,
-            ms=7,
-        )
+        ax7.plot(data[:, 0], data[:, 1] / denom_ax7(data[:, 0]),
+                 "b", lw=2, ms=7)
+
         data, _ = bin4_different_gammas_B_HQ10000_G1_0_198_093[0]
-        ax7.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax7(data[:, 0]),
-            "c",
-            lw=2,
-            ms=7,
-        )
+        ax7.plot(data[:, 0], data[:, 1] / denom_ax7(data[:, 0]),
+                 "c", lw=2, ms=7)
+
         ax7.set_ylim(0, 2)
         ax7.set_xlabel(r"$u_t$", fontsize=20)
         ax7.set_ylabel(r"$\frac{f\left( u \right)}{Tsallis} $", fontsize=20)
@@ -7900,45 +6120,25 @@ if Fig_GPerts_gammas_3_0_vt_divided_by_gauss_and_Tsallis:
 
 
         data, _ = bin4_different_gammas_B_HQ10000_G1_0_0_000[4]
-        ax8.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax8(data[:, 0]),
-            "r",
-            lw=2,
-            ms=7,
-        )
+        ax8.plot(data[:, 0], data[:, 1] / denom_ax8(data[:, 0]),
+                 "r", lw=2, ms=7)
+
         data, _ = bin4_different_gammas_B_HQ10000_G1_0_5_005[4]
-        ax8.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax8(data[:, 0]),
-            "g",
-            lw=2,
-            ms=7,
-        )
+        ax8.plot(data[:, 0], data[:, 1] / denom_ax8(data[:, 0]),
+                 "g", lw=2, ms=7)
+
         data, _ = bin4_different_gammas_B_HQ10000_G1_0_10_005[4]
-        ax8.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax8(data[:, 0]),
-            "k",
-            lw=2,
-            ms=7
-        )
+        ax8.plot(data[:, 0], data[:, 1] / denom_ax8(data[:, 0]),
+                 "k", lw=2, ms=7)
+
         data, _ = bin4_different_gammas_B_HQ10000_G1_0_198_000[4]
-        ax8.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax8(data[:, 0]),
-            "b",
-            lw=2,
-            ms=7
-        )
+        ax8.plot(data[:, 0], data[:, 1] / denom_ax8(data[:, 0]),
+                 "b", lw=2, ms=7)
+
         data, _ = bin4_different_gammas_B_HQ10000_G1_0_198_093[4]
-        ax8.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax8(data[:, 0]),
-            "c",
-            lw=2,
-            ms=7
-        )
+        ax8.plot(data[:, 0], data[:, 1] / denom_ax8(data[:, 0]),
+                 "c", lw=2, ms=7)
+
         ax8.set_ylim(0, 5)
         ax8.set_xlabel(r"$\log \left( |u_tn|,u_tp \right)$", fontsize=20)
         ax8.set_ylabel(
@@ -7976,54 +6176,29 @@ if Fig_GPerts_R_middle_19_95_vt_divided_by_gauss_and_Tsallis:
         ax1.set_xticklabels([])
         ax1.set_ylabel(r"$f\left( u \right)$", fontsize=20)
         ax1.set_title(
-            r" Time evolution of files = %s , different r bins, $\gamma = -1.5$"
+            r"Time evolution of files = %s, different r bins, $\gamma = -1.5$"
             % HQ0[:-9], fontsize=20)
 
         data, _ = bin1_different_gammas_HQ10000_G1_2_1_005[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "r",
-            label=r"%s " % HQ12[len("HQ10000_G") :],
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1], "r",
+                 label=r"%s " % HQ12[len("HQ10000_G") :], lw=2, ms=7)
+
         data, _ = bin1_different_gammas_HQ10000_G1_2_3_005[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "g",
-            label=r"%s" % HQ24[len("HQ10000_G") :],
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1], "g",
+                 label=r"%s" % HQ24[len("HQ10000_G") :], lw=2, ms=7)
+
         data, _ = bin1_different_gammas_HQ10000_G1_2_5_005[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "k",
-            label=r"%s" % HQ36[len("HQ10000_G") :],
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1], "k",
+                 label=r"%s" % HQ36[len("HQ10000_G") :], lw=2, ms=7)
+
         data, _ = bin1_different_gammas_HQ10000_G1_2_7_005[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "b",
-            label=r"%s" % HQ48[len("HQ10000_G") :],
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1], "b",
+                 label=r"%s" % HQ48[len("HQ10000_G") :], lw=2, ms=7)
+
         data, _ = bin1_different_gammas_HQ10000_G1_2_9_005[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "c",
-            label=r"%s" % HQ60[len("HQ10000_G") :],
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1], "c",
+                 label=r"%s" % HQ60[len("HQ10000_G") :], lw=2, ms=7)
+
         ax2.set_xticklabels([])
         ax2.set_ylabel(
             r"$f\left(\log \left( |u_n|,u_p \right)\right)$", fontsize=20)
@@ -8065,45 +6240,25 @@ if Fig_GPerts_R_middle_19_95_vt_divided_by_gauss_and_Tsallis:
 
 
         data, _ = bin1_different_gammas_HQ10000_G1_2_1_005[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "r",
-            lw=2,
-            ms=7,
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "r", lw=2, ms=7)
+
         data, _ = bin1_different_gammas_HQ10000_G1_2_3_005[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "g",
-            lw=2,
-            ms=7
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "g", lw=2, ms=7)
+
         data, _ = bin1_different_gammas_HQ10000_G1_2_5_005[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "k",
-            lw=2,
-            ms=7
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "k", lw=2, ms=7)
+
         data, _ = bin1_different_gammas_HQ10000_G1_2_7_005[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "b",
-            lw=2,
-            ms=7
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "b", lw=2, ms=7)
+
         data, _ = bin1_different_gammas_HQ10000_G1_2_9_005[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "c",
-            lw=2,
-            ms=7
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "c", lw=2, ms=7)
+
         ax5.set_xticklabels([])
         ax5.set_ylabel(
             r"$\frac{f\left( u \right)}{log(x)e^{-0.5x^2}}$", fontsize=20)
@@ -8115,48 +6270,29 @@ if Fig_GPerts_R_middle_19_95_vt_divided_by_gauss_and_Tsallis:
 
 
         data, _ = bin1_different_gammas_HQ10000_G1_2_1_005[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "r",
-            lw=2,
-            ms=7,
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+            "r", lw=2, ms=7
         )
         data, _ = bin1_different_gammas_HQ10000_G1_2_3_005[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "g",
-            lw=2,
-            ms=7,
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+            "g", lw=2, ms=7
         )
         data, _ = bin1_different_gammas_HQ10000_G1_2_5_005[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "k",
-            lw=2,
-            ms=7,
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+            "k", lw=2, ms=7
         )
         data, _ = bin1_different_gammas_HQ10000_G1_2_7_005[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "b",
-            lw=2,
-            ms=7,
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+            "b", lw=2, ms=7
         )
         data, _ = bin1_different_gammas_HQ10000_G1_2_9_005[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "c",
-            lw=2,
-            ms=7,
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+            "c", lw=2, ms=7
         )
         ax6.set_xticklabels([])
         ax6.set_ylabel(
-            r"$\frac{f\left(\log \left( |u_n|,u_p \right)\right)}{e^{-0.5x^2}}$",
+            r"$\frac{f\left(\log \left( |u_n|,\
+              u_p \right)\right)}{e^{-0.5x^2}}$",
             fontsize=20)
 
     if test2:
@@ -8189,31 +6325,18 @@ if Fig_GPerts_R_middle_19_95_vt_divided_by_gauss_and_Tsallis:
             % test2_HQ0[:-9], fontsize=20)
 
         data, _ = datalist_bin5different_gammas_test2_HQ10000_G1_0_0_000[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "r",
-            label=r"%s " % test2_HQ0[len("test2_HQ10000_G") :],
-            lw=2,
-            ms=7,
+        ax2.plot(data[:, 0], data[:, 1],
+            "r", label=r"%s " % test2_HQ0[len("test2_HQ10000_G") :],
+            lw=2, ms=7
         )
         data, _ = datalist_bin5different_gammas_test2_HQ10000_G1_0_10_005[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "k",
-            label=r"%s" % test2_HQ66[len("test2_HQ10000_G") :],
-            lw=2,
-            ms=7,
+        ax2.plot(data[:, 0], data[:, 1], "k",
+            label=r"%s" % test2_HQ66[len("test2_HQ10000_G") :], lw=2, ms=7
         )
         data, _ = datalist_bin5different_gammas_test2_HQ10000_G1_0_18_053[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "b",
-            label=r"%s" % test2_HQ166[len("test2_HQ10000_G") :],
-            lw=2,
-            ms=7,
+        ax2.plot(data[:, 0], data[:, 1],
+            "b", label=r"%s" % test2_HQ166[len("test2_HQ10000_G") :],
+            lw=2, ms=7
         )
         ax2.set_ylabel(
             r"$f\left(\log \left( |u_n|,u_p \right)\right)$", fontsize=20)
@@ -8246,29 +6369,17 @@ if Fig_GPerts_R_middle_19_95_vt_divided_by_gauss_and_Tsallis:
 
 
         data, _ = datalist_bin5different_gammas_test2_HQ10000_G1_0_0_000[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "r",
-            lw=2,
-            ms=7,
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "r", lw=2, ms=7)
+
         data, _ = datalist_bin5different_gammas_test2_HQ10000_G1_0_10_005[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "k",
-            lw=2,
-            ms=7,
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "k", lw=2, ms=7)
+
         data, _ = datalist_bin5different_gammas_test2_HQ10000_G1_0_18_053[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "b",
-            lw=2,
-            ms=7,
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "b", lw=2, ms=7)
+
         ax5.set_ylabel(
             r"$\frac{f\left( u \right)}{887.569 \cdot x \cdot e^{-0.922 \cdot x^2} }$",
             fontsize=20,
@@ -8281,29 +6392,17 @@ if Fig_GPerts_R_middle_19_95_vt_divided_by_gauss_and_Tsallis:
 
 
         data, _ = datalist_bin5different_gammas_test2_HQ10000_G1_0_0_000[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "r",
-            lw=2,
-            ms=7,
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "r", lw=2, ms=7)
+
         data, _ = datalist_bin5different_gammas_test2_HQ10000_G1_0_10_005[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "k",
-            lw=2,
-            ms=7,
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "k", lw=2, ms=7)
+
         data, _ = datalist_bin5different_gammas_test2_HQ10000_G1_0_18_053[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "b",
-            lw=2,
-            ms=7,
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "b", lw=2, ms=7)
+
         ax6.set_ylim(0, 5)
         ax6.set_ylabel(
             r"$\frac{f\left(\log \left( |u_tn|,u_tp \right)\right)}\
@@ -8319,29 +6418,17 @@ if Fig_GPerts_R_middle_19_95_vt_divided_by_gauss_and_Tsallis:
 
 
         data, _ = datalist_bin5different_gammas_test2_HQ10000_G1_0_0_000[0]
-        ax7.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax7(data[:, 0]),
-            "r",
-            lw=2,
-            ms=7,
-        )
+        ax7.plot(data[:, 0], data[:, 1] / denom_ax7(data[:, 0]),
+                 "r", lw=2, ms=7)
+
         data, _ = datalist_bin5different_gammas_test2_HQ10000_G1_0_10_005[0]
-        ax7.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax7(data[:, 0]),
-            "k",
-            lw=2,
-            ms=7,
-        )
+        ax7.plot(data[:, 0], data[:, 1] / denom_ax7(data[:, 0]),
+                 "k", lw=2, ms=7)
+
         data, _ = datalist_bin5different_gammas_test2_HQ10000_G1_0_18_053[0]
-        ax7.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax7(data[:, 0]),
-            "b",
-            lw=2,
-            ms=7,
-        )
+        ax7.plot(data[:, 0], data[:, 1] / denom_ax7(data[:, 0]),
+                 "b", lw=2, ms=7)
+
         ax7.set_ylim(0, 2)
         ax7.set_xlabel(r"$u_t$", fontsize=20)
         ax7.set_ylabel(r"$\frac{f\left( u \right)}{Tsallis} $", fontsize=20)
@@ -8354,29 +6441,17 @@ if Fig_GPerts_R_middle_19_95_vt_divided_by_gauss_and_Tsallis:
 
 
         data, _ = datalist_bin5different_gammas_test2_HQ10000_G1_0_0_000[4]
-        ax8.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax8(data[:, 0]),
-            "r",
-            lw=2,
-            ms=7
-        )
+        ax8.plot(data[:, 0], data[:, 1] / denom_ax8(data[:, 0]),
+                 "r", lw=2, ms=7)
+
         data, _ = datalist_bin5different_gammas_test2_HQ10000_G1_0_10_005[4]
-        ax8.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax8(data[:, 0]),
-            "k",
-            lw=2,
-            ms=7
-        )
+        ax8.plot(data[:, 0], data[:, 1] / denom_ax8(data[:, 0]),
+                 "k", lw=2, ms=7)
+
         data, _ = datalist_bin5different_gammas_test2_HQ10000_G1_0_18_053[4]
-        ax8.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax8(data[:, 0]),
-            "b",
-            lw=2,
-            ms=7
-        )
+        ax8.plot(data[:, 0], data[:, 1] / denom_ax8(data[:, 0]),
+                 "b", lw=2, ms=7)
+
         ax8.set_ylim(0, 5)
         ax8.set_xlabel(r"$\log \left( |u_tn|,u_tp \right)$", fontsize=20)
         ax8.set_ylabel(
@@ -8414,32 +6489,17 @@ if Fig_GPerts_R_middle_19_95_vt_divided_by_gauss_and_Tsallis:
             % A_HQ0[:-9], fontsize=20)
 
         data, _ = datalist_bin5different_gammas_A_HQ10000_G1_0_0_000[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "r",
-            label=r"%s " % A_HQ0[len("A_HQ10000_G") :],
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1], "r",
+                 label=r"%s " % A_HQ0[len("A_HQ10000_G") :], lw=2, ms=7)
+
         data, _ = datalist_bin5different_gammas_A_HQ10000_G1_0_10_005[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "k",
-            label=r"%s" % A_HQ66[len("A_HQ10000_G") :],
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1], "k",
+                 label=r"%s" % A_HQ66[len("A_HQ10000_G") :], lw=2, ms=7)
+
         data, _ = datalist_bin5different_gammas_A_HQ10000_G1_0_48_093[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "b",
-            label=r"%s" % A_HQ382[len("A_HQ10000_G") :],
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1], "b",
+                 label=r"%s" % A_HQ382[len("A_HQ10000_G") :], lw=2, ms=7)
+
         ax2.set_ylabel(
             r"$f\left(\log \left( |u_n|,u_p \right)\right)$", fontsize=20)
 
@@ -8471,29 +6531,17 @@ if Fig_GPerts_R_middle_19_95_vt_divided_by_gauss_and_Tsallis:
 
 
         data, _ = datalist_bin5different_gammas_A_HQ10000_G1_0_0_000[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "r",
-            lw=2,
-            ms=7,
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "r", lw=2, ms=7)
+
         data, _ = datalist_bin5different_gammas_A_HQ10000_G1_0_10_005[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "k",
-            lw=2,
-            ms=7,
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "k", lw=2, ms=7)
+
         data, _ = datalist_bin5different_gammas_A_HQ10000_G1_0_48_093[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "b",
-            lw=2,
-            ms=7,
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "b", lw=2, ms=7)
+
         ax5.set_ylabel(
             r"$\frac{f\left( u_t \right)}{887.569 \cdot x \cdot e^{-0.922 \cdot x^2} }$",
             fontsize=20,
@@ -8506,29 +6554,17 @@ if Fig_GPerts_R_middle_19_95_vt_divided_by_gauss_and_Tsallis:
 
 
         data, _ = datalist_bin5different_gammas_A_HQ10000_G1_0_0_000[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "r",
-            lw=2,
-            ms=7
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "r", lw=2, ms=7)
+
         data, _ = datalist_bin5different_gammas_A_HQ10000_G1_0_10_005[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "k",
-            lw=2,
-            ms=7
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "k", lw=2, ms=7)
+
         data, _ = datalist_bin5different_gammas_A_HQ10000_G1_0_48_093[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "b",
-            lw=2,
-            ms=7,
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "b", lw=2, ms=7)
+
         ax6.set_ylim(0, 5)
         ax6.set_ylabel(
             r"$\frac{f\left(\log \left( |u_tn|,u_tp \right)\right)}{3424.993 \cdot x^2 \cdot e^{-0.930 \cdot x^2 }}$",
@@ -8543,29 +6579,17 @@ if Fig_GPerts_R_middle_19_95_vt_divided_by_gauss_and_Tsallis:
 
 
         data, _ = datalist_bin5different_gammas_A_HQ10000_G1_0_0_000[0]
-        ax7.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax7(data[:, 0]),
-            "r",
-            lw=2,
-            ms=7,
-        )
+        ax7.plot(data[:, 0], data[:, 1] / denom_ax7(data[:, 0]),
+                 "r", lw=2, ms=7)
+
         data, _ = datalist_bin5different_gammas_A_HQ10000_G1_0_10_005[0]
-        ax7.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax7(data[:, 0]),
-            "k",
-            lw=2,
-            ms=7,
-        )
+        ax7.plot(data[:, 0], data[:, 1] / denom_ax7(data[:, 0]),
+                 "k", lw=2, ms=7)
+
         data, _ = datalist_bin5different_gammas_A_HQ10000_G1_0_48_093[0]
-        ax7.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax7(data[:, 0]),
-            "b",
-            lw=2,
-            ms=7,
-        )
+        ax7.plot(data[:, 0], data[:, 1] / denom_ax7(data[:, 0]),
+                 "b", lw=2, ms=7)
+
         ax7.set_ylim(0, 2)
         ax7.set_xlabel(r"$u_t$", fontsize=20)
         ax7.set_ylabel(r"$\frac{f\left( u_t \right)}{Tsallis} $", fontsize=20)
@@ -8578,29 +6602,17 @@ if Fig_GPerts_R_middle_19_95_vt_divided_by_gauss_and_Tsallis:
 
 
         data, _ = datalist_bin5different_gammas_A_HQ10000_G1_0_0_000[4]
-        ax8.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax8(data[:, 0]),
-            "r",
-            lw=2,
-            ms=7,
-        )
+        ax8.plot(data[:, 0], data[:, 1] / denom_ax8(data[:, 0]),
+                 "r", lw=2, ms=7)
+
         data, _ = datalist_bin5different_gammas_A_HQ10000_G1_0_10_005[4]
-        ax8.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax8(data[:, 0]),
-            "k",
-            lw=2,
-            ms=7,
-        )
+        ax8.plot(data[:, 0], data[:, 1] / denom_ax8(data[:, 0]),
+                 "k", lw=2, ms=7)
+
         data, _ = datalist_bin5different_gammas_A_HQ10000_G1_0_48_093[4]
-        ax8.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax8(data[:, 0]),
-            "b",
-            lw=2,
-            ms=7,
-        )
+        ax8.plot(data[:, 0], data[:, 1] / denom_ax8(data[:, 0]),
+                 "b", lw=2, ms=7)
+
         ax8.set_ylim(0, 5)
         ax8.set_xlabel(r"$\log \left( |u_tn|,u_tp \right)$", fontsize=20)
         ax8.set_ylabel(
@@ -8642,41 +6654,21 @@ if Fig_GPerts_R_middle_19_95_vt_divided_by_gauss_and_Tsallis:
         )
 
         data, _ = datalist_bin5different_gammas_B_HQ10000_G1_0_0_000[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "r",
-            label=r"%s " % B_HQ0[len("B_HQ10000_G"):],
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1],
+                 "r", label=r"%s " % B_HQ0[len("B_HQ10000_G"):], lw=2, ms=7)
+
         data, _ = datalist_bin5different_gammas_B_HQ10000_G1_0_10_005[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "k",
-            label=r"%s" % B_HQ66[len("B_HQ10000_G"):],
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1],
+                 "k", label=r"%s" % B_HQ66[len("B_HQ10000_G"):], lw=2, ms=7)
+
         data, _ = datalist_bin5different_gammas_B_HQ10000_G1_0_198_000[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "b",
-            label=r"%s" % B_HQ294[len("B_HQ10000_G"):],
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1], "b",
+                 label=r"%s" % B_HQ294[len("B_HQ10000_G"):], lw=2, ms=7)
+
         data, _ = datalist_bin5different_gammas_B_HQ10000_G1_0_198_093[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "g",
-            label=r"%s" % B_HQ382[len("B_HQ10000_G"):],
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1], "g",
+                 label=r"%s" % B_HQ382[len("B_HQ10000_G"):], lw=2, ms=7)
+
         ax2.set_ylabel(
             r"$f\left(\log \left( |u_n|,u_p \right)\right)$", fontsize=20
         )
@@ -8713,37 +6705,21 @@ if Fig_GPerts_R_middle_19_95_vt_divided_by_gauss_and_Tsallis:
 
 
         data, _ = datalist_bin5different_gammas_B_HQ10000_G1_0_0_000[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "r",
-            lw=2,
-            ms=7,
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "r", lw=2, ms=7)
+
         data, _ = datalist_bin5different_gammas_B_HQ10000_G1_0_10_005[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "k",
-            lw=2,
-            ms=7,
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "k", lw=2, ms=7)
+
         data, _ = datalist_bin5different_gammas_B_HQ10000_G1_0_198_000[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "b",
-            lw=2,
-            ms=7,
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "b", lw=2, ms=7)
+
         data, _ = datalist_bin5different_gammas_B_HQ10000_G1_0_198_093[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "g",
-            lw=2,
-            ms=7,
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "g", lw=2, ms=7)
+
         ax5.set_ylabel(
             r"$\frac{f\left( u_t \right)}{887.569 \cdot x \cdot e^{-0.922 \cdot x^2} }$",
             fontsize=20,
@@ -8756,37 +6732,21 @@ if Fig_GPerts_R_middle_19_95_vt_divided_by_gauss_and_Tsallis:
 
 
         data, _ = datalist_bin5different_gammas_B_HQ10000_G1_0_0_000[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "r",
-            lw=2,
-            ms=7,
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "r", lw=2, ms=7)
+
         data, _ = datalist_bin5different_gammas_B_HQ10000_G1_0_10_005[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "k",
-            lw=2,
-            ms=7,
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "k", lw=2, ms=7)
+
         data, _ = datalist_bin5different_gammas_B_HQ10000_G1_0_198_000[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "b",
-            lw=2,
-            ms=7,
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "b", lw=2, ms=7)
+
         data, _ = datalist_bin5different_gammas_B_HQ10000_G1_0_198_093[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "g",
-            lw=2,
-            ms=7,
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "g", lw=2, ms=7)
+
         ax6.set_ylim(0, 5)
         ax6.set_ylabel(
             r"$\frac{f\left(\log \left( |u_tn|,u_tp \right)\right)}{3424.993 \cdot x^2 \cdot e^{-0.930 \cdot x^2 }}$",
@@ -8801,37 +6761,21 @@ if Fig_GPerts_R_middle_19_95_vt_divided_by_gauss_and_Tsallis:
 
 
         data, _ = datalist_bin5different_gammas_B_HQ10000_G1_0_0_000[0]
-        ax7.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax7(data[:, 0]),
-            "r",
-            lw=2,
-            ms=7,
-        )
+        ax7.plot(data[:, 0], data[:, 1] / denom_ax7(data[:, 0]),
+                 "r", lw=2, ms=7)
+
         data, _ = datalist_bin5different_gammas_B_HQ10000_G1_0_10_005[0]
-        ax7.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax7(data[:, 0]),
-            "k",
-            lw=2,
-            ms=7,
-        )
+        ax7.plot(data[:, 0], data[:, 1] / denom_ax7(data[:, 0]),
+                 "k", lw=2, ms=7)
+
         data, _ = datalist_bin5different_gammas_B_HQ10000_G1_0_198_000[0]
-        ax7.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax7(data[:, 0]),
-            "b",
-            lw=2,
-            ms=7,
-        )
+        ax7.plot(data[:, 0], data[:, 1] / denom_ax7(data[:, 0]),
+                 "b", lw=2, ms=7)
+
         data, _ = datalist_bin5different_gammas_B_HQ10000_G1_0_198_093[0]
-        ax7.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax7(data[:, 0]),
-            "g",
-            lw=2,
-            ms=7,
-        )
+        ax7.plot(data[:, 0], data[:, 1] / denom_ax7(data[:, 0]),
+                 "g", lw=2, ms=7)
+
         ax7.set_ylim(0, 2)
         ax7.set_xlabel(r"$u_t$", fontsize=20)
         ax7.set_ylabel(r"$\frac{f\left( u_t \right)}{Tsallis} $", fontsize=20)
@@ -8844,37 +6788,21 @@ if Fig_GPerts_R_middle_19_95_vt_divided_by_gauss_and_Tsallis:
 
 
         data, _ = datalist_bin5different_gammas_B_HQ10000_G1_0_0_000[4]
-        ax8.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax8(data[:, 0]),
-            "r",
-            lw=2,
-            ms=7,
-        )
+        ax8.plot(data[:, 0], data[:, 1] / denom_ax8(data[:, 0]),
+                 "r", lw=2, ms=7)
+
         data, _ = datalist_bin5different_gammas_B_HQ10000_G1_0_10_005[4]
-        ax8.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax8(data[:, 0]),
-            "k",
-            lw=2,
-            ms=7,
-        )
+        ax8.plot(data[:, 0], data[:, 1] / denom_ax8(data[:, 0]),
+                 "k", lw=2, ms=7)
+
         data, _ = datalist_bin5different_gammas_B_HQ10000_G1_0_198_000[4]
-        ax8.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax8(data[:, 0]),
-            "b",
-            lw=2,
-            ms=7,
-        )
+        ax8.plot(data[:, 0], data[:, 1] / denom_ax8(data[:, 0]),
+                 "b", lw=2, ms=7)
+
         data, _ = datalist_bin5different_gammas_B_HQ10000_G1_0_198_093[4]
-        ax8.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax8(data[:, 0]),
-            "g",
-            lw=2,
-            ms=7,
-        )
+        ax8.plot(data[:, 0], data[:, 1] / denom_ax8(data[:, 0]),
+                 "g", lw=2, ms=7)
+
         ax8.set_ylim(0, 5)
         ax8.set_xlabel(r"$\log \left( |u_tn|,u_tp \right)$", fontsize=20)
         ax8.set_ylabel(
@@ -8911,46 +6839,21 @@ if Fig16_GPerts_R_middle_31_62_vt_divided_by_gauss_and_Tsallis:
             fontsize=20,
         )
 
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "r",
-            label=r"%s " % HQ12[len("HQ10000_G") :],
-            lw=2,
-            ms=7,
-        )
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "g",
-            label=r"%s" % HQ24[len("HQ10000_G") :],
-            lw=2,
-            ms=7,
-        )
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "k",
-            label=r"%s" % HQ36[len("HQ10000_G") :],
-            lw=2,
-            ms=7,
-        )
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "b",
-            label=r"%s" % HQ48[len("HQ10000_G") :],
-            lw=2,
-            ms=7,
-        )
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "c",
-            label=r"%s" % HQ60[len("HQ10000_G") :],
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1], "r",
+                 label=r"%s " % HQ12[len("HQ10000_G") :], lw=2, ms=7)
+
+        ax2.plot(data[:, 0], data[:, 1], "g",
+                 label=r"%s" % HQ24[len("HQ10000_G") :], lw=2, ms=7)
+
+        ax2.plot(data[:, 0], data[:, 1], "k",
+                 label=r"%s" % HQ36[len("HQ10000_G") :], lw=2, ms=7)
+
+        ax2.plot(data[:, 0], data[:, 1], "b",
+                 label=r"%s" % HQ48[len("HQ10000_G") :], lw=2, ms=7)
+
+        ax2.plot(data[:, 0], data[:, 1], "c",
+                 label=r"%s" % HQ60[len("HQ10000_G") :], lw=2, ms=7)
+
         ax2.set_xticklabels([])
         ax2.set_ylabel(
             r"$f\left(\log \left( |u_n|,u_p \right)\right)$", fontsize=20
@@ -8983,41 +6886,21 @@ if Fig16_GPerts_R_middle_31_62_vt_divided_by_gauss_and_Tsallis:
             return np.log10(a) * np.exp(-.5 * a ** 2)
 
 
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "r",
-            lw=2,
-            ms=7,
-        )
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "g",
-            lw=2,
-            ms=7,
-        )
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "k",
-            lw=2,
-            ms=7,
-        )
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "b",
-            lw=2,
-            ms=7,
-        )
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "c",
-            lw=2,
-            ms=7,
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "r", lw=2, ms=7)
+
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "g", lw=2, ms=7)
+
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "k", lw=2, ms=7)
+
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "b", lw=2, ms=7)
+
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "c", lw=2, ms=7)
+
         ax5.set_xticklabels([])
         ax5.set_ylabel(
             r"$\frac{f\left( u \right)}{log(x)e^{-0.5x^2}}$", fontsize=20
@@ -9029,41 +6912,17 @@ if Fig16_GPerts_R_middle_31_62_vt_divided_by_gauss_and_Tsallis:
             return np.exp(-.5 * a ** 2)
 
 
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "r",
-            lw=2,
-            ms=7,
-        )
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "g",
-            lw=2,
-            ms=7,
-        )
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "k",
-            lw=2,
-            ms=7,
-        )
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "b",
-            lw=2,
-            ms=7,
-        )
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "c",
-            lw=2,
-            ms=7,
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "r", lw=2, ms=7)
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "g", lw=2, ms=7)
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "k", lw=2, ms=7)
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "b", lw=2, ms=7)
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "c", lw=2, ms=7)
+
         ax6.set_xticklabels([])
         ax6.set_ylabel(
             r"$\frac{f\left(\log \left( |u_n|,u_p \right)\right)}{e^{-0.5x^2}}$",
@@ -9098,32 +6957,17 @@ if Fig16_GPerts_R_middle_31_62_vt_divided_by_gauss_and_Tsallis:
         )
 
         data, _ = datalist_bin6different_gammas_test2_HQ10000_G1_0_0_000[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "r",
-            label=r"%s " % test2_HQ0[len("HQ10000_G") :],
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1], "r",
+                 label=r"%s " % test2_HQ0[len("HQ10000_G") :], lw=2, ms=7)
+
         data, _ = datalist_bin6different_gammas_test2_HQ10000_G1_0_10_005[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "k",
-            label=r"%s" % test2_HQ66[len("HQ10000_G") :],
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1], "k",
+                 label=r"%s" % test2_HQ66[len("HQ10000_G") :], lw=2, ms=7)
+
         data, _ = datalist_bin6different_gammas_test2_HQ10000_G1_0_18_053[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "b",
-            label=r"%s" % test2_HQ166[len("HQ10000_G") :],
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1], "b",
+                 label=r"%s" % test2_HQ166[len("HQ10000_G") :], lw=2, ms=7)
+
         ax2.set_ylabel(
             r"$f\left(\log \left( |u_tn|,u_tp \right)\right)$", fontsize=20
         )
@@ -9158,29 +7002,17 @@ if Fig16_GPerts_R_middle_31_62_vt_divided_by_gauss_and_Tsallis:
 
 
         data, _ = datalist_bin6different_gammas_test2_HQ10000_G1_0_0_000[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "r",
-            lw=2,
-            ms=7,
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "r", lw=2, ms=7)
+
         data, _ = datalist_bin6different_gammas_test2_HQ10000_G1_0_10_005[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "k",
-            lw=2,
-            ms=7,
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "k", lw=2, ms=7)
+
         data, _ = datalist_bin6different_gammas_test2_HQ10000_G1_0_18_053[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "b",
-            lw=2,
-            ms=7,
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "b", lw=2, ms=7)
+
         ax5.set_ylabel(
             r"$\frac{f\left( u_t \right)}{887.569 \cdot x \cdot e^{-0.922 \cdot x^2} }$",
             fontsize=20,
@@ -9193,32 +7025,21 @@ if Fig16_GPerts_R_middle_31_62_vt_divided_by_gauss_and_Tsallis:
 
 
         data, _ = datalist_bin6different_gammas_test2_HQ10000_G1_0_0_000[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "r",
-            lw=2,
-            ms=7,
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "r", lw=2, ms=7)
+
         data, _ = datalist_bin6different_gammas_test2_HQ10000_G1_0_10_005[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "k",
-            lw=2,
-            ms=7,
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "k", lw=2, ms=7)
+
         data, _ = datalist_bin6different_gammas_test2_HQ10000_G1_0_18_053[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "b",
-            lw=2,
-            ms=7,
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "b", lw=2, ms=7)
+
         ax6.set_ylim(0, 5)
         ax6.set_ylabel(
-            r"$\frac{f\left(\log \left( |u_tn|,u_tp \right)\right)}{3424.993 \cdot x^2 \cdot e^{-0.930 \cdot x^2 }}$",
+            r"$\frac{f\left(\log \left( |u_tn|,u_tp \right)\right)}\
+              {3424.993 \cdot x^2 \cdot e^{-0.930 \cdot x^2 }}$",
             fontsize=20,
         )
 
@@ -9230,29 +7051,17 @@ if Fig16_GPerts_R_middle_31_62_vt_divided_by_gauss_and_Tsallis:
 
 
         data, _ = datalist_bin6different_gammas_test2_HQ10000_G1_0_0_000[0]
-        ax7.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax7(data[:, 0]),
-            "r",
-            lw=2,
-            ms=7,
-        )
+        ax7.plot(data[:, 0], data[:, 1] / denom_ax7(data[:, 0]),
+                 "r", lw=2, ms=7)
+
         data, _ = datalist_bin6different_gammas_test2_HQ10000_G1_0_10_005[0]
-        ax7.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax7(data[:, 0]),
-            "k",
-            lw=2,
-            ms=7,
-        )
+        ax7.plot(data[:, 0], data[:, 1] / denom_ax7(data[:, 0]),
+                 "k", lw=2, ms=7)
+
         data, _ = datalist_bin6different_gammas_test2_HQ10000_G1_0_18_053[0]
-        ax7.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax7(data[:, 0]),
-            "b",
-            lw=2,
-            ms=7,
-        )
+        ax7.plot(data[:, 0], data[:, 1] / denom_ax7(data[:, 0]),
+                 "b", lw=2, ms=7)
+
         ax7.set_ylim(0, 2)
         ax7.set_xlabel(r"$u_t$", fontsize=20)
         ax7.set_ylabel(r"$\frac{f\left( u_t \right)}{Tsallis} $", fontsize=20)
@@ -9265,29 +7074,17 @@ if Fig16_GPerts_R_middle_31_62_vt_divided_by_gauss_and_Tsallis:
 
 
         data, _ = datalist_bin6different_gammas_test2_HQ10000_G1_0_0_000[4]
-        ax8.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax8(data[:, 0]),
-            "r",
-            lw=2,
-            ms=7,
-        )
+        ax8.plot(data[:, 0], data[:, 1] / denom_ax8(data[:, 0]),
+                 "r", lw=2, ms=7)
+
         data, _ = datalist_bin6different_gammas_test2_HQ10000_G1_0_10_005[4]
-        ax8.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax8(data[:, 0]),
-            "k",
-            lw=2,
-            ms=7,
-        )
+        ax8.plot(data[:, 0], data[:, 1] / denom_ax8(data[:, 0]),
+                 "k", lw=2, ms=7)
+
         data, _ = datalist_bin6different_gammas_test2_HQ10000_G1_0_18_053[4]
-        ax8.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax8(data[:, 0]),
-            "b",
-            lw=2,
-            ms=7,
-        )
+        ax8.plot(data[:, 0], data[:, 1] / denom_ax8(data[:, 0]),
+                 "b", lw=2, ms=7)
+
         ax8.set_ylim(0, 5)
         ax8.set_xlabel(r"$\log \left( |u_tn|,u_tp \right)$", fontsize=20)
         ax8.set_ylabel(
@@ -9317,37 +7114,21 @@ if Fig16_GPerts_R_middle_31_62_vt_divided_by_gauss_and_Tsallis:
         ax1.set_ylabel(r"$f\left( u_t \right)$", fontsize=20)
         ax1.set_title(
             r"Time evolution of files = %s , $R_{middle} = 31.62$"
-            % A_HQ0[:-9],
-            fontsize=20,
+            % A_HQ0[:-9], fontsize=20,
         )
 
         data, _ = datalist_bin6different_gammas_A_HQ10000_G1_0_0_000[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "r",
-            label=r"%s " % A_HQ0[len("A_HQ10000_G"):],
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1], "r",
+                 label=r"%s " % A_HQ0[len("A_HQ10000_G"):], lw=2, ms=7)
+
         data, _ = datalist_bin6different_gammas_A_HQ10000_G1_0_10_005[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "k",
-            label=r"%s" % A_HQ66[len("A_HQ10000_G") :],
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1],
+                 "k", label=r"%s" % A_HQ66[len("A_HQ10000_G") :], lw=2, ms=7)
+
         data, _ = datalist_bin6different_gammas_A_HQ10000_G1_0_48_093[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "b",
-            label=r"%s" % A_HQ382[len("A_HQ10000_G") :],
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1], "b",
+            label=r"%s" % A_HQ382[len("A_HQ10000_G") :], lw=2, ms=7)
+
         ax2.set_ylabel(
             r"$f\left(\log \left( |u_tn|,u_tp \right)\right)$", fontsize=20
         )
@@ -9382,32 +7163,20 @@ if Fig16_GPerts_R_middle_31_62_vt_divided_by_gauss_and_Tsallis:
 
 
         data, _ = datalist_bin6different_gammas_A_HQ10000_G1_0_0_000[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "r",
-            lw=2,
-            ms=7,
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "r", lw=2, ms=7)
+
         data, _ = datalist_bin6different_gammas_A_HQ10000_G1_0_10_005[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "k",
-            lw=2,
-            ms=7,
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "k", lw=2, ms=7)
+
         data, _ = datalist_bin6different_gammas_A_HQ10000_G1_0_48_093[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "b",
-            lw=2,
-            ms=7,
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "b", lw=2, ms=7)
+
         ax5.set_ylabel(
             r"$\frac{f\left( u_t \right)}{887.569 \cdot x \cdot e^{-0.922 \cdot x^2} }$",
-            fontsize=20,
+            fontsize=20
         )
 
 
@@ -9417,29 +7186,17 @@ if Fig16_GPerts_R_middle_31_62_vt_divided_by_gauss_and_Tsallis:
 
 
         data, _ = datalist_bin6different_gammas_A_HQ10000_G1_0_0_000[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "r",
-            lw=2,
-            ms=7,
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "r", lw=2, ms=7)
+
         data, _ = datalist_bin6different_gammas_A_HQ10000_G1_0_10_005[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "k",
-            lw=2,
-            ms=7,
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "k", lw=2, ms=7)
+
         data, _ = datalist_bin6different_gammas_A_HQ10000_G1_0_48_093[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "b",
-            lw=2,
-            ms=7,
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "b", lw=2, ms=7)
+
         ax6.set_ylim(0, 5)
         ax6.set_ylabel(
             r"$\frac{f\left(\log \left( |u_tn|,u_tp \right)\right)}{3424.993 \cdot x^2 \cdot e^{-0.930 \cdot x^2 }}$",
@@ -9454,29 +7211,17 @@ if Fig16_GPerts_R_middle_31_62_vt_divided_by_gauss_and_Tsallis:
 
 
         data, _ = datalist_bin6different_gammas_A_HQ10000_G1_0_0_000[0]
-        ax7.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax7(data[:, 0]),
-            "r",
-            lw=2,
-            ms=7,
-        )
+        ax7.plot(data[:, 0], data[:, 1] / denom_ax7(data[:, 0]),
+                 "r", lw=2, ms=7)
+
         data, _ = datalist_bin6different_gammas_A_HQ10000_G1_0_10_005[0]
-        ax7.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax7(data[:, 0]),
-            "k",
-            lw=2,
-            ms=7,
-        )
+        ax7.plot(data[:, 0], data[:, 1] / denom_ax7(data[:, 0]),
+                 "k", lw=2, ms=7)
+
         data, _ = datalist_bin6different_gammas_A_HQ10000_G1_0_48_093[0]
-        ax7.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax7(data[:, 0]),
-            "b",
-            lw=2,
-            ms=7,
-        )
+        ax7.plot(data[:, 0], data[:, 1] / denom_ax7(data[:, 0]),
+                 "b", lw=2, ms=7)
+
         ax7.set_ylim(0, 2)
         ax7.set_xlabel(r"$u_t$", fontsize=20)
         ax7.set_ylabel(r"$\frac{f\left( u_t \right)}{Tsallis} $", fontsize=20)
@@ -9489,29 +7234,17 @@ if Fig16_GPerts_R_middle_31_62_vt_divided_by_gauss_and_Tsallis:
 
 
         data, _ = datalist_bin6different_gammas_A_HQ10000_G1_0_0_000[4]
-        ax8.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax8(data[:, 0]),
-            "r",
-            lw=2,
-            ms=7,
-        )
+        ax8.plot(data[:, 0], data[:, 1] / denom_ax8(data[:, 0]),
+                 "r", lw=2, ms=7)
+
         data, _ = datalist_bin6different_gammas_A_HQ10000_G1_0_10_005[4]
-        ax8.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax8(data[:, 0]),
-            "k",
-            lw=2,
-            ms=7,
-        )
+        ax8.plot(data[:, 0], data[:, 1] / denom_ax8(data[:, 0]),
+                 "k", lw=2, ms=7)
+
         data, _ = datalist_bin6different_gammas_A_HQ10000_G1_0_48_093[4]
-        ax8.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax8(data[:, 0]),
-            "b",
-            lw=2,
-            ms=7,
-        )
+        ax8.plot(data[:, 0], data[:, 1] / denom_ax8(data[:, 0]),
+                 "b", lw=2, ms=7)
+
         ax8.set_ylim(0, 5)
         ax8.set_xlabel(r"$\log \left( |u_tn|,u_tp \right)$", fontsize=20)
         ax8.set_ylabel(
@@ -9543,46 +7276,25 @@ if Fig16_GPerts_R_middle_31_62_vt_divided_by_gauss_and_Tsallis:
         ax1.set_ylabel(r"$f\left( u_t \right)$", fontsize=20)
         ax1.set_title(
             r" Time evolution of files = %s , $ R_{middle} = 31.62 $"
-            % B_HQ0[:-9],
-            fontsize=20,
+            % B_HQ0[:-9], fontsize=20,
         )
 
         data, _ = datalist_bin6different_gammas_B_HQ10000_G1_0_0_000[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "r",
-            label=r"%s " % B_HQ0[len("B_HQ10000_G") :],
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1], "r",
+            label=r"%s " % B_HQ0[len("B_HQ10000_G") :], lw=2, ms=7)
+
         data, _ = datalist_bin6different_gammas_B_HQ10000_G1_0_10_005[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "k",
-            label=r"%s" % B_HQ66[len("B_HQ10000_G") :],
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1], "k",
+                 label=r"%s" % B_HQ66[len("B_HQ10000_G") :], lw=2, ms=7)
+
         data, _ = datalist_bin6different_gammas_B_HQ10000_G1_0_198_000[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "b",
-            label=r"%s" % B_HQ294[len("B_HQ10000_G") :],
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1], "b",
+                 label=r"%s" % B_HQ294[len("B_HQ10000_G") :], lw=2, ms=7)
+
         data, _ = datalist_bin6different_gammas_B_HQ10000_G1_0_198_093[4]
-        ax2.plot(
-            data[:, 0],
-            data[:, 1],
-            "g",
-            label=r"%s" % B_HQ382[len("B_HQ10000_G") :],
-            lw=2,
-            ms=7,
-        )
+        ax2.plot(data[:, 0], data[:, 1],
+                 "g", label=r"%s" % B_HQ382[len("B_HQ10000_G") :], lw=2, ms=7)
+
         ax2.set_ylabel(
             r"$f\left(\log \left( |u_tn|,u_tp \right)\right)$", fontsize=20
         )
@@ -9621,37 +7333,21 @@ if Fig16_GPerts_R_middle_31_62_vt_divided_by_gauss_and_Tsallis:
 
 
         data, _ = datalist_bin6different_gammas_B_HQ10000_G1_0_0_000[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "r",
-            lw=2,
-            ms=7,
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "r", lw=2, ms=7)
+
         data, _ = datalist_bin6different_gammas_B_HQ10000_G1_0_10_005[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "k",
-            lw=2,
-            ms=7,
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "k", lw=2, ms=7)
+
         data, _ = datalist_bin6different_gammas_B_HQ10000_G1_0_198_000[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "b",
-            lw=2,
-            ms=7,
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "b", lw=2, ms=7)
+
         data, _ = datalist_bin6different_gammas_B_HQ10000_G1_0_198_093[0]
-        ax5.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax5(data[:, 0]),
-            "g",
-            lw=2,
-            ms=7,
-        )
+        ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
+                 "g", lw=2, ms=7)
+
         ax5.set_ylabel(
             r"$\frac{f\left( u_t \right)}{887.569 \cdot x \cdot e^{-0.922 \cdot x^2} }$",
             fontsize=20,
@@ -9664,40 +7360,25 @@ if Fig16_GPerts_R_middle_31_62_vt_divided_by_gauss_and_Tsallis:
 
 
         data, _ = datalist_bin6different_gammas_B_HQ10000_G1_0_0_000[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "r",
-            lw=2,
-            ms=7,
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "r", lw=2, ms=7)
+
         data, _ = datalist_bin6different_gammas_B_HQ10000_G1_0_10_005[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "k",
-            lw=2,
-            ms=7,
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "k", lw=2, ms=7)
+
         data, _ = datalist_bin6different_gammas_B_HQ10000_G1_0_198_000[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "b",
-            lw=2,
-            ms=7,
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "b", lw=2, ms=7)
+
         data, _ = datalist_bin6different_gammas_B_HQ10000_G1_0_198_093[4]
-        ax6.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax6(data[:, 0]),
-            "g",
-            lw=2,
-            ms=7,
-        )
+        ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
+                 "g", lw=2, ms=7)
+
         ax6.set_ylim(0, 5)
         ax6.set_ylabel(
-            r"$\frac{f\left(\log \left( |u_tn|,u_tp \right)\right)}{3424.993 \cdot x^2 \cdot e^{-0.930 \cdot x^2 }}$",
+            r"$\frac{f\left(\log \left( |u_tn|,u_tp \right)\right)}\
+              {3424.993 \cdot x^2 \cdot e^{-0.930 \cdot x^2 }}$",
             fontsize=20,
         )
 
@@ -9709,37 +7390,21 @@ if Fig16_GPerts_R_middle_31_62_vt_divided_by_gauss_and_Tsallis:
 
 
         data, _ = datalist_bin6different_gammas_B_HQ10000_G1_0_0_000[0]
-        ax7.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax7(data[:, 0]),
-            "r",
-            lw=2,
-            ms=7,
-        )
+        ax7.plot(data[:, 0], data[:, 1] / denom_ax7(data[:, 0]),
+                 "r", lw=2, ms=7)
+
         data, _ = datalist_bin6different_gammas_B_HQ10000_G1_0_10_005[0]
-        ax7.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax7(data[:, 0]),
-            "k",
-            lw=2,
-            ms=7,
-        )
+        ax7.plot(data[:, 0], data[:, 1] / denom_ax7(data[:, 0]),
+                 "k", lw=2, ms=7)
+
         data, _ = datalist_bin6different_gammas_B_HQ10000_G1_0_198_000[0]
-        ax7.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax7(data[:, 0]),
-            "b",
-            lw=2,
-            ms=7,
-        )
+        ax7.plot(data[:, 0], data[:, 1] / denom_ax7(data[:, 0]),
+                 "b", lw=2, ms=7)
+
         data, _ = datalist_bin6different_gammas_B_HQ10000_G1_0_198_093[0]
-        ax7.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax7(data[:, 0]),
-            "g",
-            lw=2,
-            ms=7,
-        )
+        ax7.plot(data[:, 0], data[:, 1] / denom_ax7(data[:, 0]),
+                 "g", lw=2, ms=7)
+
         ax7.set_ylim(0, 2)
         ax7.set_xlabel(r"$u_t$", fontsize=20)
         ax7.set_ylabel(r"$\frac{f\left( u_t \right)}{Tsallis} $", fontsize=20)
@@ -9752,37 +7417,21 @@ if Fig16_GPerts_R_middle_31_62_vt_divided_by_gauss_and_Tsallis:
 
 
         data, _ = datalist_bin6different_gammas_B_HQ10000_G1_0_0_000[4]
-        ax8.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax8(data[:, 0]),
-            "r",
-            lw=2,
-            ms=7,
-        )
+        ax8.plot(data[:, 0], data[:, 1] / denom_ax8(data[:, 0]),
+                 "r", lw=2, ms=7)
+
         data, _ = datalist_bin6different_gammas_B_HQ10000_G1_0_10_005[4]
-        ax8.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax8(data[:, 0]),
-            "k",
-            lw=2,
-            ms=7,
-        )
+        ax8.plot(data[:, 0], data[:, 1] / denom_ax8(data[:, 0]),
+                 "k", lw=2, ms=7)
+
         data, _ = datalist_bin6different_gammas_B_HQ10000_G1_0_198_000[4]
-        ax8.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax8(data[:, 0]),
-            "b",
-            lw=2,
-            ms=7
-        )
+        ax8.plot(data[:, 0], data[:, 1] / denom_ax8(data[:, 0]),
+                 "b", lw=2, ms=7)
+
         data, _ = datalist_bin6different_gammas_B_HQ10000_G1_0_198_093[4]
-        ax8.plot(
-            data[:, 0],
-            data[:, 1] / denom_ax8(data[:, 0]),
-            "g",
-            lw=2,
-            ms=7
-        )
+        ax8.plot(data[:, 0], data[:, 1] / denom_ax8(data[:, 0]),
+                 "g", lw=2, ms=7)
+
         ax8.set_ylim(0, 5)
         ax8.set_xlabel(r"$\log \left( |u_tn|,u_tp \right)$", fontsize=20)
         ax8.set_ylabel(
