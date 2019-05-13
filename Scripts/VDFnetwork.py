@@ -529,8 +529,7 @@ if Fig12_n123_sigma:
         print(r'$\sigma_{tot}^2$, TXT[:, 0] = ', TXT[:, 0],
               r'$\sigma_r^2$, TXT[:, 1] = ', TXT[:, 1],
               r'$\sigma_{\theta}^2$, TXT[:, 2] = ', TXT[:, 2],
-              r'$\sigma_{\phi}^2$, TXT[:, 3] = ', TXT[:, 3]
-              )
+              r'$\sigma_{\phi}^2$, TXT[:, 3] = ', TXT[:, 3])
 
     TXT_tot_arr = np.asarray(TXT[:, 0])
     TXT_r_arr = np.asarray(TXT[:, 1])
@@ -653,8 +652,7 @@ if Fig12_x789_sigma:
         print(r'$\sigma_{tot}^2$, TXT[:, 0] = ', TXT[:, 0],
               r'$\sigma_r^2$, TXT[:, 1] = ', TXT[:, 1],
               r'$\sigma_{\theta}^2$, TXT[:, 2] = ', TXT[:, 2],
-              r'$\sigma_{\phi}^2$, TXT[:, 3] = ', TXT[:, 3]
-              )
+              r'$\sigma_{\phi}^2$, TXT[:, 3] = ', TXT[:, 3])
 
     TXT_tot_arr = np.asarray(TXT[:, 0])
     TXT_r_arr = np.asarray(TXT[:, 1])
@@ -1048,9 +1046,8 @@ if Fig12_vr_vtheta_vphi_vt_sigma:
 
         n, bins, patches = plt.hist(VT_sigmatan, 50, histtype='step',
                                     color='k',
-                                    label=r'$f\left(\frac{v_t}\
-                                    {\sigma_t}\right)$',
-                                    alpha=.75)
+                                    label=r'$f\left(\frac{v_t}{\sigma_t}\
+                                          \right)$', alpha=.75)
         x = hist_data(n, bins)
         save_txt('_new_R_middle_VT_sigmatan_gamma_{}')
 
@@ -1099,7 +1096,7 @@ if Fig12_vr_vtheta_vphi_vt_sigma:
                                     \frac{|v_rn|,v_rp}{\sigma_r}\
                                     \right)\right)$',
                                     alpha=.75)
-        x = hist_data(n, bins)        
+        x = hist_data(n, bins)
         save_txt('_new_R_middle_logx9_gamma_{}')
 
         n, bins, patches = plt.hist(np.log10(x7), 50, histtype='step',

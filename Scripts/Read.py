@@ -14,10 +14,39 @@ from matplotlib.colors import LogNorm
 # from definePaths import *
 
 simulationsLst = ['A', 'B', 'Soft_B', 'CS1', 'CS2', 'CS3', 'CS4',
-                  'CS5', 'CS6', 'DS1', 'D2', 'Soft_D2', 'E'
-                  ]
+                  'CS5', 'CS6', 'DS1', 'D2', 'Soft_D2', 'E']
 
 R_hob_par = R[GoodIDs]
+
+
+def get_sphere_volume(radius):
+    return 4 / 3 * np.pi * radius ** 3
+
+
+def get_circular_velocity(mass, radius):
+    return np.sqrt(G * mass / radius)
+
+
+def get_volume_slice(minR, maxR):
+    """Get volume of radial slice of cluster."""
+    return (4. / 3.) * np.pi * (maxR ** 3 - minR ** 3)
+
+
+def get_bin_number_density(number, volume):
+    """Get the number density of particles inside a radial bin of a cluster."""
+    return number / volume
+
+
+def get_bin_density(mass, number_density):
+    """Get the density of particles inside a radial bin of a cluster."""
+    return mass * number_density
+
+
+def get_volume_ratio(bin_density, cluster_volume, bin_mass):
+    """Get the ratio between volume of bin and total cluster
+    volume."""
+    return bin_density * cluster_volume / bin_mass
+
 
 if Gamma == Gammas[1]:
     r_2 = R_middle
@@ -26,8 +55,8 @@ if Gamma == Gammas[1]:
     nr_par_inside_halo = len(posR_par_inside_halo[0])
     M_2 = nr_par_inside_halo * m
     G = 1.
-    v_circ_2 = np.sqrt(G * M_2 / r_2)
-    V_2 = 4 / 3 * np.pi * r_2 ** 3
+    v_circ_2 = get_circular_velocity(M_2, r_2)
+    V_2 = get_sphere_volume(r_2)
 
 (density_arr, Volume_arr, rho_arr, rho_2_arr) = ([] for i in range(4))
 
@@ -48,10 +77,10 @@ for i in range(0, int(nr_binning_bins - 2)):  # loop over 0-998
     # number of particles inside a radial bin
     nr_par_inside_bin_i = len(posR_par_inside_bin_i)
     # Volume of cluster
-    Volume_cl = (4. / 3.) * np.pi * (max_R_bin_i ** 3 - min_R_bin_i ** 3)
-    den_cl = nr_par_inside_bin_i / Volume_cl  # Number density
-    rho = den_cl * m
-    rho_2 = rho * V_2 / M_2
+    Volume_cl = get_volume_slice(min_R_bin_i, max_R_bin_i)
+    den_cl = get_bin_number_density(nr_par_inside_bin_i, Volume_cl)
+    rho = get_bin_density(m, den_cl)
+    rho_2 = get_volume_ratio(rho, V_2, M_2)
 
     # save arrays
     density_arr.append(den_cl)
@@ -115,11 +144,9 @@ if Fig1_Density:
                  label=r'$\frac{1}{2\pi r (1+r)^3}$')
         plt.title(r'Density profile (B IC with 998 radial bins)',
                   fontsize=30)
-
         leg = plt.legend(prop=dict(size=30), numpoints=2, ncol=1,
                          fancybox=True, loc=0, handlelength=2.5)
         leg.get_frame().set_alpha(.5)
-
         plotName = '_Density_fit.png'
         f.savefig(savefigStr(simulationsLst[0], plotName))
 
@@ -137,7 +164,6 @@ if Fig2_Density_r_2:
     plt.ylabel(r'$ \log \rho $', fontsize=30)
     plt.plot(x_plot[0:int(nr_binning_bins - 2)], np.log10(rho_arr),
              'g-o', ms=2, lw=2, mew=0, label=r'$\rho$')
-
     plt.title(r'Density profile (B IC with 998 radial bins)',
               fontsize=30)
     plotName = '_Density_r_2.png'

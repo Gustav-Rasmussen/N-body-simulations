@@ -2,10 +2,11 @@
 # -*- coding: utf-8 -*-
 
 import h5py
-from definePaths import *
+import definePaths as dp
 import numpy as np
 
-Filename = desktopPath / 'RunGadget/G_HQ_1000000_test/output/HQ10000_G0.8_2_000.hdf5'
+Filename = dp.desktopPath / 'RunGadget/G_HQ_1000000_test/output/\
+           HQ10000_G0.8_2_000.hdf5'
 SnapshotFile = h5py.File(Filename, 'r')
 
 Pos = SnapshotFile['PartType1/Coordinates'].value
