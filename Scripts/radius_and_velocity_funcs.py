@@ -23,20 +23,16 @@ def speed(vx, vy, vz):
 
 def v_R(vx, vy, vz, Theta, Phi):
     """Return radial velocity given cartesian velocities and angles."""
-    return (
-            np.sin(Theta) * np.cos(Phi) * vx
+    return (np.sin(Theta) * np.cos(Phi) * vx
             + np.sin(Theta) * np.sin(Phi) * vy
-            + np.cos(Theta) * vz
-            )
+            + np.cos(Theta) * vz)
 
 
 def v_theta(vx, vy, vz, Theta, Phi):
     """Return theta-velocity given cartesian velocities and angles."""
-    return (
-            np.cos(Theta) * np.cos(Phi) * vx
+    return (np.cos(Theta) * np.cos(Phi) * vx
             + np.cos(Theta) * np.sin(Phi) * vy
-            - np.sin(Theta) * vz
-            )
+            - np.sin(Theta) * vz)
 
 
 def v_phi(vx, vy, Phi):
@@ -49,16 +45,21 @@ def v_tan(VTheta, VPhi):
     return VTheta + VPhi
 
 
-def spherical_coords_and_velocities():
+def spherical_coords(x, y, z):
     """."""
-    r = ravf.radius(x, y, z)
-    Phi = ravf.phi(x, y)
-    Theta = ravf.theta(r, z)
-    VR = ravf.v_R(vx, vy, vz, Theta, Phi)
-    VTheta = ravf.v_theta(vx, vy, vz, Theta, Phi)
-    VPhi = ravf.v_phi(vx, vy, Phi)
-    VT = ravf.v_tan(VTheta, VPhi)
-    return r, Phi, Theta, VR, VTheta, VPhi, VT
+    r = radius(x, y, z)
+    Phi = phi(x, y)
+    Theta = theta(r, z)
+    return r, Phi, Theta
+
+
+def spherical_velocities(vx, vy, vz, Theta, Phi):
+    """."""
+    VR = v_R(vx, vy, vz, Theta, Phi)
+    VTheta = v_theta(vx, vy, vz, Theta, Phi)
+    VPhi = v_phi(vx, vy, Phi)
+    VT = v_tan(VTheta, VPhi)
+    return VR, VTheta, VPhi, VT
 
 
 def main():
@@ -66,25 +67,18 @@ def main():
     x = np.array(1, 2, 3)
     y = np.array(4, 5, 6)
     z = np.array(7, 8, 9)
-
     vx = np.array(1, 2, 3)
     vy = np.array(4, 5, 6)
     vz = np.array(7, 8, 9)
 
-    r = radius(x, y, z)
-    Phi = phi(x, y)
-    Theta = theta(r, z)
+    r, Phi, Theta = spherical_coords(x, y, z)
+    VR, VTheta, VPhi, VT = spherical_velocities(vx, vy, vz, Theta, Phi)
 
     speed(vx, vy, vz)
-    v_R(vx, vy, vz, Theta, Phi)
 
-    VTheta = v_theta(vx, vy, vz, Theta, Phi)
-    VPhi = v_phi(vx, vy, Phi)
     print(VTheta)
     print(VPhi)
-    v_tan(VTheta, VPhi)
-
-    spherical_coords_and_velocities()
+    print(VT)
 
 
 if __name__ == '__main__':
