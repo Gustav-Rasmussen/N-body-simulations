@@ -56,14 +56,12 @@ R_limit_10000_logr_vr_Final_rfp_50bins = 0  # Panel created
 
 if logr_rho_IC_Final_R32:
 
+    def Plt(i, x, y, cls):
+        exec(f"ax{i}.plot({x}, np.log10({y}), '{cls}', lw=2, ms=7)")
 
-  def Plt(i, x, y, cls):
-      exec(f"ax{i}.plot({x}, np.log10({y}), '{cls}', lw=2, ms=7)")
-
-
-  def Plt_label(i, x, y, cls, label):
-      exec(f"ax{i}.plot({x}, np.log10({y}), '{cls}', label='{label}', lw=2, ms=7)")
-
+    def Plt_label(i, x, y, cls, label):
+        exec(f"ax{i}.plot({x}, np.log10({y}), '{cls}',\
+               label='{label}', lw=2, ms=7)")
 
     f, (ax1, ax2) = plt.subplots(1, 2, figsize=(13, 11))
     f.subplots_adjust(hspace=0, wspace=0)
@@ -134,14 +132,12 @@ if logr_rho_IC_Final_R32:
 
 if log_r_r2_rho_IC_Final_R32:
 
+    def Plt(i, x, y, cls):
+        exec(f"ax{i}.plot(np.log10({x}), np.log10({y}), '{cls}', lw=2, ms=7)")
 
-  def Plt(i, x, y, cls):
-      exec(f"ax{i}.plot(np.log10({x}), np.log10({y}), '{cls}', lw=2, ms=7)")
-
-
-  def Plt_label(i, x, y, cls, label):
-      exec(f"ax{i}.plot(np.log10({x}), np.log10({y}), '{cls}', label='{label}', lw=2, ms=7)")
-
+    def Plt_label(i, x, y, cls, label):
+        exec(f"ax{i}.plot(np.log10({x}), np.log10({y}), '{cls}',\
+               label='{label}', lw=2, ms=7)")
 
     f, (ax1, ax2) = plt.subplots(1, 2, figsize=(13, 11))
     f.subplots_adjust(hspace=0, wspace=0)
@@ -215,8 +211,8 @@ if logr_rho:
     f.subplots_adjust(hspace=0, wspace=0)
 
     for i in range(1, 3):
-        exec(f"leg = ax{i}.legend(prop=dict(size=13), numpoints=2, ncol=1, loc=0,
-                                  fancybox=True, handlelength=2.5)")
+        exec(f"leg = ax{i}.legend(prop=dict(size=13), numpoints=2, ncol=1,\
+                                  loc=0, fancybox=True, handlelength=2.5)")
         exec(f"leg.get_frame().set_alpha(.5)")
 
     for i in range(len(datalist_A_R10000_20bins)):
@@ -249,8 +245,8 @@ if log_r_r2_rho:
     f.subplots_adjust(hspace=0, wspace=0)
 
     for i in range(1, 3):
-        exec(f"leg = ax{i}.legend(prop=dict(size=13), numpoints=2, ncol=1, loc=0,
-                                  fancybox=True, handlelength=2.5)")
+        exec(f"leg = ax{i}.legend(prop=dict(size=13), numpoints=2, ncol=1,\
+                                  loc=0, fancybox=True, handlelength=2.5)")
         exec(f"leg.get_frame().set_alpha(.5)")
 
     for i in range(len(datalist_A_R10000_20bins)):
@@ -331,7 +327,8 @@ if beta_vs_gamma_plus_kappa:
         plt.plot(data[:, 4], data[:, 5] + data[:, 6], Symbols[i],
                  color=Colors2[i], label=label, lw=2, ms=7)
     data, label = datalist_Martin_Final[7]
-    plt.plot(data[:, 0], data[:, 1] + data[:, 2], 'r--.', label=label, lw=2, ms=7)
+    plt.plot(data[:, 0], data[:, 1] + data[:, 2], 'r--.', label=label,
+             lw=2, ms=7)
     plt.legend(prop=dict(size=13), numpoints=2, ncol=2,
                frameon=True, loc=0, handlelength=2.5)
     plt.title(r'Final', fontsize=20)
@@ -359,15 +356,14 @@ if Attractor_3D:
     f.savefig(figurePath + 'Attractor_3D.png')
 
 if Time_evolution_beta_gamma_kappa:
-
-  # Python 3.x: small greek letters are coded from 945 to 969 , so alpha is chr(945), omega is chr(969).
-
+    # Python 3.x: small greek letters are coded from 945 to 969,
+    # so alpha is chr(945), omega is chr(969).
 
     def figure(sim):
         f = plt.figure()
         plt.subplot(131)
         exec(f"for i in range(len(datalist_{sim})):")
-            exec(f"data, label = datalist_{sim}[i]")
+        exec(f"    data, label = datalist_{sim}[i]")
             plt.plot(data[:, 0], data[:, 1], Symbols[i],
                      color=Colors[i], label=label, lw=2, ms=7)
         plt.xlabel(r'$\log r$', fontsize=24)
@@ -375,18 +371,17 @@ if Time_evolution_beta_gamma_kappa:
 
         plt.subplot(132)
         exec(f"for i in range(len(datalist_{sim})):")
-            exec(f"data, label = datalist_{sim}[i]")
+        exec(f"    data, label = datalist_{sim}[i]")
             plt.plot(data[:, 0], data[:, 2], Symbols[i],
                      color=Colors[i], label=label, lw=2, ms=7)
         plt.title(f"Time evolution of {chr(946)}, {chr(947)} and {chr(954)}\
-                  for Simulation {sim}",
-                  fontsize=20)
+                    for Simulation {sim}", fontsize=20)
         plt.xlabel(r'$\log r$', fontsize=24)
         plt.ylabel(f"{chr(947)}", fontsize=24)
 
         plt.subplot(133)
         exec(f"for i in range(len(datalist_{sim})):")
-            exec(f"data, label = datalist_{sim}[i]")
+        exec(f"    data, label = datalist_{sim}[i]")
             plt.plot(data[:, 0], data[:, 3], Symbols[i],
                      color=Colors[i], label=label, lw=2, ms=7)
         plt.xlabel(r'$\log r$', fontsize=24)
@@ -394,7 +389,6 @@ if Time_evolution_beta_gamma_kappa:
         plt.legend(prop=dict(size=13), numpoints=2, ncol=1,
                    frameon=True, loc=0, handlelength=2.5)
         f.savefig(figurePath + f"{sim}_Time_evolution_beta_gamma_kappa.png")
-
 
     if A:
         figure('A')
@@ -425,7 +419,7 @@ if Overplot_logr_gamma:
             data, label = datalist_CS4CS5CS6_IC_R10000[i]
             plt.plot(data[:, 0], data[:, 2], Symbols[i],
                      color=Colors[i], label=label, lw=2, ms=7)
-        plt.title(r'Time evolution of $\gamma $ for CS4, CS5 and CS6',
+        plt.title(r'Time evolution of $\gamma$ for CS4, CS5 and CS6',
                   fontsize=20)
         plt.xlabel(r'$\log r$', fontsize=24)
         plt.ylabel(r'Initial $\gamma$', fontsize=24)
@@ -490,8 +484,7 @@ if Overplot_logr_gamma:
         plt.plot(data[:, 0], data[:, 2], 'k-<', label=label, lw=2, ms=7)
 
         plt.title(r'Time evolution of $\gamma$\
-                  for B, CS4, CS5, CS6, DS1 and D2',
-                  fontsize=20)
+                    for B, CS4, CS5, CS6, DS1 and D2', fontsize=20)
         plt.xlabel(r'$\log r$', fontsize=24)
         plt.ylabel(r'Initial $\gamma$', fontsize=24)
         plt.legend(prop=dict(size=13), numpoints=2, ncol=1,
@@ -543,9 +536,11 @@ if Overplot_logr_gamma:
         # D2, Run 48 and 49, 50 bins
         plt.subplot(222)
         data, _ = datalist_13[1]
-        plt.plot(data[:, 0], data[:, 2], 'k-<', label='D2, run 48_093', lw=2, ms=7)
+        plt.plot(data[:, 0], data[:, 2], 'k-<', label='D2, run 48_093',
+                 lw=2, ms=7)
         data, _ = datalist_13b[1]
-        plt.plot(data[:, 0], data[:, 2], 'y--v', label='D2, run 49_093', lw=2, ms=7)
+        plt.plot(data[:, 0], data[:, 2], 'y--v', label='D2, run 49_093',
+                 lw=2, ms=7)
         plt.title(r'50 bins', fontsize=20)
         plt.xlabel(r'$\log r$', fontsize=24)
         plt.ylabel(r'Final $\gamma$', fontsize=24)
@@ -556,9 +551,11 @@ if Overplot_logr_gamma:
         # DS1, Run 48 and 49, 20 bins
         plt.subplot(223)
         data, _ = datalist_13[2]
-        plt.plot(data[:, 0], data[:, 2], 'r-o', label='DS1, run 48_093', lw=2, ms=7)
+        plt.plot(data[:, 0], data[:, 2], 'r-o', label='DS1, run 48_093',
+                 lw=2, ms=7)
         data, _ = datalist_13b[2]
-        plt.plot(data[:, 0], data[:, 2], 'b-s', label='DS1, run 49_093', lw=2, ms=7)
+        plt.plot(data[:, 0], data[:, 2], 'b-s', label='DS1, run 49_093',
+                 lw=2, ms=7)
         plt.title(r'20 bins', fontsize=20)
         plt.xlabel(r'$\log r$', fontsize=24)
         plt.ylabel(r'Final $\gamma$', fontsize=24)
@@ -569,9 +566,11 @@ if Overplot_logr_gamma:
         # D2, Run 48 and 49, 20 bins
         plt.subplot(224)
         data, _ = datalist_13[3]
-        plt.plot(data[:, 0], data[:, 2], 'k-<', label='D2, run 48_093', lw=2, ms=7)
+        plt.plot(data[:, 0], data[:, 2], 'k-<', label='D2, run 48_093',
+                 lw=2, ms=7)
         data, _ = datalist_13b[3]
-        plt.plot(data[:, 0], data[:, 2], 'y--v', label='D2, run 49_093', lw=2, ms=7)
+        plt.plot(data[:, 0], data[:, 2], 'y--v', label='D2, run 49_093',
+                 lw=2, ms=7)
         plt.title(r'20 bins', fontsize=20)
         plt.xlabel(r'$\log r$', fontsize=24)
         plt.ylabel(r'Final $\gamma$', fontsize=24)
@@ -587,8 +586,7 @@ if Overplot_logr_gamma:
         plt.plot(data[:, 0], data[:, 2], 'b-s', label=label, lw=2, ms=7)
         plt.ylim(-4, 1)
         plt.title(r'$\gamma$ for B Final product,\
-                  with bound structure (50 bins)',
-                  fontsize=20)
+                    with bound structure (50 bins)', fontsize=20)
         plt.xlabel(r'$\log r$', fontsize=24)
         plt.ylabel(r'Final $\gamma$', fontsize=24)
         plt.legend(prop=dict(size=13), numpoints=2, ncol=1,
@@ -606,8 +604,7 @@ if Overplot_logr_gamma:
                      color=Colors[i + 2], label=label, lw=2, ms=7)
         plt.ylim(-4, 1)
         plt.title(r'$\gamma$ for CS4, CS5 and CS6 Final products,\
-                  with bound structures (50 bins)',
-                  fontsize=20)
+                    with bound structures (50 bins)', fontsize=20)
         plt.xlabel(r'$\log r$', fontsize=24)
         plt.ylabel(r'Final $\gamma$', fontsize=24)
         plt.legend(prop=dict(size=13), numpoints=2, ncol=1,
@@ -625,8 +622,7 @@ if Overplot_logr_gamma:
                      color=Colors[i - 2], label=label, lw=2, ms=7)
         plt.ylim(-4, 1)
         plt.title(r'$\gamma$ for DS1 and D2 Final products,\
-                  with bound structures (50 bins)',
-                  fontsize=20)
+                    with bound structures (50 bins)', fontsize=20)
         plt.xlabel(r'$\log r$', fontsize=24)
         plt.ylabel(r'Final $\gamma$', fontsize=24)
         plt.legend(prop=dict(size=13), numpoints=2, ncol=1,
@@ -638,8 +634,8 @@ if Overplot_logr_gamma:
 
         for i in range(1, 4):
             exec(f"ax{i}.set_ylim(-4, 1)")
-            exec(f"leg = ax{i}.legend(prop=dict(size=13), numpoints=2, ncol=1, loc=0,
-                                      fancybox=True, handlelength=2.5)")
+            exec(f"leg = ax{i}.legend(prop=dict(size=13), numpoints=2, ncol=1,\
+                                      loc=0, fancybox=True, handlelength=2.5)")
             exec(f"leg.get_frame().set_alpha(.5)")
 
         for i in range(1, 3):
@@ -653,8 +649,7 @@ if Overplot_logr_gamma:
                  label=label, lw=2, ms=7)
 
         ax1.set_title(r'$\gamma$ for Final products,\
-                      with bound structure (50 bins)',
-                      fontsize=20)
+                        with bound structure (50 bins)', fontsize=20)
         ax1.set_ylabel('B', fontsize=24)
 
         for i in range(3):
@@ -708,23 +703,27 @@ if Overplot_ln_rdividedbyd3_gamma:
 
     data, label = datalist_6[0]
     value, label_d = d_data_C4[2]
-    plt.plot(np.log(data[:, 5] / -value), data[:, 2], 'r-o', label=label, lw=2, ms=7)
+    plt.plot(np.log(data[:, 5] / -value), data[:, 2], 'r-o', label=label,
+             lw=2, ms=7)
     data, label = datalist_6[1]
     value, label_d = d_data_C5[2]
-    plt.plot(np.log(data[:, 5] / -value), data[:, 2], 'b-s', label=label, lw=2, ms=7)
+    plt.plot(np.log(data[:, 5] / -value), data[:, 2], 'b-s', label=label,
+             lw=2, ms=7)
     data, label = datalist_6[2]
     value, label_d = d_data_C6[2]
-    plt.plot(np.log(data[:, 5] / -value), data[:, 2], 'k-<', label=label, lw=2, ms=7)
+    plt.plot(np.log(data[:, 5] / -value), data[:, 2], 'k-<', label=label,
+             lw=2, ms=7)
     data, label = datalist_8[0]
     value, label_d = d_data_D1[2]
-    plt.plot(np.log(data[:, 5] / -value), data[:, 2], 'y--v', label=label, lw=2, ms=7)
+    plt.plot(np.log(data[:, 5] / -value), data[:, 2], 'y--v', label=label,
+             lw=2, ms=7)
     data, label = datalist_8[1]
     value, label_d = d_data_D2[2]
-    plt.plot(np.log(data[:, 5] / -value), data[:, 2], 'g--*', label=label, lw=2, ms=7)
+    plt.plot(np.log(data[:, 5] / -value), data[:, 2], 'g--*', label=label,
+             lw=2, ms=7)
 
-    plt.title(r'Final $\gamma $ for CS4, CS5, CS6, DS1 and D2',
-              fontsize=20)
-    plt.xlabel(r'$ \log \frac{r}{|d_3|}$', fontsize=24)
+    plt.title(r'Final $\gamma$ for CS4, CS5, CS6, DS1 and D2', fontsize=20)
+    plt.xlabel(r'$\log \frac{r}{|d_3|}$', fontsize=24)
     plt.ylabel(r'Final $\gamma$', fontsize=24)
     plt.legend(prop=dict(size=13), numpoints=2, ncol=1,
                frameon=True, loc=0, handlelength=2.5)
@@ -747,8 +746,7 @@ if lnr_VR_IC_Final_50bins_20bins:
         plt.plot(data[:, 0], data[:, 4], Symbols[i], color=Colors[i],
                  label=label, lw=2, ms=7)
     plt.title(r'Time evolution of $v_r $\
-              for Simulation CS4, CS5, CS6, DS1 and D2',
-              fontsize=20)
+                for Simulation CS4, CS5, CS6, DS1 and D2', fontsize=20)
     plt.xlabel(r'$\log r$', fontsize=24)
     plt.ylabel(r'Initial $v_r$', fontsize=24)
     plt.legend(prop=dict(size=13), numpoints=2, ncol=1,
@@ -820,8 +818,7 @@ if lnr_sigmarad2_IC_Final_50bins_20bins:
         plt.plot(data[:, 0], data[:, 6], Symbols[i], color=Colors[i],
                  label=label, lw=2, ms=7)
     plt.title(r'Time evolution of $\sigma_r^2$\
-              for Simulation CS4, CS5, CS6, DS1 and D2',
-              fontsize=20)  # Include Sim B as well.
+                for Simulation CS4, CS5, CS6, DS1 and D2', fontsize=20)
     plt.xlabel(r'$\log r$', fontsize=24)
     plt.ylabel(r'Initial $\sigma_r^2$', fontsize=24)
     plt.legend(prop=dict(size=13), numpoints=2, ncol=1,
@@ -891,8 +888,7 @@ if lnr_sigmarad2_vr_Final_50bins:
     plt.plot(data[:, 0], data[:, 6], Symbols[5], color=Colors[5],
              label=label, lw=2, ms=7)
     plt.title(r'Final $\sigma_r^2$\
-              for Simulation B, CS4, CS5, CS6, DS1 and D2',
-              fontsize=20)
+                for Simulation B, CS4, CS5, CS6, DS1 and D2', fontsize=20)
     plt.xlabel(r'$\log r$', fontsize=24)
     plt.ylabel(r'Final $\sigma_r^2$', fontsize=24)
     plt.legend(prop=dict(size=13), numpoints=2, ncol=1,
@@ -935,8 +931,7 @@ if R_limit_10000_logr_sigmarad2_vr_Final_20bins:
     ax1.plot(data[:, 0], data[:, 6], Symbols[2], color=Colors[2],
              label=label, lw=2, ms=7)
     ax1.set_title(r'Final B, CS4, CS5, CS6, DS1 and D2.\
-                  $R_{limit} = 10^4$. 20 bins',
-                  fontsize=20)
+                    $R_{limit} = 10^4$. 20 bins', fontsize=20)
     ax1.set_ylabel(r'$\sigma_r^2$', fontsize=24)
     ax1.axes.get_xaxis().set_visible(False)
 
@@ -975,8 +970,7 @@ if R_limit_5000_lnr_sigmarad2_vr_Final_50bins:
     plt.plot(data[:, 0], data[:, 6], 'm--s',
              label=label, lw=2, ms=7)
     plt.title(r'Simulation B, CS4, CS5, CS6, DS1 and D2.\
-              $R_{limit} = 5 \cdot 10^3$. 50 bins',
-              fontsize=20)
+                $R_{limit} = 5 \cdot 10^3$. 50 bins', fontsize=20)
     plt.xlabel(r'$\log r$', fontsize=24)
     plt.ylabel(r'Final $\sigma_r^2$', fontsize=24)
     plt.legend(prop=dict(size=13), numpoints=2, ncol=1,
@@ -1046,7 +1040,7 @@ if R_limit_10000_logr_r_vr_IC_Final_20bins_50bins:
     a = label[:-57]
     plt.plot(data[:, 0], data[:, 4], 'r-o', label=a, lw=2, ms=7)
 
-    plt.title(r'20 bins', fontsize=20)
+    plt.title('20 bins', fontsize=20)
     plt.xlabel(r'$\log r$', fontsize=24)
     plt.ylabel(r'$v_r$', fontsize=24)
     plt.legend(prop=dict(size=13), numpoints=2, ncol=2,
@@ -1070,7 +1064,7 @@ if R_limit_10000_logr_r_vr_IC_Final_20bins_50bins:
     a = label[:-42]
     plt.plot(data[:, 5], data[:, 4], 'm--s',
              label=a, lw=2, ms=7)
-    plt.title(r'50 bins', fontsize=20)
+    plt.title('50 bins', fontsize=20)
     plt.xlabel('r', fontsize=24)
     plt.ylabel(r'$v_r$', fontsize=24)
     plt.legend(prop=dict(size=13), numpoints=2, ncol=2,
@@ -1095,7 +1089,7 @@ if R_limit_10000_logr_r_vr_IC_Final_20bins_50bins:
     a = label[:-42]
     plt.plot(data[:, 0], data[:, 4], 'm--s',
              label=a, lw=2, ms=7)
-    plt.title(r'50 bins', fontsize=20)
+    plt.title('50 bins', fontsize=20)
     plt.xlabel(r'$\log r$', fontsize=24)
     plt.ylabel(r'$v_r$', fontsize=24)
     plt.legend(prop=dict(size=13), numpoints=2, ncol=2,
@@ -1122,7 +1116,8 @@ if R_limit_10000_logr_r_ur_Final_20bins_50bins:
                  color=Colors[i - 1], label=a, lw=2, ms=7)
     data, label = datalist_9[1]
     a = label[:-57]
-    plt.plot(data[:, 5], data[:, 4] / (data[:, 6] ** .5), 'r-o', label=a, lw=2, ms=7)
+    plt.plot(data[:, 5], data[:, 4] / (data[:, 6] ** .5), 'r-o', label=a,
+             lw=2, ms=7)
     plt.title(r'Final products, $R_{limit} = 10^4$, 20 bins',
               fontsize=20)
     plt.xlabel('r', fontsize=24)
@@ -1146,8 +1141,9 @@ if R_limit_10000_logr_r_ur_Final_20bins_50bins:
                  color=Colors[i - 1], label=a, lw=2, ms=7)
     data, label = datalist_9[1]
     a = label[:-57]
-    plt.plot(data[:, 0], data[:, 4] / (data[:, 6] ** .5), 'r-o', label=a, lw=2, ms=7)
-    plt.title(r'20 bins', fontsize=20)
+    plt.plot(data[:, 0], data[:, 4] / (data[:, 6] ** .5), 'r-o', label=a,
+             lw=2, ms=7)
+    plt.title('20 bins', fontsize=20)
     plt.xlabel(r'$\log r$', fontsize=24)
     plt.ylabel(r'$u_r$', fontsize=24)
     plt.legend(prop=dict(size=13), numpoints=2, ncol=2,
@@ -1169,8 +1165,9 @@ if R_limit_10000_logr_r_ur_Final_20bins_50bins:
                  color=Colors[i + 3], label=a, lw=2, ms=7)
     data, label = datalist_9[0]
     a = label[:-42]
-    plt.plot(data[:, 5], data[:, 4] / (data[:, 6] ** .5), 'm--s', label=a, lw=2, ms=7)
-    plt.title(r'50 bins', fontsize=20)
+    plt.plot(data[:, 5], data[:, 4] / (data[:, 6] ** .5), 'm--s', label=a,
+             lw=2, ms=7)
+    plt.title('50 bins', fontsize=20)
     plt.xlabel('r', fontsize=24)
     plt.ylabel(r'$u_r$', fontsize=24)
     plt.legend(prop=dict(size=13), numpoints=2, ncol=2,
@@ -1192,8 +1189,9 @@ if R_limit_10000_logr_r_ur_Final_20bins_50bins:
                  color=Colors[i + 3], label=a, lw=2, ms=7)
     data, label = datalist_9[0]
     a = label[:-42]
-    plt.plot(data[:, 0], data[:, 4] / (data[:, 6] ** .5), 'm--s', label=a, lw=2, ms=7)
-    plt.title(r'50 bins', fontsize=20)
+    plt.plot(data[:, 0], data[:, 4] / (data[:, 6] ** .5), 'm--s', label=a,
+             lw=2, ms=7)
+    plt.title('50 bins', fontsize=20)
     plt.xlabel(r'$\log r$', fontsize=24)
     plt.ylabel(r'$u_r$', fontsize=24)
     plt.legend(prop=dict(size=13), numpoints=2, ncol=2,
@@ -1223,12 +1221,12 @@ if R_limit_10000_logr_ur_Final_20bins_50bins:
                  color=Colors[i - 1], label=a, lw=2, ms=7)
     data, label = datalist_9b[1]
     a = label[:-57]
-    plt.plot(data[:, 0], data[:, 4] / (data[:, 6] ** .5), 'r-o', label=a, lw=2, ms=7)
+    plt.plot(data[:, 0], data[:, 4] / (data[:, 6] ** .5), 'r-o', label=a,
+             lw=2, ms=7)
 
-    plt.title(r'Final products, $R_{limit} = 10^4$, 20 bins',
-              fontsize=20)
+    plt.title(r'Final products, $R_{limit} = 10^4$, 20 bins', fontsize=20)
     plt.xlabel(r'$\log r$', fontsize=24)
-    plt.ylabel(r' $u_r$',  fontsize=24)
+    plt.ylabel(r'$u_r$', fontsize=24)
     plt.xlim(-1, 2)
     plt.ylim(-.2, .2)
     plt.legend(prop=dict(size=13), numpoints=2, ncol=2,
@@ -1250,8 +1248,9 @@ if R_limit_10000_logr_ur_Final_20bins_50bins:
                  color=Colors[i + 3], label=a, lw=2, ms=7)
     data, label = datalist_9b[0]
     a = label[:-42]
-    plt.plot(data[:, 0], data[:, 4] / (data[:, 6] ** .5), 'm--s', label=a, lw=2, ms=7)
-    plt.title(r'50 bins', fontsize=20)
+    plt.plot(data[:, 0], data[:, 4] / (data[:, 6] ** .5), 'm--s', label=a,
+             lw=2, ms=7)
+    plt.title('50 bins', fontsize=20)
     plt.xlabel(r'$\log r$', fontsize=24)
     plt.ylabel(r'$u_r$', fontsize=24)
     plt.xlim(-1, 2)
