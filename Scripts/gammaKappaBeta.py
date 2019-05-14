@@ -25,12 +25,11 @@ def betaOM(r, rA=1.20):
     return 1. / (1. + (rA / r) ** 2)
 
 
-def sigmaRad2():
+def sigmaRad2(no_of_bins):
     """Return the square of the radial velocity dispersion."""
     x, y, z, vx, vy, vz = np.linspace(.01, 1.2)
-    binningArrLinLog10 = np.logspace(minBinningR, maxBinningR,
-                                     nrBinningBins)
-    for i in range(nrBinningBins - 2):
+    binningArrLinLog10 = np.logspace(minBinningR, maxBinningR, no_of_bins)
+    for i in range(no_of_bins - 2):
         minRBinI = binningArrLinLog10[i]  # start of bin
         maxRBinI = binningArrLinLog10[i + 1]  # end of bin
         vR[i] = ((vx[i] * x[i] + vy[i] * y[i] + vz[i] * z[i])
@@ -75,7 +74,8 @@ def Plt(data_list, i, x, y, cls, l, r, mode=None):
     """."""
     exec(f"data, label = {data_list}")
     if mode == 'log':
-        exec(f"ax{i}.plot(np.log10(x), y, '{cls}', label=label[{l}:{r}], lw=2, ms=7)")
+        exec(f"ax{i}.plot(np.log10(x), y, '{cls}', label=label[{l}:{r}], lw=2,\
+                          ms=7)")
     else:
         exec(f"ax{i}.plot(x, y, '{cls}', label=label[{l}:{r}], lw=2, ms=7)")
 
