@@ -217,108 +217,58 @@ def Fig_vr_vPhi_vTheta_with_fit(Bin_list, title):
 if test:
     Fig_vr_vPhi_vTheta_with_fit('bin2_HQ10000_G1_2_1_005', 'HQ12')
 if test2:
-    Fig_vr_vPhi_vTheta_with_fit('bin2_different_gammas_test2_HQ10000_G1_0_0_000', 'test2_HQ0')
+    Fig_vr_vPhi_vTheta_with_fit('bin2_different_gammas_test2_HQ10000_G1_0_0_000',
+                                'test2_HQ0')
 
-if Fig_vt:
+
+def Fig_vt(bin_data, title):
     f, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2)
 
     for i in range(1, 5):
         exec(f"ax{i}.grid()")
 
-    if test:
-        Plt(1, bin1_different_gammas_test2_HQ10000_G1_0_0_000[0],
-            "b--", r"$\gamma = -1.5$")
-        Plt(1, bin2_HQ10000_G1_2_1_005[0], "b:", r"$\gamma = -2.0$")
-        Plt(1, bin3_HQ10000_G1_2_1_005[0], "b-.", r"$\gamma = -2.5$")
-        Plt(1, bin4_HQ10000_G1_2_1_005[0], "b", r"$\gamma = -3.0$")
+    exec(f"Plt(1, bin1_{bin_data}[0], "b--", r"$\gamma = -1.5$")")
+    exec(f"Plt(1, bin2_{bin_data}[0], "b:", r"$\gamma = -2.0$")")
+    exec(f"Plt(1, bin3_{bin_data}[0], "b-.", r"$\gamma = -2.5$")")
+    exec(f"Plt(1, bin4_{bin_data}[0], "b", r"$\gamma = -3.0$")")
 
-        ax1.set_ylabel(r"$f\left(u_t \right)$", fontsize=20)
-        ax1.set_title(r"File = %s" % HQ12, fontsize=20)
-        ax1.legend(prop=dict(size=13), numpoints=2, ncol=1,
-                   frameon=True, loc=0, handlelength=2.5)
+    ax1.set_ylabel(r"$f\left(u_t \right)$", fontsize=20)
+    exec(f"ax1.set_title(r"File = %s" % {title}, fontsize=20)")
+    ax1.legend(prop=dict(size=13), numpoints=2, ncol=1,
+               frameon=True, loc=0, handlelength=2.5)
 
-        Plt(2, bin1_HQ10000_G1_2_1_005[4], "b--", r"$\gamma = -1.5$")
-        Plt(2, bin2_HQ10000_G1_2_1_005[4], "b:", r"$\gamma = -2.0$")
-        Plt(2, bin3_HQ10000_G1_2_1_005[4], "b-.", r"$\gamma = -2.5$")
-        Plt(2, bin4_HQ10000_G1_2_1_005[4], "b", r"$\gamma = -3.0$")
+    exec(f"Plt(2, bin1_{bin_data}[4], "b--", r"$\gamma = -1.5$")")
+    exec(f"Plt(2, bin2_{bin_data}[4], "b:", r"$\gamma = -2.0$")")
+    exec(f"Plt(2, bin3_{bin_data}[4], "b-.", r"$\gamma = -2.5$")")
+    exec(f"Plt(2, bin4_{bin_data}[4], "b", r"$\gamma = -3.0$")")
 
-        ax2.set_ylabel(r"$f\left(\log \left( |u_tn|,u_tp \right)\right)$",
-                       fontsize=20)
+    ax2.set_ylabel(r"$f\left(\log \left( |u_tn|,u_tp \right)\right)$",
+                   fontsize=20)
 
-        Plt(3, bin1_HQ10000_G1_2_1_005[0], "b--", r"$\gamma = -1.5$")
-        Plt(3, bin2_HQ10000_G1_2_1_005[0], "b:", r"$\gamma = -2.0$")
-        Plt(3, bin3_HQ10000_G1_2_1_005[0], "b-.", r"$\gamma = -2.5$")
-        Plt(3, bin4_HQ10000_G1_2_1_005[0], "b", r"$\gamma = -3.0$")
+    exec(f"Plt(3, bin1_{bin_data}[0], "b--", r"$\gamma = -1.5$")")
+    exec(f"Plt(3, bin2_{bin_data}[0], "b:", r"$\gamma = -2.0$")")
+    exec(f"Plt(3, bin3_{bin_data}[0], "b-.", r"$\gamma = -2.5$")")
+    exec(f"Plt(3, bin4_{bin_data}[0], "b", r"$\gamma = -3.0$")")
 
-        ax3.set_xlabel(r"$u_t$", fontsize=20)
-        ax3.set_ylabel(r"$\log \left( f\left(u_t \right) \right)$",
-                       fontsize=20)
-        ax3.set_yscale("log")
+    ax3.set_xlabel(r"$u_t$", fontsize=20)
+    ax3.set_ylabel(r"$\log \left( f\left(u_t \right) \right)$", fontsize=20)
+    ax3.set_yscale("log")
 
-        Plt(4, bin1_HQ10000_G1_2_1_005[4], "b--", r"$\gamma = -1.5$")
-        Plt(4, bin2_HQ10000_G1_2_1_005[4], "b:", r"$\gamma = -2.0$")
-        Plt(4, bin3_HQ10000_G1_2_1_005[4], "b-.", r"$\gamma = -2.5$")
-        Plt(4, bin4_HQ10000_G1_2_1_005[4], "b", r"$\gamma = -3.0$")
+    exec(f"Plt(4, bin1_{bin_data}[4], "b--", r"$\gamma = -1.5$")")
+    exec(f"Plt(4, bin2_{bin_data}[4], "b:", r"$\gamma = -2.0$")")
+    exec(f"Plt(4, bin3_{bin_data}[4], "b-.", r"$\gamma = -2.5$")")
+    exec(f"Plt(4, bin4_{bin_data}[4], "b", r"$\gamma = -3.0$")")
 
-        ax4.set_xlabel(r"$\log \left(|u_tn|,u_tp \right)$", fontsize=20)
-        ax4.set_ylabel(r"$\log \left( f\left(\log \left(|u_tn|,u_tp \right)\
-                         \right) \right)$", fontsize=20)
-        ax4.set_yscale("log")
+    ax4.set_xlabel(r"$\log \left(|u_tn|,u_tp \right)$", fontsize=20)
+    ax4.set_ylabel(r"$\log \left( f\left(\log \left(|u_tn|,u_tp \right)\
+                     \right) \right)$", fontsize=20)
+    ax4.set_yscale("log")
 
-    if test2:
-        Plt(1, bin1_different_gammas_test2_HQ10000_G1_0_0_000[0],
-            "b--", r"$\gamma = -1.5$")
-        Plt(1, bin2_different_gammas_test2_HQ10000_G1_0_0_000[0],
-            "b:", r"$\gamma = -2.0$")
-        Plt(1, bin3_different_gammas_test2_HQ10000_G1_0_0_000[0],
-            "b-.", r"$\gamma = -2.5$")
-        Plt(1, bin4_different_gammas_test2_HQ10000_G1_0_0_000[0],
-            "b", r"$\gamma = -3.0$")
 
-        ax1.set_ylabel(r"$f\left(u_t \right)$", fontsize=20)
-        ax1.set_title(r"File = %s" % test2_HQ0, fontsize=20)
-        ax1.legend(prop=dict(size=13), numpoints=2, ncol=1,
-                   frameon=True, loc=0, handlelength=2.5)
-
-        Plt(2, bin1_different_gammas_test2_HQ10000_G1_0_0_000[4],
-            "b--", r"$\gamma = -1.5$")
-        Plt(2, bin2_different_gammas_test2_HQ10000_G1_0_0_000[4],
-            "b:", r"$\gamma = -2.0$")
-        Plt(2, bin3_different_gammas_test2_HQ10000_G1_0_0_000[4],
-            "b-.", r"$\gamma = -2.5$")
-        Plt(2, bin4_different_gammas_test2_HQ10000_G1_0_0_000[4],
-            "b", r"$\gamma = -3.0$")
-
-        ax2.set_ylabel(r"$f\left(\log \left(|u_tn|,u_tp \right)\right)$",
-                       fontsize=20)
-
-        Plt(3, bin1_different_gammas_test2_HQ10000_G1_0_0_000[0],
-            "b--", r"$\gamma = -1.5$")
-        Plt(3, bin2_different_gammas_test2_HQ10000_G1_0_0_000[0],
-            "b:", r"$\gamma = -2.0$")
-        Plt(3, bin3_different_gammas_test2_HQ10000_G1_0_0_000[0],
-            "b-.", r"$\gamma = -2.5$")
-        Plt(3, bin4_different_gammas_test2_HQ10000_G1_0_0_000[0],
-            "b", r"$\gamma = -3.0$")
-
-        ax3.set_xlabel(r"$u_t$", fontsize=20)
-        ax3.set_ylabel(r"$\log \left( f\left(u_t \right) \right)$",
-                       fontsize=20)
-        ax3.set_yscale("log")
-
-        Plt(4, bin1_different_gammas_test2_HQ10000_G1_0_0_000[4],
-            "b--", r"$\gamma = -1.5$")
-        Plt(4, bin2_different_gammas_test2_HQ10000_G1_0_0_000[4],
-            "b:", r"$\gamma = -2.0$")
-        Plt(4, bin3_different_gammas_test2_HQ10000_G1_0_0_000[4],
-            "b-.", r"$\gamma = -2.5$")
-        Plt(4, bin4_different_gammas_test2_HQ10000_G1_0_0_000[4],
-            "b", r"$\gamma = -3.0$")
-
-        ax4.set_xlabel(r"$\log \left( |u_tn|,u_tp \right)$", fontsize=20)
-        ax4.set_ylabel(r"$\log \left( f\left(\log \left(\
-                       |u_tn|,u_tp \right)\right) \right)$", fontsize=20)
-        ax4.set_yscale("log")
+if test:
+    Fig_vt('HQ10000_G1_2_1_005', HQ12)
+elif test2:
+    Fig_vt('different_gammas_test2_HQ10000_G1_0_0_000', test2_HQ0)
 
 special_fit = 0
 
@@ -1312,6 +1262,7 @@ if Fig_GPerts_G1_2_same_gammas_as_IC_vt:
                      \right)$", fontsize=20)
     ax4.set_yscale("log")
 
+
 if Fig_GPerts_different_gammas_vt:
     f, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2, figsize=(15, 10))
     f.subplots_adjust(hspace=0, wspace=0)
@@ -1325,8 +1276,10 @@ if Fig_GPerts_different_gammas_vt:
             exec(f"ax{i}.legend(prop=dict(size=18), numpoints=2, ncol=1,\
                                 frameon=True, loc=0, handlelength=2.5)")
 
-        Plt(1, bin1_different_gammas_HQ10000_G1_2_1_005[0], "b--",
-            label=r"%s" % HQ12[len("HQ10000_G"):])
+        test_str = "bin{}_different_gammas_HQ10000_G1_2_{}_005"
+
+        exec(f"Plt(1, {test_str.format('1', '1')}[0], "b--",\
+             label=r"%s" % HQ12[len("HQ10000_G"):])")
         Plt(1, bin1_different_gammas_HQ10000_G1_2_3_005[0], "r--",
             label=r"%s" % HQ24[len("HQ10000_G"):])
         Plt(1, bin1_different_gammas_HQ10000_G1_2_5_005[0], "g--",
@@ -1436,8 +1389,7 @@ if Fig_GPerts_different_gammas_vt:
         ax3.plot(data[:, 0], data[:, 1], "c", lw=2, ms=7)
 
         ax3.set_xlabel(r"$u_t$", fontsize=20)
-        ax3.set_ylabel(r"$\log \left( f\left( u_t \right) \right)$",
-                       fontsize=20)
+        ax3.set_ylabel(r"$\log \left(f\left(u_t \right) \right)$", fontsize=20)
         ax3.set_yscale("log")
 
         Plt(4, bin1_different_gammas_HQ10000_G1_2_1_005[4], "r--",
