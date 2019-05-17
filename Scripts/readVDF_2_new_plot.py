@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
 import numpy as np
-from scipy.optimize import curve_fit
+# from scipy.optimize import curve_fit
 import matplotlib.pyplot as plt
-import pylab
+# import pylab
 from readVDF_2_new_files import *
 from readVDF2 import Plt
 
@@ -11,6 +11,9 @@ from readVDF2 import Plt
 # import snapshotFiles
 
 # Switches ---------------------------------------------------------
+test = 0
+test2 = 0
+
 Gamma_on = 1
 Beta_on = 0
 
@@ -41,17 +44,20 @@ if Fig2a_vr_vPhi_vTheta_divided_by_gauss:
             exec(f"ax{i}.legend(prop=dict(size=13), numpoints=2, ncol=1,\
                    frameon=True, loc=0, handlelength=2.5)")
 
+        def denom_ax1(a, b, c):
+            return a * np.exp(b * c ** 2)
+
         data, _ = bin2_HQ10000_G1_2_1_005[1]
-        ax1.plot(data[:, 0], data[:, 1] / (478.006 * np.exp(-.456
-                 * data[:, 0] ** 2)),
+        ax1.plot(data[:, 0],
+                 data[:, 1] / denom_ax1(478.006, -.456, data[:, 0]),
                  "g:", label=r"$r, a=478.006, b=0.456$", lw=4, ms=7)
         data, _ = bin2_HQ10000_G1_2_1_005[2]
-        ax1.plot(data[:, 0], data[:, 1] / (482.605 * np.exp(-.473
-                 * data[:, 0] ** 2)),
+        ax1.plot(data[:, 0],
+                 data[:, 1] / denom_ax1(482.605, -.473, data[:, 0]),
                  "r:", label=r"$\Theta, a=482.605, b=0.473$", lw=4, ms=7)
         data, _ = bin2_HQ10000_G1_2_1_005[3]
-        ax1.plot(data[:, 0], data[:, 1] / (502.652 * np.exp(-.477
-                 * data[:, 0] ** 2)),
+        ax1.plot(data[:, 0],
+                 data[:, 1] / denom_ax1(502.652, -.477, data[:, 0]),
                  "k:", label=r"$\Phi, a=502.652, b=0.477$", lw=2, ms=7)
 
         ax1.set_xlabel(r"$u_r$, $u_{\Theta}$ and $u_{\Phi}$", fontsize=20)
@@ -75,8 +81,8 @@ if Fig2a_vr_vPhi_vTheta_divided_by_gauss:
                         |u_{\Theta}n|,u_{\Theta}p \right)$ and $\log \left(\
                         |u_{\Phi}n|,u_{\Phi}p \right)$", fontsize=20)
         ax2.set_ylabel(r"$\frac{f\left(\log \left( |u_n|,\
-                         u_p \right)\right)}{axe^{-b\log (x)^2}}$",
-                         fontsize=20)
+                       u_p \right)\right)}{axe^{-b\log (x)^2}}$",
+                       fontsize=20)
         # a \cdot \log(x) \cdot e^{-b \cdot log(x)^2}
 
     if test2:
@@ -94,12 +100,12 @@ if Fig2a_vr_vPhi_vTheta_divided_by_gauss:
                  "g:", label=r"$r, a=478.006, b=0.456$", lw=4, ms=7)
         data, _ = bin2_different_gammas_test2_HQ10000_G1_0_0_000[2]
         ax1.plot(data[:, 0],
-            data[:, 1] / (482.605 * np.exp(-.473 * data[:, 0] ** 2)),
-            "r:", label=r"$\Theta, a=482.605, b=0.473$", lw=4, ms=7)
+                 data[:, 1] / (482.605 * np.exp(-.473 * data[:, 0] ** 2)),
+                 "r:", label=r"$\Theta, a=482.605, b=0.473$", lw=4, ms=7)
         data, _ = bin2_different_gammas_test2_HQ10000_G1_0_0_000[3]
         ax1.plot(data[:, 0],
-            data[:, 1] / (502.652 * np.exp(-.477 * data[:, 0] ** 2)),
-            "k:", label=r"$\Phi, a=502.652, b=0.477$", lw=2, ms=7)
+                 data[:, 1] / (502.652 * np.exp(-.477 * data[:, 0] ** 2)),
+                 "k:", label=r"$\Phi, a=502.652, b=0.477$", lw=2, ms=7)
 
         ax1.set_xlabel(r"$u_r$, $u_{\Theta}$ and $u_{\Phi}$", fontsize=20)
         ax1.set_ylabel(r"$\frac{f\left(u \right)}{ae^{-bx^2}}$", fontsize=20)
@@ -223,7 +229,7 @@ if Fig2b_vt_divided_by_gauss:
 
         ax2.set_xlabel(r"$\log \left( |u_tn|,u_tp \right)$", fontsize=20)
         ax2.set_ylabel(r"$\frac{f\left(\log \left( |u_tn|,u_tp \right)\right)}\
-                         {3400.442x^2e^{-0.930x^2}}$", fontsize=20)
+                       {3400.442x^2e^{-0.930x^2}}$", fontsize=20)
 
 if Fig3a_GPerts_same_gammas_as_IC_vr:
     f, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2)
