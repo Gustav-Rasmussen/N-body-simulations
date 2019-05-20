@@ -730,8 +730,8 @@ if betaGammaKappaCS4CS5CS6_20_50Bins:
 
     x = np.linspace(-2., 2.)
     y = -2 * x
-    ax1.plot(x, y, 'm', label=r'$\beta=-\frac{\gamma }{2}$', lw=2, ms=7)
-    ax1.fill_between(x, 4, y, color='b', label=r'$\beta > -\frac{\gamma }{2}$')
+    ax1.plot(x, y, 'm', label=r'$\beta=-\frac{\gamma}{2}$', lw=2, ms=7)
+    ax1.fill_between(x, 4, y, color='b', label=r'$\beta > -\frac{\gamma}{2}$')
     # Unstable region
     ax1.set_title(r'Initial conditions. 50 bins', fontsize=20)
     ax1.set_ylabel(r'$\gamma$', fontsize=24)
@@ -905,8 +905,8 @@ if overplotICFinal:
                  Symbols[i], color=Colors[i], label=label, lw=2, ms=7)
     x = np.linspace(0, 1.1)
     y = -2 * x
-    ax1.plot(x, y, 'm', label=r'$\beta=-\frac{\gamma }{2}$', lw=2, ms=7)
-    ax1.fill_between(x, 0, y, color='b', label=r'$\beta > -\frac{\gamma }{2}$')
+    ax1.plot(x, y, 'm', label=r'$\beta=-\frac{\gamma}{2}$', lw=2, ms=7)
+    ax1.fill_between(x, 0, y, color='b', label=r'$\beta > -\frac{\gamma}{2}$')
     ax1.set_title(r'IC and Final', fontsize=20)
     ax1.set_ylabel(r'$\gamma$', fontsize=24)
     ax1.set_xlim(-0.1, 1.1)

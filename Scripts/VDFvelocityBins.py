@@ -158,8 +158,7 @@ if print_Vp_Vn:
               f'VR_sigmarad = {VR / sigmarad}',
               f'np.where(sigmarad == 0) = {np.where(sigmarad == 0)}',
               f'np.where(sigmatheta == 0) = {np.where(sigmatheta == 0)}',
-              f'np.where(sigmaphi == 0) = {np.where(sigmaphi == 0)}'
-              )
+              f'np.where(sigmaphi == 0) = {np.where(sigmaphi == 0)}')
 
 # All figures with log(v) can instead be plotted as log(v) vs. f(v)/v.
 # the idea is, that a flat tail will appear towards small velocities.

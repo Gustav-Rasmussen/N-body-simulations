@@ -140,8 +140,7 @@ if Fig_v_logr:
                    fontsize=30)
 
     ax1.set_title(r'A {0}(I: $\Delta G,\
-                  R_{lim}=10^4$)'.format(snapshot_num[0]),
-                  fontsize=30)
+                  R_{lim}=10^4$)'.format(snapshot_num[0]), fontsize=30)
     # ax1.set_title(r'%s' % F, fontsize=30)
 
     ax2.plot(np.log10(r), v, 'bo', lw=3, ms=2)
@@ -151,8 +150,7 @@ if Fig_v_logr:
     fig_names = ['A_IC_v_logr', 'A_10_005_v_logr', 'A_48_009_v_logr',
                  'B_v_logr', 'Soft_B_v_logr', 'CS1_v_logr', 'CS2_v_logr',
                  'CS3_v_logr', 'CS4_v_logr', 'CS5_v_logr', 'CS6_v_logr',
-                 'DS1_v_logr', 'D2_v_logr', 'Soft_D2_v_logr', 'E_v_logr'
-                 ]
+                 'DS1_v_logr', 'D2_v_logr', 'Soft_D2_v_logr', 'E_v_logr']
 
     f.savefig(f"{figurePath}{fig_names[0]}.png")
 
@@ -165,8 +163,7 @@ if Fig_v_logr_r2:
                    fontsize=30)
 
     ax1.set_title(r'A {0}(I: $\Delta G,\
-                  R_{lim}=10^4$)'.format(snapshot_num[0]),
-                  fontsize=30)
+                  R_{lim}=10^4$)'.format(snapshot_num[0]), fontsize=30)
 
     # ax1.set_title(r'%s' % F, fontsize=30)
 
@@ -178,8 +175,7 @@ if Fig_v_logr_r2:
                  'B_v_logr_r2', 'Soft_B_v_logr_r2', 'CS1_v_logr_r2',
                  'CS2_v_logr_r2', 'CS3_v_logr_r2', 'CS4_v_logr_r2',
                  'CS5_v_logr_r2', 'CS6_v_logr_r2', 'DS1_v_logr_r2',
-                 'D2_v_logr_r2', 'Soft_D2_v_logr_r2', 'E_v_logr_r2'
-                 ]
+                 'D2_v_logr_r2', 'Soft_D2_v_logr_r2', 'E_v_logr_r2']
 
     f.savefig(f"{figurePath}{fig_names[0]}.png")
 
@@ -202,8 +198,7 @@ if Fig2_v:  # 3 plots of the velocities as function of x.
     setp(ax3.get_yticklabels(), visible=False)
 
     fig_names = ['A_v', 'B_v', 'Soft_B_v', 'CS1_v', 'CS2_v', 'CS3_v', 'CS4_v',
-                 'CS5_v', 'CS6_v', 'DS1_v', 'D2_v', 'Soft_D2_v', 'E_v'
-                 ]
+                 'CS5_v', 'CS6_v', 'DS1_v', 'D2_v', 'Soft_D2_v', 'E_v']
 
     f.savefig(f"{figurePath}{fig_names[0]}.png")
 
@@ -231,8 +226,7 @@ if Fig3_sigma:  # Dispersions
     plt.ylabel(r'$\log (\sigma^2)$', fontsize=30)
 
     plt.title(r'Velocity dispersions (B {}, $R_{limit} = 10^4$,\
-              20 radial bins)'.format(snapshot_num[0]),
-              fontsize=30)
+              20 radial bins)'.format(snapshot_num[0]), fontsize=30)
 
     # plt.title(r'Velocity dispersions (File = %s)' % F, fontsize=30)
 
@@ -243,8 +237,7 @@ if Fig3_sigma:  # Dispersions
     fig_names = ['A_sigma', 'B_IC_sigma', 'B_198_093_sigma', 'Soft_B_sigma',
                  'CS1_sigma', 'CS2_sigma', 'CS3_sigma', 'CS4_sigma',
                  'CS5_sigma', 'CS6_sigma', 'DS1_sigma', 'D2_sigma',
-                 'Soft_D2_sigma', 'E_sigma'
-                 ]
+                 'Soft_D2_sigma', 'E_sigma']
 
     f.savefig(f"{figurePath}{fig_names[0]}.png")
 
@@ -273,8 +266,7 @@ if Fig3_sigma_r_2:  # Dispersions
     plt.ylabel(r'$\log (\sigma^2) $', fontsize=30)
 
     plt.title(r'Velocity dispersions (B {}, $R_{limit} = 10^4$,\
-              20 radial bins)'.format(snapshot_num[0]),
-              fontsize=30)
+              20 radial bins)'.format(snapshot_num[0]), fontsize=30)
 
     # plt.title(r'Velocity dispersions (File = %s)' % F, fontsize=30)
 
@@ -282,8 +274,7 @@ if Fig3_sigma_r_2:  # Dispersions
                  'Soft_B_sigma_r_2', 'CS1_sigma_r_2', 'CS2_sigma_r_2',
                  'CS3_sigma_r_2', 'CS4_sigma_r_2', 'CS5_sigma_r_2',
                  'CS6_sigma_r_2', 'DS1_sigma_r_2', 'D2_sigma_r_2',
-                 'Soft_D2_sigma_r_2', 'E_sigma_r_2'
-                 ]
+                 'Soft_D2_sigma_r_2', 'E_sigma_r_2']
 
     f.savefig(f"{figurePath}{fig_names[0]}.png")
 
@@ -312,8 +303,7 @@ if Fig3_sigma_over_v_circ_r_2:  # Dispersions
     plt.ylabel(r'$\log (\bar{\sigma}^2)$', fontsize=30)
 
     plt.title(r'Velocity dispersions (B {}, $R_{limit} = 10^4$,\
-              20 radial bins)'.format(snapshot_num[0]),
-              fontsize=30)
+              20 radial bins)'.format(snapshot_num[0]), fontsize=30)
 
     # plt.title(r'Velocity dispersions (File = %s)' % F, fontsize=26)
 
@@ -333,8 +323,7 @@ if Fig3_sigma_over_v_circ_r_2:  # Dispersions
                  'DS1_sigma_divided_by_v_circ_r_2',
                  'D2_sigma_divided_by_v_circ_r_2',
                  'Soft_D2_sigma_divided_by_v_circ_r_2',
-                 'E_sigma_divided_by_v_circ_r_2'
-                 ]
+                 'E_sigma_divided_by_v_circ_r_2']
 
     f.savefig(f"{figurePath}{fig_names[0]}.png")
 
@@ -363,8 +352,7 @@ if Fig4_beta:  # plot beta
                   (CS6 IC with 20 radial bins)', fontsize=30)
 
         # Dummy plot to add label to legend for chi2
-        plt.plot([], [], 'm.',
-                 label=r'$\chi^2 = %.6f$' % chi_2(beta_arr))
+        plt.plot([], [], 'm.', label=r'$\chi^2 = %.6f$' % chi_2(beta_arr))
 
         leg = plt.legend(prop=dict(size=30), numpoints=2, ncol=1,
                          fancybox=True, loc=0, handlelength=2.5)
@@ -375,8 +363,7 @@ if Fig4_beta:  # plot beta
                      'CS4_IC_beta_logr_fit', 'CS5_IC_beta_logr_fit',
                      'CS6_IC_beta_logr_fit', 'DS1_IC_beta_logr_fit',
                      'D2_beta_logr_fit', 'Soft_D2_beta_logr_fit',
-                     'Soft_D2_Final_beta_logr_fit', 'E_beta_logr_fit'
-                     ]
+                     'Soft_D2_Final_beta_logr_fit', 'E_beta_logr_fit']
 
         f.savefig(f"{figurePath}{fig_names[0]}.png")
 
@@ -415,8 +402,7 @@ if Fig4_beta:  # plot beta
                            'Soft_D2_beta_logr_I_R32',
                            'Soft_D2_49_093_beta_logr_I_R32',
                            'E_beta_logr_I_R32',
-                           'E_198_093_beta_logr_I_R32'
-                           ]
+                           'E_198_093_beta_logr_I_R32']
 
         f.savefig(f"{figurePath}{fig_names_I_R32[0]}.png")
 
@@ -440,8 +426,7 @@ if Fig4_beta:  # plot beta
                      'Soft_D2_beta_logr',
                      'Soft_D2_49_093_beta_logr',
                      'E_beta_logr',
-                     'E_198_093_beta_logr'
-                     ]
+                     'E_198_093_beta_logr']
 
         # f.savefig(f"{figurePath}{fig_names[0]}.png")
 
@@ -470,8 +455,7 @@ if Fig4_beta_r_2:  # plot beta
                  'DS1_Final_beta_r_2_logr', 'D2_beta_r_2_logr',
                  'D2_Final_beta_r_2_logr', 'Soft_D2_beta_r_2_logr',
                  'Soft_D2_Final_beta_r_2_logr', 'E_beta_r_2_logr',
-                 'E_Final_beta_r_2_logr'
-                 ]
+                 'E_Final_beta_r_2_logr']
 
     f.savefig(f"{figurePath}{fig_names[0]}.png")
 
@@ -494,19 +478,19 @@ if Fig5_kappa:
         l = np.log(x)
         ll = np.log(x + 1)
 
-        num1 = -151.9999999 * x + 12 * ll - 12 * l - 250 * x ** 2 - 37 +
-               48 * ll * x ** 5 - 48 * l * x ** 5 + 204 * ll * x ** 4 -
-               204 * l * x ** 4 + 336 * ll * x ** 3 - 336 * l * x ** 3
+        num1 = (-151.9999999 * x + 12 * ll - 12 * l - 250 * x ** 2 - 37 +
+                48 * ll * x ** 5 - 48 * l * x ** 5 + 204 * ll * x ** 4 -
+                204 * l * x ** 4 + 336 * ll * x ** 3 - 336 * l * x ** 3)
 
-        num2 = 264 * ll * x ** 2 - 264 * l * x ** 2 + 96 * ll * x - 96 *
-               l * x + 2 * 10 ** (-8) * x ** 5 - 47.99999992 * x ** 4 -
-               179.9999999 * x ** 3
+        num2 = (264 * ll * x ** 2 - 264 * l * x ** 2 + 96 * ll * x - 96 *
+                l * x + 2 * 10 ** (-8) * x ** 5 - 47.99999992 * x ** 4 -
+                179.9999999 * x ** 3)
 
         denom = (12 * ll * x ** 4 - 12 * l * x ** 4 + 4.049710908 * 10
-                ** (-9) * x ** 4 + 48 * ll * x ** 3 - 48 * l * x ** 3 -
-                11.99999998 * x ** 3 + 72 * ll * x ** 2 - 72 * l * x **
-                2 - 41.99999998 * x ** 2 + 48 * ll * x - 48 * l * x -
-                51.99999998 * x + 12 * ll - 12 * l - 25) * (x + 1)
+                 ** (-9) * x ** 4 + 48 * ll * x ** 3 - 48 * l * x ** 3 -
+                 11.99999998 * x ** 3 + 72 * ll * x ** 2 - 72 * l * x **
+                 2 - 41.99999998 * x ** 2 + 48 * ll * x - 48 * l * x -
+                 51.99999998 * x + 12 * ll - 12 * l - 25) * (x + 1)
 
         y_plot = (num1 + num2) / denom
 
@@ -523,8 +507,7 @@ if Fig5_kappa:
         plt.ylim(-2., .5)
 
         # Dummy plot to add label to legend for chi2
-        plt.plot([], [], 'g.',
-                 label=r'$\chi^2 = %.6f$' % chi_2(kappa_arr))
+        plt.plot([], [], 'g.', label=r'$\chi^2 = %.6f$' % chi_2(kappa_arr))
 
         leg = plt.legend(prop=dict(size=30), numpoints=2, ncol=1,
                          fancybox=True, loc=0, handlelength=2.5)
@@ -536,8 +519,7 @@ if Fig5_kappa:
                      'CS4_IC_kappa_logr_fit', 'CS5_IC_kappa_logr_fit',
                      'CS6_IC_kappa_logr_fit', 'DS1_IC_kappa_logr_fit',
                      'D2_kappa_logr_fit', 'Soft_D2_kappa_logr_fit',
-                     'Soft_D2_Final_kappa_logr_fit', 'E_kappa_logr_fit'
-                     ]
+                     'Soft_D2_Final_kappa_logr_fit', 'E_kappa_logr_fit']
 
         f.savefig(f"{figurePath}{fig_names[0]}.png")
 
@@ -546,9 +528,8 @@ if Fig5_kappa:
                          fancybox=True, loc=0, handlelength=2.5)
         leg.get_frame().set_alpha(.5)
 
-        plt.title(r'$\kappa$ and zero-line\
-                  ({0}, $R_{limit}$=10^4, 20 bins)'.format(sim_snap[0]),
-                  fontsize=30)
+        plt.title(r'$\kappa$ and zero-line ({0}, $R_{limit}$=10^4,\
+                  20 bins)'.format(sim_snap[0]), fontsize=30)
 
         # plt.title(r'$\kappa$ and zero-line (%s)' % F, fontsize=30)
 
@@ -569,8 +550,7 @@ if Fig5_kappa:
                           'D2_49_093_kappa_logr_I_R32',
                           'Soft_D2_kappa_logr_I_R32',
                           'Soft_D2_49_093_kappa_logr_I_R32',
-                          'E_kappa_logr_I_R32', 'E_198_093_kappa_logr_I_R32'
-                          ]
+                          'E_kappa_logr_I_R32', 'E_198_093_kappa_logr_I_R32']
 
         f.savefig(f"{figurePath}{fig_names_I_32[0]}.png")
 
@@ -584,8 +564,7 @@ if Fig5_kappa:
                      'DS1_49_093_kappa_logr', 'D2_kappa_logr',
                      'D2_49_093_kappa_logr', 'Soft_D2_kappa_logr',
                      'Soft_D2_49_093_kappa_logr', 'E_kappa_logr',
-                     'E_198_093_kappa_logr'
-                     ]
+                     'E_198_093_kappa_logr']
 
         f.savefig(f"{figurePath}{fig_names[0]}.png")
 
@@ -610,8 +589,7 @@ if Fig5_kappa_r_2:
                  'DS1_Final_kappa_r_2_logr', 'D2_kappa_r_2_logr',
                  'D2_Final_kappa_r_2_logr',  'Soft_D2_kappa_r_2_logr',
                  'Soft_D2_Final_kappa_r_2_logr', 'E_kappa_r_2_logr',
-                 'E_Final_kappa_r_2_logr'
-                 ]
+                 'E_Final_kappa_r_2_logr']
 
     f.savefig(f"{figurePath}{fig_names[0]}.png")
 
@@ -657,8 +635,7 @@ if Fig6_gamma:
                      'DS1_Final_gamma_logr_fit', 'D2_IC_gamma_logr_fit',
                      'D2_Final_gamma_logr_fit', 'Soft_D2_IC_gamma_logr_fit',
                      'Soft_D2_Final_gamma_logr_fit', 'E_IC_gamma_logr_fit',
-                     'E_Final_gamma_logr_fit'
-                     ]
+                     'E_Final_gamma_logr_fit']
 
         f.savefig(f"{figurePath}{fig_names[0]}.png")
 
@@ -698,15 +675,13 @@ if Fig6_gamma:
         E_IC = title_params('E', 'IC', '32', '50')
         E_198_093 = title_params('E', '198_093', '32', '50')
 
-        plt.title(f'Radial density slope\
-                  ({A_48_009.sim} {A_48_009.snapshot},\
+        plt.title(f'Radial density slope ({A_48_009.sim} {A_48_009.snapshot},\
                   $R_{limit}$=A_48_009.Rlimit, {A_48_009.bins} bins)',
                   fontsize=30)
 
         '''
-        plt.title(f'Radial density slope\
-                  ({sim[0]} {snapshot_num[0]}, $R_{limit}$=10^4, 20 bins)',
-                  fontsize=30)
+        plt.title(f'Radial density slope ({sim[0]} {snapshot_num[0]},\
+                  $R_{limit}$=10^4, 20 bins)', fontsize=30)
         '''
 
         # plt.title('Radial density slope (%s)' % F, fontsize=30)
@@ -735,8 +710,7 @@ if Fig6_gamma:
                           'Soft_D2_IC_gamma_logr_I_R32',
                           'Soft_D2_49_093_gamma_logr_I_R32',
                           'E_IC_gamma_logr_I_R32',
-                          'E_198_093_gamma_logr_I_R32'
-                          ]
+                          'E_198_093_gamma_logr_I_R32']
 
         f.savefig(f"{figurePath}{fig_names_I_32[0]}.png")
 
@@ -751,8 +725,7 @@ if Fig6_gamma:
                      'DS1_49_093_gamma_logr', 'D2_IC_gamma_logr',
                      'D2_Final_gamma_logr', 'Soft_D2_IC_gamma_logr',
                      'Soft_D2_49_093_gamma_logr', 'E_IC_gamma_logr',
-                     'E_198_093_gamma_logr'
-                     ]
+                     'E_198_093_gamma_logr']
 
         # f.savefig(f"{figurePath}{fig_names[0]}.png")
 
@@ -760,13 +733,12 @@ if Fig6_gamma_r_2:
     f = plt.figure(figsize=(16, 11))
     x_plot = np.log10(bin_radius_arr / r_2)
     y_plot = gamma_arr
-    plt.xlabel(r'$\log (\frac{r}{r_{-2}})$', fontsize=30)
+    plt.xlabel(r'$\log(\frac{r}{r_{-2}})$', fontsize=30)
     plt.ylabel(r'$\gamma$', fontsize=30)
     plt.plot(x_plot, y_plot, 'k-o', ms=7, lw=2, mew=0, label=r'$\gamma$')
 
-    plt.title(f'Radial density slope\
-              ({sim[1]} {snapshot_num[0]} with 20 radial bins)',
-               fontsize=30)
+    plt.title(f'Radial density slope ({sim[1]} {snapshot_num[0]} with 20\
+              radial bins)', fontsize=30)
     # sim, snapshot_num
     # B, IC
     # CS6, IC
@@ -787,8 +759,7 @@ if Fig6_gamma_r_2:
                  'DS1_Final_gamma_r_2_logr', 'D2_IC_gamma_r_2_logr',
                  'D2_Final_gamma_r_2_logr', 'Soft_D2_IC_gamma_r_2_logr',
                  'Soft_D2_Final_gamma_r_2_logr', 'E_IC_gamma_r_2_logr',
-                 'E_Final_gamma_r_2_logr'
-                 ]
+                 'E_Final_gamma_r_2_logr']
 
     f.savefig(f"{figurePath}{fig_names[0]}.png")
 
@@ -814,15 +785,13 @@ if Fig7_betagamma:
                  'CS1_betagamma', 'CS2_betagamma', 'CS3_betagamma',
                  'CS4_betagamma', 'CS5_betagamma', 'CS6_betagamma',
                  'DS1_betagamma', 'D2_betagamma', 'Soft_D2_betagamma',
-                 'E_betagamma'
-                 ]
+                 'E_betagamma']
 
     f.savefig(f"{figurePath}{fig_names[0]}.png")
 
 if Fig_combine_ASCII:
 
     sim_names = ['A', 'B']
-
     read_txt = pylab.loadtxt(text_files_path +
                              f'{sim_names[1]}_particle_tracking.txt')
 

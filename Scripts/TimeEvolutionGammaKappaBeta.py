@@ -405,7 +405,7 @@ if Overplot_logr_gamma:
             data, label = datalist_C_IC[i]
             plt.plot(data[:, 0], data[:, 2], Symbols[i],
                      color=Colors[i], label=label, lw=2, ms=7)
-        plt.title(r'$\gamma $ for CS1, CS2 and CS3', fontsize=20)
+        plt.title(r'$\gamma$ for CS1, CS2 and CS3', fontsize=20)
         plt.xlabel(r'$\log r$', fontsize=24)
         plt.ylabel(r'$\gamma$', fontsize=24)
         plt.legend(prop=dict(size=13), numpoints=2, ncol=1,
@@ -484,7 +484,7 @@ if Overplot_logr_gamma:
         plt.plot(data[:, 0], data[:, 2], 'k-<', label=label, lw=2, ms=7)
 
         plt.title(r'Time evolution of $\gamma$\
-                    for B, CS4, CS5, CS6, DS1 and D2', fontsize=20)
+                  for B, CS4, CS5, CS6, DS1 and D2', fontsize=20)
         plt.xlabel(r'$\log r$', fontsize=24)
         plt.ylabel(r'Initial $\gamma$', fontsize=24)
         plt.legend(prop=dict(size=13), numpoints=2, ncol=1,
@@ -649,7 +649,7 @@ if Overplot_logr_gamma:
                  label=label, lw=2, ms=7)
 
         ax1.set_title(r'$\gamma$ for Final products,\
-                        with bound structure (50 bins)', fontsize=20)
+                      with bound structure (50 bins)', fontsize=20)
         ax1.set_ylabel('B', fontsize=24)
 
         for i in range(3):
@@ -746,7 +746,7 @@ if lnr_VR_IC_Final_50bins_20bins:
         plt.plot(data[:, 0], data[:, 4], Symbols[i], color=Colors[i],
                  label=label, lw=2, ms=7)
     plt.title(r'Time evolution of $v_r $\
-                for Simulation CS4, CS5, CS6, DS1 and D2', fontsize=20)
+              for Simulation CS4, CS5, CS6, DS1 and D2', fontsize=20)
     plt.xlabel(r'$\log r$', fontsize=24)
     plt.ylabel(r'Initial $v_r$', fontsize=24)
     plt.legend(prop=dict(size=13), numpoints=2, ncol=1,
@@ -804,7 +804,7 @@ if lnr_VR_IC_Final_50bins_20bins:
 if lnr_sigmarad2_IC_Final_50bins_20bins:
 
     title_str = f"Time evolution of {chr(946)}, {chr(947)} and {chr(954)}\
-                  for Simulation DS1 and D2"
+                for Simulation DS1 and D2"
 
     f = plt.figure()
     # Initial, 50 bins
@@ -818,7 +818,7 @@ if lnr_sigmarad2_IC_Final_50bins_20bins:
         plt.plot(data[:, 0], data[:, 6], Symbols[i], color=Colors[i],
                  label=label, lw=2, ms=7)
     plt.title(r'Time evolution of $\sigma_r^2$\
-                for Simulation CS4, CS5, CS6, DS1 and D2', fontsize=20)
+              for Simulation CS4, CS5, CS6, DS1 and D2', fontsize=20)
     plt.xlabel(r'$\log r$', fontsize=24)
     plt.ylabel(r'Initial $\sigma_r^2$', fontsize=24)
     plt.legend(prop=dict(size=13), numpoints=2, ncol=1,
@@ -888,7 +888,7 @@ if lnr_sigmarad2_vr_Final_50bins:
     plt.plot(data[:, 0], data[:, 6], Symbols[5], color=Colors[5],
              label=label, lw=2, ms=7)
     plt.title(r'Final $\sigma_r^2$\
-                for Simulation B, CS4, CS5, CS6, DS1 and D2', fontsize=20)
+              for Simulation B, CS4, CS5, CS6, DS1 and D2', fontsize=20)
     plt.xlabel(r'$\log r$', fontsize=24)
     plt.ylabel(r'Final $\sigma_r^2$', fontsize=24)
     plt.legend(prop=dict(size=13), numpoints=2, ncol=1,
@@ -931,7 +931,7 @@ if R_limit_10000_logr_sigmarad2_vr_Final_20bins:
     ax1.plot(data[:, 0], data[:, 6], Symbols[2], color=Colors[2],
              label=label, lw=2, ms=7)
     ax1.set_title(r'Final B, CS4, CS5, CS6, DS1 and D2.\
-                    $R_{limit} = 10^4$. 20 bins', fontsize=20)
+                  $R_{limit} = 10^4$. 20 bins', fontsize=20)
     ax1.set_ylabel(r'$\sigma_r^2$', fontsize=24)
     ax1.axes.get_xaxis().set_visible(False)
 
