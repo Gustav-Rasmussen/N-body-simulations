@@ -104,7 +104,7 @@ def plot_binData(fileLst):
                    \left( |u_{\Theta}n|,u_{\Theta}p \right)$ and\
                    $\log \left( |u_{\Phi}n|,u_{\Phi}p \right)$", fontsize=20)
     ax4.set_ylabel(r"$\log \left( f\left(\log \left( |u_n|,\
-                     u_p \right)\right) \right)$", fontsize=20)
+                   u_p \right)\right) \right)$", fontsize=20)
 
     ax3.set_yscale("log")
     ax4.set_yscale("log")
@@ -132,25 +132,22 @@ def Fig_vr_vPhi_vTheta_with_fit(Bin_list, title):
     ax1.plot(data[:, 0], data[:, 1], "g", lw=4, ms=7)
     popt, pcov = curve_fit(func_2, data[:, 0], data[:, 1])
     y_fit = func_2(data[:, 0], popt[0], popt[1])
-    ax1.plot(data[:, 0], y_fit, "c.-", lw=3,
-             label=r"$radial: axe^{-bx^2}$, $ a,b = %.3f,%.3f$"
-                   % (popt[0], popt[1]))
+    ax1.plot(data[:, 0], y_fit, "c.-", lw=3, label=r"$radial: axe^{-bx^2}$,\
+             $a,b = %.3f,%.3f$" % (popt[0], popt[1]))
 
     exec(f"data, _ = {Bin_list}[2]")
     ax1.plot(data[:, 0], data[:, 1], "r", lw=4, ms=7)
     popt, pcov = curve_fit(func_2, data[:, 0], data[:, 1])
     y_fit = func_2(data[:, 0], popt[0], popt[1])
-    ax1.plot(data[:, 0], y_fit, "m.-", lw=3,
-             label=r"$\Theta: axe^{-bx^2}$, $a,b = %.3f,%.3f$"
-                   % (popt[0], popt[1]))
+    ax1.plot(data[:, 0], y_fit, "m.-", lw=3, label=r"$\Theta: axe^{-bx^2}$,\
+             $a,b = %.3f,%.3f$" % (popt[0], popt[1]))
 
     exec(f"data, _ = {Bin_list}[3]")
     ax1.plot(data[:, 0], data[:, 1], "k", lw=2, ms=7)
     popt, pcov = curve_fit(func_2, data[:, 0], data[:, 1])
     y_fit = func_2(data[:, 0], popt[0], popt[1])
-    ax1.plot(data[:, 0], y_fit, "k.-", lw=3,
-             label=r"$\Phi: axe^{-bx^2}$, $ a,b = %.3f,%.3f $"
-                   % (popt[0], popt[1]))
+    ax1.plot(data[:, 0], y_fit, "k.-", lw=3, label=r"$\Phi: axe^{-bx^2}$,\
+             $a,b = %.3f,%.3f$" % (popt[0], popt[1]))
 
     ax1.set_xticklabels([])
     ax1.set_ylabel(r"$f\left(u \right)$", fontsize=20)
@@ -158,31 +155,28 @@ def Fig_vr_vPhi_vTheta_with_fit(Bin_list, title):
          fontsize=20)")
 
     exec(f"data, _ = {Bin_list}[5]")
-    ax2.plot(data[:, 0], data[:, 1], "g",
-             label=r"$ \frac{v_r}{\sigma_r} $", lw=2, ms=7)
+    ax2.plot(data[:, 0], data[:, 1], "g", label=r"$\frac{v_r}{\sigma_r}$",
+             lw=2, ms=7)
     popt, pcov = curve_fit(func_1_log, data[:, 0], data[:, 1])
     y_fit = func_1_log(data[:, 0], popt[0], popt[1])
-    ax2.plot(data[:, 0], y_fit, "c.-", lw=3,
-             label=r"$radial: a\log xe^{-b \log(x)^2}$, $a,b = %.3f,%.3f$"
-                   % (popt[0], popt[1]))
+    ax2.plot(data[:, 0], y_fit, "c.-", lw=3, label=r"$radial: a\log xe^{-b\
+             \log(x)^2}$, $a,b = %.3f,%.3f$" % (popt[0], popt[1]))
 
     exec(f"data, _ = {Bin_list}[6]")
     ax2.plot(data[:, 0], data[:, 1], "r",
              label=r"$ \frac{v_{\Theta}}{\sigma_{\Theta}}$", lw=2, ms=7)
     popt, pcov = curve_fit(func_1_log, data[:, 0], data[:, 1])
     y_fit = func_1_log(data[:, 0], popt[0], popt[1])
-    ax2.plot(data[:, 0], y_fit, "m.-", lw=3,
-             label=r"$\Theta: a\log xe^{-b \log(x)^2}$, $a,b = %.3f,%.3f$"
-                   % (popt[0], popt[1]))
+    ax2.plot(data[:, 0], y_fit, "m.-", lw=3, label=r"$\Theta: a\log xe^{-b\
+             \log(x)^2}$, $a,b = %.3f,%.3f$" % (popt[0], popt[1]))
 
     exec(f"data, _ = {Bin_list}[7]")
     ax2.plot(data[:, 0], data[:, 1], "k",
-             label=r"$ \frac{v_{\Phi}}{\sigma_{\Phi}} $", lw=2, ms=7)
+             label=r"$\frac{v_{\Phi}}{\sigma_{\Phi}}$", lw=2, ms=7)
     popt, pcov = curve_fit(func_1_log, data[:, 0], data[:, 1])
     y_fit = func_1_log(data[:, 0], popt[0], popt[1])
-    ax2.plot(data[:, 0], y_fit, "b.-", lw=3,
-             label=r"$ \Phi: a\log xe^{-b \log(x)^2}$, $a,b = %.3f,%.3f$"
-                   % (popt[0], popt[1]))
+    ax2.plot(data[:, 0], y_fit, "b.-", lw=3, label=r"$ \Phi: a\log xe^{-b\
+             \log(x)^2}$, $a,b = %.3f,%.3f$" % (popt[0], popt[1]))
 
     ax2.set_xticklabels([])
     ax2.set_ylabel(r"$f\left(\log \left( |u_n|,u_p \right)\right)$",
@@ -200,8 +194,7 @@ def Fig_vr_vPhi_vTheta_with_fit(Bin_list, title):
     ax3.set_yscale("log")
 
     exec(f"data, _ = {Bin_list}[5]")
-    ax4.plot(data[:, 0], data[:, 1], "g",
-             label=r"$\gamma = -2.0 $", lw=2, ms=7)
+    ax4.plot(data[:, 0], data[:, 1], "g", label=r"$\gamma = -2.0$", lw=2, ms=7)
     exec(f"data, _ = {Bin_list}[6]")
     ax4.plot(data[:, 0], data[:, 1], "r", lw=2, ms=7)
     exec(f"data, _ = {Bin_list}[7]")
@@ -298,36 +291,32 @@ if Fig_vT_with_fit:
 
     if test:
         data, _ = bin2_HQ10000_G1_2_1_005[0]
-        ax1.plot(data[:, 0], data[:, 1], "b:",
-                 label=r"$\gamma = -2.0$", lw=4, ms=7)
+        ax1.plot(data[:, 0], data[:, 1], "b:", label=r"$\gamma = -2.0$",
+                 lw=4, ms=7)
         popt, pcov = curve_fit(func_1, data[:, 0], data[:, 1])
         y_fit = func_1(data[:, 0], popt[0], popt[1])
-        ax1.plot(data[:, 0], y_fit, "c.-", lw=3,
-                 label=r"$axe^{-bx^2}$, $a,b = %.3f,%.3f$"
-                       % (popt[0], popt[1]))
+        ax1.plot(data[:, 0], y_fit, "c.-", lw=3, label=r"$axe^{-bx^2}$,\
+                 $a,b = %.3f,%.3f$" % (popt[0], popt[1]))
         popt, pcov = curve_fit(func_6, data[:, 0], data[:, 1])
         y_fit = func_6(data[:, 0], popt[0], popt[1], popt[2])
-        ax1.plot(data[:, 0], y_fit, "g:", lw=3,
-                 label=r"$ax(1- (1 - q)bx^2)^{(\frac{q}{1-q})}$,\
-                       $a,b,q = %.3f,%.3f,%.3f $"
-                       % (popt[0], popt[1], popt[2]))
+        ax1.plot(data[:, 0], y_fit, "g:", lw=3, label=r"$ax(1- (1 - q)bx^2)^\
+                 {(\frac{q}{1-q})}$, $a,b,q = %.3f,%.3f,%.3f$"
+                 % (popt[0], popt[1], popt[2]))
 
         ax1.set_title(r"Fit to VDF, File = %s" % HQ12, fontsize=20)
 
         data, _ = bin2_HQ10000_G1_2_1_005[4]
-        ax2.plot(data[:, 0], data[:, 1], "b:",
-                 label=r"$\gamma = -2.0$", lw=2, ms=7)
+        ax2.plot(data[:, 0], data[:, 1], "b:", label=r"$\gamma = -2.0$",
+                 lw=2, ms=7)
         popt, pcov = curve_fit(func_3_log, data[:, 0], data[:, 1])
         y_fit = func_3_log(data[:, 0], popt[0], popt[1])
-        ax2.plot(data[:, 0], y_fit, "c.-", lw=3,
-                 label=r"$a\cdot \log(x)^2e^{-b\cdot \log(x)^2}$,\
-                         $a,b = %.3f,%.3f$" % (popt[0], popt[1]))
+        ax2.plot(data[:, 0], y_fit, "c.-", lw=3, label=r"$a\cdot \log(x)^2e^\
+                 {-b\cdot\log(x)^2}$,\ $a,b = %.3f,%.3f$" % (popt[0], popt[1]))
         popt, pcov = curve_fit(func_7_log, data[:, 0], data[:, 1])
         y_fit = func_7_log(data[:, 0], popt[0], popt[1], popt[2])
-        ax2.plot(data[:, 0], y_fit, "g:", lw=3,
-                 label=r"$a\cdot \log(x)^2(1- (1 - q)b \cdot \log(x)^2)^{\
-                       (\frac{q}{1-q})}$, $ a,b,q = %.3f,%.3f,%.3f$"
-                       % (popt[0], popt[1], popt[2]))
+        ax2.plot(data[:, 0], y_fit, "g:", lw=3, label=r"$a\cdot \log(x)^2(1-(1\
+                 - q)b \cdot \log(x)^2)^{(\frac{q}{1-q})}$,\
+                 $a,b,q = %.3f,%.3f,%.3f$" % (popt[0], popt[1], popt[2]))
 
         Plt(3, bin1_HQ10000_G1_2_1_005[0], "b--", r"$\gamma = -1.5$")
         Plt(3, bin2_HQ10000_G1_2_1_005[0], "b:", r"$\gamma = -2.0$")
@@ -341,19 +330,17 @@ if Fig_vT_with_fit:
 
     if test2:
         data, _ = bin2_different_gammas_test2_HQ10000_G1_0_0_000[0]
-        ax1.plot(data[:, 0], data[:, 1], "b:",
-                 label=r"$\gamma = -2.0$", lw=4, ms=7)
+        ax1.plot(data[:, 0], data[:, 1], "b:", label=r"$\gamma = -2.0$",
+                 lw=4, ms=7)
         popt, pcov = curve_fit(func_1, data[:, 0], data[:, 1])
         y_fit = func_1(data[:, 0], popt[0], popt[1])
         ax1.plot(data[:, 0], y_fit, "c.-", lw=3,
-                 label=r"$axe^{-bx^2}$, $a,b = %.3f,%.3f$"
-                       % (popt[0], popt[1]))
+                 label=r"$axe^{-bx^2}$, $a,b=%.3f,%.3f$" % (popt[0], popt[1]))
         popt, pcov = curve_fit(func_6, data[:, 0], data[:, 1])
         y_fit = func_6(data[:, 0], popt[0], popt[1], popt[2])
         ax1.plot(data[:, 0], y_fit, "g:", lw=3,
                  label=r"$ax(1- (1 - q)bx^2)^{(\frac{q}{1-q})}$,\
-                       $a,b,q = %.3f,%.3f,%.3f$"
-                       % (popt[0], popt[1], popt[2]))
+                 $a,b,q = %.3f,%.3f,%.3f$" % (popt[0], popt[1], popt[2]))
 
         ax1.set_title(r"Fit to VDF, File = %s" % test2_HQ0, fontsize=20)
 
@@ -472,8 +459,7 @@ if Fig_vT_with_fit:
             y_fit = func_6(data[:, 0], popt[0], popt[1], popt[2])
             ax1.plot(data[:, 0], y_fit, "g:", lw=3,
                      label=r"$ax(1- (1 - q)bx^2)^{(\frac{q}{1-q})}$,\
-                           $a,b,q = %.3f,%.3f,%.3f$"
-                           % (popt[0], popt[1], popt[2]))
+                     $a,b,q = %.3f,%.3f,%.3f$" % (popt[0], popt[1], popt[2]))
 
             ax1.set_title(r"Fit to %s" % B_HQ0, fontsize=20)
             ax1.axes.get_xaxis().set_visible(False)
@@ -727,8 +713,7 @@ if Fig_GPerts_same_gammas_as_IC_vr:
 
     Plt(1, bin1_HQ10000_G1_0_0_000[0], "b--",
         label=r"%s" % HQ0[len("HQ10000_G"):])
-    data, _ = bin1_HQ10000_G1_0_0_000[1]
-    ax1.plot(data[:, 0], data[:, 1], "c--", lw=2, ms=7)
+    Plt(1, bin1_HQ10000_G1_0_0_000[1], "c--")
     Plt(1, bin1_HQ10000_G1_2_1_005[0], "r--",
         label=r"%s" % HQ12[len("HQ10000_G"):])
     data, _ = bin1_HQ10000_G1_2_1_005[1]
@@ -750,8 +735,7 @@ if Fig_GPerts_same_gammas_as_IC_vr:
     data, _ = bin1_HQ10000_G1_0_10_009[1]
     ax1.plot(data[:, 0], data[:, 1], "Violet", ls="--", lw=2, ms=7)
     Plt(1, bin2_HQ10000_G1_0_0_000[0], "b:")  # , label=r"$\gamma = -2.0$")
-    data, _ = bin2_HQ10000_G1_0_0_000[1]
-    ax1.plot(data[:, 0], data[:, 1], "c:", lw=4, ms=7)
+    Plt(1, bin2_HQ10000_G1_0_0_000[1], "c:")
     Plt(1, bin2_HQ10000_G1_2_1_005[0], "r:")
     data, _ = bin2_HQ10000_G1_2_1_005[1]
     ax1.plot(data[:, 0], data[:, 1], "Pink", ls=":", lw=4, ms=7)
@@ -768,8 +752,7 @@ if Fig_GPerts_same_gammas_as_IC_vr:
     data, _ = bin2_HQ10000_G1_0_10_009[1]
     ax1.plot(data[:, 0], data[:, 1], "Violet", ls=":", lw=4, ms=7)
     Plt(1, bin3_HQ10000_G1_0_0_000[0], "b-.")  # , label=r'$\gamma = -2.5$')
-    data, _ = bin3_HQ10000_G1_0_0_000[1]
-    ax1.plot(data[:, 0], data[:, 1], "c-.", lw=4, ms=7)
+    Plt(1, bin3_HQ10000_G1_0_0_000[1], "c-.")
     Plt(1, bin3_HQ10000_G1_2_1_005[0], "r-.")
     data, _ = bin3_HQ10000_G1_2_1_005[1]
     ax1.plot(data[:, 0], data[:, 1], "Pink", ls="-.", lw=4, ms=7)
@@ -786,8 +769,7 @@ if Fig_GPerts_same_gammas_as_IC_vr:
     data, _ = bin3_HQ10000_G1_0_10_009[1]
     ax1.plot(data[:, 0], data[:, 1], "Violet", ls="-.", lw=4, ms=7)
     Plt(1, bin4_HQ10000_G1_0_0_000[0], "b")  # , label=r'$\gamma = -3.0$'
-    data, _ = bin4_HQ10000_G1_0_0_000[1]
-    ax1.plot(data[:, 0], data[:, 1], "c", lw=2, ms=7)
+    Plt(1, bin4_HQ10000_G1_0_0_000[1], "c")
     Plt(1, bin4_HQ10000_G1_2_1_005[0], "r")
     data, _ = bin4_HQ10000_G1_2_1_005[1]
     ax1.plot(data[:, 0], data[:, 1], "Pink", lw=2, ms=7)
@@ -810,8 +792,7 @@ if Fig_GPerts_same_gammas_as_IC_vr:
 
     Plt(2, bin1_HQ10000_G1_0_0_000[4], "b--",
         label=r"%s" % HQ0[len("HQ10000_G"):])
-    data, _ = bin1_HQ10000_G1_0_0_000[5]
-    ax2.plot(data[:, 0], data[:, 1], "c--", lw=2, ms=7)
+    Plt(2, bin1_HQ10000_G1_0_0_000[5], "c--")
     Plt(2, bin1_HQ10000_G1_2_1_005[4], "r--",
         label=r"%s" % HQ12[len("HQ10000_G"):])
     data, _ = bin1_HQ10000_G1_2_1_005[5]
@@ -832,8 +813,7 @@ if Fig_GPerts_same_gammas_as_IC_vr:
     data, _ = bin1_HQ10000_G1_0_10_009[5]
     ax2.plot(data[:, 0], data[:, 1], "Violet", ls="--", lw=2, ms=7)
     Plt(2, bin2_HQ10000_G1_0_0_000[4], "b:")  # label=r'$\gamma = -2.0$'
-    data, _ = bin2_HQ10000_G1_0_0_000[5]
-    ax2.plot(data[:, 0], data[:, 1], "c:", lw=2, ms=7)
+    Plt(2, bin2_HQ10000_G1_0_0_000[5], "c:")
     Plt(2, bin2_HQ10000_G1_2_1_005[4], "r:")
     data, _ = bin2_HQ10000_G1_2_1_005[5]
     ax2.plot(data[:, 0], data[:, 1], "Pink", ls=":", lw=2, ms=7)
@@ -850,8 +830,7 @@ if Fig_GPerts_same_gammas_as_IC_vr:
     data, _ = bin2_HQ10000_G1_0_10_009[5]
     ax2.plot(data[:, 0], data[:, 1], "Violet", ls=":", lw=2, ms=7)
     Plt(2, bin3_HQ10000_G1_0_0_000[4], "b-.")  # label=r'$\gamma = -2.5$'
-    data, _ = bin3_HQ10000_G1_0_0_000[5]
-    ax2.plot(data[:, 0], data[:, 1], "c-.", lw=2, ms=7)
+    Plt(2, bin3_HQ10000_G1_0_0_000[5], "c-.")
     Plt(2, bin3_HQ10000_G1_2_1_005[4], "r-.")
     data, _ = bin3_HQ10000_G1_2_1_005[5]
     ax2.plot(data[:, 0], data[:, 1], "Pink", ls="-.", lw=2, ms=7)
@@ -868,8 +847,7 @@ if Fig_GPerts_same_gammas_as_IC_vr:
     data, _ = bin3_HQ10000_G1_0_10_009[5]
     ax2.plot(data[:, 0], data[:, 1], "Violet", ls="-.", lw=2, ms=7)
     Plt(2, bin4_HQ10000_G1_0_0_000[4], "b")  # label=r'$\gamma = -3.0$'
-    data, _ = bin4_HQ10000_G1_0_0_000[5]
-    ax2.plot(data[:, 0], data[:, 1], "c", lw=2, ms=7)
+    Plt(2, bin4_HQ10000_G1_0_0_000[5], "c")
     Plt(2, bin4_HQ10000_G1_2_1_005[4], "r")
     data, _ = bin4_HQ10000_G1_2_1_005[5]
     ax2.plot(data[:, 0], data[:, 1], "Pink", lw=2, ms=7)
@@ -887,14 +865,13 @@ if Fig_GPerts_same_gammas_as_IC_vr:
     ax2.plot(data[:, 0], data[:, 1], "Violet", lw=2, ms=7)
 
     ax2.set_xlabel(r"$\log \left( |u_tn|,u_tp \right)$ and $\log \left(|u_rn|,\
-                     u_rp \right)$", fontsize=20)
+                   u_rp \right)$", fontsize=20)
     ax2.set_ylabel(r"$f\left(\log \left( |u_n|,u_p \right)\right)$",
                    fontsize=20)
 
     Plt(3, bin1_HQ10000_G1_0_0_000[0], "b--",
         label=r"%s" % HQ0[len("HQ10000_G"):])
-    data, _ = bin1_HQ10000_G1_0_0_000[1]
-    ax3.plot(data[:, 0], data[:, 1], "c--", lw=2, ms=7)
+    Plt(3, bin1_HQ10000_G1_0_0_000[1], "c--")
     Plt(3, bin1_HQ10000_G1_2_1_005[0], "r--",
         label=r"%s" % HQ12[len("HQ10000_G"):])
     data, _ = bin1_HQ10000_G1_2_1_005[1]
@@ -915,8 +892,7 @@ if Fig_GPerts_same_gammas_as_IC_vr:
     data, _ = bin1_HQ10000_G1_0_10_009[1]
     ax3.plot(data[:, 0], data[:, 1], "Violet", ls="--", lw=2, ms=7)
     Plt(3, bin2_HQ10000_G1_0_0_000[0], "b:")  # label=r'$\gamma = -2.0$'
-    data, _ = bin2_HQ10000_G1_0_0_000[1]
-    ax3.plot(data[:, 0], data[:, 1], "c:", lw=4, ms=7)
+    Plt(3, bin2_HQ10000_G1_0_0_000[1], "c:")
     Plt(3, bin2_HQ10000_G1_2_1_005[0], "r:")
     data, _ = bin2_HQ10000_G1_2_1_005[1]
     ax3.plot(data[:, 0], data[:, 1], "Pink", ls=":", lw=4, ms=7)
@@ -933,8 +909,7 @@ if Fig_GPerts_same_gammas_as_IC_vr:
     data, _ = bin2_HQ10000_G1_0_10_009[1]
     ax3.plot(data[:, 0], data[:, 1], "Violet", ls=":", lw=4, ms=7)
     Plt(3, bin3_HQ10000_G1_0_0_000[0], "b-.")  # label=r'$\gamma = -2.5$'
-    data, _ = bin3_HQ10000_G1_0_0_000[1]
-    ax3.plot(data[:, 0], data[:, 1], "c-.", lw=4, ms=7)
+    Plt(3, bin3_HQ10000_G1_0_0_000[1], "c-.")
     Plt(3, bin3_HQ10000_G1_2_1_005[0], "r-.")
     data, _ = bin3_HQ10000_G1_2_1_005[1]
     ax3.plot(data[:, 0], data[:, 1], "Pink", ls="-.", lw=4, ms=7)
@@ -951,8 +926,7 @@ if Fig_GPerts_same_gammas_as_IC_vr:
     data, _ = bin3_HQ10000_G1_0_10_009[1]
     ax3.plot(data[:, 0], data[:, 1], "Violet", ls="-.", lw=4, ms=7)
     Plt(3, bin4_HQ10000_G1_0_0_000[0], "b")  # label=r'$\gamma = -3.0$'
-    data, _ = bin4_HQ10000_G1_0_0_000[1]
-    ax3.plot(data[:, 0], data[:, 1], "c", lw=2, ms=7)
+    Plt(3, bin4_HQ10000_G1_0_0_000[1], "c")
     Plt(3, bin4_HQ10000_G1_2_1_005[0], "r")
     data, _ = bin4_HQ10000_G1_2_1_005[1]
     ax3.plot(data[:, 0], data[:, 1], "Pink", lw=2, ms=7)
@@ -975,8 +949,7 @@ if Fig_GPerts_same_gammas_as_IC_vr:
 
     Plt(4, bin1_HQ10000_G1_0_0_000[4], "b--",
         label=r"%s" % HQ0[len("HQ10000_G"):])
-    data, _ = bin1_HQ10000_G1_0_0_000[5]
-    ax4.plot(data[:, 0], data[:, 1], "c--", lw=2, ms=7)
+    Plt(4, bin1_HQ10000_G1_0_0_000[5], "c--")
     Plt(4, bin1_HQ10000_G1_2_1_005[4], "r--",
         label=r"%s" % HQ12[len("HQ10000_G"):])
     data, _ = bin1_HQ10000_G1_2_1_005[5]
@@ -998,8 +971,7 @@ if Fig_GPerts_same_gammas_as_IC_vr:
     data, _ = bin1_HQ10000_G1_0_10_009[5]
     ax4.plot(data[:, 0], data[:, 1], "Violet", ls="--", lw=2, ms=7)
     Plt(4, bin2_HQ10000_G1_0_0_000[4], "b:")
-    data, _ = bin2_HQ10000_G1_0_0_000[5]
-    ax4.plot(data[:, 0], data[:, 1], "c:", lw=2, ms=7)
+    Plt(4, bin2_HQ10000_G1_0_0_000[5], "c:")
     Plt(4, bin2_HQ10000_G1_2_1_005[4], "r:")
     data, _ = bin2_HQ10000_G1_2_1_005[5]
     ax4.plot(data[:, 0], data[:, 1], "Pink", ls=":", lw=2, ms=7)
@@ -1016,8 +988,7 @@ if Fig_GPerts_same_gammas_as_IC_vr:
     data, _ = bin2_HQ10000_G1_0_10_009[5]
     ax4.plot(data[:, 0], data[:, 1], "Violet", ls=":", lw=2, ms=7)
     Plt(4, bin3_HQ10000_G1_0_0_000[4], "b-.")  # , label=r'$\gamma = -2.5$'
-    data, _ = bin3_HQ10000_G1_0_0_000[5]
-    ax4.plot(data[:, 0], data[:, 1], "c-.", lw=2, ms=7)
+    Plt(4, bin3_HQ10000_G1_0_0_000[5], "c-.")
     Plt(4, bin3_HQ10000_G1_2_1_005[4], "r-.")
     data, _ = bin3_HQ10000_G1_2_1_005[5]
     ax4.plot(data[:, 0], data[:, 1], "Pink", ls="-.", lw=2, ms=7)
@@ -1034,8 +1005,7 @@ if Fig_GPerts_same_gammas_as_IC_vr:
     data, _ = bin3_HQ10000_G1_0_10_009[5]
     ax4.plot(data[:, 0], data[:, 1], "Violet", ls="-.", lw=2, ms=7)
     Plt(4, bin4_HQ10000_G1_0_0_000[4], "b")  # label=r'$\gamma = -3.0$'
-    data, _ = bin4_HQ10000_G1_0_0_000[5]
-    ax4.plot(data[:, 0], data[:, 1], "c", lw=2, ms=7)
+    Plt(4, bin4_HQ10000_G1_0_0_000[5], "c")
     Plt(4, bin4_HQ10000_G1_2_1_005[4], "r")
     data, _ = bin4_HQ10000_G1_2_1_005[5]
     ax4.plot(data[:, 0], data[:, 1], "Pink", lw=2, ms=7)
@@ -1076,30 +1046,23 @@ if Fig_GPerts_G1_2_same_gammas_as_IC_vt:
         label=r"%s" % HQ36[len("HQ10000_G"):])
     Plt(1, bin1_HQ10000_G1_2_7_005[0], "k--",
         label=r"%s" % HQ48[len("HQ10000_G"):])
-    data, _ = bin1_HQ10000_G1_2_9_005[0]
-    ax1.plot(data[:, 0], data[:, 1], "c--",
-             label=r"%s" % HQ60[len("HQ10000_G"):], lw=2, ms=7)
+    Plt(1, bin1_HQ10000_G1_2_9_005[0], "c--",
+        label=r"%s" % HQ60[len("HQ10000_G"):])
     Plt(1, bin2_HQ10000_G1_2_1_005[0], "r:")
     Plt(1, bin2_HQ10000_G1_2_3_005[0], "g:")
     Plt(1, bin2_HQ10000_G1_2_5_005[0], "k:")
-    data, _ = bin2_HQ10000_G1_2_7_005[0]
-    ax1.plot(data[:, 0], data[:, 1], "b:", lw=4, ms=7)
-    data, _ = bin2_HQ10000_G1_2_9_005[0]
-    ax1.plot(data[:, 0], data[:, 1], "c:", lw=4, ms=7)
+    Plt(1, bin2_HQ10000_G1_2_7_005[0], "b:")
+    Plt(1, bin2_HQ10000_G1_2_9_005[0], "c:")
     Plt(1, bin3_HQ10000_G1_2_1_005[0], "r-.")
     Plt(1, bin3_HQ10000_G1_2_3_005[0], "g-.")
     Plt(1, bin3_HQ10000_G1_2_5_005[0], "k-.")
-    data, _ = bin3_HQ10000_G1_2_7_005[0]
-    ax1.plot(data[:, 0], data[:, 1], "b-.", lw=4, ms=7)
-    data, _ = bin3_HQ10000_G1_2_9_005[0]
-    ax1.plot(data[:, 0], data[:, 1], "c-.", lw=4, ms=7)
+    Plt(1, bin3_HQ10000_G1_2_7_005[0], "b-.")
+    Plt(1, bin3_HQ10000_G1_2_9_005[0], "c-.")
     Plt(1, bin4_HQ10000_G1_2_1_005[0], "r")
     Plt(1, bin4_HQ10000_G1_2_3_005[0], "g")
     Plt(1, bin4_HQ10000_G1_2_5_005[0], "k")
-    data, _ = bin4_HQ10000_G1_2_7_005[0]
-    ax1.plot(data[:, 0], data[:, 1], "b", lw=2, ms=7)
-    data, _ = bin4_HQ10000_G1_2_9_005[0]
-    ax1.plot(data[:, 0], data[:, 1], "c", lw=2, ms=7)
+    Plt(1, bin4_HQ10000_G1_2_7_005[0], "b")
+    Plt(1, bin4_HQ10000_G1_2_9_005[0], "c")
 
     ax1.set_xlabel(r"$u_t$ and $u_r$", fontsize=20)
     ax1.set_ylabel(r"$f\left( u \right)$", fontsize=20)
@@ -1111,33 +1074,25 @@ if Fig_GPerts_G1_2_same_gammas_as_IC_vt:
         label=r"%s" % HQ24[len("HQ10000_G"):])
     Plt(2, bin1_HQ10000_G1_2_5_005[4], "k--",
         label=r"%s" % HQ36[len("HQ10000_G"):])
-    data, _ = bin1_HQ10000_G1_2_7_005[4]
-    ax2.plot(data[:, 0], data[:, 1], "b--",
-             label=r"%s" % HQ48[len("HQ10000_G"):], lw=2, ms=7)
-    data, _ = bin1_HQ10000_G1_2_9_005[4]
-    ax2.plot(data[:, 0], data[:, 1], "c--",
-             label=r"%s" % HQ60[len("HQ10000_G"):], lw=2, ms=7)
+    Plt(2, bin1_HQ10000_G1_2_7_005[4], "b--",
+        label=r"%s" % HQ48[len("HQ10000_G"):])
+    Plt(2, bin1_HQ10000_G1_2_9_005[4], "c--",
+        label=r"%s" % HQ60[len("HQ10000_G"):])
     Plt(2, bin2_HQ10000_G1_2_1_005[4], "r:")
     Plt(2, bin2_HQ10000_G1_2_3_005[4], "g:")
     Plt(2, bin2_HQ10000_G1_2_5_005[4], "k:")
-    data, _ = bin2_HQ10000_G1_2_7_005[4]
-    ax2.plot(data[:, 0], data[:, 1], "b:", lw=2, ms=7)
-    data, _ = bin2_HQ10000_G1_2_9_005[4]
-    ax2.plot(data[:, 0], data[:, 1], "c:", lw=2, ms=7)
+    Plt(2, bin2_HQ10000_G1_2_7_005[4], "b:")
+    Plt(2, bin2_HQ10000_G1_2_9_005[4], "c:")
     Plt(2, bin3_HQ10000_G1_2_1_005[4], "r-.")
     Plt(2, bin3_HQ10000_G1_2_3_005[4], "g-.")
     Plt(2, bin3_HQ10000_G1_2_5_005[4], "k-.")
-    data, _ = bin3_HQ10000_G1_2_7_005[4]
-    ax2.plot(data[:, 0], data[:, 1], "b-.", lw=2, ms=7)
-    data, _ = bin3_HQ10000_G1_2_9_005[4]
-    ax2.plot(data[:, 0], data[:, 1], "c-.", lw=2, ms=7)
+    Plt(2, bin3_HQ10000_G1_2_7_005[4], "b-.")
+    Plt(2, bin3_HQ10000_G1_2_9_005[4], "c-.")
     Plt(2, bin4_HQ10000_G1_2_1_005[4], "r")
     Plt(2, bin4_HQ10000_G1_2_3_005[4], "g")
     Plt(2, bin4_HQ10000_G1_2_5_005[4], "k")
-    data, _ = bin4_HQ10000_G1_2_7_005[4]
-    ax2.plot(data[:, 0], data[:, 1], "b", lw=2, ms=7)
-    data, _ = bin4_HQ10000_G1_2_9_005[4]
-    ax2.plot(data[:, 0], data[:, 1], "c", lw=2, ms=7)
+    Plt(2, bin4_HQ10000_G1_2_7_005[4], "b")
+    Plt(2, bin4_HQ10000_G1_2_9_005[4], "c")
 
     ax2.set_xlabel(r"$\log \left( |u_tn|,u_tp \right)$ and $\log \left(|u_rn|,\
                    u_rp \right)$", fontsize=20)
@@ -1150,33 +1105,25 @@ if Fig_GPerts_G1_2_same_gammas_as_IC_vt:
         label=r"%s" % HQ24[len("HQ10000_G"):])
     Plt(3, bin1_HQ10000_G1_2_5_005[0], "k--",
         label=r"%s" % HQ36[len("HQ10000_G"):])
-    data, _ = bin1_HQ10000_G1_2_7_005[0]
-    ax3.plot(data[:, 0], data[:, 1], "b--",
-             label=r"%s" % HQ48[len("HQ10000_G"):], lw=2, ms=7)
-    data, _ = bin1_HQ10000_G1_2_9_005[0]
-    ax3.plot(data[:, 0], data[:, 1], "c--",
-             label=r"%s" % HQ60[len("HQ10000_G"):], lw=2, ms=7)
+    Plt(3, bin1_HQ10000_G1_2_7_005[0], "b--",
+        label=r"%s" % HQ48[len("HQ10000_G"):])
+    Plt(3, bin1_HQ10000_G1_2_9_005[0], "c--",
+        label=r"%s" % HQ60[len("HQ10000_G"):])
     Plt(3, bin2_HQ10000_G1_2_1_005[0], "r:")
     Plt(3, bin2_HQ10000_G1_2_3_005[0], "g:")
     Plt(3, bin2_HQ10000_G1_2_5_005[0], "k:")
-    data, _ = bin2_HQ10000_G1_2_7_005[0]
-    ax3.plot(data[:, 0], data[:, 1], "b:", lw=4, ms=7)
-    data, _ = bin2_HQ10000_G1_2_9_005[0]
-    ax3.plot(data[:, 0], data[:, 1], "c:", lw=4, ms=7)
+    Plt(3, bin2_HQ10000_G1_2_7_005[0], "b:")
+    Plt(3, bin2_HQ10000_G1_2_9_005[0], "c:")
     Plt(3, bin3_HQ10000_G1_2_1_005[0], "r-.")
     Plt(3, bin3_HQ10000_G1_2_3_005[0], "g-.")
     Plt(3, bin3_HQ10000_G1_2_5_005[0], "k-.")
-    data, _ = bin3_HQ10000_G1_2_7_005[0]
-    ax3.plot(data[:, 0], data[:, 1], "b-.", lw=4, ms=7)
-    data, _ = bin3_HQ10000_G1_2_9_005[0]
-    ax3.plot(data[:, 0], data[:, 1], "c-.", lw=4, ms=7)
+    Plt(3, bin3_HQ10000_G1_2_7_005[0], "b-.")
+    Plt(3, bin3_HQ10000_G1_2_9_005[0], "c-.")
     Plt(3, bin4_HQ10000_G1_2_1_005[0], "r")
     Plt(3, bin4_HQ10000_G1_2_3_005[0], "g")
     Plt(3, bin4_HQ10000_G1_2_5_005[0], "k")
-    data, _ = bin4_HQ10000_G1_2_7_005[0]
-    ax3.plot(data[:, 0], data[:, 1], "b", lw=2, ms=7)
-    data, _ = bin4_HQ10000_G1_2_9_005[0]
-    ax3.plot(data[:, 0], data[:, 1], "c", lw=2, ms=7)
+    Plt(3, bin4_HQ10000_G1_2_7_005[0], "b")
+    Plt(3, bin4_HQ10000_G1_2_9_005[0], "c")
 
     ax3.set_xlabel(r"$u_t$ and $u_r$", fontsize=20)
     ax3.set_ylabel(r"$\log \left( f\left( u \right) \right)$", fontsize=20)
@@ -1188,33 +1135,25 @@ if Fig_GPerts_G1_2_same_gammas_as_IC_vt:
         label=r"%s" % HQ24[len("HQ10000_G"):])
     Plt(4, bin1_HQ10000_G1_2_5_005[4], "k--",
         label=r"%s" % HQ36[len("HQ10000_G"):])
-    data, _ = bin1_HQ10000_G1_2_7_005[4]
-    ax4.plot(data[:, 0], data[:, 1], "b--",
-             label=r"%s" % HQ48[len("HQ10000_G"):], lw=2, ms=7)
-    data, _ = bin1_HQ10000_G1_2_9_005[4]
-    ax4.plot(data[:, 0], data[:, 1], "c--",
-             label=r"%s" % HQ60[len("HQ10000_G"):], lw=2, ms=7)
+    Plt(4, bin1_HQ10000_G1_2_7_005[4], "b--",
+        label=r"%s" % HQ48[len("HQ10000_G"):])
+    Plt(4, bin1_HQ10000_G1_2_9_005[4], "c--",
+        label=r"%s" % HQ60[len("HQ10000_G"):])
     Plt(4, bin2_HQ10000_G1_2_1_005[4], "r:")
     Plt(4, bin2_HQ10000_G1_2_3_005[4], "g:")
     Plt(4, bin2_HQ10000_G1_2_5_005[4], "k:")
-    data, _ = bin2_HQ10000_G1_2_7_005[4]
-    ax4.plot(data[:, 0], data[:, 1], "b:", lw=2, ms=7)
-    data, _ = bin2_HQ10000_G1_2_9_005[4]
-    ax4.plot(data[:, 0], data[:, 1], "c:", lw=2, ms=7)
+    Plt(4, bin2_HQ10000_G1_2_7_005[4], "b:")
+    Plt(4, bin2_HQ10000_G1_2_9_005[4], "c:")
     Plt(4, bin3_HQ10000_G1_2_1_005[4], "r-.")
     Plt(4, bin3_HQ10000_G1_2_3_005[4], "g-.")
     Plt(4, bin3_HQ10000_G1_2_5_005[4], "k-.")
-    data, _ = bin3_HQ10000_G1_2_7_005[4]
-    ax4.plot(data[:, 0], data[:, 1], "b-.", lw=2, ms=7)
-    data, _ = bin3_HQ10000_G1_2_9_005[4]
-    ax4.plot(data[:, 0], data[:, 1], "c-.", lw=2, ms=7)
+    Plt(4, bin3_HQ10000_G1_2_7_005[4], "b-.")
+    Plt(4, bin3_HQ10000_G1_2_9_005[4], "c-.")
     Plt(4, bin4_HQ10000_G1_2_1_005[4], "r")
     Plt(4, bin4_HQ10000_G1_2_3_005[4], "g")
     Plt(4, bin4_HQ10000_G1_2_5_005[4], "k")
-    data, _ = bin4_HQ10000_G1_2_7_005[4]
-    ax4.plot(data[:, 0], data[:, 1], "b", lw=2, ms=7)
-    data, _ = bin4_HQ10000_G1_2_9_005[4]
-    ax4.plot(data[:, 0], data[:, 1], "c", lw=2, ms=7)
+    Plt(4, bin4_HQ10000_G1_2_7_005[4], "b")
+    Plt(4, bin4_HQ10000_G1_2_9_005[4], "c")
 
     ax4.set_xlabel(r"$\log \left( |u_tn|,u_tp \right)$ and $\log \left(|u_rn|,\
                    u_rp \right)$", fontsize=20)
@@ -1258,30 +1197,23 @@ if Fig_GPerts_different_gammas_vt:
             label=r"%s" % HQ36[len("HQ10000_G"):])
         Plt(1, bin1_different_gammas_HQ10000_G1_2_7_005[0], "k--",
             label=r"%s" % HQ48[len("HQ10000_G"):])
-        data, _ = bin1_different_gammas_HQ10000_G1_2_9_005[0]
-        ax1.plot(data[:, 0], data[:, 1], "c--",
-                 label=r"%s" % HQ60[len("HQ10000_G"):], lw=2, ms=7)
+        Plt(1, bin1_different_gammas_HQ10000_G1_2_9_005[0], "c--",
+            label=r"%s" % HQ60[len("HQ10000_G"):])
         Plt(1, bin2_different_gammas_HQ10000_G1_2_1_005[0], "r:")
         Plt(1, bin2_different_gammas_HQ10000_G1_2_3_005[0], "g:")
         Plt(1, bin2_different_gammas_HQ10000_G1_2_5_005[0], "k:")
-        data, _ = bin2_different_gammas_HQ10000_G1_2_7_005[0]
-        ax1.plot(data[:, 0], data[:, 1], "b:", lw=4, ms=7)
-        data, _ = bin2_different_gammas_HQ10000_G1_2_9_005[0]
-        ax1.plot(data[:, 0], data[:, 1], "c:", lw=4, ms=7)
+        Plt(1, bin2_different_gammas_HQ10000_G1_2_7_005[0], "b:")
+        Plt(1, bin2_different_gammas_HQ10000_G1_2_9_005[0], "c:")
         Plt(1, bin3_different_gammas_HQ10000_G1_2_1_005[0], "r-.")
         Plt(1, bin3_different_gammas_HQ10000_G1_2_3_005[0], "g-.")
         Plt(1, bin3_different_gammas_HQ10000_G1_2_5_005[0], "k-.")
-        data, _ = bin3_different_gammas_HQ10000_G1_2_7_005[0]
-        ax1.plot(data[:, 0], data[:, 1], "b-.", lw=4, ms=7)
-        data, _ = bin3_different_gammas_HQ10000_G1_2_9_005[0]
-        ax1.plot(data[:, 0], data[:, 1], "c-.", lw=4, ms=7)
+        Plt(1, bin3_different_gammas_HQ10000_G1_2_7_005[0], "b-.")
+        Plt(1, bin3_different_gammas_HQ10000_G1_2_9_005[0], "c-.")
         Plt(1, bin4_different_gammas_HQ10000_G1_2_1_005[0], "r")
         Plt(1, bin4_different_gammas_HQ10000_G1_2_3_005[0], "g")
         Plt(1, bin4_different_gammas_HQ10000_G1_2_5_005[0], "k")
-        data, _ = bin4_different_gammas_HQ10000_G1_2_7_005[0]
-        ax1.plot(data[:, 0], data[:, 1], "b", lw=2, ms=7)
-        data, _ = bin4_different_gammas_HQ10000_G1_2_9_005[0]
-        ax1.plot(data[:, 0], data[:, 1], "c", lw=2, ms=7)
+        Plt(1, bin4_different_gammas_HQ10000_G1_2_7_005[0], "b")
+        Plt(1, bin4_different_gammas_HQ10000_G1_2_9_005[0], "c")
 
         ax1.set_title(r"Time evolution of files = %s, different r bins"
                       % HQ0[:-9], fontsize=20)
