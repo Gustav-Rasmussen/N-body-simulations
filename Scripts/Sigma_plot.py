@@ -1,21 +1,18 @@
 # -*- coding: utf-8 -*-
 
-import h5py
 import numpy as np
 import matplotlib.pyplot as plt
-import IPython
-from matplotlib.colors import LogNorm
-import time
+# from matplotlib.colors import LogNorm
 import pylab
-from scipy.stats import norm
-from scipy.optimize import curve_fit
-import scipy as sp
-import seaborn as sns
-from pathlib import Path
-import Gammas_and_R_middles
-import getSnapshotValues
-import snapshotFiles
-import NoOfParticlesAndParticleMass
+# from scipy.stats import norm
+# from scipy.optimize import curve_fit
+# import scipy as sp
+# import seaborn as sns
+# from pathlib import Path
+# import Gammas_and_R_middles
+# import getSnapshotValues
+# import snapshotFiles
+# import NoOfParticlesAndParticleMass
 from definePaths import *
 from collections import namedtuple
 import Sigma_calc
@@ -88,15 +85,13 @@ if Fig_x_hist:
 
     f.subplots_adjust(hspace=0, wspace=0)
     ax1.set_xlabel(r'$x - x_c$', fontsize=30)
-    n, bins, patches = ax1.hist(x - xC, 500, normed=1,
-                                histtype='stepfilled')
+    n, bins, patches = ax1.hist(x - xC, 500, normed=1, histtype='stepfilled')
     plt.setp(patches, 'facecolor', 'g', 'alpha', .75)
     ax1.set_xlim(-40, 40)
     ax1.set_ylim(.0, .4)
 
     ax2.set_xlabel(r'$y-y_c$', fontsize=30)
-    n, bins, patches = ax2.hist(y - yC, 500, normed=1,
-                                histtype='stepfilled')
+    n, bins, patches = ax2.hist(y - yC, 500, normed=1, histtype='stepfilled')
     plt.setp(patches, 'facecolor', 'g', 'alpha', .75)
     ax2.set_title(r'Histograms of centralized positions', fontsize=30)
     ax2.set_xlim(-40, 40)
@@ -106,8 +101,7 @@ if Fig_x_hist:
                     labelleft='off')
 
     ax3.set_xlabel(r'$z - z_c$', fontsize=30)
-    n, bins, patches = ax3.hist(z - zC, 500, normed=1,
-                                histtype='stepfilled')
+    n, bins, patches = ax3.hist(z - zC, 500, normed=1, histtype='stepfilled')
     plt.setp(patches, 'facecolor', 'g', 'alpha', .75)
     ax3.set_xlim(-40, 40)
     ax3.set_ylim(.0, .4)
@@ -339,7 +333,7 @@ if Fig4_beta:  # plot beta
     # this means sigmatheta2_arr/sigmarad2_arr > 1,
     # which in turn means that sigmatheta2_arr > sigmarad2_arr.
     plt.plot(x_plot, 0 * x_plot, 'c--', lw=2)
-    plt.plot((-.5, -.5), (-1., 1.), 'r-', label=r'inner cut')
+    plt.plot((-.5, -.5), (-1., 1.), 'r-', label='inner cut')
     # plt.plot((1., 1.), (-1., 1.), 'b-', label=r'outer cut')
 
     if Fig4_betafit:  # fitting beta with two different profiles
@@ -406,27 +400,16 @@ if Fig4_beta:  # plot beta
 
         f.savefig(f"{figurePath}{fig_names_I_R32[0]}.png")
 
-        fig_names = ['A_IC_beta_logr',
-                     'A_48_009_beta_logr',
-                     'B_IC_beta_logr',
-                     'B_199_093_beta_logr',
-                     'Soft_B_IC_beta_logr',
-                     'Soft_B_Final_beta_logr',
-                     'CS1_IC_beta_logr',
-                     'CS4_IC_beta_logr',
-                     'CS4_48_093_beta_logr',
-                     'CS5_IC_beta_logr',
-                     'CS5_48_093_beta_logr',
-                     'CS6_IC_beta_logr',
-                     'CS6_48_093_beta_logr',
-                     'DS1_IC_beta_logr',
-                     'DS1_49_093_beta_logr',
-                     'D2_beta_logr',
-                     'D2_49_093_beta_logr',
-                     'Soft_D2_beta_logr',
-                     'Soft_D2_49_093_beta_logr',
-                     'E_beta_logr',
-                     'E_198_093_beta_logr']
+        fig_names = ['A_IC_beta_logr', 'A_48_009_beta_logr', 'B_IC_beta_logr',
+                     'B_199_093_beta_logr', 'Soft_B_IC_beta_logr',
+                     'Soft_B_Final_beta_logr', 'CS1_IC_beta_logr',
+                     'CS4_IC_beta_logr', 'CS4_48_093_beta_logr',
+                     'CS5_IC_beta_logr', 'CS5_48_093_beta_logr',
+                     'CS6_IC_beta_logr', 'CS6_48_093_beta_logr',
+                     'DS1_IC_beta_logr', 'DS1_49_093_beta_logr',
+                     'D2_beta_logr', 'D2_49_093_beta_logr',
+                     'Soft_D2_beta_logr', 'Soft_D2_49_093_beta_logr',
+                     'E_beta_logr', 'E_198_093_beta_logr']
 
         # f.savefig(f"{figurePath}{fig_names[0]}.png")
 
