@@ -1,20 +1,19 @@
 ---------------------------------------------------------------------------
 
 
- ********   Logging timestamp:	 2019-05-24 10:47:36.376791   ********
+ ********   Logging timestamp:	 2019-05-24 11:14:35.796088   ********
 
 
 Module name 			 Number of lines 	 PEP-8 violations
 
 readVDF2.py                             4940                    38
-readVDF_2_new_plot.py                   4172                    41
+readVDF_2_new_plot.py                   4164                    41
 TimeEvolutionGammaKappaBeta.py          1445                     4
 gammaKappaBeta.py                       1318                     3
 VDFnetwork.py                           1172                     8
 velocityCheck.py                        1168                    18
 Sigma_plot.py                           843                      1
 readVDF_2_new_files.py                  675                    256
-Sigma_calc.py                           553                     58
 readVDF2FileLst.py                      546                      0
 Sigma_calc_OOP.py                       519                     59
 fileLsts.py                             464                     19
@@ -36,7 +35,7 @@ definePaths.py                           15                      0
 colorsAndSymbols.py                      8                       0
 
 
-**************   Number of Python scripts: 	28      **************
+**************   Number of Python scripts: 	27      **************
 
-**************   Total number of code-lines: 	20453   **************
+**************   Total number of code-lines: 	19892   **************
 
