@@ -3,10 +3,13 @@
 import numpy as np
 # import scipy as sp
 import radius_and_velocity_funcs as ravf
+import matplotlib.pyplot as plt
 
 # switches -------------------------------------------------------------
 vspherical = 0
 vbin = 0
+
+nr_bins_v = 100
 
 # radial and tangential velocities
 if vspherical:
