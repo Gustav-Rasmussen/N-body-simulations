@@ -1,69 +1,63 @@
 # -*- coding: utf-8 -*-
 
-import h5py
+# import h5py
 import numpy as np
-import matplotlib.pyplot as plt
-import IPython
-from matplotlib.colors import LogNorm
-import time
+# import matplotlib.pyplot as plt
+# import IPython
+# from matplotlib.colors import LogNorm
+# import time
 import pylab
-from scipy.stats import norm
-from scipy.optimize import curve_fit
+# from scipy.stats import norm
+# from scipy.optimize import curve_fit
 import scipy as sp
-import seaborn as sns
-from pathlib import Path
-import Gammas_and_R_middles
-import getSnapshotValues
-import snapshotFiles
-import NoOfParticlesAndParticleMass
-from definePaths import *
-from collections import namedtuple
-import pp
+# import seaborn as sns
+# from pathlib import Path
+# import Gammas_and_R_middles
+# import getSnapshotValues
+# import snapshotFiles
+# import NoOfParticlesAndParticleMass
+# from definePaths import *
+# from collections import namedtuple
+# import pp
+from dataclasses import dataclass
 
 # Paths -----------------------------------------------------------------------
 
 simulations = ['A/', 'B/', 'Soft_B/', 'CS4/', 'CS5/', 'CS6/', 'DS1/',
                'Soft_D2/', 'E/']
 
-text_files_path = textFilesPath / simulations[0]
+# text_files_path = textFilesPath / simulations[0]
 
 
+@dataclass
 class BinnedHalo():
-    '''Divide structure into radial bins
-    '''
-
-    Bin_type = "Radial"
-    
+    '''Divide structure into radial bins.'''
+    Bin_type: str = "Radial"
     radii = bin_radius_arr
     density = density_arr
     len_obj = sigma2_arr
     len_obj_1 = density
     sigma_r2 = sigmarad2_arr
-
-    def __init__(self, Min, Max, bins, mode, sigmatheta2, sigmarad2):
-        self.Min = Min
-        self.Max = Max
-        self.bins = bins
-        self.mode = mode  # lin or log
-        self.sigmatheta2 = sigmatheta2
-        self.sigmarad2 = sigmarad2
+    Min: float
+    Max: float
+    bins: int = 100
+    mode : str = "lin"
+    sigmatheta2
+    sigmarad2
         
     def binning(self):
-        '''Create linear or logarithmic bins
-        '''
+        '''Create linear or logarithmic bins.'''
         if self.mode == "lin":
             return np.linspace(self.Min, self.Max, self.bins)
         elif self.mode == "log":
             return np.logspace(self.Min, self.Max, self.bins)
     
     def beta(self):
-        '''Calculate beta
-        '''
+        '''Calculate beta.'''
         return 1. - sigmatheta2 / sigmarad2
     
     def gamma(self):
-        '''Calculate gamma
-        '''
+        '''Calculate gamma.'''
         for i in range(len(len_obj_1)):
             if i in (0, len(len_obj) - 1):
                 gamma_arr.append(np.nan)
@@ -74,8 +68,7 @@ class BinnedHalo():
         return np.array(gamma_arr)
     
     def kappa(self):
-        '''Calculate kappa
-        '''
+        '''Calculate kappa.'''
         for i in range(len(len_obj)):
             if i in (0, len(len_obj) - 1):
                 kappa_arr.append(np.nan)
@@ -108,50 +101,42 @@ save_sigma = 0
 
 
 def radii(x, y, z):
-    '''Doc-string here
-    '''
+    '''Doc-string here.'''
     return (x ** 2 + y ** 2 + z ** 2) ** .5
 
 
 def velocities(vx, vy, vz):
-    '''Doc-string here
-    '''
+    '''Doc-string here.'''
     return (vx ** 2 + vy ** 2 + vz ** 2) ** .5
 
 
 def radial_velocities():
-    '''Doc-string here
-    '''
+    '''Doc-string here.'''
     return (vx * x + vy * y + vz * z) / radii()
 
 
 def particle_positions():
-    '''Position of particles inside halo
-    '''
+    '''Position of particles inside halo.'''
     return np.where(R_hob_par < r_2)
 
 
 def particle_number():
-    '''Number of particles inside halo
-    '''
+    '''Number of particles inside halo.'''
     return len(particle_positions()[0])
 
 
 def particle_mass():
-    '''Combined mass of particles inside halo
-    '''
+    '''Combined mass of particles inside halo.'''
     return particle_number() * m
 
 
 def circular_velocity():
-    '''Circular velocity of halo
-    '''
+    '''Circular velocity of halo.'''
     return (G * particle_mass() / r_2) ** .5
 
 
 def chi_2(param=gamma_arr):
-    '''Doc-string here
-    '''
+    '''Doc-string here.'''
     Chi2 = 0
     i = 0
     while (i < len(param)):
@@ -184,13 +169,12 @@ snapshot_num = ['IC', '10_005', '48_009', '198_093']
 
 file_str = "_particle_tracking_"
 
-out_names = [f"A{file_str}IC_ASCII", f"A{file_str}5_005_ASCII",
+out_names = [f'A{file_str}IC_ASCII', f'A{file_str}5_005_ASCII',
              f'A{file_str}10_005_ASCII', f'A{file_str}40_005_ASCII',
              f'A{file_str}48_009_ASCII', f'B{file_str}IC_ASCII',
              f'B{file_str}5_005_ASCII', f'B{file_str}10_005_ASCII',
              f'B{file_str}198_000_ASCII', f'B{file_str}198_093_ASCII',
-             f'B{file_str}199_093_ASCII'
-             ]
+             f'B{file_str}199_093_ASCII']
 
 # Note ------------------------------------------------------------------------
 # Calculates the median of vx, vy, vz for all particles
@@ -211,82 +195,69 @@ v_r = radial_velocities()
 
 
 def particle_positions_slice(bin_start, bin_end):
-    '''Position of particles inside a radial bin
-    '''
+    '''Position of particles inside a radial bin.'''
     return np.where((R_hob_par > bin_start) & (R_hob_par < bin_end))
 
 
 def particle_number_slice():
-    '''Number of particles inside a radial bin
-    '''
+    '''Number of particles inside a radial bin.'''
     return len(particle_positions_slice()[0])
 
 
 def sigma_squared_slice(nr_par_bin, v_bin):
-    '''Velocity dispersion squared, for particles inside a radial bin
-    '''
+    '''Velocity dispersion squared, for particles inside a radial bin.'''
     return (1. / (nr_par_bin + 1.)) * np.sum(v_bin ** 2)
 
 
 def radius_slice(bin_start, bin_end):
-    '''Doc-string here
-    '''
+    '''Doc-string here.'''
     return (bin_start + bin_end) / 2
 
 
 def volume_slice(bin_start, bin_end):
-    '''Calculate volume of radial cluster-slice:
-    '''
+    '''Calculate volume of radial cluster-slice.'''
     return (4. / 3.) * np.pi * (bin_end ** 3 - bin_start ** 3)
 
 
 def density_slice(nr_par_bin, Volume_bin):
-    '''Doc-string here
-    '''
+    '''Doc-string here.'''
     return (nr_par_bin * m) / Volume_bin
 
 
 def sigmarad2_slice(nr_par_bin, vrad2_bin):
-    '''Doc-string here
-    '''
+    '''Doc-string here.'''
     return (1. / (nr_par_bin + 1.)) * np.sum(vrad2_bin)
 
 
 def phi(x, y):
-    '''Doc-string here
-    '''
+    '''Doc-string here.'''
     return sp.arctan2(y, x)
 
 
 def theta(z, r):
-    '''Doc-string here
-    '''
+    '''Doc-string here.'''
     return sp.arccos(z / r)
 
 
 def radial_velocity(theta, phi, vx, vy, vz):
-    '''Doc-string here
-    '''
+    '''Doc-string here.'''
     return sp.sin(theta) * sp.cos(phi) * vx\
            + sp.sin(theta) * sp.sin(phi) * vy + sp.cos(theta) * vz
 
 
 def theta_velocity(theta, phi, vx, vy, vz):
-    '''Doc-string here
-    '''
+    '''Doc-string here.'''
     return sp.cos(theta) * sp.cos(phi) * vx + sp.cos(theta)\
            * sp.sin(phi) * vy - sp.sin(theta) * vz
 
 
 def phi_velocity(phi, vx, vy):
-    '''Doc-string here
-    '''
+    '''Doc-string here.'''
     return -sp.sin(phi) * vx + sp.cos(phi) * vy
 
 
 def mean_velocity_slice(nr_par_bin, v):
-    '''Doc-string here
-    '''
+    '''Doc-string here.'''
     return (1. / (nr_par_bin + 1.)) * np.sum(v)
 
 
@@ -369,28 +340,28 @@ if save_lnr_beta_gamma_kappa_VR_r_sigma_r_rr2_rho:
     kappa_arr = kappa_arr[GoodIDs]
     r_arr = r_arr[GoodIDs]
     sigmarad2_arr = sigmarad2_arr[GoodIDs]
-    VR_i_average_inside_bin_arr = VR_i_average_inside_bin_arr[GoodIDs]
+    VR_i_avg_in_bin_arr = VR_i_avg_in_bin_arr[GoodIDs]
 
     if Gamma == -2.0:
         r_r2_arr = r_arr / r_2
         print('r_r2_arr = ', r_r2_arr)
         rho_arr = rho_arr[GoodIDs]
         x = np.array((logr_arr, beta_arr, gamma_arr, kappa_arr,
-                      VR_i_average_inside_bin_arr, r_arr, sigmarad2_arr,
+                      VR_i_avg_in_bin_arr, r_arr, sigmarad2_arr,
                       r_r2_arr, rho_arr))
         x = x.transpose()
         out_name = text_files_path + F + '.txt'
         np.savetxt(out_name, x, delimiter=' ',
-                   header=' \t logr \t beta \t gamma \t kappa \t VR_average \t\
-                           r \t sigmarad2 \t r_r2 \t rho')
+                   header='\t logr \t beta \t gamma \t kappa \t VR_average \t\
+                          r \t sigmarad2 \t r_r2 \t rho')
     else:
         x = np.array((logr_arr, beta_arr, gamma_arr, kappa_arr,
-                      VR_i_average_inside_bin_arr, r_arr,sigmarad2_arr))
+                      VR_i_avg_in_bin_arr, r_arr, sigmarad2_arr))
         x = x.transpose()
         out_name = text_files_path + F + '.txt'
         np.savetxt(out_name, x, delimiter=' ',
-                   header=' \t logr \t beta \t gamma \t kappa \t VR_average \t\
-                           r \t sigmarad2 ')
+                   header='\t logr \t beta \t gamma \t kappa \t VR_average \t\
+                          r \t sigmarad2')
 
 if save_particle_tracking_ASCII:
     TimeMax = {'A, B IC': 100
@@ -400,8 +371,7 @@ if save_particle_tracking_ASCII:
                , 'A, 48_009': 4970
                , 'B, 198_000': 19800
                , 'B, 198_093': 22100
-               , 'B, 199_093': 24400
-                }
+               , 'B, 199_093': 24400}
 
     xx = [['TimeMax',
            'x[100000]', 'y[100000]', 'z[100000]', 'R_xyz[100000]',
@@ -414,10 +384,7 @@ if save_particle_tracking_ASCII:
                      x[100000], y[100000], z[100000], R_xyz[100000],
                      x[200000], y[200000], z[200000], R_xyz[200000],
                      x[300000], y[300000], z[300000], R_xyz[300000],
-                     x[400000], y[400000], z[400000], R_xyz[400000]
-                     ])
-
-    # xx
+                     x[400000], y[400000], z[400000], R_xyz[400000]])
 
     out_name = text_files_path + out_names[0] + '.txt'
 
@@ -432,19 +399,19 @@ if save_particle_tracking_ASCII:
                         \t {xx[i][4]} \t {xx[i][5]} \t {xx[i][6]} \t {xx[i][7]}\
                         \t {xx[i][8]} \t {xx[i][9]} \t {xx[i][10]} \t {xx[i][11]}\
                         \t {xx[i][12]} \t {xx[i][13]} \t {xx[i][14]}\
-                        \t {xx[i][15]} \t {xx[i][16]} \n'
+                        \t {xx[i][15]} \t {xx[i][16]} \n')
 
             else:
                 f.write(f'{xx[i][0]} \t {xx[i][1]} \t {xx[i][2]} \t {xx[i][3]}\
                         \t {xx[i][4]} \t {xx[i][5]} \t {xx[i][6]} \t {xx[i][7]}\
                         \t {xx[i][8]} \t {xx[i][9]} \t {xx[i][10]} \t {xx[i][11]}\
                         \t {xx[i][12]} \t {xx[i][13]} \t {xx[i][14]}\
-                        \t {xx[i][15]} \t {xx[i][16]} \n'
+                        \t {xx[i][15]} \t {xx[i][16]} \n')
 
 if save_combine_ASCII:
     A = B = 0
     if A:
-        
+
         lf = [f"{text_files_path}{out_names[i]}.txt" for i in range(5)]
 
         dl_lf = [pylab.loadtxt(filename) for filename in lf]
@@ -461,22 +428,22 @@ if save_combine_ASCII:
 
                     f.write('%i \t \t %f \t %f \t %f \t %f \t %f \t %f \t %f \t %f\
                             \t %f \t %f \t %f \t %f \t %f \t %f \t %f \t %f \n'
-                        % (dl_lf[i][0], dl_lf[i][1], dl_lf[i][2],
-                           dl_lf[i][3], dl_lf[i][4], dl_lf[i][5],
-                           dl_lf[i][6], dl_lf[i][7], dl_lf[i][8],
-                           dl_lf[i][9], dl_lf[i][10], dl_lf[i][11],
-                           dl_lf[i][12], dl_lf[i][13], dl_lf[i][14],
-                           dl_lf[i][15], dl_lf[i][16]))
+                            % (dl_lf[i][0], dl_lf[i][1], dl_lf[i][2],
+                               dl_lf[i][3], dl_lf[i][4], dl_lf[i][5],
+                               dl_lf[i][6], dl_lf[i][7], dl_lf[i][8],
+                               dl_lf[i][9], dl_lf[i][10], dl_lf[i][11],
+                               dl_lf[i][12], dl_lf[i][13], dl_lf[i][14],
+                               dl_lf[i][15], dl_lf[i][16]))
 
                 else:
                     f.write('%i \t \t %f \t %f \t %f \t %f \t %f \t %f \t %f \t %f\
                             \t %f \t %f \t %f \t %f \t %f \t %f \t %f \t %f \n'
-                        % (dl_lf[i][0], dl_lf[i][1], dl_lf[i][2],
-                           dl_lf[i][3], dl_lf[i][4], dl_lf[i][5],
-                           dl_lf[i][6], dl_lf[i][7], dl_lf[i][8],
-                           dl_lf[i][9], dl_lf[i][10], dl_lf[i][11],
-                           dl_lf[i][12], dl_lf[i][13], dl_lf[i][14],
-                           dl_lf[i][15], dl_lf[i][16]))
+                            % (dl_lf[i][0], dl_lf[i][1], dl_lf[i][2],
+                               dl_lf[i][3], dl_lf[i][4], dl_lf[i][5],
+                               dl_lf[i][6], dl_lf[i][7], dl_lf[i][8],
+                               dl_lf[i][9], dl_lf[i][10], dl_lf[i][11],
+                               dl_lf[i][12], dl_lf[i][13], dl_lf[i][14],
+                               dl_lf[i][15], dl_lf[i][16]))
 
     elif B:
 
@@ -495,25 +462,25 @@ if save_combine_ASCII:
 
                     f.write('%i \t \t %f \t %f \t %f \t %f \t %f \t %f \t %f \t %f\
                             \t %f \t %f \t %f \t %f \t %f \t %f \t %f \t %f \n'
-                        % (dl_lf[i][0], dl_lf[i][1], dl_lf[i][2],
-                           dl_lf[i][3], dl_lf[i][4], dl_lf[i][5],
-                           dl_lf[i][6], dl_lf[i][7], dl_lf[i][8],
-                           dl_lf[i][9], dl_lf[i][10], dl_lf[i][11],
-                           dl_lf[i][12], dl_lf[i][13], dl_lf[i][14],
-                           dl_lf[i][15], dl_lf[i][16]))
+                            % (dl_lf[i][0], dl_lf[i][1], dl_lf[i][2],
+                               dl_lf[i][3], dl_lf[i][4], dl_lf[i][5],
+                               dl_lf[i][6], dl_lf[i][7], dl_lf[i][8],
+                               dl_lf[i][9], dl_lf[i][10], dl_lf[i][11],
+                               dl_lf[i][12], dl_lf[i][13], dl_lf[i][14],
+                               dl_lf[i][15], dl_lf[i][16]))
                 else:
                     f.write('%i \t \t %f \t %f \t %f \t %f \t %f \t %f \t %f \t %f\
                             \t %f \t %f \t %f \t %f \t %f \t %f \t %f \t %f \n'
-                        % (dl_lf[i][0], dl_lf[i][1], dl_lf[i][2],
-                           dl_lf[i][3], dl_lf[i][4], dl_lf[i][5],
-                           dl_lf[i][6], dl_lf[i][7], dl_lf[i][8],
-                           dl_lf[i][9], dl_lf[i][10], dl_lf[i][11],
-                           dl_lf[i][12], dl_lf[i][13], dl_lf[i][14],
-                           dl_lf[i][15], dl_lf[i][16]))
+                            % (dl_lf[i][0], dl_lf[i][1], dl_lf[i][2],
+                               dl_lf[i][3], dl_lf[i][4], dl_lf[i][5],
+                               dl_lf[i][6], dl_lf[i][7], dl_lf[i][8],
+                               dl_lf[i][9], dl_lf[i][10], dl_lf[i][11],
+                               dl_lf[i][12], dl_lf[i][13], dl_lf[i][14],
+                               dl_lf[i][15], dl_lf[i][16]))
 
 if save_sigma:
     x = np.array((sigma2_arr, sigmarad2_arr, sigmatheta2_arr, sigmaphi2_arr))
     x = x.transpose()
     np.savetxt(Filename.strip('.hdf5') + '_sigma.txt', x, delimiter=' ',
-               header='  sigma2_arr \t sigmarad2_arr \t sigmatheta2_arr\
-                      \t sigmaphi2_arr   ')
+               header='sigma2_arr \t sigmarad2_arr \t sigmatheta2_arr\
+                      \t sigmaphi2_arr')
