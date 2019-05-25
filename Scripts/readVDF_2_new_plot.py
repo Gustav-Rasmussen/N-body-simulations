@@ -3606,39 +3606,27 @@ if Fig6b_GPerts_R_middle_31_62_vt_divided_by_gauss_and_Tsallis:
                  "b", lw=2, ms=7)
 
     if A:
-        data, _ = datalist_bin6different_gammas_A_HQ10000_G1_0_0_000[0]
-        ax1.plot(data[:, 0], data[:, 1], "r", lw=2, ms=7)
-        data, _ = datalist_bin6different_gammas_A_HQ10000_G1_0_10_005[0]
-        ax1.plot(data[:, 0], data[:, 1], "k", lw=2, ms=7)
-        data, _ = datalist_bin6different_gammas_A_HQ10000_G1_0_48_093[0]
-        ax1.plot(data[:, 0], data[:, 1], "b", lw=2, ms=7)
+        Plt(1, datalist_bin6different_gammas_A_HQ10000_G1_0_0_000[0], "r")
+        Plt(1, datalist_bin6different_gammas_A_HQ10000_G1_0_10_005[0], "k")
+        Plt(1, datalist_bin6different_gammas_A_HQ10000_G1_0_48_093[0], "b")
 
         ax1.set_title(r"Time evolution of files = %s, $R_{middle} = 31.62$"
                       % A_HQ0[:-9], fontsize=20)
 
-        data, _ = datalist_bin6different_gammas_A_HQ10000_G1_0_0_000[4]
-        ax2.plot(data[:, 0], data[:, 1], "r",
-                 label=r"%s" % A_HQ0[len("A_HQ10000_G"):], lw=2, ms=7)
-        data, _ = datalist_bin6different_gammas_A_HQ10000_G1_0_10_005[4]
-        ax2.plot(data[:, 0], data[:, 1], "k",
-                 label=r"%s" % A_HQ66[len("A_HQ10000_G"):], lw=2, ms=7)
-        data, _ = datalist_bin6different_gammas_A_HQ10000_G1_0_48_093[4]
-        ax2.plot(data[:, 0], data[:, 1], "b",
-                 label=r"%s" % A_HQ382[len("A_HQ10000_G"):], lw=2, ms=7)
+        Plt(2, datalist_bin6different_gammas_A_HQ10000_G1_0_0_000[4], "r",
+            r"%s" % A_HQ0[len("A_HQ10000_G"):])
+        Plt(2, datalist_bin6different_gammas_A_HQ10000_G1_0_10_005[4], "k",
+            r"%s" % A_HQ66[len("A_HQ10000_G"):])
+        Plt(2, datalist_bin6different_gammas_A_HQ10000_G1_0_48_093[4], "b",
+            r"%s" % A_HQ382[len("A_HQ10000_G"):])
 
-        data, _ = datalist_bin6different_gammas_A_HQ10000_G1_0_0_000[0]
-        ax3.plot(data[:, 0], data[:, 1], "r", lw=2, ms=7)
-        data, _ = datalist_bin6different_gammas_A_HQ10000_G1_0_10_005[0]
-        ax3.plot(data[:, 0], data[:, 1], "k", lw=2, ms=7)
-        data, _ = datalist_bin6different_gammas_A_HQ10000_G1_0_48_093[0]
-        ax3.plot(data[:, 0], data[:, 1], "b", lw=2, ms=7)
+        Plt(3, datalist_bin6different_gammas_A_HQ10000_G1_0_0_000[0], "r")
+        Plt(3, datalist_bin6different_gammas_A_HQ10000_G1_0_10_005[0], "k")
+        Plt(3, datalist_bin6different_gammas_A_HQ10000_G1_0_48_093[0], "b")
 
-        data, _ = datalist_bin6different_gammas_A_HQ10000_G1_0_0_000[4]
-        ax4.plot(data[:, 0], data[:, 1], "r", lw=2, ms=7)
-        data, _ = datalist_bin6different_gammas_A_HQ10000_G1_0_10_005[4]
-        ax4.plot(data[:, 0], data[:, 1], "k", lw=2, ms=7)
-        data, _ = datalist_bin6different_gammas_A_HQ10000_G1_0_48_093[4]
-        ax4.plot(data[:, 0], data[:, 1], "b", lw=2, ms=7)
+        Plt(4, datalist_bin6different_gammas_A_HQ10000_G1_0_0_000[4], "r")
+        Plt(4, datalist_bin6different_gammas_A_HQ10000_G1_0_10_005[4], "k")
+        Plt(4, datalist_bin6different_gammas_A_HQ10000_G1_0_48_093[4], "b")
 
         data, _ = datalist_bin6different_gammas_A_HQ10000_G1_0_0_000[0]
         ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
@@ -3681,36 +3669,25 @@ if Fig6b_GPerts_R_middle_31_62_vt_divided_by_gauss_and_Tsallis:
                  "b", lw=2, ms=7)
 
     if B:
-        data, _ = datalist_bin6different_gammas_B_HQ10000_G1_0_0_000[0]
-        ax1.plot(data[:, 0], data[:, 1], "r", lw=2, ms=7)
+        Plt(1, datalist_bin6different_gammas_B_HQ10000_G1_0_0_000[0], "r")
 
         ax1.set_title(r"Time evolution of files = %s, $R_{middle} = 31.62$"\
                       % B_HQ0[:-9], fontsize=20)
 
-        data, _ = datalist_bin6different_gammas_B_HQ10000_G1_0_0_000[4]
-        ax2.plot(data[:, 0], data[:, 1], "r",
-                 label=r"%s" % B_HQ0[len("B_HQ10000_G"):], lw=2, ms=7)
-
-        data, _ = datalist_bin6different_gammas_B_HQ10000_G1_0_0_000[0]
-        ax3.plot(data[:, 0], data[:, 1], "r", lw=2, ms=7)
-
-        data, _ = datalist_bin6different_gammas_B_HQ10000_G1_0_0_000[4]
-        ax4.plot(data[:, 0], data[:, 1], "r", lw=2, ms=7)
-
+        Plt(2, datalist_bin6different_gammas_B_HQ10000_G1_0_0_000[4], "r",
+            r"%s" % B_HQ0[len("B_HQ10000_G"):])
+        Plt(3, datalist_bin6different_gammas_B_HQ10000_G1_0_0_000[0], "r")
+        Plt(4, datalist_bin6different_gammas_B_HQ10000_G1_0_0_000[4], "r")
         data, _ = datalist_largeRmiddle_31_62_differentGammas_B_HQ10000_G1_0_0_000[
             0]
-
         ax5.plot(data[:, 0], data[:, 1] / denom_ax5(data[:, 0]),
                  "r", lw=2, ms=7)
-
         data, _ = datalist_bin6different_gammas_B_HQ10000_G1_0_0_000[4]
         ax6.plot(data[:, 0], data[:, 1] / denom_ax6(data[:, 0]),
                  "r", lw=2, ms=7)
-
         data, _ = datalist_bin6different_gammas_B_HQ10000_G1_0_0_000[0]
         ax7.plot(data[:, 0], data[:, 1] / denom_ax7(data[:, 0]),
                  "r", lw=2, ms=7)
-
         data, _ = datalist_bin6different_gammas_B_HQ10000_G1_0_0_000[4]
         ax8.plot(data[:, 0], data[:, 1] / denom_ax8(data[:, 0]),
                  "r", lw=2, ms=7)
