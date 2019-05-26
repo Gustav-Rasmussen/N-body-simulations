@@ -183,8 +183,7 @@ def Fig_vr_vPhi_vTheta_with_fit(Bin_list, title):
                    fontsize=20)
 
     exec(f"data, _ = {Bin_list}[1]")
-    ax3.plot(data[:, 0], data[:, 1], "g",
-             label=r"$\gamma = -2.0$", lw=4, ms=7)
+    ax3.plot(data[:, 0], data[:, 1], "g", label=r"$\gamma = -2.0$", lw=4, ms=7)
     exec(f"data, _ = {Bin_list}[2]")
     ax3.plot(data[:, 0], data[:, 1], "r", lw=4, ms=7)
     exec(f"data, _ = {Bin_list}[3]")
@@ -396,19 +395,17 @@ if Fig_vT_with_fit:
         ax1.set_title(r"Fit to %s" % A_HQ0, fontsize=20)
 
         data, _ = bin2_different_gammas_A_HQ10000_G1_0_0_000[4]
-        ax2.plot(data[:, 0], data[:, 1], "b:",
-                 label=r"$\gamma = -2.0$", lw=2, ms=7)
+        ax2.plot(data[:, 0], data[:, 1], "b:", label=r"$\gamma = -2.0$",
+                 lw=2, ms=7)
         popt, pcov = curve_fit(func_3_log, data[:, 0], data[:, 1])
         y_fit = func_3_log(data[:, 0], popt[0], popt[1])
-        ax2.plot(data[:, 0], y_fit, "c.-", lw=3,
-                 label=r"$a\cdot \log(x)^2e^{-b\cdot \log(x)^2}$,\
-                         $a,b = %.3f,%.3f$" % (popt[0], popt[1]))
+        ax2.plot(data[:, 0], y_fit, "c.-", lw=3, label=r"$a\cdot\log(x)^2e^\
+                 {-b\cdot \log(x)^2}$, $a,b = %.3f,%.3f$" % (popt[0], popt[1]))
         popt, pcov = curve_fit(func_7_log, data[:, 0], data[:, 1])
         y_fit = func_7_log(data[:, 0], popt[0], popt[1], popt[2])
-        ax2.plot(data[:, 0], y_fit, "g:", lw=3,
-                 label=r"$a\cdot \log(x)^2(1- (1 - q)b \cdot \log(x)^2)^\
-                       {(\frac{q}{1-q})}$, $a,b,q = %.3f,%.3f,%.3f$"
-                       % (popt[0], popt[1], popt[2]))
+        ax2.plot(data[:, 0], y_fit, "g:", lw=3, label=r"$a\cdot\log(x)^2(1-\
+                 (1-q)b \cdot \log(x)^2)^{(\frac{q}{1-q})}$,\
+                 $a,b,q = %.3f,%.3f,%.3f$" % (popt[0], popt[1], popt[2]))
 
         Plt(3, bin1_different_gammas_A_HQ10000_G1_0_0_000[0], "b--",
             r"$\gamma = -1.5$")
@@ -431,19 +428,17 @@ if Fig_vT_with_fit:
     if B:
         if special_fit:
             data, _ = bin2_different_gammas_B_HQ10000_G1_0_0_000[0]
-            ax1.plot(data[:, 0], data[:, 1], "b:",
-                     label=r"$\gamma = -2.0$", lw=4, ms=7)
+            ax1.plot(data[:, 0], data[:, 1], "b:", label=r"$\gamma = -2.0$",
+                     lw=4, ms=7)
             popt, pcov = curve_fit(func_3, data[:, 0], data[:, 1])
             y_fit = func_3(data[:, 0], popt[0], popt[1])
-            ax1.plot(data[:, 0], y_fit, "c.-", lw=3,
-                     label=r"$axe^{-bx^2}$, $a,b = %.3f,%.3f$"
-                           % (popt[0], popt[1]))
+            ax1.plot(data[:, 0], y_fit, "c.-", lw=3, label=r"$axe^{-bx^2}$,\
+                     $a,b = %.3f,%.3f$" % (popt[0], popt[1]))
             popt, pcov = curve_fit(func_4, data[:, 0], data[:, 1])
             y_fit = func_4(data[:, 0], popt[0], popt[1], popt[2])
-            ax1.plot(data[:, 0], y_fit, "g:", lw=3,
-                     label=r"$ax(1- (1 - q)bx^2)^{(\frac{q}{1-q})}$,\
-                           $a,b,q = %.3f,%.3f,%.3f$"
-                           % (popt[0], popt[1], popt[2]))
+            ax1.plot(data[:, 0], y_fit, "g:", lw=3, label=r"$ax(1-(1-q)bx^2)^\
+                     {(\frac{q}{1-q})}$, $a,b,q = %.3f,%.3f,%.3f$"
+                     % (popt[0], popt[1], popt[2]))
             ax1.set_title(r"Fit to %s" % B_HQ0, fontsize=20)
 
         else:
@@ -471,15 +466,13 @@ if Fig_vT_with_fit:
                  lw=2, ms=7)
         popt, pcov = curve_fit(func_3_log, data[:, 0], data[:, 1])
         y_fit = func_3_log(data[:, 0], popt[0], popt[1])
-        ax2.plot(data[:, 0], y_fit, "c.-", lw=3,
-                 label=r"$a\cdot \log(x)^2e^{-b\cdot \log(x)^2}$,\
-                         $a,b = %.3f,%.3f$" % (popt[0], popt[1]))
+        ax2.plot(data[:, 0], y_fit, "c.-", lw=3, label=r"$a\cdot \log(x)^2e^\
+                 {-b\cdot \log(x)^2}$, $a,b = %.3f,%.3f$" % (popt[0], popt[1]))
         popt, pcov = curve_fit(func_7_log, data[:, 0], data[:, 1])
         y_fit = func_7_log(data[:, 0], popt[0], popt[1], popt[2])
-        ax2.plot(data[:, 0], y_fit, "g:", lw=3,
-                 label=r"$a\cdot \log(x)^2(1- (1 - q)b \cdot \log(x)^2)^{\
-                       (\frac{q}{1-q})}$, $a,b,q = %.3f,%.3f,%.3f$"
-                       % (popt[0], popt[1], popt[2]))
+        ax2.plot(data[:, 0], y_fit, "g:", lw=3, label=r"$a\cdot \log(x)^2(1-\
+                 (1 - q)b \cdot \log(x)^2)^{(\frac{q}{1-q})}$,\
+                 $a,b,q = %.3f,%.3f,%.3f$" % (popt[0], popt[1], popt[2]))
 
         ax2.yaxis.tick_right()
         ax2.tick_params(axis="both", which="both", bottom="off", top="off",
@@ -586,7 +579,7 @@ def Fig_vt_divided_by_gauss(bin_name):
 
     ax1.set_ylim(0, 2)
     ax1.set_xlabel(r"$u_t$", fontsize=20)
-    ax2.set_xlabel(r"$\log \left( |u_tn|,u_tp \right)$", fontsize=20)
+    ax2.set_xlabel(r"$\log\left(|u_tn|,u_tp\right)$", fontsize=20)
 
     def denom_ax1(a):
         return 918.083 * a * np.exp(-.922 * a ** 2)
@@ -1641,28 +1634,22 @@ if Fig_GPerts_gammas_1_5_vt_divided_by_gauss_and_Tsallis:
             label=r"%s" % HQ24[len("HQ10000_G"):])
         Plt(2, bin1_different_gammas_HQ10000_G1_2_5_005[4], "k",
             label=r"%s" % HQ36[len("HQ10000_G"):])
-        data, _ = bin1_different_gammas_HQ10000_G1_2_7_005[4]
-        ax2.plot(data[:, 0], data[:, 1], "b",
-                 label=r"%s" % HQ48[len("HQ10000_G"):], lw=2, ms=7)
-        data, _ = bin1_different_gammas_HQ10000_G1_2_9_005[4]
-        ax2.plot(data[:, 0], data[:, 1], "c",
-                 label=r"%s" % HQ60[len("HQ10000_G"):], lw=2, ms=7)
+        Plt(2, bin1_different_gammas_HQ10000_G1_2_7_005[4], "b",
+            label=r"%s" % HQ48[len("HQ10000_G"):])
+        Plt(2, bin1_different_gammas_HQ10000_G1_2_9_005[4], "c",
+            label=r"%s" % HQ60[len("HQ10000_G"):])
 
         Plt(3, bin1_different_gammas_HQ10000_G1_2_1_005[0], "r")
         Plt(3, bin1_different_gammas_HQ10000_G1_2_3_005[0], "g")
         Plt(3, bin1_different_gammas_HQ10000_G1_2_5_005[0], "k")
-        data, _ = bin1_different_gammas_HQ10000_G1_2_7_005[0]
-        ax3.plot(data[:, 0], data[:, 1], "b", lw=2, ms=7)
-        data, _ = bin1_different_gammas_HQ10000_G1_2_9_005[0]
-        ax3.plot(data[:, 0], data[:, 1], "c", lw=2, ms=7)
+        Plt(3, bin1_different_gammas_HQ10000_G1_2_7_005[0], "b")
+        Plt(3, bin1_different_gammas_HQ10000_G1_2_9_005[0], "c")
 
         Plt(4, bin1_different_gammas_HQ10000_G1_2_1_005[4], "r")
         Plt(4, bin1_different_gammas_HQ10000_G1_2_3_005[4], "g")
         Plt(4, bin1_different_gammas_HQ10000_G1_2_5_005[4], "k")
-        data, _ = bin1_different_gammas_HQ10000_G1_2_7_005[4]
-        ax4.plot(data[:, 0], data[:, 1], "b", lw=2, ms=7)
-        data, _ = bin1_different_gammas_HQ10000_G1_2_9_005[4]
-        ax4.plot(data[:, 0], data[:, 1], "c", lw=2, ms=7)
+        Plt(4, bin1_different_gammas_HQ10000_G1_2_7_005[4], "b")
+        Plt(4, bin1_different_gammas_HQ10000_G1_2_9_005[4], "c")
 
         def denom_ax5(a):
             return np.log10(a) * np.exp(-.5 * a ** 2)
@@ -1726,14 +1713,12 @@ if Fig_GPerts_gammas_1_5_vt_divided_by_gauss_and_Tsallis:
         Plt(1, bin1_different_gammas_test2_HQ10000_G1_0_0_000[0], "r")
         Plt(1, bin1_different_gammas_test2_HQ10000_G1_0_5_005[0], "g")
         Plt(1, bin1_different_gammas_test2_HQ10000_G1_0_10_005[0], "k")
-        data, _ = bin1_different_gammas_test2_HQ10000_G1_0_15_005[0]
-        ax1.plot(data[:, 0], data[:, 1], "b", lw=2, ms=7)
-        data, _ = bin1_different_gammas_test2_HQ10000_G1_0_20_005[0]
-        ax1.plot(data[:, 0], data[:, 1], "c", lw=2, ms=7)
+        Plt(1, bin1_different_gammas_test2_HQ10000_G1_0_15_005[0], "b")
+        Plt(1, bin1_different_gammas_test2_HQ10000_G1_0_20_005[0], "c")
         Plt(1, bin1_different_gammas_test2_HQ10000_G1_0_25_005[0], "m")
 
         ax1.set_title(r"Time evolution of files = %s, different r bins,\
-                        $\gamma = -1.5$" % test2_HQ0[:-9], fontsize=20)
+                      $\gamma = -1.5$" % test2_HQ0[:-9], fontsize=20)
 
         Plt(2, bin1_different_gammas_test2_HQ10000_G1_0_0_000[4], "r",
             label=r"%s " % test2_HQ0[len("test2_HQ10000_G"):])
@@ -1741,32 +1726,25 @@ if Fig_GPerts_gammas_1_5_vt_divided_by_gauss_and_Tsallis:
             label=r"%s" % test2_HQ36[len("test2_HQ10000_G"):])
         Plt(2, bin1_different_gammas_test2_HQ10000_G1_0_10_005[4], "k",
             label=r"%s" % test2_HQ66[len("test2_HQ10000_G"):])
-        data, _ = bin1_different_gammas_test2_HQ10000_G1_0_15_005[4]
-        ax2.plot(data[:, 0], data[:, 1], "b",
-                 label=r"%s" % test2_HQ96[len("test2_HQ10000_G"):], lw=2, ms=7)
-        data, _ = bin1_different_gammas_test2_HQ10000_G1_0_20_005[4]
-        ax2.plot(data[:, 0], data[:, 1], "c",
-                 label=r"%s" % test2_HQ126[len("test2_HQ10000_G"):],
-                 lw=2, ms=7)
+        Plt(2, bin1_different_gammas_test2_HQ10000_G1_0_15_005[4], "b",
+            label=r"%s" % test2_HQ96[len("test2_HQ10000_G"):])
+        Plt(2, bin1_different_gammas_test2_HQ10000_G1_0_20_005[4], "c",
+            label=r"%s" % test2_HQ126[len("test2_HQ10000_G"):])
         Plt(2, bin1_different_gammas_test2_HQ10000_G1_0_25_005[4], "m",
             label=r"%s" % test2_HQ159[len("test2_HQ10000_G"):])
 
         Plt(3, bin1_different_gammas_test2_HQ10000_G1_0_0_000[0], "r")
         Plt(3, bin1_different_gammas_test2_HQ10000_G1_0_5_005[0], "g")
         Plt(3, bin1_different_gammas_test2_HQ10000_G1_0_10_005[0], "k")
-        data, _ = bin1_different_gammas_test2_HQ10000_G1_0_15_005[0]
-        ax3.plot(data[:, 0], data[:, 1], "b", lw=2, ms=7)
-        data, _ = bin1_different_gammas_test2_HQ10000_G1_0_20_005[0]
-        ax3.plot(data[:, 0], data[:, 1], "c", lw=2, ms=7)
+        Plt(3, bin1_different_gammas_test2_HQ10000_G1_0_15_005[0], "b")
+        Plt(3, bin1_different_gammas_test2_HQ10000_G1_0_20_005[0], "c")
         Plt(3, bin1_different_gammas_test2_HQ10000_G1_0_25_005[0], "m")
 
         Plt(4, bin1_different_gammas_test2_HQ10000_G1_0_0_000[4], "r")
         Plt(4, bin1_different_gammas_test2_HQ10000_G1_0_5_005[4], "g")
         Plt(4, bin1_different_gammas_test2_HQ10000_G1_0_10_005[4], "k")
-        data, _ = bin1_different_gammas_test2_HQ10000_G1_0_15_005[4]
-        ax4.plot(data[:, 0], data[:, 1], "b", lw=2, ms=7)
-        data, _ = bin1_different_gammas_test2_HQ10000_G1_0_20_005[4]
-        ax4.plot(data[:, 0], data[:, 1], "c", lw=2, ms=7)
+        Plt(4, bin1_different_gammas_test2_HQ10000_G1_0_15_005[4], "b")
+        Plt(4, bin1_different_gammas_test2_HQ10000_G1_0_20_005[4], "c")
         Plt(4, bin1_different_gammas_test2_HQ10000_G1_0_25_005[4], "m")
 
         def denom_ax5(a):
@@ -1879,10 +1857,8 @@ if Fig_GPerts_gammas_1_5_vt_divided_by_gauss_and_Tsallis:
         Plt(1, bin1_different_gammas_A_HQ10000_G1_0_0_000[0], "r")
         Plt(1, bin1_different_gammas_A_HQ10000_G1_0_5_005[0], "g")
         Plt(1, bin1_different_gammas_A_HQ10000_G1_0_10_005[0], "k")
-        data, _ = bin1_different_gammas_A_HQ10000_G1_0_40_005[0]
-        ax1.plot(data[:, 0], data[:, 1], "b", lw=2, ms=7)
-        data, _ = bin1_different_gammas_A_HQ10000_G1_0_48_009[0]
-        ax1.plot(data[:, 0], data[:, 1], "c", lw=2, ms=7)
+        Plt(1, bin1_different_gammas_A_HQ10000_G1_0_40_005[0], "b")
+        Plt(1, bin1_different_gammas_A_HQ10000_G1_0_48_009[0], "c")
         Plt(1, bin1_different_gammas_A_HQ10000_G1_0_48_093[0], "m")
 
         ax1.set_title(r"Time evolution of %s, different r bins,\
@@ -1894,31 +1870,25 @@ if Fig_GPerts_gammas_1_5_vt_divided_by_gauss_and_Tsallis:
             label=r"%s" % A_HQ36[len("A_HQ10000_G"):])
         Plt(2, bin1_different_gammas_A_HQ10000_G1_0_10_005[4], "k",
             label=r"%s" % A_HQ66[len("A_HQ10000_G"):])
-        data, _ = bin1_different_gammas_A_HQ10000_G1_0_40_005[4]
-        ax2.plot(data[:, 0], data[:, 1], "b",
-                 label=r"%s" % A_HQ246[len("A_HQ10000_G"):], lw=2, ms=7)
-        data, _ = bin1_different_gammas_A_HQ10000_G1_0_48_009[4]
-        ax2.plot(data[:, 0], data[:, 1], "c",
-                 label=r"%s" % A_HQ298[len("A_HQ10000_G"):], lw=2, ms=7)
+        Plt(2, bin1_different_gammas_A_HQ10000_G1_0_40_005[4], "b",
+            label=r"%s" % A_HQ246[len("A_HQ10000_G"):])
+        Plt(2, bin1_different_gammas_A_HQ10000_G1_0_48_009[4], "c",
+            label=r"%s" % A_HQ298[len("A_HQ10000_G"):])
         Plt(2, bin1_different_gammas_A_HQ10000_G1_0_48_093[4], "m",
             label=r"%s" % A_HQ382[len("A_HQ10000_G"):])
 
         Plt(3, bin1_different_gammas_A_HQ10000_G1_0_0_000[0], "r")
         Plt(3, bin1_different_gammas_A_HQ10000_G1_0_5_005[0], "g")
         Plt(3, bin1_different_gammas_A_HQ10000_G1_0_10_005[0], "k")
-        data, _ = bin1_different_gammas_A_HQ10000_G1_0_40_005[0]
-        ax3.plot(data[:, 0], data[:, 1], "b", lw=2, ms=7)
-        data, _ = bin1_different_gammas_A_HQ10000_G1_0_48_009[0]
-        ax3.plot(data[:, 0], data[:, 1], "c", lw=2, ms=7)
+        Plt(3, bin1_different_gammas_A_HQ10000_G1_0_40_005[0], "b")
+        Plt(3, bin1_different_gammas_A_HQ10000_G1_0_48_009[0], "c")
         Plt(3, bin1_different_gammas_A_HQ10000_G1_0_48_093[0], "m")
 
         Plt(4, bin1_different_gammas_A_HQ10000_G1_0_0_000[4], "r")
         Plt(4, bin1_different_gammas_A_HQ10000_G1_0_5_005[4], "g")
         Plt(4, bin1_different_gammas_A_HQ10000_G1_0_10_005[4], "k")
-        data, _ = bin1_different_gammas_A_HQ10000_G1_0_40_005[4]
-        ax4.plot(data[:, 0], data[:, 1], "b", lw=2, ms=7)
-        data, _ = bin1_different_gammas_A_HQ10000_G1_0_48_009[4]
-        ax4.plot(data[:, 0], data[:, 1], "c", lw=2, ms=7)
+        Plt(4, bin1_different_gammas_A_HQ10000_G1_0_40_005[4], "b")
+        Plt(4, bin1_different_gammas_A_HQ10000_G1_0_48_009[4], "c")
         Plt(4, bin1_different_gammas_A_HQ10000_G1_0_48_093[4], "m")
 
         def denom_ax5(a):
@@ -2029,57 +1999,37 @@ if Fig_GPerts_gammas_1_5_vt_divided_by_gauss_and_Tsallis:
             exec(f"ax{i}.legend(prop=dict(size=18), numpoints=2, ncol=1,\
                                 frameon=True, loc=0, handlelength=2.5)")
 
-        data, _ = bin1_different_gammas_B_HQ10000_G1_0_0_000[0]
-        ax1.plot(data[:, 0], data[:, 1], "r", lw=2, ms=7)
-        data, _ = bin1_different_gammas_B_HQ10000_G1_0_5_005[0]
-        ax1.plot(data[:, 0], data[:, 1], "g", lw=2, ms=7)
-        data, _ = bin1_different_gammas_B_HQ10000_G1_0_10_005[0]
-        ax1.plot(data[:, 0], data[:, 1], "k", lw=2, ms=7)
-        data, _ = bin1_different_gammas_B_HQ10000_G1_0_198_000[0]
-        ax1.plot(data[:, 0], data[:, 1], "b", lw=2, ms=7)
-        data, _ = bin1_different_gammas_B_HQ10000_G1_0_198_093[0]
-        ax1.plot(data[:, 0], data[:, 1], "c", lw=2, ms=7)
+        Plt(1, bin1_different_gammas_B_HQ10000_G1_0_0_000[0], "r")
+        Plt(1, bin1_different_gammas_B_HQ10000_G1_0_5_005[0], "g")
+        Plt(1, bin1_different_gammas_B_HQ10000_G1_0_10_005[0], "k")
+        Plt(1, bin1_different_gammas_B_HQ10000_G1_0_198_000[0], "b")
+        Plt(1, bin1_different_gammas_B_HQ10000_G1_0_198_093[0], "c")
 
         ax1.set_title(r"Time evolution of %s, different r bins,\
                       $\gamma = -1.5$" % B_HQ0[:-9], fontsize=20)
 
-        data, _ = bin1_different_gammas_B_HQ10000_G1_0_0_000[4]
-        ax2.plot(data[:, 0], data[:, 1], "r",
-                 label=r"%s " % B_HQ0[len("B_HQ10000_G"):], lw=2, ms=7)
-        data, _ = bin1_different_gammas_B_HQ10000_G1_0_5_005[4]
-        ax2.plot(data[:, 0], data[:, 1], "g",
-                 label=r"%s" % B_HQ36[len("B_HQ10000_G"):], lw=2, ms=7)
-        data, _ = bin1_different_gammas_B_HQ10000_G1_0_10_005[4]
-        ax2.plot(data[:, 0], data[:, 1], "k",
-                 label=r"%s" % B_HQ66[len("B_HQ10000_G"):], lw=2, ms=7)
-        data, _ = bin1_different_gammas_B_HQ10000_G1_0_198_000[4]
-        ax2.plot(data[:, 0], data[:, 1], "b",
-                 label=r"%s" % B_HQ294[len("B_HQ10000_G"):], lw=2, ms=7)
-        data, _ = bin1_different_gammas_B_HQ10000_G1_0_198_093[4]
-        ax2.plot(data[:, 0], data[:, 1], "c",
-                 label=r"%s" % B_HQ382[len("B_HQ10000_G"):], lw=2, ms=7)
+        Plt(2, bin1_different_gammas_B_HQ10000_G1_0_0_000[4], "r",
+            r"%s " % B_HQ0[len("B_HQ10000_G"):])
+        Plt(2, bin1_different_gammas_B_HQ10000_G1_0_5_005[4], "g",
+            r"%s" % B_HQ36[len("B_HQ10000_G"):])
+        Plt(2, bin1_different_gammas_B_HQ10000_G1_0_10_005[4], "k",
+            r"%s" % B_HQ66[len("B_HQ10000_G"):])
+        Plt(2, bin1_different_gammas_B_HQ10000_G1_0_198_000[4], "b",
+            r"%s" % B_HQ294[len("B_HQ10000_G"):])
+        Plt(2, bin1_different_gammas_B_HQ10000_G1_0_198_093[4], "c",
+            r"%s" % B_HQ382[len("B_HQ10000_G"):])
 
-        data, _ = bin1_different_gammas_B_HQ10000_G1_0_0_000[0]
-        ax3.plot(data[:, 0], data[:, 1], "r", lw=2, ms=7)
-        data, _ = bin1_different_gammas_B_HQ10000_G1_0_5_005[0]
-        ax3.plot(data[:, 0], data[:, 1], "g", lw=2, ms=7)
-        data, _ = bin1_different_gammas_B_HQ10000_G1_0_10_005[0]
-        ax3.plot(data[:, 0], data[:, 1], "k", lw=2, ms=7)
-        data, _ = bin1_different_gammas_B_HQ10000_G1_0_198_000[0]
-        ax3.plot(data[:, 0], data[:, 1], "b", lw=2, ms=7)
-        data, _ = bin1_different_gammas_B_HQ10000_G1_0_198_093[0]
-        ax3.plot(data[:, 0], data[:, 1], "c", lw=2, ms=7)
+        Plt(3, bin1_different_gammas_B_HQ10000_G1_0_0_000[0], "r")
+        Plt(3, bin1_different_gammas_B_HQ10000_G1_0_5_005[0], "g")
+        Plt(3, bin1_different_gammas_B_HQ10000_G1_0_10_005[0], "k")
+        Plt(3, bin1_different_gammas_B_HQ10000_G1_0_198_000[0], "b")
+        Plt(3, bin1_different_gammas_B_HQ10000_G1_0_198_093[0], "c")
 
-        data, _ = bin1_different_gammas_B_HQ10000_G1_0_0_000[4]
-        ax4.plot(data[:, 0], data[:, 1], "r", lw=2, ms=7)
-        data, _ = bin1_different_gammas_B_HQ10000_G1_0_5_005[4]
-        ax4.plot(data[:, 0], data[:, 1], "g", lw=2, ms=7)
-        data, _ = bin1_different_gammas_B_HQ10000_G1_0_10_005[4]
-        ax4.plot(data[:, 0], data[:, 1], "k", lw=2, ms=7)
-        data, _ = bin1_different_gammas_B_HQ10000_G1_0_198_000[4]
-        ax4.plot(data[:, 0], data[:, 1], "b", lw=2, ms=7)
-        data, _ = bin1_different_gammas_B_HQ10000_G1_0_198_093[4]
-        ax4.plot(data[:, 0], data[:, 1], "c", lw=2, ms=7)
+        Plt(4, bin1_different_gammas_B_HQ10000_G1_0_0_000[4], "r")
+        Plt(4, bin1_different_gammas_B_HQ10000_G1_0_5_005[4], "g")
+        Plt(4, bin1_different_gammas_B_HQ10000_G1_0_10_005[4], "k")
+        Plt(4, bin1_different_gammas_B_HQ10000_G1_0_198_000[4], "b")
+        Plt(4, bin1_different_gammas_B_HQ10000_G1_0_198_093[4], "c")
 
         def denom_ax5(a):
             return 914.415 * a * np.exp(-.930 * a ** 2)
@@ -2199,57 +2149,37 @@ if Fig_GPerts_gammas_2_0_vt_divided_by_gauss_and_Tsallis:
             exec(f"ax{i}.legend(prop=dict(size=18), numpoints=2, ncol=1,\
                                 frameon=True, loc=0, handlelength=2.5)")
 
-        data, _ = bin2__different_gammas_HQ10000_G1_2_1_005[0]
-        ax1.plot(data[:, 0], data[:, 1], "b", lw=2, ms=7)
-        data, _ = bin2_different_gammas_HQ10000_G1_2_3_005[0]
-        ax1.plot(data[:, 0], data[:, 1], "r", lw=2, ms=7)
-        data, _ = bin2_different_gammas_HQ10000_G1_2_5_005[0]
-        ax1.plot(data[:, 0], data[:, 1], "g", lw=2, ms=7)
-        data, _ = bin2_different_gammas_HQ10000_G1_2_7_005[0]
-        ax1.plot(data[:, 0], data[:, 1], "k", lw=2, ms=7)
-        data, _ = bin2_different_gammas_HQ10000_G1_2_9_005[0]
-        ax1.plot(data[:, 0], data[:, 1], "c", lw=2, ms=7)
+        Plt(1, bin2_different_gammas_HQ10000_G1_2_1_005[0], "r")
+        Plt(1, bin2_different_gammas_HQ10000_G1_2_3_005[0], "g")
+        Plt(1, bin2_different_gammas_HQ10000_G1_2_5_005[0], "k")
+        Plt(1, bin2_different_gammas_HQ10000_G1_2_7_005[0], "b")
+        Plt(1, bin2_different_gammas_HQ10000_G1_2_9_005[0], "c")
 
         ax1.set_title(r"Time evolution of files = %s, different r bins,\
                       $\gamma = -2.0$" % HQ0[:-9], fontsize=20)
 
-        data, _ = bin2_different_gammas_HQ10000_G1_2_1_005[4]
-        ax2.plot(data[:, 0], data[:, 1], "r",
-                 label=r"%s " % HQ12[len("HQ10000_G"):], lw=2, ms=7)
-        data, _ = bin2_different_gammas_HQ10000_G1_2_3_005[4]
-        ax2.plot(data[:, 0], data[:, 1], "g",
-                 label=r"%s" % HQ24[len("HQ10000_G"):], lw=2, ms=7)
-        data, _ = bin2_different_gammas_HQ10000_G1_2_5_005[4]
-        ax2.plot(data[:, 0], data[:, 1], "k",
-                 label=r"%s" % HQ36[len("HQ10000_G"):], lw=2, ms=7)
-        data, _ = bin2_different_gammas_HQ10000_G1_2_7_005[4]
-        ax2.plot(data[:, 0], data[:, 1], "b",
-                 label=r"%s" % HQ48[len("HQ10000_G"):], lw=2, ms=7)
-        data, _ = bin2_different_gammas_HQ10000_G1_2_9_005[4]
-        ax2.plot(data[:, 0], data[:, 1], "c",
-                 label=r"%s" % HQ60[len("HQ10000_G"):], lw=2, ms=7)
+        Plt(2, bin2_different_gammas_HQ10000_G1_2_1_005[4], "r",
+            r"%s " % HQ12[len("HQ10000_G"):])
+        Plt(2, bin2_different_gammas_HQ10000_G1_2_3_005[4], "g",
+            r"%s " % HQ24[len("HQ10000_G"):])
+        Plt(2, bin2_different_gammas_HQ10000_G1_2_5_005[4], "k",
+            r"%s " % HQ36[len("HQ10000_G"):])
+        Plt(2, bin2_different_gammas_HQ10000_G1_2_7_005[4], "b",
+            r"%s " % HQ48[len("HQ10000_G"):])
+        Plt(2, bin2_different_gammas_HQ10000_G1_2_9_005[4], "c",
+            r"%s " % HQ60[len("HQ10000_G"):])
 
-        data, _ = bin2_different_gammas_HQ10000_G1_2_1_005[0]
-        ax3.plot(data[:, 0], data[:, 1], "r", lw=2, ms=7)
-        data, _ = bin2_different_gammas_HQ10000_G1_2_3_005[0]
-        ax3.plot(data[:, 0], data[:, 1], "g", lw=2, ms=7)
-        data, _ = bin2_different_gammas_HQ10000_G1_2_5_005[0]
-        ax3.plot(data[:, 0], data[:, 1], "k", lw=2, ms=7)
-        data, _ = bin2_different_gammas_HQ10000_G1_2_7_005[0]
-        ax3.plot(data[:, 0], data[:, 1], "b", lw=2, ms=7)
-        data, _ = bin2_different_gammas_HQ10000_G1_2_9_005[0]
-        ax3.plot(data[:, 0], data[:, 1], "c", lw=2, ms=7)
+        Plt(3, bin2_different_gammas_HQ10000_G1_2_1_005[0], "r")
+        Plt(3, bin2_different_gammas_HQ10000_G1_2_3_005[0], "g")
+        Plt(3, bin2_different_gammas_HQ10000_G1_2_5_005[0], "k")
+        Plt(3, bin2_different_gammas_HQ10000_G1_2_7_005[0], "b")
+        Plt(3, bin2_different_gammas_HQ10000_G1_2_9_005[0], "c")
 
-        data, _ = bin2_different_gammas_HQ10000_G1_2_1_005[4]
-        ax4.plot(data[:, 0], data[:, 1], "r", lw=2, ms=7)
-        data, _ = bin2_different_gammas_HQ10000_G1_2_3_005[4]
-        ax4.plot(data[:, 0], data[:, 1], "g", lw=2, ms=7)
-        data, _ = bin2_different_gammas_HQ10000_G1_2_5_005[4]
-        ax4.plot(data[:, 0], data[:, 1], "k", lw=2, ms=7)
-        data, _ = bin2_different_gammas_HQ10000_G1_2_7_005[4]
-        ax4.plot(data[:, 0], data[:, 1], "b", lw=2, ms=7)
-        data, _ = bin2_different_gammas_HQ10000_G1_2_9_005[4]
-        ax4.plot(data[:, 0], data[:, 1], "c", lw=2, ms=7)
+        Plt(4, bin2_different_gammas_HQ10000_G1_2_1_005[4], "r")
+        Plt(4, bin2_different_gammas_HQ10000_G1_2_3_005[4], "g")
+        Plt(4, bin2_different_gammas_HQ10000_G1_2_5_005[4], "k")
+        Plt(4, bin2_different_gammas_HQ10000_G1_2_7_005[4], "b")
+        Plt(4, bin2_different_gammas_HQ10000_G1_2_9_005[4], "c")
 
         def denom_ax5(a):
             return np.log10(a) * np.exp(-.5 * a ** 2)
@@ -2305,72 +2235,42 @@ if Fig_GPerts_gammas_2_0_vt_divided_by_gauss_and_Tsallis:
             exec(f"ax{i}.legend(prop=dict(size=18), numpoints=2, ncol=1,\
                                 frameon=True, loc=0, handlelength=2.5)")
 
-        data, _ = bin2_different_gammas_test2_HQ10000_G1_0_0_000[0]
-        ax1.plot(data[:, 0], data[:, 1], "r", lw=2, ms=7)
-        data, _ = bin2_different_gammas_test2_HQ10000_G1_0_5_005[0]
-        ax1.plot(data[:, 0], data[:, 1], "g", lw=2, ms=7)
-        data, _ = bin2_different_gammas_test2_HQ10000_G1_0_10_005[0]
-        ax1.plot(data[:, 0], data[:, 1], "k", lw=2, ms=7)
-        data, _ = bin2_different_gammas_test2_HQ10000_G1_0_15_005[0]
-        ax1.plot(data[:, 0], data[:, 1], "b", lw=2, ms=7)
-        data, _ = bin2_different_gammas_test2_HQ10000_G1_0_20_005[0]
-        ax1.plot(data[:, 0], data[:, 1], "c", lw=2, ms=7)
-        data, _ = bin2_different_gammas_test2_HQ10000_G1_0_25_005[0]
-        ax1.plot(data[:, 0], data[:, 1], "m", lw=2, ms=7)
+        Plt(1, bin2_different_gammas_test2_HQ10000_G1_0_0_000[0], "r")
+        Plt(1, bin2_different_gammas_test2_HQ10000_G1_0_5_005[0], "g")
+        Plt(1, bin2_different_gammas_test2_HQ10000_G1_0_10_005[0], "k")
+        Plt(1, bin2_different_gammas_test2_HQ10000_G1_0_15_005[0], "b")
+        Plt(1, bin2_different_gammas_test2_HQ10000_G1_0_20_005[0], "c")
+        Plt(1, bin2_different_gammas_test2_HQ10000_G1_0_25_005[0], "m")
 
         ax1.set_title(r"Time evolution of files = %s, different r bins,\
                       $\gamma = -2.0$" % test2_HQ0[:-9], fontsize=20)
 
-        data, _ = bin2_different_gammas_test2_HQ10000_G1_0_0_000[4]
-        ax2.plot(data[:, 0], data[:, 1], "r",
-                 label=r"%s " % test2_HQ0[len("test2_HQ10000_G"):],
-                 lw=2, ms=7)
-        data, _ = bin2_different_gammas_test2_HQ10000_G1_0_5_005[4]
-        ax2.plot(data[:, 0], data[:, 1], "g",
-                 label=r"%s" % test2_HQ36[len("test2_HQ10000_G"):],
-                 lw=2, ms=7)
-        data, _ = bin2_different_gammas_test2_HQ10000_G1_0_10_005[4]
-        ax2.plot(data[:, 0], data[:, 1], "k",
-                 label=r"%s" % test2_HQ66[len("test2_HQ10000_G"):],
-                 lw=2, ms=7)
-        data, _ = bin2_different_gammas_test2_HQ10000_G1_0_15_005[4]
-        ax2.plot(data[:, 0], data[:, 1], "b",
-                 label=r"%s" % test2_HQ96[len("test2_HQ10000_G"):],
-                 lw=2, ms=7)
-        data, _ = bin2_different_gammas_test2_HQ10000_G1_0_20_005[4]
-        ax2.plot(data[:, 0], data[:, 1], "c",
-                 label=r"%s" % test2_HQ126[len("test2_HQ10000_G"):],
-                 lw=2, ms=7)
-        data, _ = bin2_different_gammas_test2_HQ10000_G1_0_25_005[4]
-        ax2.plot(data[:, 0], data[:, 1], "m",
-                 label=r"%s" % test2_HQ159[len("test2_HQ10000_G"):],
-                 lw=2, ms=7)
+        Plt(2, bin2_different_gammas_test2_HQ10000_G1_0_0_000[4], "r",
+            r"%s " % test2_HQ0[len("test2_HQ10000_G"):])
+        Plt(2, bin2_different_gammas_test2_HQ10000_G1_0_5_005[4], "g",
+            r"%s " % test2_HQ36[len("test2_HQ10000_G"):])
+        Plt(2, bin2_different_gammas_test2_HQ10000_G1_0_10_005[4], "k",
+            r"%s " % test2_HQ66[len("test2_HQ10000_G"):])
+        Plt(2, bin2_different_gammas_test2_HQ10000_G1_0_15_005[4], "b",
+            r"%s " % test2_HQ96[len("test2_HQ10000_G"):])
+        Plt(2, bin2_different_gammas_test2_HQ10000_G1_0_20_005[4], "c",
+            r"%s " % test2_HQ126[len("test2_HQ10000_G"):])
+        Plt(2, bin2_different_gammas_test2_HQ10000_G1_0_25_005[4], "m",
+            r"%s " % test2_HQ159[len("test2_HQ10000_G"):])
 
-        data, _ = bin2_different_gammas_test2_HQ10000_G1_0_0_000[0]
-        ax3.plot(data[:, 0], data[:, 1], "r", lw=2, ms=7)
-        data, _ = bin2_different_gammas_test2_HQ10000_G1_0_5_005[0]
-        ax3.plot(data[:, 0], data[:, 1], "g", lw=2, ms=7)
-        data, _ = bin2_different_gammas_test2_HQ10000_G1_0_10_005[0]
-        ax3.plot(data[:, 0], data[:, 1], "k", lw=2, ms=7)
-        data, _ = bin2_different_gammas_test2_HQ10000_G1_0_15_005[0]
-        ax3.plot(data[:, 0], data[:, 1], "b", lw=2, ms=7)
-        data, _ = bin2_different_gammas_test2_HQ10000_G1_0_20_005[0]
-        ax3.plot(data[:, 0], data[:, 1], "c", lw=2, ms=7)
-        data, _ = bin2_different_gammas_test2_HQ10000_G1_0_25_005[0]
-        ax3.plot(data[:, 0], data[:, 1], "m", lw=2, ms=7)
+        Plt(3, bin2_different_gammas_test2_HQ10000_G1_0_0_000[0], "r")
+        Plt(3, bin2_different_gammas_test2_HQ10000_G1_0_5_005[0], "g")
+        Plt(3, bin2_different_gammas_test2_HQ10000_G1_0_10_005[0], "k")
+        Plt(3, bin2_different_gammas_test2_HQ10000_G1_0_15_005[0], "b")
+        Plt(3, bin2_different_gammas_test2_HQ10000_G1_0_20_005[0], "c")
+        Plt(3, bin2_different_gammas_test2_HQ10000_G1_0_25_005[0], "m")
 
-        data, _ = bin2_different_gammas_test2_HQ10000_G1_0_0_000[4]
-        ax4.plot(data[:, 0], data[:, 1], "r", lw=2, ms=7)
-        data, _ = bin2_different_gammas_test2_HQ10000_G1_0_5_005[4]
-        ax4.plot(data[:, 0], data[:, 1], "g", lw=2, ms=7)
-        data, _ = bin2_different_gammas_test2_HQ10000_G1_0_10_005[4]
-        ax4.plot(data[:, 0], data[:, 1], "k", lw=2, ms=7)
-        data, _ = bin2_different_gammas_test2_HQ10000_G1_0_15_005[4]
-        ax4.plot(data[:, 0], data[:, 1], "b", lw=2, ms=7)
-        data, _ = bin2_different_gammas_test2_HQ10000_G1_0_20_005[4]
-        ax4.plot(data[:, 0], data[:, 1], "c", lw=2, ms=7)
-        data, _ = bin2_different_gammas_test2_HQ10000_G1_0_25_005[4]
-        ax4.plot(data[:, 0], data[:, 1], "m", lw=2, ms=7)
+        Plt(4, bin2_different_gammas_test2_HQ10000_G1_0_0_000[4], "r")
+        Plt(4, bin2_different_gammas_test2_HQ10000_G1_0_5_005[4], "g")
+        Plt(4, bin2_different_gammas_test2_HQ10000_G1_0_10_005[4], "k")
+        Plt(4, bin2_different_gammas_test2_HQ10000_G1_0_15_005[4], "b")
+        Plt(4, bin2_different_gammas_test2_HQ10000_G1_0_20_005[4], "c")
+        Plt(4, bin2_different_gammas_test2_HQ10000_G1_0_25_005[4], "m")
 
         def denom_ax5(a):
             return 887.569 * a * np.exp(-.922 * a ** 2)
@@ -2480,66 +2380,42 @@ if Fig_GPerts_gammas_2_0_vt_divided_by_gauss_and_Tsallis:
             exec(f"ax{i}.legend(prop=dict(size=18), numpoints=2, ncol=1,\
                                 frameon=True, loc=0, handlelength=2.5)")
 
-        data, _ = bin2_different_gammas_A_HQ10000_G1_0_0_000[0]
-        ax1.plot(data[:, 0], data[:, 1], "r", lw=2, ms=7)
-        data, _ = bin2_different_gammas_A_HQ10000_G1_0_5_005[0]
-        ax1.plot(data[:, 0], data[:, 1], "g", lw=2, ms=7)
-        data, _ = bin2_different_gammas_A_HQ10000_G1_0_10_005[0]
-        ax1.plot(data[:, 0], data[:, 1], "k", lw=2, ms=7)
-        data, _ = bin2_different_gammas_A_HQ10000_G1_0_40_005[0]
-        ax1.plot(data[:, 0], data[:, 1], "b", lw=2, ms=7)
-        data, _ = bin2_different_gammas_A_HQ10000_G1_0_48_009[0]
-        ax1.plot(data[:, 0], data[:, 1], "c", lw=2, ms=7)
-        data, _ = bin2_different_gammas_A_HQ10000_G1_0_48_093[0]
-        ax1.plot(data[:, 0], data[:, 1], "m", lw=2, ms=7)
+        Plt(1, bin2_different_gammas_A_HQ10000_G1_0_0_000[0], "r")
+        Plt(1, bin2_different_gammas_A_HQ10000_G1_0_5_005[0], "g")
+        Plt(1, bin2_different_gammas_A_HQ10000_G1_0_10_005[0], "k")
+        Plt(1, bin2_different_gammas_A_HQ10000_G1_0_40_005[0], "b")
+        Plt(1, bin2_different_gammas_A_HQ10000_G1_0_48_009[0], "c")
+        Plt(1, bin2_different_gammas_A_HQ10000_G1_0_48_093[0], "m")
 
         ax1.set_title(r"Time evolution of %s, different r bins,\
                         $\gamma = -2.0$" % A_HQ0[:-9], fontsize=20)
 
-        data, _ = bin2_different_gammas_A_HQ10000_G1_0_0_000[4]
-        ax2.plot(data[:, 0], data[:, 1], "r",
-                 label=r"%s " % A_HQ0[len("A_HQ10000_G"):], lw=2, ms=7)
-        data, _ = bin2_different_gammas_A_HQ10000_G1_0_5_005[4]
-        ax2.plot(data[:, 0], data[:, 1], "g",
-                 label=r"%s" % A_HQ36[len("A_HQ10000_G"):], lw=2, ms=7)
-        data, _ = bin2_different_gammas_A_HQ10000_G1_0_10_005[4]
-        ax2.plot(data[:, 0], data[:, 1], "k",
-                 label=r"%s" % A_HQ66[len("A_HQ10000_G"):], lw=2, ms=7)
-        data, _ = bin2_different_gammas_A_HQ10000_G1_0_40_005[4]
-        ax2.plot(data[:, 0], data[:, 1], "b",
-                 label=r"%s" % A_HQ246[len("A_HQ10000_G"):], lw=2, ms=7)
-        data, _ = bin2_different_gammas_A_HQ10000_G1_0_48_009[4]
-        ax2.plot(data[:, 0], data[:, 1], "c",
-                 label=r"%s" % A_HQ298[len("A_HQ10000_G"):], lw=2, ms=7)
-        data, _ = bin2_different_gammas_A_HQ10000_G1_0_48_093[4]
-        ax2.plot(data[:, 0], data[:, 1], "m",
-                 label=r"%s" % A_HQ382[len("A_HQ10000_G"):], lw=2, ms=7)
+        Plt(2, bin2_different_gammas_A_HQ10000_G1_0_0_000[4], "r",
+            r"%s " % A_HQ0[len("A_HQ10000_G"):])
+        Plt(2, bin2_different_gammas_A_HQ10000_G1_0_5_005[4], "g",
+            r"%s " % A_HQ36[len("A_HQ10000_G"):])
+        Plt(2, bin2_different_gammas_A_HQ10000_G1_0_10_005[4], "k",
+            r"%s " % A_HQ66[len("A_HQ10000_G"):])
+        Plt(2, bin2_different_gammas_A_HQ10000_G1_0_40_005[4], "b",
+            r"%s " % A_HQ246[len("A_HQ10000_G"):])
+        Plt(2, bin2_different_gammas_A_HQ10000_G1_0_48_009[4], "c",
+            r"%s " % A_HQ298[len("A_HQ10000_G"):])
+        Plt(2, bin2_different_gammas_A_HQ10000_G1_0_48_093[4], "m",
+            r"%s " % A_HQ382[len("A_HQ10000_G"):])
 
-        data, _ = bin2_different_gammas_A_HQ10000_G1_0_0_000[0]
-        ax3.plot(data[:, 0], data[:, 1], "r", lw=2, ms=7)
-        data, _ = bin2_different_gammas_A_HQ10000_G1_0_5_005[0]
-        ax3.plot(data[:, 0], data[:, 1], "g", lw=2, ms=7)
-        data, _ = bin2_different_gammas_A_HQ10000_G1_0_10_005[0]
-        ax3.plot(data[:, 0], data[:, 1], "k", lw=2, ms=7)
-        data, _ = bin2_different_gammas_A_HQ10000_G1_0_40_005[0]
-        ax3.plot(data[:, 0], data[:, 1], "b", lw=2, ms=7)
-        data, _ = bin2_different_gammas_A_HQ10000_G1_0_48_009[0]
-        ax3.plot(data[:, 0], data[:, 1], "c", lw=2, ms=7)
-        data, _ = bin2_different_gammas_A_HQ10000_G1_0_48_093[0]
-        ax3.plot(data[:, 0], data[:, 1], "m", lw=2, ms=7)
+        Plt(3, bin2_different_gammas_A_HQ10000_G1_0_0_000[0], "r")
+        Plt(3, bin2_different_gammas_A_HQ10000_G1_0_5_005[0], "g")
+        Plt(3, bin2_different_gammas_A_HQ10000_G1_0_10_005[0], "k")
+        Plt(3, bin2_different_gammas_A_HQ10000_G1_0_40_005[0], "b")
+        Plt(3, bin2_different_gammas_A_HQ10000_G1_0_48_009[0], "c")
+        Plt(3, bin2_different_gammas_A_HQ10000_G1_0_48_093[0], "m")
 
-        data, _ = bin2_different_gammas_A_HQ10000_G1_0_0_000[4]
-        ax4.plot(data[:, 0], data[:, 1], "r", lw=2, ms=7)
-        data, _ = bin2_different_gammas_A_HQ10000_G1_0_5_005[4]
-        ax4.plot(data[:, 0], data[:, 1], "g", lw=2, ms=7)
-        data, _ = bin2_different_gammas_A_HQ10000_G1_0_10_005[4]
-        ax4.plot(data[:, 0], data[:, 1], "k", lw=2, ms=7)
-        data, _ = bin2_different_gammas_A_HQ10000_G1_0_40_005[4]
-        ax4.plot(data[:, 0], data[:, 1], "b", lw=2, ms=7)
-        data, _ = bin2_different_gammas_A_HQ10000_G1_0_48_009[4]
-        ax4.plot(data[:, 0], data[:, 1], "c", lw=2, ms=7)
-        data, _ = bin2_different_gammas_A_HQ10000_G1_0_48_093[4]
-        ax4.plot(data[:, 0], data[:, 1], "m", lw=2, ms=7)
+        Plt(4, bin2_different_gammas_A_HQ10000_G1_0_0_000[4], "r")
+        Plt(4, bin2_different_gammas_A_HQ10000_G1_0_5_005[4], "g")
+        Plt(4, bin2_different_gammas_A_HQ10000_G1_0_10_005[4], "k")
+        Plt(4, bin2_different_gammas_A_HQ10000_G1_0_40_005[4], "b")
+        Plt(4, bin2_different_gammas_A_HQ10000_G1_0_48_009[4], "c")
+        Plt(4, bin2_different_gammas_A_HQ10000_G1_0_48_093[4], "m")
 
         def denom_ax5(a):
             return 887.569 * a * np.exp(-.922 * a ** 2)
@@ -2649,57 +2525,37 @@ if Fig_GPerts_gammas_2_0_vt_divided_by_gauss_and_Tsallis:
             exec(f"ax{i}.legend(prop=dict(size=18), numpoints=2, ncol=1,\
                                 frameon=True, loc=0, handlelength=2.5)")
 
-        data, _ = bin2_different_gammas_B_HQ10000_G1_0_0_000[0]
-        ax1.plot(data[:, 0], data[:, 1], "r", lw=2, ms=7)
-        data, _ = bin2_different_gammas_B_HQ10000_G1_0_5_005[0]
-        ax1.plot(data[:, 0], data[:, 1], "g", lw=2, ms=7)
-        data, _ = bin2_different_gammas_B_HQ10000_G1_0_10_005[0]
-        ax1.plot(data[:, 0], data[:, 1], "k", lw=2, ms=7)
-        data, _ = bin2_different_gammas_B_HQ10000_G1_0_198_000[0]
-        ax1.plot(data[:, 0], data[:, 1], "b", lw=2, ms=7)
-        data, _ = bin2_different_gammas_B_HQ10000_G1_0_198_093[0]
-        ax1.plot(data[:, 0], data[:, 1], "c", lw=2, ms=7)
+        Plt(1, bin2_different_gammas_B_HQ10000_G1_0_0_000[0], "r")
+        Plt(1, bin2_different_gammas_B_HQ10000_G1_0_5_005[0], "g")
+        Plt(1, bin2_different_gammas_B_HQ10000_G1_0_10_005[0], "k")
+        Plt(1, bin2_different_gammas_B_HQ10000_G1_0_198_000[0], "b")
+        Plt(1, bin2_different_gammas_B_HQ10000_G1_0_198_093[0], "c")
 
         ax1.set_title(r"Time evolution of %s, different r bins,\
                       $\gamma = -2.0$" % B_HQ0[:-9], fontsize=20)
 
-        data, _ = bin2_different_gammas_B_HQ10000_G1_0_0_000[4]
-        ax2.plot(data[:, 0], data[:, 1], "r",
-                 label=r"%s" % B_HQ0[len("B_HQ10000_G"):], lw=2, ms=7)
-        data, _ = bin2_different_gammas_B_HQ10000_G1_0_5_005[4]
-        ax2.plot(data[:, 0], data[:, 1], "g",
-                 label=r"%s" % B_HQ36[len("B_HQ10000_G"):], lw=2, ms=7)
-        data, _ = bin2_different_gammas_B_HQ10000_G1_0_10_005[4]
-        ax2.plot(data[:, 0], data[:, 1], "k",
-                 label=r"%s" % B_HQ66[len("B_HQ10000_G"):], lw=2, ms=7)
-        data, _ = bin2_different_gammas_B_HQ10000_G1_0_198_000[4]
-        ax2.plot(data[:, 0], data[:, 1], "b",
-                 label=r"%s" % B_HQ294[len("B_HQ10000_G"):], lw=2, ms=7)
-        data, _ = bin2_different_gammas_B_HQ10000_G1_0_198_093[4]
-        ax2.plot(data[:, 0], data[:, 1], "c",
-                 label=r"%s" % B_HQ382[len("B_HQ10000_G"):], lw=2, ms=7)
+        Plt(2, bin2_different_gammas_B_HQ10000_G1_0_0_000[4], "r",
+            r"%s" % B_HQ0[len("B_HQ10000_G"):])
+        Plt(2, bin2_different_gammas_B_HQ10000_G1_0_5_005[4], "g",
+            r"%s" % B_HQ36[len("B_HQ10000_G"):])
+        Plt(2, bin2_different_gammas_B_HQ10000_G1_0_10_005[4], "k",
+            r"%s" % B_HQ66[len("B_HQ10000_G"):])
+        Plt(2, bin2_different_gammas_B_HQ10000_G1_0_198_000[4], "b",
+            r"%s" % B_HQ294[len("B_HQ10000_G"):])
+        Plt(2, bin2_different_gammas_B_HQ10000_G1_0_198_093[4], "c",
+            r"%s" % B_HQ382[len("B_HQ10000_G"):])
 
-        data, _ = bin2_different_gammas_B_HQ10000_G1_0_0_000[0]
-        ax3.plot(data[:, 0], data[:, 1], "r", lw=2, ms=7)
-        data, _ = bin2_different_gammas_B_HQ10000_G1_0_5_005[0]
-        ax3.plot(data[:, 0], data[:, 1], "g", lw=2, ms=7)
-        data, _ = bin2_different_gammas_B_HQ10000_G1_0_10_005[0]
-        ax3.plot(data[:, 0], data[:, 1], "k", lw=2, ms=7)
-        data, _ = bin2_different_gammas_B_HQ10000_G1_0_198_000[0]
-        ax3.plot(data[:, 0], data[:, 1], "b", lw=2, ms=7)
-        data, _ = bin2_different_gammas_B_HQ10000_G1_0_198_093[0]
-        ax3.plot(data[:, 0], data[:, 1], "c", lw=2, ms=7)
+        Plt(3, bin2_different_gammas_B_HQ10000_G1_0_0_000[0], "r")
+        Plt(3, bin2_different_gammas_B_HQ10000_G1_0_5_005[0], "g")
+        Plt(3, bin2_different_gammas_B_HQ10000_G1_0_10_005[0], "k")
+        Plt(3, bin2_different_gammas_B_HQ10000_G1_0_198_000[0], "b")
+        Plt(3, bin2_different_gammas_B_HQ10000_G1_0_198_093[0], "c")
 
-        data, _ = bin2_different_gammas_B_HQ10000_G1_0_0_000[4]
-        ax4.plot(data[:, 0], data[:, 1], "r", lw=2, ms=7)
-        data, _ = bin2_different_gammas_B_HQ10000_G1_0_5_005[4]
-        ax4.plot(data[:, 0], data[:, 1], "g", lw=2, ms=7)
-        data, _ = bin2_different_gammas_B_HQ10000_G1_0_10_005[4]
-        ax4.plot(data[:, 0], data[:, 1], "k", lw=2, ms=7)
-        data, _ = bin2_different_gammas_B_HQ10000_G1_0_198_000[4]
-        ax4.plot(data[:, 0], data[:, 1], "b", lw=2, ms=7)
-        data, _ = bin2_different_gammas_B_HQ10000_G1_0_198_093[4]
-        ax4.plot(data[:, 0], data[:, 1], "c", lw=2, ms=7)
+        Plt(4, bin2_different_gammas_B_HQ10000_G1_0_0_000[4], "r")
+        Plt(4, bin2_different_gammas_B_HQ10000_G1_0_5_005[4], "g")
+        Plt(4, bin2_different_gammas_B_HQ10000_G1_0_10_005[4], "k")
+        Plt(4, bin2_different_gammas_B_HQ10000_G1_0_198_000[4], "b")
+        Plt(4, bin2_different_gammas_B_HQ10000_G1_0_198_093[4], "c")
 
         def denom_ax5(a):
             return 914.415 * a * np.exp(-.930 * a ** 2)
@@ -2815,16 +2671,11 @@ if Fig_GPerts_gammas_2_5_vt_divided_by_gauss_and_Tsallis:
             exec(f"ax{i}.legend(prop=dict(size=18), numpoints=2, ncol=1,\
                                 frameon=True, loc=0, handlelength=2.5)")
 
-        data, _ = bin3__different_gammas_HQ10000_G1_2_1_005[0]
-        ax1.plot(data[:, 0], data[:, 1], "b", lw=2, ms=7)
-        data, _ = bin3_different_gammas_HQ10000_G1_2_3_005[0]
-        ax1.plot(data[:, 0], data[:, 1], "r", lw=2, ms=7)
-        data, _ = bin3_different_gammas_HQ10000_G1_2_5_005[0]
-        ax1.plot(data[:, 0], data[:, 1], "g", lw=2, ms=7)
-        data, _ = bin3_different_gammas_HQ10000_G1_2_7_005[0]
-        ax1.plot(data[:, 0], data[:, 1], "k", lw=2, ms=7)
-        data, _ = bin3_different_gammas_HQ10000_G1_2_9_005[0]
-        ax1.plot(data[:, 0], data[:, 1], "c", lw=2, ms=7)
+        Plt(1, bin3_different_gammas_HQ10000_G1_2_1_005[0], "r")
+        Plt(1, bin3_different_gammas_HQ10000_G1_2_3_005[0], "g")
+        Plt(1, bin3_different_gammas_HQ10000_G1_2_5_005[0], "k")
+        Plt(1, bin3_different_gammas_HQ10000_G1_2_7_005[0], "b")
+        Plt(1, bin3_different_gammas_HQ10000_G1_2_9_005[0], "c")
 
         ax1.set_title(r"Time evolution of files = %s, different r bins,\
                       $\gamma = -2.5$" % HQ0[:-9], fontsize=20)
@@ -2845,27 +2696,17 @@ if Fig_GPerts_gammas_2_5_vt_divided_by_gauss_and_Tsallis:
         ax2.plot(data[:, 0], data[:, 1], "c",
                  label=r"%s" % HQ60[len("HQ10000_G"):], lw=2, ms=7)
 
-        data, _ = bin3_different_gammas_HQ10000_G1_2_1_005[0]
-        ax3.plot(data[:, 0], data[:, 1], "r", lw=2, ms=7)
-        data, _ = bin3_different_gammas_HQ10000_G1_2_3_005[0]
-        ax3.plot(data[:, 0], data[:, 1], "g", lw=2, ms=7)
-        data, _ = bin3_different_gammas_HQ10000_G1_2_5_005[0]
-        ax3.plot(data[:, 0], data[:, 1], "k", lw=2, ms=7)
-        data, _ = bin3_different_gammas_HQ10000_G1_2_7_005[0]
-        ax3.plot(data[:, 0], data[:, 1], "b", lw=2, ms=7)
-        data, _ = bin3_different_gammas_HQ10000_G1_2_9_005[0]
-        ax3.plot(data[:, 0], data[:, 1], "c", lw=2, ms=7)
+        Plt(3, bin3_different_gammas_HQ10000_G1_2_1_005[0], "r")
+        Plt(3, bin3_different_gammas_HQ10000_G1_2_3_005[0], "g")
+        Plt(3, bin3_different_gammas_HQ10000_G1_2_5_005[0], "k")
+        Plt(3, bin3_different_gammas_HQ10000_G1_2_7_005[0], "b")
+        Plt(3, bin3_different_gammas_HQ10000_G1_2_9_005[0], "c")
 
-        data, _ = bin3_different_gammas_HQ10000_G1_2_1_005[4]
-        ax4.plot(data[:, 0], data[:, 1], "r", lw=2, ms=7)
-        data, _ = bin3_different_gammas_HQ10000_G1_2_3_005[4]
-        ax4.plot(data[:, 0], data[:, 1], "g", lw=2, ms=7)
-        data, _ = bin3_different_gammas_HQ10000_G1_2_5_005[4]
-        ax4.plot(data[:, 0], data[:, 1], "k", lw=2, ms=7)
-        data, _ = bin3_different_gammas_HQ10000_G1_2_7_005[4]
-        ax4.plot(data[:, 0], data[:, 1], "b", lw=2, ms=7)
-        data, _ = bin3_different_gammas_HQ10000_G1_2_9_005[4]
-        ax4.plot(data[:, 0], data[:, 1], "c", lw=2, ms=7)
+        Plt(4, bin3_different_gammas_HQ10000_G1_2_1_005[4], "r")
+        Plt(4, bin3_different_gammas_HQ10000_G1_2_3_005[4], "g")
+        Plt(4, bin3_different_gammas_HQ10000_G1_2_5_005[4], "k")
+        Plt(4, bin3_different_gammas_HQ10000_G1_2_7_005[4], "b")
+        Plt(4, bin3_different_gammas_HQ10000_G1_2_9_005[4], "c")
 
         def denom_ax5(a):
             return np.log10(a) * np.exp(-.5 * a ** 2)
@@ -2926,18 +2767,12 @@ if Fig_GPerts_gammas_2_5_vt_divided_by_gauss_and_Tsallis:
             exec(f"ax{i}.legend(prop=dict(size=18), numpoints=2, ncol=1,\
                                 frameon=True, loc=0, handlelength=2.5)")
 
-        data, _ = bin3_different_gammas_test2_HQ10000_G1_0_0_000[0]
-        ax1.plot(data[:, 0], data[:, 1], "r", lw=2, ms=7)
-        data, _ = bin3_different_gammas_test2_HQ10000_G1_0_5_005[0]
-        ax1.plot(data[:, 0], data[:, 1], "g", lw=2, ms=7)
-        data, _ = bin3_different_gammas_test2_HQ10000_G1_0_10_005[0]
-        ax1.plot(data[:, 0], data[:, 1], "k", lw=2, ms=7)
-        data, _ = bin3_different_gammas_test2_HQ10000_G1_0_15_005[0]
-        ax1.plot(data[:, 0], data[:, 1], "b", lw=2, ms=7)
-        data, _ = bin3_different_gammas_test2_HQ10000_G1_0_20_005[0]
-        ax1.plot(data[:, 0], data[:, 1], "c", lw=2, ms=7)
-        data, _ = bin3_different_gammas_test2_HQ10000_G1_0_25_005[0]
-        ax1.plot(data[:, 0], data[:, 1], "m", lw=2, ms=7)
+        Plt(1, bin3_different_gammas_test2_HQ10000_G1_0_0_000[0], "r")
+        Plt(1, bin3_different_gammas_test2_HQ10000_G1_0_5_005[0], "g")
+        Plt(1, bin3_different_gammas_test2_HQ10000_G1_0_10_005[0], "k")
+        Plt(1, bin3_different_gammas_test2_HQ10000_G1_0_15_005[0], "b")
+        Plt(1, bin3_different_gammas_test2_HQ10000_G1_0_20_005[0], "c")
+        Plt(1, bin3_different_gammas_test2_HQ10000_G1_0_25_005[0], "m")
 
         ax1.set_title(r"Time evolution of files = %s, different r bins,\
                       $\gamma = -2.5$" % test2_HQ0[:-9], fontsize=20)
@@ -2967,31 +2802,19 @@ if Fig_GPerts_gammas_2_5_vt_divided_by_gauss_and_Tsallis:
                  label=r"%s" % test2_HQ159[len("test2_HQ10000_G"):],
                  lw=2, ms=7)
 
-        data, _ = bin3_different_gammas_test2_HQ10000_G1_0_0_000[0]
-        ax3.plot(data[:, 0], data[:, 1], "r", lw=2, ms=7)
-        data, _ = bin3_different_gammas_test2_HQ10000_G1_0_5_005[0]
-        ax3.plot(data[:, 0], data[:, 1], "g", lw=2, ms=7)
-        data, _ = bin3_different_gammas_test2_HQ10000_G1_0_10_005[0]
-        ax3.plot(data[:, 0], data[:, 1], "k", lw=2, ms=7)
-        data, _ = bin3_different_gammas_test2_HQ10000_G1_0_15_005[0]
-        ax3.plot(data[:, 0], data[:, 1], "b", lw=2, ms=7)
-        data, _ = bin3_different_gammas_test2_HQ10000_G1_0_20_005[0]
-        ax3.plot(data[:, 0], data[:, 1], "c", lw=2, ms=7)
-        data, _ = bin3_different_gammas_test2_HQ10000_G1_0_25_005[0]
-        ax3.plot(data[:, 0], data[:, 1], "m", lw=2, ms=7)
+        Plt(3, bin3_different_gammas_test2_HQ10000_G1_0_0_000[0], "r")
+        Plt(3, bin3_different_gammas_test2_HQ10000_G1_0_5_005[0], "g")
+        Plt(3, bin3_different_gammas_test2_HQ10000_G1_0_10_005[0], "k")
+        Plt(3, bin3_different_gammas_test2_HQ10000_G1_0_15_005[0], "b")
+        Plt(3, bin3_different_gammas_test2_HQ10000_G1_0_20_005[0], "c")
+        Plt(3, bin3_different_gammas_test2_HQ10000_G1_0_25_005[0], "m")
 
-        data, _ = bin3_different_gammas_test2_HQ10000_G1_0_0_000[4]
-        ax4.plot(data[:, 0], data[:, 1], "r", lw=2, ms=7)
-        data, _ = bin3_different_gammas_test2_HQ10000_G1_0_5_005[4]
-        ax4.plot(data[:, 0], data[:, 1], "g", lw=2, ms=7)
-        data, _ = bin3_different_gammas_test2_HQ10000_G1_0_10_005[4]
-        ax4.plot(data[:, 0], data[:, 1], "k", lw=2, ms=7)
-        data, _ = bin3_different_gammas_test2_HQ10000_G1_0_15_005[4]
-        ax4.plot(data[:, 0], data[:, 1], "b", lw=2, ms=7)
-        data, _ = bin3_different_gammas_test2_HQ10000_G1_0_20_005[4]
-        ax4.plot(data[:, 0], data[:, 1], "c", lw=2, ms=7)
-        data, _ = bin3_different_gammas_test2_HQ10000_G1_0_25_005[4]
-        ax4.plot(data[:, 0], data[:, 1], "m", lw=2, ms=7)
+        Plt(4, bin3_different_gammas_test2_HQ10000_G1_0_0_000[4], "r")
+        Plt(4, bin3_different_gammas_test2_HQ10000_G1_0_5_005[4], "g")
+        Plt(4, bin3_different_gammas_test2_HQ10000_G1_0_10_005[4], "k")
+        Plt(4, bin3_different_gammas_test2_HQ10000_G1_0_15_005[4], "b")
+        Plt(4, bin3_different_gammas_test2_HQ10000_G1_0_20_005[4], "c")
+        Plt(4, bin3_different_gammas_test2_HQ10000_G1_0_25_005[4], "m")
 
         def denom_ax5(a):
             return 887.569 * a * np.exp(-.922 * a ** 2)
@@ -3101,18 +2924,12 @@ if Fig_GPerts_gammas_2_5_vt_divided_by_gauss_and_Tsallis:
             exec(f"ax{i}.legend(prop=dict(size=18), numpoints=2, ncol=1,\
                                 frameon=True, loc=0, handlelength=2.5)")
 
-        data, _ = bin3_different_gammas_A_HQ10000_G1_0_0_000[0]
-        ax1.plot(data[:, 0], data[:, 1], "r", lw=2, ms=7)
-        data, _ = bin3_different_gammas_A_HQ10000_G1_0_5_005[0]
-        ax1.plot(data[:, 0], data[:, 1], "g", lw=2, ms=7)
-        data, _ = bin3_different_gammas_A_HQ10000_G1_0_10_005[0]
-        ax1.plot(data[:, 0], data[:, 1], "k", lw=2, ms=7)
-        data, _ = bin3_different_gammas_A_HQ10000_G1_0_40_005[0]
-        ax1.plot(data[:, 0], data[:, 1], "b", lw=2, ms=7)
-        data, _ = bin3_different_gammas_A_HQ10000_G1_0_48_009[0]
-        ax1.plot(data[:, 0], data[:, 1], "c", lw=2, ms=7)
-        data, _ = bin3_different_gammas_A_HQ10000_G1_0_48_093[0]
-        ax1.plot(data[:, 0], data[:, 1], "m", lw=2, ms=7)
+        Plt(1, bin3_different_gammas_A_HQ10000_G1_0_0_000[0], "r")
+        Plt(1, bin3_different_gammas_A_HQ10000_G1_0_5_005[0], "g")
+        Plt(1, bin3_different_gammas_A_HQ10000_G1_0_10_005[0], "k")
+        Plt(1, bin3_different_gammas_A_HQ10000_G1_0_40_005[0], "b")
+        Plt(1, bin3_different_gammas_A_HQ10000_G1_0_48_009[0], "c")
+        Plt(1, bin3_different_gammas_A_HQ10000_G1_0_48_093[0], "m")
 
         ax1.set_title(r"Time evolution of %s, different r bins,\
                       $\gamma = -2.5$" % A_HQ0[:-9], fontsize=20)
@@ -3142,31 +2959,19 @@ if Fig_GPerts_gammas_2_5_vt_divided_by_gauss_and_Tsallis:
                  label=r"%s" % A_HQ382[len("A_HQ10000_G"):],
                  lw=2, ms=7)
 
-        data, _ = bin3_different_gammas_A_HQ10000_G1_0_0_000[0]
-        ax3.plot(data[:, 0], data[:, 1], "r", lw=2, ms=7)
-        data, _ = bin3_different_gammas_A_HQ10000_G1_0_5_005[0]
-        ax3.plot(data[:, 0], data[:, 1], "g", lw=2, ms=7)
-        data, _ = bin3_different_gammas_A_HQ10000_G1_0_10_005[0]
-        ax3.plot(data[:, 0], data[:, 1], "k", lw=2, ms=7)
-        data, _ = bin3_different_gammas_A_HQ10000_G1_0_40_005[0]
-        ax3.plot(data[:, 0], data[:, 1], "b", lw=2, ms=7)
-        data, _ = bin3_different_gammas_A_HQ10000_G1_0_48_009[0]
-        ax3.plot(data[:, 0], data[:, 1], "c", lw=2, ms=7)
-        data, _ = bin3_different_gammas_A_HQ10000_G1_0_48_093[0]
-        ax3.plot(data[:, 0], data[:, 1], "m", lw=2, ms=7)
+        Plt(3, bin3_different_gammas_A_HQ10000_G1_0_0_000[0], "r")
+        Plt(3, bin3_different_gammas_A_HQ10000_G1_0_5_005[0], "g")
+        Plt(3, bin3_different_gammas_A_HQ10000_G1_0_10_005[0], "k")
+        Plt(3, bin3_different_gammas_A_HQ10000_G1_0_40_005[0], "b")
+        Plt(3, bin3_different_gammas_A_HQ10000_G1_0_48_009[0], "c")
+        Plt(3, bin3_different_gammas_A_HQ10000_G1_0_48_093[0], "m")
 
-        data, _ = bin3_different_gammas_A_HQ10000_G1_0_0_000[4]
-        ax4.plot(data[:, 0], data[:, 1], "r", lw=2, ms=7)
-        data, _ = bin3_different_gammas_A_HQ10000_G1_0_5_005[4]
-        ax4.plot(data[:, 0], data[:, 1], "g", lw=2, ms=7)
-        data, _ = bin3_different_gammas_A_HQ10000_G1_0_10_005[4]
-        ax4.plot(data[:, 0], data[:, 1], "k", lw=2, ms=7)
-        data, _ = bin3_different_gammas_A_HQ10000_G1_0_40_005[4]
-        ax4.plot(data[:, 0], data[:, 1], "b", lw=2, ms=7)
-        data, _ = bin3_different_gammas_A_HQ10000_G1_0_48_009[4]
-        ax4.plot(data[:, 0], data[:, 1], "c", lw=2, ms=7)
-        data, _ = bin3_different_gammas_A_HQ10000_G1_0_48_093[4]
-        ax4.plot(data[:, 0], data[:, 1], "m", lw=2, ms=7)
+        Plt(4, bin3_different_gammas_A_HQ10000_G1_0_0_000[4], "r")
+        Plt(4, bin3_different_gammas_A_HQ10000_G1_0_5_005[4], "g")
+        Plt(4, bin3_different_gammas_A_HQ10000_G1_0_10_005[4], "k")
+        Plt(4, bin3_different_gammas_A_HQ10000_G1_0_40_005[4], "b")
+        Plt(4, bin3_different_gammas_A_HQ10000_G1_0_48_009[4], "c")
+        Plt(4, bin3_different_gammas_A_HQ10000_G1_0_48_093[4], "m")
 
         def denom_ax5(a):
             return 887.569 * a * np.exp(-.922 * a ** 2)
@@ -3276,16 +3081,11 @@ if Fig_GPerts_gammas_2_5_vt_divided_by_gauss_and_Tsallis:
             exec(f"ax{i}.legend(prop=dict(size=18), numpoints=2, ncol=1,\
                                 frameon=True, loc=0, handlelength=2.5)")
 
-        data, _ = bin3_different_gammas_B_HQ10000_G1_0_0_000[0]
-        ax1.plot(data[:, 0], data[:, 1], "r", lw=2, ms=7)
-        data, _ = bin3_different_gammas_B_HQ10000_G1_0_5_005[0]
-        ax1.plot(data[:, 0], data[:, 1], "g", lw=2, ms=7)
-        data, _ = bin3_different_gammas_B_HQ10000_G1_0_10_005[0]
-        ax1.plot(data[:, 0], data[:, 1], "k", lw=2, ms=7)
-        data, _ = bin3_different_gammas_B_HQ10000_G1_0_198_000[0]
-        ax1.plot(data[:, 0], data[:, 1], "b", lw=2, ms=7)
-        data, _ = bin3_different_gammas_B_HQ10000_G1_0_198_093[0]
-        ax1.plot(data[:, 0], data[:, 1], "c", lw=2, ms=7)
+        Plt(1, bin3_different_gammas_B_HQ10000_G1_0_0_000[0], "r")
+        Plt(1, bin3_different_gammas_B_HQ10000_G1_0_5_005[0], "g")
+        Plt(1, bin3_different_gammas_B_HQ10000_G1_0_10_005[0], "k")
+        Plt(1, bin3_different_gammas_B_HQ10000_G1_0_198_000[0], "b")
+        Plt(1, bin3_different_gammas_B_HQ10000_G1_0_198_093[0], "c")
 
         ax1.set_title(r"Time evolution of %s, different r bins,\
                       $\gamma = -2.5$" % B_HQ0[:-9], fontsize=20)
@@ -3306,27 +3106,17 @@ if Fig_GPerts_gammas_2_5_vt_divided_by_gauss_and_Tsallis:
         ax2.plot(data[:, 0], data[:, 1], "c",
                  label=r"%s" % B_HQ382[len("B_HQ10000_G"):], lw=2, ms=7)
 
-        data, _ = bin3_different_gammas_B_HQ10000_G1_0_0_000[0]
-        ax3.plot(data[:, 0], data[:, 1], "r", lw=2, ms=7)
-        data, _ = bin3_different_gammas_B_HQ10000_G1_0_5_005[0]
-        ax3.plot(data[:, 0], data[:, 1], "g", lw=2, ms=7)
-        data, _ = bin3_different_gammas_B_HQ10000_G1_0_10_005[0]
-        ax3.plot(data[:, 0], data[:, 1], "k", lw=2, ms=7)
-        data, _ = bin3_different_gammas_B_HQ10000_G1_0_198_000[0]
-        ax3.plot(data[:, 0], data[:, 1], "b", lw=2, ms=7)
-        data, _ = bin3_different_gammas_B_HQ10000_G1_0_198_093[0]
-        ax3.plot(data[:, 0], data[:, 1], "c", lw=2, ms=7)
+        Plt(3, bin3_different_gammas_B_HQ10000_G1_0_0_000[0], "r")
+        Plt(3, bin3_different_gammas_B_HQ10000_G1_0_5_005[0], "g")
+        Plt(3, bin3_different_gammas_B_HQ10000_G1_0_10_005[0], "k")
+        Plt(3, bin3_different_gammas_B_HQ10000_G1_0_198_000[0], "b")
+        Plt(3, bin3_different_gammas_B_HQ10000_G1_0_198_093[0], "c")
 
-        data, _ = bin3_different_gammas_B_HQ10000_G1_0_0_000[4]
-        ax4.plot(data[:, 0], data[:, 1], "r", lw=2, ms=7)
-        data, _ = bin3_different_gammas_B_HQ10000_G1_0_5_005[4]
-        ax4.plot(data[:, 0], data[:, 1], "g", lw=2, ms=7)
-        data, _ = bin3_different_gammas_B_HQ10000_G1_0_10_005[4]
-        ax4.plot(data[:, 0], data[:, 1], "k", lw=2, ms=7)
-        data, _ = bin3_different_gammas_B_HQ10000_G1_0_198_000[4]
-        ax4.plot(data[:, 0], data[:, 1], "b", lw=2, ms=7)
-        data, _ = bin3_different_gammas_B_HQ10000_G1_0_198_093[4]
-        ax4.plot(data[:, 0], data[:, 1], "c", lw=2, ms=7)
+        Plt(4, bin3_different_gammas_B_HQ10000_G1_0_0_000[4], "r")
+        Plt(4, bin3_different_gammas_B_HQ10000_G1_0_5_005[4], "g")
+        Plt(4, bin3_different_gammas_B_HQ10000_G1_0_10_005[4], "k")
+        Plt(4, bin3_different_gammas_B_HQ10000_G1_0_198_000[4], "b")
+        Plt(4, bin3_different_gammas_B_HQ10000_G1_0_198_093[4], "c")
 
         def denom_ax5(a):
             return 914.415 * a * np.exp(-.930 * a ** 2)
@@ -3441,16 +3231,11 @@ if Fig_GPerts_gammas_3_0_vt_divided_by_gauss_and_Tsallis:
             exec(f"ax{i}.legend(prop=dict(size=18), numpoints=2, ncol=1,\
                                 frameon=True, loc=0, handlelength=2.5)")
 
-        data, _ = bin4__different_gammas_HQ10000_G1_2_1_005[0]
-        ax1.plot(data[:, 0], data[:, 1], "b", lw=2, ms=7)
-        data, _ = bin4_different_gammas_HQ10000_G1_2_3_005[0]
-        ax1.plot(data[:, 0], data[:, 1], "r", lw=2, ms=7)
-        data, _ = bin4_different_gammas_HQ10000_G1_2_5_005[0]
-        ax1.plot(data[:, 0], data[:, 1], "g", lw=2, ms=7)
-        data, _ = bin4_different_gammas_HQ10000_G1_2_7_005[0]
-        ax1.plot(data[:, 0], data[:, 1], "k", lw=2, ms=7)
-        data, _ = bin4_different_gammas_HQ10000_G1_2_9_005[0]
-        ax1.plot(data[:, 0], data[:, 1], "c", lw=2, ms=7)
+        Plt(1, bin4_different_gammas_HQ10000_G1_2_1_005[0], "r")
+        Plt(1, bin4_different_gammas_HQ10000_G1_2_3_005[0], "g")
+        Plt(1, bin4_different_gammas_HQ10000_G1_2_5_005[0], "k")
+        Plt(1, bin4_different_gammas_HQ10000_G1_2_7_005[0], "b")
+        Plt(1, bin4_different_gammas_HQ10000_G1_2_9_005[0], "c")
 
         ax1.set_title(r"Time evolution of files = %s, different r bins,\
                       $\gamma = -3.0$" % HQ0[:-9], fontsize=20)
@@ -3476,27 +3261,17 @@ if Fig_GPerts_gammas_3_0_vt_divided_by_gauss_and_Tsallis:
                  label=r"%s" % HQ60[len("HQ10000_G"):],
                  lw=2, ms=7)
 
-        data, _ = bin4_different_gammas_HQ10000_G1_2_1_005[0]
-        ax3.plot(data[:, 0], data[:, 1], "r", lw=2, ms=7)
-        data, _ = bin4_different_gammas_HQ10000_G1_2_3_005[0]
-        ax3.plot(data[:, 0], data[:, 1], "g", lw=2, ms=7)
-        data, _ = bin4_different_gammas_HQ10000_G1_2_5_005[0]
-        ax3.plot(data[:, 0], data[:, 1], "k", lw=2, ms=7)
-        data, _ = bin4_different_gammas_HQ10000_G1_2_7_005[0]
-        ax3.plot(data[:, 0], data[:, 1], "b", lw=2, ms=7)
-        data, _ = bin4_different_gammas_HQ10000_G1_2_9_005[0]
-        ax3.plot(data[:, 0], data[:, 1], "c", lw=2, ms=7)
+        Plt(3, bin4_different_gammas_HQ10000_G1_2_1_005[0], "r")
+        Plt(3, bin4_different_gammas_HQ10000_G1_2_3_005[0], "g")
+        Plt(3, bin4_different_gammas_HQ10000_G1_2_5_005[0], "k")
+        Plt(3, bin4_different_gammas_HQ10000_G1_2_7_005[0], "b")
+        Plt(3, bin4_different_gammas_HQ10000_G1_2_9_005[0], "c")
 
-        data, _ = bin4_different_gammas_HQ10000_G1_2_1_005[4]
-        ax4.plot(data[:, 0], data[:, 1], "r", lw=2, ms=7)
-        data, _ = bin4_different_gammas_HQ10000_G1_2_3_005[4]
-        ax4.plot(data[:, 0], data[:, 1], "g", lw=2, ms=7)
-        data, _ = bin4_different_gammas_HQ10000_G1_2_5_005[4]
-        ax4.plot(data[:, 0], data[:, 1], "k", lw=2, ms=7)
-        data, _ = bin4_different_gammas_HQ10000_G1_2_7_005[4]
-        ax4.plot(data[:, 0], data[:, 1], "b", lw=2, ms=7)
-        data, _ = bin4_different_gammas_HQ10000_G1_2_9_005[4]
-        ax4.plot(data[:, 0], data[:, 1], "c", lw=2, ms=7)
+        Plt(4, bin4_different_gammas_HQ10000_G1_2_1_005[4], "r")
+        Plt(4, bin4_different_gammas_HQ10000_G1_2_3_005[4], "g")
+        Plt(4, bin4_different_gammas_HQ10000_G1_2_5_005[4], "k")
+        Plt(4, bin4_different_gammas_HQ10000_G1_2_7_005[4], "b")
+        Plt(4, bin4_different_gammas_HQ10000_G1_2_9_005[4], "c")
 
         def denom_ax5(a):
             return np.log10(a) * np.exp(-.5 * a ** 2)
@@ -3558,18 +3333,12 @@ if Fig_GPerts_gammas_3_0_vt_divided_by_gauss_and_Tsallis:
             exec(f"ax{i}.legend(prop=dict(size=18), numpoints=2, ncol=1,\
                                 frameon=True, loc=0, handlelength=2.5)")
 
-        data, _ = bin4_different_gammas_test2_HQ10000_G1_0_0_000[0]
-        ax1.plot(data[:, 0], data[:, 1], "r", lw=2, ms=7)
-        data, _ = bin4_different_gammas_test2_HQ10000_G1_0_5_005[0]
-        ax1.plot(data[:, 0], data[:, 1], "g", lw=2, ms=7)
-        data, _ = bin4_different_gammas_test2_HQ10000_G1_0_10_005[0]
-        ax1.plot(data[:, 0], data[:, 1], "k", lw=2, ms=7)
-        data, _ = bin4_different_gammas_test2_HQ10000_G1_0_15_005[0]
-        ax1.plot(data[:, 0], data[:, 1], "b", lw=2, ms=7)
-        data, _ = bin4_different_gammas_test2_HQ10000_G1_0_20_005[0]
-        ax1.plot(data[:, 0], data[:, 1], "c", lw=2, ms=7)
-        data, _ = bin4_different_gammas_test2_HQ10000_G1_0_25_005[0]
-        ax1.plot(data[:, 0], data[:, 1], "m", lw=2, ms=7)
+        Plt(1, bin4_different_gammas_test2_HQ10000_G1_0_0_000[0], "r")
+        Plt(1, bin4_different_gammas_test2_HQ10000_G1_0_5_005[0], "g")
+        Plt(1, bin4_different_gammas_test2_HQ10000_G1_0_10_005[0], "k")
+        Plt(1, bin4_different_gammas_test2_HQ10000_G1_0_15_005[0], "b")
+        Plt(1, bin4_different_gammas_test2_HQ10000_G1_0_20_005[0], "c")
+        Plt(1, bin4_different_gammas_test2_HQ10000_G1_0_25_005[0], "m")
 
         ax1.set_title(r"Time evolution of files = %s, different r bins,\
                       $\gamma = -3.0$" % test2_HQ0[:-9], fontsize=20)
@@ -3599,31 +3368,19 @@ if Fig_GPerts_gammas_3_0_vt_divided_by_gauss_and_Tsallis:
                  label=r"%s" % test2_HQ159[len("test2_HQ10000_G"):],
                  lw=2, ms=7)
 
-        data, _ = bin4_different_gammas_test2_HQ10000_G1_0_0_000[0]
-        ax3.plot(data[:, 0], data[:, 1], "r", lw=2, ms=7)
-        data, _ = bin4_different_gammas_test2_HQ10000_G1_0_5_005[0]
-        ax3.plot(data[:, 0], data[:, 1], "g", lw=2, ms=7)
-        data, _ = bin4_different_gammas_test2_HQ10000_G1_0_10_005[0]
-        ax3.plot(data[:, 0], data[:, 1], "k", lw=2, ms=7)
-        data, _ = bin4_different_gammas_test2_HQ10000_G1_0_15_005[0]
-        ax3.plot(data[:, 0], data[:, 1], "b", lw=2, ms=7)
-        data, _ = bin4_different_gammas_test2_HQ10000_G1_0_20_005[0]
-        ax3.plot(data[:, 0], data[:, 1], "c", lw=2, ms=7)
-        data, _ = bin4_different_gammas_test2_HQ10000_G1_0_25_005[0]
-        ax3.plot(data[:, 0], data[:, 1], "m", lw=2, ms=7)
+        Plt(3, bin4_different_gammas_test2_HQ10000_G1_0_0_000[0], "r")
+        Plt(3, bin4_different_gammas_test2_HQ10000_G1_0_5_005[0], "g")
+        Plt(3, bin4_different_gammas_test2_HQ10000_G1_0_10_005[0], "k")
+        Plt(3, bin4_different_gammas_test2_HQ10000_G1_0_15_005[0], "b")
+        Plt(3, bin4_different_gammas_test2_HQ10000_G1_0_20_005[0], "c")
+        Plt(3, bin4_different_gammas_test2_HQ10000_G1_0_25_005[0], "m")
 
-        data, _ = bin4_different_gammas_test2_HQ10000_G1_0_0_000[4]
-        ax4.plot(data[:, 0], data[:, 1], "r", lw=2, ms=7)
-        data, _ = bin4_different_gammas_test2_HQ10000_G1_0_5_005[4]
-        ax4.plot(data[:, 0], data[:, 1], "g", lw=2, ms=7)
-        data, _ = bin4_different_gammas_test2_HQ10000_G1_0_10_005[4]
-        ax4.plot(data[:, 0], data[:, 1], "k", lw=2, ms=7)
-        data, _ = bin4_different_gammas_test2_HQ10000_G1_0_15_005[4]
-        ax4.plot(data[:, 0], data[:, 1], "b", lw=2, ms=7)
-        data, _ = bin4_different_gammas_test2_HQ10000_G1_0_20_005[4]
-        ax4.plot(data[:, 0], data[:, 1], "c", lw=2, ms=7)
-        data, _ = bin4_different_gammas_test2_HQ10000_G1_0_25_005[4]
-        ax4.plot(data[:, 0], data[:, 1], "m", lw=2, ms=7)
+        Plt(4, bin4_different_gammas_test2_HQ10000_G1_0_0_000[4], "r")
+        Plt(4, bin4_different_gammas_test2_HQ10000_G1_0_5_005[4], "g")
+        Plt(4, bin4_different_gammas_test2_HQ10000_G1_0_10_005[4], "k")
+        Plt(4, bin4_different_gammas_test2_HQ10000_G1_0_15_005[4], "b")
+        Plt(4, bin4_different_gammas_test2_HQ10000_G1_0_20_005[4], "c")
+        Plt(4, bin4_different_gammas_test2_HQ10000_G1_0_25_005[4], "m")
 
         def denom_ax5(a):
             return 887.569 * a * np.exp(-.922 * a ** 2)
@@ -3733,18 +3490,12 @@ if Fig_GPerts_gammas_3_0_vt_divided_by_gauss_and_Tsallis:
             exec(f"ax{i}.legend(prop=dict(size=18), numpoints=2, ncol=1,\
                                 frameon=True, loc=0, handlelength=2.5)")
 
-        data, _ = bin4_different_gammas_A_HQ10000_G1_0_0_000[0]
-        ax1.plot(data[:, 0], data[:, 1], "r", lw=2, ms=7)
-        data, _ = bin4_different_gammas_A_HQ10000_G1_0_5_005[0]
-        ax1.plot(data[:, 0], data[:, 1], "g", lw=2, ms=7)
-        data, _ = bin4_different_gammas_A_HQ10000_G1_0_10_005[0]
-        ax1.plot(data[:, 0], data[:, 1], "k", lw=2, ms=7)
-        data, _ = bin4_different_gammas_A_HQ10000_G1_0_40_005[0]
-        ax1.plot(data[:, 0], data[:, 1], "b", lw=2, ms=7)
-        data, _ = bin4_different_gammas_A_HQ10000_G1_0_48_009[0]
-        ax1.plot(data[:, 0], data[:, 1], "c", lw=2, ms=7)
-        data, _ = bin4_different_gammas_A_HQ10000_G1_0_48_093[0]
-        ax1.plot(data[:, 0], data[:, 1], "m", lw=2, ms=7)
+        Plt(1, bin4_different_gammas_A_HQ10000_G1_0_0_000[0], "r")
+        Plt(1, bin4_different_gammas_A_HQ10000_G1_0_5_005[0], "g")
+        Plt(1, bin4_different_gammas_A_HQ10000_G1_0_10_005[0], "k")
+        Plt(1, bin4_different_gammas_A_HQ10000_G1_0_40_005[0], "b")
+        Plt(1, bin4_different_gammas_A_HQ10000_G1_0_48_009[0], "c")
+        Plt(1, bin4_different_gammas_A_HQ10000_G1_0_48_093[0], "m")
 
         ax1.set_title(r"Time evolution of %s, different r bins,\
                       $\gamma = -3.0$" % A_HQ0[:-9], fontsize=20)
@@ -3768,31 +3519,19 @@ if Fig_GPerts_gammas_3_0_vt_divided_by_gauss_and_Tsallis:
         ax2.plot(data[:, 0], data[:, 1], "m",
                  label=r"%s" % A_HQ382[len("A_HQ10000_G"):], lw=2, ms=7)
 
-        data, _ = bin4_different_gammas_A_HQ10000_G1_0_0_000[0]
-        ax3.plot(data[:, 0], data[:, 1], "r", lw=2, ms=7)
-        data, _ = bin4_different_gammas_A_HQ10000_G1_0_5_005[0]
-        ax3.plot(data[:, 0], data[:, 1], "g", lw=2, ms=7)
-        data, _ = bin4_different_gammas_A_HQ10000_G1_0_10_005[0]
-        ax3.plot(data[:, 0], data[:, 1], "k", lw=2, ms=7)
-        data, _ = bin4_different_gammas_A_HQ10000_G1_0_40_005[0]
-        ax3.plot(data[:, 0], data[:, 1], "b", lw=2, ms=7)
-        data, _ = bin4_different_gammas_A_HQ10000_G1_0_48_009[0]
-        ax3.plot(data[:, 0], data[:, 1], "c", lw=2, ms=7)
-        data, _ = bin4_different_gammas_A_HQ10000_G1_0_48_093[0]
-        ax3.plot(data[:, 0], data[:, 1], "m", lw=2, ms=7)
+        Plt(3, bin4_different_gammas_A_HQ10000_G1_0_0_000[0], "r")
+        Plt(3, bin4_different_gammas_A_HQ10000_G1_0_5_005[0], "g")
+        Plt(3, bin4_different_gammas_A_HQ10000_G1_0_10_005[0], "k")
+        Plt(3, bin4_different_gammas_A_HQ10000_G1_0_40_005[0], "b")
+        Plt(3, bin4_different_gammas_A_HQ10000_G1_0_48_009[0], "c")
+        Plt(3, bin4_different_gammas_A_HQ10000_G1_0_48_093[0], "m")
 
-        data, _ = bin4_different_gammas_A_HQ10000_G1_0_0_000[4]
-        ax4.plot(data[:, 0], data[:, 1], "r", lw=2, ms=7)
-        data, _ = bin4_different_gammas_A_HQ10000_G1_0_5_005[4]
-        ax4.plot(data[:, 0], data[:, 1], "g", lw=2, ms=7)
-        data, _ = bin4_different_gammas_A_HQ10000_G1_0_10_005[4]
-        ax4.plot(data[:, 0], data[:, 1], "k", lw=2, ms=7)
-        data, _ = bin4_different_gammas_A_HQ10000_G1_0_40_005[4]
-        ax4.plot(data[:, 0], data[:, 1], "b", lw=2, ms=7)
-        data, _ = bin4_different_gammas_A_HQ10000_G1_0_48_009[4]
-        ax4.plot(data[:, 0], data[:, 1], "c", lw=2, ms=7)
-        data, _ = bin4_different_gammas_A_HQ10000_G1_0_48_093[4]
-        ax4.plot(data[:, 0], data[:, 1], "m", lw=2, ms=7)
+        Plt(4, bin4_different_gammas_A_HQ10000_G1_0_0_000[4], "r")
+        Plt(4, bin4_different_gammas_A_HQ10000_G1_0_5_005[4], "g")
+        Plt(4, bin4_different_gammas_A_HQ10000_G1_0_10_005[4], "k")
+        Plt(4, bin4_different_gammas_A_HQ10000_G1_0_40_005[4], "b")
+        Plt(4, bin4_different_gammas_A_HQ10000_G1_0_48_009[4], "c")
+        Plt(4, bin4_different_gammas_A_HQ10000_G1_0_48_093[4], "m")
 
         def denom_ax5(a):
             return 887.569 * a * np.exp(-.922 * a ** 2)
@@ -3902,16 +3641,11 @@ if Fig_GPerts_gammas_3_0_vt_divided_by_gauss_and_Tsallis:
             exec(f"ax{i}.legend(prop=dict(size=18), numpoints=2, ncol=1,\
                                 frameon=True, loc=0, handlelength=2.5)")
 
-        data, _ = bin4_different_gammas_B_HQ10000_G1_0_0_000[0]
-        ax1.plot(data[:, 0], data[:, 1], "r", lw=2, ms=7)
-        data, _ = bin4_different_gammas_B_HQ10000_G1_0_5_005[0]
-        ax1.plot(data[:, 0], data[:, 1], "g", lw=2, ms=7)
-        data, _ = bin4_different_gammas_B_HQ10000_G1_0_10_005[0]
-        ax1.plot(data[:, 0], data[:, 1], "k", lw=2, ms=7)
-        data, _ = bin4_different_gammas_B_HQ10000_G1_0_198_000[0]
-        ax1.plot(data[:, 0], data[:, 1], "b", lw=2, ms=7)
-        data, _ = bin4_different_gammas_B_HQ10000_G1_0_198_093[0]
-        ax1.plot(data[:, 0], data[:, 1], "c", lw=2, ms=7)
+        Plt(1, bin4_different_gammas_B_HQ10000_G1_0_0_000[0], "r")
+        Plt(1, bin4_different_gammas_B_HQ10000_G1_0_5_005[0], "g")
+        Plt(1, bin4_different_gammas_B_HQ10000_G1_0_10_005[0], "k")
+        Plt(1, bin4_different_gammas_B_HQ10000_G1_0_198_000[0], "b")
+        Plt(1, bin4_different_gammas_B_HQ10000_G1_0_198_093[0], "c")
 
         ax1.set_title(r"Time evolution of %s, different r bins,\
                       $\gamma = -3.0$" % B_HQ0[:-9], fontsize=20)
@@ -3932,27 +3666,17 @@ if Fig_GPerts_gammas_3_0_vt_divided_by_gauss_and_Tsallis:
         ax2.plot(data[:, 0], data[:, 1], "c",
                  label=r"%s" % B_HQ382[len("B_HQ10000_G"):], lw=2, ms=7)
 
-        data, _ = bin4_different_gammas_B_HQ10000_G1_0_0_000[0]
-        ax3.plot(data[:, 0], data[:, 1], "r", lw=2, ms=7)
-        data, _ = bin4_different_gammas_B_HQ10000_G1_0_5_005[0]
-        ax3.plot(data[:, 0], data[:, 1], "g", lw=2, ms=7)
-        data, _ = bin4_different_gammas_B_HQ10000_G1_0_10_005[0]
-        ax3.plot(data[:, 0], data[:, 1], "k", lw=2, ms=7)
-        data, _ = bin4_different_gammas_B_HQ10000_G1_0_198_000[0]
-        ax3.plot(data[:, 0], data[:, 1], "b", lw=2, ms=7)
-        data, _ = bin4_different_gammas_B_HQ10000_G1_0_198_093[0]
-        ax3.plot(data[:, 0], data[:, 1], "c", lw=2, ms=7)
+        Plt(3, bin4_different_gammas_B_HQ10000_G1_0_0_000[0], "r")
+        Plt(3, bin4_different_gammas_B_HQ10000_G1_0_5_005[0], "g")
+        Plt(3, bin4_different_gammas_B_HQ10000_G1_0_10_005[0], "k")
+        Plt(3, bin4_different_gammas_B_HQ10000_G1_0_198_000[0], "b")
+        Plt(3, bin4_different_gammas_B_HQ10000_G1_0_198_093[0], "c")
 
-        data, _ = bin4_different_gammas_B_HQ10000_G1_0_0_000[4]
-        ax4.plot(data[:, 0], data[:, 1], "r", lw=2, ms=7)
-        data, _ = bin4_different_gammas_B_HQ10000_G1_0_5_005[4]
-        ax4.plot(data[:, 0], data[:, 1], "g", lw=2, ms=7)
-        data, _ = bin4_different_gammas_B_HQ10000_G1_0_10_005[4]
-        ax4.plot(data[:, 0], data[:, 1], "k", lw=2, ms=7)
-        data, _ = bin4_different_gammas_B_HQ10000_G1_0_198_000[4]
-        ax4.plot(data[:, 0], data[:, 1], "b", lw=2, ms=7)
-        data, _ = bin4_different_gammas_B_HQ10000_G1_0_198_093[4]
-        ax4.plot(data[:, 0], data[:, 1], "c", lw=2, ms=7)
+        Plt(4, bin4_different_gammas_B_HQ10000_G1_0_0_000[4], "r")
+        Plt(4, bin4_different_gammas_B_HQ10000_G1_0_5_005[4], "g")
+        Plt(4, bin4_different_gammas_B_HQ10000_G1_0_10_005[4], "k")
+        Plt(4, bin4_different_gammas_B_HQ10000_G1_0_198_000[4], "b")
+        Plt(4, bin4_different_gammas_B_HQ10000_G1_0_198_093[4], "c")
 
         def denom_ax5(a):
             return 914.415 * a * np.exp(-.930 * a ** 2)
@@ -4068,16 +3792,11 @@ if Fig_GPerts_R_middle_19_95_vt_divided_by_gauss_and_Tsallis:
             exec(f"ax{i}.legend(prop=dict(size=18), numpoints=2, ncol=1,\
                                 frameon=True, loc=0, handlelength=2.5)")
 
-        data, _ = bin1_different_gammas_HQ10000_G1_2_1_005[0]
-        ax1.plot(data[:, 0], data[:, 1], "b", lw=2, ms=7)
-        data, _ = bin1_different_gammas_HQ10000_G1_2_3_005[0]
-        ax1.plot(data[:, 0], data[:, 1], "r", lw=2, ms=7)
-        data, _ = bin1_different_gammas_HQ10000_G1_2_5_005[0]
-        ax1.plot(data[:, 0], data[:, 1], "g", lw=2, ms=7)
-        data, _ = bin1_different_gammas_HQ10000_G1_2_7_005[0]
-        ax1.plot(data[:, 0], data[:, 1], "k", lw=2, ms=7)
-        data, _ = bin1_different_gammas_HQ10000_G1_2_9_005[0]
-        ax1.plot(data[:, 0], data[:, 1], "c", lw=2, ms=7)
+        Plt(1, bin1_different_gammas_HQ10000_G1_2_1_005[0], "r")
+        Plt(1, bin1_different_gammas_HQ10000_G1_2_3_005[0], "g")
+        Plt(1, bin1_different_gammas_HQ10000_G1_2_5_005[0], "k")
+        Plt(1, bin1_different_gammas_HQ10000_G1_2_7_005[0], "b")
+        Plt(1, bin1_different_gammas_HQ10000_G1_2_9_005[0], "c")
 
         ax1.set_ylabel(r"$f\left(u\right)$", fontsize=20)
         ax1.set_title(r"Time evolution of files = %s, different r bins,\
@@ -4099,27 +3818,17 @@ if Fig_GPerts_R_middle_19_95_vt_divided_by_gauss_and_Tsallis:
         ax2.plot(data[:, 0], data[:, 1], "c",
                  label=r"%s" % HQ60[len("HQ10000_G"):], lw=2, ms=7)
 
-        data, _ = bin1_different_gammas_HQ10000_G1_2_1_005[0]
-        ax3.plot(data[:, 0], data[:, 1], "r", lw=2, ms=7)
-        data, _ = bin1_different_gammas_HQ10000_G1_2_3_005[0]
-        ax3.plot(data[:, 0], data[:, 1], "g", lw=2, ms=7)
-        data, _ = bin1_different_gammas_HQ10000_G1_2_5_005[0]
-        ax3.plot(data[:, 0], data[:, 1], "k", lw=2, ms=7)
-        data, _ = bin1_different_gammas_HQ10000_G1_2_7_005[0]
-        ax3.plot(data[:, 0], data[:, 1], "b", lw=2, ms=7)
-        data, _ = bin1_different_gammas_HQ10000_G1_2_9_005[0]
-        ax3.plot(data[:, 0], data[:, 1], "c", lw=2, ms=7)
+        Plt(3, bin1_different_gammas_HQ10000_G1_2_1_005[0], "r")
+        Plt(3, bin1_different_gammas_HQ10000_G1_2_3_005[0], "g")
+        Plt(3, bin1_different_gammas_HQ10000_G1_2_5_005[0], "k")
+        Plt(3, bin1_different_gammas_HQ10000_G1_2_7_005[0], "b")
+        Plt(3, bin1_different_gammas_HQ10000_G1_2_9_005[0], "c")
 
-        data, _ = bin1_different_gammas_HQ10000_G1_2_1_005[4]
-        ax4.plot(data[:, 0], data[:, 1], "r", lw=2, ms=7)
-        data, _ = bin1_different_gammas_HQ10000_G1_2_3_005[4]
-        ax4.plot(data[:, 0], data[:, 1], "g", lw=2, ms=7)
-        data, _ = bin1_different_gammas_HQ10000_G1_2_5_005[4]
-        ax4.plot(data[:, 0], data[:, 1], "k", lw=2, ms=7)
-        data, _ = bin1_different_gammas_HQ10000_G1_2_7_005[4]
-        ax4.plot(data[:, 0], data[:, 1], "b", lw=2, ms=7)
-        data, _ = bin1_different_gammas_HQ10000_G1_2_9_005[4]
-        ax4.plot(data[:, 0], data[:, 1], "c", lw=2, ms=7)
+        Plt(4, bin1_different_gammas_HQ10000_G1_2_1_005[4], "r")
+        Plt(4, bin1_different_gammas_HQ10000_G1_2_3_005[4], "g")
+        Plt(4, bin1_different_gammas_HQ10000_G1_2_5_005[4], "k")
+        Plt(4, bin1_different_gammas_HQ10000_G1_2_7_005[4], "b")
+        Plt(4, bin1_different_gammas_HQ10000_G1_2_9_005[4], "c")
 
         def denom_ax5(a):
             return np.log10(a) * np.exp(-.5 * a ** 2)
@@ -4188,12 +3897,9 @@ if Fig_GPerts_R_middle_19_95_vt_divided_by_gauss_and_Tsallis:
             exec(f"ax{i}.legend(prop=dict(size=18), numpoints=2, ncol=1,\
                                 frameon=True, loc=0, handlelength=2.5)")
 
-        data, _ = datalist_bin5different_gammas_test2_HQ10000_G1_0_0_000[0]
-        ax1.plot(data[:, 0], data[:, 1], "r", lw=2, ms=7)
-        data, _ = datalist_bin5different_gammas_test2_HQ10000_G1_0_10_005[0]
-        ax1.plot(data[:, 0], data[:, 1], "k", lw=2, ms=7)
-        data, _ = datalist_bin5different_gammas_test2_HQ10000_G1_0_18_053[0]
-        ax1.plot(data[:, 0], data[:, 1], "b", lw=2, ms=7)
+        Plt(1, datalist_bin5different_gammas_test2_HQ10000_G1_0_0_000[0], "r")
+        Plt(1, datalist_bin5different_gammas_test2_HQ10000_G1_0_10_005[0], "g")
+        Plt(1, datalist_bin5different_gammas_test2_HQ10000_G1_0_18_053[0], "k")
 
         ax1.set_title(r"Time evolution of files = %s, $R_{middle} = 19.95$"
                       % test2_HQ0[:-9], fontsize=20)
@@ -4210,19 +3916,13 @@ if Fig_GPerts_R_middle_19_95_vt_divided_by_gauss_and_Tsallis:
                  label=r"%s" % test2_HQ166[len("test2_HQ10000_G"):],
                  lw=2, ms=7)
 
-        data, _ = datalist_bin5different_gammas_test2_HQ10000_G1_0_0_000[0]
-        ax3.plot(data[:, 0], data[:, 1], "r", lw=2, ms=7)
-        data, _ = datalist_bin5different_gammas_test2_HQ10000_G1_0_10_005[0]
-        ax3.plot(data[:, 0], data[:, 1], "k", lw=2, ms=7)
-        data, _ = datalist_bin5different_gammas_test2_HQ10000_G1_0_18_053[0]
-        ax3.plot(data[:, 0], data[:, 1], "b", lw=2, ms=7)
+        Plt(3, datalist_bin5different_gammas_test2_HQ10000_G1_0_0_000[0], "r")
+        Plt(3, datalist_bin5different_gammas_test2_HQ10000_G1_0_10_005[0], "g")
+        Plt(3, datalist_bin5different_gammas_test2_HQ10000_G1_0_18_053[0], "k")
 
-        data, _ = datalist_bin5different_gammas_test2_HQ10000_G1_0_0_000[4]
-        ax4.plot(data[:, 0], data[:, 1], "r", lw=2, ms=7)
-        data, _ = datalist_bin5different_gammas_test2_HQ10000_G1_0_10_005[4]
-        ax4.plot(data[:, 0], data[:, 1], "k", lw=2, ms=7)
-        data, _ = datalist_bin5different_gammas_test2_HQ10000_G1_0_18_053[4]
-        ax4.plot(data[:, 0], data[:, 1], "b", lw=2, ms=7)
+        Plt(4, datalist_bin5different_gammas_test2_HQ10000_G1_0_0_000[4], "r")
+        Plt(4, datalist_bin5different_gammas_test2_HQ10000_G1_0_10_005[4], "g")
+        Plt(4, datalist_bin5different_gammas_test2_HQ10000_G1_0_18_053[4], "k")
 
         def denom_ax5(a):
             return 887.569 * a * np.exp(-.922 * a ** 2)
@@ -4293,12 +3993,9 @@ if Fig_GPerts_R_middle_19_95_vt_divided_by_gauss_and_Tsallis:
             exec(f"ax{i}.legend(prop=dict(size=18), numpoints=2, ncol=1,\
                                 frameon=True, loc=0, handlelength=2.5)")
 
-        data, _ = datalist_bin5different_gammas_A_HQ10000_G1_0_0_000[0]
-        ax1.plot(data[:, 0], data[:, 1], "r", lw=2, ms=7)
-        data, _ = datalist_bin5different_gammas_A_HQ10000_G1_0_10_005[0]
-        ax1.plot(data[:, 0], data[:, 1], "k", lw=2, ms=7)
-        data, _ = datalist_bin5different_gammas_A_HQ10000_G1_0_48_093[0]
-        ax1.plot(data[:, 0], data[:, 1], "b", lw=2, ms=7)
+        Plt(1, datalist_bin5different_gammas_A_HQ10000_G1_0_0_000[0], "r")
+        Plt(1, datalist_bin5different_gammas_A_HQ10000_G1_0_10_005[0], "g")
+        Plt(1, datalist_bin5different_gammas_A_HQ10000_G1_0_48_093[0], "k")
 
         ax1.set_title(r"Time evolution of files = %s, $R_{middle} = 19.95$"
                       % A_HQ0[:-9], fontsize=20)
@@ -4313,19 +4010,13 @@ if Fig_GPerts_R_middle_19_95_vt_divided_by_gauss_and_Tsallis:
         ax2.plot(data[:, 0], data[:, 1], "b",
                  label=r"%s" % A_HQ382[len("A_HQ10000_G"):], lw=2, ms=7)
 
-        data, _ = datalist_bin5different_gammas_A_HQ10000_G1_0_0_000[0]
-        ax3.plot(data[:, 0], data[:, 1], "r", lw=2, ms=7)
-        data, _ = datalist_bin5different_gammas_A_HQ10000_G1_0_10_005[0]
-        ax3.plot(data[:, 0], data[:, 1], "k", lw=2, ms=7)
-        data, _ = datalist_bin5different_gammas_A_HQ10000_G1_0_48_093[0]
-        ax3.plot(data[:, 0], data[:, 1], "b", lw=2, ms=7)
+        Plt(3, datalist_bin5different_gammas_A_HQ10000_G1_0_0_000[0], "r")
+        Plt(3, datalist_bin5different_gammas_A_HQ10000_G1_0_10_005[0], "g")
+        Plt(3, datalist_bin5different_gammas_A_HQ10000_G1_0_48_093[0], "k")
 
-        data, _ = datalist_bin5different_gammas_A_HQ10000_G1_0_0_000[4]
-        ax4.plot(data[:, 0], data[:, 1], "r", lw=2, ms=7)
-        data, _ = datalist_bin5different_gammas_A_HQ10000_G1_0_10_005[4]
-        ax4.plot(data[:, 0], data[:, 1], "k", lw=2, ms=7)
-        data, _ = datalist_bin5different_gammas_A_HQ10000_G1_0_48_093[4]
-        ax4.plot(data[:, 0], data[:, 1], "b", lw=2, ms=7)
+        Plt(4, datalist_bin5different_gammas_A_HQ10000_G1_0_0_000[4], "r")
+        Plt(4, datalist_bin5different_gammas_A_HQ10000_G1_0_10_005[4], "g")
+        Plt(4, datalist_bin5different_gammas_A_HQ10000_G1_0_48_093[4], "k")
 
         def denom_ax5(a):
             return 887.569 * a * np.exp(-.922 * a ** 2)
@@ -4396,14 +4087,10 @@ if Fig_GPerts_R_middle_19_95_vt_divided_by_gauss_and_Tsallis:
             exec(f"ax{i}.legend(prop=dict(size=18), numpoints=2, ncol=1,\
                                 frameon=True, loc=0, handlelength=2.5)")
 
-        data, _ = datalist_bin5different_gammas_B_HQ10000_G1_0_0_000[0]
-        ax1.plot(data[:, 0], data[:, 1], "r", lw=2, ms=7)
-        data, _ = datalist_bin5different_gammas_B_HQ10000_G1_0_10_005[0]
-        ax1.plot(data[:, 0], data[:, 1], "k", lw=2, ms=7)
-        data, _ = datalist_bin5different_gammas_B_HQ10000_G1_0_198_000[0]
-        ax1.plot(data[:, 0], data[:, 1], "b", lw=2, ms=7)
-        data, _ = datalist_bin5different_gammas_B_HQ10000_G1_0_198_093[0]
-        ax1.plot(data[:, 0], data[:, 1], "g", lw=2, ms=7)
+        Plt(1, datalist_bin5different_gammas_B_HQ10000_G1_0_0_000[0], "r")
+        Plt(1, datalist_bin5different_gammas_B_HQ10000_G1_0_10_005[0], "g")
+        Plt(1, datalist_bin5different_gammas_B_HQ10000_G1_0_198_000[0], "k")
+        Plt(1, datalist_bin5different_gammas_B_HQ10000_G1_0_198_093[0], "b")
 
         ax1.set_title(r"Time evolution of files = %s, $R_{middle} = 19.95$"
                       % B_HQ0[:-9], fontsize=20)
@@ -4421,23 +4108,15 @@ if Fig_GPerts_R_middle_19_95_vt_divided_by_gauss_and_Tsallis:
         ax2.plot(data[:, 0], data[:, 1], "g",
                  label=r"%s" % B_HQ382[len("B_HQ10000_G"):], lw=2, ms=7)
 
-        data, _ = datalist_bin5different_gammas_B_HQ10000_G1_0_0_000[0]
-        ax3.plot(data[:, 0], data[:, 1], "r", lw=2, ms=7)
-        data, _ = datalist_bin5different_gammas_B_HQ10000_G1_0_10_005[0]
-        ax3.plot(data[:, 0], data[:, 1], "k", lw=2, ms=7)
-        data, _ = datalist_bin5different_gammas_B_HQ10000_G1_0_198_000[0]
-        ax3.plot(data[:, 0], data[:, 1], "b", lw=2, ms=7)
-        data, _ = datalist_bin5different_gammas_B_HQ10000_G1_0_198_093[0]
-        ax3.plot(data[:, 0], data[:, 1], "g", lw=2, ms=7)
+        Plt(3, datalist_bin5different_gammas_B_HQ10000_G1_0_0_000[0], "r")
+        Plt(3, datalist_bin5different_gammas_B_HQ10000_G1_0_10_005[0], "g")
+        Plt(3, datalist_bin5different_gammas_B_HQ10000_G1_0_198_000[0], "k")
+        Plt(3, datalist_bin5different_gammas_B_HQ10000_G1_0_198_093[0], "b")
 
-        data, _ = datalist_bin5different_gammas_B_HQ10000_G1_0_0_000[4]
-        ax4.plot(data[:, 0], data[:, 1], "r", lw=2, ms=7)
-        data, _ = datalist_bin5different_gammas_B_HQ10000_G1_0_10_005[4]
-        ax4.plot(data[:, 0], data[:, 1], "k", lw=2, ms=7)
-        data, _ = datalist_bin5different_gammas_B_HQ10000_G1_0_198_000[4]
-        ax4.plot(data[:, 0], data[:, 1], "b", lw=2, ms=7)
-        data, _ = datalist_bin5different_gammas_B_HQ10000_G1_0_198_093[4]
-        ax4.plot(data[:, 0], data[:, 1], "g", lw=2, ms=7)
+        Plt(4, datalist_bin5different_gammas_B_HQ10000_G1_0_0_000[4], "r")
+        Plt(4, datalist_bin5different_gammas_B_HQ10000_G1_0_10_005[4], "g")
+        Plt(4, datalist_bin5different_gammas_B_HQ10000_G1_0_198_000[4], "k")
+        Plt(4, datalist_bin5different_gammas_B_HQ10000_G1_0_198_093[4], "b")
 
         def denom_ax5(a):
             return 887.569 * a * np.exp(-.922 * a ** 2)
