@@ -26,7 +26,21 @@ from dataclasses import dataclass
 simulations = ['A/', 'B/', 'Soft_B/', 'CS4/', 'CS5/', 'CS6/', 'DS1/',
                'Soft_D2/', 'E/']
 
+A = B = 0
+
 # text_files_path = textFilesPath / simulations[0]
+
+# Number of bins
+bins_list = [202, 102, 52, 22]
+bins = bins_list[0]
+R_limit = 100
+R_hob_par = R[GoodIDs]
+G = 1.  # Gravitational constant
+
+Gammas = [-1.5, -2.0, -2.5, -3.0]
+Gamma = Gammas[0]
+if Gamma == -2.0:
+    r_2 = R_middle
 
 
 @dataclass
@@ -85,11 +99,9 @@ class BinnedHalo():
         return param.append((beta(), gamma(), kappa()))
 
 
-# Number of bins
-bins_list = [202, 102, 52, 22]
-R_limit = 100
 # Create instance of BinnedHalo:
-halo = BinnedHalo(Min=-1.5, Max=np.log10(R_limit), bins=bins_list[0], mode="lin")
+halo = BinnedHalo(Min=-1.5, Max=np.log10(R_limit), bins=bins_list[0],
+                  mode="lin")
 
 # File switches -------------------------------------------------------------
 save_lnr_beta_gamma_kappa_VR_r_sigma_r_rr2_rho = 0
@@ -110,7 +122,7 @@ def velocities(vx, vy, vz):
     return (vx ** 2 + vy ** 2 + vz ** 2) ** .5
 
 
-def radial_velocities():
+def radial_velocities(x, y, z, vx, vy, vz):
     '''Doc-string here.'''
     return (vx * x + vy * y + vz * z) / radii()
 
@@ -125,7 +137,7 @@ def particle_number():
     return len(particle_positions()[0])
 
 
-def particle_mass():
+def particle_mass(m):
     '''Combined mass of particles inside halo.'''
     return particle_number() * m
 
@@ -150,12 +162,6 @@ def chi_2(param=gamma_arr):
 
 
 # Set values and instantiate functions ----------------------------------------
-
-R_hob_par = R[GoodIDs]
-G = 1.  # Gravitational constant
-
-if Gamma == -2.0:
-    r_2 = R_middle
 
 posR_par_inside_halo = particle_positions()
 nr_par_inside_halo = particle_number()
@@ -219,7 +225,7 @@ def volume_slice(bin_start, bin_end):
     return (4. / 3.) * np.pi * (bin_end ** 3 - bin_start ** 3)
 
 
-def density_slice(nr_par_bin, Volume_bin):
+def density_slice(m, nr_par_bin, Volume_bin):
     '''Doc-string here.'''
     return (nr_par_bin * m) / Volume_bin
 
@@ -241,14 +247,14 @@ def theta(z, r):
 
 def radial_velocity(theta, phi, vx, vy, vz):
     '''Doc-string here.'''
-    return sp.sin(theta) * sp.cos(phi) * vx\
-           + sp.sin(theta) * sp.sin(phi) * vy + sp.cos(theta) * vz
+    return (sp.sin(theta) * sp.cos(phi) * vx
+            + sp.sin(theta) * sp.sin(phi) * vy + sp.cos(theta) * vz)
 
 
 def theta_velocity(theta, phi, vx, vy, vz):
     '''Doc-string here.'''
-    return sp.cos(theta) * sp.cos(phi) * vx + sp.cos(theta)\
-           * sp.sin(phi) * vy - sp.sin(theta) * vz
+    return (sp.cos(theta) * sp.cos(phi) * vx + sp.cos(theta)
+            * sp.sin(phi) * vy - sp.sin(theta) * vz)
 
 
 def phi_velocity(phi, vx, vy):
@@ -289,7 +295,7 @@ for i in range(bins - 2):
     VTheta_i = theta_velocity(Theta_i, Phi_i, vx[posR_par_bin],
                               vy[posR_par_bin], vz[posR_par_bin])
     VPhi_i = phi_velocity(Phi_i, vx[posR_par_bin], vy[posR_par_bin])
-    VR_i_average_bin = mean_velocity_slice(nr_par_bin, VR_i)
+    VR_i_avg_bin = mean_velocity_slice(nr_par_bin, VR_i)
     VTheta2_bin = VTheta_i ** 2
     sigmatheta2_bin = mean_velocity_slice(nr_par_bin, VTheta2_bin)
     sigmatheta2_lst.append(sigmatheta2_bin)
@@ -307,7 +313,7 @@ for i in range(bins - 2):
     Phi_lst.append(Phi_i)
     Theta_lst.append(Theta_i)
     VR_lst.append(VR_i)
-    VR_i_average_bin_lst.append(VR_i_average_bin)
+    VR_i_avg_bin_lst.append(VR_i_avg_bin)
     VTheta_lst.append(VTheta_i)
     VPhi_lst.append(VPhi_i)
 
@@ -321,7 +327,7 @@ Theta_arr = np.array(Theta_lst)
 VR_arr = np.array(VR_lst)
 VTheta_arr = np.array(VTheta_lst)
 VPhi_arr = np.array(VPhi_lst)
-VR_i_average_bin_arr = np.array(VR_i_average_bin_lst)
+VR_i_avg_bin_arr = np.array(VR_i_avg_bin_lst)
 
 # Save (logr, beta, gamma, kappa etc.) as text file,
 # so they can be plotted in Sigma_plot.py
@@ -364,14 +370,14 @@ if save_lnr_beta_gamma_kappa_VR_r_sigma_r_rr2_rho:
                           r \t sigmarad2')
 
 if save_particle_tracking_ASCII:
-    TimeMax = {'A, B IC': 100
-               , 'A, B 5_005': 600
-               , 'A, B 10_005': 1100
-               , 'A, 40_005': 4100
-               , 'A, 48_009': 4970
-               , 'B, 198_000': 19800
-               , 'B, 198_093': 22100
-               , 'B, 199_093': 24400}
+    TimeMax = {'A, B IC': 100,
+               'A, B 5_005': 600,
+               'A, B 10_005': 1100,
+               'A, 40_005': 4100,
+               'A, 48_009': 4970,
+               'B, 198_000': 19800,
+               'B, 198_093': 22100,
+               'B, 199_093': 24400}
 
     xx = [['TimeMax',
            'x[100000]', 'y[100000]', 'z[100000]', 'R_xyz[100000]',
@@ -396,27 +402,24 @@ if save_particle_tracking_ASCII:
                          R_xyz[200] \n')
 
                 f.write(f'{xx[i][0]} \t {xx[i][1]} \t {xx[i][2]} \t {xx[i][3]}\
-                        \t {xx[i][4]} \t {xx[i][5]} \t {xx[i][6]} \t {xx[i][7]}\
-                        \t {xx[i][8]} \t {xx[i][9]} \t {xx[i][10]} \t {xx[i][11]}\
-                        \t {xx[i][12]} \t {xx[i][13]} \t {xx[i][14]}\
-                        \t {xx[i][15]} \t {xx[i][16]} \n')
+                        \t {xx[i][4]} \t {xx[i][5]} \t {xx[i][6]} \t\
+                        {xx[i][7]} \t {xx[i][8]} \t {xx[i][9]} \t {xx[i][10]}\
+                        \t {xx[i][11]} \t {xx[i][12]} \t {xx[i][13]} \t\
+                        {xx[i][14]} \t {xx[i][15]} \t {xx[i][16]} \n')
 
             else:
                 f.write(f'{xx[i][0]} \t {xx[i][1]} \t {xx[i][2]} \t {xx[i][3]}\
-                        \t {xx[i][4]} \t {xx[i][5]} \t {xx[i][6]} \t {xx[i][7]}\
-                        \t {xx[i][8]} \t {xx[i][9]} \t {xx[i][10]} \t {xx[i][11]}\
-                        \t {xx[i][12]} \t {xx[i][13]} \t {xx[i][14]}\
-                        \t {xx[i][15]} \t {xx[i][16]} \n')
+                        \t {xx[i][4]} \t {xx[i][5]} \t {xx[i][6]} \t\
+                        {xx[i][7]} \t {xx[i][8]} \t {xx[i][9]} \t {xx[i][10]}\
+                        \t {xx[i][11]} \t {xx[i][12]} \t {xx[i][13]} \t\
+                        {xx[i][14]} \t {xx[i][15]} \t {xx[i][16]} \n')
 
 if save_combine_ASCII:
-    A = B = 0
     if A:
-
         lf = [f"{text_files_path}{out_names[i]}.txt" for i in range(5)]
-
         dl_lf = [pylab.loadtxt(filename) for filename in lf]
         out_name = text_files_path + 'A_particle_tracking.txt'
-        with open(out_name,'w') as f:
+        with open(out_name, 'w') as f:
             for i in range(len(dl_lf)):
                 if i == 0:
                     f.write('# TimeMax \t x[100000] \t y[100000] \t z[100000]\
@@ -426,29 +429,27 @@ if save_combine_ASCII:
                             x[400000] \t y[400000] \t z[400000] \t\
                             R_xyz[400000] \n')
 
-                    f.write('%i \t \t %f \t %f \t %f \t %f \t %f \t %f \t %f \t %f\
-                            \t %f \t %f \t %f \t %f \t %f \t %f \t %f \t %f \n'
-                            % (dl_lf[i][0], dl_lf[i][1], dl_lf[i][2],
-                               dl_lf[i][3], dl_lf[i][4], dl_lf[i][5],
-                               dl_lf[i][6], dl_lf[i][7], dl_lf[i][8],
-                               dl_lf[i][9], dl_lf[i][10], dl_lf[i][11],
-                               dl_lf[i][12], dl_lf[i][13], dl_lf[i][14],
-                               dl_lf[i][15], dl_lf[i][16]))
+                    f.write('%i \t \t %f \t %f \t %f \t %f \t %f \t %f \t %f\
+                            \t %f \t %f \t %f \t %f \t %f \t %f \t %f \t %f \t\
+                            %f \n' % (dl_lf[i][0], dl_lf[i][1], dl_lf[i][2],
+                                      dl_lf[i][3], dl_lf[i][4], dl_lf[i][5],
+                                      dl_lf[i][6], dl_lf[i][7], dl_lf[i][8],
+                                      dl_lf[i][9], dl_lf[i][10], dl_lf[i][11],
+                                      dl_lf[i][12], dl_lf[i][13], dl_lf[i][14],
+                                      dl_lf[i][15], dl_lf[i][16]))
 
                 else:
-                    f.write('%i \t \t %f \t %f \t %f \t %f \t %f \t %f \t %f \t %f\
-                            \t %f \t %f \t %f \t %f \t %f \t %f \t %f \t %f \n'
-                            % (dl_lf[i][0], dl_lf[i][1], dl_lf[i][2],
-                               dl_lf[i][3], dl_lf[i][4], dl_lf[i][5],
-                               dl_lf[i][6], dl_lf[i][7], dl_lf[i][8],
-                               dl_lf[i][9], dl_lf[i][10], dl_lf[i][11],
-                               dl_lf[i][12], dl_lf[i][13], dl_lf[i][14],
-                               dl_lf[i][15], dl_lf[i][16]))
+                    f.write('%i \t \t %f \t %f \t %f \t %f \t %f \t %f \t %f\
+                            \t %f \t %f \t %f \t %f \t %f \t %f \t %f \t %f \t\
+                            %f \n' % (dl_lf[i][0], dl_lf[i][1], dl_lf[i][2],
+                                      dl_lf[i][3], dl_lf[i][4], dl_lf[i][5],
+                                      dl_lf[i][6], dl_lf[i][7], dl_lf[i][8],
+                                      dl_lf[i][9], dl_lf[i][10], dl_lf[i][11],
+                                      dl_lf[i][12], dl_lf[i][13], dl_lf[i][14],
+                                      dl_lf[i][15], dl_lf[i][16]))
 
     elif B:
-
         lf = [f"{text_files_path}{out_names[i]}.txt" for i in range(5, 11)]
-
         dl_lf = [pylab.loadtxt(filename) for filename in lf]
         out_name = text_files_path + 'B_particle_tracking.txt'
         with open(out_name, 'w') as f:
@@ -456,27 +457,28 @@ if save_combine_ASCII:
                 if i == 0:
                     f.write('# TimeMax \t x[100000] \t y[100000] \t z[100000]\
                             \t R_xyz[100000] \t x[200000] \t y[200000] \t\
-                            z[200000] \t R_xyz[200000] \t x[300000] \t y[300000]\
-                            \t z[300000] \t R_xyz[300000] \t x[400000] \t\
-                            y[400000] \t z[400000] \t R_xyz[400000] \n')
+                            z[200000] \t R_xyz[200000] \t x[300000] \t\
+                            y[300000] \t z[300000] \t R_xyz[300000] \t\
+                            x[400000] \t y[400000] \t z[400000] \t\
+                            R_xyz[400000] \n')
 
-                    f.write('%i \t \t %f \t %f \t %f \t %f \t %f \t %f \t %f \t %f\
-                            \t %f \t %f \t %f \t %f \t %f \t %f \t %f \t %f \n'
-                            % (dl_lf[i][0], dl_lf[i][1], dl_lf[i][2],
-                               dl_lf[i][3], dl_lf[i][4], dl_lf[i][5],
-                               dl_lf[i][6], dl_lf[i][7], dl_lf[i][8],
-                               dl_lf[i][9], dl_lf[i][10], dl_lf[i][11],
-                               dl_lf[i][12], dl_lf[i][13], dl_lf[i][14],
-                               dl_lf[i][15], dl_lf[i][16]))
+                    f.write('%i \t \t %f \t %f \t %f \t %f \t %f \t %f \t %f\
+                            \t %f \t %f \t %f \t %f \t %f \t %f \t %f \t %f \t\
+                            %f \n' % (dl_lf[i][0], dl_lf[i][1], dl_lf[i][2],
+                                      dl_lf[i][3], dl_lf[i][4], dl_lf[i][5],
+                                      dl_lf[i][6], dl_lf[i][7], dl_lf[i][8],
+                                      dl_lf[i][9], dl_lf[i][10], dl_lf[i][11],
+                                      dl_lf[i][12], dl_lf[i][13], dl_lf[i][14],
+                                      dl_lf[i][15], dl_lf[i][16]))
                 else:
-                    f.write('%i \t \t %f \t %f \t %f \t %f \t %f \t %f \t %f \t %f\
-                            \t %f \t %f \t %f \t %f \t %f \t %f \t %f \t %f \n'
-                            % (dl_lf[i][0], dl_lf[i][1], dl_lf[i][2],
-                               dl_lf[i][3], dl_lf[i][4], dl_lf[i][5],
-                               dl_lf[i][6], dl_lf[i][7], dl_lf[i][8],
-                               dl_lf[i][9], dl_lf[i][10], dl_lf[i][11],
-                               dl_lf[i][12], dl_lf[i][13], dl_lf[i][14],
-                               dl_lf[i][15], dl_lf[i][16]))
+                    f.write('%i \t \t %f \t %f \t %f \t %f \t %f \t %f \t %f\
+                            \t %f \t %f \t %f \t %f \t %f \t %f \t %f \t %f \t\
+                            %f \n' % (dl_lf[i][0], dl_lf[i][1], dl_lf[i][2],
+                                      dl_lf[i][3], dl_lf[i][4], dl_lf[i][5],
+                                      dl_lf[i][6], dl_lf[i][7], dl_lf[i][8],
+                                      dl_lf[i][9], dl_lf[i][10], dl_lf[i][11],
+                                      dl_lf[i][12], dl_lf[i][13], dl_lf[i][14],
+                                      dl_lf[i][15], dl_lf[i][16]))
 
 if save_sigma:
     x = np.array((sigma2_arr, sigmarad2_arr, sigmatheta2_arr, sigmaphi2_arr))
