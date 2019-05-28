@@ -8,15 +8,17 @@ Created on Sat Jun 16 15:30:48 2018
 
 from definePaths import *
 
-fileLstMartinIC = [(textMartinPath / 'OMG00_001_IC_000.txt',
-                    'OMG00_001_IC_000'),
-                   (textMartinPath / '0G00_IC_000.txt', '0G00_IC_000')]
+Sparre = ['OMG00_001_IC_000', '0G00_IC_000', '0G20_001', '00-5G20_001',
+          'om0-3.5G20_001', 's1G20_001', 's2G20_001', 's3G20_001', 's4G20_001',
+          'OMG20_Final_000']
 
-fileLstMartinFinal = [(textMartinPath / '0G20_001.txt', '0G20_001'),
-                      (textMartinPath / '00-5G20_001.txt', '00-5G20_001'),
-                      (textMartinPath / 'om0-3.5G20_001.txt',
-                       'om0-3.5G20_001'),
-                      (textMartinPath / 's1G20_001.txt', 's1G20_001'),
+fileLstMartinIC = [(textMartinPath / Sparre[0] + '.txt', Sparre[0]),
+                   (textMartinPath / Sparre[1] + '.txt', Sparre[1])]
+
+fileLstMartinFinal = [(textMartinPath / Sparre[2] + '.txt', Sparre[2]),
+                      (textMartinPath / Sparre[3] + '.txt', Sparre[3]),
+                      (textMartinPath / Sparre[4] + '.txt', Sparre[4]),
+                      (textMartinPath / Sparre[5] + '.txt', Sparre[5]),
                       (textMartinPath / 's2G20_001.txt', 's2G20_001'),
                       (textMartinPath / 's3G20_001.txt', 's3G20_001'),
                       (textMartinPath / 's4G20_001.txt', 's4G20_001'),

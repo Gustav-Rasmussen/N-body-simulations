@@ -359,147 +359,111 @@ largeRmiddle_31_62_differentGammas_A_HQ10000_G1_0_48_009 =\
 
 # Bin1differentGammasAHQ10000_G1_0_48_093 =\
     [(pylab.loadtxt(f), l) for f, l in bins3A[44]]
-# IndexError: list index out of range
 
 Bin2differentGammasAHQ10000_G1_0_48_093 =\
     [(pylab.loadtxt(f), l) for f, l in bins3A[45]]
-# IndexError: list index out of range
 
 Bin3differentGammasAHQ10000_G1_0_48_093 =\
     [(pylab.loadtxt(f), l) for f, l in bins3A[46]]
-# IndexError: list index out of range
 
 Bin4differentGammasAHQ10000_G1_0_48_093 =\
     [(pylab.loadtxt(f), l) for f, l in bins3A[47]]
-# IndexError: list index out of range
 
 largeRmiddle_19_95_differentGammasAHQ10000_G1_0_48_093 =\
     [(pylab.loadtxt(f), l) for f, l in bins3B[28]]
-# IndexError: list index out of range
 
 largeRmiddle_31_62_differentGammasAHQ10000_G1_0_48_093 =\
     [(pylab.loadtxt(f), l) for f, l in bins3B[29]]
-# IndexError: list index out of range
 
 Bin1differentGammas_B_HQ10000_G1_0_0_000 =\
     [(pylab.loadtxt(f), l) for f, l in bins3A[48]]
-# IndexError: list index out of range
 
 Bin2differentGammas_B_HQ10000_G1_0_0_000 =\
     [(pylab.loadtxt(f), l) for f, l in bins3A[49]]
-# IndexError: list index out of range
 
 Bin3differentGammas_B_HQ10000_G1_0_0_000 =\
     [(pylab.loadtxt(f), l) for f, l in bins3A[50]]
-# IndexError: list index out of range
 
 Bin4differentGammas_B_HQ10000_G1_0_0_000 =\
     [(pylab.loadtxt(f), l) for f, l in bins3A[51]]
-# IndexError: list index out of range
 
 largeRmiddle_19_95_differentGammas_B_HQ10000_G1_0_0_000 =\
     [(pylab.loadtxt(f), l) for f, l in bins3B[30]]
-# IndexError: list index out of range
 
 largeRmiddle_31_62_differentGammas_B_HQ10000_G1_0_0_000 =\
     [(pylab.loadtxt(f), l) for f, l in bins3B[31]]
-# IndexError: list index out of range
 
 bin1differentGammas_B_HQ10000_G1_0_5_005 =\
     [(pylab.loadtxt(f), l) for f, l in bins3A[52]]
-# IndexError: list index out of range
 
 bin2differentGammas_B_HQ10000_G1_0_5_005 =\
     [(pylab.loadtxt(f), l) for f, l in bins3A[53]]
-# IndexError: list index out of range
 
 bin3differentGammas_B_HQ10000_G1_0_5_005 =\
     [(pylab.loadtxt(f), l) for f, l in bins3A[54]]
-# IndexError: list index out of range
 
 bin4differentGammas_B_HQ10000_G1_0_5_005 =\
     [(pylab.loadtxt(f), l) for f, l in bins3A[55]]
-# IndexError: list index out of range
 
 largeRmiddle_19_95_differentGammas_B_HQ10000_G1_0_5_005 =\
     [(pylab.loadtxt(f), l) for f, l in bins3B[32]]
-# IndexError: list index out of range
 
 largeRmiddle_31_62_differentGammas_B_HQ10000_G1_0_5_005 =\
     [(pylab.loadtxt(f), l) for f, l in bins3B[33]]
-# IndexError: list index out of range
 
 bin1differentGammas_B_HQ10000_G1_0_10_005 =\
     [(pylab.loadtxt(f), l) for f, l in bins3A[56]]
-# IndexError: list index out of range
 
 bin2differentGammas_B_HQ10000_G1_0_10_005 =\
     [(pylab.loadtxt(f), l) for f, l in bins3A[57]]
-# IndexError: list index out of range
 
 bin3differentGammas_B_HQ10000_G1_0_10_005 =\
     [(pylab.loadtxt(f), l) for f, l in bins3A[58]]
-# IndexError: list index out of range
 
 bin4differentGammas_B_HQ10000_G1_0_10_005 =\
     [(pylab.loadtxt(f), l) for f, l in bins3A[59]]
-# IndexError: list index out of range
 
 largeRmiddle_19_95_differentGammas_B_HQ10000_G1_0_10_005 =\
     [(pylab.loadtxt(f), l) for f, l in bins3B[34]]
-# IndexError: list index out of range
 
 largeRmiddle_31_62_differentGammas_B_HQ10000_G1_0_10_005 =\
     [(pylab.loadtxt(f), l) for f, l in bins3B[35]]
-# IndexError: list index out of range
 
 bin1differentGammas_B_HQ10000_G1_0_198_000 =\
     [(pylab.loadtxt(f), l) for f, l in bins3A[60]]
-# IndexError: list index out of range
 
 bin2differentGammas_B_HQ10000_G1_0_198_000 =\
     [(pylab.loadtxt(f), l) for f, l in bins3A[61]]
-# IndexError: list index out of range
 
 bin2differentGammas_B_HQ10000_G1_0_198_000 =\
     [(pylab.loadtxt(f), l) for f, l in bins3A[62]]
-# IndexError: list index out of range
 
 bin3differentGammas_B_HQ10000_G1_0_198_000 =\
     [(pylab.loadtxt(f), l) for f, l in bins3A[63]]
-# IndexError: list index out of range
 
 largeRmiddle_19_95_differentGammas_B_HQ10000_G1_0_198_000 =\
     [(pylab.loadtxt(f), l) for f, l in bins3B[36]]
-# IndexError: list index out of range
 
 largeRmiddle_31_62_differentGammas_B_HQ10000_G1_0_198_000 =\
     [(pylab.loadtxt(f), l) for f, l in bins3B[37]]
-# IndexError: list index out of range
 
 Bin1differentGammas_B_HQ10000_G1_0_198_093 =\
     [(pylab.loadtxt(f), l) for f, l in bins3A[64]]
-# IndexError: list index out of range
 
 Bin2differentGammas_B_HQ10000_G1_0_198_093 =\
     [(pylab.loadtxt(f), l) for f, l in bins3A[65]]
-# IndexError: list index out of range
 
 Bin3differentGammas_B_HQ10000_G1_0_198_093 =\
     [(pylab.loadtxt(f), l) for f, l in bins3A[66]]
-# IndexError: list index out of range
 
 Bin4differentGammas_B_HQ10000_G1_0_198_093 =\
     [(pylab.loadtxt(f), l) for f, l in bins3A[67]]
-# IndexError: list index out of range
 
 largeRmiddle_19_95_differentGammas_B_HQ10000_G1_0_198_093 =\
     [(pylab.loadtxt(f), l) for f, l in bins3B[38]]
-# IndexError: list index out of range
 
 largeRmiddle_31_62_differentGammas_B_HQ10000_G1_0_198_093 =\
     [(pylab.loadtxt(f), l) for f, l in bins3B[39]]
-# IndexError: list index out of range
 '''
 
 
