@@ -6,6 +6,8 @@ Created on Mon Mar 18 17:56:42 2019
 @author: gustavcollinrasmussen
 """
 
+import pylab
+
 # Files ---------------------------------------------------------
 G_Pert_HQ10000_G1_0_0_000 = 1
 G_Pert_HQ10000_G1_2_1_005 = 1
@@ -184,8 +186,7 @@ if B_G_Pert_different_gammas_HQ10000_G1_0_0_000:
     FileLstbin5HQ10000_G1_0_0_000 = [(B_HQ0
                                       + 'VT_i_BinAvg_sigmaT_R_middle_19.95.txt',
                                       B_HQ0
-                                      + 'VT_i_BinAvg_sigmaT_R_middle_19.95'
-                                    ),
+                                      + 'VT_i_BinAvg_sigmaT_R_middle_19.95'),
                                      (B_HQ0
                                       + 'VR_i_BinAvg_sigmaR_R_middle_19.95.txt',
                                       B_HQ0

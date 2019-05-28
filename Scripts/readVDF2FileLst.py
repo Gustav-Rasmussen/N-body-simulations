@@ -38,58 +38,92 @@ def load_files(filelst, file_name, bins):
 nameLstA = [f'{APath}/AHQ10000G1.0_0_000', f'{APath}/AHQ10000G1.0_5_005',
             f'{APath}/AHQ10000G1.0_10_005', f'{APath}/AHQ10000G1.0_40_005',
             f'{APath}/AHQ10000G1.2_46_005', f'{APath}/AHQ10000G0.8_47_005',
-            f'{APath}/AHQ10000G1.0_48_009', f'{APath}/AHQ10000G1.0_48_093',
-            ]
+            f'{APath}/AHQ10000G1.0_48_009', f'{APath}/AHQ10000G1.0_48_093']
 
 nameLstB = [f'{BPath}/BHQ10000G1.0_0_000', f'{BPath}/BHQ10000G1.0_5_005',
             f'{BPath}/BHQ10000G1.0_10_005', f'{BPath}/BHQ10000G1.0_198_000',
-            f'{BPath}/BHQ10000G1.0_198_093'
-            ]
+            f'{BPath}/BHQ10000G1.0_198_093']
 
 # Bins ------------------------------------------------------------------------
-bins20 = [[(f"{i}NewRmiddleVTSigmaTGamma_{g}.txt",
-            f"{pattern.findall(i)[0]}NewRmiddleVTSigmaTGamma_{g}"),
-           (f"{i}NewRmiddleVRSigmaRGamma_{g}.txt",
-            f"{pattern.findall(i)[0]}NewRmiddleVRSigmaRGamma_{g}"),
-           (f"{i}NewRmiddleVThetaSigmaThetaGamma_{g}.txt",
-            f"{pattern.findall(i)[0]}NewRmiddleVThetaSigmaThetaGamma_{g}"),
-           (f"{i}NewRmiddleVPhiSigmaPhiGamma_{g}.txt",
-            f"{pattern.findall(i)[0]}NewRmiddleVPhiSigmaPhiGamma_{g}"),
-           (f"{i}NewRmiddleLogx10Gamma_{g}.txt",
-            f"{pattern.findall(i)[0]}NewRmiddleLogx10Gamma_{g}"),
-           (f"{i}NewRmiddleLogx9Gamma_{g}.txt",
-            f"{pattern.findall(i)[0]}NewRmiddleLogx9Gamma_{g}"),
-           (f"{i}NewRmiddleLogx7Gamma_{g}.txt",
-            f"{pattern.findall(i)[0]}NewRmiddleLogx7Gamma_{g}"),
-           (f"{i}NewRmiddleLogx8Gamma_{g}.txt",
-            f"{pattern.findall(i)[0]}NewRmiddleLogx8Gamma_{g}")
-           ] for i in nameLst20 for g in gammaLst]
+bins_A_New = [[(f"{i}NewRmiddleVTSigmaTGamma_{g}.txt",
+                f"{pattern.findall(i)[0]}NewRmiddleVTSigmaTGamma_{g}"),
+               (f"{i}NewRmiddleVRSigmaRGamma_{g}.txt",
+                f"{pattern.findall(i)[0]}NewRmiddleVRSigmaRGamma_{g}"),
+               (f"{i}NewRmiddleVThetaSigmaThetaGamma_{g}.txt",
+                f"{pattern.findall(i)[0]}NewRmiddleVThetaSigmaThetaGamma_{g}"),
+               (f"{i}NewRmiddleVPhiSigmaPhiGamma_{g}.txt",
+                f"{pattern.findall(i)[0]}NewRmiddleVPhiSigmaPhiGamma_{g}"),
+               (f"{i}NewRmiddleLogx10Gamma_{g}.txt",
+                f"{pattern.findall(i)[0]}NewRmiddleLogx10Gamma_{g}"),
+               (f"{i}NewRmiddleLogx9Gamma_{g}.txt",
+                f"{pattern.findall(i)[0]}NewRmiddleLogx9Gamma_{g}"),
+               (f"{i}NewRmiddleLogx7Gamma_{g}.txt",
+                f"{pattern.findall(i)[0]}NewRmiddleLogx7Gamma_{g}"),
+               (f"{i}NewRmiddleLogx8Gamma_{g}.txt",
+                f"{pattern.findall(i)[0]}NewRmiddleLogx8Gamma_{g}")
+               ] for i in nameLstA for g in gammaLst]
 
-bins21 = [[(f"{i}LargeRmiddle{rM}VTSigmaT.txt",
-            f"{pattern.findall(i)[0]}LargeRmiddle{rM}VTSigmaT"),
-           (f"{i}LargeRmiddle{rM}VRSigmaR.txt",
-            f"{pattern.findall(i)[0]}LargeRmiddle{rM}VRSigmaR"),
-           (f"{i}LargeRmiddle{rM}VThetaSigmaTheta.txt",
-            f"{pattern.findall(i)[0]}LargeRmiddle{rM}VThetaSigmaTheta"),
-           (f"{i}LargeRmiddle{rM}VPhiSigmaPhi.txt",
-            f"{pattern.findall(i)[0]}LargeRmiddle{rM}VPhiSigmaPhi"),
-           (f"{i}LargeRmiddle{rM}Logx10.txt",
-            f"{pattern.findall(i)[0]}LargeRmiddle{rM}Logx10"),
-           (f"{i}LargeRmiddle{rM}Logx9.txt",
-            f"{pattern.findall(i)[0]}LargeRmiddle{rM}Logx9"),
-           (f"{i}LargeRmiddle{rM}Logx7.txt",
-            f"{pattern.findall(i)[0]}LargeRmiddle{rM}Logx7"),
-           (f"{i}LargeRmiddle{rM}Logx8.txt",
-            f"{pattern.findall(i)[0]}LargeRmiddle{rM}Logx8")
-           ] for i in nameLst21 for rM in middleRadii]
+bins_A_Large = [[(f"{i}LargeRmiddle{rM}VTSigmaT.txt",
+                  f"{pattern.findall(i)[0]}LargeRmiddle{rM}VTSigmaT"),
+                 (f"{i}LargeRmiddle{rM}VRSigmaR.txt",
+                  f"{pattern.findall(i)[0]}LargeRmiddle{rM}VRSigmaR"),
+                 (f"{i}LargeRmiddle{rM}VThetaSigmaTheta.txt",
+                  f"{pattern.findall(i)[0]}LargeRmiddle{rM}VThetaSigmaTheta"),
+                 (f"{i}LargeRmiddle{rM}VPhiSigmaPhi.txt",
+                  f"{pattern.findall(i)[0]}LargeRmiddle{rM}VPhiSigmaPhi"),
+                 (f"{i}LargeRmiddle{rM}Logx10.txt",
+                  f"{pattern.findall(i)[0]}LargeRmiddle{rM}Logx10"),
+                 (f"{i}LargeRmiddle{rM}Logx9.txt",
+                  f"{pattern.findall(i)[0]}LargeRmiddle{rM}Logx9"),
+                 (f"{i}LargeRmiddle{rM}Logx7.txt",
+                  f"{pattern.findall(i)[0]}LargeRmiddle{rM}Logx7"),
+                 (f"{i}LargeRmiddle{rM}Logx8.txt",
+                  f"{pattern.findall(i)[0]}LargeRmiddle{rM}Logx8")
+                 ] for i in nameLstA for rM in middleRadii]
+
+
+bins_B_New = [[(f"{i}NewRmiddleVTSigmaTGamma_{g}.txt",
+                f"{pattern.findall(i)[0]}NewRmiddleVTSigmaTGamma_{g}"),
+               (f"{i}NewRmiddleVRSigmaRGamma_{g}.txt",
+                f"{pattern.findall(i)[0]}NewRmiddleVRSigmaRGamma_{g}"),
+               (f"{i}NewRmiddleVThetaSigmaThetaGamma_{g}.txt",
+                f"{pattern.findall(i)[0]}NewRmiddleVThetaSigmaThetaGamma_{g}"),
+               (f"{i}NewRmiddleVPhiSigmaPhiGamma_{g}.txt",
+                f"{pattern.findall(i)[0]}NewRmiddleVPhiSigmaPhiGamma_{g}"),
+               (f"{i}NewRmiddleLogx10Gamma_{g}.txt",
+                f"{pattern.findall(i)[0]}NewRmiddleLogx10Gamma_{g}"),
+               (f"{i}NewRmiddleLogx9Gamma_{g}.txt",
+                f"{pattern.findall(i)[0]}NewRmiddleLogx9Gamma_{g}"),
+               (f"{i}NewRmiddleLogx7Gamma_{g}.txt",
+                f"{pattern.findall(i)[0]}NewRmiddleLogx7Gamma_{g}"),
+               (f"{i}NewRmiddleLogx8Gamma_{g}.txt",
+                f"{pattern.findall(i)[0]}NewRmiddleLogx8Gamma_{g}")
+               ] for i in nameLstB for g in gammaLst]
+
+bins_B_Large = [[(f"{i}LargeRmiddle{rM}VTSigmaT.txt",
+                  f"{pattern.findall(i)[0]}LargeRmiddle{rM}VTSigmaT"),
+                 (f"{i}LargeRmiddle{rM}VRSigmaR.txt",
+                  f"{pattern.findall(i)[0]}LargeRmiddle{rM}VRSigmaR"),
+                 (f"{i}LargeRmiddle{rM}VThetaSigmaTheta.txt",
+                  f"{pattern.findall(i)[0]}LargeRmiddle{rM}VThetaSigmaTheta"),
+                 (f"{i}LargeRmiddle{rM}VPhiSigmaPhi.txt",
+                  f"{pattern.findall(i)[0]}LargeRmiddle{rM}VPhiSigmaPhi"),
+                 (f"{i}LargeRmiddle{rM}Logx10.txt",
+                  f"{pattern.findall(i)[0]}LargeRmiddle{rM}Logx10"),
+                 (f"{i}LargeRmiddle{rM}Logx9.txt",
+                  f"{pattern.findall(i)[0]}LargeRmiddle{rM}Logx9"),
+                 (f"{i}LargeRmiddle{rM}Logx7.txt",
+                  f"{pattern.findall(i)[0]}LargeRmiddle{rM}Logx7"),
+                 (f"{i}LargeRmiddle{rM}Logx8.txt",
+                  f"{pattern.findall(i)[0]}LargeRmiddle{rM}Logx8")
+                 ] for i in nameLstB for rM in middleRadii]
 
 # File lists ------------------------------------------------------------------
 fileLst00 = ['G1_0_0_000', 'G1_2_1_005', 'G0_8_2_005', 'G1_2_3_005',
-             'G1_2_5_005', 'G1_2_7_005', 'G1_2_9_005', 'G1_0_10_009'
-             ]
+             'G1_2_5_005', 'G1_2_7_005', 'G1_2_9_005', 'G1_0_10_009']
 
-fileLst10 = [fileLst00[1], fileLst00[3], fileLst00[4],
-             fileLst00[5], fileLst00[6]]
+fileLst10 = [fileLst00[1], fileLst00[3], fileLst00[4], fileLst00[5],
+             fileLst00[6]]
 
 # load files ------------------------------------------------------------------
 # tests
@@ -104,7 +138,7 @@ fileLst10 = [fileLst00[1], fileLst00[3], fileLst00[4],
 # vars()[f'Bin1HQ10000{fileLst00[0]}'] =\
 #     [(pylab.loadtxt(bins20[0][0][0]), bins20[0][0][1])]
 
-load_files(fileLst10, 'differentGammasTest2HQ10000', bins20)
+load_files(fileLst10, 'differentGammasTest2HQ10000', bins_A_New)
 
 '''
 Bin1differentGammasTest2HQ10000G1_0_0_000 =\
@@ -118,15 +152,12 @@ Bin3differentGammasTest2HQ10000G1_0_0_000 =\
 
 Bin4differentGammasTest2HQ10000G1_0_0_000 =\
     [(pylab.loadtxt(filename), label) for filename, label in bins20[0][3]]
-'''
 
-'''
 largeRmiddle_19_95_differentGammasTest2HQ10000G1_0_0_000 =\
     [(pylab.loadtxt(f), l) for f, l in bins21[0]]
 
 largeRmiddle_31_62_differentGammasTest2HQ10000G1_0_0_000 =\
     [(pylab.loadtxt(f), l) for f, l in bins21[1]]
-'''
 
 # bin1DifferentGammasTest2HQ10000_G1_0_5_005 =\
 #     [(pylab.loadtxt(f), l) for f, l in bins3A[4]]
@@ -140,13 +171,11 @@ largeRmiddle_31_62_differentGammasTest2HQ10000G1_0_0_000 =\
 # bin4DifferentGammasTest2HQ10000_G1_0_5_005 =\
 #     [(pylab.loadtxt(f), l) for f, l in bins3A[7]]
 
-'''
 largeRmiddle_19_95_differentGammasTest2HQ10000_G1_0_5_005 =\
     [(pylab.loadtxt(f), l) for f, l in bins3B[2]]
 
 largeRmiddle_31_62_differentGammasTest2HQ10000_G1_0_5_005 =\
     [(pylab.loadtxt(f), l) for f, l in bins3B[3]]
-'''
 
 # Bin1differentGammasTest2HQ10000_G1_0_10_005 =\
 #     [(pylab.loadtxt(f), l) for f, l in bins3A[8]]
@@ -160,13 +189,11 @@ largeRmiddle_31_62_differentGammasTest2HQ10000_G1_0_5_005 =\
 # Bin4differentGammasTest2HQ10000_G1_0_10_005 =\
 #     [(pylab.loadtxt(f), l) for f, l in bins3A[11]]
 
-'''
 largeRmiddle_19_95_differentGammasTest2HQ10000_G1_0_10_005 =\
     [(pylab.loadtxt(f), l) for f, l in bins3B[4]]
 
 largeRmiddle_31_62_differentGammasTest2HQ10000_G1_0_10_005 =\
     [(pylab.loadtxt(f), l) for f, l in bins3B[5]]
-'''
 
 # Bin1differentGammasTest2HQ10000_G1_0_15_005 =\
 #     [(pylab.loadtxt(f), l) for f, l in bins3A[12]]
@@ -180,13 +207,11 @@ largeRmiddle_31_62_differentGammasTest2HQ10000_G1_0_10_005 =\
 # Bin4differentGammasTest2HQ10000_G1_0_15_005 =\
 #     [(pylab.loadtxt(f), l) for f, l in bins3A[15]]
 
-'''
 largeRmiddle_19_95_differentGammasTest2HQ10000_G1_0_15_005 =\
     [(pylab.loadtxt(f), l) for f, l in bins3B[6]]
 
 largeRmiddle_31_62_differentGammasTest2HQ10000_G1_0_15_005 =\
     [(pylab.loadtxt(f), l) for f, l in bins3B[7]]
-'''
 
 # bin1differentGammasTest2HQ10000_G1_0_20_005 =\
 #    [(pylab.loadtxt(f), l) for f, l in bins3A[16]]
@@ -200,13 +225,11 @@ largeRmiddle_31_62_differentGammasTest2HQ10000_G1_0_15_005 =\
 # bin4differentGammasTest2HQ10000_G1_0_20_005 =\
 # [(pylab.loadtxt(f), l) for f, l in bins3A[19]]
 
-'''
 largeRmiddle_19_95_differentGammasTest2HQ10000_G1_0_20_005 =\
     [(pylab.loadtxt(f), l) for f, l in bins3B[8]]
 
 largeRmiddle_31_62_differentGammasTest2HQ10000_G1_0_20_005 =\
     [(pylab.loadtxt(f), l) for f, l in bins3B[9]]
-'''
 
 # bin1differentGammasTest2HQ10000_G1_0_25_005 =\
 #    [(pylab.loadtxt(f), l) for f, l in bins3A[20]]
@@ -220,7 +243,6 @@ largeRmiddle_31_62_differentGammasTest2HQ10000_G1_0_20_005 =\
 # bin4differentGammasTest2HQ10000_G1_0_25_005 =\
 #    [(pylab.loadtxt(f), l) for f, l in bins3A[23]]
 
-'''
 largeRmiddle_19_95_differentGammasTest2HQ10000_G1_0_25_005 =\
     [(pylab.loadtxt(f), l) for f, l in bins3B[10]]
 
@@ -504,7 +526,6 @@ def main():
 
 if __name__ == '__main__':
     main()
-    # pass
 
 # [5],[6],[7] : log9, log7, log8 : r, theta, phi
 # x10 is tangential part.
