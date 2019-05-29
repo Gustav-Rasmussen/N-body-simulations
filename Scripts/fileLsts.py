@@ -19,38 +19,37 @@ fileLstMartinFinal = [(textMartinPath / Sparre[2] + '.txt', Sparre[2]),
                       (textMartinPath / Sparre[3] + '.txt', Sparre[3]),
                       (textMartinPath / Sparre[4] + '.txt', Sparre[4]),
                       (textMartinPath / Sparre[5] + '.txt', Sparre[5]),
-                      (textMartinPath / 's2G20_001.txt', 's2G20_001'),
-                      (textMartinPath / 's3G20_001.txt', 's3G20_001'),
-                      (textMartinPath / 's4G20_001.txt', 's4G20_001'),
-                      (textMartinPath / 'OMG20_Final_000.txt',
-                       'OMG20_Final_000')]
+                      (textMartinPath / Sparre[6] + '.txt', Sparre[6]),
+                      (textMartinPath / Sparre[7] + '.txt', Sparre[7]),
+                      (textMartinPath / Sparre[8] + '.txt', Sparre[8]),
+                      (textMartinPath / Sparre[9] + '.txt', Sparre[9])]
 
-fileLstA = [(textFilesPath / 'A' / 'A_HQ10000_G1.0_0_000.txt',
-             'A_HQ10000_G1.0_0_000'),
-            (textFilesPath / 'A' / 'A_HQ10000_G1.0_5_005.txt',
-             'A_HQ10000_G1.0_5_005'),
-            (textFilesPath / 'A' / 'A_HQ10000_G1.0_10_005.txt',
-             'A_HQ10000_G1.0_10_005'),
-            (textFilesPath / 'A' / 'A_HQ10000_G1.0_40_005.txt',
-             'A_HQ10000_G1.0_40_005'),
-            (textFilesPath / 'A' / 'A_HQ10000_G1.0_48_009.txt',
-             'A_HQ10000_G1.0_48_008')]
+A_lst = ['A_HQ10000_G1.0_0_000', 'A_HQ10000_G1.0_5_005',
+         'A_HQ10000_G1.0_10_005', 'A_HQ10000_G1.0_40_005',
+         'A_HQ10000_G1.0_48_009']
 
-fileLstA_R10000 = [(textFilesPath / 'A' /
-                    'A_HQ10000_G1.0_0_000_Rlim_10000_20_RBins.txt',
-                    'A_HQ10000_G1.0_0_000_Rlim_10000_20_RBins'),
-                   (textFilesPath / 'A' /
-                    'A_HQ10000_G1.0_5_005_Rlim_10000_20_RBins.txt',
-                    'A_HQ10000_G1.0_5_005_Rlim_10000_20_RBins'),
-                   (textFilesPath / 'A' /
-                    'A_HQ10000_G1.0_10_005_Rlim_10000_20_RBins.txt',
-                    'A_HQ10000_G1.0_10_005_Rlim_10000_20_RBins'),
-                   (textFilesPath / 'A' /
-                    'A_HQ10000_G1.0_40_005_Rlim_10000_20_RBins.txt',
-                    'A_HQ10000_G1.0_40_005_Rlim_10000_20_RBins'),
-                   (textFilesPath / 'A' /
-                    'A_HQ10000_G1.0_48_009_Rlim_10000_20_RBins.txt',
-                    'A_HQ10000_G1.0_48_009_Rlim_10000_20_RBins')]
+fileLstA = [(textFilesPath / 'A' / A_lst[0] + '.txt', A_lst[0]),
+            (textFilesPath / 'A' / A_lst[1] + '.txt', A_lst[1]),
+            (textFilesPath / 'A' / A_lst[2] + '.txt', A_lst[2]),
+            (textFilesPath / 'A' / A_lst[3] + '.txt', A_lst[3]),
+            (textFilesPath / 'A' / A_lst[4] + '.txt', A_lst[4])]
+
+A_Rlim10000 = ['A_HQ10000_G1.0_0_000_Rlim_10000_20_RBins',
+               'A_HQ10000_G1.0_5_005_Rlim_10000_20_RBins',
+               'A_HQ10000_G1.0_10_005_Rlim_10000_20_RBins',
+               'A_HQ10000_G1.0_40_005_Rlim_10000_20_RBins',
+               'A_HQ10000_G1.0_48_009_Rlim_10000_20_RBins']
+
+fileLstA_R10000 = [(textFilesPath / 'A' / A_Rlim10000[0] + '.txt',
+                    A_Rlim10000[0]),
+                   (textFilesPath / 'A' / A_Rlim10000[1] + '.txt',
+                    A_Rlim10000[1]),
+                   (textFilesPath / 'A' / A_Rlim10000[2] + '.txt',
+                    A_Rlim10000[2]),
+                   (textFilesPath / 'A' / A_Rlim10000[3] + '.txt',
+                    A_Rlim10000[3]),
+                   (textFilesPath / 'A' / A_Rlim10000[4] + '.txt',
+                    A_Rlim10000[4])]
 
 FileLstA_Rlimit32_50bins = [(textFilesPath / 'A' /
                              'A_HQ10000_G1.0_0_000_Rlim_32_50_RBins.txt',
