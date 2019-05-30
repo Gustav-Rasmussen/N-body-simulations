@@ -101,81 +101,66 @@ fileLstB_R10000 = [(textFilesPath / 'B' / B_R10000[0] + '.txt', B_R10000[0]),
                    (textFilesPath / 'B' / B_R10000[7] + '.txt', B_R10000[7]),
                    (textFilesPath / 'B' / B_R10000[8] + '.txt', B_R10000[8])]
 
-FileLstB_SecondLast_R5000 = [(textFilesPath / 'B' /
-                              'B_HQ10000_G1.0_198_093_Rlim_5000.txt',
-                              'B_HQ10000_G1.0_198_093_Rlim_5000'),
-                             (textFilesPath / 'B' /
-                              'B_HQ10000_G1.0_198_093_Rlim_5000_20_RBins.txt',
-                              'B_HQ10000_G1.0_198_093_Rlim_5000_20_RBins')]
+B_R5000 = ['B_HQ10000_G1.0_198_093_Rlim_5000',
+           'B_HQ10000_G1.0_198_093_Rlim_5000_20_RBins']
 
-FileLstB_Rlimit32_50bins = [(textFilesPath / 'B' /
-                             'B_HQ10000_G1.0_0_000_Rlim_32_50_RBins.txt',
-                             'B_HQ10000_G1.0_0_000_Rlim_32_50_RBins'),
-                            (textFilesPath / 'B' /
-                             'B_HQ10000_G1.0_199_093_Rlim_32_50_RBins.txt',
-                             'B_HQ10000_G1.0_199_093_Rlim_32_50_RBins')]
+FileLstB_SecondLast_R5000 = [(textFilesPath / 'B' / B_R5000[0] + '.txt',
+                              B_R5000[0]),
+                             (textFilesPath / 'B' / B_R5000[1] + '.txt',
+                              B_R5000[1])]
 
-fileLstC_IC = [(textFilesPath / 'CS1' / 'CS1_OM10000_G1.0_0_000.txt',
-                'CS1_OM10000_G1.0_0_000'),
-               (textFilesPath / 'CS2' / 'CS2_OM10000_G1.0_0_000.txt',
-                'CS2_OM10000_G1.0_0_000'),
-               (textFilesPath / 'CS3' / 'CS3_OM10000_G1.0_0_000.txt',
-                'CS3_OM10000_G1.0_0_000'),
-               (textFilesPath / 'CS1' / 'CS1_OM10000_G1.0_0_000_20_RBins.txt',
-                'CS1_OM10000_G1.0_0_000_20_RBins'),
-               (textFilesPath / 'CS2' / 'CS2_OM10000_G1.0_0_000_20_RBins.txt',
-                'CS2_OM10000_G1.0_0_000_20_RBins'),
-               (textFilesPath / 'CS3' / 'CS3_OM10000_G1.0_0_000_20_RBins.txt',
-                'CS3_OM10000_G1.0_0_000_20_RBins')
-               (textFilesPath / 'CS4' / 'CS4_OM10000_G1.0_0_000.txt',
-                'CS4_OM10000_G1.0_0_000'),
-               (textFilesPath / 'CS5' / 'CS5_OM10000_G1.0_0_000.txt',
-                'CS5_OM10000_G1.0_0_000'),
-               (textFilesPath / 'CS6' / 'CS6_OM10000_G1.0_0_000.txt',
-                'CS6_OM10000_G1.0_0_000'),
-               (textFilesPath / 'CS4' / 'CS4_OM10000_G1.0_0_000_20_RBins.txt',
-                'CS4_OM10000_G1.0_0_000_20_RBins'),
-               (textFilesPath / 'CS5' / 'CS5_OM10000_G1.0_0_000_20_RBins.txt',
-                'CS5_OM10000_G1.0_0_000_20_RBins'),
-               (textFilesPath / 'CS6' / 'CS6_OM10000_G1.0_0_000_20_RBins.txt',
-                'CS6_OM10000_G1.0_0_000_20_RBins')]
+B_R32 = ['B_HQ10000_G1.0_0_000_Rlim_32_50_RBins',
+         'B_HQ10000_G1.0_199_093_Rlim_32_50_RBins']
 
-fileLstCS4CS5CS6_R10000 = [(textFilesPath / 'CS4' /
-                            'CS4_OM10000_G1.0_0_000_Rlim_10000.txt',
-                            'CS4_OM10000_G1.0_0_000_Rlim_10000'),
-                           (textFilesPath / 'CS5' /
-                            'CS5_OM10000_G1.0_0_000_Rlim_10000.txt',
-                            'CS5_OM10000_G1.0_0_000_Rlim_10000'),
-                           (textFilesPath + 'CS6/' +
-                            'CS6_OM10000_G1.0_0_000_Rlim_10000.txt',
-                            'CS6_OM10000_G1.0_0_000_Rlim_10000'),
-                           (textFilesPath + 'CS4/' +
-                            'CS4_OM10000_G1.0_0_000_Rlim_10000_20_RBins.txt',
-                            'CS4_OM10000_G1.0_0_000_Rlim_10000_20_RBins'),
-                           (textFilesPath + 'CS5/' +
-                            'CS5_OM10000_G1.0_0_000_Rlim_10000_20_RBins.txt',
-                            'CS5_OM10000_G1.0_0_000_Rlim_10000_20_RBins'),
-                           (textFilesPath + 'CS6/' +
-                            'CS6_OM10000_G1.0_0_000_Rlim_10000_20_RBins.txt',
-                            'CS6_OM10000_G1.0_0_000_Rlim_10000_20_RBins'),
-                           (textFilesPath + 'CS4/' +
-                            'CS4_OM10000_G1.0_48_093_Rlim_10000.txt',
-                            'CS4_OM10000_G1.0_48_093_Rlim_10000'),
-                           (textFilesPath + 'CS5/' +
-                            'CS5_OM10000_G1.0_48_093_Rlim_10000.txt',
-                            'CS5_OM10000_G1.0_48_093_Rlim_10000'),
-                           (textFilesPath + 'CS6/' +
-                            'CS6_OM10000_G1.0_48_093_Rlim_10000.txt',
-                            'CS6_OM10000_G1.0_48_093_Rlim_10000'),
-                           (textFilesPath + 'CS4/' +
-                            'CS4_OM10000_G1.0_48_093_Rlim_10000_20_RBins.txt',
-                            'CS4_OM10000_G1.0_48_093_Rlim_10000_20_RBins'),
-                           (textFilesPath + 'CS5/' +
-                            'CS5_OM10000_G1.0_48_093_Rlim_10000_20_RBins.txt',
-                            'CS5_OM10000_G1.0_48_093_Rlim_10000_20_RBins'),
-                           (textFilesPath + 'CS6/' +
-                            'CS6_OM10000_G1.0_48_093_Rlim_10000_20_RBins.txt',
-                            'CS6_OM10000_G1.0_48_093_Rlim_10000_20_RBins')]
+FileLstB_Rlimit32_50bins = [(textFilesPath / 'B' / B_R32[0] + '.txt',
+                             B_R32[0]),
+                            (textFilesPath / 'B' / B_R32[1] + '.txt',
+                             B_R32[1])]
+
+IC = ['CS1_OM10000_G1.0_0_000', 'CS2_OM10000_G1.0_0_000',
+      'CS3_OM10000_G1.0_0_000', 'CS1_OM10000_G1.0_0_000_20_RBins',
+      'CS2_OM10000_G1.0_0_000_20_RBins', 'CS3_OM10000_G1.0_0_000_20_RBins',
+      'CS4_OM10000_G1.0_0_000', 'CS5_OM10000_G1.0_0_000',
+      'CS6_OM10000_G1.0_0_000', 'CS4_OM10000_G1.0_0_000_20_RBins',
+      'CS5_OM10000_G1.0_0_000_20_RBins', 'CS6_OM10000_G1.0_0_000_20_RBins']
+
+fileLstC_IC = [(textFilesPath / 'CS1' / IC[0] + '.txt', IC[0]),
+               (textFilesPath / 'CS2' / IC[1] + '.txt', IC[1]),
+               (textFilesPath / 'CS3' / IC[2] + '.txt', IC[2]),
+               (textFilesPath / 'CS1' / IC[3] + '.txt', IC[3]),
+               (textFilesPath / 'CS2' / IC[4] + '.txt', IC[4]),
+               (textFilesPath / 'CS3' / IC[5] + '.txt', IC[5]),
+               (textFilesPath / 'CS4' / IC[6] + '.txt', IC[6]),
+               (textFilesPath / 'CS5' / IC[7] + '.txt', IC[7]),
+               (textFilesPath / 'CS6' / IC[8] + '.txt', IC[8]),
+               (textFilesPath / 'CS4' / IC[9] + '.txt', IC[9]),
+               (textFilesPath / 'CS5' / IC[10] + '.txt', IC[10]),
+               (textFilesPath / 'CS6' / IC[11] + '.txt', IC[11])]
+
+CS = ['CS4_OM10000_G1.0_0_000_Rlim_10000', 'CS5_OM10000_G1.0_0_000_Rlim_10000',
+      'CS6_OM10000_G1.0_0_000_Rlim_10000',
+      'CS4_OM10000_G1.0_0_000_Rlim_10000_20_RBins',
+      'CS5_OM10000_G1.0_0_000_Rlim_10000_20_RBins',
+      'CS6_OM10000_G1.0_0_000_Rlim_10000_20_RBins',
+      'CS4_OM10000_G1.0_48_093_Rlim_10000',
+      'CS5_OM10000_G1.0_48_093_Rlim_10000',
+      'CS6_OM10000_G1.0_48_093_Rlim_10000',
+      'CS4_OM10000_G1.0_48_093_Rlim_10000_20_RBins',
+      'CS5_OM10000_G1.0_48_093_Rlim_10000_20_RBins',
+      'CS6_OM10000_G1.0_48_093_Rlim_10000_20_RBins']
+
+fileLstCS4CS5CS6_R10000 = [(textFilesPath / 'CS4' / CS[0] + '.txt', CS[0]),
+                           (textFilesPath / 'CS5' / CS[1] + '.txt', CS[1]),
+                           (textFilesPath + 'CS6/' + CS[2] + '.txt', CS[2]),
+                           (textFilesPath + 'CS4/' + CS[3] + '.txt', CS[3]),
+                           (textFilesPath + 'CS5/' + CS[4] + '.txt', CS[4]),
+                           (textFilesPath + 'CS6/' + CS[5] + '.txt', CS[5]),
+                           (textFilesPath + 'CS4/' + CS[6] + '.txt', CS[6]),
+                           (textFilesPath + 'CS5/' + CS[7] + '.txt', CS[7]),
+                           (textFilesPath + 'CS6/' + CS[8] + '.txt', CS[8]),
+                           (textFilesPath + 'CS4/' + CS[9] + '.txt', CS[9]),
+                           (textFilesPath + 'CS5/' + CS[10] + '.txt', CS[10]),
+                           (textFilesPath + 'CS6/' + CS[11] + '.txt', CS[11])]
 
 fileLstCS4CS5CS6_Final = [(textFilesPath + 'CS4/' +
                            'CS4_OM10000_G1.0_48_093.txt',
