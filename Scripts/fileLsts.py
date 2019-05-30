@@ -51,66 +51,55 @@ fileLstA_R10000 = [(textFilesPath / 'A' / A_Rlim10000[0] + '.txt',
                    (textFilesPath / 'A' / A_Rlim10000[4] + '.txt',
                     A_Rlim10000[4])]
 
-FileLstA_Rlimit32_50bins = [(textFilesPath / 'A' /
-                             'A_HQ10000_G1.0_0_000_Rlim_32_50_RBins.txt',
-                             'A_HQ10000_G1.0_0_000_Rlim_32_50_RBins'),
-                            (textFilesPath / 'A' /
-                             'A_HQ10000_G1.0_48_009_Rlim_32_50_RBins.txt',
-                             'A_HQ10000_G1.0_48_009_Rlim_32_50_RBins')]
+A_Rlim32 = ['A_HQ10000_G1.0_0_000_Rlim_32_50_RBins',
+            'A_HQ10000_G1.0_48_009_Rlim_32_50_RBins']
 
-fileLstB = [(textFilesPath / 'B' / 'B_HQ10000_G1.0_0_000.txt',
-             'B_HQ10000_G1.0_0_000'),
-            (textFilesPath / 'B' / 'B_HQ10000_G1.0_5_005.txt',
-             'B_HQ10000_G1.0_5_005'),
-            (textFilesPath / 'B' / 'B_HQ10000_G1.0_10_005.txt',
-             'B_HQ10000_G1.0_10_005'),
-            (textFilesPath / 'B' / 'B_HQ10000_G1.0_198_000.txt',
-             'B_HQ10000_G1.0_198_000'),
-            (textFilesPath / 'B' / 'B_HQ10000_G1.0_198_093.txt',
-             'B_HQ10000_G1.0_198_093'),
-            (textFilesPath / 'B' / 'B_HQ10000_G1.0_199_093.txt',
-             'B_HQ10000_G1.0_199_093')]
+FileLstA_Rlimit32_50bins = [(textFilesPath / 'A' / A_Rlim32[0] + '.txt',
+                             A_Rlim32[0]),
+                            (textFilesPath / 'A' / A_Rlim32[1] + '.txt',
+                             A_Rlim32[1])]
 
-fileLstB20 = [(textFilesPath / 'B' / 'B_HQ10000_G1.0_0_000_20_RBins.txt',
-               'B_HQ10000_G1.0_0_000_20_RBins'),
-              (textFilesPath / 'B' / 'B_HQ10000_G1.0_199_093_20_RBins.txt',
-               'B_HQ10000_G1.0_199_093_20_RBins'),
-              (textFilesPath / 'B' / 'B_HQ10000_G1.0_5_005_20_RBins.txt',
-               'B_HQ10000_G1.0_5_005_20_RBins'),
-              (textFilesPath / 'B' / 'B_HQ10000_G1.0_10_005_20_RBins.txt',
-               'B_HQ10000_G1.0_10_005_20_RBins'),
-              (textFilesPath / 'B' / 'B_HQ10000_G1.0_198_000_20_RBins.txt',
-               'B_HQ10000_G1.0_198_000_20_RBins'),
-              (textFilesPath / 'B/' / 'B_HQ10000_G1.0_198_093_20_RBins.txt',
-               'B_HQ10000_G1.0_198_093_20_RBins')]
+B_lst = ['B_HQ10000_G1.0_0_000', 'B_HQ10000_G1.0_5_005',
+         'B_HQ10000_G1.0_10_005', 'B_HQ10000_G1.0_198_000',
+         'B_HQ10000_G1.0_198_093', 'B_HQ10000_G1.0_199_093']
 
-fileLstB_R10000 = [(textFilesPath / 'B' /
-                    'B_HQ10000_G1.0_0_000_Rlim_10000.txt',
-                    'B_HQ10000_G1.0_0_000_Rlim_10000'),
-                   (textFilesPath / 'B' /
-                    'B_HQ10000_G1.0_198_093_Rlim_10000.txt',
-                    'B_HQ10000_G1.0_198_093_Rlim_10000')
-                   (textFilesPath / 'B' /
-                    'B_HQ10000_G1.0_199_093_Rlim_10000.txt',
-                    'B_HQ10000_G1.0_199_093_Rlim_10000'),
-                   (textFilesPath / 'B' /
-                    'B_HQ10000_G1.0_0_000_Rlim_10000_20_RBins.txt',
-                    'B_HQ10000_G1.0_0_000_Rlim_10000_20_RBins'),
-                   (textFilesPath / 'B' /
-                    'B_HQ10000_G1.0_5_005_Rlim_10000_20_RBins.txt',
-                    'B_HQ10000_G1.0_5_005_Rlim_10000_20_RBins'),
-                   (textFilesPath / 'B' /
-                    'B_HQ10000_G1.0_10_005_Rlim_10000_20_RBins.txt',
-                    'B_HQ10000_G1.0_10_005_Rlim_10000_20_RBins'),
-                   (textFilesPath / 'B' /
-                    'B_HQ10000_G1.0_198_000_Rlim_10000_20_RBins.txt',
-                    'B_HQ10000_G1.0_198_000_Rlim_10000_20_RBins'),
-                   (textFilesPath / 'B' /
-                    'B_HQ10000_G1.0_198_093_Rlim_10000_20_RBins.txt',
-                    'B_HQ10000_G1.0_198_093_Rlim_10000_20_RBins')
-                   (textFilesPath / 'B' /
-                    'B_HQ10000_G1.0_199_093_Rlim_10000_20_RBins.txt',
-                    'B_HQ10000_G1.0_199_093_Rlim_10000_20_RBins')]
+fileLstB = [(textFilesPath / 'B' / B_lst[0] + '.txt', B_lst[0]),
+            (textFilesPath / 'B' / B_lst[1] + '.txt', B_lst[2]),
+            (textFilesPath / 'B' / B_lst[2] + '.txt', B_lst[3]),
+            (textFilesPath / 'B' / B_lst[3] + '.txt', B_lst[4]),
+            (textFilesPath / 'B' / B_lst[4] + '.txt', B_lst[5]),
+            (textFilesPath / 'B' / B_lst[5] + '.txt', B_lst[6])]
+
+B20 = ['B_HQ10000_G1.0_0_000_20_RBins', 'B_HQ10000_G1.0_199_093_20_RBins',
+       'B_HQ10000_G1.0_5_005_20_RBins', 'B_HQ10000_G1.0_10_005_20_RBins',
+       'B_HQ10000_G1.0_198_000_20_RBins', 'B_HQ10000_G1.0_198_093_20_RBins']
+
+fileLstB20 = [(textFilesPath / 'B' / B20[0] + '.txt', B20[0]),
+              (textFilesPath / 'B' / B20[1] + '.txt', B20[1]),
+              (textFilesPath / 'B' / B20[2] + '.txt', B20[2]),
+              (textFilesPath / 'B' / B20[3] + '.txt', B20[3]),
+              (textFilesPath / 'B' / B20[4] + '.txt', B20[4]),
+              (textFilesPath / 'B' / B20[5] + '.txt', B20[5])]
+
+B_R10000 = ['B_HQ10000_G1.0_0_000_Rlim_10000',
+            'B_HQ10000_G1.0_198_093_Rlim_10000',
+            'B_HQ10000_G1.0_199_093_Rlim_10000',
+            'B_HQ10000_G1.0_0_000_Rlim_10000_20_RBins',
+            'B_HQ10000_G1.0_5_005_Rlim_10000_20_RBins',
+            'B_HQ10000_G1.0_10_005_Rlim_10000_20_RBins',
+            'B_HQ10000_G1.0_198_000_Rlim_10000_20_RBins',
+            'B_HQ10000_G1.0_198_093_Rlim_10000_20_RBins',
+            'B_HQ10000_G1.0_199_093_Rlim_10000_20_RBins']
+
+fileLstB_R10000 = [(textFilesPath / 'B' / B_R10000[0] + '.txt', B_R10000[0]),
+                   (textFilesPath / 'B' / B_R10000[1] + '.txt', B_R10000[1]),
+                   (textFilesPath / 'B' / B_R10000[2] + '.txt', B_R10000[2]),
+                   (textFilesPath / 'B' / B_R10000[3] + '.txt', B_R10000[3]),
+                   (textFilesPath / 'B' / B_R10000[4] + '.txt', B_R10000[4]),
+                   (textFilesPath / 'B' / B_R10000[5] + '.txt', B_R10000[5]),
+                   (textFilesPath / 'B' / B_R10000[6] + '.txt', B_R10000[6]),
+                   (textFilesPath / 'B' / B_R10000[7] + '.txt', B_R10000[7]),
+                   (textFilesPath / 'B' / B_R10000[8] + '.txt', B_R10000[8])]
 
 FileLstB_SecondLast_R5000 = [(textFilesPath / 'B' /
                               'B_HQ10000_G1.0_198_093_Rlim_5000.txt',
