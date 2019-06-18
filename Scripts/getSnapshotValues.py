@@ -1,9 +1,9 @@
-
 # -*- coding: utf-8 -*-
 
 import h5py
 import definePaths as dp
 import numpy as np
+import radius_and_velocity_funcs as ravf
 
 Filename = dp.desktopPath / 'RunGadget/G_HQ_1000000_test/output/\
            HQ10000_G0.8_2_000.hdf5'
@@ -28,16 +28,16 @@ minV = np.argmin(V)
 xC = x[minV]
 yC = y[minV]
 zC = z[minV]
-
 vxC = vx[minV]
 vyC = vy[minV]
 vzC = vz[minV]
 
-R_xyz = (x ** 2 + y ** 2 + z ** 2) ** .5
-R = ((x - xC) ** 2 + (y - yC) ** 2 + (z - zC) ** 2) ** .5
+R_xyz = ravf.modulus(x, y, z)
+R = ravf.modulus(x - xC, y - yC, z - zC)
 
 R_limit_min = 400.
 R_limit_max = 500.
+R_limit = 100.
 
 # Removes all particles that is far away from the cluster.
 GoodIDs_1 = np.where(R < R_limit_max)
@@ -57,8 +57,8 @@ vznew = vz[GoodIDs_1] - np.median(vzcl)
 R_hob_par = R[GoodIDs_1]
 Rvector = np.array([xcl, ycl, zcl])  # positions
 v_vector = np.array([vxnew, vynew, vznew])  # velocities
-Vcl = V[GoodIDs]
-Rcl = R[GoodIDs]
+Vcl = V[GoodIDs_1]
+Rcl = R[GoodIDs_1]
 
 '''
 x = x[GoodIDs_1]

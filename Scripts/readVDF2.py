@@ -17,6 +17,10 @@ import matplotlib.pyplot as plt
 
 # print(Path.cwd())
 
+# plt.xkcd()
+# plt.style.use("ggplot")
+plt.style.use("fivethirtyeight")
+
 # Switches --------------------------------------------------------------------
 
 A = 0
@@ -253,7 +257,7 @@ def Fig_vt(bin_data, title):
 
     ax4.set_xlabel(r"$\log \left(|u_tn|,u_tp \right)$", fontsize=20)
     ax4.set_ylabel(r"$\log \left( f\left(\log \left(|u_tn|,u_tp \right)\
-                     \right) \right)$", fontsize=20)
+                   \right) \right)$", fontsize=20)
     ax4.set_yscale("log")
 
 
@@ -555,11 +559,11 @@ def Fig_vr_vPhi_vTheta_divided_by_gauss(bin_name):
              "k:", label=r"$ a=1405.914, b=0.470$", lw=2, ms=7)
 
     ax2.set_xlabel(r"$\log \left( |u_rn|,u_rp \right)$, $\log \left(\
-                     |u_{\Theta}n|,u_{\Theta}p \right)$ and $\log \left(\
-                     |u_{\Phi}n|,u_{\Phi}p \right)$", fontsize=20)
+                   |u_{\Theta}n|,u_{\Theta}p \right)$ and $\log \left(\
+                   |u_{\Phi}n|,u_{\Phi}p \right)$", fontsize=20)
     # a \cdot \log(x) \cdot e^{-b \cdot log(x)^2}
-    ax2.set_ylabel(r"$\frac{f\left(\log \left( |u_n|,u_p \right)\right)}\
-                     {axe^{-b\log (x)^2}}$", fontsize=20)
+    ax2.set_ylabel(r"$\frac{f\left(\log \left(|u_n|,u_p\right)\right)}\
+                   {axe^{-b\log (x)^2}}$", fontsize=20)
 
 
 if test:
@@ -660,9 +664,9 @@ if Fig3_vr_vt:
     Plt(2, bin4_HQ10000_G1_0_0_000[5], "g")
 
     ax2.set_xlim(-3, 0)
-    ax2.set_xlabel(r"$\log \left(|u_tn|,u_tp \right)$ and $\log \left(|u_rn|,\
-                     u_rp \right)$", fontsize=20)
-    ax2.set_ylabel(r"$f\left(\log \left( |u_n|,u_p \right)\right)$",
+    ax2.set_xlabel(r"$\log \left(|u_tn|,u_tp \right)$ and $\log\left(|u_rn|,\
+                   u_rp \right)$", fontsize=20)
+    ax2.set_ylabel(r"$f\left(\log \left(|u_n|,u_p \right)\right)$",
                    fontsize=20)
 
     Plt(3, bin1_HQ10000_G1_0_0_000[0], "b--", label=r"$\gamma = -1.5$")
@@ -689,9 +693,9 @@ if Fig3_vr_vt:
 
     ax4.set_xlim(-3, 0)
     ax4.set_xlabel(r"$\log \left(|u_tn|,u_tp \right)$ and $\log \left(|u_rn|,\
-                     u_rp \right)$", fontsize=20)
+                   u_rp \right)$", fontsize=20)
     ax4.set_ylabel(r"$\log \left( f\left(\log \left( |u_n|,u_p \right)\right)\
-                     \right)$", fontsize=20)
+                   \right)$", fontsize=20)
     ax4.set_yscale("log")
 
 if Fig_GPerts_same_gammas_as_IC_vr:
@@ -1031,16 +1035,11 @@ if Fig_GPerts_G1_2_same_gammas_as_IC_vt:
         exec(f"ax{i}.legend(prop=dict(size=18), numpoints=2, ncol=1,\
                             frameon=True, loc=0, handlelength=2.5)")
 
-    Plt(1, bin1_HQ10000_G1_2_1_005[0], "b--",
-        label=r"%s" % HQ12[len("HQ10000_G"):])
-    Plt(1, bin1_HQ10000_G1_2_3_005[0], "r--",
-        label=r"%s" % HQ24[len("HQ10000_G"):])
-    Plt(1, bin1_HQ10000_G1_2_5_005[0], "g--",
-        label=r"%s" % HQ36[len("HQ10000_G"):])
-    Plt(1, bin1_HQ10000_G1_2_7_005[0], "k--",
-        label=r"%s" % HQ48[len("HQ10000_G"):])
-    Plt(1, bin1_HQ10000_G1_2_9_005[0], "c--",
-        label=r"%s" % HQ60[len("HQ10000_G"):])
+    Plt(1, bin1_HQ10000_G1_2_1_005[0], "b--", label=r"%s" % HQ12[9:])
+    Plt(1, bin1_HQ10000_G1_2_3_005[0], "r--", label=r"%s" % HQ24[9:])
+    Plt(1, bin1_HQ10000_G1_2_5_005[0], "g--", label=r"%s" % HQ36[9:])
+    Plt(1, bin1_HQ10000_G1_2_7_005[0], "k--", label=r"%s" % HQ48[9:])
+    Plt(1, bin1_HQ10000_G1_2_9_005[0], "c--", label=r"%s" % HQ60[9:])
     Plt(1, bin2_HQ10000_G1_2_1_005[0], "r:")
     Plt(1, bin2_HQ10000_G1_2_3_005[0], "g:")
     Plt(1, bin2_HQ10000_G1_2_5_005[0], "k:")
@@ -1061,16 +1060,11 @@ if Fig_GPerts_G1_2_same_gammas_as_IC_vt:
     ax1.set_ylabel(r"$f\left( u \right)$", fontsize=20)
     ax1.set_title(r"Time evolution of files = %s" % HQ0[:-9], fontsize=20)
 
-    Plt(2, bin1_HQ10000_G1_2_1_005[4], "r--",
-        label=r"%s" % HQ12[len("HQ10000_G"):])
-    Plt(2, bin1_HQ10000_G1_2_3_005[4], "g--",
-        label=r"%s" % HQ24[len("HQ10000_G"):])
-    Plt(2, bin1_HQ10000_G1_2_5_005[4], "k--",
-        label=r"%s" % HQ36[len("HQ10000_G"):])
-    Plt(2, bin1_HQ10000_G1_2_7_005[4], "b--",
-        label=r"%s" % HQ48[len("HQ10000_G"):])
-    Plt(2, bin1_HQ10000_G1_2_9_005[4], "c--",
-        label=r"%s" % HQ60[len("HQ10000_G"):])
+    Plt(2, bin1_HQ10000_G1_2_1_005[4], "r--", label=r"%s" % HQ12[9:])
+    Plt(2, bin1_HQ10000_G1_2_3_005[4], "g--", label=r"%s" % HQ24[9:])
+    Plt(2, bin1_HQ10000_G1_2_5_005[4], "k--", label=r"%s" % HQ36[9:])
+    Plt(2, bin1_HQ10000_G1_2_7_005[4], "b--", label=r"%s" % HQ48[9:])
+    Plt(2, bin1_HQ10000_G1_2_9_005[4], "c--", label=r"%s" % HQ60[9:])
     Plt(2, bin2_HQ10000_G1_2_1_005[4], "r:")
     Plt(2, bin2_HQ10000_G1_2_3_005[4], "g:")
     Plt(2, bin2_HQ10000_G1_2_5_005[4], "k:")
@@ -1092,16 +1086,11 @@ if Fig_GPerts_G1_2_same_gammas_as_IC_vt:
     ax2.set_ylabel(r"$f\left(\log \left( |u_n|,u_p \right)\right)$",
                    fontsize=20)
 
-    Plt(3, bin1_HQ10000_G1_2_1_005[0], "r--",
-        label=r"%s" % HQ12[len("HQ10000_G"):])
-    Plt(3, bin1_HQ10000_G1_2_3_005[0], "g--",
-        label=r"%s" % HQ24[len("HQ10000_G"):])
-    Plt(3, bin1_HQ10000_G1_2_5_005[0], "k--",
-        label=r"%s" % HQ36[len("HQ10000_G"):])
-    Plt(3, bin1_HQ10000_G1_2_7_005[0], "b--",
-        label=r"%s" % HQ48[len("HQ10000_G"):])
-    Plt(3, bin1_HQ10000_G1_2_9_005[0], "c--",
-        label=r"%s" % HQ60[len("HQ10000_G"):])
+    Plt(3, bin1_HQ10000_G1_2_1_005[0], "r--", label=r"%s" % HQ12[9:])
+    Plt(3, bin1_HQ10000_G1_2_3_005[0], "g--", label=r"%s" % HQ24[9:])
+    Plt(3, bin1_HQ10000_G1_2_5_005[0], "k--", label=r"%s" % HQ36[9:])
+    Plt(3, bin1_HQ10000_G1_2_7_005[0], "b--", label=r"%s" % HQ48[9:])
+    Plt(3, bin1_HQ10000_G1_2_9_005[0], "c--", label=r"%s" % HQ60[9:])
     Plt(3, bin2_HQ10000_G1_2_1_005[0], "r:")
     Plt(3, bin2_HQ10000_G1_2_3_005[0], "g:")
     Plt(3, bin2_HQ10000_G1_2_5_005[0], "k:")
@@ -1119,19 +1108,14 @@ if Fig_GPerts_G1_2_same_gammas_as_IC_vt:
     Plt(3, bin4_HQ10000_G1_2_9_005[0], "c")
 
     ax3.set_xlabel(r"$u_t$ and $u_r$", fontsize=20)
-    ax3.set_ylabel(r"$\log \left( f\left( u \right) \right)$", fontsize=20)
+    ax3.set_ylabel(r"$\log\left(f\left(u\right)\right)$", fontsize=20)
     ax3.set_yscale("log")
 
-    Plt(4, bin1_HQ10000_G1_2_1_005[4], "r--",
-        label=r"%s" % HQ12[len("HQ10000_G"):])
-    Plt(4, bin1_HQ10000_G1_2_3_005[4], "g--",
-        label=r"%s" % HQ24[len("HQ10000_G"):])
-    Plt(4, bin1_HQ10000_G1_2_5_005[4], "k--",
-        label=r"%s" % HQ36[len("HQ10000_G"):])
-    Plt(4, bin1_HQ10000_G1_2_7_005[4], "b--",
-        label=r"%s" % HQ48[len("HQ10000_G"):])
-    Plt(4, bin1_HQ10000_G1_2_9_005[4], "c--",
-        label=r"%s" % HQ60[len("HQ10000_G"):])
+    Plt(4, bin1_HQ10000_G1_2_1_005[4], "r--", label=r"%s" % HQ12[9:])
+    Plt(4, bin1_HQ10000_G1_2_3_005[4], "g--", label=r"%s" % HQ24[9:])
+    Plt(4, bin1_HQ10000_G1_2_5_005[4], "k--", label=r"%s" % HQ36[9:])
+    Plt(4, bin1_HQ10000_G1_2_7_005[4], "b--", label=r"%s" % HQ48[9:])
+    Plt(4, bin1_HQ10000_G1_2_9_005[4], "c--", label=r"%s" % HQ60[9:])
     Plt(4, bin2_HQ10000_G1_2_1_005[4], "r:")
     Plt(4, bin2_HQ10000_G1_2_3_005[4], "g:")
     Plt(4, bin2_HQ10000_G1_2_5_005[4], "k:")
@@ -1185,13 +1169,13 @@ if Fig_GPerts_different_gammas_vt:
         exec(f"Plt(1, {test_str.format('1', '1')}[0], 'b--',\
              label=r'%s' % HQ12[len('HQ10000_G'):])")
         Plt(1, bin1_different_gammas_HQ10000_G1_2_3_005[0], "r--",
-            label=r"%s" % HQ24[len("HQ10000_G"):])
+            label=r"%s" % HQ24[9:])
         Plt(1, bin1_different_gammas_HQ10000_G1_2_5_005[0], "g--",
-            label=r"%s" % HQ36[len("HQ10000_G"):])
+            label=r"%s" % HQ36[9:])
         Plt(1, bin1_different_gammas_HQ10000_G1_2_7_005[0], "k--",
-            label=r"%s" % HQ48[len("HQ10000_G"):])
+            label=r"%s" % HQ48[9:])
         Plt(1, bin1_different_gammas_HQ10000_G1_2_9_005[0], "c--",
-            label=r"%s" % HQ60[len("HQ10000_G"):])
+            label=r"%s" % HQ60[9:])
         Plt(1, bin2_different_gammas_HQ10000_G1_2_1_005[0], "r:")
         Plt(1, bin2_different_gammas_HQ10000_G1_2_3_005[0], "g:")
         Plt(1, bin2_different_gammas_HQ10000_G1_2_5_005[0], "k:")
@@ -1212,15 +1196,15 @@ if Fig_GPerts_different_gammas_vt:
                       % HQ0[:-9], fontsize=20)
 
         Plt(2, bin1_different_gammas_HQ10000_G1_2_1_005[4], "r--",
-            label=r"%s" % HQ12[len("HQ10000_G"):])
+            label=r"%s" % HQ12[9:])
         Plt(2, bin1_different_gammas_HQ10000_G1_2_3_005[4], "g--",
-            label=r"%s" % HQ24[len("HQ10000_G"):])
+            label=r"%s" % HQ24[9:])
         Plt(2, bin1_different_gammas_HQ10000_G1_2_5_005[4], "k--",
-            label=r"%s" % HQ36[len("HQ10000_G"):])
+            label=r"%s" % HQ36[9:])
         Plt(2, bin1_different_gammas_HQ10000_G1_2_7_005[4], "b--",
-            label=r"%s" % HQ48[len("HQ10000_G"):])
+            label=r"%s" % HQ48[9:])
         Plt(2, bin1_different_gammas_HQ10000_G1_2_9_005[4], "c--",
-            label=r"%s" % HQ60[len("HQ10000_G"):])
+            label=r"%s" % HQ60[9:])
         Plt(2, bin2_different_gammas_HQ10000_G1_2_1_005[4], "r:")
         Plt(2, bin2_different_gammas_HQ10000_G1_2_3_005[4], "g:")
         Plt(2, bin2_different_gammas_HQ10000_G1_2_5_005[4], "k:")
@@ -1238,31 +1222,27 @@ if Fig_GPerts_different_gammas_vt:
         Plt(2, bin4_different_gammas_HQ10000_G1_2_9_005[4], "c")
 
         Plt(3, bin1_different_gammas_HQ10000_G1_2_1_005[0], "r--",
-            label=r"%s" % HQ12[len("HQ10000_G"):])
+            label=r"%s" % HQ12[9:])
         Plt(3, bin1_different_gammas_HQ10000_G1_2_3_005[0], "g--",
-            label=r"%s" % HQ24[len("HQ10000_G"):])
+            label=r"%s" % HQ24[9:])
         Plt(3, bin1_different_gammas_HQ10000_G1_2_5_005[0], "k--",
-            label=r"%s" % HQ36[len("HQ10000_G"):])
-        data, _ = bin1_different_gammas_HQ10000_G1_2_7_005[0]
-        ax3.plot(data[:, 0], data[:, 1], "b--",
-                 label=r"%s" % HQ48[len("HQ10000_G"):], lw=2, ms=7)
-        data, _ = bin1_different_gammas_HQ10000_G1_2_9_005[0]
-        ax3.plot(data[:, 0], data[:, 1], "c--",
-                 label=r"%s" % HQ60[len("HQ10000_G"):], lw=2, ms=7)
+            label=r"%s" % HQ36[9:])
+        Plt(3, bin1_different_gammas_HQ10000_G1_2_7_005[0], "b--",
+            label=r"%s" % HQ48[9:])
+        Plt(3, bin1_different_gammas_HQ10000_G1_2_9_005[0], "c--",
+            label=r"%s" % HQ60[9:])
         Plt(3, bin2_different_gammas_HQ10000_G1_2_1_005[0], "r:")
         Plt(3, bin2_different_gammas_HQ10000_G1_2_3_005[0], "g:")
         Plt(3, bin2_different_gammas_HQ10000_G1_2_5_005[0], "k:")
-        data, _ = bin2_different_gammas_HQ10000_G1_2_7_005[0]
-        ax3.plot(data[:, 0], data[:, 1], "b:", lw=4, ms=7)
-        data, _ = bin2_different_gammas_HQ10000_G1_2_9_005[0]
-        ax3.plot(data[:, 0], data[:, 1], "c:", lw=4, ms=7)
+        Plt(3, bin2_different_gammas_HQ10000_G1_2_7_005[0], "b:")
+        Plt(3, bin2_different_gammas_HQ10000_G1_2_9_005[0], "c:")
+
         Plt(3, bin3_different_gammas_HQ10000_G1_2_1_005[0], "r-.")
         Plt(3, bin3_different_gammas_HQ10000_G1_2_3_005[0], "g-.")
         Plt(3, bin3_different_gammas_HQ10000_G1_2_5_005[0], "k-.")
-        data, _ = bin3_different_gammas_HQ10000_G1_2_7_005[0]
-        ax3.plot(data[:, 0], data[:, 1], "b-.", lw=4, ms=7)
-        data, _ = bin3_different_gammas_HQ10000_G1_2_9_005[0]
-        ax3.plot(data[:, 0], data[:, 1], "c-.", lw=4, ms=7)
+        Plt(3, bin3_different_gammas_HQ10000_G1_2_7_005[0], "b-.")
+        Plt(3, bin3_different_gammas_HQ10000_G1_2_9_005[0], "c-.")
+
         Plt(3, bin4_different_gammas_HQ10000_G1_2_1_005[0], "r")
         Plt(3, bin4_different_gammas_HQ10000_G1_2_3_005[0], "g")
         Plt(3, bin4_different_gammas_HQ10000_G1_2_5_005[0], "k")
@@ -1272,17 +1252,17 @@ if Fig_GPerts_different_gammas_vt:
         ax3.plot(data[:, 0], data[:, 1], "c", lw=2, ms=7)
 
         Plt(4, bin1_different_gammas_HQ10000_G1_2_1_005[4], "r--",
-            label=r"%s" % HQ12[len("HQ10000_G"):])
+            label=r"%s" % HQ12[9:])
         Plt(4, bin1_different_gammas_HQ10000_G1_2_3_005[4], "g--",
-            label=r"%s" % HQ24[len("HQ10000_G"):])
+            label=r"%s" % HQ24[9:])
         Plt(4, bin1_different_gammas_HQ10000_G1_2_5_005[4], "k--",
-            label=r"%s" % HQ36[len("HQ10000_G"):])
+            label=r"%s" % HQ36[9:])
         data, _ = bin1_different_gammas_HQ10000_G1_2_7_005[4]
         ax4.plot(data[:, 0], data[:, 1], "b--",
-                 label=r"%s" % HQ48[len("HQ10000_G"):], lw=2, ms=7)
+                 label=r"%s" % HQ48[9:], lw=2, ms=7)
         data, _ = bin1_different_gammas_HQ10000_G1_2_9_005[4]
         ax4.plot(data[:, 0], data[:, 1], "c--",
-                 label=r"%s" % HQ60[len("HQ10000_G"):], lw=2, ms=7)
+                 label=r"%s" % HQ60[9:], lw=2, ms=7)
         Plt(4, bin2_different_gammas_HQ10000_G1_2_1_005[4], "r:")
         Plt(4, bin2_different_gammas_HQ10000_G1_2_3_005[4], "g:")
         Plt(4, bin2_different_gammas_HQ10000_G1_2_5_005[4], "k:")
@@ -1311,19 +1291,18 @@ if Fig_GPerts_different_gammas_vt:
 
     if test2:
         Plt(1, bin1_different_gammas_test2_HQ10000_G1_0_0_000[0], "b--",
-            label=r"%s" % test2_HQ0[len("test2_HQ10000_G"):])
+            label=r"%s" % test2_HQ0[15:])
         Plt(1, bin1_different_gammas_test2_HQ10000_G1_0_5_005[0], "r--",
-            label=r"%s" % test2_HQ36[len("test2_HQ10000_G"):])
+            label=r"%s" % test2_HQ36[15:])
         Plt(1, bin1_different_gammas_test2_HQ10000_G1_0_10_005[0], "g--",
-            label=r"%s" % test2_HQ66[len("test2_HQ10000_G"):])
+            label=r"%s" % test2_HQ66[15:])
         Plt(1, bin1_different_gammas_test2_HQ10000_G1_0_15_005[0], "k--",
-            label=r"%s" % test2_HQ96[len("test2_HQ10000_G"):])
+            label=r"%s" % test2_HQ96[15:])
         data, _ = bin1_different_gammas_test2_HQ10000_G1_0_20_005[0]
         ax1.plot(data[:, 0], data[:, 1], "c--",
-                 label=r"%s" % test2_HQ126[len("test2_HQ10000_G"):],
-                 lw=2, ms=7)
+                 label=r"%s" % test2_HQ126[15:], lw=2, ms=7)
         Plt(1, bin1_different_gammas_test2_HQ10000_G1_0_25_005[0], "m--",
-            label=r"%s" % test2_HQ159[len("test2_HQ10000_G"):])
+            label=r"%s" % test2_HQ159[15:])
         Plt(1, bin2_different_gammas_test2_HQ10000_G1_0_0_000[0], "r:")
         Plt(1, bin2_different_gammas_test2_HQ10000_G1_0_5_005[0], "g:")
         Plt(1, bin2_different_gammas_test2_HQ10000_G1_0_10_005[0], "k:")
@@ -1450,17 +1429,17 @@ if Fig_GPerts_different_gammas_vt:
 
     if B:
         Plt(1, bin1_different_gammas_B_HQ10000_G1_0_0_000[0], "r--",
-            label=r"%s" % B_HQ0[len("B_HQ10000_G"):])
+            label=r"%s" % B_HQ0[11:])
         Plt(1, bin1_different_gammas_B_HQ10000_G1_0_5_005[0], "g--",
-            label=r"%s" % B_HQ36[len("B_HQ10000_G"):])
+            label=r"%s" % B_HQ36[11:])
         Plt(1, bin1_different_gammas_B_HQ10000_G1_0_10_005[0], "k--",
-            label=r"%s" % B_HQ66[len("B_HQ10000_G"):])
+            label=r"%s" % B_HQ66[11:])
         data, _ = bin1_different_gammas_B_HQ10000_G1_0_198_000[0]
         ax1.plot(data[:, 0], data[:, 1], "b--",
-                 label=r"%s" % B_HQ294[len("B_HQ10000_G"):], lw=2, ms=7)
+                 label=r"%s" % B_HQ294[11:], lw=2, ms=7)
         data, _ = bin1_different_gammas_B_HQ10000_G1_0_198_093[0]
         ax1.plot(data[:, 0], data[:, 1], "c--",
-                 label=r"%s" % B_HQ382[len("B_HQ10000_G"):], lw=2, ms=7)
+                 label=r"%s" % B_HQ382[11:], lw=2, ms=7)
         Plt(1, bin2_different_gammas_B_HQ10000_G1_0_0_000[0], "r:")
         Plt(1, bin2_different_gammas_B_HQ10000_G1_0_5_005[0], "g:")
         Plt(1, bin2_different_gammas_B_HQ10000_G1_0_10_005[0], "k:")
@@ -1629,15 +1608,15 @@ if Fig_GPerts_gammas_1_5_vt_divided_by_gauss_and_Tsallis:
                       $\gamma = -1.5$" % HQ0[:-9], fontsize=20)
 
         Plt(2, bin1_different_gammas_HQ10000_G1_2_1_005[4], "r",
-            label=r"%s " % HQ12[len("HQ10000_G"):])
+            label=r"%s" % HQ12[9:])
         Plt(2, bin1_different_gammas_HQ10000_G1_2_3_005[4], "g",
-            label=r"%s" % HQ24[len("HQ10000_G"):])
+            label=r"%s" % HQ24[9:])
         Plt(2, bin1_different_gammas_HQ10000_G1_2_5_005[4], "k",
-            label=r"%s" % HQ36[len("HQ10000_G"):])
+            label=r"%s" % HQ36[9:])
         Plt(2, bin1_different_gammas_HQ10000_G1_2_7_005[4], "b",
-            label=r"%s" % HQ48[len("HQ10000_G"):])
+            label=r"%s" % HQ48[9:])
         Plt(2, bin1_different_gammas_HQ10000_G1_2_9_005[4], "c",
-            label=r"%s" % HQ60[len("HQ10000_G"):])
+            label=r"%s" % HQ60[9:])
 
         Plt(3, bin1_different_gammas_HQ10000_G1_2_1_005[0], "r")
         Plt(3, bin1_different_gammas_HQ10000_G1_2_3_005[0], "g")
@@ -1721,17 +1700,17 @@ if Fig_GPerts_gammas_1_5_vt_divided_by_gauss_and_Tsallis:
                       $\gamma = -1.5$" % test2_HQ0[:-9], fontsize=20)
 
         Plt(2, bin1_different_gammas_test2_HQ10000_G1_0_0_000[4], "r",
-            label=r"%s " % test2_HQ0[len("test2_HQ10000_G"):])
+            label=r"%s " % test2_HQ0[15:])
         Plt(2, bin1_different_gammas_test2_HQ10000_G1_0_5_005[4], "g",
-            label=r"%s" % test2_HQ36[len("test2_HQ10000_G"):])
+            label=r"%s" % test2_HQ36[15:])
         Plt(2, bin1_different_gammas_test2_HQ10000_G1_0_10_005[4], "k",
-            label=r"%s" % test2_HQ66[len("test2_HQ10000_G"):])
+            label=r"%s" % test2_HQ66[15:])
         Plt(2, bin1_different_gammas_test2_HQ10000_G1_0_15_005[4], "b",
-            label=r"%s" % test2_HQ96[len("test2_HQ10000_G"):])
+            label=r"%s" % test2_HQ96[15:])
         Plt(2, bin1_different_gammas_test2_HQ10000_G1_0_20_005[4], "c",
-            label=r"%s" % test2_HQ126[len("test2_HQ10000_G"):])
+            label=r"%s" % test2_HQ126[15:])
         Plt(2, bin1_different_gammas_test2_HQ10000_G1_0_25_005[4], "m",
-            label=r"%s" % test2_HQ159[len("test2_HQ10000_G"):])
+            label=r"%s" % test2_HQ159[15:])
 
         Plt(3, bin1_different_gammas_test2_HQ10000_G1_0_0_000[0], "r")
         Plt(3, bin1_different_gammas_test2_HQ10000_G1_0_5_005[0], "g")
@@ -1865,17 +1844,17 @@ if Fig_GPerts_gammas_1_5_vt_divided_by_gauss_and_Tsallis:
                       $\gamma = -1.5$" % A_HQ0[:-9], fontsize=20)
 
         Plt(2, bin1_different_gammas_A_HQ10000_G1_0_0_000[4], "r",
-            label=r"%s " % A_HQ0[len("A_HQ10000_G"):])
+            label=r"%s " % A_HQ0[11:])
         Plt(2, bin1_different_gammas_A_HQ10000_G1_0_5_005[4], "g",
-            label=r"%s" % A_HQ36[len("A_HQ10000_G"):])
+            label=r"%s" % A_HQ36[11:])
         Plt(2, bin1_different_gammas_A_HQ10000_G1_0_10_005[4], "k",
-            label=r"%s" % A_HQ66[len("A_HQ10000_G"):])
+            label=r"%s" % A_HQ66[11:])
         Plt(2, bin1_different_gammas_A_HQ10000_G1_0_40_005[4], "b",
-            label=r"%s" % A_HQ246[len("A_HQ10000_G"):])
+            label=r"%s" % A_HQ246[11:])
         Plt(2, bin1_different_gammas_A_HQ10000_G1_0_48_009[4], "c",
-            label=r"%s" % A_HQ298[len("A_HQ10000_G"):])
+            label=r"%s" % A_HQ298[11:])
         Plt(2, bin1_different_gammas_A_HQ10000_G1_0_48_093[4], "m",
-            label=r"%s" % A_HQ382[len("A_HQ10000_G"):])
+            label=r"%s" % A_HQ382[11:])
 
         Plt(3, bin1_different_gammas_A_HQ10000_G1_0_0_000[0], "r")
         Plt(3, bin1_different_gammas_A_HQ10000_G1_0_5_005[0], "g")
@@ -2009,15 +1988,15 @@ if Fig_GPerts_gammas_1_5_vt_divided_by_gauss_and_Tsallis:
                       $\gamma = -1.5$" % B_HQ0[:-9], fontsize=20)
 
         Plt(2, bin1_different_gammas_B_HQ10000_G1_0_0_000[4], "r",
-            r"%s " % B_HQ0[len("B_HQ10000_G"):])
+            r"%s " % B_HQ0[11:])
         Plt(2, bin1_different_gammas_B_HQ10000_G1_0_5_005[4], "g",
-            r"%s" % B_HQ36[len("B_HQ10000_G"):])
+            r"%s" % B_HQ36[11:])
         Plt(2, bin1_different_gammas_B_HQ10000_G1_0_10_005[4], "k",
-            r"%s" % B_HQ66[len("B_HQ10000_G"):])
+            r"%s" % B_HQ66[11:])
         Plt(2, bin1_different_gammas_B_HQ10000_G1_0_198_000[4], "b",
-            r"%s" % B_HQ294[len("B_HQ10000_G"):])
+            r"%s" % B_HQ294[11:])
         Plt(2, bin1_different_gammas_B_HQ10000_G1_0_198_093[4], "c",
-            r"%s" % B_HQ382[len("B_HQ10000_G"):])
+            r"%s" % B_HQ382[11:])
 
         Plt(3, bin1_different_gammas_B_HQ10000_G1_0_0_000[0], "r")
         Plt(3, bin1_different_gammas_B_HQ10000_G1_0_5_005[0], "g")
@@ -2159,15 +2138,15 @@ if Fig_GPerts_gammas_2_0_vt_divided_by_gauss_and_Tsallis:
                       $\gamma = -2.0$" % HQ0[:-9], fontsize=20)
 
         Plt(2, bin2_different_gammas_HQ10000_G1_2_1_005[4], "r",
-            r"%s " % HQ12[len("HQ10000_G"):])
+            r"%s " % HQ12[9:])
         Plt(2, bin2_different_gammas_HQ10000_G1_2_3_005[4], "g",
-            r"%s " % HQ24[len("HQ10000_G"):])
+            r"%s " % HQ24[9:])
         Plt(2, bin2_different_gammas_HQ10000_G1_2_5_005[4], "k",
-            r"%s " % HQ36[len("HQ10000_G"):])
+            r"%s " % HQ36[9:])
         Plt(2, bin2_different_gammas_HQ10000_G1_2_7_005[4], "b",
-            r"%s " % HQ48[len("HQ10000_G"):])
+            r"%s " % HQ48[9:])
         Plt(2, bin2_different_gammas_HQ10000_G1_2_9_005[4], "c",
-            r"%s " % HQ60[len("HQ10000_G"):])
+            r"%s " % HQ60[9:])
 
         Plt(3, bin2_different_gammas_HQ10000_G1_2_1_005[0], "r")
         Plt(3, bin2_different_gammas_HQ10000_G1_2_3_005[0], "g")
@@ -2246,17 +2225,17 @@ if Fig_GPerts_gammas_2_0_vt_divided_by_gauss_and_Tsallis:
                       $\gamma = -2.0$" % test2_HQ0[:-9], fontsize=20)
 
         Plt(2, bin2_different_gammas_test2_HQ10000_G1_0_0_000[4], "r",
-            r"%s " % test2_HQ0[len("test2_HQ10000_G"):])
+            r"%s " % test2_HQ0[15:])
         Plt(2, bin2_different_gammas_test2_HQ10000_G1_0_5_005[4], "g",
-            r"%s " % test2_HQ36[len("test2_HQ10000_G"):])
+            r"%s " % test2_HQ36[15:])
         Plt(2, bin2_different_gammas_test2_HQ10000_G1_0_10_005[4], "k",
-            r"%s " % test2_HQ66[len("test2_HQ10000_G"):])
+            r"%s " % test2_HQ66[15:])
         Plt(2, bin2_different_gammas_test2_HQ10000_G1_0_15_005[4], "b",
-            r"%s " % test2_HQ96[len("test2_HQ10000_G"):])
+            r"%s " % test2_HQ96[15:])
         Plt(2, bin2_different_gammas_test2_HQ10000_G1_0_20_005[4], "c",
-            r"%s " % test2_HQ126[len("test2_HQ10000_G"):])
+            r"%s " % test2_HQ126[15:])
         Plt(2, bin2_different_gammas_test2_HQ10000_G1_0_25_005[4], "m",
-            r"%s " % test2_HQ159[len("test2_HQ10000_G"):])
+            r"%s " % test2_HQ159[15:])
 
         Plt(3, bin2_different_gammas_test2_HQ10000_G1_0_0_000[0], "r")
         Plt(3, bin2_different_gammas_test2_HQ10000_G1_0_5_005[0], "g")
@@ -2296,7 +2275,7 @@ if Fig_GPerts_gammas_2_0_vt_divided_by_gauss_and_Tsallis:
 
         ax5.set_ylim(0, 3)
         ax5.set_ylabel(r"$\frac{f\left( u \right)}{887.569 \cdot x \cdot\
-                         e^{-0.922 \cdot x^2} }$", fontsize=20)
+                       e^{-0.922 \cdot x^2} }$", fontsize=20)
 
         def denom_ax6(a):
             return (3424.993 * (10 ** a) ** 2 * np.exp(-.930 * (10 ** a) ** 2))
@@ -2391,17 +2370,17 @@ if Fig_GPerts_gammas_2_0_vt_divided_by_gauss_and_Tsallis:
                         $\gamma = -2.0$" % A_HQ0[:-9], fontsize=20)
 
         Plt(2, bin2_different_gammas_A_HQ10000_G1_0_0_000[4], "r",
-            r"%s " % A_HQ0[len("A_HQ10000_G"):])
+            r"%s " % A_HQ0[11:])
         Plt(2, bin2_different_gammas_A_HQ10000_G1_0_5_005[4], "g",
-            r"%s " % A_HQ36[len("A_HQ10000_G"):])
+            r"%s " % A_HQ36[11:])
         Plt(2, bin2_different_gammas_A_HQ10000_G1_0_10_005[4], "k",
-            r"%s " % A_HQ66[len("A_HQ10000_G"):])
+            r"%s " % A_HQ66[11:])
         Plt(2, bin2_different_gammas_A_HQ10000_G1_0_40_005[4], "b",
-            r"%s " % A_HQ246[len("A_HQ10000_G"):])
+            r"%s " % A_HQ246[11:])
         Plt(2, bin2_different_gammas_A_HQ10000_G1_0_48_009[4], "c",
-            r"%s " % A_HQ298[len("A_HQ10000_G"):])
+            r"%s " % A_HQ298[11:])
         Plt(2, bin2_different_gammas_A_HQ10000_G1_0_48_093[4], "m",
-            r"%s " % A_HQ382[len("A_HQ10000_G"):])
+            r"%s " % A_HQ382[11:])
 
         Plt(3, bin2_different_gammas_A_HQ10000_G1_0_0_000[0], "r")
         Plt(3, bin2_different_gammas_A_HQ10000_G1_0_5_005[0], "g")
@@ -2535,15 +2514,15 @@ if Fig_GPerts_gammas_2_0_vt_divided_by_gauss_and_Tsallis:
                       $\gamma = -2.0$" % B_HQ0[:-9], fontsize=20)
 
         Plt(2, bin2_different_gammas_B_HQ10000_G1_0_0_000[4], "r",
-            r"%s" % B_HQ0[len("B_HQ10000_G"):])
+            r"%s" % B_HQ0[11:])
         Plt(2, bin2_different_gammas_B_HQ10000_G1_0_5_005[4], "g",
-            r"%s" % B_HQ36[len("B_HQ10000_G"):])
+            r"%s" % B_HQ36[11:])
         Plt(2, bin2_different_gammas_B_HQ10000_G1_0_10_005[4], "k",
-            r"%s" % B_HQ66[len("B_HQ10000_G"):])
+            r"%s" % B_HQ66[11:])
         Plt(2, bin2_different_gammas_B_HQ10000_G1_0_198_000[4], "b",
-            r"%s" % B_HQ294[len("B_HQ10000_G"):])
+            r"%s" % B_HQ294[11:])
         Plt(2, bin2_different_gammas_B_HQ10000_G1_0_198_093[4], "c",
-            r"%s" % B_HQ382[len("B_HQ10000_G"):])
+            r"%s" % B_HQ382[11:])
 
         Plt(3, bin2_different_gammas_B_HQ10000_G1_0_0_000[0], "r")
         Plt(3, bin2_different_gammas_B_HQ10000_G1_0_5_005[0], "g")
@@ -2681,15 +2660,15 @@ if Fig_GPerts_gammas_2_5_vt_divided_by_gauss_and_Tsallis:
                       $\gamma = -2.5$" % HQ0[:-9], fontsize=20)
 
         Plt(2, bin3_different_gammas_HQ10000_G1_2_1_005[4], "r",
-            r"%s" % HQ12[len("HQ10000_G"):])
+            r"%s" % HQ12[9:])
         Plt(2, bin3_different_gammas_HQ10000_G1_2_3_005[4], "g",
-            r"%s" % HQ24[len("HQ10000_G"):])
+            r"%s" % HQ24[9:])
         Plt(2, bin3_different_gammas_HQ10000_G1_2_5_005[4], "k",
-            r"%s" % HQ36[len("HQ10000_G"):])
+            r"%s" % HQ36[9:])
         Plt(2, bin3_different_gammas_HQ10000_G1_2_7_005[4], "b",
-            r"%s" % HQ48[len("HQ10000_G"):])
+            r"%s" % HQ48[9:])
         Plt(2, bin3_different_gammas_HQ10000_G1_2_9_005[4], "c",
-            r"%s" % HQ60[len("HQ10000_G"):])
+            r"%s" % HQ60[9:])
 
         Plt(3, bin3_different_gammas_HQ10000_G1_2_1_005[0], "r")
         Plt(3, bin3_different_gammas_HQ10000_G1_2_3_005[0], "g")
@@ -2773,17 +2752,17 @@ if Fig_GPerts_gammas_2_5_vt_divided_by_gauss_and_Tsallis:
                       $\gamma = -2.5$" % test2_HQ0[:-9], fontsize=20)
 
         Plt(2, bin3_different_gammas_test2_HQ10000_G1_0_0_000[4], "r",
-            r"%s " % test2_HQ0[len("test2_HQ10000_G"):])
+            r"%s " % test2_HQ0[15:])
         Plt(2, bin3_different_gammas_test2_HQ10000_G1_0_5_005[4], "g",
-            r"%s" % test2_HQ36[len("test2_HQ10000_G"):])
+            r"%s" % test2_HQ36[15:])
         Plt(2, bin3_different_gammas_test2_HQ10000_G1_0_10_005[4], "k",
-            r"%s" % test2_HQ66[len("test2_HQ10000_G"):])
+            r"%s" % test2_HQ66[15:])
         Plt(2, bin3_different_gammas_test2_HQ10000_G1_0_15_005[4], "b",
-            r"%s" % test2_HQ96[len("test2_HQ10000_G"):])
+            r"%s" % test2_HQ96[15:])
         Plt(2, bin3_different_gammas_test2_HQ10000_G1_0_20_005[4], "c",
-            r"%s" % test2_HQ126[len("test2_HQ10000_G"):])
+            r"%s" % test2_HQ126[15:])
         Plt(2, bin3_different_gammas_test2_HQ10000_G1_0_25_005[4], "m",
-            r"%s" % test2_HQ159[len("test2_HQ10000_G"):])
+            r"%s" % test2_HQ159[15:])
 
         Plt(3, bin3_different_gammas_test2_HQ10000_G1_0_0_000[0], "r")
         Plt(3, bin3_different_gammas_test2_HQ10000_G1_0_5_005[0], "g")
@@ -2918,17 +2897,17 @@ if Fig_GPerts_gammas_2_5_vt_divided_by_gauss_and_Tsallis:
                       $\gamma = -2.5$" % A_HQ0[:-9], fontsize=20)
 
         Plt(2, bin3_different_gammas_A_HQ10000_G1_0_0_000[4], "r",
-            r"%s " % A_HQ0[len("A_HQ10000_G"):])
+            r"%s " % A_HQ0[11:])
         Plt(2, bin3_different_gammas_A_HQ10000_G1_0_5_005[4], "g",
-            r"%s" % A_HQ36[len("A_HQ10000_G"):])
+            r"%s" % A_HQ36[11:])
         Plt(2, bin3_different_gammas_A_HQ10000_G1_0_10_005[4], "k",
-            r"%s" % A_HQ66[len("A_HQ10000_G"):])
+            r"%s" % A_HQ66[11:])
         Plt(2, bin3_different_gammas_A_HQ10000_G1_0_40_005[4], "b",
-            r"%s" % A_HQ246[len("A_HQ10000_G"):])
+            r"%s" % A_HQ246[11:])
         Plt(2, bin3_different_gammas_A_HQ10000_G1_0_48_009[4], "c",
-            r"%s" % A_HQ298[len("A_HQ10000_G"):])
+            r"%s" % A_HQ298[11:])
         Plt(2, bin3_different_gammas_A_HQ10000_G1_0_48_093[4], "m",
-            r"%s" % A_HQ382[len("A_HQ10000_G"):])
+            r"%s" % A_HQ382[11:])
 
         Plt(3, bin3_different_gammas_A_HQ10000_G1_0_0_000[0], "r")
         Plt(3, bin3_different_gammas_A_HQ10000_G1_0_5_005[0], "g")
@@ -3062,15 +3041,15 @@ if Fig_GPerts_gammas_2_5_vt_divided_by_gauss_and_Tsallis:
                       $\gamma = -2.5$" % B_HQ0[:-9], fontsize=20)
 
         Plt(2, bin3_different_gammas_B_HQ10000_G1_0_0_000[4], "r",
-            r"%s " % B_HQ0[len("B_HQ10000_G"):])
+            r"%s " % B_HQ0[11:])
         Plt(2, bin3_different_gammas_B_HQ10000_G1_0_5_005[4], "g",
-            r"%s" % B_HQ36[len("B_HQ10000_G"):])
+            r"%s" % B_HQ36[11:])
         Plt(2, bin3_different_gammas_B_HQ10000_G1_0_10_005[4], "k",
-            r"%s" % B_HQ66[len("B_HQ10000_G"):])
+            r"%s" % B_HQ66[11:])
         Plt(2, bin3_different_gammas_B_HQ10000_G1_0_198_000[4], "b",
-            r"%s" % B_HQ294[len("B_HQ10000_G"):])
+            r"%s" % B_HQ294[11:])
         Plt(2, bin3_different_gammas_B_HQ10000_G1_0_198_093[4], "c",
-            r"%s" % B_HQ382[len("B_HQ10000_G"):])
+            r"%s" % B_HQ382[11:])
 
         Plt(3, bin3_different_gammas_B_HQ10000_G1_0_0_000[0], "r")
         Plt(3, bin3_different_gammas_B_HQ10000_G1_0_5_005[0], "g")
@@ -3207,15 +3186,15 @@ if Fig_GPerts_gammas_3_0_vt_divided_by_gauss_and_Tsallis:
                       $\gamma = -3.0$" % HQ0[:-9], fontsize=20)
 
         Plt(2, bin4_different_gammas_HQ10000_G1_2_1_005[4], "r",
-            r"%s " % HQ12[len("HQ10000_G"):])
+            r"%s " % HQ12[9:])
         Plt(2, bin4_different_gammas_HQ10000_G1_2_3_005[4], "g",
-            r"%s" % HQ24[len("HQ10000_G"):])
+            r"%s" % HQ24[9:])
         Plt(2, bin4_different_gammas_HQ10000_G1_2_5_005[4], "k",
-            r"%s" % HQ36[len("HQ10000_G"):])
+            r"%s" % HQ36[9:])
         Plt(2, bin4_different_gammas_HQ10000_G1_2_7_005[4], "b",
-            r"%s" % HQ48[len("HQ10000_G"):])
+            r"%s" % HQ48[9:])
         Plt(2, bin4_different_gammas_HQ10000_G1_2_9_005[4], "c",
-            r"%s" % HQ60[len("HQ10000_G"):])
+            r"%s" % HQ60[9:])
 
         Plt(3, bin4_different_gammas_HQ10000_G1_2_1_005[0], "r")
         Plt(3, bin4_different_gammas_HQ10000_G1_2_3_005[0], "g")
@@ -3279,7 +3258,7 @@ if Fig_GPerts_gammas_3_0_vt_divided_by_gauss_and_Tsallis:
             exec(f"ax{i}.grid()")
 
         ax7.set_xlabel(r"$u_t$", fontsize=20)
-        ax7.set_ylabel(r"$\frac{f\left( u \right)}{Tsallis} $", fontsize=20)
+        ax7.set_ylabel(r"$\frac{f\left( u \right)}{Tsallis}$", fontsize=20)
         ax8.set_xlabel(r"$\log \left( |u_tn|,u_tp \right)$", fontsize=20)
         ax8.set_ylabel(r"$\frac{f\left(\log \left( |u_tn|,u_tp \right)\right)}\
                        {Tsallis}$", fontsize=20)
@@ -3300,17 +3279,17 @@ if Fig_GPerts_gammas_3_0_vt_divided_by_gauss_and_Tsallis:
                       $\gamma = -3.0$" % test2_HQ0[:-9], fontsize=20)
 
         Plt(2, bin4_different_gammas_test2_HQ10000_G1_0_0_000[4], "r",
-            r"%s " % test2_HQ0[len("test2_HQ10000_G"):])
+            r"%s " % test2_HQ0[15:])
         Plt(2, bin4_different_gammas_test2_HQ10000_G1_0_5_005[4], "g",
-            r"%s" % test2_HQ36[len("test2_HQ10000_G"):])
+            r"%s" % test2_HQ36[15:])
         Plt(2, bin4_different_gammas_test2_HQ10000_G1_0_10_005[4], "k",
-            r"%s" % test2_HQ66[len("test2_HQ10000_G"):])
+            r"%s" % test2_HQ66[15:])
         Plt(2, bin4_different_gammas_test2_HQ10000_G1_0_15_005[4], "b",
-            r"%s" % test2_HQ96[len("test2_HQ10000_G"):])
+            r"%s" % test2_HQ96[15:])
         Plt(2, bin4_different_gammas_test2_HQ10000_G1_0_20_005[4], "c",
-            r"%s" % test2_HQ126[len("test2_HQ10000_G"):])
+            r"%s" % test2_HQ126[15:])
         Plt(2, bin4_different_gammas_test2_HQ10000_G1_0_25_005[4], "m",
-            r"%s" % test2_HQ159[len("test2_HQ10000_G"):])
+            r"%s" % test2_HQ159[15:])
 
         Plt(3, bin4_different_gammas_test2_HQ10000_G1_0_0_000[0], "r")
         Plt(3, bin4_different_gammas_test2_HQ10000_G1_0_5_005[0], "g")
@@ -3445,17 +3424,17 @@ if Fig_GPerts_gammas_3_0_vt_divided_by_gauss_and_Tsallis:
                       $\gamma = -3.0$" % A_HQ0[:-9], fontsize=20)
 
         Plt(2, bin4_different_gammas_A_HQ10000_G1_0_0_000[4], "r",
-            r"%s " % A_HQ0[len("A_HQ10000_G"):])
+            r"%s " % A_HQ0[11:])
         Plt(2, bin4_different_gammas_A_HQ10000_G1_0_5_005[4], "g",
-            r"%s" % A_HQ36[len("A_HQ10000_G"):])
+            r"%s" % A_HQ36[11:])
         Plt(2, bin4_different_gammas_A_HQ10000_G1_0_10_005[4], "k",
-            r"%s" % A_HQ66[len("A_HQ10000_G"):])
+            r"%s" % A_HQ66[11:])
         Plt(2, bin4_different_gammas_A_HQ10000_G1_0_40_005[4], "b",
-            r"%s" % A_HQ246[len("A_HQ10000_G"):])
+            r"%s" % A_HQ246[11:])
         Plt(2, bin4_different_gammas_A_HQ10000_G1_0_48_009[4], "c",
-            r"%s" % A_HQ298[len("A_HQ10000_G"):])
+            r"%s" % A_HQ298[11:])
         Plt(2, bin4_different_gammas_A_HQ10000_G1_0_48_093[4], "m",
-            r"%s" % A_HQ382[len("A_HQ10000_G"):])
+            r"%s" % A_HQ382[11:])
 
         Plt(3, bin4_different_gammas_A_HQ10000_G1_0_0_000[0], "r")
         Plt(3, bin4_different_gammas_A_HQ10000_G1_0_5_005[0], "g")
@@ -3589,15 +3568,15 @@ if Fig_GPerts_gammas_3_0_vt_divided_by_gauss_and_Tsallis:
                       $\gamma = -3.0$" % B_HQ0[:-9], fontsize=20)
 
         Plt(2, bin4_different_gammas_B_HQ10000_G1_0_0_000[4], "r",
-            r"%s " % B_HQ0[len("B_HQ10000_G"):])
+            r"%s " % B_HQ0[11:])
         Plt(2, bin4_different_gammas_B_HQ10000_G1_0_5_005[4], "g",
-            r"%s" % B_HQ36[len("B_HQ10000_G"):])
+            r"%s" % B_HQ36[11:])
         Plt(2, bin4_different_gammas_B_HQ10000_G1_0_10_005[4], "k",
-            r"%s" % B_HQ66[len("B_HQ10000_G"):])
+            r"%s" % B_HQ66[11:])
         Plt(2, bin4_different_gammas_B_HQ10000_G1_0_198_000[4], "b",
-            r"%s" % B_HQ294[len("B_HQ10000_G"):])
+            r"%s" % B_HQ294[11:])
         Plt(2, bin4_different_gammas_B_HQ10000_G1_0_198_093[4], "c",
-            r"%s" % B_HQ382[len("B_HQ10000_G"):])
+            r"%s" % B_HQ382[11:])
 
         Plt(3, bin4_different_gammas_B_HQ10000_G1_0_0_000[0], "r")
         Plt(3, bin4_different_gammas_B_HQ10000_G1_0_5_005[0], "g")
@@ -3736,15 +3715,15 @@ if Fig_GPerts_R_middle_19_95_vt_divided_by_gauss_and_Tsallis:
                       $\gamma = -1.5$" % HQ0[:-9], fontsize=20)
 
         Plt(2, bin1_different_gammas_HQ10000_G1_2_1_005[4], "r",
-            r"%s " % HQ12[len("HQ10000_G"):])
+            r"%s " % HQ12[9:])
         Plt(2, bin1_different_gammas_HQ10000_G1_2_3_005[4], "g",
-            r"%s" % HQ24[len("HQ10000_G"):])
+            r"%s" % HQ24[9:])
         Plt(2, bin1_different_gammas_HQ10000_G1_2_5_005[4], "k",
-            r"%s" % HQ36[len("HQ10000_G"):])
+            r"%s" % HQ36[9:])
         Plt(2, bin1_different_gammas_HQ10000_G1_2_7_005[4], "b",
-            r"%s" % HQ48[len("HQ10000_G"):])
+            r"%s" % HQ48[9:])
         Plt(2, bin1_different_gammas_HQ10000_G1_2_9_005[4], "c",
-            r"%s" % HQ60[len("HQ10000_G"):])
+            r"%s" % HQ60[9:])
 
         Plt(3, bin1_different_gammas_HQ10000_G1_2_1_005[0], "r")
         Plt(3, bin1_different_gammas_HQ10000_G1_2_3_005[0], "g")
@@ -3833,11 +3812,11 @@ if Fig_GPerts_R_middle_19_95_vt_divided_by_gauss_and_Tsallis:
                       % test2_HQ0[:-9], fontsize=20)
 
         Plt(2, datalist_bin5different_gammas_test2_HQ10000_G1_0_0_000[4], "r",
-            r"%s " % test2_HQ0[len("test2_HQ10000_G"):])
+            r"%s " % test2_HQ0[15:])
         Plt(2, datalist_bin5different_gammas_test2_HQ10000_G1_0_10_005[4], "g",
-            r"%s" % test2_HQ66[len("test2_HQ10000_G"):])
+            r"%s" % test2_HQ66[15:])
         Plt(2, datalist_bin5different_gammas_test2_HQ10000_G1_0_18_053[4], "k",
-            r"%s" % test2_HQ166[len("test2_HQ10000_G"):])
+            r"%s" % test2_HQ166[15:])
 
         Plt(3, datalist_bin5different_gammas_test2_HQ10000_G1_0_0_000[0], "r")
         Plt(3, datalist_bin5different_gammas_test2_HQ10000_G1_0_10_005[0], "g")
