@@ -1,12 +1,12 @@
 ---------------------------------------------------------------------------
 
 
- ********   Logging timestamp:	 2019-06-18 17:01:37.377858   ********
+ ********   Logging timestamp:	 2019-06-18 20:53:05.551449   ********
 
 
 Module name 			 Number of lines 	 PEP-8 violations
 
-readVDF2.py                             4495                    38
+readVDF2.py                             4474                    38
 readVDF_2_new_plot.py                   3695                    41
 TimeEvolutionGammaKappaBeta.py          1445                     4
 gammaKappaBeta.py                       1318                     3
@@ -24,14 +24,14 @@ getSnapshotValues.py                    150                      1
 readVDF.py                              115                      0
 splitVDFt.py                            110                      2
 vSphericalAnd_vBins.py                   90                      0
-radius_and_velocity_funcs.py             85                      4
+radius_and_velocity_funcs.py             75                      2
 NoOfParticlesAndParticleMass.py          22                      0
-colorsAndSymbols.py                      8                       0
+colorsAndSymbols.py                      7                       0
 
 
 **************   Number of Python scripts: 	21      **************
 
-**************   Total number of PEP8 violations: 	165   **************
+**************   Total number of PEP8 violations: 	163   **************
 
-**************   Total number of code-lines: 	16896   **************
+**************   Total number of code-lines: 	16864   **************
 
