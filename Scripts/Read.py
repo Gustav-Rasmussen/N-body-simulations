@@ -51,9 +51,9 @@ def get_volume_ratio(bin_density, cluster_volume, bin_mass):
 if Gamma == Gammas[1]:
     r_2 = R_middle
     # position of particles inside halo
-    posR_par_inside_halo = np.where(R_hob_par < r_2)
-    nr_par_inside_halo = len(posR_par_inside_halo[0])
-    M_2 = nr_par_inside_halo * m
+    posR_par_in_halo = np.where(R_hob_par < r_2)
+    nr_par_in_halo = len(posR_par_in_halo[0])
+    M_2 = nr_par_in_halo * m
     G = 1.
     v_circ_2 = get_circular_velocity(M_2, r_2)
     V_2 = get_sphere_volume(r_2)
@@ -61,24 +61,23 @@ if Gamma == Gammas[1]:
 (density_arr, Volume_arr, rho_arr, rho_2_arr) = ([] for i in range(4))
 
 # Array, 0.00001-1.
-binning_arr_lin_log10_unitRmax = 10 ** ((np.arange(nr_binning_bins)
-                                 / (nr_binning_bins - 1))
+binning_arr_lin_log10_unitRmax = 10 ** ((np.arange(nr_bins) / (nr_bins - 1))
                                  * abs(np.log10(max_binning_R_unitRmax)
                                  - np.log10(min_binning_R_unitRmax))
                                  + np.log10(min_binning_R_unitRmax))
 
 # Array, 0-500
 binning_arr_lin_log10 = R_limit * binning_arr_lin_log10_unitRmax
-for i in range(0, int(nr_binning_bins - 2)):  # loop over 0-998
+for i in range(0, int(nr_bins - 2)):  # loop over 0-998
     min_R_bin_i = binning_arr_lin_log10[i]  # start of bin
     max_R_bin_i = binning_arr_lin_log10[i + 1]  # end of bin
     # position of particles inside a radial bin
-    posR_par_inside_bin_i = np.where(min_R_bin_i < R < max_R_bin_i)[0]
+    posR_par_in_bin_i = np.where(min_R_bin_i < R < max_R_bin_i)[0]
     # number of particles inside a radial bin
-    nr_par_inside_bin_i = len(posR_par_inside_bin_i)
+    nr_par_in_bin_i = len(posR_par_in_bin_i)
     # Volume of cluster
     Volume_cl = get_volume_slice(min_R_bin_i, max_R_bin_i)
-    den_cl = get_bin_number_density(nr_par_inside_bin_i, Volume_cl)
+    den_cl = get_bin_number_density(nr_par_in_bin_i, Volume_cl)
     rho = get_bin_density(m, den_cl)
     rho_2 = get_volume_ratio(rho, V_2, M_2)
 
@@ -108,8 +107,7 @@ print('len(density_arr) = ', len(density_arr),
       'x[99999] = ', x[99999],
       'y[99999] = ', y[99999],
       'z[99999] = ', z[99999],
-      'R[99999] = ', R[99999]
-      )
+      'R[99999] = ', R[99999])
 
 
 def savefigStr(simName, plotName):
@@ -132,7 +130,7 @@ if Fig1_Density:
     # y_plot = density_arr
     plt.xlabel(r'$\log r$', fontsize=30)
     plt.ylabel(r'$\log \rho$', fontsize=30)
-    plt.plot(x_plot[0:int(nr_binning_bins - 2)], np.log10(rho_arr),
+    plt.plot(x_plot[0:int(nr_bins - 2)], np.log10(rho_arr),
              'g-o', ms=2, lw=2, mew=0, label=r'$\rho$')
     # plt.legend(prop=dict(size=12), numpoints=2, ncol=2,
     #            frameon=True, loc=1, handlelength=2.5)
@@ -160,12 +158,11 @@ if Fig2_Density_r_2:
     v = [-1, 1, -4, .5]
     plt.axis(v)
     x_plot = np.log10(binning_arr_lin_log10 / r_2)
-    plt.xlabel(r'$ \log (\frac{r}{r_{-2}})$', fontsize=30)
-    plt.ylabel(r'$ \log \rho $', fontsize=30)
-    plt.plot(x_plot[0:int(nr_binning_bins - 2)], np.log10(rho_arr),
+    plt.xlabel(r'$\log (\frac{r}{r_{-2}})$', fontsize=30)
+    plt.ylabel(r'$\log \rho$', fontsize=30)
+    plt.plot(x_plot[0:int(nr_bins - 2)], np.log10(rho_arr),
              'g-o', ms=2, lw=2, mew=0, label=r'$\rho$')
-    plt.title(r'Density profile (B IC with 998 radial bins)',
-              fontsize=30)
+    plt.title(r'Density profile (B IC with 998 radial bins)', fontsize=30)
     plotName = '_Density_r_2.png'
     f.savefig(savefigStr(simulationsLst[0], plotName))
 

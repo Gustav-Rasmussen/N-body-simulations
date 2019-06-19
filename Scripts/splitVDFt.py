@@ -1,28 +1,14 @@
-
 # -*- coding: utf-8 -*-
 
 import h5py
 import numpy as np
-# from scipy.optimize import curve_fit
 import matplotlib.pyplot as plt
-# import IPython
-# from matplotlib.colors import LogNorm
-# import time
-# from pylab import *
-# from scipy.stats import norm
-# import matplotlib.mlab as mlab
-# import getSnapshotValues
 
 # Filename = desktopPath / 'RunGadget/G_HQ_1000000_test\
 #            /output/HQ10000_G0.8_2_000.hdf5'
 
-Snapshot_files = ['0G00_IC_000',
-                  '0G20_Final_000',
-                  'OMG00_001_IC_000',
-                  'OMG20_Final_000',
-                  'ics_10MPC_128_022',
-                  'ICS_10mpc_res256_022'
-                  ]
+Snapshot_files = ['0G00_IC_000', '0G20_Final_000', 'OMG00_001_IC_000',
+                  'OMG20_Final_000', 'ics_10MPC_128_022', 'ICS_10mpc_res256_022']
 
 Filename = Snapshot_files[0] + '.hdf5'
 SnapshotFile = h5py.File(Filename, 'r')

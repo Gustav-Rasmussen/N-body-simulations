@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from __future__ import division
+# from __future__ import division
 import h5py
 import numpy as np
 from scipy.optimize import curve_fit
@@ -12,7 +12,6 @@ from pylab import *
 import pylab
 from scipy.stats import norm
 import matplotlib.mlab as mlab
-# import scipy
 from astropy.io import ascii
 from mpl_toolkits.mplot3d import Axes3D
 import Gammas_and_R_middles
@@ -122,27 +121,26 @@ if calc_sigma_binned_lin_radius:
      VTheta_sigmatheta, VPhi_sigmaphi, VT_sigmatan, r, Phi, Theta, VR,
      VTheta, VPhi, VT, bin_radius_arr) = ([] for i in range(22))
 
-    binning_arr = np.linspace(R_limit_min, R_limit_max, nr_binning_bins)
+    binning_arr = np.linspace(R_limit_min, R_limit_max, nr_bins)
 
-    for i in range(nr_binning_bins - 2):
+    for i in range(nr_bins - 2):
         min_R_bin_i = binning_arr[i]  # start of bin
         max_R_bin_i = binning_arr[i + 1]  # end of bin
         # position of particles inside a radial bin
-        posR_par_inside_bin_i = np.where((R_hob_par > min_R_bin_i)
-                                         & (R_hob_par < max_R_bin_i))
-        nr_par_inside_bin_i = len(posR_par_inside_bin_i[0])
-        if nr_par_inside_bin_i == 0:
+        posR_par_in_bin_i = np.where((R_hob_par > min_R_bin_i)
+                                     & (R_hob_par < max_R_bin_i))
+        nr_par_in_bin_i = len(posR_par_in_bin_i[0])
+        if nr_par_in_bin_i == 0:
             continue
 
-        x = x[posR_par_inside_bin_i]
-        y = y[posR_par_inside_bin_i]
-        z = z[posR_par_inside_bin_i]
+        x = x[posR_par_in_bin_i]
+        y = y[posR_par_in_bin_i]
+        z = z[posR_par_in_bin_i]
+        vx = vx[posR_par_in_bin_i]
+        vy = vy[posR_par_in_bin_i]
+        vz = vz[posR_par_in_bin_i]
 
-        vx = vx[posR_par_inside_bin_i]
-        vy = vy[posR_par_inside_bin_i]
-        vz = vz[posR_par_inside_bin_i]
-
-        r_i = ravf.radius(x, y, z)
+        r_i = ravf.modulus(x, y, z)
         Phi_i = ravf.phi(x, y)
         Theta_i = ravf.theta(r_i, z)
         VR_i = ravf.v_R(vx, vy, vz, Theta_i, Phi_i)
@@ -151,33 +149,32 @@ if calc_sigma_binned_lin_radius:
         VT_i = ravf.v_tan(VTheta_i, VPhi_i)
 
         # sigmatan2
-        vtan2_inside_bin_i = VT_i ** 2
-        sigmatan2_inside_bin_i = sigma2(vtan2_inside_bin_i)
-        sigmatan2.append(sigmatan2_inside_bin_i)
-        # print(sigmatan2_inside_bin_i, np.std(VT_i) ** 2)
-        # print(sigmatan2_inside_bin_i, np.mean(VT_i ** 2),
-        #       nr_par_inside_bin_i)
+        vtan2_in_bin_i = VT_i ** 2
+        sigmatan2_in_bin_i = sigma2(vtan2_in_bin_i)
+        sigmatan2.append(sigmatan2_in_bin_i)
+        # print(sigmatan2_in_bin_i, np.std(VT_i) ** 2)
+        # print(sigmatan2_in_bin_i, np.mean(VT_i ** 2), nr_par_in_bin_i)
 
         # sigma2 total
-        v2_inside_bin_i = v2[posR_par_inside_bin_i]
-        sigma2_inside_bin_i = sigma2(v2_inside_bin_i)
-        sigma2.append(sigma2_inside_bin_i)
+        v2_in_bin_i = v2[posR_par_in_bin_i]
+        sigma2_in_bin_i = sigma2(v2_in_bin_i)
+        sigma2.append(sigma2_in_bin_i)
         bin_radius_arr.append((max_R_bin_i + min_R_bin_i) / 2)
 
         # sigmarad2 radial
-        vrad2_inside_bin_i = VR_i ** 2
-        sigmarad2_inside_bin_i = sigma2(vrad2_inside_bin_i)
-        sigmarad2.append(sigmarad2_inside_bin_i)
+        vrad2_in_bin_i = VR_i ** 2
+        sigmarad2_in_bin_i = sigma2(vrad2_in_bin_i)
+        sigmarad2.append(sigmarad2_in_bin_i)
 
         # sigmatheta2
-        VTheta2_inside_bin_i = VTheta_i ** 2
-        sigmatheta2_inside_bin_i = sigma2(VTheta2_inside_bin_i)
-        sigmatheta2.append(sigmatheta2_inside_bin_i)
+        VTheta2_in_bin_i = VTheta_i ** 2
+        sigmatheta2_in_bin_i = sigma2(VTheta2_in_bin_i)
+        sigmatheta2.append(sigmatheta2_in_bin_i)
 
         # sigmaphi2
-        VPhi2_inside_bin_i = VPhi_i ** 2
-        sigmaphi2_inside_bin_i = sigma2(VPhi2_inside_bin_i)
-        sigmaphi2.append(sigmaphi2_inside_bin_i)
+        VPhi2_in_bin_i = VPhi_i ** 2
+        sigmaphi2_in_bin_i = sigma2(VPhi2_in_bin_i)
+        sigmaphi2.append(sigmaphi2_in_bin_i)
 
         sigma_i = (sigma2[i]) ** .5
         sigmarad_i = (sigmarad2[i]) ** .5
@@ -216,26 +213,16 @@ if calc_sigma_binned_lin_radius:
     sigmatan = np.array(sigmatan)
 
     '''
-    print(r'$\sigma_{tan} = $ ', linalg.norm(sigmatan),
-          r'$\sigma = $ ', linalg.norm(sigma),
-          r'$\sigma_{rad} = $ ', linalg.norm(sigmarad),
-          r'$\sigma_{\phi} = $ ', linalg.norm(sigmaphi),
-          r'$\sigma_{\theta} = $ ', linalg.norm(sigmatheta),
+    print(r'$\sigma_{tan} = $', linalg.norm(sigmatan),
+          r'$\sigma = $', linalg.norm(sigma),
+          r'$\sigma_{rad} = $', linalg.norm(sigmarad),
+          r'$\sigma_{\phi} = $', linalg.norm(sigmaphi),
+          r'$\sigma_{\theta} = $', linalg.norm(sigmatheta),
           'np.concatenate(np.array(VT_sigmatan), axis=0) = ',
           np.concatenate(np.array(VT_sigmatan), axis=0),
-          sigmatan2_inside_bin_i, np.mean(VT_i ** 2)
-          )
+          sigmatan2_inside_bin_i, np.mean(VT_i ** 2),
+          'VR = ', VR)
     '''
-
-    # r = np.array(r)
-    # Phi = np.array(Phi)
-    # Theta = np.array(Theta)
-    # VR = np.array(VR)
-    # VTheta = np.array(VTheta)
-    # VPhi = np.array(VPhi)
-    # VT = np.array(VT)
-
-    # print('VR = ', VR)
 
     r = np.concatenate(np.array(r), axis=0)
     Phi = np.concatenate(np.array(Phi), axis=0)
@@ -259,7 +246,7 @@ if Fig14_sigmas:
     x_plot = np.log10(bin_radius_arr)
     y_plot = np.log10(sigma2)
     plt.plot(x_plot, y_plot, 'r-o', ms=8, mew=0,
-             label=r'$\log \sigma_{total}^2$')
+             label=r'$\log\sigma_{total}^2$')
     y_plot = np.log10(sigmarad2)
     plt.plot(x_plot, y_plot, 'b--s', ms=8, mew=0,
              label=r'$\log \sigma_{r}^2$')
@@ -309,57 +296,33 @@ if Fig14_sigmas:
 
 if vsphericalold:
     for i in range(len(x)):
-        if v_r[i] >= 0.:
-            v_rp.append(v_r[i])
-        else:
-            v_rn.append(v_r[i])
+        v_rp.append(v_r[i]) if v_r[i] >= 0. else v_rn.append(v_r[i])
     v_rp_arr = np.asarray(v_rp)
     v_rn_arr = np.asarray(v_rn)
     for i in range(len(x)):
-        if v_theta[i] >= 0.:
-            v_thetap.append(v_theta[i])
-        else:
-            v_thetan.append(v_theta[i])
+        v_thetap.append(v_theta[i]) if v_theta[i] >= 0. else v_thetan.append(v_theta[i])
     v_thetap_arr = np.asarray(v_thetap)
     v_thetan_arr = np.asarray(v_thetan)
     for i in range(len(x)):
-        if v_phi[i] >= 0.:
-            v_phip.append(v_phi[i])
-        else:
-            v_phin.append(v_phi[i])
+        v_phip.append(v_phi[i]) if v_phi[i] >= 0. else v_phin.append(v_phi[i])
     v_phip_arr = np.asarray(v_phip)
     v_phin_arr = np.asarray(v_phin)
 
 if vsphericalnew:
     for i in range(len(VR)):
-        if VR[i] >= 0.:
-            v_rp.append(VR[i])
-        else:
-            v_rn.append(VR[i])
+        v_rp.append(VR[i]) if VR[i] >= 0. else v_rn.append(VR[i])
     v_rp_arr = np.asarray(v_rp)
     v_rn_arr = np.asarray(v_rn)
-
     for i in range(len(VTheta)):
-        if VTheta[i] >= 0.:
-            v_thetap.append(VTheta[i])
-        else:
-            v_thetan.append(VTheta[i])
+        v_thetap.append(VTheta[i]) if VTheta[i] >= 0. else v_thetan.append(VTheta[i])
     v_thetap_arr = np.asarray(v_thetap)
     v_thetan_arr = np.asarray(v_thetan)
-
     for i in range(len(VPhi)):
-        if VPhi[i] >= 0.:
-            v_phip.append(VPhi[i])
-        else:
-            v_phin.append(VPhi[i])
+        v_phip.append(VPhi[i]) if VPhi[i] >= 0. else v_phin.append(VPhi[i])
     v_phip_arr = np.asarray(v_phip)
     v_phin_arr = np.asarray(v_phin)
-
     for i in range(len(VT)):
-        if VT[i] >= 0.:
-            v_tp.append(VT[i])
-        else:
-            v_tn.append(VT[i])
+        v_tp.append(VT[i]) if VT[i] >= 0. else v_tn.append(VT[i])
     v_tp_arr = np.asarray(v_tp)
     v_tn_arr = np.asarray(v_tn)
 
@@ -389,16 +352,13 @@ if Fig8_vspherical_hist_log_vpvn:
     plt.title(r'Positive and negative f(v) ($N=%.3f$, $\gamma = %.1f$,\
               File = %s)' % (len(x), Gamma, F))
     plt.hist(np.log10(v_thetap_arr), bins=100, histtype='step',
-             color='r', range=(-5, 1), label=r'$\log v_{\theta}p$',
-             lw=2)
+             color='r', range=(-5, 1), label=r'$\log v_{\theta}p$', lw=2)
     plt.hist(np.log10(v_phip_arr), bins=100, histtype='step',
-             color='m', range=(-5, 1), label=r'$\log v_{\phi}p$',
-             lw=2)
+             color='m', range=(-5, 1), label=r'$\log v_{\phi}p$', lw=2)
     plt.hist(np.log10(v_rp_arr), bins=100, histtype='step',
              color='k', range=(-5, 1), label=r'$\log v_rp$', lw=2)
-    plt.hist(np.log10(np.absolute(v_thetan_arr)), bins=100,
-             histtype='step', color='g', range=(-5, 1),
-             label=r'$\log v_{\theta}n$', lw=2)
+    plt.hist(np.log10(np.absolute(v_thetan_arr)), bins=100, histtype='step',
+             color='g', range=(-5, 1), label=r'$\log v_{\theta}n$', lw=2)
     plt.hist(np.log10(np.absolute(v_phin_arr)), bins=100,
              histtype='step', color='b', range=(-5, 1),
              label=r'$\log v_{\phi}n$', lw=2)
@@ -586,15 +546,12 @@ if Fig12_n123_sigma:
     plt.grid()
 
     plt.subplot(224)
-    n, bins, patches = plt.hist(np.log10(n3
-                                / linalg.norm(normTXT_r_arr)), 100,
+    n, bins, patches = plt.hist(np.log10(n3 / linalg.norm(normTXT_r_arr)), 100,
                                 histtype='step', color='r',
                                 label=r'$f\left(\log \left( \frac{v_rp\
-                                + |v_rn|}{\sigma_r}\right)\right)$',
-                                alpha=.75)
-    n, bins, patches = plt.hist(np.log10(n1
-                                / linalg.norm(normTXT_theta_arr)), 100,
-                                histtype='step', color='b',
+                                + |v_rn|}{\sigma_r}\right)\right)$', alpha=.75)
+    n, bins, patches = plt.hist(np.log10(n1 / linalg.norm(normTXT_theta_arr)),
+                                100, histtype='step', color='b',
                                 label=r'$f\left(\log \left( \frac{v_{\
                                 \theta}p + |v_{\theta}n|}{\sigma_{\
                                 \theta}}\right)\right)$', alpha=.75)
@@ -613,7 +570,6 @@ if Fig12_n123_sigma:
     plt.grid()
 
 if Fig12_x789_sigma:
-
     x7 = np.asarray(x1 + list(np.absolute(v_thetan_arr)))
     x8 = np.asarray(x2 + list(np.absolute(v_phin_arr)))
     x9 = np.asarray(x3 + list(np.absolute(v_rn_arr)))
@@ -683,13 +639,11 @@ if Fig12_x789_sigma:
     n, bins, patches = plt.hist(np.log10(x9), 100, histtype='step',
                                 color='r', range=(-3, 0),
                                 label=r'$f(\log (|v_rn|,v_rp))$', alpha=.75)
-    n, bins, patches = plt.hist(np.log10(x7), 100, histtype='step',
-                                color='b', range=(-3, 0),
-                                label=r'$f(\log (|v_{\theta}n|,\
+    n, bins, patches = plt.hist(np.log10(x7), 100, histtype='step', color='b',
+                                range=(-3, 0), label=r'$f(\log (|v_{\theta}n|,\
                                 v_{\theta}p))$', alpha=.75)
-    n, bins, patches = plt.hist(np.log10(x8), 100, histtype='step',
-                                color='g', range=(-3, 0),
-                                label=r'$f(\log (|v_{\phi}n|,\
+    n, bins, patches = plt.hist(np.log10(x8), 100, histtype='step', color='g',
+                                range=(-3, 0), label=r'$f(\log (|v_{\phi}n|,\
                                 v_{\phi}p))$', alpha=.75)
     plt.xlabel(r'$\log (|v_rn|, v_rp)$, $\log (|v_{\theta}n|,\
                v_{\theta}p)$ and $\log (|v_{\phi}n|, v_{\phi}p)$')
@@ -699,21 +653,18 @@ if Fig12_x789_sigma:
     plt.grid()
 
     plt.subplot(224)
-    n, bins, patches = plt.hist(np.log10(x9
-                                / linalg.norm(normTXT_r_arr)), 100,
+    n, bins, patches = plt.hist(np.log10(x9 / linalg.norm(normTXT_r_arr)), 100,
                                 histtype='step', color='r', range=(-3, 0),
                                 label=r'$f\left(\log \left(\
                                 \frac{|v_rn|,v_rp}{\sigma_r}\right)\right)$',
                                 alpha=.75)
-    n, bins, patches = plt.hist(np.log10(x7
-                                / linalg.norm(normTXT_theta_arr)), 100,
-                                histtype='step', color='b', range=(-3, 0),
+    n, bins, patches = plt.hist(np.log10(x7 / linalg.norm(normTXT_theta_arr)),
+                                100, histtype='step', color='b', range=(-3, 0),
                                 label=r'$f\left(\log \left( \frac{\
                                 |v_{\theta}n|, v_{\theta}p}{\sigma_{\
                                 \theta}}\right)\right)$', alpha=.75)
-    n, bins, patches = plt.hist(np.log10(x8
-                                / linalg.norm(normTXT_phi_arr)), 100,
-                                histtype='step', color='g', range=(-3, 0),
+    n, bins, patches = plt.hist(np.log10(x8 / linalg.norm(normTXT_phi_arr)),
+                                100, histtype='step', color='g', range=(-3, 0),
                                 label=r'$f\left(\log \left( \frac{\
                                 |v_{\phi}n|,v_{\phi}p}{\sigma_{\phi}}\
                                 \right)\right)$', alpha=.75)
@@ -726,12 +677,10 @@ if Fig12_x789_sigma:
     plt.grid()
 
 if Fig12_vr_vtheta_vphi_sigma:
-    v_rpn = np.asarray(list(v_rp_arr) +
-                       list(np.absolute(v_rn_arr)))
+    v_rpn = np.asarray(list(v_rp_arr) + list(np.absolute(v_rn_arr)))
     v_thetapn = np.asarray(list(v_thetap_arr) +
                            list(np.absolute(v_thetan_arr)))
-    v_phipn = np.asarray(list(v_phip_arr) +
-                         list(np.absolute(v_phin_arr)))
+    v_phipn = np.asarray(list(v_phip_arr) + list(np.absolute(v_phin_arr)))
     x7 = np.asarray(list(VTheta_sigmatheta_p_arr) +
                     list(np.absolute(VTheta_sigmatheta_n_arr)))
     x8 = np.asarray(list(VPhi_sigmaphi_p_arr) +
@@ -753,19 +702,17 @@ if Fig12_vr_vtheta_vphi_sigma:
                                 {||v_{\theta}||} \right)$', alpha=.75)
     n, bins, patches = plt.hist(np.log10(v_phipn) / linalg.norm(VPhi),
                                 100, histtype='step', color='g',
-                                range=(-.1, .0),
-                                label=r'$f\left( \frac{\log\
+                                range=(-.1, .0), label=r'$f\left(\frac{\log\
                                 (|v_{\phi}n|,v_{\phi}p))}{||v_{\phi}||}\
                                 \right)$', alpha=.75)
 
-    (mu, sigma) = norm.fit(np.log10(v_rpn)/linalg.norm(VR))
+    (mu, sigma) = norm.fit(np.log10(v_rpn) / linalg.norm(VR))
     xdata = get_xdata(bins)
     ydata = n
     popt, pcov = curve_fit(func_1_log, xdata, ydata)
     y_fit = func_1_log(xdata, popt[0], popt[1])
-    plt.plot(xdata, y_fit, 'k--', lw=3,
-             label=r'$ \frac{ \log ( v_r )}{|| v_r ||} -fit=\
-                   a \cdot log(x) \cdot e^{-b \cdot log(x)^2}$')
+    plt.plot(xdata, y_fit, 'k--', lw=3, label=r'$\frac{\log(v_r)}{||v_r||}-fit\
+             =a \cdot log(x) \cdot e^{-b \cdot log(x)^2}$')
 
     plt.xlabel(r'$\frac{\log (|v_rn|,v_rp)}{||v_r||}$, $\frac{\log\
                (|v_{\theta}n|,v_{\theta}p)}{||v_{\theta}||}$\
@@ -805,14 +752,14 @@ if Fig12_vr_vtheta_vphi_sigma:
     plt.subplot(223)
     n, bins, patches = plt.hist(np.log10(v_rpn), 100, histtype='step',
                                 color='r', range=(-3, 0),
-                                label=r'$f(\log (|v_rn|,v_rp))$', alpha=.75)
+                                label=r'$f(\log(|v_rn|,v_rp))$', alpha=.75)
     n, bins, patches = plt.hist(np.log10(v_thetapn), 100, histtype='step',
                                 color='b', range=(-3, 0),
-                                label=r'$f(\log (|v_{\theta}n|,\
+                                label=r'$f(\log(|v_{\theta}n|,\
                                 v_{\theta}p))$', alpha=.75)
     n, bins, patches = plt.hist(np.log10(v_phipn), 100, histtype='step',
                                 color='g', range=(-3, 0),
-                                label=r'$f(\log (|v_{\phi}n|, v_{\phi}p))$',
+                                label=r'$f(\log(|v_{\phi}n|, v_{\phi}p))$',
                                 alpha=.75)
 
     (mu, sigma) = norm.fit(np.log10(v_rpn))
@@ -820,7 +767,7 @@ if Fig12_vr_vtheta_vphi_sigma:
     ydata = n
     popt, pcov = curve_fit(func_1_log, xdata, ydata)
     y_fit = func_1_log(xdata, popt[0], popt[1])
-    plt.plot(xdata, y_fit, 'k--', lw=3, label=r'$\log ( v_r ) -fit= a \cdot\
+    plt.plot(xdata, y_fit, 'k--', lw=3, label=r'$\log(v_r)-fit=a \cdot\
              log(x)\cdot e^{-b \cdot log(x)^2}$')
 
     plt.xlabel(r'$\log (|v_rn|,v_rp)$, $\log (|v_{\theta}n|,\
@@ -852,7 +799,7 @@ if Fig12_vr_vtheta_vphi_sigma:
     plt.plot(xdata, y_fit, 'k--', lw=3, label=r'$\log\left(\frac{v_r}\
              {\sigma_r}\right)-fit=a\cdot log(x)\cdot e^{-b\cdot log(x)^2}$')
 
-    plt.xlabel(r'$\log \left( |u_rn|,u_rp \right)$, $\log \left(\
+    plt.xlabel(r'$\log \left(|u_rn|,u_rp \right)$, $\log \left(\
                |u_{\theta}n|,u_{\theta}p \right)$ and $\log \left(\
                |u_{\phi}n|,u_{\phi}p \right)$')
     plt.ylabel(r'$f\left(\log \left( |u_n|,u_p \right)\right)$')
@@ -861,14 +808,11 @@ if Fig12_vr_vtheta_vphi_sigma:
     plt.grid()
 
 if Fig12_vr_vtheta_vphi_vt_sigma:
-    # v_rpn = np.asarray(list(v_rp_arr) +
-    #                    list(np.absolute(v_rn_arr)))
+    # v_rpn = np.asarray(list(v_rp_arr) + list(np.absolute(v_rn_arr)))
     # v_thetapn = np.asarray(list(v_thetap_arr) +
     #                        list(np.absolute(v_thetan_arr)))
-    # v_phipn = np.asarray(list(v_phip_arr) +
-    #                      list(np.absolute(v_phin_arr)))
-    # v_tpn = np.asarray(list(v_tp_arr) +
-    #                    list(np.absolute(v_tn_arr)))
+    # v_phipn = np.asarray(list(v_phip_arr) + list(np.absolute(v_phin_arr)))
+    # v_tpn = np.asarray(list(v_tp_arr) + list(np.absolute(v_tn_arr)))
     # x7 = np.asarray(list(VTheta_sigmatheta_p_arr) +
     #                 list(np.absolute(VTheta_sigmatheta_n_arr)))
     # x8 = np.asarray(list(VPhi_sigmaphi_p_arr) +
@@ -990,8 +934,8 @@ if Fig12_vr_vtheta_vphi_vt_sigma:
         x = hist_data(n, bins)
         save_txt('_new_R_middle_VPhi_sigmaphi_gamma_{}')
 
-        plt.xlabel(r'$ u_t $, $ u_r $, $ u_{\theta} $ and $ u_{\phi}$')
-        plt.ylabel(r'$f\left( u \right)$')
+        plt.xlabel(r'$u_t$, $u_r$, $u_{\theta}$ and $u_{\phi}$')
+        plt.ylabel(r'$f\left(u\right)$')
         ax1.legend(prop=dict(size=13), numpoints=2, ncol=1,
                    frameon=True, loc=1, handlelength=2.5)
         plt.grid()
@@ -1045,7 +989,7 @@ if Fig12_vr_vtheta_vphi_vt_sigma:
                   % (len(VR), R_middle, F))
 
         n, bins, patches = plt.hist(VT_sigmatan, 50, histtype='step',
-                                    color='k', label=r'$f\left( u_t \right)$',
+                                    color='k', label=r'$f\left(u_t\right)$',
                                     alpha=.75)
         x = hist_data(n, bins)
         save_txt('_large_R_middle_VT_sigmatan_R_middle_{}')
@@ -1116,8 +1060,7 @@ if Fig12_vr_vtheta_vphi_vt_sigma:
 if Fig13_vspherical_hist_old:
     plt.figure()
     (mu, sigma) = norm.fit(v_t_arr[6])  # best fit of data
-    n, bins, patches = plt.hist(v_t_arr[6], 100, normed=1,
-                                color='g', alpha=.75)
+    n, bins, patches = plt.hist(v_t_arr[6], 100, normed=1, color='g', alpha=.75)
     # add a 'best fit' line
     # y = mlab.normpdf( bins, mu, sigma)
     # l = plt.plot(bins, y, 'r--', linewidth=2)
@@ -1142,8 +1085,7 @@ if Fig13_vspherical_hist_old:
     plt.figure()
     (mu, sigma) = norm.fit(v_r_arr[6])
     # the histogram of the data
-    n, bins, patches = plt.hist(v_r_arr[6], 100, normed=1, color='b',
-                                alpha=.75)
+    n, bins, patches = plt.hist(v_r_arr[6], 100, normed=1, color='b', alpha=.75)
     xdata = get_xdata(bins)
     ydata = n
     popt, pcov = curve_fit(func_2, xdata, ydata)
@@ -1157,8 +1099,7 @@ if Fig13_vspherical_hist_old:
 
     x = np.array((xdata, ydata)).transpose()
     print('x.shape:', x.shape)
-    np.savetxt('HQ10000_G1.2_9_005_bin6_VDFr.txt', x,
-               delimiter=' ',
+    np.savetxt('HQ10000_G1.2_9_005_bin6_VDFr.txt', x, delimiter=' ',
                header='\t bins \t\t n')
 
 plt.show()
@@ -1167,6 +1108,5 @@ if save_r_v_as_txt:
     x = np.array((xcl2, ycl2, zcl2, vxnew2, vynew2, vznew2))
     x = x.transpose()
     print('x.shape:', x.shape)
-    np.savetxt('HQ10000_G1.2_9_005_bin0_05to0_25kpc_VDF.txt', x,
-               delimiter=' ',
+    np.savetxt('HQ10000_G1.2_9_005_bin0_05to0_25kpc_VDF.txt', x, delimiter=' ',
                header=' xcl2 \t ycl2 \t zcl2 \t vxnew2 \t vynew2 \t vznew2 ')

@@ -8,7 +8,6 @@ import matplotlib.pyplot as plt
 # switches -------------------------------------------------------------
 vspherical = 0
 vbin = 0
-
 nr_bins_v = 100
 
 # radial and tangential velocities
@@ -70,7 +69,7 @@ if vbin:
     plt.title("velocity distributions")
     plt.hist(v_r_arr[5], bins=30, histtype="step", color="r",
              range=(-4, 1), label=r"$v_r$ (bin 5)", normed=True, lw=2)
-    plt.hist(v_r_arr[8], bins=30, histtype="step", color="skyblue",
+    plt.hist(v_r_arr[8], bins=30, histtype="step", color="m",
              range=(-4, 1), label=r"$v_r$ (bin 8)", normed=True, lw=2)
     plt.hist(v_r_arr[10], bins=300, histtype="step", color="k",
              range=(-1, 1), label=r"$v_r$ (bin 10)", lw=2)
@@ -78,7 +77,7 @@ if vbin:
              range=(-4, 1), label=r"$v_t$ (bin 5)", normed=True, lw=2)
     plt.hist(.5 * v_t_arr[8], bins=30, histtype="step", color="b",
              range=(-4, 1), label=r"$v_t$ (bin 8)", normed=True, lw=2)
-    plt.hist(v_t_arr[10], bins=300, histtype="step", color="orange",
+    plt.hist(v_t_arr[10], bins=300, histtype="step", color="c",
              range=(-1, 1), label=r"$v_t$ (bin 10)", lw=2)
     plt.hist(.25 * v_t_arr[10], bins=300, histtype="step", color="r",
              range=(-2, 1), label=r"$\frac{1}{4}\cdot v_t$ (bin 10)", lw=2)

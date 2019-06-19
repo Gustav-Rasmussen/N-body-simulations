@@ -4290,13 +4290,13 @@ if Fig16_GPerts_R_middle_31_62_vt_divided_by_gauss_and_Tsallis:
                       % B_HQ0[:-9], fontsize=20)
 
         Plt(2, datalist_bin6different_gammas_B_HQ10000_G1_0_0_000[4], "r",
-            r"%s " % B_HQ0[11:])
+            B_HQ0[11:])
         Plt(2, datalist_bin6different_gammas_B_HQ10000_G1_0_10_005[4], "g",
-            r"%s" % B_HQ66[11:])
+            B_HQ66[11:])
         Plt(2, datalist_bin6different_gammas_B_HQ10000_G1_0_198_000[4], "k",
-            r"%s" % B_HQ294[11:])
+            B_HQ294[11:])
         Plt(2, datalist_bin6different_gammas_B_HQ10000_G1_0_198_093[4], "b",
-            r"%s" % B_HQ382[11:])
+            B_HQ382[11:])
 
         Plt(3, datalist_bin6different_gammas_B_HQ10000_G1_0_0_000[0], "r")
         Plt(3, datalist_bin6different_gammas_B_HQ10000_G1_0_10_005[0], "g")

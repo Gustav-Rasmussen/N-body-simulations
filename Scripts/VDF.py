@@ -71,12 +71,12 @@ if Fig_3D_xyz:
     ax.set_xlabel("x", fontsize=20)
     ax.set_ylabel("y", fontsize=20)
     ax.set_zlabel("z", fontsize=20)
-    ax.set_title("3D view of halo structure.($N = %i$, $\gamma = %.2f$)"
+    ax.set_title(r"3D view of halo structure.($N = %i$, $\gamma = %.2f$)"
                  % (len(x), Gamma), fontsize=20)
 
 # radial and tangential velocities
 if vspherical:
-    r = ravf.radius(x, y, z)
+    r = ravf.modulus(x, y, z)
     Phi = ravf.phi(x, y)
     Theta = ravf.theta(r, z)
     VR = ravf.v_R(vx, vy, vz, Theta, Phi)
@@ -85,7 +85,7 @@ if vspherical:
     VT = ravf.v_tan(VTheta, VPhi)
 
 
-def sigma2(num=nr_par_inside_bin_i, v2):
+def sigma2(num=nr_par_in_bin_i, v2):
     """num: number of particles. v2: velocity squared"""
     return (1.0 / (num + 1.0)) * np.sum(v2)
 
@@ -94,46 +94,43 @@ if calc_sigma_binned_lin_radius:
     R_hob_par = R[GoodIDs]
     v2 = ravf.speed(vx, vy, vz) ** 2
 
-    (sigma2, sigmarad2, sigmatheta2, sigmaphi2, sigmatan2, sigma, sigmarad,
-     sigmatheta, sigmaphi, sigmatan, VR_sigmarad, VTheta_sigmatheta,
-     VPhi_sigmaphi, VT_sigmatan, r, Phi, Theta, VR, VTheta, VPhi, VT,
-     VR_i_average_inside_bin, VT_i_average_inside_bin,
-     VTheta_i_average_inside_bin, VPhi_i_average_inside_bin,
-     VR_i_average_inside_bin_sigmarad, VT_i_average_inside_bin_sigmatan,
-     VTheta_i_average_inside_bin_sigmatheta,
-     VPhi_i_average_inside_bin_sigmaphi, bin_radius_arr) = ([] for i in
-                                                            range(30))
+    (sigma2, sigmaR2, sigmatheta2, sigmaphi2, sigmaT2, sigma, sigmaR,
+     sigmatheta, sigmaphi, sigmaT, VR_sigmaR, VTheta_sigmatheta, VPhi_sigmaphi,
+     VT_sigmaT, r, Phi, Theta, VR, VTheta, VPhi, VT, VR_i_avg_in_bin,
+     VT_i_avg_in_bin, VTheta_i_avg_in_bin, VPhi_i_avg_in_bin,
+     VR_i_avg_in_bin_sigmaR, VT_i_avg_in_bin_sigmaT,
+     VTheta_i_avg_in_bin_sigmatheta, VPhi_i_avg_in_bin_sigmaphi,
+     bin_radius_arr) = ([] for i in range(30))
 
     min_binning_R = -1.5
     max_binning_R = np.log10(R_limit)
     # min_binning_R = R_limit_min
     # max_binning_R = R_limit_max
 
-    binning_arr = np.logspace(min_binning_R, max_binning_R, nr_binning_bins)
-    # binning_arr = np.linspace(R_limit_min, R_limit_max, nr_binning_bins)
+    binning_arr = np.logspace(min_binning_R, max_binning_R, nr_bins)
+    # binning_arr = np.linspace(R_limit_min, R_limit_max, nr_bins)
 
     j = 0
-    for i in range(nr_binning_bins - 2):
+    for i in range(nr_bins - 2):
         min_R_bin_i = binning_arr[j]  # start of bin
         max_R_bin_i = binning_arr[j + 1]  # end of bin
         # position of particles inside a radial bin
-        posR_par_inside_bin_i = np.where(
-            (R_hob_par > min_R_bin_i) & (R_hob_par < max_R_bin_i))
-        nr_par_inside_bin_i = len(posR_par_inside_bin_i[0])
-        if nr_par_inside_bin_i == 0:
+        posR_par_in_bin_i = np.where((R_hob_par > min_R_bin_i)
+                                     & (R_hob_par < max_R_bin_i))
+        nr_par_in_bin_i = len(posR_par_in_bin_i[0])
+        if nr_par_in_bin_i == 0:
             print("-", i)
             continue
         print("+", i)
 
-        x = x[posR_par_inside_bin_i]
-        y = y[posR_par_inside_bin_i]
-        z = z[posR_par_inside_bin_i]
+        x = x[posR_par_in_bin_i]
+        y = y[posR_par_in_bin_i]
+        z = z[posR_par_in_bin_i]
+        vx = vx[posR_par_in_bin_i]
+        vy = vy[posR_par_in_bin_i]
+        vz = vz[posR_par_in_bin_i]
 
-        vx = vx[posR_par_inside_bin_i]
-        vy = vy[posR_par_inside_bin_i]
-        vz = vz[posR_par_inside_bin_i]
-
-        r_i = ravf.radius(x, y, z)
+        r_i = ravf.modulus(x, y, z)
         Phi_i = ravf.phi(x, y)
         Theta_i = ravf.theta(r_i, z)
         VR_i = ravf.v_R(vx, vy, vz, Theta_i, Phi_i)
@@ -143,40 +140,40 @@ if calc_sigma_binned_lin_radius:
         VT_i = (VTheta_i ** 2 + VPhi_i ** 2) ** .5
 
         # sigma2 total
-        v2_inside_bin_i = v2[posR_par_inside_bin_i]
-        sigma2_inside_bin_i = sigma2(v2_inside_bin_i)
-        sigma2.append(sigma2_inside_bin_i)
+        v2_in_bin_i = v2[posR_par_in_bin_i]
+        sigma2_inside_bin_i = sigma2(v2_in_bin_i)
+        sigma2.append(sigma2_in_bin_i)
         bin_radius_arr.append((max_R_bin_i + min_R_bin_i) / 2)
 
         # sigmatan2
-        vtan2_inside_bin_i = VT_i ** 2
-        sigmatan2_inside_bin_i = sigma2(vtan2_inside_bin_i)
-        sigmatan2.append(sigmatan2_inside_bin_i)
+        vtan2_in_bin_i = VT_i ** 2
+        sigmatan2_in_bin_i = sigma2(vtan2_in_bin_i)
+        sigmatan2.append(sigmatan2_in_bin_i)
 
         # sigmarad2 radial
-        vrad2_inside_bin_i = VR_i ** 2
-        sigmarad2_inside_bin_i = sigma2(vrad2_inside_bin_i)
-        sigmarad2.append(sigmarad2_inside_bin_i)
+        vrad2_in_bin_i = VR_i ** 2
+        sigmarad2_in_bin_i = sigma2(vrad2_in_bin_i)
+        sigmarad2.append(sigmarad2_in_bin_i)
 
         # sigmatheta2
-        VTheta2_inside_bin_i = VTheta_i ** 2
-        sigmatheta2_inside_bin_i = sigma2(VTheta2_inside_bin_i)
-        sigmatheta2.append(sigmatheta2_inside_bin_i)
+        VTheta2_in_bin_i = VTheta_i ** 2
+        sigmatheta2_in_bin_i = sigma2(VTheta2_in_bin_i)
+        sigmatheta2.append(sigmatheta2_in_bin_i)
 
         # sigmaphi2
-        VPhi2_inside_bin_i = VPhi_i ** 2
-        sigmaphi2_inside_bin_i = sigma2(VPhi2_inside_bin_i)
-        sigmaphi2.append(sigmaphi2_inside_bin_i)
+        VPhi2_in_bin_i = VPhi_i ** 2
+        sigmaphi2_in_bin_i = sigma2(VPhi2_in_bin_i)
+        sigmaphi2.append(sigmaphi2_in_bin_i)
 
-        VR_i_average_inside_bin_i = sigma2(VR_i)
-        VT_i_average_inside_bin_i = sigma2(VT_i)
-        VTheta_i_average_inside_bin_i = sigma2(VTheta_i)
-        VPhi_i_average_inside_bin_i = sigma2(VPhi_i)
+        VR_i_avg_in_bin_i = sigma2(VR_i)
+        VT_i_avg_in_bin_i = sigma2(VT_i)
+        VTheta_i_avg_in_bin_i = sigma2(VTheta_i)
+        VPhi_i_avg_in_bin_i = sigma2(VPhi_i)
 
-        VR_i_average_inside_bin.append(VR_i_average_inside_bin_i)
-        VT_i_average_inside_bin.append(VT_i_average_inside_bin_i)
-        VTheta_i_average_inside_bin.append(VTheta_i_average_inside_bin_i)
-        VPhi_i_average_inside_bin.append(VPhi_i_average_inside_bin_i)
+        VR_i_avg_in_bin.append(VR_i_avg_in_bin_i)
+        VT_i_avg_in_bin.append(VT_i_avg_in_bin_i)
+        VTheta_i_avg_in_bin.append(VTheta_i_avg_in_bin_i)
+        VPhi_i_avg_in_bin.append(VPhi_i_avg_in_bin_i)
 
         sigma_i = (sigma2[j]) ** .5
         sigmarad_i = (sigmarad2[j]) ** .5
@@ -200,14 +197,11 @@ if calc_sigma_binned_lin_radius:
         VTheta_sigmatheta.append(VTheta_i / sigmatheta_i)
         VPhi_sigmaphi.append(VPhi_i / sigmaphi_i)
         VT_sigmatan.append(VT_i / sigmatan_i)
-        VR_i_average_inside_bin_sigmarad.append(
-            VR_i_average_inside_bin_i / sigmarad_i)
-        VT_i_average_inside_bin_sigmatan.append(
-            VT_i_average_inside_bin_i / sigmatan_i)
-        VTheta_i_average_inside_bin_sigmatheta.append(
-            VTheta_i_average_inside_bin_i / sigmatheta_i)
-        VPhi_i_average_inside_bin_sigmaphi.append(
-            VPhi_i_average_inside_bin_i / sigmaphi_i)
+        VR_i_avg_in_bin_sigmarad.append(VR_i_avg_in_bin_i / sigmarad_i)
+        VT_i_avg_in_bin_sigmatan.append(VT_i_avg_in_bin_i / sigmatan_i)
+        VTheta_i_avg_in_bin_sigmatheta.append(VTheta_i_avg_in_bin_i
+                                              / sigmatheta_i)
+        VPhi_i_avg_in_bin_sigmaphi.append(VPhi_i_avg_in_bin_i / sigmaphi_i)
 
         j += 1
 
@@ -259,60 +253,48 @@ if vsphericalnew_sigma:
     VT_sigmatan_p_arr = np.asarray(VT_sigmatan_p)
     VT_sigmatan_n_arr = np.asarray(VT_sigmatan_n)
 
-    (VR_i_average_inside_bin_sigmarad_p, VR_i_average_inside_bin_sigmarad_n,
-     VT_i_average_inside_bin_sigmatan_p, VT_i_average_inside_bin_sigmatan_n,
-     VPhi_i_average_inside_bin_sigmaphi_p,
-     VPhi_i_average_inside_bin_sigmaphi_n,
-     VTheta_i_average_inside_bin_sigmatheta_p,
-     VTheta_i_average_inside_bin_sigmatheta_n) = ([] for i in range(8))
+    (VR_i_avg_in_bin_sigmarad_p, VR_i_avg_in_bin_sigmarad_n,
+     VT_i_avg_in_bin_sigmatan_p, VT_i_avg_in_bin_sigmatan_n,
+     VPhi_i_avg_in_bin_sigmaphi_p, VPhi_i_avg_in_bin_sigmaphi_n,
+     VTheta_i_avg_in_bin_sigmatheta_p,
+     VTheta_i_avg_in_bin_sigmatheta_n) = ([] for i in range(8))
 
-    for i in range(len(VR_i_average_inside_bin_sigmarad)):
-        if VR_i_average_inside_bin_sigmarad[i] >= .0:
-            VR_i_average_inside_bin_sigmarad_p.append(
-                VR_i_average_inside_bin_sigmarad[i])
+    for i in range(len(VR_i_avg_in_bin_sigmarad)):
+        if VR_i_avg_in_bin_sigmarad[i] >= .0:
+            VR_i_avg_in_bin_sigmarad_p.append(VR_i_avg_in_bin_sigmarad[i])
         else:
-            VR_i_average_inside_bin_sigmarad_n.append(
-                VR_i_average_inside_bin_sigmarad[i])
-    VR_i_average_inside_bin_sigmarad_p_arr = np.asarray(
-        VR_i_average_inside_bin_sigmarad_p)
-    VR_i_average_inside_bin_sigmarad_n_arr = np.asarray(
-        VR_i_average_inside_bin_sigmarad_n)
+            VR_i_avg_in_bin_sigmarad_n.append(VR_i_avg_in_bin_sigmarad[i])
+    VR_i_avg_in_bin_sigmarad_p_arr = np.asarray(VR_i_avg_in_bin_sigmarad_p)
+    VR_i_avg_in_bin_sigmarad_n_arr = np.asarray(VR_i_avg_in_bin_sigmarad_n)
 
-    for i in range(len(VR_i_average_inside_bin_sigmarad)):
-        if VTheta_i_average_inside_bin_sigmatheta[i] >= 0.0:
-            VTheta_i_average_inside_bin_sigmatheta_p.append(
-                VTheta_i_average_inside_bin_sigmatheta[i])
+    for i in range(len(VR_i_avg_in_bin_sigmarad)):
+        if VTheta_i_avg_in_bin_sigmatheta[i] >= 0.0:
+            VTheta_i_avg_in_bin_sigmatheta_p.append(
+                VTheta_i_avg_in_bin_sigmatheta[i])
         else:
-            VTheta_i_average_inside_bin_sigmatheta_n.append(
-                VTheta_i_average_inside_bin_sigmatheta[i])
-    VTheta_i_average_inside_bin_sigmatheta_p_arr = np.asarray(
-        VTheta_i_average_inside_bin_sigmatheta_p)
-    VTheta_i_average_inside_bin_sigmatheta_n_arr = np.asarray(
-        VTheta_i_average_inside_bin_sigmatheta_n)
+            VTheta_i_avg_in_bin_sigmatheta_n.append(
+                VTheta_i_avg_in_bin_sigmatheta[i])
+    VTheta_i_avg_in_bin_sigmatheta_p_arr = np.asarray(
+        VTheta_i_avg_in_bin_sigmatheta_p)
+    VTheta_i_avg_in_bin_sigmatheta_n_arr = np.asarray(
+        VTheta_i_avg_in_bin_sigmatheta_n)
 
-    for i in range(len(VR_i_average_inside_bin_sigmarad)):
-        if VPhi_i_average_inside_bin_sigmaphi[i] >= 0.0:
-            VPhi_i_average_inside_bin_sigmaphi_p.append(
-                VPhi_i_average_inside_bin_sigmaphi[i])
+    for i in range(len(VR_i_avg_in_bin_sigmarad)):
+        if VPhi_i_avg_in_bin_sigmaphi[i] >= 0.0:
+            VPhi_i_avg_in_bin_sigmaphi_p.append(
+                VPhi_i_avg_in_bin_sigmaphi[i])
         else:
-            VPhi_i_average_inside_bin_sigmaphi_n.append(
-                VPhi_i_average_inside_bin_sigmaphi[i])
-    VPhi_i_average_inside_bin_sigmaphi_p_arr = np.asarray(
-        VPhi_i_average_inside_bin_sigmaphi_p)
-    VPhi_i_average_inside_bin_sigmaphi_n_arr = np.asarray(
-        VPhi_i_average_inside_bin_sigmaphi_n)
+            VPhi_i_avg_in_bin_sigmaphi_n.append(VPhi_i_avg_in_bin_sigmaphi[i])
+    VPhi_i_avg_in_bin_sigmaphi_p_arr = np.asarray(VPhi_i_avg_in_bin_sigmaphi_p)
+    VPhi_i_avg_in_bin_sigmaphi_n_arr = np.asarray(VPhi_i_avg_in_bin_sigmaphi_n)
 
-    for i in range(len(VR_i_average_inside_bin_sigmarad)):
-        if VT_i_average_inside_bin_sigmatan[i] >= 0.0:
-            VT_i_average_inside_bin_sigmatan_p.append(
-                VT_i_average_inside_bin_sigmatan[i])
+    for i in range(len(VR_i_avg_in_bin_sigmarad)):
+        if VT_i_avg_in_bin_sigmatan[i] >= 0.0:
+            VT_i_avg_in_bin_sigmatan_p.append(VT_i_avg_in_bin_sigmatan[i])
         else:
-            VT_i_average_inside_bin_sigmatan_n.append(
-                VT_i_average_inside_bin_sigmatan[i])
-    VT_i_average_inside_bin_sigmatan_p_arr = np.asarray(
-        VT_i_average_inside_bin_sigmatan_p)
-    VT_i_average_inside_bin_sigmatan_n_arr = np.asarray(
-        VT_i_average_inside_bin_sigmatan_n)
+            VT_i_avg_in_bin_sigmatan_n.append(VT_i_avg_in_bin_sigmatan[i])
+    VT_i_avg_in_bin_sigmatan_p_arr = np.asarray(VT_i_avg_in_bin_sigmatan_p)
+    VT_i_avg_in_bin_sigmatan_n_arr = np.asarray(VT_i_avg_in_bin_sigmatan_n)
 
 if print_Vp_Vn:
     if print_sigma_binned_lin_radius:

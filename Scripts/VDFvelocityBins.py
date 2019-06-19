@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from __future__ import division
+# from __future__ import division
 import numpy as np
 import matplotlib.pyplot as plt
 from pylab import *
@@ -216,9 +216,7 @@ if Fig_vr_vtheta_vphi_vt_sigma:
                      + list(np.absolute(VT_sigmaT_n_arr)))
 
     f, (ax1, ax2) = plt.subplots(2)
-
     plt.title(r'$N=%i$, $\gamma = %.2f$, File = %s' % (len(x), Gamma, F))
-
     x = hist_func(VT_sigmaT, label=r'$f\left(\frac{v_t}{\sigma_t}\right)$',
                   color='k')
     # print 'x.shape:', x.shape
