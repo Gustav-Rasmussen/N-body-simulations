@@ -1222,7 +1222,7 @@ if Fig5a_GPerts_gammas_1_5_vt_divided_by_gauss_and_Tsallis:
         Plt(2, bin1_different_gammas_A_HQ10000_G1_0_0_000[4], "r", A_HQ0[11:])
         Plt(2, bin1_different_gammas_A_HQ10000_G1_0_5_005[4], "g", A_HQ36[11:])
         Plt(2, bin1_different_gammas_A_HQ10000_G1_0_10_005[4], "k",
-            A_HQ66[11):])
+            A_HQ66[11:])
         Plt(2, bin1_different_gammas_A_HQ10000_G1_0_40_005[4], "c",
             A_HQ246[11:])
         Plt(2, bin1_different_gammas_A_HQ10000_G1_0_48_009[4], "m",
