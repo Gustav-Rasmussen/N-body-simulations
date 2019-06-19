@@ -220,3 +220,40 @@ colorsAndSymbols.py                      7                       0
 
 **************   Total number of code-lines: 	16681   **************
 
+---------------------------------------------------------------------------
+
+
+ ********   Logging timestamp:	 2019-06-19 16:11:05.410467   ********
+
+
+Module name 			 Number of lines 	 PEP-8 violations
+
+readVDF2.py                             4384                    39
+readVDF_2_new_plot.py                   3621                    41
+TimeEvolutionGammaKappaBeta.py          1445                     4
+gammaKappaBeta.py                       1318                     3
+velocityCheck.py                        1163                    19
+VDFnetwork.py                           1112                     7
+Sigma_plot.py                           843                      1
+Sigma_calc_OOP.py                       488                     15
+VDFvelocityBins.py                      343                     16
+VDF.py                                  331                      3
+GaussianAndTsallis.py                   290                      5
+RhoAndGaussianAndTsallis.py             290                      2
+Read.py                                 220                      5
+Gammas_and_R_middles.py                 195                      0
+getSnapshotValues.py                    150                      1
+splitVDFt.py                             96                      3
+readVDF.py                               96                      0
+vSphericalAnd_vBins.py                   89                      0
+radius_and_velocity_funcs.py             75                      2
+NoOfParticlesAndParticleMass.py          22                      0
+colorsAndSymbols.py                      7                       0
+
+
+**************   Number of Python scripts: 	21      **************
+
+**************   Total number of PEP8 violations: 	166   **************
+
+**************   Total number of code-lines: 	16578   **************
+
