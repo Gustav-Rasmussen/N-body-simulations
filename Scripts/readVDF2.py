@@ -3239,7 +3239,7 @@ if Fig_GPerts_gammas_3_0_vt_divided_by_gauss_and_Tsallis:
 
         ax5.set_ylim(0, 3)
         ax5.set_ylabel(r"$\frac{f\left( u \right)}{887.569 \cdot x \cdot\
-                         e^{-0.922 \cdot x^2}}$", fontsize=20)
+                       e^{-0.922 \cdot x^2}}$", fontsize=20)
 
         def denom_ax6(a):
             return 3424.993 * (10 ** a) ** 2 * np.exp(-.930 * (10 ** a) ** 2)
@@ -4023,16 +4023,16 @@ if Fig16_GPerts_R_middle_31_62_vt_divided_by_gauss_and_Tsallis:
         ax1.set_title(r"Time evolution of files = %s, different r bins,\
                       $\gamma = -2.0$" % HQ0[:-9], fontsize=20)
 
-        ax2.plot(data[:, 0], data[:, 1], "r",
-                 label=r"%s " % HQ12[9:], lw=2, ms=7)
-        ax2.plot(data[:, 0], data[:, 1], "g",
-                 label=r"%s" % HQ24[9:], lw=2, ms=7)
-        ax2.plot(data[:, 0], data[:, 1], "k",
-                 label=r"%s" % HQ36[9:], lw=2, ms=7)
-        ax2.plot(data[:, 0], data[:, 1], "b",
-                 label=r"%s" % HQ48[9:], lw=2, ms=7)
-        ax2.plot(data[:, 0], data[:, 1], "c",
-                 label=r"%s" % HQ60[9:], lw=2, ms=7)
+        ax2.plot(data[:, 0], data[:, 1], "r", label=r"%s" % HQ12[9:],
+                 lw=2, ms=7)
+        ax2.plot(data[:, 0], data[:, 1], "g", label=r"%s" % HQ24[9:],
+                 lw=2, ms=7)
+        ax2.plot(data[:, 0], data[:, 1], "k", label=r"%s" % HQ36[9:],
+                 lw=2, ms=7)
+        ax2.plot(data[:, 0], data[:, 1], "b", label=r"%s" % HQ48[9:],
+                 lw=2, ms=7)
+        ax2.plot(data[:, 0], data[:, 1], "c", label=r"%s" % HQ60[9:],
+                 lw=2, ms=7)
 
         ax2.set_ylabel(r"$f\left(\log \left( |u_n|,u_p \right)\right)$",
                        fontsize=20)

@@ -1,55 +1,34 @@
 # -*- coding: utf-8 -*-
 
-# import h5py
 import numpy as np
 from scipy.optimize import curve_fit
 import matplotlib.pyplot as plt
-# from matplotlib.colors import LogNorm
-# import time
 import pylab
-# from scipy.stats import norm
-# import matplotlib.mlab as mlab
-# import seaborn as sns
 import RhoAndGaussianAndTsallis as ragat
 
-FileLstbin1 = [('HQ10000_G0.8_2_000_bin3_VDFr.txt',
-                'HQ10000_G0.8_2_000_bin3_VDFr'),
-               ('HQ10000_G0.8_2_000_bin3_VDFt.txt',
-                'HQ10000_G0.8_2_000_bin3_VDFt'),
-               ('HQ10000_G1.2_3_005_bin4_VDFr.txt',
-                'HQ10000_G1.2_3_005_bin4_VDFr'),
-               ('HQ10000_G1.2_3_005_bin4_VDFt.txt',
-                'HQ10000_G1.2_3_005_bin4_VDFt'),
-               ('HQ10000_G1.2_9_005_bin5_VDFr.txt',
-                'HQ10000_G1.2_9_005_bin5_VDFr'),
-               ('HQ10000_G1.2_9_005_bin5_VDFt.txt',
-                'HQ10000_G1.2_9_005_bin5_VDFt.txt')]
+Lst1 = ['HQ10000_G0.8_2_000_bin3_VDFr', 'HQ10000_G0.8_2_000_bin3_VDFt',
+        'HQ10000_G1.2_3_005_bin4_VDFr', 'HQ10000_G1.2_3_005_bin4_VDFt',
+        'HQ10000_G1.2_9_005_bin5_VDFr', 'HQ10000_G1.2_9_005_bin5_VDFt']
 
-FileLstbin2 = [('HQ10000_G0.8_2_000_bin6_VDFr.txt',
-                'HQ10000_G0.8_2_000_bin6_VDFr'),
-               ('HQ10000_G0.8_2_000_bin6_VDFt.txt',
-                'HQ10000_G0.8_2_000_bin6_VDFt'),
-               ('HQ10000_G1.2_3_005_bin10_VDFr.txt',
-                'HQ10000_G1.2_3_005_bin10_VDFr'),
-               ('HQ10000_G1.2_3_005_bin10_VDFt.txt',
-                'HQ10000_G1.2_3_005_bin10_VDFt'),
-               ('HQ10000_G1.2_9_005_bin6_VDFr.txt',
-                'HQ10000_G1.2_9_005_bin6_VDFr'),
-               ('HQ10000_G1.2_9_005_bin6_VDFt.txt',
-                'HQ10000_G1.2_9_005_bin6_VDFt.txt')]
+FileLstbin1 = [(Lst1[0] + '.txt', Lst1[0]), (Lst1[1] + '.txt', Lst1[1]),
+               (Lst1[2] + '.txt', Lst1[2]), (Lst1[3] + '.txt', Lst1[3]),
+               (Lst1[4] + '.txt', Lst1[4]), (Lst1[5] + '.txt', Lst1[5])]
 
-FileLstbin3 = [('HQ10000_G0.8_2_000_bin10_VDFr.txt',
-                'HQ10000_G0.8_2_000_bin10_VDFr'),
-               ('HQ10000_G0.8_2_000_bin10_VDFt.txt',
-                'HQ10000_G0.8_2_000_bin10_VDFt'),
-               ('HQ10000_G1.2_3_005_bin13_VDFr.txt',
-                'HQ10000_G1.2_3_005_bin13_VDFr'),
-               ('HQ10000_G1.2_3_005_bin13_VDFt.txt',
-                'HQ10000_G1.2_3_005_bin13_VDFt'),
-               ('HQ10000_G1.2_9_005_bin10_VDFr.txt',
-                'HQ10000_G1.2_9_005_bin10_VDFr'),
-               ('HQ10000_G1.2_9_005_bin10_VDFt.txt',
-                'HQ10000_G1.2_9_005_bin10_VDFt.txt')]
+Lst2 = ['HQ10000_G0.8_2_000_bin6_VDFr', 'HQ10000_G0.8_2_000_bin6_VDFt',
+        'HQ10000_G1.2_3_005_bin10_VDFr', 'HQ10000_G1.2_3_005_bin10_VDFt',
+        'HQ10000_G1.2_9_005_bin6_VDFr', 'HQ10000_G1.2_9_005_bin6_VDFt']
+
+FileLstbin2 = [(Lst2[0] + '.txt', Lst2[0]), (Lst2[1] + '.txt', Lst2[1]),
+               (Lst2[2] + '.txt', Lst2[2]), (Lst2[3] + '.txt', Lst2[3]),
+               (Lst2[4] + '.txt', Lst2[4]), (Lst2[5] + '.txt', Lst2[5])]
+
+Lst3 = ['HQ10000_G0.8_2_000_bin10_VDFr', 'HQ10000_G0.8_2_000_bin10_VDFt',
+        'HQ10000_G1.2_3_005_bin13_VDFr', 'HQ10000_G1.2_3_005_bin13_VDFt',
+        'HQ10000_G1.2_9_005_bin10_VDFr', 'HQ10000_G1.2_9_005_bin10_VDFt']
+
+FileLstbin3 = [(Lst3[0] + '.txt', Lst3[0]), (Lst3[1] + '.txt', Lst3[1]),
+               (Lst3[2] + '.txt', Lst3[2]), (Lst3[3] + '.txt', Lst3[3]),
+               (Lst3[4] + '.txt', Lst3[4]), (Lst3[5] + '.txt', Lst3[5])]
 
 bin1 = [(pylab.loadtxt(f), l) for f, l in FileLstbin1]
 bin2 = [(pylab.loadtxt(f), l) for f, l in FileLstbin2]
@@ -97,19 +76,21 @@ def plot_binData_with_fit(figNum, binIndex1, binIndex2, title3, binNum, Gamma,
     # return
 
 
-# innerbin
-plot_binData_with_fit(1, 0, 1, '0.8_2_000', 3, -0.5, bin1)
-plot_binData_with_fit(2, 2, 3, '1.2_3_005', 4, -0.5, bin1)
-plot_binData_with_fit(3, 4, 5, '1.2_9_005', 5, -0.5, bin1)
+def main():
+    # innerbin
+    plot_binData_with_fit(1, 0, 1, '0.8_2_000', 3, -0.5, bin1)
+    plot_binData_with_fit(2, 2, 3, '1.2_3_005', 4, -0.5, bin1)
+    plot_binData_with_fit(3, 4, 5, '1.2_9_005', 5, -0.5, bin1)
+    # middlebin
+    plot_binData_with_fit(4, 0, 1, '0.8_2_000', 6, -1.5, bin2)
+    plot_binData_with_fit(5, 2, 3, '1.2_3_005', 10, -2.5, bin2)
+    plot_binData_with_fit(6, 4, 5, '1.2_9_005', 6, -1, bin2)
+    # outerbin
+    plot_binData_with_fit(7, 0, 1, '0.8_2_000', 10, -2.5, bin3)
+    plot_binData_with_fit(8, 2, 3, '1.2_3_005', 13, -3, bin3)
+    plot_binData_with_fit(9, 4, 5, '1.2_9_005', 10, -2.5, bin3)
+    plt.show()
 
-# middlebin
-plot_binData_with_fit(4, 0, 1, '0.8_2_000', 6, -1.5, bin2)
-plot_binData_with_fit(5, 2, 3, '1.2_3_005', 10, -2.5, bin2)
-plot_binData_with_fit(6, 4, 5, '1.2_9_005', 6, -1, bin2)
 
-# outerbin
-plot_binData_with_fit(7, 0, 1, '0.8_2_000', 10, -2.5, bin3)
-plot_binData_with_fit(8, 2, 3, '1.2_3_005', 13, -3, bin3)
-plot_binData_with_fit(9, 4, 5, '1.2_9_005', 10, -2.5, bin3)
-
-plt.show()
+if __name__ == '__main__':
+    main()
