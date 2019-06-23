@@ -141,7 +141,7 @@ if calc_sigma_binned_lin_radius:
 
         # sigma2 total
         v2_in_bin_i = v2[posR_par_in_bin_i]
-        sigma2_inside_bin_i = sigma2(v2_in_bin_i)
+        sigma2_in_bin_i = sigma2(v2_in_bin_i)
         sigma2.append(sigma2_in_bin_i)
         bin_radius_arr.append((max_R_bin_i + min_R_bin_i) / 2)
 
