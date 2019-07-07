@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 
-# from __future__ import division
 import h5py
 import numpy as np
 from scipy.optimize import curve_fit
@@ -56,7 +55,7 @@ import radius_and_velocity_funcs as ravf
 # -2.5  | -.15 | 10 ** -.15
 # -3    | .5   | 10 ** .5
 
-# Make switches to control figures, print statements, binning etc. -----
+# Make switches to control figures, print statements, binning etc.
 
 Fig8_vspherical_hist_log_vpvn = 0
 Fig11_vspherical_hist_log_n123 = 0
@@ -232,8 +231,7 @@ if calc_sigma_binned_lin_radius:
     VPhi = np.concatenate(np.array(VPhi), axis=0)
     VT = np.concatenate(np.array(VT), axis=0)
     VR_sigmarad = np.concatenate(np.array(VR_sigmarad), axis=0)
-    VTheta_sigmatheta = np.concatenate(np.array(VTheta_sigmatheta),
-                                       axis=0)
+    VTheta_sigmatheta = np.concatenate(np.array(VTheta_sigmatheta), axis=0)
     VPhi_sigmaphi = np.concatenate(np.array(VPhi_sigmaphi), axis=0)
     VT_sigmatan = np.concatenate(np.array(VT_sigmatan), axis=0)
 
@@ -245,24 +243,18 @@ if Fig14_sigmas:
     plt.subplot(121)
     x_plot = np.log10(bin_radius_arr)
     y_plot = np.log10(sigma2)
-    plt.plot(x_plot, y_plot, 'r-o', ms=8, mew=0,
-             label=r'$\log\sigma_{total}^2$')
+    plt.plot(x_plot, y_plot, 'r-o', ms=8, mew=0, label=r'$\log\sigma_{total}^2$')
     y_plot = np.log10(sigmarad2)
-    plt.plot(x_plot, y_plot, 'b--s', ms=8, mew=0,
-             label=r'$\log \sigma_{r}^2$')
+    plt.plot(x_plot, y_plot, 'b--s', ms=8, mew=0, label=r'$\log \sigma_{r}^2$')
     y_plot = np.log10(sigmatheta2)
-    plt.plot(x_plot, y_plot, 'g--v', ms=8, mew=0,
-             label=r'$\log \sigma_{\theta}^2$')
+    plt.plot(x_plot, y_plot, 'g--v', ms=8, mew=0, label=r'$\log \sigma_{\theta}^2$')
     y_plot = np.log10(sigmaphi2)
-    plt.plot(x_plot, y_plot, 'k--^', ms=8, mew=0,
-             label=r'$\log \sigma_{\phi}^2$')
+    plt.plot(x_plot, y_plot, 'k--^', ms=8, mew=0, label=r'$\log \sigma_{\phi}^2$')
     y_plot = np.log10(sigmatan2)
-    plt.plot(x_plot, y_plot, 'c--^', ms=8, mew=0,
-             label=r'$\log \sigma_{tan}^2$')
+    plt.plot(x_plot, y_plot, 'c--^', ms=8, mew=0, label=r'$\log \sigma_{tan}^2$')
     plt.xlabel(r'$\log $r (kpc)', fontsize=20)
     plt.ylabel(r'$\log \sigma^2$', fontsize=20)
-    plt.title(r'Velocity dispersions (File = %s, $\gamma=%.2f$)'
-              % (F, Gamma), fontsize=20)
+    plt.title(r'Velocity dispersions (File=%s, $\gamma=%.2f$)' % (F, Gamma), fontsize=20)
     plt.legend(prop=dict(size=13), numpoints=2, ncol=2,
                frameon=True, loc=3, handlelength=2.5)
     plt.grid()
@@ -270,20 +262,15 @@ if Fig14_sigmas:
     plt.subplot(122)
     x_plot = np.log10(bin_radius_arr)
     y_plot = np.log10(sigma)
-    plt.plot(x_plot, y_plot, 'r-o', ms=8, mew=0,
-             label=r'$\log \sigma_{total}$')
+    plt.plot(x_plot, y_plot, 'r-o', ms=8, mew=0, label=r'$\log \sigma_{total}$')
     y_plot = np.log10(sigmarad)
-    plt.plot(x_plot, y_plot, 'b--s', ms=8, mew=0,
-             label=r'$\log \sigma_r$')
+    plt.plot(x_plot, y_plot, 'b--s', ms=8, mew=0, label=r'$\log \sigma_r$')
     y_plot = np.log10(sigmatheta)
-    plt.plot(x_plot, y_plot, 'g--v', ms=8, mew=0,
-             label=r'$\log \sigma_{\theta}$')
+    plt.plot(x_plot, y_plot, 'g--v', ms=8, mew=0, label=r'$\log \sigma_{\theta}$')
     y_plot = np.log10(sigmaphi)
-    plt.plot(x_plot, y_plot, 'k--^', ms=8, mew=0,
-             label=r'$\log \sigma_{\phi}$')
+    plt.plot(x_plot, y_plot, 'k--^', ms=8, mew=0, label=r'$\log \sigma_{\phi}$')
     y_plot = np.log10(sigmatan)
-    plt.plot(x_plot, y_plot, 'c--^', ms=8, mew=0,
-             label=r'$\log \sigma_{tan}$')
+    plt.plot(x_plot, y_plot, 'c--^', ms=8, mew=0, label=r'$\log \sigma_{tan}$')
     plt.xlabel(r'$\log $r (kpc)', fontsize=20)
     plt.ylabel(r'$\log \sigma$', fontsize=20)
     plt.legend(prop=dict(size=13), numpoints=2, ncol=2,
@@ -291,8 +278,7 @@ if Fig14_sigmas:
     plt.grid()
 
 # divide into 6 graphs
-(v_rp, v_rn, v_thetap, v_thetan, v_phip,
- v_phin, v_tp, v_tn) = ([] for i in range(8))
+v_rp, v_rn, v_thetap, v_thetan, v_phip, v_phin, v_tp, v_tn = ([] for i in range(8))
 
 if vsphericalold:
     for i in range(len(x)):
@@ -430,8 +416,7 @@ if Fig11_vspherical_hist_log_n123:
                                 color='g', label=r'$v_{\phi}$', alpha=.75)
     plt.xlabel(r'$v_r$, $v_{\theta}$, $v_{\phi}$')
     plt.ylabel(r'$\log$ number of particles')
-    plt.title(r'f(v) ($N=%i$, $\gamma = %.2f$,  File = %s )'
-              % (len(x), Gamma, F))
+    plt.title(r'f(v) ($N=%i$, $\gamma=%.2f$,  File=%s)' % (len(x), Gamma, F))
     plt.legend(prop=dict(size=13), numpoints=2, ncol=2,
                frameon=True, loc=1, handlelength=2.5)
     plt.grid()
@@ -630,7 +615,7 @@ if Fig12_x789_sigma:
                                 label=r'$f\left(\frac{v_{\phi}}\
                                 {\sigma_{\phi}}\right)$', alpha=.75)
     plt.xlabel(r'$u_r$, $u_{\theta}$ and $u_{\phi}$')
-    plt.ylabel(r'$f\left( u \right)$')
+    plt.ylabel(r'$f\left(u\right)$')
     plt.legend(prop=dict(size=13), numpoints=2, ncol=1,
                frameon=True, loc=2, handlelength=2.5)
     plt.grid()
@@ -678,8 +663,7 @@ if Fig12_x789_sigma:
 
 if Fig12_vr_vtheta_vphi_sigma:
     v_rpn = np.asarray(list(v_rp_arr) + list(np.absolute(v_rn_arr)))
-    v_thetapn = np.asarray(list(v_thetap_arr) +
-                           list(np.absolute(v_thetan_arr)))
+    v_thetapn = np.asarray(list(v_thetap_arr) + list(np.absolute(v_thetan_arr)))
     v_phipn = np.asarray(list(v_phip_arr) + list(np.absolute(v_phin_arr)))
     x7 = np.asarray(list(VTheta_sigmatheta_p_arr) +
                     list(np.absolute(VTheta_sigmatheta_n_arr)))
@@ -718,8 +702,7 @@ if Fig12_vr_vtheta_vphi_sigma:
                (|v_{\theta}n|,v_{\theta}p)}{||v_{\theta}||}$\
                and $\frac{\log (|v_{\phi}n|,v_{\phi}p)}{||v_{\phi}||}$')
     plt.ylabel(r'$f \left( \frac{\log (|v_n|,v_p)}{||v||}\right)$')
-    plt.title(r'$N=%i$, $\gamma = %.2f$, File = %s'
-              % (len(x), Gamma, F))
+    plt.title(r'$N=%i$, $\gamma=%.2f$, File=%s' % (len(x), Gamma, F))
     plt.legend(prop=dict(size=13), numpoints=2, ncol=1,
                frameon=True, loc=2, handlelength=2.5)
     plt.grid()
@@ -745,8 +728,7 @@ if Fig12_vr_vtheta_vphi_sigma:
 
     plt.xlabel(r'$u_r$, $u_{\theta}$ and $u_{\phi}$')
     plt.ylabel(r'$f\left(u \right)$')
-    plt.legend(prop=dict(size=13), numpoints=2, ncol=1,
-               frameon=True, loc=2, handlelength=2.5)
+    plt.legend(prop=dict(size=13), numpoints=2, ncol=1, frameon=True, loc=2, handlelength=2.5)
     plt.grid()
 
     plt.subplot(223)
@@ -755,8 +737,8 @@ if Fig12_vr_vtheta_vphi_sigma:
                                 label=r'$f(\log(|v_rn|,v_rp))$', alpha=.75)
     n, bins, patches = plt.hist(np.log10(v_thetapn), 100, histtype='step',
                                 color='b', range=(-3, 0),
-                                label=r'$f(\log(|v_{\theta}n|,\
-                                v_{\theta}p))$', alpha=.75)
+                                label=r'$f(\log(|v_{\theta}n|, v_{\theta}p))$',
+                                alpha=.75)
     n, bins, patches = plt.hist(np.log10(v_phipn), 100, histtype='step',
                                 color='g', range=(-3, 0),
                                 label=r'$f(\log(|v_{\phi}n|, v_{\phi}p))$',
@@ -827,8 +809,7 @@ if Fig12_vr_vtheta_vphi_vt_sigma:
     ax2 = fig.add_subplot(122)
 
     if keep_IC_R_middle:
-        plt.title(r'$N=%i$, $\gamma = %.2f$, File = %s'
-                  % (len(VR), Gamma, F))
+        plt.title(r'$N=%i$, $\gamma=%.2f$, File=%s' % (len(VR), Gamma, F))
 
         n, bins, patches = plt.hist(VT_sigmatan, 50, histtype='step',
                                     color='k', label=r'$f\left(\frac{v_t}\
@@ -906,7 +887,7 @@ if Fig12_vr_vtheta_vphi_vt_sigma:
         plt.grid()
 
     if new_R_middle:
-        plt.title(r'$N=%i$, $\gamma = %.2f$, File = %s, new R_middle'
+        plt.title(r'$N=%i$, $\gamma=%.2f$, File=%s, new R_middle'
                   % (len(VR), Gamma, F))
 
         n, bins, patches = plt.hist(VT_sigmatan, 50, histtype='step',
@@ -988,14 +969,12 @@ if Fig12_vr_vtheta_vphi_vt_sigma:
         plt.title(r'$N=%i$, $R_{middle} = %.2f$, File = %s, new R_middle'
                   % (len(VR), R_middle, F))
 
-        n, bins, patches = plt.hist(VT_sigmatan, 50, histtype='step',
-                                    color='k', label=r'$f\left(u_t\right)$',
-                                    alpha=.75)
+        n, bins, patches = plt.hist(VT_sigmatan, 50, histtype='step', color='k',
+                                    label=r'$f\left(u_t\right)$', alpha=.75)
         x = hist_data(n, bins)
         save_txt('_large_R_middle_VT_sigmatan_R_middle_{}')
 
-        n, bins, patches = plt.hist(VR_sigmarad, 50, histtype='step',
-                                    color='r',
+        n, bins, patches = plt.hist(VR_sigmarad, 50, histtype='step', color='r',
                                     label=r'$f\left( u_r \right)$', alpha=.75)
         x = hist_data(n, bins)
         save_txt('_large_R_middle_VR_sigmarad_R_middle_{}')
@@ -1006,9 +985,8 @@ if Fig12_vr_vtheta_vphi_vt_sigma:
         x = hist_data(n, bins)
         save_txt('_large_R_middle_VTheta_sigmatheta_R_middle_{}')
 
-        n, bins, patches = plt.hist(VPhi_sigmaphi, 50, histtype='step',
-                                    color='g', label=r'$f\left(u_{\phi}\
-                                    \right)$', alpha=.75)
+        n, bins, patches = plt.hist(VPhi_sigmaphi, 50, histtype='step', color='g',
+                                    label=r'$f\left(u_{\phi}\right)$', alpha=.75)
         x = hist_data(n, bins)
         save_txt('_large_R_middle_VPhi_sigmaphi_R_middle_{}')
 
@@ -1027,29 +1005,28 @@ if Fig12_vr_vtheta_vphi_vt_sigma:
 
         n, bins, patches = plt.hist(np.log10(x9), 50, histtype='step',
                                     color='r', range=(-3, 1),
-                                    label=r'$f\left(\log \left( |u_rn|,\
-                                    u_rp \right)\right)$', alpha=.75)
+                                    label=r'$f\left(\log\left(|u_rn|,\
+                                    u_rp\right)\right)$', alpha=.75)
         x = hist_data(n, bins)
         save_txt('_large_R_middle_logx9_R_middle_{}')
 
         n, bins, patches = plt.hist(np.log10(x7), 50, histtype='step',
                                     color='b', range=(-3, 1),
-                                    label=r'$f\left(\log \left( |u_{\theta}n|,\
-                                    u_{\theta}p \right)\right)$', alpha=.75)
+                                    label=r'$f\left(\log \left(|u_{\theta}n|,\
+                                    u_{\theta}p\right)\right)$', alpha=.75)
         x = hist_data(n, bins)
         save_txt('_large_R_middle_logx7_R_middle_{}')
 
         n, bins, patches = plt.hist(np.log10(x8), 50, histtype='step',
                                     color='g', range=(-3, 1),
-                                    label=r'$f\left(\log \left(|u_{\phi}n|,\
-                                    u_{\phi}p \right)\right)$', alpha=.75)
+                                    label=r'$f\left(\log\left(|u_{\phi}n|,\
+                                    u_{\phi}p\right)\right)$', alpha=.75)
         x = hist_data(n, bins)
         save_txt('_large_R_middle_logx8_R_middle_{}')
 
         ax2.set_yscale('log')
-        plt.xlabel(r'$\log \left( |u_tn|,u_tp \right)$, $\log\
-                   \left( |u_rn|,u_rp \right)$, $\log \left(\
-                   |u_{\theta}n|,u_{\theta}p \right)$ and\
+        plt.xlabel(r'$\log\left(|u_tn|,u_tp \right)$, $\log\left(|u_rn|,u_rp\
+                   \right)$, $\log\left(|u_{\theta}n|,u_{\theta}p\right)$ and\
                     $\log \left( |u_{\phi}n|,u_{\phi}p \right)$')
         plt.ylabel(r'$\log \left( f\left(\log \left( |u_n|,u_p\
                    \right)\right) \right)$')
@@ -1073,8 +1050,7 @@ if Fig13_vspherical_hist_old:
     plt.plot(xdata, y_fit, 'r--', lw=3)
     plt.xlabel(r'$v_t$')
     plt.ylabel('number of particles')
-    plt.title(r'$\mathrm{Histogram\ of\ VDF:}\ \mu=%.3f,\ \sigma=%.3f$'
-              % (mu, sigma))
+    plt.title(r'$\mathrm{Histogram\ of\ VDF:}\ \mu=%.3f,\ \sigma=%.3f$' % (mu, sigma))
     plt.grid()
 
     x = np.array((xdata, ydata)).transpose()
@@ -1093,8 +1069,7 @@ if Fig13_vspherical_hist_old:
     plt.plot(xdata, y_fit, 'r--', lw=3)
     plt.xlabel(r'$v_r$')
     plt.ylabel('number of particles')
-    plt.title(r'$\mathrm{Histogram\ of\ VDF:}\ \mu=%.3f,\ \sigma=%.3f$'
-              % (mu, sigma))
+    plt.title(r'$\mathrm{Histogram\ of\ VDF:}\ \mu=%.3f,\ \sigma=%.3f$' % (mu, sigma))
     plt.grid()
 
     x = np.array((xdata, ydata)).transpose()
@@ -1109,4 +1084,4 @@ if save_r_v_as_txt:
     x = x.transpose()
     print('x.shape:', x.shape)
     np.savetxt('HQ10000_G1.2_9_005_bin0_05to0_25kpc_VDF.txt', x, delimiter=' ',
-               header=' xcl2 \t ycl2 \t zcl2 \t vxnew2 \t vynew2 \t vznew2 ')
+               header=' xcl2 \t ycl2 \t zcl2 \t vxnew2 \t vynew2 \t vznew2')

@@ -1,27 +1,9 @@
 # -*- coding: utf-8 -*-
 
-# import h5py
 import numpy as np
-# import matplotlib.pyplot as plt
-# import IPython
-# from matplotlib.colors import LogNorm
-# import time
 import pylab
-# from scipy.stats import norm
-# from scipy.optimize import curve_fit
 import scipy as sp
-# import seaborn as sns
-# from pathlib import Path
-# import Gammas_and_R_middles
-# import getSnapshotValues
-# import snapshotFiles
-# import NoOfParticlesAndParticleMass
-# from definePaths import *
-# from collections import namedtuple
-# import pp
 from dataclasses import dataclass
-
-# Paths -----------------------------------------------------------------------
 
 simulations = ['A/', 'B/', 'Soft_B/', 'CS4/', 'CS5/', 'CS6/', 'DS1/',
                'Soft_D2/', 'E/']
@@ -112,19 +94,14 @@ save_sigma = 0
 # Functions -------------------------------------------------------------------
 
 
-def radii(x, y, z):
-    '''Doc-string here.'''
+def modulus(x, y, z):
+    '''Modulus of vector.'''
     return (x ** 2 + y ** 2 + z ** 2) ** .5
-
-
-def velocities(vx, vy, vz):
-    '''Doc-string here.'''
-    return (vx ** 2 + vy ** 2 + vz ** 2) ** .5
 
 
 def radial_velocities(x, y, z, vx, vy, vz):
     '''Doc-string here.'''
-    return (vx * x + vy * y + vz * z) / radii()
+    return (vx * x + vy * y + vz * z) / modulus(x, y, z)
 
 
 def particle_positions():
@@ -152,7 +129,7 @@ def chi_2(param=gamma_arr):
     Chi2 = 0
     i = 0
     while (i < len(param)):
-        if isnan(param[i]):
+        if np.isnan(param[i]):
             print('nan at index: ', i)
         else:
             Chi2 += ((param[i] - y_plot[i]) ** 2) / (param[i] * .2) ** 2
@@ -167,8 +144,8 @@ posR_par_inside_halo = particle_positions()
 nr_par_inside_halo = particle_number()
 M_2 = particle_mass()
 v_circ_2 = circular_velocity()
-r = radii(x, y, z)
-v = velocities(vx, vy, vz)
+r = modulus(x, y, z)
+v = modulus(vx, vy, vz)
 r_r2 = r / r_2
 
 snapshot_num = ['IC', '10_005', '48_009', '198_093']
@@ -195,7 +172,7 @@ out_names = [f'A{file_str}IC_ASCII', f'A{file_str}5_005_ASCII',
 (sigma2_lst, sigmarad2_lst, sigmatheta2_lst, sigmaphi2_lst,
  sigmatan2_lst, v2_lst, gamma_lst, kappa_lst, beta_lst, density_lst,
  rho_lst, Volume_lst, r_lst, Phi_lst, Theta_lst, VR_lst, VTheta_lst, VPhi_lst,
- VR_i_average_bin_lst, bin_radius_lst) = ([] for i in range(20))
+ VR_i_avg_bin_lst, bin_radius_lst) = ([] for i in range(20))
 
 v_r = radial_velocities()
 
@@ -276,7 +253,7 @@ for i in range(bins - 2):
     if nr_par_bin == 0:
         continue
 
-    v_bin = velocities(vx[posR_par_bin], vy[posR_par_bin], vz[posR_par_bin])
+    v_bin = modulus(vx[posR_par_bin], vy[posR_par_bin], vz[posR_par_bin])
     sigma2_bin = sigma_squared_slice(nr_par_bin, v_bin)
     sigma2_lst.append(sigma2_bin)
     bin_radius = radius_slice(min_R_bin, max_R_bin)

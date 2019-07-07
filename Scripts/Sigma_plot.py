@@ -2,22 +2,10 @@
 
 import numpy as np
 import matplotlib.pyplot as plt
-# from matplotlib.colors import LogNorm
 import pylab
-# from scipy.stats import norm
-# from scipy.optimize import curve_fit
-# import scipy as sp
-# import seaborn as sns
-# from pathlib import Path
-# import Gammas_and_R_middles
-# import getSnapshotValues
-# import snapshotFiles
-# import NoOfParticlesAndParticleMass
 from definePaths import *
 from collections import namedtuple
 import Sigma_calc
-
-# Paths -----------------------------------------------------------------------
 
 simulations = ['A/', 'B/', 'Soft_B/', 'CS4/', 'CS5/', 'CS6/', 'DS1/',
                'Soft_D2/', 'E/'
@@ -25,14 +13,11 @@ simulations = ['A/', 'B/', 'Soft_B/', 'CS4/', 'CS5/', 'CS6/', 'DS1/',
 
 text_files_path = textFilesPath / simulations[0]
 
-# Choose number of bins -------------------------------------------------------
-
+# Choose number of bins
 bins_list = [202, 102, 52, 22]
-
 bins = bins_list[0]
 
 # Figure switches -------------------------------------------------------------
-
 Fig_x_hist = 0
 Fig_x_hist2d = 0
 Fig_v_logr = 0
@@ -79,7 +64,6 @@ sim_snap = [sim[0] + snap[0],  # 10^4, 20
             ]
 
 # Figures ---------------------------------------------------------------------
-
 if Fig_x_hist:
     f, (ax1, ax2, ax3) = plt.subplots(1, 3, figsize=(13, 11))
 
@@ -119,7 +103,7 @@ if Fig_x_hist2d:
     plt.hexbin(x - xC, y - yC, gridsize=200)
     plt.xlim(-4, 4)
     plt.ylim(-4, 4)
-    plt.title(r'Histogram of centralized positions x and y (200 hexbins)',
+    plt.title('Histogram of centralized positions x and y (200 hexbins)',
               fontsize=30)
 
     fig_titles = ['x_hist2d', 'CS4_Final_x_hist2d_I']
@@ -130,12 +114,11 @@ if Fig_v_logr:
     f.subplots_adjust(hspace=0, wspace=0)
     ax1.plot(r, v, 'bo', lw=3, ms=2)
     ax1.set_xlabel('r', fontsize=30)
-    ax1.set_ylabel(r'velocity, $v = \sqrt{v_x^2 + v_y^2 + v_z^2}$',
-                   fontsize=30)
+    ax1.set_ylabel(r'velocity, $v=\sqrt{v_x^2 + v_y^2 + v_z^2}$', fontsize=30)
 
     ax1.set_title(r'A {0}(I: $\Delta G,\
                   R_{lim}=10^4$)'.format(snapshot_num[0]), fontsize=30)
-    # ax1.set_title(r'%s' % F, fontsize=30)
+    # ax1.set_title(F, fontsize=30)
 
     ax2.plot(np.log10(r), v, 'bo', lw=3, ms=2)
     ax2.set_xlabel(r'$\log r$', fontsize=30)
@@ -153,16 +136,13 @@ if Fig_v_logr_r2:
     f.subplots_adjust(hspace=0, wspace=0)
     ax1.plot(r_r2, v, 'bo', lw=3, ms=2)
     ax1.set_xlabel(r'$\frac{r}{r_{-2}}$', fontsize=30)
-    ax1.set_ylabel(r'velocity, $v = \sqrt{v_x^2+v_y^2+v_z^2}$',
-                   fontsize=30)
-
+    ax1.set_ylabel(r'velocity, $v = \sqrt{v_x^2+v_y^2+v_z^2}$', fontsize=30)
     ax1.set_title(r'A {0}(I: $\Delta G,\
                   R_{lim}=10^4$)'.format(snapshot_num[0]), fontsize=30)
-
-    # ax1.set_title(r'%s' % F, fontsize=30)
+    # ax1.set_title(F, fontsize=30)
 
     ax2.plot(np.log10(r_r2), v, 'bo', lw=3, ms=2)
-    ax2.set_xlabel(r'$\log (\frac{r}{r_{-2}})$', fontsize=30)
+    ax2.set_xlabel(r'$\log(\frac{r}{r_{-2}})$', fontsize=30)
     ax2.yaxis.tick_right()
 
     fig_names = ['A_IC_v_logr_r2', 'A_10_005_v_logr_r2', 'A_48_009_v_logr_r2',
@@ -170,7 +150,6 @@ if Fig_v_logr_r2:
                  'CS2_v_logr_r2', 'CS3_v_logr_r2', 'CS4_v_logr_r2',
                  'CS5_v_logr_r2', 'CS6_v_logr_r2', 'DS1_v_logr_r2',
                  'D2_v_logr_r2', 'Soft_D2_v_logr_r2', 'E_v_logr_r2']
-
     f.savefig(f"{figurePath}{fig_names[0]}.png")
 
 if Fig2_v:  # 3 plots of the velocities as function of x.
@@ -182,7 +161,7 @@ if Fig2_v:  # 3 plots of the velocities as function of x.
     ax2 = plt.subplot(132)
     plt.xlabel('x', fontsize=30)
     plt.ylabel('vy', fontsize=30)
-    plt.title('Velocities (File = %s)' % F, fontsize=30)
+    plt.title('Velocities (File=%s)' % F, fontsize=30)
     plt.plot(x, vy, 'bo', ms=2, mew=0)
     setp(ax2.get_yticklabels(), visible=False)
 
@@ -193,7 +172,6 @@ if Fig2_v:  # 3 plots of the velocities as function of x.
 
     fig_names = ['A_v', 'B_v', 'Soft_B_v', 'CS1_v', 'CS2_v', 'CS3_v', 'CS4_v',
                  'CS5_v', 'CS6_v', 'DS1_v', 'D2_v', 'Soft_D2_v', 'E_v']
-
     f.savefig(f"{figurePath}{fig_names[0]}.png")
 
 if Fig3_sigma:  # Dispersions
@@ -201,67 +179,51 @@ if Fig3_sigma:  # Dispersions
     x_plot = np.log10(bin_radius_arr)
     y_plot = np.log10(sigma2_arr)
 
-    plt.plot(x_plot, y_plot, 'r-o', ms=8, mew=0,
-             label=r'$\log (\sigma_{total}^2)$')
+    plt.plot(x_plot, y_plot, 'r-o', ms=8, mew=0, label=r'$\log(\sigma_{total}^2)$')
     y_plot = np.log10(sigmarad2_arr)
-    plt.plot(x_plot, y_plot, 'b--s', ms=8, mew=0,
-             label=r'$\log (\sigma_{r}^2)$')
+    plt.plot(x_plot, y_plot, 'b--s', ms=8, mew=0, label=r'$\log (\sigma_{r}^2)$')
     y_plot = np.log10(sigmatheta2_arr)
-    plt.plot(x_plot, y_plot, 'g--v', ms=8, mew=0,
-             label=r'$\log (\sigma_{\theta}^2)$')
+    plt.plot(x_plot, y_plot, 'g--v', ms=8, mew=0, label=r'$\log (\sigma_{\theta}^2)$')
     y_plot = np.log10(sigmaphi2_arr)
-    plt.plot(x_plot, y_plot, 'k--^', ms=8, mew=0,
-             label=r'$\log (\sigma_{\phi}^2)$')
+    plt.plot(x_plot, y_plot, 'k--^', ms=8, mew=0, label=r'$\log (\sigma_{\phi}^2)$')
     y_plot = np.log10(sigmatan2_arr)  # plot sigma_tan
-    plt.plot(x_plot, y_plot, 'c--^', ms=8, mew=0,
-             label=r'$\log (\sigma_{tan}^2)$')
+    plt.plot(x_plot, y_plot, 'c--^', ms=8, mew=0, label=r'$\log (\sigma_{tan}^2)$')
 
     plt.xlabel(r'$\log $r', fontsize=30)
     plt.ylabel(r'$\log (\sigma^2)$', fontsize=30)
-
     plt.title(r'Velocity dispersions (B {}, $R_{limit} = 10^4$,\
               20 radial bins)'.format(snapshot_num[0]), fontsize=30)
-
     # plt.title(r'Velocity dispersions (File = %s)' % F, fontsize=30)
 
     leg = plt.legend(prop=dict(size=30), numpoints=2, ncol=1,
                      fancybox=True, loc=0, handlelength=2.5)
     leg.get_frame().set_alpha(.5)
-
     fig_names = ['A_sigma', 'B_IC_sigma', 'B_198_093_sigma', 'Soft_B_sigma',
                  'CS1_sigma', 'CS2_sigma', 'CS3_sigma', 'CS4_sigma',
                  'CS5_sigma', 'CS6_sigma', 'DS1_sigma', 'D2_sigma',
                  'Soft_D2_sigma', 'E_sigma']
-
     f.savefig(f"{figurePath}{fig_names[0]}.png")
 
 if Fig3_sigma_r_2:  # Dispersions
     f = plt.figure(figsize=(16, 11))
     x_plot = np.log10(bin_radius_arr / r_2)
     y_plot = np.log10(sigma2_arr)
-    plt.plot(x_plot, y_plot, 'r-o', ms=8, mew=0,
-             label=r'$\log (\sigma_{total}^2)$')
+    plt.plot(x_plot, y_plot, 'r-o', ms=8, mew=0, label=r'$\log (\sigma_{total}^2)$')
     y_plot = np.log10(sigmarad2_arr)
-    plt.plot(x_plot, y_plot, 'b--s', ms=8, mew=0,
-             label=r'$\log (\sigma_{r}^2)$')
+    plt.plot(x_plot, y_plot, 'b--s', ms=8, mew=0, label=r'$\log (\sigma_{r}^2)$')
     y_plot = np.log10(sigmatheta2_arr)
-    plt.plot(x_plot, y_plot, 'g--v', ms=8, mew=0,
-             label=r'$\log (\sigma_{\theta}^2)$')
+    plt.plot(x_plot, y_plot, 'g--v', ms=8, mew=0, label=r'$\log (\sigma_{\theta}^2)$')
     y_plot = np.log10(sigmaphi2_arr)
-    plt.plot(x_plot, y_plot, 'k--^', ms=8, mew=0,
-             label=r'$\log (\sigma_{\phi}^2)$')
+    plt.plot(x_plot, y_plot, 'k--^', ms=8, mew=0, label=r'$\log (\sigma_{\phi}^2)$')
     y_plot = np.log10(sigmatan2_arr)  # plot sigma_tan
-    plt.plot(x_plot, y_plot, 'c--^', ms=8, mew=0,
-             label=r'$\log (\sigma_{\tan}^2)$')
+    plt.plot(x_plot, y_plot, 'c--^', ms=8, mew=0, label=r'$\log (\sigma_{\tan}^2)$')
     leg = plt.legend(prop=dict(size=30), numpoints=2, ncol=1,
                      fancybox=True, loc=0, handlelength=2.5)
     leg.get_frame().set_alpha(.5)
-    plt.xlabel(r'$\log (\frac{r}{r_{-2}})$', fontsize=30)
-    plt.ylabel(r'$\log (\sigma^2) $', fontsize=30)
-
+    plt.xlabel(r'$\log(\frac{r}{r_{-2}})$', fontsize=30)
+    plt.ylabel(r'$\log(\sigma^2)$', fontsize=30)
     plt.title(r'Velocity dispersions (B {}, $R_{limit} = 10^4$,\
               20 radial bins)'.format(snapshot_num[0]), fontsize=30)
-
     # plt.title(r'Velocity dispersions (File = %s)' % F, fontsize=30)
 
     fig_names = ['A_sigma_r_2', 'B_IC_sigma_r_2', 'B_198_093_sigma_r_2',
@@ -269,7 +231,6 @@ if Fig3_sigma_r_2:  # Dispersions
                  'CS3_sigma_r_2', 'CS4_sigma_r_2', 'CS5_sigma_r_2',
                  'CS6_sigma_r_2', 'DS1_sigma_r_2', 'D2_sigma_r_2',
                  'Soft_D2_sigma_r_2', 'E_sigma_r_2']
-
     f.savefig(f"{figurePath}{fig_names[0]}.png")
 
 if Fig3_sigma_over_v_circ_r_2:  # Dispersions
@@ -277,34 +238,26 @@ if Fig3_sigma_over_v_circ_r_2:  # Dispersions
     x_plot = np.log10(bin_radius_arr / r_2)
     y_plot = np.log10(sigma2_arr / v_circ_2 ** 2)
     # label=r'$\log ((\frac{\sigma_{total}}{v_{circ,2}})^2)$'
-    plt.plot(x_plot, y_plot, 'r-o', ms=8, mew=0,
-             label=r'$\log (\bar{\sigma_{total}}^2)$')
+    plt.plot(x_plot, y_plot, 'r-o', ms=8, mew=0, label=r'$\log (\bar{\sigma_{total}}^2)$')
     y_plot = np.log10(sigmarad2_arr / v_circ_2 ** 2)
-    plt.plot(x_plot, y_plot, 'b--s', ms=8, mew=0,
-             label=r'$\log (\bar{\sigma_{r}}^2)$')
+    plt.plot(x_plot, y_plot, 'b--s', ms=8, mew=0, label=r'$\log (\bar{\sigma_{r}}^2)$')
     y_plot = np.log10(sigmatheta2_arr / v_circ_2 ** 2)
-    plt.plot(x_plot, y_plot, 'g--v', ms=8, mew=0,
-             label=r'$\log (\bar{\sigma_{\theta}}^2)$')
+    plt.plot(x_plot, y_plot, 'g--v', ms=8, mew=0, label=r'$\log (\bar{\sigma_{\theta}}^2)$')
     y_plot = np.log10(sigmaphi2_arr / v_circ_2 ** 2)
-    plt.plot(x_plot, y_plot, 'k--^', ms=8, mew=0,
-             label=r'$\log (\bar{\sigma_{\phi}}^2)$')
+    plt.plot(x_plot, y_plot, 'k--^', ms=8, mew=0, label=r'$\log (\bar{\sigma_{\phi}}^2)$')
     y_plot = np.log10(sigmatan2_arr / v_circ_2 ** 2)  # plot sigma_tan
-    plt.plot(x_plot, y_plot, 'c--^', ms=8, mew=0,
-             label=r'$\log (\bar{\sigma_{\tan}}^2)$')
+    plt.plot(x_plot, y_plot, 'c--^', ms=8, mew=0, label=r'$\log (\bar{\sigma_{\tan}}^2)$')
 
     plt.xlabel(r'$\log (\frac{r}{r_{-2}})$', fontsize=30)
     # plt.ylabel(r'$\log (\frac{\sigma^2}{v_{circ,2}})$', fontsize=26)
     plt.ylabel(r'$\log (\bar{\sigma}^2)$', fontsize=30)
-
     plt.title(r'Velocity dispersions (B {}, $R_{limit} = 10^4$,\
               20 radial bins)'.format(snapshot_num[0]), fontsize=30)
-
     # plt.title(r'Velocity dispersions (File = %s)' % F, fontsize=26)
 
     leg = plt.legend(prop=dict(size=18), numpoints=2, ncol=1,
                      fancybox=True, loc=0, handlelength=2.5)
     leg.get_frame().set_alpha(.5)
-
     fig_names = ['A_sigma_divided_by_v_circ_r_2',
                  'B_sigma_divided_by_v_circ_r_2',
                  'Soft_B_sigma_divided_by_v_circ_r_2',
@@ -318,7 +271,6 @@ if Fig3_sigma_over_v_circ_r_2:  # Dispersions
                  'D2_sigma_divided_by_v_circ_r_2',
                  'Soft_D2_sigma_divided_by_v_circ_r_2',
                  'E_sigma_divided_by_v_circ_r_2']
-
     f.savefig(f"{figurePath}{fig_names[0]}.png")
 
 if Fig4_beta:  # plot beta
@@ -351,30 +303,25 @@ if Fig4_beta:  # plot beta
         leg = plt.legend(prop=dict(size=30), numpoints=2, ncol=1,
                          fancybox=True, loc=0, handlelength=2.5)
         leg.get_frame().set_alpha(.5)
-
         fig_names = ['A_IC_beta_logr_fit', 'B_IC_beta_logr_fit',
                      'Soft_B_IC_beta_logr_fit', 'CS1_IC_beta_logr_fit',
                      'CS4_IC_beta_logr_fit', 'CS5_IC_beta_logr_fit',
                      'CS6_IC_beta_logr_fit', 'DS1_IC_beta_logr_fit',
                      'D2_beta_logr_fit', 'Soft_D2_beta_logr_fit',
                      'Soft_D2_Final_beta_logr_fit', 'E_beta_logr_fit']
-
         f.savefig(f"{figurePath}{fig_names[0]}.png")
 
     else:
         leg = plt.legend(prop=dict(size=30), numpoints=2, ncol=1,
                          fancybox=True, loc=0, handlelength=2.5)
         leg.get_frame().set_alpha(.5)
-
         # rlimits = ['10^4', '32']
         # bins = ['20', '50']
 
         plt.title(r'$\beta$ with zero-line\
                   ({0}, $R_{limit}$=10^4, 20 bins)'.format(sim_snap[0]),
                   fontsize=30)
-
         # plt.title(r'$\beta$ with zero-line(%s)' % F, fontsize=30)
-
         fig_names_I_R32 = ['A_IC_beta_logr_I_R32',
                            'A_48_009_beta_logr_I_R32',
                            'A_48_009_beta_logr_I_R32_cuts',
@@ -397,7 +344,6 @@ if Fig4_beta:  # plot beta
                            'Soft_D2_49_093_beta_logr_I_R32',
                            'E_beta_logr_I_R32',
                            'E_198_093_beta_logr_I_R32']
-
         f.savefig(f"{figurePath}{fig_names_I_R32[0]}.png")
 
         fig_names = ['A_IC_beta_logr', 'A_48_009_beta_logr', 'B_IC_beta_logr',
@@ -410,7 +356,6 @@ if Fig4_beta:  # plot beta
                      'D2_beta_logr', 'D2_49_093_beta_logr',
                      'Soft_D2_beta_logr', 'Soft_D2_49_093_beta_logr',
                      'E_beta_logr', 'E_198_093_beta_logr']
-
         # f.savefig(f"{figurePath}{fig_names[0]}.png")
 
 if Fig4_beta_r_2:  # plot beta
@@ -439,7 +384,6 @@ if Fig4_beta_r_2:  # plot beta
                  'D2_Final_beta_r_2_logr', 'Soft_D2_beta_r_2_logr',
                  'Soft_D2_Final_beta_r_2_logr', 'E_beta_r_2_logr',
                  'E_Final_beta_r_2_logr']
-
     f.savefig(f"{figurePath}{fig_names[0]}.png")
 
 if Fig5_kappa:
@@ -495,7 +439,6 @@ if Fig5_kappa:
         leg = plt.legend(prop=dict(size=30), numpoints=2, ncol=1,
                          fancybox=True, loc=0, handlelength=2.5)
         leg.get_frame().set_alpha(.5)
-
         fig_names = ['A_IC_kappa_logr_fit', 'B_IC_kappa_logr_fit',
                      'Soft_B_IC_kappa_logr_fit', 'CS1_IC_kappa_logr_fit',
                      'CS2_IC_kappa_logr_fit', 'CS3_IC_kappa_logr_fit',
@@ -503,7 +446,6 @@ if Fig5_kappa:
                      'CS6_IC_kappa_logr_fit', 'DS1_IC_kappa_logr_fit',
                      'D2_kappa_logr_fit', 'Soft_D2_kappa_logr_fit',
                      'Soft_D2_Final_kappa_logr_fit', 'E_kappa_logr_fit']
-
         f.savefig(f"{figurePath}{fig_names[0]}.png")
 
     else:
@@ -534,9 +476,7 @@ if Fig5_kappa:
                           'Soft_D2_kappa_logr_I_R32',
                           'Soft_D2_49_093_kappa_logr_I_R32',
                           'E_kappa_logr_I_R32', 'E_198_093_kappa_logr_I_R32']
-
         f.savefig(f"{figurePath}{fig_names_I_32[0]}.png")
-
         fig_names = ['A_IC_kappa_logr', 'A_48_009_kappa_logr',
                      'B_IC_kappa_logr', 'B_199_093_kappa_logr',
                      'Soft_B_IC_kappa_logr', 'Soft_B_Final_kappa_logr',
@@ -548,7 +488,6 @@ if Fig5_kappa:
                      'D2_49_093_kappa_logr', 'Soft_D2_kappa_logr',
                      'Soft_D2_49_093_kappa_logr', 'E_kappa_logr',
                      'E_198_093_kappa_logr']
-
         f.savefig(f"{figurePath}{fig_names[0]}.png")
 
 if Fig5_kappa_r_2:
@@ -573,7 +512,6 @@ if Fig5_kappa_r_2:
                  'D2_Final_kappa_r_2_logr',  'Soft_D2_kappa_r_2_logr',
                  'Soft_D2_Final_kappa_r_2_logr', 'E_kappa_r_2_logr',
                  'E_Final_kappa_r_2_logr']
-
     f.savefig(f"{figurePath}{fig_names[0]}.png")
 
 if Fig6_gamma:
@@ -590,8 +528,7 @@ if Fig6_gamma:
     if Fig6_gammafit:
         x = 10 ** x_plot
         y_plot = -1 - 3 * x / (1 + x)
-        plt.plot(x_plot, y_plot, 'c-', ms=2, mew=0,
-                 label=r'$-1 -\frac{3r}{1 + r}$')
+        plt.plot(x_plot, y_plot, 'c-', ms=2, mew=0, label=r'$-1-\frac{3r}{1+r}$')
 
         # Dummy plot to add label to legend for chi2
         plt.plot([], [], 'm.', label=r'$\chi^2 = %.6f$' % chi_2)
@@ -599,7 +536,6 @@ if Fig6_gamma:
         leg = plt.legend(prop=dict(size=30), numpoints=2, ncol=1,
                          fancybox=True, loc=0, handlelength=2.5)
         leg.get_frame().set_alpha(.5)
-
         plt.title(f'Radial density slope with analytical expression\
                   ({sim[1]} {snapshot_num[0]} with 20 radial bins)',
                   fontsize=30)  # 'B IC', 'CS4 IC', 'CS5 IC', 'CS6 IC'
@@ -619,7 +555,6 @@ if Fig6_gamma:
                      'D2_Final_gamma_logr_fit', 'Soft_D2_IC_gamma_logr_fit',
                      'Soft_D2_Final_gamma_logr_fit', 'E_IC_gamma_logr_fit',
                      'E_Final_gamma_logr_fit']
-
         f.savefig(f"{figurePath}{fig_names[0]}.png")
 
     else:
@@ -666,7 +601,6 @@ if Fig6_gamma:
         plt.title(f'Radial density slope ({sim[0]} {snapshot_num[0]},\
                   $R_{limit}$=10^4, 20 bins)', fontsize=30)
         '''
-
         # plt.title('Radial density slope (%s)' % F, fontsize=30)
 
         fig_names_I_32 = ['A_IC_gamma_logr_I_R32',
@@ -694,7 +628,6 @@ if Fig6_gamma:
                           'Soft_D2_49_093_gamma_logr_I_R32',
                           'E_IC_gamma_logr_I_R32',
                           'E_198_093_gamma_logr_I_R32']
-
         f.savefig(f"{figurePath}{fig_names_I_32[0]}.png")
 
         fig_names = ['A_IC_gamma_logr', 'A_48_009_gamma_logr',
@@ -709,7 +642,6 @@ if Fig6_gamma:
                      'D2_Final_gamma_logr', 'Soft_D2_IC_gamma_logr',
                      'Soft_D2_49_093_gamma_logr', 'E_IC_gamma_logr',
                      'E_198_093_gamma_logr']
-
         # f.savefig(f"{figurePath}{fig_names[0]}.png")
 
 if Fig6_gamma_r_2:
@@ -743,7 +675,6 @@ if Fig6_gamma_r_2:
                  'D2_Final_gamma_r_2_logr', 'Soft_D2_IC_gamma_r_2_logr',
                  'Soft_D2_Final_gamma_r_2_logr', 'E_IC_gamma_r_2_logr',
                  'E_Final_gamma_r_2_logr']
-
     f.savefig(f"{figurePath}{fig_names[0]}.png")
 
 if Fig7_betagamma:
@@ -769,25 +700,19 @@ if Fig7_betagamma:
                  'CS4_betagamma', 'CS5_betagamma', 'CS6_betagamma',
                  'DS1_betagamma', 'D2_betagamma', 'Soft_D2_betagamma',
                  'E_betagamma']
-
     f.savefig(f"{figurePath}{fig_names[0]}.png")
 
 if Fig_combine_ASCII:
-
     sim_names = ['A', 'B']
     read_txt = pylab.loadtxt(text_files_path +
                              f'{sim_names[1]}_particle_tracking.txt')
 
     f, (ax1) = plt.subplots(1, 1, figsize=(13, 11))
     f.subplots_adjust(hspace=0, wspace=0)
-    ax1.plot(read_txt[:, 0], read_txt[:, 4], 'r-o',
-             label='Particle 100000', lw=2, ms=7)
-    ax1.plot(read_txt[:, 0], read_txt[:, 8], 'b-s',
-             label='Particle 200000', lw=2, ms=7)
-    ax1.plot(read_txt[:, 0], read_txt[:, 12], 'k-<',
-             label='Particle 300000', lw=2, ms=7)
-    ax1.plot(read_txt[:, 0], read_txt[:, 16], 'c--v',
-             label='Particle 400000', lw=2, ms=7)
+    ax1.plot(read_txt[:, 0], read_txt[:, 4], 'r-o', label='Particle 100000', lw=2, ms=7)
+    ax1.plot(read_txt[:, 0], read_txt[:, 8], 'b-s', label='Particle 200000', lw=2, ms=7)
+    ax1.plot(read_txt[:, 0], read_txt[:, 12], 'k-<', label='Particle 300000', lw=2, ms=7)
+    ax1.plot(read_txt[:, 0], read_txt[:, 16], 'c--v', label='Particle 400000', lw=2, ms=7)
 
     ax1.set_ylabel('Radius', fontsize=30)
     ax1.set_xlabel('Simulation time', fontsize=30)
@@ -812,12 +737,11 @@ if V_vr_r_logr_panel:
     VR = Sigma_calc.radial_velocity(Theta, Phi, vx, vy, vz)
 
     ax1.plot(r, VR, 'bo', lw=2, ms=1)
-    a = F[:-14]
     ax1.set_title(r'$v_r$', fontsize=20)
     ax1.set_xlabel('r', fontsize=20)
 
     ax2.plot(np.log10(r), VR, 'bo', lw=2, ms=1)
-    ax2.set_title(r'%s' % a, fontsize=20)
+    ax2.set_title(F[:-14], fontsize=20)
     ax2.set_xlabel(r'$\log r$', fontsize=20)
     ax2.axes.get_yaxis().set_visible(False)
 

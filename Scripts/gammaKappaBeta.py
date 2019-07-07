@@ -1,18 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# import pylab
-# from pathlib import Path
 import matplotlib.lines as lines
 import matplotlib.pyplot as plt
 import numpy as np
-# import fileLsts as lsts
-# import snapshotFiles
-# import colorsAndSymbols
-# import dataLsts
-# from definePaths import *
-# import sigma_calc
-
-# Functions -------------------------------------------------------------------
 
 
 def rhoHQ(r, rho0, rS):
@@ -98,10 +88,8 @@ if logrR2BetaABCS4CS5CS6DS1D2E_ICFinalRLimit32:
     Plt(datalistCS6_R32[0], 1, x=7, y=1, 'g--*', 0, -58, 'log')
     Plt(datalistDS1_R32[0], 1, x=7, y=1, 'm--s', 0, -58, 'log')
     Plt(datalistE_R32[0], 1, x=7, y=1, 'r--.', 0, -52, 'log')
-    # Soft D2
-    data, label = datalistSoftD2_R32[0]
-    ax1.plot(np.log10(data[:, 7]), data[:, 1],
-             'c--d', label='Soft_' + label[5:-52], lw=2, ms=7)
+    d, label = datalistSoftD2_R32[0]
+    ax1.plot(np.log10(d[:, 7]), d[:, 1], 'c--d', label='Soft_' + label[5:-52], lw=2, ms=7)
 
     ax1.set_xlabel(r'$\log (\frac{r}{r_{-2}})$', fontsize=30)
     ax1.set_ylabel(r'$\beta$', fontsize=30)
@@ -116,14 +104,13 @@ if logrR2BetaABCS4CS5CS6DS1D2E_ICFinalRLimit32:
     Plt(datalistCS6_R32[1], 2, x=7, y=1, 'g--*', 0, -63, 'log')
     Plt(datalistDS1_R32[1], 2, x=7, y=1, 'm--s', 0, -59, 'log')
     Plt(datalistE_R32[1], 2, x=7, y=1, 'r--.', 0, -54, 'log')
-    # Soft_D2
     d, label = datalistSoftD2_R32[1]
     ax2.plot(np.log10(d[:, 7]), d[:, 1], 'c--d', label='Soft_' + label[5:-53],
              lw=2, ms=7)
 
     ax2.yaxis.tick_right()
     ax2.set_ylim(-.4, 1.)
-    ax2.set_xlabel(r'$\log (\frac{r}{r_{-2}})$', fontsize=30)
+    ax2.set_xlabel(r'$\log(\frac{r}{r_{-2}})$', fontsize=30)
     ax2.set_title('Final', fontsize=30)
     leg = ax2.legend(prop=dict(size=13), numpoints=1, ncol=1,
                      fancybox=True, loc=0, handlelength=2.5)
@@ -142,7 +129,6 @@ if logrR2KappaABCS4CS5CS6DS1D2E_ICFinalRLimit32:
     Plt(datalistCS6_R32[0], 1, x=7, y=3, 'g--*', 0, -58, 'log')
     Plt(datalistDS1_R32[0], 1, x=7, y=3, 'm--s', 0, -58, 'log')
     Plt(datalistE_R32[0], 1, x=7, y=3, 'r--.', 0, -52, 'log')
-    # Soft_D2
     d, label = datalistSoftD2_R32[0]
     ax1.plot(np.log10(d[:, 7]), d[:, 3], 'c--d', label='Soft_' + label[5:-52],
              lw=2, ms=7)
@@ -160,7 +146,6 @@ if logrR2KappaABCS4CS5CS6DS1D2E_ICFinalRLimit32:
     Plt(datalistCS6_R32[1], 2, x=7, y=3, 'g--*', 0, -63, 'log')
     Plt(datalistDS1_R32[1], 2, x=7, y=3, 'm--s', 0, -59, 'log')
     Plt(datalistE_R32[1], 2, x=7, y=3, 'r--.', 0, -54, 'log')
-    # Soft_D2
     d, label = datalistSoftD2_R32[1]
     ax2.plot(np.log10(d[:, 7]), d[:, 3], 'c--d', label='Soft_' + label[5:-53],
              lw=2, ms=7)
@@ -186,8 +171,6 @@ if logrR2GammaABCS4CS5CS6DS1D2E_ICFinalRLimit32:
     Plt(datalistCS6_R32[0], 1, x=7, y=2, 'g--*', 0, -58, 'log')
     Plt(datalistDS1_R32[0], 1, x=7, y=2, 'm--s', 0, -58, 'log')
     Plt(datalistE_R32[0], 1, x=7, y=2, 'r--.', 0, -52, 'log')
-
-    # Soft_D2
     d, label = datalistSoftD2_R32[0]
     ax1.plot(np.log10(d[:, 7]), d[:, 2], 'c--d', label='Soft_' + label[5:-52],
              lw=2, ms=7)
@@ -205,8 +188,6 @@ if logrR2GammaABCS4CS5CS6DS1D2E_ICFinalRLimit32:
     Plt(datalistCS6_R32[1], 2, x=7, y=2, 'g--*', 0, -63, 'log')
     Plt(datalistDS1_R32[1], 2, x=7, y=2, 'm--s', 0, -59, 'log')
     Plt(datalistE_R32[1], 2, x=7, y=2, 'r--.', 0, -54, 'log')
-
-    # Soft_D2
     d, label = datalistSoftD2_R32[1]
     ax2.plot(np.log10(d[:, 7]), d[:, 2], 'c--d', label='Soft_' + label[5:-53],
              lw=2, ms=7)
@@ -232,8 +213,6 @@ if logrBetaABCS4CS5CS6DS1D2E_ICFinalRLimit32:
     Plt(datalistCS6_R32[0], 1, x=0, y=1, 'g--*', 0, -58)
     Plt(datalistDS1_R32[0], 1, x=0, y=1, 'm--s', 0, -58)
     Plt(datalistE_R32[0], 1, x=0, y=1, 'r--.', 0, -52)
-
-    # Soft_D2
     d, l = datalistSoftD2_R32[0]
     ax1.plot(d[:, 0], d[:, 1], 'c--d', label='Soft_' + l[5:-52], lw=2, ms=7)
 
@@ -250,8 +229,6 @@ if logrBetaABCS4CS5CS6DS1D2E_ICFinalRLimit32:
     Plt(datalistCS6_R32[1], 2, x=0, y=1, 'g--*', 0, -63)
     Plt(datalistDS1_R32[1], 2, x=0, y=1, 'm--s', 0, -59)
     Plt(datalistE_R32[1], 2, x=0, y=1, 'r--.', 0, -54)
-
-    # Soft_D2
     d, l = datalistSoftD2_R32[1]
     ax2.plot(d[:, 0], d[:, 1], 'c--d', label='Soft_' + l[5:-53], lw=2, ms=7)
 
@@ -276,8 +253,6 @@ if logrKappaABCS4CS5CS6DS1D2E_ICFinalRLimit32:
     Plt(datalistCS6_R32[0], 1, x=0, y=3, 'g--*', 0, -58)
     Plt(datalistDS1_R32[0], 1, x=0, y=3, 'm--s', 0, -58)
     Plt(datalistE_R32[0], 1, x=0, y=3, 'r--.', 0, -52)
-
-    # Soft_D2
     d, l = datalistSoftD2_R32[0]
     ax1.plot(d[:, 0], d[:, 3], 'c--d', label='Soft_' + l[5:-52], lw=2, ms=7)
 
@@ -294,8 +269,6 @@ if logrKappaABCS4CS5CS6DS1D2E_ICFinalRLimit32:
     Plt(datalistCS6_R32[1], 2, x=0, y=3, 'g--*', 0, -63)
     Plt(datalistDS1_R32[1], 2, x=0, y=3, 'm--s', 0, -59)
     Plt(datalistE_R32[1], 2, x=0, y=3, 'r--.', 0, -54)
-
-    # Soft_D2
     d, l = datalistSoftD2_R32[1]
     ax2.plot(d[:, 0], d[:, 3], 'c--d', label='Soft_' + l[5:-53], lw=2, ms=7)
 
@@ -320,8 +293,6 @@ if logrGammaABCS4CS5CS6DS1D2E_ICFinalRLimit32:
     Plt(datalistCS6_R32[0], 1, x=0, y=2, 'g--*', 0, -58)
     Plt(datalistDS1_R32[0], 1, x=0, y=2, 'm--s', 0, -58)
     Plt(datalistE_R32[0], 1, x=0, y=2, 'r--.', 0, -52)
-
-    # Soft_D2
     d, l = datalistSoftD2_R32[0]
     ax1.plot(d[:, 0], d[:, 2], 'c--d', label='Soft_' + l[5:-52], lw=2, ms=7)
 
@@ -338,8 +309,6 @@ if logrGammaABCS4CS5CS6DS1D2E_ICFinalRLimit32:
     Plt(datalistCS6_R32[1], 2, x=0, y=2, 'g--*', 0, -63)
     Plt(datalistDS1_R32[1], 2, x=0, y=2, 'm--s', 0, -59)
     Plt(datalistE_R32[1], 2, x=0, y=2, 'r--.', 0, -54)
-
-    # Soft D2
     d, l = datalistSoftD2_R32[1]
     ax2.plot(d[:, 0], d[:, 2], 'c--d', label='Soft_' + l[5:-53], lw=2, ms=7)
 
@@ -356,25 +325,15 @@ if betaGammaKappaABCS4CS5CS6DS1D2E_ICFinalRLimit32:
     f.subplots_adjust(hspace=0, wspace=0)
 
     # IC ------------------------------------------------------------
-    Plt(datalistA_R32[0], 1, data[:, 1], data[:, 2] + data[:, 3],
-        'r-o', 0, -52)
-    Plt(datalistB_R32[0], 1, data[:, 1], data[:, 2] + data[:, 3],
-        'b-s', 0, -52)
-    Plt(datalistCS4_R32[0], 1, data[:, 1], data[:, 2] + data[:, 3],
-        'k-<', 0, -58)
-    Plt(datalistCS5_R32[0], 1, data[:, 1], data[:, 2] + data[:, 3],
-        'y--v', 0, -58)
-    Plt(datalistCS6_R32[0], 1, data[:, 1], data[:, 2] + data[:, 3],
-        'g--*', 0, -58)
-    Plt(datalistDS1_R32[0], 1, data[:, 1], data[:, 2] + data[:, 3],
-        'm--s', 0, -58)
-    Plt(datalistE_R32[0], 1, data[:, 1], data[:, 2] + data[:, 3],
-        'r--.', 0, -52)
-
-    # Soft_D2
-    data, label = datalistSoftD2_R32[0]
-    ax1.plot(data[:, 1], data[:, 2] + data[:, 3],
-             'c--d', label='Soft_' + label[5:-52], lw=2, ms=7)
+    Plt(datalistA_R32[0], 1, data[:, 1], data[:, 2] + data[:, 3], 'r-o', 0, -52)
+    Plt(datalistB_R32[0], 1, data[:, 1], data[:, 2] + data[:, 3], 'b-s', 0, -52)
+    Plt(datalistCS4_R32[0], 1, data[:, 1], data[:, 2] + data[:, 3], 'k-<', 0, -58)
+    Plt(datalistCS5_R32[0], 1, data[:, 1], data[:, 2] + data[:, 3], 'y--v', 0, -58)
+    Plt(datalistCS6_R32[0], 1, data[:, 1], data[:, 2] + data[:, 3], 'g--*', 0, -58)
+    Plt(datalistDS1_R32[0], 1, data[:, 1], data[:, 2] + data[:, 3], 'm--s', 0, -58)
+    Plt(datalistE_R32[0], 1, data[:, 1], data[:, 2] + data[:, 3], 'r--.', 0, -52)
+    d, label = datalistSoftD2_R32[0]
+    ax1.plot(d[:, 1], d[:, 2] + d[:, 3], 'c--d', label='Soft_' + label[5:-52], lw=2, ms=7)
 
     # Annotation
     ax1.annotate('Inner region', xy=(0., -.5), xytext=(.4, -.5),
@@ -393,30 +352,18 @@ if betaGammaKappaABCS4CS5CS6DS1D2E_ICFinalRLimit32:
     ax1.set_title(r'IC ($R_{limit} = 32$)', fontsize=30)
 
     # Final ------------------------------------------------------------
-    Plt(datalistA_R32[1], 2, data[9:, 1], data[9:, 2] + data[9:, 3],
-        'r-o', 0, -53)
-    Plt(datalistB_R32[1], 2, data[6:, 1], data[6:, 2] + data[6:, 3],
-        'b-s', 0, -54)
-    Plt(datalistCS4_R32[1], 2, data[5:, 1], data[5:, 2] + data[5:, 3],
-        'k-<', 0, -59)
-    Plt(datalistCS5_R32[1], 2, data[5:, 1], data[5:, 2] + data[5:, 3],
-        'y--v', 0, -59)
-    Plt(datalistCS6_R32[1], 2, data[4:, 1], data[4:, 2] + data[4:, 3],
-        'g--*', 0, -63)
-    Plt(datalistDS1_R32[1], 2, data[3:, 1], data[3:, 2] + data[3:, 3],
-        'm--s', 0, -59)
-    Plt(datalistE_R32[1], 2, data[13:, 1], data[13:, 2] + data[13:, 3],
-        'r--.', 0, -54)
-
-    # Soft_D2
+    Plt(datalistA_R32[1], 2, data[9:, 1], data[9:, 2] + data[9:, 3], 'r-o', 0, -53)
+    Plt(datalistB_R32[1], 2, data[6:, 1], data[6:, 2] + data[6:, 3], 'b-s', 0, -54)
+    Plt(datalistCS4_R32[1], 2, data[5:, 1], data[5:, 2] + data[5:, 3], 'k-<', 0, -59)
+    Plt(datalistCS5_R32[1], 2, data[5:, 1], data[5:, 2] + data[5:, 3], 'y--v', 0, -59)
+    Plt(datalistCS6_R32[1], 2, data[4:, 1], data[4:, 2] + data[4:, 3], 'g--*', 0, -63)
+    Plt(datalistDS1_R32[1], 2, data[3:, 1], data[3:, 2] + data[3:, 3], 'm--s', 0, -59)
+    Plt(datalistE_R32[1], 2, data[13:, 1], data[13:, 2] + data[13:, 3], 'r--.', 0, -54)
     data, label = datalistSoftD2_R32[1]
-    ax2.plot(data[6:, 1], data[6:, 2] + data[6:, 3],
-             'c--d', label='Soft_' + label[5:-53], lw=2, ms=7)
-
-    # Martin Final
-    data, label = datalistMartinFinal[0]
-    ax2.plot(data[:, 4], data[:, 5] + data[:, 6],
-             'b.', label=label[:] + '_Sparre', lw=2, ms=7)
+    ax2.plot(data[6:, 1], data[6:, 2] + data[6:, 3], 'c--d',
+             label='Soft_' + label[5:-53], lw=2, ms=7)
+    d, label = datalistMartinFinal[0]
+    ax2.plot(d[:, 4], d[:, 5] + d[:, 6], 'b.', label=label[:] + '_Sparre', lw=2, ms=7)
 
     # Restriction
     x = np.linspace(-10., 2.)
@@ -450,9 +397,8 @@ if betaGammaABCS4CS5CS6DS1D2E_ICFinalRLimit32:
     Plt(datalistE_R32[0], 1, x=1, y=2, 'b-<', 0, -52)
 
     # Soft_D2
-    data, label = datalistSoftD2_R32[0]
-    ax1.plot(data[:, 1], data[:, 2], 'r--.', label='Soft_' + label[5:-52],
-             lw=2, ms=7)
+    d, label = datalistSoftD2_R32[0]
+    ax1.plot(d[:, 1], d[:, 2], 'r--.', label='Soft_' + label[5:-52], lw=2, ms=7)
 
     # Annotation
     ax1.annotate('Inner region', xy=(0., -.5), xytext=(.4, -.5),
@@ -478,16 +424,10 @@ if betaGammaABCS4CS5CS6DS1D2E_ICFinalRLimit32:
     Plt(datalistCS6_R32[1], 2, data[4:, 1], data[4:, 2], 'g--*', 0, -63)
     Plt(datalistDS1_R32[1], 2, data[3:, 1], data[3:, 2], 'm--s', 0, -59)
     Plt(datalistE_R32[1], 2, data[13:, 1], data[13:, 2], 'b-<', 0, -54)
-
-    # Soft D2
-    data, label = datalistSoftD2_R32[1]
-    ax2.plot(data[6:, 1], data[6:, 2], 'r--.', label='Soft_' + label[5:-53],
-             lw=2, ms=7)
-
-    # Martin Final
-    data, label = datalistMartinFinal[0]
-    ax2.plot(data[:, 4], data[:, 5], 'k--v', label=label[:] + '_Sparre',
-             lw=2, ms=7)
+    d, label = datalistSoftD2_R32[1]
+    ax2.plot(d[6:, 1], d[6:, 2], 'r--.', label='Soft_' + label[5:-53], lw=2, ms=7)
+    d, label = datalistMartinFinal[0]
+    ax2.plot(d[:, 4], d[:, 5], 'k--v', label=label[:] + '_Sparre', lw=2, ms=7)
 
     # Restriction
     x = np.linspace(-10., 2.)
@@ -511,26 +451,17 @@ if betaGammaKappaABCS4CS5CS6DS1D2E_ICFinal20BinsRLimit10000:
     f.subplots_adjust(hspace=0, wspace=0)
 
     # IC ------------------------------------------------------------
-    Plt(datalistA_R10000[0], 1, data[:, 1], data[:, 2] + data[:, 3],
-        'r-o', 0, -55)
-    Plt(datalistB_R10000[2], 1, data[:, 1], data[:, 2] + data[:, 3],
-        'b-s', 0, -55)
-    Plt(datalistDS1_SoftD2_R10000[0], 1, data[:, 1], data[:, 2] + data[:, 3],
-        'k-<', 0, -61)
-    Plt(datalistE_R10000[0], 1, data[:, 1], data[:, 2] + data[:, 3],
-        'g--*', 0, -55)
-
-    # CS4, CS5 and CS6
+    Plt(datalistA_R10000[0], 1, data[:, 1], data[:, 2] + data[:, 3], 'r-o', 0, -55)
+    Plt(datalistB_R10000[2], 1, data[:, 1], data[:, 2] + data[:, 3], 'b-s', 0, -55)
+    Plt(datalistDS1_SoftD2_R10000[0], 1, data[:, 1], data[:, 2] + data[:, 3], 'k-<', 0, -61)
+    Plt(datalistE_R10000[0], 1, data[:, 1], data[:, 2] + data[:, 3], 'g--*', 0, -55)
     for i in range(3):
         data, label = datalistCS4CS5CS6_R10000[i]
         ax1.plot(data[:, 1], data[:, 2] + data[:, 3],
                  Symbols[i + 2], color=Colors[i + 2], label=label[:-61],
                  lw=2, ms=7)
-
-    # Soft_D2
-    data, label = datalistDS1_SoftD2_R10000[1]
-    ax1.plot(data[:, 1], data[:, 2] + data[:, 3], 'r--.',
-             label='Soft_' + label[:-55], lw=2, ms=7)
+    d, label = datalistDS1_SoftD2_R10000[1]
+    ax1.plot(d[:, 1], d[:, 2] + d[:, 3], 'r--.', label='Soft_' + label[:-55], lw=2, ms=7)
 
     # Restriction
     x = np.linspace(-.3, 1.1)
@@ -561,22 +492,17 @@ if betaGammaKappaABCS4CS5CS6DS1D2E_ICFinal20BinsRLimit10000:
         'm--s', 0, -55)
     Plt(datalistE_R10000[1], 2, data[:, 1], data[:, 2] + data[:, 3],
         'r--.', 0, -55)
-
-    # CS4, CS5 and CS6
     for i in range(3, 6):
         d, label = datalistCS4CS5CS6_R10000[i]
         ax2.plot(d[:, 1], d[:, 2] + d[:, 3], Symbols[i - 1],
                  color=Colors[i - 1], label=label[:-61], lw=2, ms=7)
-
-    # CS4, CS5 and CS6
     for i in range(3, 6):
         d, label = datalistCS4CS5CS6_R10000[i]
         ax2.plot(d[3:-2, 1], d[3:-2, 2] + d[3:-2, 3], Symbols[i - 1],
                  color=Colors[i - 1], label=label[:-61], lw=2, ms=7)
-
     d, label = datalistDS1_SoftD2_R10000[3]
-    ax2.plot(d[3:-2, 1], d[3:-2, 2] + d[3:-2, 3],
-             'r--.', label='Soft_' + label[:-55], lw=2, ms=7)
+    ax2.plot(d[3:-2, 1], d[3:-2, 2] + d[3:-2, 3], 'r--.', label='Soft_' + label[:-55],
+             lw=2, ms=7)
 
     # Restriction
     x = np.linspace(-10., 2.)
@@ -598,14 +524,10 @@ if betaGammaABCS4CS5CS6DS1D2E_ICFinal20BinsRLimit10000:
     Plt(datalistB_R10000[2], 1, x=1, y=2, 'b-s', 0, -55)
     Plt(datalistDS1_SoftD2_R10000[0], 1, x=1, y=2, 'm--s', 0, -61)
     Plt(datalistE_R10000[0], 1, x=1, y=2, 'r--.', 0, -55)
-
-    # CS4, CS5 and CS6
     for i in range(3):
         d, label = datalistCS4CS5CS6_R10000[i]
         ax1.plot(d[:, 1], d[:, 2], Symbols[i + 2], color=Colors[i + 2],
                  label=label[:-61], lw=2, ms=7)
-
-    # Soft D2
     d, label = datalistDS1_SoftD2_R10000[1]
     ax1.plot(d[:, 1], d[:, 2], 'c--d', label='Soft_' + label[:-55], lw=2, ms=7)
 
@@ -637,9 +559,8 @@ if betaGammaABCS4CS5CS6DS1D2E_ICFinal20BinsRLimit10000:
     Plt(datalistE_R10000[1], 2, data[2:-6, 1], data[2:-6, 2], 'r--.', 0, -55)
 
     # Soft_D2
-    data, label = datalistDS1_SoftD2_R10000[3]
-    ax2.plot(data[4:-9, 1], data[4:-9, 2], 'c--d',
-             label='Soft_' + label[:-55], lw=2, ms=7)
+    d, label = datalistDS1_SoftD2_R10000[3]
+    ax2.plot(d[4:-9, 1], d[4:-9, 2], 'c--d', label='Soft_' + label[:-55], lw=2, ms=7)
 
     # Restriction
     x = np.linspace(-10., 2.)
@@ -775,9 +696,7 @@ if betaGammaKappaBCS4CS5CS6DS1D2_ICFinal20_50Bins:
     f.subplots_adjust(hspace=0, wspace=0)
 
     # IC ------------------------------------------------------------
-    Plt(datalistB[0], 1, data[:, 1], data[:, 2] + data[:, 3],
-        'r-o', 0, len(label)+1)
-
+    Plt(datalistB[0], 1, data[:, 1], data[:, 2] + data[:, 3], 'r-o', 0, len(label)+1)
     # CS4, CS5 and CS6
     for i in range(6, 9):
         d, label = datalistC_IC[i]
@@ -820,7 +739,6 @@ if betaGammaKappaBCS4CS5CS6DS1D2_ICFinal20_50Bins:
 
     # IC ------------------------------------------------------------
     Plt(datalistB20[0], 3, data[:, 1], data[:, 2] + data[:, 3], 'r-o', 0, -15)
-
     # CS4, CS5 and CS6
     for i in range(9, 12):
         d, label = datalistC_IC[i]
@@ -837,7 +755,6 @@ if betaGammaKappaBCS4CS5CS6DS1D2_ICFinal20_50Bins:
 
     # Final ------------------------------------------------------------
     Plt(datalistB20[1], 4, data[:, 1], data[:, 2] + data[:, 3], 'r-o', 0, -15)
-
     # Restriction
     x = np.linspace(-10., 2.)
     ax4.plot(x, y, 'm', lw=2, ms=7)
@@ -851,7 +768,6 @@ if betaGammaKappaBCS4CS5CS6DS1D2_ICFinal20_50Bins:
     ax4.yaxis.set_label_position("right")
 
     # IC ------------------------------------------------------------
-
     # Restriction
     x = np.linspace(-.3, 1.1)
     y = -2 * x
@@ -863,7 +779,6 @@ if betaGammaKappaBCS4CS5CS6DS1D2_ICFinal20_50Bins:
     ax5.axes.get_xaxis().set_visible(False)
 
     # Final ------------------------------------------------------------
-
     # Restriction
     x = np.linspace(-10., 2.)
     ax6.plot(x, y, 'm', lw=2, ms=7)
@@ -884,13 +799,11 @@ if overplotICFinal:
     f.subplots_adjust(hspace=0, wspace=0)
 
     for i in range(len(datalistMartinIC)):
-        data, label = datalistMartinIC[i]
-        ax1.plot(data[:, 0], data[:, 1],
-                 Symbols[i], color=Colors[i], label=label, lw=2, ms=7)
+        d, label = datalistMartinIC[i]
+        ax1.plot(d[:, 0], d[:, 1], Symbols[i], color=Colors[i], label=label, lw=2, ms=7)
     for i in range(len(datalistMartinFinal)):
-        data, label = datalistMartinFinal[i]
-        ax1.plot(data[:, 4], data[:, 5],
-                 Symbols[i], color=Colors[i], label=label, lw=2, ms=7)
+        d, label = datalistMartinFinal[i]
+        ax1.plot(d[:, 4], d[:, 5], Symbols[i], color=Colors[i], label=label, lw=2, ms=7)
     x = np.linspace(0, 1.1)
     y = -2 * x
     ax1.plot(x, y, 'm', label=r'$\beta=-\frac{\gamma}{2}$', lw=2, ms=7)
@@ -902,13 +815,11 @@ if overplotICFinal:
     ax1.axes.get_xaxis().set_visible(False)
 
     for i in range(len(datalistMartinIC)):
-        data, label = datalistMartinIC[i]
-        ax2.plot(data[:, 0], data[:, 2],
-                 Symbols[i], color=Colors[i], label=label, lw=2, ms=7)
+        d, label = datalistMartinIC[i]
+        ax2.plot(d[:, 0], d[:, 2], Symbols[i], color=Colors[i], label=label, lw=2, ms=7)
     for i in range(len(datalistMartinFinal)):
-        data, label = datalistMartinFinal[i]
-        ax2.plot(data[:, 4], data[:, 6],
-                 Symbols[i], color=Colors[i], label=label, lw=2, ms=7)
+        d, label = datalistMartinFinal[i]
+        ax2.plot(d[:, 4], d[:, 6], Symbols[i], color=Colors[i], label=label, lw=2, ms=7)
 
     ax2.set_xlabel(r'$\beta$', fontsize=24)
     ax2.set_ylabel(r'$\kappa$', fontsize=24)
@@ -924,9 +835,8 @@ if ICFinal4Subplots:
     f.subplots_adjust(hspace=0, wspace=0)
 
     for i in range(len(datalistMartinIC)):
-        data, label = datalistMartinIC[i]
-        ax1.plot(data[:, 0], data[:, 1],
-                 Symbols[i], color=Colors[i], label=label, lw=2, ms=7)
+        d, label = datalistMartinIC[i]
+        ax1.plot(d[:, 0], d[:, 1], Symbols[i], color=Colors[i], label=label, lw=2, ms=7)
     x = np.linspace(0, 1.1)
     y = -2 * x
     ax1.plot(x, y, 'm', label=r'$\beta=-\frac{\gamma }{2}$', lw=2, ms=7)
@@ -938,9 +848,8 @@ if ICFinal4Subplots:
     ax1.axes.get_xaxis().set_visible(False)
 
     for i in range(len(datalistMartinFinal)):
-        data, label = datalistMartinFinal[i]
-        ax2.plot(data[:, 4], data[:, 5],
-                 Symbols[i], color=Colors[i], label=label, lw=2, ms=7)
+        d, label = datalistMartinFinal[i]
+        ax2.plot(d[:, 4], d[:, 5], Symbols[i], color=Colors[i], label=label, lw=2, ms=7)
     ax2.plot(x, y, 'm', label=r'$\beta=-\frac{\gamma }{2}$', lw=2, ms=7)
     ax2.fill_between(x, 0, y, color='b', label=r'$\beta > -\frac{\gamma }{2}$')
     ax2.set_title(r'Final', fontsize=30)
@@ -951,8 +860,7 @@ if ICFinal4Subplots:
 
     for i in range(len(datalistMartinIC)):
         d, label = datalistMartinIC[i]
-        ax3.plot(d[:, 0], d[:, 2],
-                 Symbols[i], color=Colors[i], label=label, lw=2, ms=7)
+        ax3.plot(d[:, 0], d[:, 2], Symbols[i], color=Colors[i], label=label, lw=2, ms=7)
     ax3.set_xlabel(r'$\beta$', fontsize=30)
     ax3.set_ylabel(r'$\kappa$', fontsize=30)
     ax3.set_xlim(-.1, 1.1)
@@ -962,9 +870,8 @@ if ICFinal4Subplots:
     leg.get_frame().set_alpha(.5)
 
     for i in range(len(datalistMartinFinal)):
-        data, label = datalistMartinFinal[i]
-        ax4.plot(data[:, 4], data[:, 6],
-                 Symbols[i], color=Colors[i], label=label, lw=2, ms=7)
+        d, label = datalistMartinFinal[i]
+        ax4.plot(d[:, 4], d[:, 6], Symbols[i], color=Colors[i], label=label, lw=2, ms=7)
     ax4.set_xlim(-.1, 1.1)
     ax4.set_ylim(-5., 2.)
     leg = ax4.legend(prop=dict(size=13), numpoints=2, ncol=2,
@@ -976,9 +883,8 @@ if ICFinal4Subplots:
 if finalGammaBetaFit:
     f = plt.figure()
     for i in range(len(datalistMartinFinal)):
-        data, label = datalistMartinFinal[i]
-        plt.plot(data[:, 4], data[:, 5],
-                 Symbols[i], color=Colors[i], label=label, lw=2, ms=7)
+        d, label = datalistMartinFinal[i]
+        plt.plot(d[:, 4], d[:, 5], Symbols[i], color=Colors[i], label=label, lw=2, ms=7)
     x = np.linspace(0, 1.1)
     y1 = -2 * x
     y2 = -5 * x - .8
@@ -995,7 +901,7 @@ if finalGammaBetaFit:
     # plt.plot(x, y5, color='k', label=r'arccot fit', lw=2, ms=7)
     # plt.plot(x, y6, color='k', label=r'Exponential fit', lw=2, ms=7)
     plt.fill_between(x, 0, y, color='b', label=r'$\beta > -\frac{\gamma }{2}$')
-    plt.title(r'Final', fontsize=20)
+    plt.title('Final', fontsize=20)
     plt.xlim(-.1, 1.1)
     plt.ylim(-6., 0.)
     plt.ylabel(r'$\gamma$', fontsize=24)
@@ -1010,9 +916,9 @@ if betaVsGammaPlusKappa:
     f.subplots_adjust(hspace=0, wspace=0)
 
     for i in range(len(datalistMartinIC)):
-        data, label = datalistMartinIC[i]
-        ax1.plot(data[:, 0], data[:, 1] + data[:, 2],
-                 Symbols[i], color=Colors[i], label=label, lw=2, ms=7)
+        d, label = datalistMartinIC[i]
+        ax1.plot(d[:, 0], d[:, 1] + d[:, 2], Symbols[i], color=Colors[i],
+                 label=label, lw=2, ms=7)
     x = np.linspace(0, 1.2)
     y = -2 * x
     ax1.plot(x, y, 'm', label=r'$\beta=-\frac{\gamma }{2}$', lw=2, ms=7)
@@ -1028,9 +934,9 @@ if betaVsGammaPlusKappa:
     ax1.axes.get_xaxis().set_visible(False)
 
     for i in range(len(datalistMartinFinal)):
-        data, label = datalistMartinFinal[i]
-        ax2.plot(data[:, 4], data[:, 5] + data[:, 6],
-                 Symbols[i], color=Colors[i], label=label, lw=2, ms=7)
+        d, label = datalistMartinFinal[i]
+        ax2.plot(d[:, 4], d[:, 5] + d[:, 6], Symbols[i], color=Colors[i],
+                 label=label, lw=2, ms=7)
     ax2.plot(x, y, 'm', label=r'$\beta=-\frac{\gamma }{2}$', lw=2, ms=7)
     ax2.fill_between(x, 0, y, color='b', label=r'$\beta > -\frac{\gamma }{2}$')
     leg = ax2.legend(prop=dict(size=13), numpoints=2, ncol=2,
@@ -1097,7 +1003,7 @@ if attractor3D:  # 3D plots of attractor, IC and Final.
     ax = f.add_subplot(122, projection='3d')
     n = 100
 
-    # Final ------------------------------------------------------------
+    # Final ---------------------------------------------------------
     d, label = datalistA_R32[1]
     ax.plot(2 * d[:, 1], d[:, 2], d[:, 3], 'r-o', label=label, lw=2)
     d, label = datalistB_R32[1]
@@ -1154,9 +1060,9 @@ if attractor3DSparre:  # 3D plots of attractor, IC and Final.
     ax = f.add_subplot(121, projection='3d')
     n = 100
     for i in range(len(datalistMartinIC)):
-        data, label = datalistMartinIC[i]
-        ax.plot(2 * data[:, 0], data[:, 1], data[:, 2],
-                marker=Symbols[i], color=Colors[i], label=label, lw=2)
+        d, label = datalistMartinIC[i]
+        ax.plot(2 * d[:, 0], d[:, 1], d[:, 2], marker=Symbols[i],
+                color=Colors[i], label=label, lw=2)
     handles = []
     scatter1_proxy = lines.Line2D([0], [0], linestyle="none",
                                   c='r', marker='-o')
@@ -1222,10 +1128,8 @@ if betaGammaFunctions:
     ax1.fill_between(x, 0, y, color='b', label=r'$\beta > -\frac{\gamma}{2}$')
 
     # print(f'betaOM(r, 1.20) = {betaOM(r)}')
-    # print(r'rhoHQ(r, $ \frac{1}{2\pi}$, 1.)) = ',
-    #         rhoHQ(r, 1. / (2. * np.pi), 1.))
-    # print(r'gammaHQ(r, $ \frac{1}{2\pi}$, 1. ) = ',
-    # gammaHQ(r))
+    # print(r'rhoHQ(r, $ \frac{1}{2\pi}$, 1.)) = ', rhoHQ(r, 1. / (2. * np.pi), 1.))
+    # print(r'gammaHQ(r, $ \frac{1}{2\pi}$, 1. ) = ', gammaHQ(r))
 
     gamma_arr = []
     # r, rho0, rS
@@ -1233,47 +1137,37 @@ if betaGammaFunctions:
                                     density=rhoHQ(r, 1. / (2. * np.pi), 1.),
                                     len_obj_1=r, len_obj_2=r)
 
-    ax1.plot(betaOM(r, 1.40), gammaHQ, 'r-o', mew=0, label=r'$rA = 1.4$',
-             lw=2, ms=7)
-    ax1.plot(betaOM(r, 1.00), gammaHQ, 'b-o', mew=0, label=r'$rA = 1$',
-             lw=2, ms=7)
-    ax1.plot(betaOM(r, .20), gammaHQ, 'g-o', mew=0, label=r'$rA = 0.2$',
-             lw=2, ms=7)
-    ax1.plot(betaOM(r, .15), gammaHQ, 'k-o', mew=0, label=r'$rA = 0.15$',
-             lw=2, ms=7)
+    ax1.plot(betaOM(r, 1.40), gammaHQ, 'r-o', mew=0, label=r'$rA = 1.4$', lw=2, ms=7)
+    ax1.plot(betaOM(r, 1.00), gammaHQ, 'b-o', mew=0, label=r'$rA = 1$', lw=2, ms=7)
+    ax1.plot(betaOM(r, .20), gammaHQ, 'g-o', mew=0, label=r'$rA = 0.2$', lw=2, ms=7)
+    ax1.plot(betaOM(r, .15), gammaHQ, 'k-o', mew=0, label=r'$rA = 0.15$', lw=2, ms=7)
 
     ax1.set_xlabel(r'$\beta$', fontsize=20)
     ax1.set_ylabel(r'$\gamma$', fontsize=20)
-    ax1.set_title(r'Anisotropy radius variation. \
+    ax1.set_title(r'Anisotropy radius variation.\
                   ($\rho0 = \frac{1}{2\pi}$, $rS = 1$)', fontsize=20)
     ax1.legend(prop=dict(size=13), numpoints=2, ncol=1, frameon=True,
                loc=0, handlelength=2.5)
     ax1.set_xlim(0., 1.05)
 
-    ax2.plot(betaOM(r), gammaHQ(r, x=5.), 'r-o', mew=0, label=r'$rS = 5$',
-             lw=2, ms=7)
-    ax2.plot(betaOM(r), gammaHQ(r, x=2.), 'b-o', mew=0, label=r'$rS = 2$',
-             lw=2, ms=7)
-    ax2.plot(betaOM(r), gammaHQ(r, x=1.2), 'g-o', mew=0, label=r'$rS = 1.2$',
-             lw=2, ms=7)
-    ax2.plot(betaOM(r), gammaHQ(r), 'k-o', mew=0, label=r'$rS = 1$',
-             lw=2, ms=7)
+    ax2.plot(betaOM(r), gammaHQ(r, x=5.), 'r-o', mew=0, label=r'$rS = 5$', lw=2, ms=7)
+    ax2.plot(betaOM(r), gammaHQ(r, x=2.), 'b-o', mew=0, label=r'$rS = 2$', lw=2, ms=7)
+    ax2.plot(betaOM(r), gammaHQ(r, x=1.2), 'g-o', mew=0, label=r'$rS = 1.2$', lw=2, ms=7)
+    ax2.plot(betaOM(r), gammaHQ(r), 'k-o', mew=0, label=r'$rS = 1$', lw=2, ms=7)
     ax2.plot(x, y, 'm', lw=2, ms=7)
 
     ax2.fill_between(x, 0, y, color='b')
     ax2.set_xlim(0., .5)
     ax2.set_xlabel(r'$\beta$', fontsize=20)
     ax2.set_ylabel(r'$\gamma$', fontsize=20)
-    ax2.set_title(r'Scale radius variation. \
-                  ($\rho0 = \frac{1}{2\pi}$, $rA = 1.2$)',
-                  fontsize=20)
+    ax2.set_title(r'Scale radius variation.\
+                  ($\rho0 = \frac{1}{2\pi}$, $rA = 1.2$)', fontsize=20)
     ax2.legend(prop=dict(size=13), numpoints=2, ncol=1, frameon=True,
                loc=0, handlelength=2.5)
 
     g = gammaHQ(r)
     k = Sigma_calc.kappa_func(len_obj=r, radii=r, sigma_r2=sigmaRad2())
-    Fit = ((-.15 * g - .85 * k)
-           / ((1 + (-.15 * g - .85 * k) ** 3) ** .333333))
+    Fit = (-.15 * g - .85 * k) / ((1 + (-.15 * g - .85 * k) ** 3) ** .333333)
     b = betaOM(r)
     ax3.plot(b, Fit, 'r-o', mew=0, label='Fit', lw=2, ms=7)
     ax3.set_xlim(0., .5)
@@ -1286,17 +1180,16 @@ if betaGammaFunctions:
     ax4.plot(x, y, 'm', lw=2, ms=7)
     ax4.fill_between(x, 0, y, color='b')
     ax4.plot(betaOM(r, .2), gammaHQ(r, x=1.5), 'r-o', mew=0,
-             label=r'$rA = 0.2, rS = 1.5$', lw=2, ms=7)
+             label=r'$rA=0.2, rS=1.5$', lw=2, ms=7)
     ax4.plot(betaOM(r, .3), gammaHQ(r, x=2.), 'b-o', mew=0,
-             label=r'$rA = 0.3, rS = 2$', lw=2, ms=7)
-    ax4.plot(betaOM(r, .5), gammaHQ(r), 'g-o', mew=0,
-             label=r'$rA = 0.5, rS = 1$', lw=2, ms=7)
+             label=r'$rA=0.3, rS=2$', lw=2, ms=7)
+    ax4.plot(betaOM(r, .5), gammaHQ(r), 'g-o', mew=0, label=r'$rA=0.5, rS=1$',
+             lw=2, ms=7)
 
     ax4.set_xlim(0., 1.)
     ax4.set_xlabel(r'$\beta$', fontsize=20)
     ax4.set_ylabel(r'$\gamma$', fontsize=20)
-    ax4.set_title(r'$rS$ and $rA$ tuning ($\rho0=\frac{1}{2\pi}$)',
-                  fontsize=20)
+    ax4.set_title(r'$rS$ and $rA$ tuning ($\rho0=\frac{1}{2\pi}$)', fontsize=20)
     ax4.legend(prop=dict(size=13), numpoints=2, ncol=1, frameon=True,
                loc=0, handlelength=2.5)
 
