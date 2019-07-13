@@ -17,7 +17,7 @@ import Gammas_and_R_middles
 import os
 import getSnapshotValues
 import RhoAndGaussianAndTsallis
-import velocityCheck
+import velocityCheck as vC
 import snapshotFiles
 import vSphericalAnd_vBins
 import radius_and_velocity_funcs as ravf
@@ -77,29 +77,13 @@ print_sigma_unbinned = 0
 save_r_v_as_txt = 0
 Fig14_sigmas = 0
 
-
-def randrange(n, vmin, vmax):  # 3D scatterplot of positions
-    """."""
-    return (vmax - vmin) * np.random.rand(n) + vmin
-
-
 # sigma_1 = .205
 # sigma_2 = .335
 
 
-def sigma2(num=nr_par_inside_bin_i, v2):
-    """num: number of particles. v2: velocity squared"""
-    return (1.0 / (num + 1.0)) * np.sum(v2)
-
-
-def get_xdata(bins):
-    """."""
-    return bins[0:-1] + (bins[1] - bins[0]) * .5
-
-
 def hist_data(n, bins):
     """."""
-    xdata = get_xdata(bins)
+    xdata = vC.get_xdata(bins)
     ydata = n
     x = np.array((xdata, ydata))
     return x.transpose()

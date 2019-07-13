@@ -985,9 +985,8 @@ if Fig12_vr_vtheta_vphi_vt_sigma:
     ydata = n
     popt, pcov = curve_fit(func_1_log, xdata, ydata)
     y_fit = func_1_log(xdata, popt[0], popt[1])
-    plt.plot(xdata, y_fit, '--', lw=3, color='pink',
-             label=r'$\frac{\log(v_r)}{|| v_r ||} -fit =\
-                   a \cdot log(x) \cdot e^{-b \cdot log(x)^2}$')
+    plt.plot(xdata, y_fit, 'c--', lw=3, label=r'$\frac{\log(v_r)}{||v_r||}-fit\
+             =a\cdot log(x)\cdot e^{-b\cdot log(x)^2}$')
     plt.xlabel(r'$\frac{\log (|v_rn|,v_rp)}{||v_r||}$, $\frac{\log\
                (|v_{\theta}n|,v_{\theta}p)}{||v_{\theta}||}$ and $\frac{\log\
                (|v_{\phi}n|,v_{\phi}p)}{||v_{\phi}||}$')
