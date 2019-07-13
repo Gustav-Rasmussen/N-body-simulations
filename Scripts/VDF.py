@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 
-# from __future__ import division
 import h5py
 import numpy as np
 from scipy.optimize import curve_fit

@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 import numpy as np
-# import scipy as sp
 import radius_and_velocity_funcs as ravf
 import matplotlib.pyplot as plt
 
@@ -29,38 +28,34 @@ if vbin:
         v_in_bin_i = v[posv_par_in_bin_i]
         V_R_in_bin_i = VR[posv_par_in_bin_i]
         V_T_in_bin_i = VT[posv_par_in_bin_i]
-
         v_arr.append(v_in_bin_i)
         v_r_arr.append(v_r_in_bin_i)
         v_t_arr.append(v_t_in_bin_i)
         nr_par_in_bin.append(nr_par_in_bin_i)
 
-    f = plt.figure()  # plot structure over velocity bins.
-    plt.subplot(121)
-    plt.xlabel(r"$v, v_r$ and $v_t$")
-    plt.ylabel("Number of particles")
-    plt.title(r"VDF (Hernquist structure, $10^6$ particles)")
-    plt.hist(v_arr[15], bins=100, histtype="step", color="r",
+    f, (ax1, ax2) = plt.subplots(1, 2, figsize=(8, 6))  # plot structure over velocity bins.
+    ax1.xlabel(r"$v, v_r$ and $v_t$")
+    ax1.ylabel("Number of particles")
+    ax1.title(r"VDF (Hernquist structure, $10^6$ particles)")
+    ax1.hist(v_arr[15], bins=100, histtype="step", color="r",
              range=(v_limit_min, v_limit_max), label=r"$v$", lw=2)
-    plt.hist(v_r_arr[15], bins=100, histtype="step", color="b",
+    ax1.hist(v_r_arr[15], bins=100, histtype="step", color="b",
              range=(v_limit_min, v_limit_max), label=r"$v_r$", lw=2)
-    plt.legend(prop=dict(size=13), numpoints=2, ncol=2,
-               frameon=True, loc=1, handlelength=2.5)
-    plt.show()
-    plt.hist(v_r, bins=100, histtype="step", color="g",
+    ax1.hist(v_r, bins=100, histtype="step", color="g",
              range=(v_limit_min, v_limit_max), label=r"$v_r$", lw=2)
-    plt.hist(v_t, bins=100, histtype="step", color="k",
+    ax1.hist(v_t, bins=100, histtype="step", color="k",
              range=(-4, 4), label=r"$v_t$", lw=2)
+    ax1.legend(prop=dict(size=13), numpoints=2, ncol=2,
+               frameon=True, loc=1, handlelength=2.5)
 
-    plt.subplot(122)
-    plt.xlabel(r"$\log v$, $\log v_r$ and $\log v_t$")
-    plt.hist(np.log10(np.absolute(v_arr)), bins=100, histtype="step",
+    ax2.xlabel(r"$\log v$, $\log v_r$ and $\log v_t$")
+    ax2.hist(np.log10(np.absolute(v_arr)), bins=100, histtype="step",
              color="r", range=(-5, 1), label=r"$\log v$", lw=2)
-    plt.hist(np.log10(np.absolute(v_r)), bins=100, histtype="step", color="g",
+    ax2.hist(np.log10(np.absolute(v_r)), bins=100, histtype="step", color="g",
              range=(-5, 1), label=r"$\log v_r$", lw=2)
-    plt.hist(np.log10(np.absolute(v_t)), bins=100, histtype="step", color="k",
+    ax2.hist(np.log10(np.absolute(v_t)), bins=100, histtype="step", color="k",
              range=(-5, 1), label=r"$\log v_t$", lw=2)
-    plt.legend(prop=dict(size=13), numpoints=2, ncol=2,
+    ax2.legend(prop=dict(size=13), numpoints=2, ncol=2,
                frameon=True, loc=2, handlelength=2.5)
 
     f = plt.figure()
@@ -87,3 +82,5 @@ if vbin:
              range=(-2, 1), label=r"$2 \cdot v_t$ (bin 10)", lw=2)
     plt.legend(prop=dict(size=13), numpoints=2, ncol=2,
                frameon=True, loc=2, handlelength=2.5)
+
+plt.show()
