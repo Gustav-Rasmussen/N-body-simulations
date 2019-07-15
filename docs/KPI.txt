@@ -1,7 +1,7 @@
 ---------------------------------------------------------------------------
 
 
- ********   Logging timestamp:	2019-07-14 14:42:54.075348   ********
+ ********   Logging timestamp:	2019-07-15 11:45:09.402564   ********
 
 
 Module name 			 Number of lines 	 PEP-8 violations
@@ -11,8 +11,7 @@ gammaKappaBeta.py                       1198                    48
 velocityCheck.py                        1128                    30
 Sigma_plot.py                           767                     21
 Sigma_calc_OOP.py                       465                     15
-GaussianAndTsallis.py                   290                      5
-RhoAndGaussianAndTsallis.py             290                      2
+RhoAndGaussianAndTsallis.py             285                      2
 Read.py                                 220                      5
 Gammas_and_R_middles.py                 195                      0
 getSnapshotValues.py                    150                      1
@@ -22,9 +21,9 @@ NoOfParticlesAndParticleMass.py          22                      0
 colorsAndSymbols.py                      7                       0
 
 
-**************   Number of Python scripts: 	14      **************
+**************   Number of Python scripts: 	13      **************
 
-**************   Total number of PEP8 violations: 	136   **************
+**************   Total number of PEP8 violations: 	131   **************
 
-**************   Total number of code-lines: 	6208   **************
+**************   Total number of code-lines: 	5913   **************
 
