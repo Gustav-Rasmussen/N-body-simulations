@@ -27,3 +27,31 @@ colorsAndSymbols.py                      7                       0
 
 **************   Total number of code-lines: 	5913   **************
 
+---------------------------------------------------------------------------
+
+
+ ********   Logging timestamp:	2019-07-15 14:39:03.879032   ********
+
+
+Module name 			 Number of lines 	 PEP-8 violations
+
+TimeEvolutionGammaKappaBeta.py          1315                     6
+gammaKappaBeta.py                       1198                    48
+velocityCheck.py                        1128                    30
+Sigma_plot.py                           767                     21
+Sigma_calc_OOP.py                       465                     15
+RhoAndGaussianAndTsallis.py             285                      2
+Read.py                                 220                      5
+Gammas_and_R_middles.py                 195                      0
+getSnapshotValues.py                    150                      1
+radius_and_velocity_funcs.py             75                      2
+NoOfParticlesAndParticleMass.py          22                      0
+colorsAndSymbols.py                      7                       0
+
+
+**************   Number of Python scripts: 	12      **************
+
+**************   Total number of PEP8 violations: 	130   **************
+
+**************   Total number of code-lines: 	5827   **************
+
