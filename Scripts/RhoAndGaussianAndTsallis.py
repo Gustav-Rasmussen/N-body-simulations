@@ -126,7 +126,6 @@ if GaussianFits:
              label=r'$a=0.5, b=1$', lw=2, ms=7)
     ax1.plot(xPlot, func2(xPlot), 'm-o', mew=0,
              label=r'$a=1, b=0.5$', lw=2, ms=7)
-
     ax1.set_xlabel('x', fontsize=20)
     ax1.set_ylabel(r'$a e^{-b x^2}$', fontsize=20)
     ax1.set_title('Gaussian fits', fontsize=20)
@@ -139,7 +138,6 @@ if GaussianFits:
     ax2.plot(xPlot, func2(xPlot, b=1.5), 'g-o', mew=0, lw=2, ms=7)
     ax2.plot(xPlot, func2(xPlot, a=.5, b=1), 'k-o', mew=0, lw=2, ms=7)
     ax2.plot(xPlot, func2(xPlot), 'm-o', mew=0, lw=2, ms=7)
-
     ax2.set_xlim(10 ** -1, y2)
     ax2.set_ylim(0, 1.6)
     ax2.set_xlabel(r'$\log x$', fontsize=20)
@@ -151,7 +149,6 @@ if GaussianFits:
     ax3.plot(xPlot, func2(xPlot, b=1.5), 'g-o', mew=0, lw=2, ms=7)
     ax3.plot(xPlot, func2(xPlot, a=.5, b=1), 'k-o', mew=0, lw=2, ms=7)
     ax3.plot(xPlot, func2(xPlot), 'm-o', mew=0, lw=2, ms=7)
-
     ax3.set_xlim(-4, 4)
     ax3.set_ylim(y1, y2)
     ax3.set_xlabel(r'x', fontsize=20)
@@ -163,7 +160,6 @@ if GaussianFits:
     ax4.plot(xPlot, func2(xPlot, b=1.5), 'g-o', mew=0, lw=2, ms=7)
     ax4.plot(xPlot, func2(xPlot, a=.5, b=1), 'k-o', mew=0, lw=2, ms=7)
     ax4.plot(xPlot, func2(xPlot), 'm-o', mew=0, lw=2, ms=7)
-
     ax4.set_xlim(-4, 4)
     ax4.set_ylim(y1, y2)
     ax4.set_xlabel(r'$\log x$', fontsize=20)
@@ -186,7 +182,6 @@ if QFits:
              label=r'$a=1 , q=1.5, b=1$', lw=2, ms=7)
     ax1.plot(xPlot, func4(xPlot, q=5. / 3.), 'c-o', mew=0,
              label=r'$a=1, q=\frac{5}{3}, b=1$', lw=2, ms=7)
-
     ax1.set_xlabel('x', fontsize=20)
     ax1.set_ylabel(r'$a \cdot (1-(1-q)\cdot b\cdot x^2)^{\frac {q}{1-q}}$',
                    fontsize=20)
@@ -201,7 +196,6 @@ if QFits:
     ax2.plot(xPlot, func4(xPlot, q=1.2), 'k-o', mew=0, lw=2, ms=7)
     ax2.plot(xPlot, func4(xPlot, q=1.5), 'm-o', mew=0, lw=2, ms=7)
     ax2.plot(xPlot, func4(xPlot, q=5. / 3.), 'c-o', mew=0, lw=2, ms=7)
-
     ax2.set_xlabel(r'$\log x$', fontsize=20)
     ax2.set_ylabel(r'$a \cdot (1-(1-q)\cdot b\cdot x^2)^{\frac{q}{1-q}}$',
                    fontsize=20)
@@ -213,7 +207,6 @@ if QFits:
     ax3.plot(xPlot, func4(xPlot, q=1.2), 'k-o', mew=0, lw=2, ms=7)
     ax3.plot(xPlot, func4(xPlot, q=1.5), 'm-o', mew=0, lw=2, ms=7)
     ax3.plot(xPlot, func4(xPlot, q=5. / 3.), 'c-o', mew=0, lw=2, ms=7)
-
     ax3.set_ylim(y1, y2)
     ax3.set_xlabel('x', fontsize=20)
     ax3.set_ylabel(r'$\log \left(a \cdot (1-(1-q)\cdot b\cdot x^2)^{\frac {q}{1-q}} \right)$',
@@ -226,7 +219,6 @@ if QFits:
     ax4.plot(xPlot, func4(xPlot, q=1.2), 'k-o', mew=0, lw=2, ms=7)
     ax4.plot(xPlot, func4(xPlot, q=1.5), 'm-o', mew=0, lw=2, ms=7)
     ax4.plot(xPlot, func4(xPlot, q=5. / 3.), 'c-o', mew=0, lw=2, ms=7)
-
     ax4.set_ylim(y1, y2)
     ax4.set_xlabel(r'$\log x$', fontsize=20)
     ax4.set_ylabel(r'$\log \left(a \cdot (1-(1-q)\cdot b\cdot x^2)^{\frac {q}{1-q}}\right)$',
@@ -246,7 +238,6 @@ if CompareFits:
              label=r'$a=1, q=\frac{5}{3}, b=1$', lw=2, ms=7)
     ax1.plot(xPlot, func4(xPlot), 'g-o', mew=0,
              label=r'$a=1, q=\frac{1}{2}, b=1$', lw=2, ms=7)
-
     ax1.set_ylabel('y', fontsize=20)
     ax1.set_title('Comparison of fits', fontsize=20)
     ax1.legend(prop=dict(size=13), numpoints=1, ncol=1,
@@ -257,7 +248,6 @@ if CompareFits:
     ax2.plot(xPlot, func2(xPlot), 'r-o', mew=0, lw=2, ms=7)
     ax2.plot(xPlot, func4(xPlot, q=5. / 3.), 'b-o', mew=0, lw=2, ms=7)
     ax2.plot(xPlot, func4(xPlot), 'g-o', mew=0, lw=2, ms=7)
-
     ax2.set_xlim(x1, 5 * x2)
     ax2.set_ylim(0, 1.2)
     ax2.set_xscale('log')
@@ -265,7 +255,6 @@ if CompareFits:
     ax3.plot(xPlot, func2(xPlot), 'r-o', mew=0, lw=2, ms=7)
     ax3.plot(xPlot, func4(xPlot, q=5. / 3.), 'b-o', mew=0, lw=2, ms=7)
     ax3.plot(xPlot, func4(xPlot), 'g-o', mew=0, lw=2, ms=7)
-
     ax3.set_xlim(-2.5, 2.5)
     ax3.set_ylim(y1, y2)
     ax3.set_xlabel(r'x', fontsize=20)
@@ -275,7 +264,6 @@ if CompareFits:
     ax4.plot(xPlot, func2(xPlot), 'r-o', mew=0, lw=2, ms=7)
     ax4.plot(xPlot, func4(xPlot, q=5./3.), 'b-o', mew=0, lw=2, ms=7)
     ax4.plot(xPlot, func4(xPlot), 'g-o', mew=0, lw=2, ms=7)
-
     ax4.set_xlim(x1, 3 * x2)
     ax4.set_ylim(y1, y2)
     ax4.set_xlabel(r'$\log x$', fontsize=20)

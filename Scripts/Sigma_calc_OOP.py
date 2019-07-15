@@ -18,7 +18,6 @@ bins = bins_list[0]
 R_limit = 100
 R_hob_par = R[GoodIDs]
 G = 1.  # Gravitational constant
-
 Gammas = [-1.5, -2.0, -2.5, -3.0]
 Gamma = Gammas[0]
 if Gamma == -2.0:
@@ -119,9 +118,9 @@ def particle_mass(m):
     return particle_number() * m
 
 
-def circular_velocity():
+def get_circular_velocity(mass=particle_mass(), radius=r_2):
     '''Circular velocity of halo.'''
-    return (G * particle_mass() / r_2) ** .5
+    return np.sqrt(G * mass / radius)
 
 
 def chi_2(param=gamma_arr):
@@ -140,10 +139,10 @@ def chi_2(param=gamma_arr):
 
 # Set values and instantiate functions ----------------------------------------
 
-posR_par_inside_halo = particle_positions()
-nr_par_inside_halo = particle_number()
+posR_par_in_halo = particle_positions()
+nr_par_in_halo = particle_number()
 M_2 = particle_mass()
-v_circ_2 = circular_velocity()
+v_circ_2 = get_circular_velocity()
 r = modulus(x, y, z)
 v = modulus(vx, vy, vz)
 r_r2 = r / r_2
@@ -160,8 +159,7 @@ out_names = [f'A{file_str}IC_ASCII', f'A{file_str}5_005_ASCII',
              f'B{file_str}199_093_ASCII']
 
 # Note ------------------------------------------------------------------------
-# Calculates the median of vx, vy, vz for all particles
-# which are inside the cluster.
+# Calculates the median of vx, vy, vz for all particles in the cluster.
 # Thereafter the cluster is centered in velocity-space.
 # Using the median is better than using the mean,
 # because the median is insensitive to outliers.
@@ -197,7 +195,7 @@ def radius_slice(bin_start, bin_end):
     return (bin_start + bin_end) / 2
 
 
-def volume_slice(bin_start, bin_end):
+def get_volume_slice(bin_start, bin_end):
     '''Calculate volume of radial cluster-slice.'''
     return (4. / 3.) * np.pi * (bin_end ** 3 - bin_start ** 3)
 

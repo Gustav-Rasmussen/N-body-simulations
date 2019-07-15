@@ -1,14 +1,21 @@
+import numpy as np
 
 # Choices: Gamma, (R_limit_32, R_limit_500, R_limit_5000, R_limit_10000)
+
+F = 'IamAtestFileName'
+Gammas = [-1.5, -2.0, -2.5, -3.0]
+Gamma = Gammas[1]
+Beta = 1.
+keep_IC_R_middle = 0
+new_R_middle = 0
+R_bin_automatic = 0
 
 # Analyse larger volume of structure
 R_limit_32 = 0
 R_limit_500 = 0
 R_limit_5000 = 0
 R_limit_10000 = 0
-
 large_R_middle = 0
-
 # Analyse larger volume of structure, sets R_limit to 10000
 largest_R_limit = 0
 # Analyse large volume of structure, sets R_limit to 5000
@@ -62,14 +69,6 @@ elif larger_fewer_bins:
     F += '_20_radial_bins'
 else:
     nr_binning_bins = 52
-
-Gammas = [-1.5, -2.0, -2.5, -3.0]
-Gamma = Gammas[1]
-Beta = 1.
-
-keep_IC_R_middle = 0
-new_R_middle = 0
-R_bin_automatic = 0
 
 if keep_IC_R_middle:  # For R_limit_10000 and 20 bins.
     if F.startswith('HQ10000_G'):

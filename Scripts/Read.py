@@ -1,17 +1,9 @@
 # -*- coding: utf-8 -*-
 
-# import h5py
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.colors import LogNorm
-# from pylab import *
-# import seaborn as sns
-# from pathlib import Path
-# import Gammas_and_R_middles
-# import getSnapshotValues
-# import snapshotFiles
-# import NoOfParticlesAndParticleMass
-# from definePaths import *
+import Sigma_calc_OOP as scoop
 
 simulationsLst = ['A', 'B', 'Soft_B', 'CS1', 'CS2', 'CS3', 'CS4',
                   'CS5', 'CS6', 'DS1', 'D2', 'Soft_D2', 'E']
@@ -21,15 +13,6 @@ R_hob_par = R[GoodIDs]
 
 def get_sphere_volume(radius):
     return 4 / 3 * np.pi * radius ** 3
-
-
-def get_circular_velocity(mass, radius):
-    return np.sqrt(G * mass / radius)
-
-
-def get_volume_slice(minR, maxR):
-    """Get volume of radial slice of cluster."""
-    return (4. / 3.) * np.pi * (maxR ** 3 - minR ** 3)
 
 
 def get_bin_number_density(number, volume):
@@ -50,12 +33,12 @@ def get_volume_ratio(bin_density, cluster_volume, bin_mass):
 
 if Gamma == Gammas[1]:
     r_2 = R_middle
-    # position of particles inside halo
+    # position of particles in halo
     posR_par_in_halo = np.where(R_hob_par < r_2)
     nr_par_in_halo = len(posR_par_in_halo[0])
     M_2 = nr_par_in_halo * m
     G = 1.
-    v_circ_2 = get_circular_velocity(M_2, r_2)
+    v_circ_2 = scoop.get_circular_velocity(M_2, r_2)
     V_2 = get_sphere_volume(r_2)
 
 (density_arr, Volume_arr, rho_arr, rho_2_arr) = ([] for i in range(4))
@@ -76,7 +59,7 @@ for i in range(0, int(nr_bins - 2)):  # loop over 0-998
     # number of particles inside a radial bin
     nr_par_in_bin_i = len(posR_par_in_bin_i)
     # Volume of cluster
-    Volume_cl = get_volume_slice(min_R_bin_i, max_R_bin_i)
+    Volume_cl = scoop.get_volume_slice(min_R_bin_i, max_R_bin_i)
     den_cl = get_bin_number_density(nr_par_in_bin_i, Volume_cl)
     rho = get_bin_density(m, den_cl)
     rho_2 = get_volume_ratio(rho, V_2, M_2)
@@ -87,8 +70,7 @@ for i in range(0, int(nr_bins - 2)):  # loop over 0-998
     rho_arr.append(rho)
     rho_2_arr.append(rho_2)
 
-Invers_Volume_arr = np.log10(np.divide(np.ones(len(Volume_arr)),
-                             Volume_arr))
+Invers_Volume_arr = np.log10(np.divide(np.ones(len(Volume_arr)), Volume_arr))
 
 print('len(density_arr) = ', len(density_arr),
       'len(rho_arr) = ', len(rho_arr),
@@ -130,24 +112,19 @@ if Fig1_Density:
     # y_plot = density_arr
     plt.xlabel(r'$\log r$', fontsize=30)
     plt.ylabel(r'$\log \rho$', fontsize=30)
-    plt.plot(x_plot[0:int(nr_bins - 2)], np.log10(rho_arr),
-             'g-o', ms=2, lw=2, mew=0, label=r'$\rho$')
-    # plt.legend(prop=dict(size=12), numpoints=2, ncol=2,
-    #            frameon=True, loc=1, handlelength=2.5)
-
+    plt.plot(x_plot[0:int(nr_bins - 2)], np.log10(rho_arr), 'g-o', ms=2, lw=2,
+             mew=0, label=r'$\rho$')
     if Fig1_Densityfit:
         x = binning_arr_lin_log10
         y_plot = rho_Hernquist(1. / (2 * np.pi), 1., x)
         plt.plot(np.log10(x), np.log10(y_plot), 'k:o', ms=2, lw=2, mew=0,
                  label=r'$\frac{1}{2\pi r (1+r)^3}$')
-        plt.title(r'Density profile (B IC with 998 radial bins)',
-                  fontsize=30)
+        plt.title('Density profile (B IC with 998 radial bins)', fontsize=30)
         leg = plt.legend(prop=dict(size=30), numpoints=2, ncol=1,
                          fancybox=True, loc=0, handlelength=2.5)
         leg.get_frame().set_alpha(.5)
         plotName = '_Density_fit.png'
         f.savefig(savefigStr(simulationsLst[0], plotName))
-
     else:
         plt.title('Density profile', fontsize=30)
         plotName = '_Density.png'
@@ -162,28 +139,23 @@ if Fig2_Density_r_2:
     plt.ylabel(r'$\log \rho$', fontsize=30)
     plt.plot(x_plot[0:int(nr_bins - 2)], np.log10(rho_arr),
              'g-o', ms=2, lw=2, mew=0, label=r'$\rho$')
-    plt.title(r'Density profile (B IC with 998 radial bins)', fontsize=30)
+    plt.title('Density profile (B IC with 998 radial bins)', fontsize=30)
     plotName = '_Density_r_2.png'
     f.savefig(savefigStr(simulationsLst[0], plotName))
 
 if Fig3_Potential:
-    f = plt.figure()
-    ax1 = plt.subplot(121)
-    plt.xlabel('r')
-    plt.ylabel(r'$\Phi$')
-    plt.title('Potential')
-    plt.plot(Rcl, Vcl, 'bo', ms=2, mew=0)
-    plt.grid()
-
-    ax2 = plt.subplot(122)
-    plt.xlabel(r'$\log r$')
-    plt.plot(np.log10(Rcl), Vcl, 'bo', ms=2, mew=0)
-    plt.grid()
-    setp(ax2.get_yticklabels(), visible=False)
-
+    f, (ax1, ax2) = plt.subplots(1, 2)
+    ax1.xlabel('r')
+    ax1.ylabel(r'$\Phi$')
+    ax1.title('Potential')
+    ax1.plot(Rcl, Vcl, 'bo', ms=2, mew=0)
+    ax1.grid()
+    ax2.xlabel(r'$\log r$')
+    ax2.plot(np.log10(Rcl), Vcl, 'bo', ms=2, mew=0)
+    ax2.grid()
+    f.setp(ax2.get_yticklabels(), visible=False)
     plotName = '_Potential.png'
     f.savefig(savefigStr(simulationsLst[0], plotName))
-
 
 # plot rectangular slice through cluster:
 if Fig4_xy_rectangular:
@@ -193,27 +165,22 @@ if Fig4_xy_rectangular:
     plt.ylabel('y')
     plt.hist2d(xclrec, yclrec, bins=200, norm=LogNorm())
     plt.colorbar()
-
     plotName = '_xy_rectangular.png'
     f.savefig(savefigStr(simulationsLst[0], plotName))
 
 # 3 plots of the velocities as function of x.
 if Fig5_cartesian_velocities:
-    f = plt.figure()
-    ax1 = plt.subplot(131)
-    plt.ylabel('vxnew')
-    plt.plot(xclrec, vxnew, 'bo', ms=2, mew=0)
-    plt.title('velocities')
-    ax2 = plt.subplot(132)
-    plt.xlabel('x')
-    plt.ylabel('vynew')
-    plt.plot(xclrec, vynew, 'bo', ms=2, mew=0)
-    setp(ax2.get_yticklabels(), visible=False)
-    ax3 = plt.subplot(133)
-    plt.ylabel('vznew')
-    plt.plot(xclrec, vznew, 'bo', ms=2, mew=0)
-    setp(ax3.get_yticklabels(), visible=False)
-
+    f, (ax1, ax2, ax3) = plt.subplots(1, 3)
+    ax1.ylabel('vxnew')
+    ax1.plot(xclrec, vxnew, 'bo', ms=2, mew=0)
+    ax1.title('velocities')
+    ax2.xlabel('x')
+    ax2.ylabel('vynew')
+    ax2.plot(xclrec, vynew, 'bo', ms=2, mew=0)
+    f.setp(ax2.get_yticklabels(), visible=False)
+    ax3.ylabel('vznew')
+    ax3.plot(xclrec, vznew, 'bo', ms=2, mew=0)
+    f.setp(ax3.get_yticklabels(), visible=False)
     plotName = '_cartesian_velocities.png'
     f.savefig(savefigStr(simulationsLst[0], plotName))
 
