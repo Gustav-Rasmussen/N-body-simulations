@@ -12,9 +12,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-def rho_Hernquist(rho_0_HQ, rs, x):
+def rho_HQ(rho0, rs, x):
     """Return Hernquist density profile."""
-    return rho_0_HQ / (x / rs * (1 + x / rs) ** 3)
+    return rho0 / (x / rs * (1 + x / rs) ** 3)
 
 
 def rho_NFW(rho_0_NFW, rs, x):

@@ -3,11 +3,7 @@
 import matplotlib.lines as lines
 import matplotlib.pyplot as plt
 import numpy as np
-
-
-def rhoHQ(r, rho0, rS):
-    """Return Hernquist density profile."""
-    return rho0 / ((r / rS) * (1 + r / rS) ** 3.)
+from RhoAndGaussianAndTsallis import rho_HQ
 
 
 def betaOM(r, rA=1.20):
