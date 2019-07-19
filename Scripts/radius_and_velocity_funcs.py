@@ -66,9 +66,7 @@ def main():
     r, Phi, Theta = spherical_coords(x, y, z)
     VR, VTheta, VPhi, VT = spherical_velocities(vx, vy, vz, Theta, Phi)
     Speed = modulus(vx, vy, vz)
-    print(r, Phi, Theta)
-    print(VR, VTheta, VPhi, VT)
-    print(Speed)
+    print(r, Phi, Theta, VR, VTheta, VPhi, VT, Speed)
 
 
 if __name__ == '__main__':

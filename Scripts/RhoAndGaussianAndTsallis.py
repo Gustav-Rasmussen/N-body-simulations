@@ -23,7 +23,6 @@ def rho_NFW(rho_0_NFW, rs, x):
 
 
 # Constants -------------------------------------------------------------------
-
 log10x = 1
 x = 10.0 ** log10x
 # Renames:
@@ -152,7 +151,7 @@ if GaussianFits:
     ax3.set_xlim(-4, 4)
     ax3.set_ylim(y1, y2)
     ax3.set_xlabel(r'x', fontsize=20)
-    ax3.set_ylabel(r'$ \log \left( a e^{-b x^2} \right)$', fontsize=20)
+    ax3.set_ylabel(r'$\log\left(a e^{-b x^2}\right)$', fontsize=20)
     ax3.set_yscale('log')
 
     ax4.plot(xPlot, func2(xPlot, b=1), 'r-o', mew=0, lw=2, ms=7)
@@ -163,7 +162,7 @@ if GaussianFits:
     ax4.set_xlim(-4, 4)
     ax4.set_ylim(y1, y2)
     ax4.set_xlabel(r'$\log x$', fontsize=20)
-    ax4.set_ylabel(r'$\log \left(a e^{-b x^2} \right)$', fontsize=20)
+    ax4.set_ylabel(r'$\log\left(a e^{-b x^2}\right)$', fontsize=20)
     ax4.set_xscale('log')
     ax4.set_yscale('log')
 
@@ -183,7 +182,7 @@ if QFits:
     ax1.plot(xPlot, func4(xPlot, q=5. / 3.), 'c-o', mew=0,
              label=r'$a=1, q=\frac{5}{3}, b=1$', lw=2, ms=7)
     ax1.set_xlabel('x', fontsize=20)
-    ax1.set_ylabel(r'$a \cdot (1-(1-q)\cdot b\cdot x^2)^{\frac {q}{1-q}}$',
+    ax1.set_ylabel(r'$a\cdot(1-(1-q)\cdot b\cdot x^2)^{\frac{q}{1-q}}$',
                    fontsize=20)
     ax1.set_title('q-fits', fontsize=20)
     ax1.legend(prop=dict(size=13), numpoints=1, ncol=1,
@@ -197,7 +196,7 @@ if QFits:
     ax2.plot(xPlot, func4(xPlot, q=1.5), 'm-o', mew=0, lw=2, ms=7)
     ax2.plot(xPlot, func4(xPlot, q=5. / 3.), 'c-o', mew=0, lw=2, ms=7)
     ax2.set_xlabel(r'$\log x$', fontsize=20)
-    ax2.set_ylabel(r'$a \cdot (1-(1-q)\cdot b\cdot x^2)^{\frac{q}{1-q}}$',
+    ax2.set_ylabel(r'$a\cdot(1-(1-q)\cdot b\cdot x^2)^{\frac{q}{1-q}}$',
                    fontsize=20)
     ax2.set_xscale('log')
 
@@ -209,7 +208,7 @@ if QFits:
     ax3.plot(xPlot, func4(xPlot, q=5. / 3.), 'c-o', mew=0, lw=2, ms=7)
     ax3.set_ylim(y1, y2)
     ax3.set_xlabel('x', fontsize=20)
-    ax3.set_ylabel(r'$\log \left(a \cdot (1-(1-q)\cdot b\cdot x^2)^{\frac {q}{1-q}} \right)$',
+    ax3.set_ylabel(r'$\log\left(a\cdot(1-(1-q)\cdot b\cdot x^2)^{\frac{q}{1-q}}\right)$',
                    fontsize=20)
     ax3.set_yscale('log')
 
@@ -221,7 +220,7 @@ if QFits:
     ax4.plot(xPlot, func4(xPlot, q=5. / 3.), 'c-o', mew=0, lw=2, ms=7)
     ax4.set_ylim(y1, y2)
     ax4.set_xlabel(r'$\log x$', fontsize=20)
-    ax4.set_ylabel(r'$\log \left(a \cdot (1-(1-q)\cdot b\cdot x^2)^{\frac {q}{1-q}}\right)$',
+    ax4.set_ylabel(r'$\log\left(a\cdot(1-(1-q)\cdot b\cdot x^2)^{\frac{q}{1-q}}\right)$',
                    fontsize=20)
     ax4.set_xscale('log')
     ax4.set_yscale('log')
@@ -231,7 +230,6 @@ if CompareFits:
     x2 = 10 ** 0
     y1 = 1.2 * 10 ** -1
     y2 = 1.5 * 10 ** 0
-
     ax1.plot(xPlot, func2(xPlot), 'r-o', mew=0, label=r'$a=1, b=\frac{1}{2}$',
              lw=2, ms=7)
     ax1.plot(xPlot, func4(xPlot, q=5./3.), 'b-o', mew=0,
@@ -257,7 +255,7 @@ if CompareFits:
     ax3.plot(xPlot, func4(xPlot), 'g-o', mew=0, lw=2, ms=7)
     ax3.set_xlim(-2.5, 2.5)
     ax3.set_ylim(y1, y2)
-    ax3.set_xlabel(r'x', fontsize=20)
+    ax3.set_xlabel('x', fontsize=20)
     ax3.set_ylabel(r'$\log y$', fontsize=20)
     ax3.set_yscale('log')
 

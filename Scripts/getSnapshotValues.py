@@ -93,14 +93,13 @@ vznew = vz[GoodIDs_rec] - np.median(vzclrec)
 Vclrec = V[GoodIDs_rec]
 Rclrec = R[GoodIDs_rec]
 
-
 bins_202 = 0
 bins_102 = 0
 # Reduce number of radial bins in analysis code.
 # This makes them larger and they therefore contain more particles.
 larger_fewer_bins = 1
-largest_R_limit = 1  # Analyse larger volume of structure, sets R_limit to 10000.
-large_R_limit = 0  # Analyse large volume of structure, sets R_limit to 5000.
+largest_R_limit = 1  # Analyze larger volume of structure, set R_limit to 10000.
+large_R_limit = 0  # Analyze large volume of structure, sets R_limit to 5000.
 
 IC_R_middle = 0
 keep_IC_R_middle = 0
@@ -109,8 +108,7 @@ large_R_middle = 0
 R_bin_automatic = 0
 
 if large_R_middle:
-    # R_middle =  10 ** 1.3
-    R_middle = 10 ** 1.5
+    R_middle = 10 ** 1.5  # 10 ** 1.3
 
 # make R_limit_min and R_limit_max selection automatic
 R_limit_min, R_limit_max = R_middle
