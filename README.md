@@ -21,8 +21,8 @@ Python algorithms<br/>
 
 ***BINNING***<br/>
 + Radial bins
-+ velocity bins
-+ Mass bins (implemented as number bins)
++ Velocity bins
++ Number bins
 
 ***AIM OF THIS PROJECT***<br/>
-To reproduce the Dark matter attractor shown by Steen Hansen et. al.
+Reproduce attractor of dark matter (shown by Steen Hansen et. al.)
