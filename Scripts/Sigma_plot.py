@@ -3,7 +3,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import pylab
-# from definePaths import *
 from collections import namedtuple
 from Sigma_calc_OOP import chi_2, modulus, phi, theta, radial_velocity
 
