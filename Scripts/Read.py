@@ -7,10 +7,23 @@ import Sigma_calc_OOP as scoop
 from RhoAndGaussianAndTsallis import rho_HQ
 import Mock_data as mock
 
+figurePath = mock.figurePath
+Gamma = mock.Gamma
+Gammas = mock.Gammas
+x, y, z = mock.x, mock.y, mock.z
+R = mock.R
+R_middle = mock.R_middle
+R_limit = mock.R_limit
+R_hob_par = mock.R[mock.GoodIDs]
+m = mock.m
+nr_bins = mock.nr_bins
+max_binning_R_unitRmax = mock.max_binning_R_unitRmax
+min_binning_R_unitRmax = mock.min_binning_R_unitRmax
+Rcl, Vcl, xclrec, yclrec = mock.Rcl, mock.Vcl, mock.xclrec, mock.yclrec
+vxnew, vynew, vznew = mock.vxnew, mock.vynew, mock.vznew
+
 simulationsLst = ['A', 'B', 'Soft_B', 'CS1', 'CS2', 'CS3', 'CS4',
                   'CS5', 'CS6', 'DS1', 'D2', 'Soft_D2', 'E']
-
-R_hob_par = mock.R[mock.GoodIDs]
 
 
 def get_sphere_volume(radius):
@@ -34,15 +47,15 @@ def get_volume_ratio(bin_density, cluster_volume, bin_mass):
 
 
 def savefigStr(simName, plotName):
-    return f'{mock.figurePath}{simName}{plotName}'
+    return f'{figurePath}{simName}{plotName}'
 
 
-if mock.Gamma == mock.Gammas[1]:
-    r_2 = mock.R_middle
+if Gamma == Gammas[1]:
+    r_2 = R_middle
     # position of particles in halo
     posR_par_in_halo = np.where(R_hob_par < r_2)
     nr_par_in_halo = len(posR_par_in_halo[0])
-    M_2 = nr_par_in_halo * mock.m
+    M_2 = nr_par_in_halo * m
     G = 1.
     v_circ_2 = scoop.get_circular_velocity(M_2, r_2)
     V_2 = get_sphere_volume(r_2)
@@ -50,19 +63,18 @@ if mock.Gamma == mock.Gammas[1]:
 (density_arr, Volume_arr, rho_arr, rho_2_arr) = ([] for i in range(4))
 
 # Array, 0.00001-1.
-binning_arr_lin_log10_unitRmax = 10 ** ((np.arange(mock.nr_bins)
-                                        / (mock.nr_bins - 1))
-                                        * abs(np.log10(mock.max_binning_R_unitRmax)
-                                        - np.log10(mock.min_binning_R_unitRmax))
-                                        + np.log10(mock.min_binning_R_unitRmax))
+binning_arr_lin_log10_unitRmax = 10 ** ((np.arange(nr_bins) / (nr_bins - 1))
+                                        * abs(np.log10(max_binning_R_unitRmax)
+                                        - np.log10(min_binning_R_unitRmax))
+                                        + np.log10(min_binning_R_unitRmax))
 
 # Array, 0-500
-binning_arr_lin_log10 = mock.R_limit * binning_arr_lin_log10_unitRmax
-for i in range(0, int(mock.nr_bins - 2)):  # loop over 0-998
+binning_arr_lin_log10 = R_limit * binning_arr_lin_log10_unitRmax
+for i in range(0, int(nr_bins - 2)):  # loop over 0-998
     min_R_bin_i = binning_arr_lin_log10[i]  # start of bin
     max_R_bin_i = binning_arr_lin_log10[i + 1]  # end of bin
     # position of particles inside a radial bin
-    posR_par_in_bin_i = np.where(min_R_bin_i < mock.R < max_R_bin_i)[0]
+    posR_par_in_bin_i = np.where(min_R_bin_i < R < max_R_bin_i)[0]
     # number of particles inside a radial bin
     nr_par_in_bin_i = len(posR_par_in_bin_i)
     # Volume of cluster
@@ -81,22 +93,22 @@ Invers_Volume_arr = np.log10(np.divide(np.ones(len(Volume_arr)), Volume_arr))
 
 print('len(density_arr) = ', len(density_arr),
       'len(rho_arr) = ', len(rho_arr),
-      'len(x) = ', len(mock.x),
-      'len(y) = ', len(mock.y),
-      'len(z) = ', len(mock.z),
-      'len(R) = ', len(mock.R),
-      'x[0] = ', mock.x[0],
-      'y[0] = ', mock.y[0],
-      'z[0] = ', mock.z[0],
-      'R[0] = ', mock.R[0],
-      'x[100] = ', mock.x[100],
-      'y[100] = ', mock.y[100],
-      'z[100] = ', mock.z[100],
-      'R[100] = ', mock.R[100],
-      'x[99999] = ', mock.x[99999],
-      'y[99999] = ', mock.y[99999],
-      'z[99999] = ', mock.z[99999],
-      'R[99999] = ', mock.R[99999])
+      'len(x) = ', len(x),
+      'len(y) = ', len(y),
+      'len(z) = ', len(z),
+      'len(R) = ', len(R),
+      'x[0] = ', x[0],
+      'y[0] = ', y[0],
+      'z[0] = ', z[0],
+      'R[0] = ', R[0],
+      'x[100] = ', x[100],
+      'y[100] = ', y[100],
+      'z[100] = ', z[100],
+      'R[100] = ', R[100],
+      'x[99999] = ', x[99999],
+      'y[99999] = ', y[99999],
+      'z[99999] = ', z[99999],
+      'R[99999] = ', R[99999])
 
 # Switches for figures -------------------------------------------------
 Fig1_Density = 0
@@ -114,7 +126,7 @@ if Fig1_Density:
     # y_plot = density_arr
     plt.xlabel(r'$\log r$', fontsize=30)
     plt.ylabel(r'$\log \rho$', fontsize=30)
-    plt.plot(x_plot[0:int(mock.nr_bins - 2)], np.log10(rho_arr), 'g-o', ms=2,
+    plt.plot(x_plot[0:int(nr_bins - 2)], np.log10(rho_arr), 'g-o', ms=2,
              lw=2, mew=0, label=r'$\rho$')
     if Fig1_Densityfit:
         x = binning_arr_lin_log10
@@ -137,9 +149,9 @@ if Fig2_Density_r_2:
     v = [-1, 1, -4, .5]
     plt.axis(v)
     x_plot = np.log10(binning_arr_lin_log10 / r_2)
-    plt.xlabel(r'$\log (\frac{r}{r_{-2}})$', fontsize=30)
-    plt.ylabel(r'$\log \rho$', fontsize=30)
-    plt.plot(x_plot[0:int(mock.nr_bins - 2)], np.log10(rho_arr), 'g-o', ms=2,
+    plt.xlabel(r'$\log(\frac{r}{r_{-2}})$', fontsize=30)
+    plt.ylabel(r'$\log\rho$', fontsize=30)
+    plt.plot(x_plot[0:int(nr_bins - 2)], np.log10(rho_arr), 'g-o', ms=2,
              lw=2, mew=0, label=r'$\rho$')
     plt.title('Density profile (B IC with 998 radial bins)', fontsize=30)
     plotName = '_Density_r_2.png'
@@ -150,10 +162,10 @@ if Fig3_Potential:
     ax1.xlabel('r')
     ax1.ylabel(r'$\Phi$')
     ax1.title('Potential')
-    ax1.plot(mock.Rcl, mock.Vcl, 'bo', ms=2, mew=0)
+    ax1.plot(Rcl, Vcl, 'bo', ms=2, mew=0)
     ax1.grid()
     ax2.xlabel(r'$\log r$')
-    ax2.plot(np.log10(mock.Rcl), mock.Vcl, 'bo', ms=2, mew=0)
+    ax2.plot(np.log10(Rcl), Vcl, 'bo', ms=2, mew=0)
     ax2.grid()
     f.setp(ax2.get_yticklabels(), visible=False)
     plotName = '_Potential.png'
@@ -165,7 +177,7 @@ if Fig4_xy_rectangular:
     plt.title('Rectangular slice through cluster')
     plt.xlabel('x')
     plt.ylabel('y')
-    plt.hist2d(mock.xclrec, mock.yclrec, bins=200, norm=LogNorm())
+    plt.hist2d(xclrec, yclrec, bins=200, norm=LogNorm())
     plt.colorbar()
     plotName = '_xy_rectangular.png'
     f.savefig(savefigStr(simulationsLst[0], plotName))
@@ -174,14 +186,14 @@ if Fig4_xy_rectangular:
 if Fig5_cartesian_velocities:
     f, (ax1, ax2, ax3) = plt.subplots(1, 3)
     ax1.ylabel('vxnew')
-    ax1.plot(mock.xclrec, mock.vxnew, 'bo', ms=2, mew=0)
+    ax1.plot(xclrec, vxnew, 'bo', ms=2, mew=0)
     ax1.title('velocities')
     ax2.xlabel('x')
     ax2.ylabel('vynew')
-    ax2.plot(mock.xclrec, mock.vynew, 'bo', ms=2, mew=0)
+    ax2.plot(xclrec, vynew, 'bo', ms=2, mew=0)
     f.setp(ax2.get_yticklabels(), visible=False)
     ax3.ylabel('vznew')
-    ax3.plot(mock.xclrec, mock.vznew, 'bo', ms=2, mew=0)
+    ax3.plot(xclrec, vznew, 'bo', ms=2, mew=0)
     f.setp(ax3.get_yticklabels(), visible=False)
     plotName = '_cartesian_velocities.png'
     f.savefig(savefigStr(simulationsLst[0], plotName))

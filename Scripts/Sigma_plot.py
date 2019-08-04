@@ -5,15 +5,22 @@ import matplotlib.pyplot as plt
 import pylab
 from collections import namedtuple
 from Sigma_calc_OOP import chi_2, modulus, phi, theta, radial_velocity
+import Mock_data as mock
 
 simulations = ['A/', 'B/', 'Soft_B/', 'CS4/', 'CS5/', 'CS6/', 'DS1/',
                'Soft_D2/', 'E/']
 
-# Hardcode mocked data
-(x, y, z, xC, yC, zC, v, vx, vy, vz, r, r_2, r_r2, bin_radius_arr, sigma2_arr,
- sigmarad2_arr, sigmatheta2_arr, sigmaphi2_arr, sigmatan2_arr, v_circ_2,
- beta_arr, kappa_arr, gamma_arr, V) = 0
-textFilesPath, figurePath, F = ''
+# mock data
+x, y, z = mock.x, mock.y, mock.z
+xC, yC, zC = mock.xC, mock.yC, mock.zC
+v, vx, vy, vz = mock.v, mock.vx, mock.vy, mock.vz
+r, r_2, r_r2 = mock.r, mock.r_2, mock.r_r2
+bin_radius_arr, sigma2_arr = mock.bin_radius_arr, mock.sigma2_arr
+sigmarad2_arr, sigmatheta2_arr = mock.sigmarad2_arr, mock.sigmatheta2_arr
+sigmaphi2_arr, sigmatan2_arr = mock.sigmaphi2_arr, mock.sigmatan2_arr
+v_circ_2, beta_arr = mock.v_circ_2, mock.beta_arr
+kappa_arr, gamma_arr, V = mock.kappa_arr, mock.gamma_arr, mock.V
+textFilesPath, figurePath, F = mock.textFilesPath, mock.figurePath, mock.F
 
 text_files_path = textFilesPath / simulations[0]
 
