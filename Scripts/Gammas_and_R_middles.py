@@ -35,40 +35,25 @@ bins_22 = 0
 
 larger_fewer_bins = 1
 
-if R_limit_10000:
-    R_limit = 10000.
-    F += '_R_limit_10000'
-elif R_limit_5000:
-    R_limit = 5000.
-    F += '_R_limit_5000'
-elif R_limit_500:
-    R_limit = 500.
-    F += '_R_limit_500'
-elif R_limit_32:
-    R_limit = 32.
-    F += '_R_limit_32'
+R_limit = 'R_limit_10000'
+R_limit_Dict = {'R_limit_10000': 10000.,
+                'R_limit_5000': 5000.,
+                'R_limit_500': 500.,
+                'R_limit_32': 32.,
+                'largest_R_limit': 10000.,
+                'large_R_limit': 5000.
+                }
+R_limit = R_limit_Dict.get(R_limit, 500.)
+F += '_R_limit_' + R_limit
 
-if largest_R_limit:
-    R_limit = 10000.
-    F += '_R_limit_10000'
-elif large_R_limit:
-    R_limit = 5000.
-    F += '_R_limit_5000'
-else:
-    R_limit = 500.
-    # F += '_R_limit_500'
+nr_bins = 'bins_202'
+bins_Dict = {'bins_202': 202,
+             'bins_102': 102,
+             'larger_fewer_bins': 22
+             }
+nr_bins = bins_Dict.get(nr_bins, 52)
+F += f'{nr_bins}_radial_bins'
 
-if bins_202:
-    nr_binning_bins = 202
-    F += '_200_radial_bins'
-elif bins_102:
-    nr_binning_bins = 102
-    F += '_100_radial_bins'
-elif larger_fewer_bins:
-    nr_binning_bins = 22
-    F += '_20_radial_bins'
-else:
-    nr_binning_bins = 52
 
 if keep_IC_R_middle:  # For R_limit_10000 and 20 bins.
     if F.startswith('HQ10000_G'):
@@ -122,17 +107,12 @@ new_R_middle_dict = {'A_HQ10000_G1.0_0_000': [10 ** -.7, 10 ** -.35, 1., 10 ** .
 if new_R_middle:  # Choose new R_middle for each file.
     R_middles = new_R_middle_dict.get(F, "No such filename")
 
-if Gamma == Gammas[0]:
-    R_middle = R_middles[0]
-elif Gamma == Gammas[1]:
-    R_middle = R_middles[1]
-elif Gamma == Gammas[2]:
-    R_middle = R_middles[2]
-elif Gamma == Gammas[3]:
-    R_middle = R_middles[3]
+Gamma_Rmiddle_Dict = {Gammas[i]: R_middles[i] for i in range(4)}
+R_middle = Gamma_Rmiddle_Dict.get(Gamma, "Invalid Gamma value")
 
-# make R_limit_min and R_limit_max selection automatic
-if R_bin_automatic:
+
+def R_bin_automatic(R_middle, x, R):
+    '''Make R_limit_min and R_limit_max selection automatic.'''
     R_limit_min, R_limit_max = R_middle
     a = 0  # makes sure the while loop is entered.
     x0 = x
@@ -142,3 +122,8 @@ if R_bin_automatic:
         a += 1
         GoodIDs = np.where((R < R_limit_max) * (R > R_limit_min))
         x0 = x[GoodIDs[0]]
+    return R_limit_min, R_limit_max
+
+
+if R_bin_automatic:
+    R_limit_min, R_limit_max = R_bin_automatic(R_middle, x, R)
