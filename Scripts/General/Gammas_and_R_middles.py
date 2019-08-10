@@ -1,8 +1,7 @@
 import numpy as np
+import Mock_data as mock
 
-# Choices: Gamma, (R_limit_32, R_limit_500, R_limit_5000, R_limit_10000)
-
-F = 'IamAtestFileName'
+F = mock.F
 Gammas = [-1.5, -2.0, -2.5, -3.0]
 Gamma = Gammas[1]
 Beta = 1.
@@ -22,9 +21,8 @@ largest_R_limit = 0
 large_R_limit = 0
 
 if large_R_middle:
-    # R_middle = 10 ** 1.3
-    R_middle = 10 ** 1.5
-# print('R_middle = ', R_middle)
+    R_middles = [10 ** 1.3, 10 ** 1.5]
+    R_middle = R_middles[0]
 
 # Reduce number of radial bins in analysis code.
 # This makes them larger and they therefore contain more particles.
