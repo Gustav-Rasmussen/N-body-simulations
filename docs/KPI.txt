@@ -1,58 +1,18 @@
 ---------------------------------------------------------------------------
 
 
- ********   Logging timestamp:	2019-08-04 19:08:10.824761   ********
+ ********   Logging timestamp:	2019-08-10 12:31:42.443230   ********
 
 
 Module name 			 Number of lines 	 PEP-8 violations
 
-TimeEvolutionGammaKappaBeta.py          1278                     5
-gammaKappaBeta.py                       1179                    33
-velocityCheck.py                        1133                    41
-Sigma_plot.py                           686                     24
-Sigma_calc_OOP.py                       463                     15
-RhoAndGaussianAndTsallis.py             271                      2
-Read.py                                 201                      3
-getSnapshotValues.py                    148                      1
-Gammas_and_R_middles.py                 144                     40
-radius_and_velocity_funcs.py             73                      2
-Mock_data.py                             22                      0
-NoOfParticlesAndParticleMass.py          20                      0
-colorsAndSymbols.py                      7                       0
-
-
-**************   Number of Python scripts: 	13      **************
-
-**************   Total number of PEP8 violations: 	166   **************
-
-**************   Total number of code-lines: 	5625   **************
-
----------------------------------------------------------------------------
-
-
- ********   Logging timestamp:	2019-08-06 21:30:11.541825   ********
-
-
-Module name 			 Number of lines 	 PEP-8 violations
-
-TimeEvolutionGammaKappaBeta.py          1278                     5
-gammaKappaBeta.py                       1179                    33
-velocityCheck.py                        1133                    41
-Sigma_plot.py                           686                     24
-Sigma_calc_OOP.py                       463                     15
-RhoAndGaussianAndTsallis.py             271                      2
+velocityCheck.py                        1130                    36
 Read.py                                 197                      3
-getSnapshotValues.py                    148                      1
-Gammas_and_R_middles.py                 129                     40
-radius_and_velocity_funcs.py             73                      2
-Mock_data.py                             22                      0
-NoOfParticlesAndParticleMass.py          20                      0
-colorsAndSymbols.py                      7                       0
 
 
-**************   Number of Python scripts: 	13      **************
+**************   Number of Python scripts: 	2      **************
 
-**************   Total number of PEP8 violations: 	166   **************
+**************   Total number of PEP8 violations: 	39   **************
 
-**************   Total number of code-lines: 	5606   **************
+**************   Total number of code-lines: 	1327   **************
 
