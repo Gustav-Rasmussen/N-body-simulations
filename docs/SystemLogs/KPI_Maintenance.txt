@@ -1,0 +1,22 @@
+---------------------------------------------------------------------------
+
+
+ ********   Logging timestamp:	2019-08-10 13:32:53.458945   ********
+
+
+Module name 			 Number of lines 	 PEP-8 violations
+
+rename.py                               178                      0
+regexUpper.py                           117                      1
+pylab_test.py                            91                      0
+KPI.py                                   82                      9
+terminal_code.py                         21                      0
+request_data.py                          13                      1
+
+
+**************   Number of Python scripts: 	6      **************
+
+**************   Total number of PEP8 violations: 	11   **************
+
+**************   Total number of code-lines: 	502   **************
+
