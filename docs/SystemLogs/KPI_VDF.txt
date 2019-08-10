@@ -1,0 +1,24 @@
+---------------------------------------------------------------------------
+
+
+ ********   Logging timestamp:	2019-08-10 13:38:04.778938   ********
+
+
+Module name 			 Number of lines 	 PEP-8 violations
+
+readVDF2.py                             3769                    77
+readVDF_2_new_plot.py                   3061                    99
+VDFnetwork.py                           1071                    24
+VDFvelocityBins.py                      333                     16
+VDF.py                                  330                      3
+readVDF.py                               96                      0
+splitVDFt.py                             89                      3
+vSphericalAnd_vBins.py                   86                      1
+
+
+**************   Number of Python scripts: 	8      **************
+
+**************   Total number of PEP8 violations: 	223   **************
+
+**************   Total number of code-lines: 	8835   **************
+
