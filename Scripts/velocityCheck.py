@@ -50,6 +50,7 @@ xcl2, ycl2, zcl2 = mock.xcl2, mock.ycl2, mock.zcl2
 vxnew2, vynew2, vznew2 = mock.vxnew2, mock.vynew2, mock.vznew2
 v_t_arr, v_r_arr, VR_sigmarad = mock.v_t_arr, mock.v_r_arr, mock.VR_sigmarad
 
+
 def switch_R_middle_depending_on_Gamma(Gamma):
     """Switch case."""
     return {
@@ -144,15 +145,14 @@ if vsphericalold:
     # v_theta and v_phi -------------------------------------------------------
     v_theta, v_phi = np.zeros([len(x), 1]), np.zeros([len(x), 1])
     for i in range(len(x)):
-        if (x[i] ** 2 + y[i] ** 2 > 0.):
-            v_theta[i] = (x[i] * vy[i] - y[i] * vx[i]) \
-                        / (x[i] ** 2 + y[i] ** 2)
+        xy = x[i] ** 2 + y[i] ** 2
+        if (xy > 0.):
+            v_theta[i] = (x[i] * vy[i] - y[i] * vx[i]) / xy
     for i in range(len(x)):
-        if ((ravf.modulus(x[i], y[i], z[i]) > 0.) and
-            (z[i] != ravf.modulus(x[i], y[i], z[i]))):
-            v_phi[i] = ((ravf.modulus(x[i], y[i], z[i]) * vz[i] - z[i] * v_r[i])
-                        / (ravf.modulus(x[i], y[i], z[i]) ** 2)
-                        * (1 - (z[i] / ravf.modulus(x[i], y[i], z[i])) ** 2) ** .5)
+        r = ravf.modulus(x[i], y[i], z[i])
+        if ((r > 0.) and (z[i] != r)):
+            v_phi[i] = ((r * vz[i] - z[i] * v_r[i]) / (r ** 2)
+                        * (1 - (z[i] / r) ** 2) ** .5)
 
         '''
         v_phi[i] = (z[i] * (x[i] * vx[i] + y[i] * vy[i])
@@ -420,23 +420,20 @@ if vsphericalnew:
         v_tp.append(VT[i]) if (VT[i] >= 0.) else v_tn.append(VT[i])
     v_tp_arr, v_tn_arr = np.asarray(v_tp), np.asarray(v_tn)
 
+
+def show_object_and_shape(object):
+    print(f'{str(object)} = {object} \n {str(object)}.shape = {object.shape}')
+
+
 if print_vp_vn:
-    print(f'v_rp_arr = {v_rp_arr}'
-          f'v_rp_arr.shape = {v_rp_arr.shape}'
-          f'v_rn_arr = {v_rn_arr}'
-          f'v_rn_arr.shape = {v_rn_arr.shape}'
-          f'v_thetap_arr = {v_thetap_arr}'
-          f'v_thetap_arr.shape = {v_thetap_arr.shape}'
-          f'v_thetan_arr = {v_thetan_arr}'
-          f'v_thetan_arr.shape = {v_thetan_arr.shape}'
-          f'v_phip_arr = {v_phip_arr}'
-          f'v_phip_arr.shape = {v_phip_arr.shape}'
-          f'v_phin_arr = {v_phin_arr}'
-          f'v_phin_arr.shape = {v_phin_arr.shape}'
-          f'v_tp_arr = {v_tp_arr} \n'
-          f'v_tp_arr.shape = {v_tp_arr.shape} \n'
-          f'v_tn_arr = {v_tn_arr} \n'
-          f'v_tn_arr.shape = {v_tn_arr.shape} \n')
+    show_object_and_shape(v_rp_arr)
+    show_object_and_shape(v_rn_arr)
+    show_object_and_shape(v_thetap_arr)
+    show_object_and_shape(v_thetan_arr)
+    show_object_and_shape(v_phip_arr)
+    show_object_and_shape(v_phin_arr)
+    show_object_and_shape(v_tp_arr)
+    show_object_and_shape(v_tn_arr)
 
 if Fig8_vspherical_hist_log_vpvn:
     f = plt.figure()
