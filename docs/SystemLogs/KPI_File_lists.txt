@@ -1,0 +1,22 @@
+---------------------------------------------------------------------------
+
+
+ ********   Logging timestamp:	2019-08-10 13:39:42.736213   ********
+
+
+Module name 			 Number of lines 	 PEP-8 violations
+
+readVDF_2_new_files.py                  581                    216
+readVDF2FileLst.py                      495                      0
+fileLsts.py                             399                     19
+snapshotFiles.py                        197                      0
+dataLsts.py                              90                      0
+definePaths.py                           15                      0
+
+
+**************   Number of Python scripts: 	6      **************
+
+**************   Total number of PEP8 violations: 	235   **************
+
+**************   Total number of code-lines: 	1777   **************
+
