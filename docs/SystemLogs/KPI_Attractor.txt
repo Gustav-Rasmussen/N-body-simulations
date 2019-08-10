@@ -1,0 +1,20 @@
+---------------------------------------------------------------------------
+
+
+ ********   Logging timestamp:	2019-08-10 13:37:01.565236   ********
+
+
+Module name 			 Number of lines 	 PEP-8 violations
+
+TimeEvolutionGammaKappaBeta.py          1278                     5
+gammaKappaBeta.py                       1179                    33
+Sigma_plot.py                           686                     24
+Sigma_calc_OOP.py                       463                     15
+
+
+**************   Number of Python scripts: 	4      **************
+
+**************   Total number of PEP8 violations: 	77   **************
+
+**************   Total number of code-lines: 	3606   **************
+
