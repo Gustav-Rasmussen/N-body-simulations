@@ -15,7 +15,6 @@ line_count = "cat {} | wc -l"
 PEP8_count = "pep8 {} | wc -l"
 
 userPath = Path.cwd()
-# General_path = root + '/General'
 Logfile_ext = str(userPath).split("/")[-1]
 
 
@@ -24,8 +23,10 @@ def byte_to_str(byte_str):
     return string
 
 
-# Logfile = "KPI.txt"
-Logfile = f"KPI_{Logfile_ext}.txt"
+usr = '/Users/gustavcollinrasmussen/'
+proj = 'N-body-simulations/'
+logpath = usr + proj + 'StableStructures/docs/SystemLogs/'
+Logfile = logpath + f"KPI_{Logfile_ext}.txt"
 
 with open(Logfile, "a") as wf:
     wf.write("-" * 75 + "\n\n")
@@ -38,9 +39,8 @@ with open(Logfile, "a") as wf:
     total_line_count = 0
     total_pep8_count = 0
     # for root, dirs, files in os.walk("."):
-    root = "."
-
     '''
+    root = "."
     for item in os.listdir(root):
         if ((not os.path.isfile(os.path.join(root, item))) or
             (item == ".DS_Store") or
