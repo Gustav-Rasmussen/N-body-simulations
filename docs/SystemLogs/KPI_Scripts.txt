@@ -15,3 +15,22 @@ Read.py                                 197                      3
 **************   Total number of PEP8 violations: 	39   **************
 
 **************   Total number of code-lines: 	1327   **************
+
+---------------------------------------------------------------------------
+
+
+ ********   Logging timestamp:	2019-08-11 16:33:25.268915   ********
+
+
+Module name 			 Number of lines 	 PEP-8 violations
+
+velocityCheck.py                        1110                    36
+Read.py                                 197                      3
+
+
+**************   Number of Python scripts: 	2      **************
+
+**************   Total number of PEP8 violations: 	39   **************
+
+**************   Total number of code-lines: 	1307   **************
+
