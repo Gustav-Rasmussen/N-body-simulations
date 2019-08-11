@@ -493,16 +493,15 @@ if x14_25_36_same_length:
     x3, x6 = np.asarray(x3), np.asarray(x6)
 
 if print_x123456:
-    print(f'x1 = {x1}'
-          f'x1.shape = {x1.shape}'
-          f'x4.shape = {x4.shape}'
+
+    show_object_and_shape(x1)
+    show_object_and_shape(x2)
+    show_object_and_shape(x3)
+
+    print(f'x4.shape = {x4.shape}'
           f'v_thetap_arr.shape = {v_thetap_arr.shape}'
           f'v_thetan_arr.shape = {v_thetan_arr.shape}'
-          f'x2 = {x2}'
-          f'x2.shape = {x2.shape}'
           f'x5.shape = {x5.shape}'
-          f'x3 = {x3}'
-          f'x3.shape = {x3.shape}'
           f'x6.shape = {x6.shape}'
           f'type(x1) = {type(x1)}')
 
@@ -610,49 +609,30 @@ if vsphericalnew_sigma:
     VT_i_avg_in_bin_sigmaT_n_arr = np.asarray(VT_i_avg_in_bin_sigmaT_n)
 
 if print_Vp_Vn:
-    print(f'VR_sigmaR_p_arr = {VR_sigmaR_p_arr}'
-          f'VR_sigmaR_p_arr.shape = {VR_sigmaR_p_arr.shape}'
-          f'VR_sigmaR_n_arr = {VR_sigmaR_n_arr}'
-          f'VR_sigmaR_n_arr.shape = {VR_sigmaR_n_arr.shape}'
-          f'VTheta_sigmatheta_p_arr = {VTheta_sigmatheta_p_arr}'
-          f'VTheta_sigmatheta_p_arr.shape = {VTheta_sigmatheta_p_arr.shape}'
-          f'VTheta_sigmatheta_n_arr = {VTheta_sigmatheta_n_arr}'
-          f'VTheta_sigmatheta_n_arr.shape = {VTheta_sigmatheta_n_arr.shape}'
-          f'VPhi_sigmaphi_p_arr = {VPhi_sigmaphi_p_arr}'
-          f'VPhi_sigmaphi_p_arr.shape = {VPhi_sigmaphi_p_arr.shape}'
-          f'VPhi_sigmaphi_n_arr = {VPhi_sigmaphi_n_arr}'
-          f'VPhi_sigmaphi_n_arr.shape = {VPhi_sigmaphi_n_arr.shape}'
-          f'VT_sigmaT_p_arr = {VT_sigmaT_p_arr}'
-          f'VT_sigmaT_p_arr.shape = {VT_sigmaT_p_arr.shape}'
-          f'VT_sigmaT_n_arr = {VT_sigmaT_n_arr}'
-          f'VT_sigmaT_n_arr.shape = {VT_sigmaT_n_arr.shape}')
-
+    show_object_and_shape(VR_sigmaR_p_arr)
+    show_object_and_shape(VR_sigmaR_n_arr)
+    show_object_and_shape(VTheta_sigmatheta_p_arr)
+    show_object_and_shape(VTheta_sigmatheta_n_arr)
+    show_object_and_shape(VPhi_sigmaphi_p_arr)
+    show_object_and_shape(VPhi_sigmaphi_n_arr)
+    show_object_and_shape(VT_sigmaT_p_arr)
+    show_object_and_shape(VT_sigmaT_n_arr)
     # VTheta = np.array(VTheta)
     # VPhi = np.array(VPhi)
     # VR_sigmaR = np.array(VR_sigmaR)
     # VTheta_sigmatheta = np.array(VTheta_sigmatheta)
     # VPhi_sigmaphi = np.array(VPhi_sigmaphi)
-
     if print_sigma_binned_lin_radius:
-        print(f'sigmaR2 = {sigmaR2}',
-              f'sigmaR2.shape = {sigmaR2.shape}',
-              f'sigmatheta2 = {sigmatheta2}',
-              f'sigmatheta2.shape = {sigmatheta2.shape}',
-              f'sigmaphi2 = {sigmaphi2}',
-              f'sigmaphi2.shape = {sigmaphi2.shape}',
-              f'sigmaR = {sigmaR}',
-              f'sigmaR.shape = {sigmaR.shape}',
-              f'sigmatheta = {sigmatheta}',
-              f'sigmatheta.shape = {sigmatheta.shape}',
-              f'sigmaphi = {sigmaphi}',
-              f'sigmaphi.shape = {sigmaphi.shape}',
-              f'VR = {VR}',
-              f'VR.shape = {VR.shape}',
-              f'VTheta = {VTheta}',
-              f'VTheta.shape = {VTheta.shape}',
-              f'VPhi = {VPhi}',
-              f'VPhi.shape = {VPhi.shape}',
-              f'VR_sigmaR.shape = {(VR / sigmaR).shape}',
+        show_object_and_shape(sigmaR2)
+        show_object_and_shape(sigmatheta2)
+        show_object_and_shape(sigmaphi2)
+        show_object_and_shape(sigmaR)
+        show_object_and_shape(sigmatheta)
+        show_object_and_shape(sigmaphi)
+        show_object_and_shape(VR)
+        show_object_and_shape(VTheta)
+        show_object_and_shape(VPhi)
+        print(f'VR_sigmaR.shape = {(VR / sigmaR).shape}',
               f'VR_sigmaR = {VR / sigmaR}',
               f'np.where(sigmaR == 0) = {np.where(sigmaR == 0)}',
               f'np.where(sigmatheta == 0) = {np.where(sigmatheta == 0)}',
