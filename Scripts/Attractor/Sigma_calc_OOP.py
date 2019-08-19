@@ -4,6 +4,7 @@ import numpy as np
 import pylab
 import scipy as sp
 from dataclasses import dataclass
+import Mock_data as mock
 
 simulations = ['A/', 'B/', 'Soft_B/', 'CS4/', 'CS5/', 'CS6/', 'DS1/',
                'Soft_D2/', 'E/']
@@ -16,10 +17,11 @@ A = B = 0
 bins_list = [202, 102, 52, 22]
 bins = bins_list[0]
 R_limit = 100
-R_hob_par = R[GoodIDs]
+R_hob_par = mock.R[mock.GoodIDs]
 G = 1.  # Gravitational constant
 Gammas = [-1.5, -2.0, -2.5, -3.0]
 Gamma = Gammas[0]
+R_middle = mock.R_middle
 if Gamma == -2.0:
     r_2 = R_middle
 
@@ -36,21 +38,21 @@ class BinnedHalo():
     Min: float
     Max: float
     bins: int = 100
-    mode : str = "lin"
+    mode: str = "lin"
     sigmatheta2
     sigmarad2
-        
+
     def binning(self):
         '''Create linear or logarithmic bins.'''
         if self.mode == "lin":
             return np.linspace(self.Min, self.Max, self.bins)
         elif self.mode == "log":
             return np.logspace(self.Min, self.Max, self.bins)
-    
+
     def beta(self):
         '''Calculate beta.'''
         return 1. - sigmatheta2 / sigmarad2
-    
+
     def gamma(self):
         '''Calculate gamma.'''
         for i in range(len(len_obj_1)):
@@ -61,7 +63,7 @@ class BinnedHalo():
             dlogrho = np.log10(density[i + 1]) - np.log10(density[i - 1])
             gamma_arr.append(dlogrho / dlogr)
         return np.array(gamma_arr)
-    
+
     def kappa(self):
         '''Calculate kappa.'''
         for i in range(len(len_obj)):
@@ -73,7 +75,7 @@ class BinnedHalo():
                             np.log10(sigma_r2[i - 1])
             kappa_arr.append(dlogsigmarad2 / dlogr)
         return np.array(kappa_arr)
-    
+
     def add_params(self, param=None):
         if param is None:
             param = []
