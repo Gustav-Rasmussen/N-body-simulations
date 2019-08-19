@@ -3,11 +3,7 @@ Unit tests for the Read program
 """
 
 import Read
-import numpy as np
 
 
-class TestRead:
-
-    def test_get_sphere_volume(self):
-        assert 4 / 3 * np.pi * 100 ** 3 == Read.get_sphere_volume(100)
-
+def test_get_sphere_volume():
+    assert 4188790.2047863905 == Read.get_sphere_volume(100)
