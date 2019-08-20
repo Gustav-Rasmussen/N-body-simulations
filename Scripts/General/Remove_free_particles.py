@@ -2,8 +2,9 @@
 import h5py
 import numpy as np
 import IPython
+from Pathlib import Path
 
-path = '/Users/gustav.c.rasmussen/Desktop/RunGadget/'
+path = Path.cwd()
 
 OldSnaps_list = ['G_HQ_1000000_B/output/Hernquist10000_G1.0_198_093',
                  'G_HQ_1000000_B/output/Hernquist10000_G1.0_199_093',
