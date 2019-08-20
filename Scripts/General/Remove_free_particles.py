@@ -2,22 +2,24 @@
 import h5py
 import numpy as np
 import IPython
-        
-# OldSnapfile = h5py.File('/Users/gustav.c.rasmussen/Desktop/RunGadget/G_HQ_1000000_B/output/Hernquist10000_G1.0_198_093.hdf5','r')      # B. 
-# OldSnapfile = h5py.File('/Users/gustav.c.rasmussen/Desktop/RunGadget/G_HQ_1000000_B/output/Hernquist10000_G1.0_199_093.hdf5','r')       # B. Already used.
-# OldSnapfile = h5py.File('/Users/gustav.c.rasmussen/Desktop/RunGadget/G_OM_100000_C4/output/Osipkov_Merritt10000_G1.0_48_093.hdf5','r') # C4. Already used.
-# OldSnapfile = h5py.File('/Users/gustav.c.rasmussen/Desktop/RunGadget/G_OM_100000_C5/output/Osipkov_Merritt10000_G1.0_48_093.hdf5','r') # C5. Already used.
-# OldSnapfile = h5py.File('/Users/gustav.c.rasmussen/Desktop/RunGadget/G_OM_100000_C6/output/Osipkov_Merritt10000_G1.0_48_093.hdf5','r') # C6. Already used.
-# OldSnapfile = h5py.File('/Users/gustav.c.rasmussen/Desktop/RunGadget/G_OM_100000_D1/output/Osipkov_Merritt10000_G1.0_49_093.hdf5','r') # D1. Already used.
-# OldSnapfile = h5py.File('/Users/gustav.c.rasmussen/Desktop/RunGadget/G_Edd_100000_D2/output/Hernquist10000_G1.0_49_093.hdf5','r')      # D2. Already used.
 
-# NewSnapfile = h5py.File('B_G1.0_198_093_no_free_par.hdf5','w')
-# NewSnapfile = h5py.File('B_G1.0_199_093_rfp.hdf5','w')
-# NewSnapfile = h5py.File('C4_G1.0_48_093_rfp.hdf5','w')
-# NewSnapfile = h5py.File('C5_G1.0_48_093_rfp.hdf5','w')
-# NewSnapfile = h5py.File('C6_G1.0_48_093_rfp.hdf5','w')
-# NewSnapfile = h5py.File('D1_G1.0_49_093_rfp.hdf5','w')
-# NewSnapfile = h5py.File('D2_G1.0_49_093_rfp.hdf5','w')
+path = '/Users/gustav.c.rasmussen/Desktop/RunGadget/'
+
+# OldSnapfile = h5py.File(path + 'G_HQ_1000000_B/output/Hernquist10000_G1.0_198_093.hdf5','r')  # B. 
+# OldSnapfile = h5py.File(path + 'G_HQ_1000000_B/output/Hernquist10000_G1.0_199_093.hdf5','r')  # B. Already used
+# OldSnapfile = h5py.File(path + 'G_OM_100000_C4/output/Osipkov_Merritt10000_G1.0_48_093.hdf5','r')  # C4. Already used
+# OldSnapfile = h5py.File(path + 'G_OM_100000_C5/output/Osipkov_Merritt10000_G1.0_48_093.hdf5','r')  # C5. Already used
+# OldSnapfile = h5py.File(path + 'G_OM_100000_C6/output/Osipkov_Merritt10000_G1.0_48_093.hdf5','r')  # C6. Already used
+# OldSnapfile = h5py.File(path + 'G_OM_100000_D1/output/Osipkov_Merritt10000_G1.0_49_093.hdf5','r')  # D1. Already used
+# OldSnapfile = h5py.File(path + 'G_Edd_100000_D2/output/Hernquist10000_G1.0_49_093.hdf5','r')  # D2. Already used
+
+# NewSnapfile = h5py.File('B_G1.0_198_093_no_free_par.hdf5', 'w')
+# NewSnapfile = h5py.File('B_G1.0_199_093_rfp.hdf5', 'w')
+# NewSnapfile = h5py.File('C4_G1.0_48_093_rfp.hdf5', 'w')
+# NewSnapfile = h5py.File('C5_G1.0_48_093_rfp.hdf5', 'w')
+# NewSnapfile = h5py.File('C6_G1.0_48_093_rfp.hdf5', 'w')
+# NewSnapfile = h5py.File('D1_G1.0_49_093_rfp.hdf5', 'w')
+# NewSnapfile = h5py.File('D2_G1.0_49_093_rfp.hdf5', 'w')
 
 # copy header to new snapshot:
 OldSnapfile.copy('/Header', NewSnapfile, '/Header')
