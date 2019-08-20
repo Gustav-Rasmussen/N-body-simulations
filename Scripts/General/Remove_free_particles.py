@@ -5,13 +5,16 @@ import IPython
 
 path = '/Users/gustav.c.rasmussen/Desktop/RunGadget/'
 
-# OldSnapfile = h5py.File(path + 'G_HQ_1000000_B/output/Hernquist10000_G1.0_198_093.hdf5','r')  # B. 
-# OldSnapfile = h5py.File(path + 'G_HQ_1000000_B/output/Hernquist10000_G1.0_199_093.hdf5','r')  # B. Already used
-# OldSnapfile = h5py.File(path + 'G_OM_100000_C4/output/Osipkov_Merritt10000_G1.0_48_093.hdf5','r')  # C4. Already used
-# OldSnapfile = h5py.File(path + 'G_OM_100000_C5/output/Osipkov_Merritt10000_G1.0_48_093.hdf5','r')  # C5. Already used
-# OldSnapfile = h5py.File(path + 'G_OM_100000_C6/output/Osipkov_Merritt10000_G1.0_48_093.hdf5','r')  # C6. Already used
-# OldSnapfile = h5py.File(path + 'G_OM_100000_D1/output/Osipkov_Merritt10000_G1.0_49_093.hdf5','r')  # D1. Already used
-# OldSnapfile = h5py.File(path + 'G_Edd_100000_D2/output/Hernquist10000_G1.0_49_093.hdf5','r')  # D2. Already used
+OldSnaps_list = ['G_HQ_1000000_B/output/Hernquist10000_G1.0_198_093',
+                 'G_HQ_1000000_B/output/Hernquist10000_G1.0_199_093',
+                 'G_OM_100000_C4/output/Osipkov_Merritt10000_G1.0_48_093',
+                 'G_OM_100000_C5/output/Osipkov_Merritt10000_G1.0_48_093',
+                 'G_OM_100000_C6/output/Osipkov_Merritt10000_G1.0_48_093',
+                 'G_OM_100000_D1/output/Osipkov_Merritt10000_G1.0_49_093',
+                 'G_Edd_100000_D2/output/Hernquist10000_G1.0_49_093'
+                ]
+
+OldSnapfile = h5py.File(path + OldSnaps_list[0] + '.hdf5', 'r')
 
 # NewSnapfile = h5py.File('B_G1.0_198_093_no_free_par.hdf5', 'w')
 # NewSnapfile = h5py.File('B_G1.0_199_093_rfp.hdf5', 'w')
