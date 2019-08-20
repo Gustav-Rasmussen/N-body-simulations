@@ -1,31 +1,31 @@
 # -*- coding: utf-8 -*-
 
 import h5py
-import numpy              as     np
-import matplotlib.pyplot  as     plt
+import numpy as np
+import matplotlib.pyplot as plt
 import IPython
-from   matplotlib.colors  import LogNorm
+from matplotlib.colors import LogNorm
 import time
-from   pylab              import *
-from   scipy.stats        import norm
-from   scipy.optimize     import curve_fit
-import scipy              as     sp
-import seaborn            as     sns
-import matplotlib.patches as     mpatches
+from pylab import *
+from scipy.stats import norm
+from scipy.optimize import curve_fit
+import scipy as sp
+import seaborn as sns
+import matplotlib.patches as mpatches
 
-User_path       =                                      '/Users/gustav.c.rasmussen/'
-Desktop_path    = User_path                          + 'Desktop/'
-GADGET_E_path   = Desktop_path                       + 'RunGadget/Energy_Exchange/'
-Stable_path     =                                      'Energy_exchange/Stable_structures/'
-figure_path     = Desktop_path + Stable_path         + 'figures/'
-text_files_path = Desktop_path + Stable_path         + 'text_files/'
+User_path = '/Users/gustav.c.rasmussen/'
+Desktop_path = User_path + 'Desktop/'
+GADGET_E_path = Desktop_path + 'RunGadget/Energy_Exchange/'
+Stable_path = 'Energy_exchange/Stable_structures/'
+figure_path = Desktop_path + Stable_path + 'figures/'
+text_files_path = Desktop_path + Stable_path + 'text_files/'
 
-Soft_B_path     = 'E_HQ_1000000_B/output/'
-##Filename      = GADGET_E_path + Soft_B_path        + 'B_E_G2P_0_000.hdf5'
-#Filename       = GADGET_E_path + Soft_B_path        + 'B_E_G2P_20_005.hdf5'
-CS1_path        = 'E_HQ_10000_CS1/output/'
-##Filename      = GADGET_E_path + CS1_path           + 'B_E_G2P_0_000.hdf5'
-#Filename       = GADGET_E_path + CS1_path           + 'B_E_G2P_20_005.hdf5'
+Soft_B_path = 'E_HQ_1000000_B/output/'
+# Filename = GADGET_E_path + Soft_B_path + 'B_E_G2P_0_000.hdf5'
+# Filename = GADGET_E_path + Soft_B_path + 'B_E_G2P_20_005.hdf5'
+CS1_path = 'E_HQ_10000_CS1/output/'
+# Filename = GADGET_E_path + CS1_path           + 'B_E_G2P_0_000.hdf5'
+# Filename = GADGET_E_path + CS1_path           + 'B_E_G2P_20_005.hdf5'
 CS4_path        = 'E_HQ_100000_CS4/output/' 
 ##Filename      = GADGET_E_path + CS4_path           + 'B_E_G2P_0_000.hdf5'
 #Filename       = GADGET_E_path + CS4_path           + 'B_E_G2P_20_005.hdf5'
