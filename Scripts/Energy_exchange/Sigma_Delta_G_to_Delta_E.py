@@ -666,10 +666,10 @@ elif F.startswith('CS1_'):
 # Declare total mass
 if F.startswith(('A_', 'B_', 'CS1_', 'CS4_', 'CS5_', 'CS6_', 'E_'):
     M = 1.
-elif F.startswith('DS1_') or F.startswith('D2_') or F.startswith('Soft_D2_'):
-    M = 1./6.
+elif F.startswith(('DS1_', 'D2_', 'Soft_D2_')):
+    M = 1. / 6.
 # Define particle mass    
-m = M/N
+m = M / N
 
 if Gamma == -2.0:     
     r_2                    = R_middle
@@ -680,8 +680,8 @@ if Gamma == -2.0:
     v_circ_2               = (G*M_2/r_2)**.5
 
 if Fig_v_logr:
-    r             = (x**2+y**2+z**2)**.5
-    v             = (vx**2+vy**2+vz**2)**.5
+    r = (x**2+y**2+z**2)**.5
+    v = (vx**2+vy**2+vz**2)**.5
     f, (ax1,ax2) = plt.subplots(1,2,figsize=(13,11))
     f.subplots_adjust(hspace=0,wspace=0)
     ax1.plot(r, v,'o',color = 'Blue',lw=3,ms=2)
