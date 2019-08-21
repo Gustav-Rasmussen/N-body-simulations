@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import h5py
-import numpy              as     np
+import numpy as np
 import matplotlib.pyplot  as     plt
 import IPython
 from   matplotlib.colors  import LogNorm
@@ -174,9 +174,6 @@ for i in range(N_bins): # Divide structure into mass-bins. Favoured over radial 
     v_GoodIDs_bound     = (vx_bound**2+vy_bound**2+vz_bound**2)**.5  
     v_new               = np.concatenate([v_GoodIDs_bound,v_GoodIDs_rand_norm])
 
-
-
-
     #v_final      = (vx**2+vy**2+vz**2)**.5
 
     vx           = np.concatenate([vx_bound,vx_unbound_norm])
@@ -200,20 +197,6 @@ z      = np.concatenate(z, axis=0)
 vx     = np.concatenate(vx, axis=0)
 vy     = np.concatenate(vy, axis=0)
 vz     = np.concatenate(vz, axis=0)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
    
 if Fig_v_logx_after:
     v = (vx**2+vy**2+vz**2)**.5
@@ -228,21 +211,4 @@ if Fig_v_logx_after:
 
     f.savefig(figure_path + 'Soft_B_0_005_P2G_v_logx_II_rand_unboundnorm.png')
 
-
-    
-
-
-
-
-
-
-
-
 plt.show()
-
-
-
-
-
-
-
