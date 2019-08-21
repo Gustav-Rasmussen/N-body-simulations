@@ -1,158 +1,157 @@
 # -*- coding: utf-8 -*-
 
 import h5py
-import numpy             as     np
-import matplotlib.pyplot as     plt
-#from   matplotlib.pyplot import hist2d
+import numpy as np
+import matplotlib.pyplot as plt
 import IPython
-from   matplotlib.colors import LogNorm
+from matplotlib.colors import LogNorm
 import time
-#from   pylab             import *
 import pylab
-from   scipy.stats       import norm
-from   scipy.optimize    import curve_fit
-import scipy             as     sp
-import seaborn           as     sns
+from scipy.stats import norm
+from scipy.optimize import curve_fit
+import scipy as sp
+import seaborn as sns
+from pathlib import Path
 
-User_path        =                                      '/Users/gustav.c.rasmussen/'
-Desktop_path     = User_path                          + 'Desktop/'
-GADGET_E_path    = Desktop_path                       + 'RunGadget/Energy_Exchange/'
-Stable_path      =                                      'Energy_exchange/Stable_structures/'
-figure_path      = Desktop_path + Stable_path         + 'figures/'
+User_path = Path.cwd()
+Desktop_path = User_path + 'Desktop/'
+GADGET_E_path = Desktop_path + 'RunGadget/Energy_Exchange/'
+Stable_path = 'Energy_exchange/Stable_structures/'
+figure_path = Desktop_path + Stable_path + 'figures/'
 
-#text_files_path = Desktop_path + Stable_path         + 'text_files/Soft_B/'
-#text_files_path = Desktop_path + Stable_path         + 'text_files/CS1/'
-#text_files_path = Desktop_path + Stable_path         + 'text_files/CS4/'
-#text_files_path = Desktop_path + Stable_path         + 'text_files/CS5/'
-#text_files_path = Desktop_path + Stable_path         + 'text_files/CS6/'
-text_files_path = Desktop_path + Stable_path         + 'text_files/DS1/'
-#text_files_path = Desktop_path + Stable_path         + 'text_files/Soft_D2/'
-#text_files_path = Desktop_path + Stable_path         + 'text_files/E/'
+# text_files_path = Desktop_path + Stable_path + 'text_files/Soft_B/'
+# text_files_path = Desktop_path + Stable_path + 'text_files/CS1/'
+# text_files_path = Desktop_path + Stable_path + 'text_files/CS4/'
+# text_files_path = Desktop_path + Stable_path + 'text_files/CS5/'
+# text_files_path = Desktop_path + Stable_path + 'text_files/CS6/'
+text_files_path = Desktop_path + Stable_path + 'text_files/DS1/'
+# text_files_path = Desktop_path + Stable_path + 'text_files/Soft_D2/'
+# text_files_path = Desktop_path + Stable_path + 'text_files/E/'
 
-Soft_B_path     = 'E_HQ_1000000_B/output/'
-#Filename       = GADGET_E_path + Soft_B_path        + 'B_E_G2P_0_000.hdf5'
-#Filename       = GADGET_E_path + Soft_B_path        + 'B_E_G2P_0_005.hdf5'
-#Filename       = GADGET_E_path + Soft_B_path        + 'B_E_G2P_1_000.hdf5'
-#Filename       = GADGET_E_path + Soft_B_path        + 'B_E_G2P_2_005.hdf5'
-#Filename       = GADGET_E_path + Soft_B_path        + 'B_E_G2P_4_005.hdf5'
-#Filename       = GADGET_E_path + Soft_B_path        + 'B_E_G2P_6_005.hdf5'
-#Filename       = GADGET_E_path + Soft_B_path        + 'B_E_G2P_8_005.hdf5'
-#Filename       = GADGET_E_path + Soft_B_path        + 'B_E_G2P_10_005.hdf5'
-#Filename       = GADGET_E_path + Soft_B_path        + 'B_E_G2P_20_005.hdf5'
-CS1_path        = 'E_HQ_10000_CS1/output/'
-#Filename       = GADGET_E_path + CS1_path           + 'B_E_G2P_0_000.hdf5'
-#Filename       = GADGET_E_path + CS1_path           + 'B_E_G2P_20_005.hdf5'
-CS4_path        = 'E_HQ_100000_CS4/output/' 
-#Filename       = GADGET_E_path + CS4_path           + 'B_E_G2P_0_000.hdf5'
-#Filename       = GADGET_E_path + CS4_path           + 'B_E_G2P_2_005.hdf5'
-#Filename       = GADGET_E_path + CS4_path           + 'B_E_G2P_4_005.hdf5'
-#Filename       = GADGET_E_path + CS4_path           + 'B_E_G2P_6_005.hdf5'
-#Filename       = GADGET_E_path + CS4_path           + 'B_E_G2P_8_005.hdf5'
-#Filename       = GADGET_E_path + CS4_path           + 'B_E_G2P_10_005.hdf5'
-#Filename       = GADGET_E_path + CS4_path           + 'B_E_G2P_19_005.hdf5'
-#Filename       = GADGET_E_path + 'E_HQ_100000_CS4/' + 'B_E_19_005_P2G.hdf5'
-#Filename       = GADGET_E_path + CS4_path           + 'B_E_G2P_20_000.hdf5'
-#Filename       = GADGET_E_path + CS4_path           + 'B_E_G2P_20_005.hdf5'
-#Filename       = GADGET_E_path + CS4_path           + 'B_E_G2P_30_005.hdf5'
-CS5_path        = 'E_HQ_100000_CS5/output/'
-#Filename       = GADGET_E_path + CS5_path           + 'B_E_G2P_0_000.hdf5'
-#Filename       = GADGET_E_path + CS5_path           + 'B_E_G2P_2_005.hdf5'
-#Filename       = GADGET_E_path + CS5_path           + 'B_E_G2P_4_005.hdf5'
-#Filename       = GADGET_E_path + CS5_path           + 'B_E_G2P_6_005.hdf5'
-#Filename       = GADGET_E_path + CS5_path           + 'B_E_G2P_8_005.hdf5'
-#Filename       = GADGET_E_path + CS5_path           + 'B_E_G2P_10_005.hdf5'
-#Filename       = GADGET_E_path + CS5_path           + 'B_E_G2P_20_005.hdf5'
-CS6_path        = 'E_HQ_100000_CS6/output/'  
-#Filename       = GADGET_E_path + CS6_path           + 'B_E_G2P_0_000.hdf5'
-#Filename       = GADGET_E_path + CS6_path           + 'B_E_G2P_2_005.hdf5'
-#Filename       = GADGET_E_path + CS6_path           + 'B_E_G2P_4_005.hdf5'
-#Filename       = GADGET_E_path + CS6_path           + 'B_E_G2P_6_005.hdf5'
-#Filename       = GADGET_E_path + CS6_path           + 'B_E_G2P_8_005.hdf5'
-#Filename       = GADGET_E_path + CS6_path           + 'B_E_G2P_10_005.hdf5'
-#Filename       = GADGET_E_path + CS6_path           + 'B_E_G2P_20_005.hdf5'
-#Filename       = GADGET_E_path + CS6_path           + 'B_E_G2P_30_005.hdf5'
-DS1_path        = 'E_0_5_100000_DS1/output/'  
-#Filename       = GADGET_E_path + DS1_path           + 'B_E_G2P_0_000.hdf5'
-#Filename       = GADGET_E_path + DS1_path           + 'B_E_G2P_2_005.hdf5'
-#Filename       = GADGET_E_path + DS1_path           + 'B_E_G2P_4_005.hdf5'
-#Filename       = GADGET_E_path + DS1_path           + 'B_E_G2P_6_005.hdf5'
-#Filename       = GADGET_E_path + DS1_path           + 'B_E_G2P_8_005.hdf5'
-#Filename       = GADGET_E_path + DS1_path           + 'B_E_G2P_10_005.hdf5'
-#Filename       = GADGET_E_path + DS1_path           + 'B_E_G2P_20_005.hdf5'
-#Filename       = GADGET_E_path + DS1_path           + 'B_E_G2P_30_005.hdf5'
-Soft_D2_path    = 'E_0_5_100000_D2/output/'
-#Filename       = GADGET_E_path + Soft_D2_path       + 'B_E_G2P_0_000.hdf5'
-#Filename       = GADGET_E_path + Soft_D2_path       + 'B_E_G2P_2_005.hdf5'
-#Filename       = GADGET_E_path + Soft_D2_path       + 'B_E_G2P_4_005.hdf5'
-#Filename       = GADGET_E_path + Soft_D2_path       + 'B_E_G2P_6_005.hdf5'
-#Filename       = GADGET_E_path + Soft_D2_path       + 'B_E_G2P_8_005.hdf5'
-#Filename       = GADGET_E_path + Soft_D2_path       + 'B_E_G2P_10_005.hdf5'
-#Filename       = GADGET_E_path + Soft_D2_path       + 'B_E_G2P_20_005.hdf5'
-#Filename       = GADGET_E_path + Soft_D2_path       + 'B_E_G2P_30_005.hdf5'
-E_path          = 'E_HQ_1000000_E/output/'
-#Filename       = GADGET_E_path + E_path             + 'B_E_G2P_0_000.hdf5'
-#Filename       = GADGET_E_path + E_path             + 'B_E_G2P_2_005.hdf5'
-#Filename       = GADGET_E_path + E_path             + 'B_E_G2P_4_005.hdf5'
-#Filename       = GADGET_E_path + E_path             + 'B_E_G2P_6_005.hdf5'
-#Filename       = GADGET_E_path + E_path             + 'B_E_G2P_8_005.hdf5'
-#Filename       = GADGET_E_path + E_path             + 'B_E_G2P_10_005.hdf5'
-#Filename       = GADGET_E_path + E_path             + 'B_E_G2P_20_005.hdf5'
+Soft_B_path = 'E_HQ_1000000_B/output/'
+#Filename = GADGET_E_path + Soft_B_path + 'B_E_G2P_0_000.hdf5'
+#Filename = GADGET_E_path + Soft_B_path + 'B_E_G2P_0_005.hdf5'
+#Filename = GADGET_E_path + Soft_B_path + 'B_E_G2P_1_000.hdf5'
+#Filename = GADGET_E_path + Soft_B_path + 'B_E_G2P_2_005.hdf5'
+#Filename = GADGET_E_path + Soft_B_path + 'B_E_G2P_4_005.hdf5'
+#Filename = GADGET_E_path + Soft_B_path + 'B_E_G2P_6_005.hdf5'
+#Filename = GADGET_E_path + Soft_B_path + 'B_E_G2P_8_005.hdf5'
+#Filename = GADGET_E_path + Soft_B_path + 'B_E_G2P_10_005.hdf5'
+#Filename = GADGET_E_path + Soft_B_path + 'B_E_G2P_20_005.hdf5'
+CS1_path = 'E_HQ_10000_CS1/output/'
+#Filename = GADGET_E_path + CS1_path + 'B_E_G2P_0_000.hdf5'
+#Filename = GADGET_E_path + CS1_path + 'B_E_G2P_20_005.hdf5'
+CS4_path = 'E_HQ_100000_CS4/output/' 
+#Filename = GADGET_E_path + CS4_path + 'B_E_G2P_0_000.hdf5'
+#Filename = GADGET_E_path + CS4_path + 'B_E_G2P_2_005.hdf5'
+#Filename = GADGET_E_path + CS4_path + 'B_E_G2P_4_005.hdf5'
+#Filename = GADGET_E_path + CS4_path + 'B_E_G2P_6_005.hdf5'
+#Filename = GADGET_E_path + CS4_path + 'B_E_G2P_8_005.hdf5'
+#Filename = GADGET_E_path + CS4_path + 'B_E_G2P_10_005.hdf5'
+#Filename = GADGET_E_path + CS4_path + 'B_E_G2P_19_005.hdf5'
+#Filename = GADGET_E_path + 'E_HQ_100000_CS4/' + 'B_E_19_005_P2G.hdf5'
+#Filename = GADGET_E_path + CS4_path + 'B_E_G2P_20_000.hdf5'
+#Filename = GADGET_E_path + CS4_path + 'B_E_G2P_20_005.hdf5'
+#Filename = GADGET_E_path + CS4_path + 'B_E_G2P_30_005.hdf5'
+CS5_path = 'E_HQ_100000_CS5/output/'
+#Filename = GADGET_E_path + CS5_path + 'B_E_G2P_0_000.hdf5'
+#Filename = GADGET_E_path + CS5_path + 'B_E_G2P_2_005.hdf5'
+#Filename = GADGET_E_path + CS5_path + 'B_E_G2P_4_005.hdf5'
+#Filename = GADGET_E_path + CS5_path + 'B_E_G2P_6_005.hdf5'
+#Filename = GADGET_E_path + CS5_path + 'B_E_G2P_8_005.hdf5'
+#Filename = GADGET_E_path + CS5_path + 'B_E_G2P_10_005.hdf5'
+#Filename = GADGET_E_path + CS5_path + 'B_E_G2P_20_005.hdf5'
+CS6_path = 'E_HQ_100000_CS6/output/'  
+#Filename = GADGET_E_path + CS6_path + 'B_E_G2P_0_000.hdf5'
+#Filename = GADGET_E_path + CS6_path + 'B_E_G2P_2_005.hdf5'
+#Filename = GADGET_E_path + CS6_path + 'B_E_G2P_4_005.hdf5'
+#Filename = GADGET_E_path + CS6_path + 'B_E_G2P_6_005.hdf5'
+#Filename = GADGET_E_path + CS6_path + 'B_E_G2P_8_005.hdf5'
+#Filename = GADGET_E_path + CS6_path + 'B_E_G2P_10_005.hdf5'
+#Filename = GADGET_E_path + CS6_path + 'B_E_G2P_20_005.hdf5'
+#Filename = GADGET_E_path + CS6_path + 'B_E_G2P_30_005.hdf5'
+DS1_path = 'E_0_5_100000_DS1/output/'  
+#Filename = GADGET_E_path + DS1_path + 'B_E_G2P_0_000.hdf5'
+#Filename = GADGET_E_path + DS1_path + 'B_E_G2P_2_005.hdf5'
+#Filename = GADGET_E_path + DS1_path + 'B_E_G2P_4_005.hdf5'
+#Filename = GADGET_E_path + DS1_path + 'B_E_G2P_6_005.hdf5'
+#Filename = GADGET_E_path + DS1_path + 'B_E_G2P_8_005.hdf5'
+#Filename = GADGET_E_path + DS1_path + 'B_E_G2P_10_005.hdf5'
+#Filename = GADGET_E_path + DS1_path + 'B_E_G2P_20_005.hdf5'
+#Filename = GADGET_E_path + DS1_path + 'B_E_G2P_30_005.hdf5'
+Soft_D2_path = 'E_0_5_100000_D2/output/'
+#Filename = GADGET_E_path + Soft_D2_path + 'B_E_G2P_0_000.hdf5'
+#Filename = GADGET_E_path + Soft_D2_path + 'B_E_G2P_2_005.hdf5'
+#Filename = GADGET_E_path + Soft_D2_path + 'B_E_G2P_4_005.hdf5'
+#Filename = GADGET_E_path + Soft_D2_path + 'B_E_G2P_6_005.hdf5'
+#Filename = GADGET_E_path + Soft_D2_path + 'B_E_G2P_8_005.hdf5'
+#Filename = GADGET_E_path + Soft_D2_path + 'B_E_G2P_10_005.hdf5'
+#Filename = GADGET_E_path + Soft_D2_path + 'B_E_G2P_20_005.hdf5'
+#Filename = GADGET_E_path + Soft_D2_path + 'B_E_G2P_30_005.hdf5'
+E_path = 'E_HQ_1000000_E/output/'
+#Filename = GADGET_E_path + E_path + 'B_E_G2P_0_000.hdf5'
+#Filename = GADGET_E_path + E_path + 'B_E_G2P_2_005.hdf5'
+#Filename = GADGET_E_path + E_path + 'B_E_G2P_4_005.hdf5'
+#Filename = GADGET_E_path + E_path + 'B_E_G2P_6_005.hdf5'
+#Filename = GADGET_E_path + E_path + 'B_E_G2P_8_005.hdf5'
+#Filename = GADGET_E_path + E_path + 'B_E_G2P_10_005.hdf5'
+#Filename = GADGET_E_path + E_path + 'B_E_G2P_20_005.hdf5'
 
 # Control
 con_Soft_B_path  = 'E_HQ_1000000_B_control/output/'
-#Filename        = GADGET_E_path + con_Soft_B_path    + 'B_E_0_000.hdf5'
-#Filename        = GADGET_E_path + con_Soft_B_path    + 'B_E_0_001.hdf5'
-#Filename        = GADGET_E_path + con_Soft_B_path    + 'B_E_10_005.hdf5'
-#Filename        = GADGET_E_path + con_Soft_B_path    + 'B_E_20_005.hdf5'
-con_CS1_path     = 'E_HQ_10000_CS1_control/output/'
-#Filename        = GADGET_E_path + con_CS1_path       + 'B_E_0_000.hdf5'
-#Filename        = GADGET_E_path + con_CS1_path       + 'B_E_0_001.hdf5'
-#Filename        = GADGET_E_path + con_CS1_path       + 'B_E_20_005.hdf5'
-con_CS4_path     = 'E_HQ_100000_CS4_control/output/'
-#Filename        = GADGET_E_path + con_CS4_path       + 'B_E_0_000.hdf5'
-#Filename        = GADGET_E_path + con_CS4_path       + 'B_E_0_001.hdf5'
-#Filename        = GADGET_E_path + con_CS4_path       + 'B_E_20_005.hdf5'
-con_CS5_path     = 'E_HQ_100000_CS5_control/output/'
-#Filename        = GADGET_E_path + con_CS5_path       + 'B_E_0_000.hdf5'
-#Filename        = GADGET_E_path + con_CS5_path       + 'B_E_0_001.hdf5'
-#Filename        = GADGET_E_path + con_CS5_path       + 'B_E_20_005.hdf5'
-con_CS6_path     = 'E_HQ_100000_CS6_control/output/'
-#Filename        = GADGET_E_path + con_CS6_path       + 'B_E_0_000.hdf5'
-#Filename        = GADGET_E_path + con_CS6_path       + 'B_E_0_001.hdf5'
-#Filename        = GADGET_E_path + con_CS6_path       + 'B_E_20_005.hdf5'
-con_DS1_path     = 'E_0_5_100000_DS1_control/output/'
-#Filename        = GADGET_E_path + con_DS1_path       + 'B_E_0_000.hdf5'
-#Filename        = GADGET_E_path + con_DS1_path       + 'B_E_0_001.hdf5'
-Filename        = GADGET_E_path + con_DS1_path       + 'B_E_20_005.hdf5'
+#Filename = GADGET_E_path + con_Soft_B_path    + 'B_E_0_000.hdf5'
+#Filename = GADGET_E_path + con_Soft_B_path    + 'B_E_0_001.hdf5'
+#Filename = GADGET_E_path + con_Soft_B_path    + 'B_E_10_005.hdf5'
+#Filename = GADGET_E_path + con_Soft_B_path    + 'B_E_20_005.hdf5'
+con_CS1_path = 'E_HQ_10000_CS1_control/output/'
+#Filename = GADGET_E_path + con_CS1_path       + 'B_E_0_000.hdf5'
+#Filename = GADGET_E_path + con_CS1_path       + 'B_E_0_001.hdf5'
+#Filename = GADGET_E_path + con_CS1_path       + 'B_E_20_005.hdf5'
+con_CS4_path = 'E_HQ_100000_CS4_control/output/'
+#Filename = GADGET_E_path + con_CS4_path       + 'B_E_0_000.hdf5'
+#Filename = GADGET_E_path + con_CS4_path       + 'B_E_0_001.hdf5'
+#Filename = GADGET_E_path + con_CS4_path       + 'B_E_20_005.hdf5'
+con_CS5_path = 'E_HQ_100000_CS5_control/output/'
+#Filename = GADGET_E_path + con_CS5_path       + 'B_E_0_000.hdf5'
+#Filename = GADGET_E_path + con_CS5_path       + 'B_E_0_001.hdf5'
+#Filename = GADGET_E_path + con_CS5_path       + 'B_E_20_005.hdf5'
+con_CS6_path = 'E_HQ_100000_CS6_control/output/'
+#Filename = GADGET_E_path + con_CS6_path       + 'B_E_0_000.hdf5'
+#Filename = GADGET_E_path + con_CS6_path       + 'B_E_0_001.hdf5'
+#Filename = GADGET_E_path + con_CS6_path       + 'B_E_20_005.hdf5'
+con_DS1_path = 'E_0_5_100000_DS1_control/output/'
+#Filename = GADGET_E_path + con_DS1_path       + 'B_E_0_000.hdf5'
+#Filename = GADGET_E_path + con_DS1_path       + 'B_E_0_001.hdf5'
+Filename = GADGET_E_path + con_DS1_path       + 'B_E_20_005.hdf5'
 con_Soft_D2_path = 'E_0_5_100000_D2_control/output/'
-#Filename        = GADGET_E_path + con_Soft_D2_path   + 'B_E_0_000.hdf5'
-#Filename        = GADGET_E_path + con_Soft_D2_path   + 'B_E_0_001.hdf5'
-#Filename        = GADGET_E_path + con_Soft_D2_path   + 'B_E_20_005.hdf5'
-con_E_path       = 'E_HQ_1000000_E_control/output/'
-#Filename        = GADGET_E_path + con_E_path         + 'B_E_0_000.hdf5'
-#Filename        = GADGET_E_path + con_E_path         + 'B_E_0_001.hdf5'
-#Filename        = GADGET_E_path + con_E_path         + 'B_E_20_005.hdf5'
+#Filename = GADGET_E_path + con_Soft_D2_path   + 'B_E_0_000.hdf5'
+#Filename = GADGET_E_path + con_Soft_D2_path   + 'B_E_0_001.hdf5'
+#Filename = GADGET_E_path + con_Soft_D2_path   + 'B_E_20_005.hdf5'
+con_E_path = 'E_HQ_1000000_E_control/output/'
+#Filename = GADGET_E_path + con_E_path         + 'B_E_0_000.hdf5'
+#Filename = GADGET_E_path + con_E_path         + 'B_E_0_001.hdf5'
+#Filename = GADGET_E_path + con_E_path         + 'B_E_20_005.hdf5'
 
-SnapshotFile     = h5py.File(Filename,'r')
-#F               = 'Soft_B' + Filename[len(GADGET_E_path + Soft_B_path + 'B'):-5     ]
-#F               = 'Soft_B' + Filename[len(GADGET_E_path + con_Soft_B_path + 'B'):-5 ] 
-#F               = 'CS1'    + Filename[len(GADGET_E_path + CS1_path + 'B'):-5        ]
-#F               = 'CS1'    + Filename[len(GADGET_E_path + con_CS1_path + 'B'):-5    ]
-#F               = 'CS4'    + Filename[len(GADGET_E_path + CS4_path + 'B'):-5        ]
-#F               = 'CS4'    + Filename[len(GADGET_E_path + con_CS4_path + 'B'):-5    ]
-#F               = 'CS5'    + Filename[len(GADGET_E_path + CS5_path + 'B'):-5        ]
-#F               = 'CS5'    + Filename[len(GADGET_E_path + con_CS5_path + 'B'):-5    ]
-#F               = 'CS6'    + Filename[len(GADGET_E_path + CS6_path + 'B'):-5        ]
-#F               = 'CS6'    + Filename[len(GADGET_E_path + con_CS6_path + 'B'):-5    ]
-#F               = 'DS1'    + Filename[len(GADGET_E_path + DS1_path + 'B'):-5        ]
-F               = 'DS1'    + Filename[len(GADGET_E_path + con_DS1_path + 'B'):-5    ]
-#F               = 'Soft_D2'+ Filename[len(GADGET_E_path + Soft_D2_path + 'B'):-5    ]
-#F               = 'Soft_D2'+ Filename[len(GADGET_E_path + con_Soft_D2_path + 'B'):-5]
-#F               = 'E'      + Filename[len(GADGET_E_path + E_path + 'B'):-5          ]
-#F               = 'E'      + Filename[len(GADGET_E_path + con_E_path + 'B'):-5      ]
+SnapshotFile = h5py.File(Filename,'r')
+# F = 'Soft_B' + Filename[len(GADGET_E_path + Soft_B_path + 'B'):-5]
+# F               = 'Soft_B' + Filename[len(GADGET_E_path + con_Soft_B_path + 'B'):-5]
+# F               = 'CS1'    + Filename[len(GADGET_E_path + CS1_path + 'B'):-5]
+# F               = 'CS1'    + Filename[len(GADGET_E_path + con_CS1_path + 'B'):-5]
+# F               = 'CS4'    + Filename[len(GADGET_E_path + CS4_path + 'B'):-5]
+# F               = 'CS4'    + Filename[len(GADGET_E_path + con_CS4_path + 'B'):-5]
+# F               = 'CS5'    + Filename[len(GADGET_E_path + CS5_path + 'B'):-5]
+# F               = 'CS5'    + Filename[len(GADGET_E_path + con_CS5_path + 'B'):-5]
+# F               = 'CS6'    + Filename[len(GADGET_E_path + CS6_path + 'B'):-5]
+# F               = 'CS6'    + Filename[len(GADGET_E_path + con_CS6_path + 'B'):-5]
+# F               = 'DS1'    + Filename[len(GADGET_E_path + DS1_path + 'B'):-5]
+F               = 'DS1'    + Filename[len(GADGET_E_path + con_DS1_path + 'B'):-5]
+# F               = 'Soft_D2'+ Filename[len(GADGET_E_path + Soft_D2_path + 'B'):-5]
+# F               = 'Soft_D2'+ Filename[len(GADGET_E_path + con_Soft_D2_path + 'B'):-5]
+# F               = 'E'      + Filename[len(GADGET_E_path + E_path + 'B'):-5]
+# F               = 'E'      + Filename[len(GADGET_E_path + con_E_path + 'B'):-5]
 
-Gamma                                          = -3.0
-Beta                                           = 1.
+Gamma = -3.0
+Beta = 1.
 
 new_R_middle                                   = 1
 R_bin_automatic                                = 0
