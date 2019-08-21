@@ -189,7 +189,7 @@ R_limit_32 = 1
 if new_R_middle:
     # Soft_B
     if F == 'B_E_G2P_0_000': 
-        if   Gamma == -1.5:     
+        if Gamma == -1.5:     
             R_middle = 1
         elif Gamma == -2.0:     
             R_middle = 1
@@ -198,7 +198,7 @@ if new_R_middle:
         elif Gamma == -3.0:     
             R_middle = 1
     if F == 'B_E_G2P_20_005': 
-        if   Gamma == -1.5:       
+        if Gamma == -1.5:       
             R_middle = 1
         elif Gamma == -2.0:     
             R_middle = 1
@@ -208,7 +208,7 @@ if new_R_middle:
             R_middle = 1
     # con_Soft_B
     if F == 'B_E_0_000': 
-        if   Gamma == -1.5:     
+        if Gamma == -1.5:     
             R_middle = 10**-.7
         elif Gamma == -2.0:     
             R_middle = 10**-.35
@@ -217,7 +217,7 @@ if new_R_middle:
         elif Gamma == -3.0:     
             R_middle = 10**.3
     if F == 'B_E_0_001': 
-        if   Gamma == -1.5:       
+        if Gamma == -1.5:       
             R_middle = 10**-.7
         elif Gamma == -2.0:     
             R_middle = 10**-.35
@@ -226,7 +226,7 @@ if new_R_middle:
         elif Gamma == -3.0:     
             R_middle = 10**.3
     if F == 'B_E_20_005': 
-        if   Gamma == -1.5:       
+        if Gamma == -1.5:       
             R_middle = 10**-.6
         elif Gamma == -2.0:     
             R_middle = 10**-.35
@@ -236,7 +236,7 @@ if new_R_middle:
             R_middle = 10**.3              
     # CS1
     if F == 'CS1_E_G2P_0_000':
-        if   Gamma == -1.5:       
+        if Gamma == -1.5:       
             R_middle = 1
         elif Gamma == -2.0:      
             R_middle = 1
@@ -246,7 +246,7 @@ if new_R_middle:
             R_middle = 1
     # CS4
     if F == 'CS4_E_G2P_0_000':
-        if   Gamma == -1.5:       
+        if Gamma == -1.5:       
             R_middle = 10**-.65
         elif Gamma == -2.0:     
             R_middle = 10**-.3
@@ -255,7 +255,7 @@ if new_R_middle:
         elif Gamma == -3.0:     
             R_middle = 10**.3
     if F == 'CS4_E_G2P_2_005':
-        if   Gamma == -1.5:       
+        if Gamma == -1.5:       
             R_middle = 10**-.52
         elif Gamma == -2.0:     
             R_middle = 10**-.3
@@ -264,7 +264,7 @@ if new_R_middle:
         elif Gamma == -3.0:     
             R_middle = 10**.3
     if F == 'CS4_E_G2P_4_005':
-        if   Gamma == -1.5:       
+        if Gamma == -1.5:       
             R_middle = 10**-.52
         elif Gamma == -2.0:     
             R_middle = 10**-.25
@@ -273,7 +273,7 @@ if new_R_middle:
         elif Gamma == -3.0:     
             R_middle = 10**.27
     if F == 'CS4_E_G2P_6_005':
-        if   Gamma == -1.5:       
+        if Gamma == -1.5:       
             R_middle = 10**-.48
         elif Gamma == -2.0:     
             R_middle = 10**-.25
@@ -282,7 +282,7 @@ if new_R_middle:
         elif Gamma == -3.0:     
             R_middle = 10**.27
     if F == 'CS4_E_G2P_8_005':
-        if   Gamma == -1.5:       
+        if Gamma == -1.5:       
             R_middle = 1
         elif Gamma == -2.0:     
             R_middle = 1
@@ -291,7 +291,7 @@ if new_R_middle:
         elif Gamma == -3.0:     
             R_middle = 1
     if F == 'CS4_E_G2P_10_005':
-        if   Gamma == -1.5:       
+        if Gamma == -1.5:       
             R_middle = 1
         elif Gamma == -2.0:     
             R_middle = 1
@@ -300,7 +300,7 @@ if new_R_middle:
         elif Gamma == -3.0:     
             R_middle = 1
     if F == 'CS4_E_G2P_20_005':
-        if   Gamma == -1.5:       
+        if Gamma == -1.5:       
             R_middle = 10**-.45
         elif Gamma == -2.0:     
             R_middle = 10**-.25
@@ -310,7 +310,7 @@ if new_R_middle:
             R_middle = 10**.25        
     # con_CS4 Final
     if F == 'CS4_E_20_005': 
-        if   Gamma == -1.5:       
+        if Gamma == -1.5:       
             R_middle = 10**-.4
         elif Gamma == -2.0:     
             R_middle = 10**-.23
@@ -320,7 +320,7 @@ if new_R_middle:
             R_middle = 10**.25
     # CS5
     if F == 'CS5_E_G2P_0_000':
-        if   Gamma == -1.5:       
+        if Gamma == -1.5:       
             R_middle = 10**-.7
         elif Gamma == -2.0:     
             R_middle = 10**-.3
@@ -329,7 +329,7 @@ if new_R_middle:
         elif Gamma == -3.0:    
             R_middle = 10**.38
     if F == 'CS5_E_G2P_2_005':
-        if   Gamma == -1.5:       
+        if Gamma == -1.5:       
             R_middle = 10**-.6
         elif Gamma == -2.0:     
             R_middle = 10**-.3
@@ -338,7 +338,7 @@ if new_R_middle:
         elif Gamma == -3.0:    
             R_middle = 10**.3
     if F == 'CS5_E_G2P_4_005':
-        if   Gamma == -1.5:       
+        if Gamma == -1.5:       
             R_middle = 10**-.55
         elif Gamma == -2.0:     
             R_middle = 10**-.3
@@ -347,7 +347,7 @@ if new_R_middle:
         elif Gamma == -3.0:    
             R_middle = 10**.35
     if F == 'CS5_E_G2P_6_005':
-        if   Gamma == -1.5:       
+        if Gamma == -1.5:       
             R_middle = 10**-.48
         elif Gamma == -2.0:     
             R_middle = 10**-.3
@@ -356,7 +356,7 @@ if new_R_middle:
         elif Gamma == -3.0:    
             R_middle = 10**.3
     if F == 'CS5_E_G2P_8_005':
-        if   Gamma == -1.5:       
+        if Gamma == -1.5:       
             R_middle = 1
         elif Gamma == -2.0:     
             R_middle = 1
@@ -365,7 +365,7 @@ if new_R_middle:
         elif Gamma == -3.0:    
             R_middle = 1
     if F == 'CS5_E_G2P_10_005':
-        if   Gamma == -1.5:       
+        if Gamma == -1.5:       
             R_middle = 1
         elif Gamma == -2.0:     
             R_middle = 1
@@ -374,7 +374,7 @@ if new_R_middle:
         elif Gamma == -3.0:    
             R_middle = 1
     if F == 'CS5_E_G2P_20_005':
-        if   Gamma == -1.5:       
+        if Gamma == -1.5:       
             R_middle = 10**-.42
         elif Gamma == -2.0:     
             R_middle = 10**-.25
@@ -384,7 +384,7 @@ if new_R_middle:
             R_middle = 10**-.28          
     # con_CS5 final
     if F == 'CS5_E_20_005': 
-        if   Gamma == -1.5:       
+        if Gamma == -1.5:       
             R_middle = 10**-.45
         elif Gamma == -2.0:     
             R_middle = 10**-.23
@@ -394,7 +394,7 @@ if new_R_middle:
             R_middle = 10**.3
     # CS6
     if F == 'CS6_E_G2P_0_000':
-        if   Gamma == -1.5:       
+        if Gamma == -1.5:       
             R_middle = 10**-.73
         elif Gamma == -2.0:     
             R_middle = 10**-.3
@@ -403,7 +403,7 @@ if new_R_middle:
         elif Gamma == -3.0:    
             R_middle = 10**.34
     if F == 'CS6_E_G2P_2_005':
-        if   Gamma == -1.5:       
+        if Gamma == -1.5:       
             R_middle = 10**-.55
         elif Gamma == -2.0:     
             R_middle = 10**-.3
@@ -412,7 +412,7 @@ if new_R_middle:
         elif Gamma == -3.0:    
             R_middle = 10**.35
     if F == 'CS6_E_G2P_4_005':
-        if   Gamma == -1.5:       
+        if Gamma == -1.5:       
             R_middle = 10**-.5
         elif Gamma == -2.0:     
             R_middle = 10**-.3
@@ -421,7 +421,7 @@ if new_R_middle:
         elif Gamma == -3.0:    
             R_middle = 10**.32
     if F == 'CS6_E_G2P_6_005':
-        if   Gamma == -1.5:       
+        if Gamma == -1.5:       
             R_middle = 10**-.5
         elif Gamma == -2.0:     
             R_middle = 10**-.3
@@ -430,7 +430,7 @@ if new_R_middle:
         elif Gamma == -3.0:    
             R_middle = 10**.35
     if F == 'CS6_E_G2P_8_005':
-        if   Gamma == -1.5:       
+        if Gamma == -1.5:       
             R_middle = 1
         elif Gamma == -2.0:     
             R_middle = 1
@@ -439,7 +439,7 @@ if new_R_middle:
         elif Gamma == -3.0:    
             R_middle = 1
     if F == 'CS6_E_G2P_10_005':
-        if   Gamma == -1.5:       
+        if Gamma == -1.5:       
             R_middle = 1
         elif Gamma == -2.0:     
             R_middle = 1
@@ -448,7 +448,7 @@ if new_R_middle:
         elif Gamma == -3.0:    
             R_middle = 1
     if F == 'CS6_E_G2P_20_005':
-        if   Gamma == -1.5:       
+        if Gamma == -1.5:       
             R_middle = 10**-.45
         elif Gamma == -2.0:     
             R_middle = 10**-.25
@@ -458,7 +458,7 @@ if new_R_middle:
             R_middle = 10**.28          
     # con_CS6 final
     if F == 'CS6_E_20_005': 
-        if   Gamma == -1.5:       
+        if Gamma == -1.5:       
             R_middle = 10**-.42
         elif Gamma == -2.0:     
             R_middle = 10**-.23
@@ -468,7 +468,7 @@ if new_R_middle:
             R_middle = 10**.3
     # DS1
     if F == 'DS1_E_G2P_0_000':
-        if   Gamma == -1.5:       
+        if Gamma == -1.5:       
             R_middle = 1
         elif Gamma == -2.0:     
             R_middle = 1
@@ -477,7 +477,7 @@ if new_R_middle:
         elif Gamma == -3.0:    
             R_middle = 1
     if F == 'DS1_E_G2P_20_005':
-        if   Gamma == -1.5:       
+        if Gamma == -1.5:       
             R_middle = 1
         elif Gamma == -2.0:     
             R_middle = 1
@@ -487,7 +487,7 @@ if new_R_middle:
             R_middle = 1           
     # con_DS1
     if F == 'DS1_E_20_005': 
-        if   Gamma == -1.5:       
+        if Gamma == -1.5:       
             R_middle = 1
         elif Gamma == -2.0:     
             R_middle = 1
@@ -497,7 +497,7 @@ if new_R_middle:
             R_middle = 1
     # Soft_D2
     if F == 'D2_E_G2P_0_000':
-        if   Gamma == -1.5:       
+        if Gamma == -1.5:       
             R_middle = 1
         elif Gamma == -2.0:     
             R_middle = 1
@@ -506,7 +506,7 @@ if new_R_middle:
         elif Gamma == -3.0:    
             R_middle = 1
     if F == 'D2_E_G2P_20_005':
-        if   Gamma == -1.5:       
+        if Gamma == -1.5:       
             R_middle = 1
         elif Gamma == -2.0:     
             R_middle = 1
@@ -516,7 +516,7 @@ if new_R_middle:
             R_middle = 1          
     # con_D2
     if F == 'D2_E_20_005': 
-        if   Gamma == -1.5:       
+        if Gamma == -1.5:       
             R_middle = 1
         elif Gamma == -2.0:     
             R_middle = 1
@@ -526,7 +526,7 @@ if new_R_middle:
             R_middle = 1
     # E
     if F == 'E_E_G2P_0_000':
-        if   Gamma == -1.5:     
+        if Gamma == -1.5:     
             R_middle = 1
         elif Gamma == -2.0:     
             R_middle = 1
@@ -535,7 +535,7 @@ if new_R_middle:
         elif Gamma == -3.0:     
             R_middle = 1
     if F == 'E_E_G2P_20_005':
-        if   Gamma == -1.5:     
+        if Gamma == -1.5:     
             R_middle = 1
         elif Gamma == -2.0:     
             R_middle = 1
@@ -545,7 +545,7 @@ if new_R_middle:
             R_middle = 1
     # E
     if F == 'E_E_20_005': 
-        if   Gamma == -1.5:       
+        if Gamma == -1.5:       
             R_middle = 1
         elif Gamma == -2.0:     
             R_middle = 1
@@ -554,115 +554,117 @@ if new_R_middle:
         elif Gamma == -3.0:     
             R_middle = 1
 
-Pos   = SnapshotFile['PartType1/Coordinates'].value 
-Vel   = SnapshotFile['PartType1/Velocities'].value  
-V     = SnapshotFile['PartType1/Potential'].value     
-x     = Pos[:,0]
-y     = Pos[:,1]
-z     = Pos[:,2]
-vx    = Vel[:,0]
-vy    = Vel[:,1]
-vz    = Vel[:,2]
-minV  = np.argmin(V) 
-xC    = x[minV] 
-yC    = y[minV]
-zC    = z[minV]
-vxC   = vx[minV]
-vyC   = vy[minV]
-vzC   = vz[minV]
-R     = ((x-xC)**2+(y-yC)**2+(z-zC)**2)**.5
+Pos = SnapshotFile['PartType1/Coordinates'].value 
+Vel = SnapshotFile['PartType1/Velocities'].value  
+V = SnapshotFile['PartType1/Potential'].value     
+x = Pos[:,0]
+y = Pos[:,1]
+z = Pos[:,2]
+vx = Vel[:,0]
+vy = Vel[:,1]
+vz = Vel[:,2]
+minV = np.argmin(V) 
+xC = x[minV] 
+yC = y[minV]
+zC = z[minV]
+vxC = vx[minV]
+vyC = vy[minV]
+vzC = vz[minV]
+R = ((x-xC)**2+(y-yC)**2+(z-zC)**2)**.5
 
 if R_limit_10000:
     R_limit = 10000.
-    F       = F + '_R_limit_10000_DeltaG'
+    F = F + '_R_limit_10000_DeltaG'
 elif R_limit_5000:
     R_limit = 5000.
-    F       = F + '_R_limit_5000_DeltaG'
+    F = F + '_R_limit_5000_DeltaG'
 elif R_limit_50:
     R_limit = 50.
-    F      = F + '_R_limit_50_DeltaG'
+    F = F + '_R_limit_50_DeltaG'
 elif R_limit_32:
     R_limit = 32.
-    F      = F + '_R_limit_32_DeltaG'
+    F = F + '_R_limit_32_DeltaG'
 else:
     R_limit = 10.
-    F       = F + '_R_limit_10_DeltaG'
+    F = F + '_R_limit_10_DeltaG'
 
 GoodIDs = np.where(R<R_limit) 
 
 if R_bin_automatic: 
     R_limit_min = R_middle
     R_limit_max = R_middle
-    a           = 0 
-    x0          = x
+    a = 0 
+    x0 = x
     while len(x0)<10000 or a==0:
         R_limit_min = R_limit_min - 0.000005
         R_limit_max = R_limit_max + 0.000005        
-        a          += 1
-        GoodIDs     = np.where((R<R_limit_max)*(R>R_limit_min))
-        x0          =  x[GoodIDs[0]]
+        a += 1
+        GoodIDs = np.where((R<R_limit_max)*(R>R_limit_min))
+        x0 =  x[GoodIDs[0]]
   
-x     =  x[GoodIDs]
-y     =  y[GoodIDs]
-z     =  z[GoodIDs]
-x     = x-np.median(x)
-y     = y-np.median(y)
-z     = z-np.median(z)
-vx    = vx[GoodIDs]
-vy    = vy[GoodIDs]
-vz    = vz[GoodIDs] 
-vx    = vx-np.median(vx)
-vy    = vy-np.median(vy)
-vz    = vz-np.median(vz)
+x =  x[GoodIDs]
+y =  y[GoodIDs]
+z =  z[GoodIDs]
+x = x-np.median(x)
+y = y-np.median(y)
+z = z-np.median(z)
+vx = vx[GoodIDs]
+vy = vy[GoodIDs]
+vz = vz[GoodIDs] 
+vx = vx-np.median(vx)
+vy = vy-np.median(vy)
+vz = vz-np.median(vz)
 R_xyz = (x**2+y**2+z**2)**.5
 
 if Fig_x_hist:
-    f,(ax1,ax2,ax3) = plt.subplots(1,3,figsize=(13,11))
+    f, (ax1, ax2, ax3) = plt.subplots(1, 3, figsize=(13, 11))
     f.subplots_adjust(hspace=0,wspace=0) 
-    ax1.set_xlabel(r'$x-x_c$',fontsize=30)
-    n, bins, patches = ax1.hist(x-xC,500,normed=1,histtype='stepfilled')
-    plt.setp(patches,'facecolor','g','alpha',.75)
-    ax1.set_xlim(-40,40)
-    ax1.set_ylim(.0,.4)
+    ax1.set_xlabel(r'$x-x_c$', fontsize=30)
+    n, bins, patches = ax1.hist(x-xC, 500, normed=1, histtype='stepfilled')
+    plt.setp(patches, 'facecolor', 'g', 'alpha', .75)
+    ax1.set_xlim(-40, 40)
+    ax1.set_ylim(.0, .4)
 
-    ax2.set_xlabel(r'$y-y_c$',fontsize=30)
-    n, bins, patches = ax2.hist(y-yC,500,normed=1,histtype='stepfilled')
-    plt.setp(patches,'facecolor','g','alpha',.75)
-    ax2.set_title(r'Histograms of centralized positions',fontsize=30)
-    ax2.set_xlim(-40,40)
-    ax2.set_ylim(.0,.4)
-    ax2.tick_params(axis='both',which='both',bottom='on',top='off',labelbottom='on',right='off',left='off',labelleft='off')
+    ax2.set_xlabel(r'$y-y_c$', fontsize=30)
+    n, bins, patches = ax2.hist(y-yC, 500, normed=1, histtype='stepfilled')
+    plt.setp(patches, 'facecolor', 'g', 'alpha', .75)
+    ax2.set_title(r'Histograms of centralized positions', fontsize=30)
+    ax2.set_xlim(-40, 40)
+    ax2.set_ylim(.0, .4)
+    ax2.tick_params(axis='both', which='both', bottom='on', top='off',
+                    labelbottom='on', right='off', left='off', labelleft='off')
 
-    ax3.set_xlabel(r'$z-z_c$',fontsize=30)
+    ax3.set_xlabel(r'$z-z_c$', fontsize=30)
     n, bins, patches = ax3.hist(z-zC, 500, normed=1, histtype='stepfilled')
     plt.setp(patches, 'facecolor', 'g', 'alpha', .75)
-    ax3.set_xlim(-40,40)
-    ax3.set_ylim(.0,.4)
-    #ax3.axes.get_yaxis().set_visible(False)
-    ax3.tick_params(axis='both',which='both',bottom='on',top='off',labelbottom='on',right='off',left='off',labelleft='off')
+    ax3.set_xlim(-40, 40)
+    ax3.set_ylim(.0, .4)
+    # ax3.axes.get_yaxis().set_visible(False)
+    ax3.tick_params(axis='both', which='both', bottom='on', top='off',
+                    labelbottom='on', right='off', left='off', labelleft='off')
     f.savefig(figure_path + 'Fig_B_Final_x_hist_I.png')
 
 if Fig_x_hist2d:
-    f = plt.figure(figsize=(13,11))
-    plt.xlabel(r'$x-x_c$',fontsize=30)
-    plt.ylabel(r'$y-y_c$',fontsize=30)
-    plt.hexbin(x-xC,y-yC, gridsize=200)
-    plt.xlim(-4,4)
-    plt.ylim(-4,4)
-    plt.title(r'Histogram of centralized positions x and y (200 hexbins)',fontsize=30)
-    #f.savefig(figure_path + 'Fig_x_hist2d.png')
+    f = plt.figure(figsize=(13, 11))
+    plt.xlabel(r'$x-x_c$', fontsize=30)
+    plt.ylabel(r'$y-y_c$', fontsize=30)
+    plt.hexbin(x-xC, y-yC, gridsize=200)
+    plt.xlim(-4, 4)
+    plt.ylim(-4, 4)
+    plt.title(r'Histogram of centralized positions x and y (200 hexbins)', fontsize=30)
+    # f.savefig(figure_path + 'Fig_x_hist2d.png')
     f.savefig(figure_path + 'Fig_CS4_Final_x_hist2d_I.png')
 
 R_hob_par = R[GoodIDs]
 # Declare number of particles
-if F.startswith('Soft_B_') or F.startswith('E_'):
+if F.startswith(('Soft_B_', 'E_')):
     N = 10**6
-elif F.startswith('CS4_') or F.startswith('CS5_') or F.startswith('CS6_') or F.startswith('DS1_') or F.startswith('Soft_D2_'):
+elif F.startswith(('CS4_', 'CS5_', 'CS6_', 'DS1_', 'Soft_D2_')):
     N = 10**5
 elif F.startswith('CS1_'):
     N = 10**4       
 # Declare total mass
-if F.startswith('A_') or F.startswith('B_') or F.startswith('CS1_') or F.startswith('CS4_') or F.startswith('CS5_') or F.startswith('CS6_') or F.startswith('E_'):
+if F.startswith(('A_', 'B_', 'CS1_', 'CS4_', 'CS5_', 'CS6_', 'E_'):
     M = 1.
 elif F.startswith('DS1_') or F.startswith('D2_') or F.startswith('Soft_D2_'):
     M = 1./6.
