@@ -1,77 +1,77 @@
 # -*- coding: utf-8 -*-
 
 import h5py
-import numpy              as     np
-import matplotlib.pyplot  as     plt
+import numpy as np
+import matplotlib.pyplot as plt
 import IPython
-from   matplotlib.colors  import LogNorm
+from matplotlib.colors import LogNorm
 import time
-from   pylab              import *
-from   scipy.stats        import norm
-from   scipy.optimize     import curve_fit
-import scipy              as     sp
-import seaborn            as     sns
-import matplotlib.patches as     mpatches
+from pylab import *
+from scipy.stats import norm
+from scipy.optimize import curve_fit
+import scipy as sp
+import seaborn as sns
+import matplotlib.patches as mpatches
+from pathlib import Path
 
-User_path        =                                      '/Users/gustav.c.rasmussen/'
-Desktop_path     = User_path                          + 'Desktop/'
-GADGET_E_path    = Desktop_path                       + 'RunGadget/Energy_Exchange/'
-Stable_path      =                                      'Energy_exchange/Stable_structures/'
-figure_path      = Desktop_path + Stable_path         + 'figures/'
+User_path = Path.cwd()
+Desktop_path = User_path + 'Desktop/'
+GADGET_E_path = Desktop_path + 'RunGadget/Energy_Exchange/'
+Stable_path = 'Energy_exchange/Stable_structures/'
+figure_path = Desktop_path + Stable_path + 'figures/'
 
-#text_files_path = Desktop_path + Stable_path         + 'text_files/Soft_B/'
+# text_files_path = Desktop_path + Stable_path + 'text_files/Soft_B/'
 
-Soft_B_path      = 'E_HQ_1000000_B/output/'
-Filename         = GADGET_E_path + Soft_B_path        + 'B_E_G2P_0_000.hdf5'
-SnapshotFile     = h5py.File(Filename,'r')
-F                = 'Soft_B' + Filename[len(GADGET_E_path + Soft_B_path + 'B'):-5]
+Soft_B_path = 'E_HQ_1000000_B/output/'
+Filename = GADGET_E_path + Soft_B_path + 'B_E_G2P_0_000.hdf5'
+SnapshotFile = h5py.File(Filename, 'r')
+F = 'Soft_B' + Filename[len(GADGET_E_path + Soft_B_path + 'B'):-5]
 
-Fig_logvx_logx_before  = 0
-Fig_logvx_logx_after   = 0
-
-Fig_v_logx_before      = 0
-Fig_v_logx_after       = 1
+Fig_logvx_logx_before = 0
+Fig_logvx_logx_after = 0
+Fig_v_logx_before = 0
+Fig_v_logx_after = 0
 
 Masses = SnapshotFile['PartType1/Masses'].value 
-Pos    = SnapshotFile['PartType1/Coordinates'].value 
-Vel    = SnapshotFile['PartType1/Velocities'].value  
-V      = SnapshotFile['PartType1/Potential'].value     
-M      = Masses
-x      = Pos[:,0]
-y      = Pos[:,1]
-z      = Pos[:,2]
-vx     = Vel[:,0]
-vy     = Vel[:,1]
-vz     = Vel[:,2]
-minV   = np.argmin(V)  
-xC     = x[minV] 
-yC     = y[minV]
-zC     = z[minV]
-vxC    = vx[minV]
-vyC    = vy[minV]
-vzC    = vz[minV]
-R      = ((x-xC)**2+(y-yC)**2+(z-zC)**2)**.5
-x      =  x - np.median(x)
-y      =  y - np.median(y)
-z      =  z - np.median(z)
-vx     = vx - np.median(vx)
-vy     = vy - np.median(vy)
-vz     = vz - np.median(vz)
-#M_limit = np.sum(M) # total mass
+Pos = SnapshotFile['PartType1/Coordinates'].value 
+Vel = SnapshotFile['PartType1/Velocities'].value  
+V = SnapshotFile['PartType1/Potential'].value     
+M = Masses
+x = Pos[:,0]
+y = Pos[:,1]
+z = Pos[:,2]
+vx = Vel[:,0]
+vy = Vel[:,1]
+vz = Vel[:,2]
+minV = np.argmin(V)  
+xC = x[minV] 
+yC = y[minV]
+zC = z[minV]
+vxC = vx[minV]
+vyC = vy[minV]
+vzC = vz[minV]
+R = ((x-xC)**2+(y-yC)**2+(z-zC)**2)**.5
+x =  x - np.median(x)
+y =  y - np.median(y)
+z =  z - np.median(z)
+vx = vx - np.median(vx)
+vy = vy - np.median(vy)
+vz = vz - np.median(vz)
+# M_limit = np.sum(M)  # total mass
 IDs = np.argsort(R)
-x_IDs  = x[IDs]
-y_IDs  = y[IDs]
-z_IDs  = z[IDs]
+x_IDs = x[IDs]
+y_IDs = y[IDs]
+z_IDs = z[IDs]
 vx_IDs = vx[IDs]
 vy_IDs = vy[IDs]
 vz_IDs = vz[IDs]
-R_IDs  = R[IDs]
-V_IDs  = V[IDs]
-M_IDs  = M[IDs]
+R_IDs = R[IDs]
+V_IDs = V[IDs]
+M_IDs = M[IDs]
 
-N_total             = x.shape[0]
+N_total = x.shape[0]
 N_particles_per_bin = 500
-N_bins              = N_total/N_particles_per_bin
+N_bins = N_total / N_particles_per_bin
 
 bin_radius_arr                  = []
 x_GoodIDs_arr                   = []
@@ -98,7 +98,6 @@ Ratio_norm_mean_inside_bin_arr  = []
 
 if Fig_logvx_logx_before:
     f,(ax1) = plt.subplots(1,1,figsize=(13,11))
-    f.subplots_adjust(hspace=0,wspace=0)
     ax1.set_xlabel(r'$\log x$'  ,fontsize=30)
     ax1.set_ylabel(r'$\log (v_x)$',fontsize=30)
     ax1.plot(np.log10(x),np.log10(vx),'o',color='Blue',label='Soft B 0_005',lw=3,ms=2)
@@ -118,7 +117,6 @@ if Fig_v_logx_before:
     leg = ax1.legend(prop=dict(size=18),numpoints=1,ncol=1,fancybox=True,loc=0,handlelength=2.5)
     leg.get_frame().set_alpha(.5)
     ax1.set_title(r'II: $\Delta E$ (before perturbations)',fontsize=30)
-
     f.savefig(figure_path + 'Soft_B_0_005_v_logx_II.png')
 
 for i in range(N_bins): # Divide structure into mass-bins. Favoured over radial bins, as outer region of structure has less particles.
@@ -268,7 +266,6 @@ Masses = np.concatenate(Masses,axis=0)
 
 if Fig_logvx_logx_after:
     f,(ax1) = plt.subplots(1,1,figsize=(13,11))
-    f.subplots_adjust(hspace=0,wspace=0)
     ax1.set_xlabel(r'$\log x$'    ,fontsize=30)
     ax1.set_ylabel(r'$\log (v_x)$',fontsize=30)
     ax1.plot(np.log10(x),np.log10(vx),'o',color='Blue',label='Soft B 0_005 P2G',lw=3,ms=2)
@@ -281,31 +278,12 @@ if Fig_logvx_logx_after:
 if Fig_v_logx_after:
     v = (vx**2+vy**2+vz**2)**.5
     f,(ax1) = plt.subplots(1,1,figsize=(13,11))
-    f.subplots_adjust(hspace=0,wspace=0)
     ax1.set_xlabel(r'$\log x$'      ,fontsize=30)
     ax1.set_ylabel(r'$v_{tot}$',fontsize=30)
     ax1.plot(np.log10(x),v,'o',color='Blue',label='Soft B 0_005 P2G',lw=3,ms=2)
     leg = ax1.legend(prop=dict(size=18),numpoints=1,ncol=1,fancybox=True,loc=0,handlelength=2.5)
     leg.get_frame().set_alpha(.5)
     ax1.set_title(r'II: $\Delta E$ (after tiny perturbations)',fontsize=30)
-
     f.savefig(figure_path + 'Soft_B_0_005_P2G_v_logx_II_only_rand_2.png')
 
-
-    
-
-
-
-
-
-
-
-
 plt.show()
-
-
-
-
-
-
-
