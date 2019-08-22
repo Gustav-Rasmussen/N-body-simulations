@@ -264,19 +264,19 @@ else:
     R_limit = 10.
     F = F + '_R_limit_10_DeltaG'
 
-GoodIDs = np.where(R<R_limit) 
+GoodIDs = np.where(R < R_limit) 
 
 if R_bin_automatic: 
     R_limit_min = R_middle
     R_limit_max = R_middle
     a = 0 
     x0 = x
-    while len(x0)<10000 or a==0:
-        R_limit_min = R_limit_min - 0.000005
-        R_limit_max = R_limit_max + 0.000005        
+    while len(x0) < 10000 or a == 0:
+        R_limit_min -= 0.000005
+        R_limit_max += 0.000005        
         a += 1
-        GoodIDs = np.where((R<R_limit_max)*(R>R_limit_min))
-        x0 =  x[GoodIDs[0]]
+        GoodIDs = np.where((R < R_limit_max) * (R > R_limit_min))
+        x0 = x[GoodIDs[0]]
 
 x = x[GoodIDs]
 y = y[GoodIDs]
@@ -304,7 +304,7 @@ if Fig_x_hist:
     ax2.set_xlabel(r'$y-y_c$', fontsize=30)
     n, bins, patches = ax2.hist(y-yC, 500, normed=1, histtype='stepfilled')
     plt.setp(patches, 'facecolor', 'g', 'alpha', .75)
-    ax2.set_title(r'Histograms of centralized positions', fontsize=30)
+    ax2.set_title('Histograms of centralized positions', fontsize=30)
     ax2.set_xlim(-40, 40)
     ax2.set_ylim(.0, .4)
     ax2.tick_params(axis='both', which='both', bottom='on', top='off',
@@ -348,76 +348,76 @@ elif F.startswith(('DS1_', 'D2_', 'Soft_D2_')):
 m = M / N
 
 if Gamma == -2.0:     
-    r_2                    = R_middle
-    posR_par_inside_halo   = np.where(R_hob_par < r_2) 
-    nr_par_inside_halo     = len(posR_par_inside_halo[0]) 
-    M_2                    = nr_par_inside_halo*m
-    G                      = 1.
-    v_circ_2               = (G*M_2/r_2)**.5
+    r_2 = R_middle
+    posR_par_inside_halo = np.where(R_hob_par < r_2) 
+    nr_par_inside_halo = len(posR_par_inside_halo[0]) 
+    M_2 = nr_par_inside_halo * m
+    G = 1.
+    v_circ_2 = (G * M_2 / r_2) ** .5
+
+
+r = ravf.modulus(x, y, z)
+v = ravf.modulus(vx, vy, vz)
 
 if Fig_v_logr:
-    r = (x**2+y**2+z**2)**.5
-    v = (vx**2+vy**2+vz**2)**.5
-    f, (ax1,ax2) = plt.subplots(1,2,figsize=(13,11))
-    f.subplots_adjust(hspace=0,wspace=0)
-    ax1.plot(r, v,'o',color = 'Blue',lw=3,ms=2)
+    f, (ax1, ax2) = plt.subplots(1, 2, figsize=(13, 11))
+    f.subplots_adjust(hspace=0, wspace=0)
+    ax1.plot(r, v, 'bo', lw=3, ms=2)
     ax1.set_xlabel('r', fontsize=30)
-    ax1.set_ylabel(r'velocity, $v = \sqrt{v_x^2+v_y^2+v_z^2}$',fontsize=30)
-    ax1.set_title(r'A IC (I: $\Delta G,R_{lim}=10^4$)',fontsize=30)
-    ax2.plot(np.log10(r), v,'o',color = 'Blue',lw=3,ms=2)
+    ax1.set_ylabel(r'velocity, $v = \sqrt{v_x^2+v_y^2+v_z^2}$', fontsize=30)
+    ax1.set_title(r'A IC (I: $\Delta G,R_{lim}=10^4$)', fontsize=30)
+    ax2.plot(np.log10(r), v, 'bo', lw=3, ms=2)
     ax2.set_xlabel(r'$\log r$', fontsize=30)
     ax2.yaxis.tick_right()
     f.savefig(figure_path + 'A_IC_v_logr.png'    )
 
 if Fig_v_logr_r2:
-    r             = (x**2+y**2+z**2)**.5
-    v             = (vx**2+vy**2+vz**2)**.5
-    r_r2          = r/r_2
-    f, (ax1,ax2)  = plt.subplots(1,2,figsize=(13,11))
-    f.subplots_adjust(hspace=0,wspace=0)
-    ax1.plot(r_r2, v,'o',color = 'Blue',lw=3,ms=2)
+    r_r2 = r / r_2
+    f, (ax1, ax2) = plt.subplots(1, 2, figsize=(13, 11))
+    f.subplots_adjust(hspace=0, wspace=0)
+    ax1.plot(r_r2, v, 'bo', lw=3, ms=2)
     ax1.set_xlabel(r'$\frac{r}{r_{-2}}$', fontsize=30)
-    ax1.set_ylabel(r'velocity, $v = \sqrt{v_x^2+v_y^2+v_z^2}$',fontsize=30)
-    ax1.set_title(r'A 48_009 (I: $\Delta G,R_{lim}=10^4$)',fontsize=30)
-    ax2.plot(np.log10(r_r2), v,'o',color = 'Blue',lw=3,ms=2)
+    ax1.set_ylabel(r'velocity, $v = \sqrt{v_x^2+v_y^2+v_z^2}$', fontsize=30)
+    ax1.set_title(r'A 48_009 (I: $\Delta G,R_{lim}=10^4$)', fontsize=30)
+    ax2.plot(np.log10(r_r2), v, 'bo', lw=3, ms=2)
     ax2.set_xlabel(r'$\log (\frac{r}{r_{-2}})$', fontsize=30)
     ax2.yaxis.tick_right()
     f.savefig(figure_path + 'A_48_009_v_logr_r2.png')
 
 if Fig1_xy_xz: 
-    f, (ax1,ax2) = plt.subplots(1,2,figsize=(14,10))
-    f.subplots_adjust(hspace=0,wspace=0)
-    ax1.set_title(r'A IC ($R_{lim}=32$)',fontsize=30)
-    ax1.set_xlabel('x',fontsize=30)
-    ax1.set_ylabel('y',fontsize=30)
-    ax1.plot(x,y,'o',ms=2,mew=0,color='blue')
+    f, (ax1, ax2) = plt.subplots(1, 2, figsize=(14, 10))
+    f.subplots_adjust(hspace=0, wspace=0)
+    ax1.set_title(r'A IC ($R_{lim}=32$)', fontsize=30)
+    ax1.set_xlabel('x', fontsize=30)
+    ax1.set_ylabel('y', fontsize=30)
+    ax1.plot(x, y, 'bo', ms=2, mew=0)
 
-    ax2.set_xlabel('x',fontsize=30)
-    ax2.set_ylabel('z',fontsize=30)
+    ax2.set_xlabel('x', fontsize=30)
+    ax2.set_ylabel('z', fontsize=30)
     ax2.yaxis.tick_right()
     ax2.yaxis.set_label_position("right")
-    ax2.plot(x,z,'o',ms=2,mew=0,color='blue')
-    
+    ax2.plot(x, z, 'bo', ms=2, mew=0)
+
     f.savefig(figure_path + 'A_IC_xy_xz.png'    )
 
 if Fig2_v:           
-    f   = plt.figure()
+    f = plt.figure()
     ax1 = plt.subplot(131)
-    plt.ylabel('vx'  , fontsize=30)
-    plt.plot(x,vx,'o',ms=2,mew=0,color='blue')
+    plt.ylabel('vx', fontsize=30)
+    plt.plot(x, vx, 'bo', ms=2, mew=0)
 
     ax2 = plt.subplot(132)
-    plt.xlabel('x' ,fontsize=30)
-    plt.ylabel('vy',fontsize=30)
-    plt.title('Velocities (File = %s)'%F,fontsize=30)
-    plt.plot(x,vy,'o',ms=2,mew=0,color='blue')
-    setp( ax2.get_yticklabels(),visible=False)
+    plt.xlabel('x', fontsize=30)
+    plt.ylabel('vy', fontsize=30)
+    plt.title('Velocities (File = %s)' % F, fontsize=30)
+    plt.plot(x, vy, 'bo', ms=2, mew=0)
+    setp(ax2.get_yticklabels(), visible=False)
 
     ax3 = plt.subplot(133)
-    plt.ylabel('vz' , fontsize=30)
-    plt.plot(x,vz,'o',ms=2,mew=0,color='blue')
-    setp( ax3.get_yticklabels(),visible=False)
-    #f.savefig(figure_path + 'A_v.png'      )
+    plt.ylabel('vz', fontsize=30)
+    plt.plot(x, vz, 'bo', ms=2, mew=0)
+    setp(ax3.get_yticklabels(), visible=False)
+    # f.savefig(figure_path + 'A_v.png')
 
 sigma2_arr              = [] 
 sigmarad2_arr           = [] 
