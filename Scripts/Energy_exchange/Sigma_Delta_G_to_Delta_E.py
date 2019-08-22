@@ -187,27 +187,16 @@ R_limit_50 = 0
 R_limit_32 = 1
 
 if new_R_middle:
-    # Soft_B
-    if F == 'B_E_G2P_0_000': 
-        if Gamma == -1.5:     
-            R_middle = 1
-        elif Gamma == -2.0:     
-            R_middle = 1
-        elif Gamma == -2.5:                    
-            R_middle = 1
-        elif Gamma == -3.0:     
-            R_middle = 1
-    if F == 'B_E_G2P_20_005': 
-        if Gamma == -1.5:       
-            R_middle = 1
-        elif Gamma == -2.0:     
-            R_middle = 1
-        elif Gamma == -2.5:                 
-            R_middle = 1
-        elif Gamma == -3.0:     
-            R_middle = 1
-    # con_Soft_B
-    if F == 'B_E_0_000': 
+    # List of tuples with string and dict of Gamma and Rmiddle, [('filename', {Gamma_1: R_middle_1, ..., Gamma_4: R_middle_4})]
+    if F == 'B_E_G2P_0_000':
+        Gamma_Rmiddle_list = [('B_E_G2P_0_000', {-1.5: 1, -2.0: 1, -2.5: 1, -3.0: 1}),
+                              ('B_E_G2P_20_005', {-1.5: 1, -2.0: 1, -2.5: 1, -3.0: 1}),
+                              ('B_E_0_000', {-1.5: , -2.0: , -2.5: , -3.0: }),
+                              (, {-1.5: , -2.0: , -2.5: , -3.0: }),
+                              (, {-1.5: , -2.0: , -2.5: , -3.0: }),
+                             ]
+
+    if F == 'B_E_0_000':
         if Gamma == -1.5:     
             R_middle = 10**-.7
         elif Gamma == -2.0:     
@@ -216,7 +205,7 @@ if new_R_middle:
             R_middle = 1.
         elif Gamma == -3.0:     
             R_middle = 10**.3
-    if F == 'B_E_0_001': 
+    if F == 'B_E_0_001':
         if Gamma == -1.5:       
             R_middle = 10**-.7
         elif Gamma == -2.0:     
@@ -225,7 +214,7 @@ if new_R_middle:
             R_middle = 1.
         elif Gamma == -3.0:     
             R_middle = 10**.3
-    if F == 'B_E_20_005': 
+    if F == 'B_E_20_005':
         if Gamma == -1.5:       
             R_middle = 10**-.6
         elif Gamma == -2.0:     
@@ -273,7 +262,7 @@ if new_R_middle:
         elif Gamma == -3.0:     
             R_middle = 10**.27
     if F == 'CS4_E_G2P_6_005':
-        if Gamma == -1.5:       
+        if Gamma == -1.5:
             R_middle = 10**-.48
         elif Gamma == -2.0:     
             R_middle = 10**-.25
@@ -309,7 +298,7 @@ if new_R_middle:
         elif Gamma == -3.0:     
             R_middle = 10**.25        
     # con_CS4 Final
-    if F == 'CS4_E_20_005': 
+    if F == 'CS4_E_20_005':
         if Gamma == -1.5:       
             R_middle = 10**-.4
         elif Gamma == -2.0:     
@@ -383,7 +372,7 @@ if new_R_middle:
         elif Gamma == -3.0:    
             R_middle = 10**-.28          
     # con_CS5 final
-    if F == 'CS5_E_20_005': 
+    if F == 'CS5_E_20_005':
         if Gamma == -1.5:       
             R_middle = 10**-.45
         elif Gamma == -2.0:     
@@ -457,7 +446,7 @@ if new_R_middle:
         elif Gamma == -3.0:    
             R_middle = 10**.28          
     # con_CS6 final
-    if F == 'CS6_E_20_005': 
+    if F == 'CS6_E_20_005':
         if Gamma == -1.5:       
             R_middle = 10**-.42
         elif Gamma == -2.0:     
@@ -486,7 +475,7 @@ if new_R_middle:
         elif Gamma == -3.0:    
             R_middle = 1           
     # con_DS1
-    if F == 'DS1_E_20_005': 
+    if F == 'DS1_E_20_005':
         if Gamma == -1.5:       
             R_middle = 1
         elif Gamma == -2.0:     
@@ -515,7 +504,7 @@ if new_R_middle:
         elif Gamma == -3.0:    
             R_middle = 1          
     # con_D2
-    if F == 'D2_E_20_005': 
+    if F == 'D2_E_20_005':
         if Gamma == -1.5:       
             R_middle = 1
         elif Gamma == -2.0:     
@@ -544,7 +533,7 @@ if new_R_middle:
         elif Gamma == -3.0:     
             R_middle = 1
     # E
-    if F == 'E_E_20_005': 
+    if F == 'E_E_20_005':
         if Gamma == -1.5:       
             R_middle = 1
         elif Gamma == -2.0:     
