@@ -226,7 +226,8 @@ if new_R_middle:
             R_middle = 1.
         elif Gamma == -3.0:    
             R_middle = 10**.35
-    if F == 'CS6_E_G2P_4_005':
+
+    if F == 'CS6_E_G2P_4_005'
         if Gamma == -1.5:       
             R_middle = 10**-.5
         elif Gamma == -2.0:     
@@ -235,7 +236,8 @@ if new_R_middle:
             R_middle = 10**-.05
         elif Gamma == -3.0:    
             R_middle = 10**.32
-    if F == 'CS6_E_G2P_6_005':
+
+    if F == 'CS6_E_G2P_6_005'
         if Gamma == -1.5:       
             R_middle = 10**-.5
         elif Gamma == -2.0:     
@@ -244,35 +246,22 @@ if new_R_middle:
             R_middle = 10**-.05
         elif Gamma == -3.0:    
             R_middle = 10**.35
-    if F == 'CS6_E_G2P_8_005':
-        if Gamma == -1.5:       
-            R_middle = 1
-        elif Gamma == -2.0:     
-            R_middle = 1
-        elif Gamma == -2.5:                   
-            R_middle = 1
-        elif Gamma == -3.0:    
-            R_middle = 1
-    if F == 'CS6_E_G2P_10_005':
-        if Gamma == -1.5:       
-            R_middle = 1
-        elif Gamma == -2.0:     
-            R_middle = 1
-        elif Gamma == -2.5:                   
-            R_middle = 1
-        elif Gamma == -3.0:    
-            R_middle = 1
-    if F == 'CS6_E_G2P_20_005':
-        if Gamma == -1.5:       
+
+    'CS6_E_G2P_8_005', RmiddleOnes
+
+    'CS6_E_G2P_10_005', RmiddleOnes
+
+    if F == 'CS6_E_G2P_20_005'
+        if Gamma == -1.5:
             R_middle = 10**-.45
-        elif Gamma == -2.0:     
+        elif Gamma == -2.0:
             R_middle = 10**-.25
-        elif Gamma == -2.5:                   
+        elif Gamma == -2.5:  
             R_middle = 10**-.08
-        elif Gamma == -3.0:    
-            R_middle = 10**.28          
-    # con_CS6 final
-    if F == 'CS6_E_20_005':
+        elif Gamma == -3.0:
+            R_middle = 10**.28
+
+    if F == 'CS6_E_20_005'
         if Gamma == -1.5:       
             R_middle = 10**-.42
         elif Gamma == -2.0:     
@@ -281,93 +270,25 @@ if new_R_middle:
             R_middle = 1.
         elif Gamma == -3.0:     
             R_middle = 10**.3
-    # DS1
-    if F == 'DS1_E_G2P_0_000':
-        if Gamma == -1.5:       
-            R_middle = 1
-        elif Gamma == -2.0:     
-            R_middle = 1
-        elif Gamma == -2.5:                   
-            R_middle = 1
-        elif Gamma == -3.0:    
-            R_middle = 1
-    if F == 'DS1_E_G2P_20_005':
-        if Gamma == -1.5:       
-            R_middle = 1
-        elif Gamma == -2.0:     
-            R_middle = 1
-        elif Gamma == -2.5:                   
-            R_middle = 1
-        elif Gamma == -3.0:    
-            R_middle = 1           
-    # con_DS1
-    if F == 'DS1_E_20_005':
-        if Gamma == -1.5:       
-            R_middle = 1
-        elif Gamma == -2.0:     
-            R_middle = 1
-        elif Gamma == -2.5:                 
-            R_middle = 1
-        elif Gamma == -3.0:     
-            R_middle = 1
-    # Soft_D2
-    if F == 'D2_E_G2P_0_000':
-        if Gamma == -1.5:       
-            R_middle = 1
-        elif Gamma == -2.0:     
-            R_middle = 1
-        elif Gamma == -2.5:                   
-            R_middle = 1
-        elif Gamma == -3.0:    
-            R_middle = 1
-    if F == 'D2_E_G2P_20_005':
-        if Gamma == -1.5:       
-            R_middle = 1
-        elif Gamma == -2.0:     
-            R_middle = 1
-        elif Gamma == -2.5:                   
-            R_middle = 1
-        elif Gamma == -3.0:    
-            R_middle = 1          
-    # con_D2
-    if F == 'D2_E_20_005':
-        if Gamma == -1.5:       
-            R_middle = 1
-        elif Gamma == -2.0:     
-            R_middle = 1
-        elif Gamma == -2.5:                 
-            R_middle = 1
-        elif Gamma == -3.0:     
-            R_middle = 1
-    # E
-    if F == 'E_E_G2P_0_000':
-        if Gamma == -1.5:     
-            R_middle = 1
-        elif Gamma == -2.0:     
-            R_middle = 1
-        elif Gamma == -2.5:                
-            R_middle = 1
-        elif Gamma == -3.0:     
-            R_middle = 1
-    if F == 'E_E_G2P_20_005':
-        if Gamma == -1.5:     
-            R_middle = 1
-        elif Gamma == -2.0:     
-            R_middle = 1
-        elif Gamma == -2.5:                
-            R_middle = 1
-        elif Gamma == -3.0:     
-            R_middle = 1
-    # E
-    if F == 'E_E_20_005':
-        if Gamma == -1.5:       
-            R_middle = 1
-        elif Gamma == -2.0:     
-            R_middle = 1
-        elif Gamma == -2.5:                 
-            R_middle = 1
-        elif Gamma == -3.0:     
-            R_middle = 1
+
+    if F == 'DS1_E_G2P_0_000', RmiddleOnes
+
+    if F == 'DS1_E_G2P_20_005', RmiddleOnes       
+
+    if F == 'DS1_E_20_005', RmiddleOnes
+
+    if F == 'D2_E_G2P_0_000', RmiddleOnes
+
+    if F == 'D2_E_G2P_20_005', RmiddleOnes       
+
+    if F == 'D2_E_20_005', RmiddleOnes
+
+    if F == 'E_E_G2P_0_000', RmiddleOnes
+
+    if F == 'E_E_G2P_20_005', RmiddleOnes
+
+    if F == 'E_E_20_005', RmiddleOnes
+
 
 Pos = SnapshotFile['PartType1/Coordinates'].value 
 Vel = SnapshotFile['PartType1/Velocities'].value  
