@@ -467,12 +467,16 @@ for i in range(nr_binning_bins - 2):
     den_cl = nr_par_inside_bin_i / Volume_cl
     rho = den_cl * m
  
-    r_i = (x[posR_par_inside_bin_i]**2+y[posR_par_inside_bin_i]**2+z[posR_par_inside_bin_i]**2)**.5
-    Phi_i = sp.arctan2(y[posR_par_inside_bin_i],x[posR_par_inside_bin_i])
-    Theta_i = sp.arccos(z[posR_par_inside_bin_i]/r_i)
-    VR_i = sp.sin(Theta_i)*sp.cos(Phi_i)*vx[posR_par_inside_bin_i]+sp.sin(Theta_i)*sp.sin(Phi_i)*vy[posR_par_inside_bin_i]+sp.cos(Theta_i)*vz[posR_par_inside_bin_i]
-    VTheta_i = sp.cos(Theta_i)*sp.cos(Phi_i)*vx[posR_par_inside_bin_i]+sp.cos(Theta_i)*sp.sin(Phi_i)*vy[posR_par_inside_bin_i]-sp.sin(Theta_i)*vz[posR_par_inside_bin_i]
-    VPhi_i = -sp.sin(Phi_i)*vx[posR_par_inside_bin_i]+sp.cos(Phi_i) * vy[posR_par_inside_bin_i]
+    r_i = (x[posR_par_inside_bin_i] ** 2 + y[posR_par_inside_bin_i] ** 2 + z[posR_par_inside_bin_i] ** 2) ** .5
+    Phi_i = sp.arctan2(y[posR_par_inside_bin_i], x[posR_par_inside_bin_i])
+    Theta_i = sp.arccos(z[posR_par_inside_bin_i] / r_i)
+    VR_i = sp.sin(Theta_i) * sp.cos(Phi_i) * vx[posR_par_inside_bin_i]
+           + sp.sin(Theta_i) * sp.sin(Phi_i) * vy[posR_par_inside_bin_i]
+           + sp.cos(Theta_i) * vz[posR_par_inside_bin_i]
+    VTheta_i = sp.cos(Theta_i) * sp.cos(Phi_i) * vx[posR_par_inside_bin_i]
+               + sp.cos(Theta_i) * sp.sin(Phi_i) * vy[posR_par_inside_bin_i]
+               - sp.sin(Theta_i) * vz[posR_par_inside_bin_i]
+    VPhi_i = -sp.sin(Phi_i) * vx[posR_par_inside_bin_i] + sp.cos(Phi_i) * vy[posR_par_inside_bin_i]
     VR_i_average_inside_bin_i = (1. / (nr_par_inside_bin_i + 1.)) * np.sum(VR_i)
     
     # sigmatheta2
@@ -480,17 +484,17 @@ for i in range(nr_binning_bins - 2):
     sigmatheta2_inside_bin_i = (1. / (nr_par_inside_bin_i + 1.)) * np.sum(VTheta2_inside_bin_i)
     sigmatheta2_arr.append(sigmatheta2_inside_bin_i)
 
-    #sigmaphi2
+    # sigmaphi2
     VPhi2_inside_bin_i = VPhi_i ** 2
     sigmaphi2_inside_bin_i = (1. / (nr_par_inside_bin_i + 1.)) * np.sum(VPhi2_inside_bin_i)
     sigmaphi2_arr.append(sigmaphi2_inside_bin_i)
 
-    #sigmatan2
+    # sigmatan2
     sigmatan = (sigmatheta2_inside_bin_i + sigmaphi2_inside_bin_i) ** .5
     sigmatan2 = sigmatan ** 2
     sigmatan2_arr.append(sigmatan2)
 
-    #save arrays
+    # save arrays
     density_arr.append(den_cl)
     rho_arr.append(rho)
     Volume_arr.append(Volume_cl)
@@ -536,26 +540,6 @@ if Fig3_sigma:  # Dispersions
     f = plt.figure(figsize=(16,11))
     x_plot = np.log10(bin_radius_arr)
     y_plot = np.log10(sigma2_arr)
-    plt.plot(x_plot,y_plot,'-o',ms=8,mew=0,color='red',label=r'$\log (\sigma_{total}^2)$'    )
-    y_plot = np.log10(sigmarad2_arr)
-    plt.plot(x_plot,y_plot,'--s',ms=8,mew=0,color='blue',label=r'$\log (\sigma_{r}^2)$'      )
-    y_plot = np.log10(sigmatheta2_arr)
-    plt.plot(x_plot,y_plot,'--v',ms=8,mew=0,color='green',label=r'$\log (\sigma_{\theta}^2)$')
-    y_plot = np.log10(sigmaphi2_arr)
-    plt.plot(x_plot,y_plot,'--^',ms=8,mew=0,color='black',label=r'$\log (\sigma_{\phi}^2)$'  )
-    y_plot = np.log10(sigmatan2_arr) # plot sigma_tan
-    plt.plot(x_plot,y_plot,'--^',ms=8,mew=0,color='Violet',label=r'$\log (\sigma_{tan}^2)$'  )
-    plt.xlabel(r'$\log $r'         ,fontsize=30)
-    plt.ylabel(r'$\log (\sigma^2)$',fontsize=30)
-    #plt.title(r'Velocity dispersions (B IC, $R_{limit} = 10^4$, 20 radial bins)',fontsize=30)
-    leg = plt.legend(prop=dict(size=30), numpoints=2, ncol=1,fancybox=True,loc=0,handlelength=2.5)
-    leg.get_frame().set_alpha(.5)
-    #f.savefig(figure_path + 'B_sigma.png'        )
-
-if Fig3_sigma_r_2:  # Dispersions
-    f      = plt.figure(figsize=(16,11))
-    x_plot = np.log10(bin_radius_arr/r_2)
-    y_plot = np.log10(sigma2_arr)
     plt.plot(x_plot,y_plot,'-o',ms=8,mew=0,color='red',label=r'$\log (\sigma_{total}^2)$')
     y_plot = np.log10(sigmarad2_arr)
     plt.plot(x_plot,y_plot,'--s',ms=8,mew=0,color='blue',label=r'$\log (\sigma_{r}^2)$')
@@ -563,170 +547,191 @@ if Fig3_sigma_r_2:  # Dispersions
     plt.plot(x_plot,y_plot,'--v',ms=8,mew=0,color='green',label=r'$\log (\sigma_{\theta}^2)$')
     y_plot = np.log10(sigmaphi2_arr)
     plt.plot(x_plot,y_plot,'--^',ms=8,mew=0,color='black',label=r'$\log (\sigma_{\phi}^2)$')
-    y_plot = np.log10(sigmatan2_arr) # plot sigma_tan
-    plt.plot(x_plot,y_plot,'--^',ms=8,mew=0,color='Violet',label=r'$\log (\sigma_{\tan}^2)$')
-    leg = plt.legend(prop=dict(size=30), numpoints=2, ncol=1,fancybox=True,loc=0,handlelength=2.5)
-    leg.get_frame().set_alpha(0.5)
-    plt.xlabel(r'$\log (\frac{r}{r_{-2}})$',fontsize=30)
-    plt.ylabel(r'$\log (\sigma^2) $',fontsize=30)
-    plt.title(r'Velocity dispersions (B IC, $R_{limit} = 10^4$, 20 radial bins)',fontsize=30)
-    f.savefig(figure_path + 'B_IC_sigma_r_2.png'      )
+    y_plot = np.log10(sigmatan2_arr)  # plot sigma_tan
+    plt.plot(x_plot,y_plot,'--^',ms=8,mew=0,color='Violet',label=r'$\log (\sigma_{tan}^2)$')
+    plt.xlabel(r'$\log $r', fontsize=30)
+    plt.ylabel(r'$\log(\sigma^2)$', fontsize=30)
+    # plt.title(r'Velocity dispersions (B IC, $R_{limit} = 10^4$, 20 radial bins)', fontsize=30)
+    leg = plt.legend(prop=dict(size=30), numpoints=2, ncol=1,
+                     fancybox=True, loc=0, handlelength=2.5)
+    leg.get_frame().set_alpha(.5)
+    # f.savefig(figure_path + 'B_sigma.png')
 
+if Fig3_sigma_r_2:  # Dispersions
+    f = plt.figure(figsize=(16, 11))
+    x_plot = np.log10(bin_radius_arr / r_2)
+    y_plot = np.log10(sigma2_arr)
+    plt.plot(x_plot, y_plot, 'r-o', ms=8, mew=0, label=r'$\log (\sigma_{total}^2)$')
+    y_plot = np.log10(sigmarad2_arr)
+    plt.plot(x_plot, y_plot, 'b--s', ms=8, mew=0, label=r'$\log (\sigma_{r}^2)$')
+    y_plot = np.log10(sigmatheta2_arr)
+    plt.plot(x_plot, y_plot, 'g--v', ms=8, mew=0, label=r'$\log (\sigma_{\theta}^2)$')
+    y_plot = np.log10(sigmaphi2_arr)
+    plt.plot(x_plot, y_plot, 'k--^', ms=8, mew=0, label=r'$\log (\sigma_{\phi}^2)$')
+    y_plot = np.log10(sigmatan2_arr)  # plot sigma_tan
+    plt.plot(x_plot, y_plot, '--^', ms=8, mew=0, color='Violet', label=r'$\log (\sigma_{\tan}^2)$')
+    leg = plt.legend(prop=dict(size=30), numpoints=2, ncol=1,
+                     fancybox=True, loc=0, handlelength=2.5)
+    leg.get_frame().set_alpha(0.5)
+    plt.xlabel(r'$\log (\frac{r}{r_{-2}})$', fontsize=30)
+    plt.ylabel(r'$\log (\sigma^2)$', fontsize=30)
+    plt.title(r'Velocity dispersions (B IC, $R_{limit} = 10^4$, 20 radial bins)', fontsize=30)
+    f.savefig(figure_path + 'B_IC_sigma_r_2.png')
 
 if Fig3_sigma_divided_by_v_circ_r_2:  # Dispersions
     f = plt.figure(figsize=(16, 11))
     x_plot = np.log10(bin_radius_arr / r_2)
     y_plot = np.log10(sigma2_arr / v_circ_2 ** 2)
     # label=r'$\log ((\frac{\sigma_{total}}{v_{circ,2}})^2)$'
-    plt.plot(x_plot,y_plot,'r-o',ms=8,mew=0,label=r'$\log (\bar{\sigma_{total}}^2)$')
-    y_plot = np.log10(sigmarad2_arr/v_circ_2**2)
-    plt.plot(x_plot,y_plot,'b--s',ms=8,mew=0,label=r'$\log (\bar{\sigma_{r}}^2)$')
-    y_plot = np.log10(sigmatheta2_arr/v_circ_2**2)
-    plt.plot(x_plot,y_plot,'g--v',ms=8,mew=0,label=r'$\log (\bar{\sigma_{\theta}}^2)$')
-    y_plot = np.log10(sigmaphi2_arr/v_circ_2**2)
-    plt.plot(x_plot,y_plot,'k--^',ms=8,mew=0,label=r'$\log (\bar{\sigma_{\phi}}^2)$')
-    y_plot = np.log10(sigmatan2_arr/v_circ_2**2) # plot sigma_tan
-    plt.plot(x_plot,y_plot,'--^',ms=8,mew=0,color='Violet',label=r'$\log (\bar{\sigma_{\tan}}^2)$')
-    plt.xlabel(r'$\log (\frac{r}{r_{-2}})$' , fontsize=30)
-    #plt.ylabel(r'$\log (\frac{\sigma^2}{v_{circ,2}} ) $' , fontsize=26)
-    plt.ylabel(r'$\log (\bar{\sigma}^2) $' , fontsize=30)
-    plt.title(r'Velocity dispersions (B IC, $R_{limit} = 10^4$, 20 radial bins)',fontsize=30)
+    plt.plot(x_plot, y_plot, 'r-o', ms=8, mew=0, label=r'$\log (\bar{\sigma_{total}}^2)$')
+    y_plot = np.log10(sigmarad2_arr / v_circ_2 ** 2)
+    plt.plot(x_plot, y_plot, 'b--s', ms=8, mew=0, label=r'$\log (\bar{\sigma_{r}}^2)$')
+    y_plot = np.log10(sigmatheta2_arr / v_circ_2 ** 2)
+    plt.plot(x_plot, y_plot, 'g--v', ms=8, mew=0, label=r'$\log (\bar{\sigma_{\theta}}^2)$')
+    y_plot = np.log10(sigmaphi2_arr / v_circ_2 ** 2)
+    plt.plot(x_plot, y_plot, 'k--^', ms=8, mew=0, label=r'$\log (\bar{\sigma_{\phi}}^2)$')
+    y_plot = np.log10(sigmatan2_arr / v_circ_2 ** 2)  # plot sigma_tan
+    plt.plot(x_plot, y_plot, '--^', ms=8, mew=0, color='Violet', label=r'$\log (\bar{\sigma_{\tan}}^2)$')
+    plt.xlabel(r'$\log (\frac{r}{r_{-2}})$', fontsize=30)
+    #plt.ylabel(r'$\log (\frac{\sigma^2}{v_{circ,2}})$', fontsize=26)
+    plt.ylabel(r'$\log (\bar{\sigma}^2)$' , fontsize=30)
+    plt.title(r'Velocity dispersions (B IC, $R_{limit} = 10^4$, 20 radial bins)', fontsize=30)
     leg = plt.legend(prop=dict(size=18), numpoints=2, ncol=1,
-                     fancybox=True,loc=0,handlelength=2.5)
+                     fancybox=True, loc=0, handlelength=2.5)
     leg.get_frame().set_alpha(.5)
     f.savefig(figure_path + 'B_sigma_divided_by_v_circ_r_2.png')
 
 if Fig4_beta:  # plot beta
     f = plt.figure(figsize=(16, 11))
-    #plt.xlim(-1.,1.0)
-    plt.ylim(-1.,1.)
+    # plt.xlim(-1., 1.0)
+    plt.ylim(-1., 1.)
     x_plot = np.log10(bin_radius_arr)
     y_plot = beta_arr
     plt.xlabel(r'$\log$r', fontsize=30)
     plt.ylabel(r'$\beta$', fontsize=30)
-    plt.plot(x_plot,y_plot,'k-o',ms=7,lw=2,mew=0) 
-    plt.plot(x_plot,0*x_plot,'--',lw=2,color='grey')
-    plt.plot((-.5,-.5),(-1.,1.), 'r-',label=r'inner cut')
-    #plt.plot((1.,1.),(-1.,1.)  , 'b-',label=r'outer cut')
-    leg = plt.legend(prop=dict(size=30), numpoints=2, ncol=1,fancybox=True,loc=0,handlelength=2.5)
+    plt.plot(x_plot, y_plot, 'k-o', ms=7, lw=2, mew=0) 
+    plt.plot(x_plot, 0 * x_plot, '--', lw=2, color='grey')
+    plt.plot((-.5, -.5), (-1., 1.), 'r-', label='inner cut')
+    # plt.plot((1., 1.), (-1., 1.), 'b-', label='outer cut')
+    leg = plt.legend(prop=dict(size=30), numpoints=2, ncol=1,
+                     fancybox=True, loc=0, handlelength=2.5)
     leg.get_frame().set_alpha(.5)
-    #plt.title(r'$\beta$ with zero-line (B 199_093, $R_{limit}=32, 50$ bins)',fontsize=30)
-    #f.savefig(figure_path + 'B_IC_beta_logr_I_R32.png'          )
+    # plt.title(r'$\beta$ with zero-line (B 199_093, $R_{limit}=32, 50$ bins)', fontsize=30)
+    # f.savefig(figure_path + 'B_IC_beta_logr_I_R32.png')
 
 if Fig4_beta_r_2:  # plot beta
-    f      = plt.figure(figsize=(16,11))
-    #plt.xlim(-1.7,2.0)
-    #plt.ylim(-.2,1.)
-    x_plot = np.log10(bin_radius_arr/r_2)
+    f = plt.figure(figsize=(16, 11))
+    # plt.xlim(-1.7, 2.0)
+    # plt.ylim(-.2, 1.)
+    x_plot = np.log10(bin_radius_arr / r_2)
     y_plot = beta_arr
-    plt.xlabel(r'$\log (\frac{r}{r_{-2}})$',fontsize=30)
-    plt.ylabel(r'$\beta$',fontsize=30)
-    plt.plot(x_plot,y_plot,'-o',ms=7,lw=2,mew=0,color='black',label=r'$\beta$') # from this graph we see that beta is below zero. this means sigmatheta2_arr/sigmarad2_arr > 1, which in turn means that sigmatheta2_arr > sigmarad2_arr. 
-    plt.plot(x_plot,0*x_plot,'--',lw=2,color='grey')
-    #plt.title(r'$\beta$ with zero-line(%s)' %F , fontsize=30)
-    #plt.title(r'Velocity anisotropy (CS6 IC with 20 radial bins)', fontsize=30)
-    #f.savefig(figure_path + 'B_IC_beta_r_2_logr.png'         )
+    plt.xlabel(r'$\log(\frac{r}{r_{-2}})$', fontsize=30)
+    plt.ylabel(r'$\beta$', fontsize=30)
+    plt.plot(x_plot, y_plot, 'k-o', ms=7, lw=2, mew=0, label=r'$\beta$')  # from this graph we see that beta is below zero. this means sigmatheta2_arr/sigmarad2_arr > 1, which in turn means that sigmatheta2_arr > sigmarad2_arr. 
+    plt.plot(x_plot, 0 * x_plot, '--', lw=2, color='grey')
+    # plt.title(r'$\beta$ with zero-line(%s)' % F, fontsize=30)
+    # plt.title('Velocity anisotropy (CS6 IC with 20 radial bins)', fontsize=30)
+    # f.savefig(figure_path + 'B_IC_beta_r_2_logr.png')
 
 if Fig5_kappa:
-    f      = plt.figure(figsize=(16,11))
+    f = plt.figure(figsize=(16, 11))
     x_plot = np.log10(bin_radius_arr)
     y_plot = kappa_arr
-    plt.xlabel(r'$\log $r',fontsize=30)
-    plt.ylabel(r'$\kappa$',fontsize=30)
-    plt.ylim(-4.,.4)
-    plt.plot(x_plot,y_plot,'-o',ms=4,mew=0,color='black')
-    plt.plot((-.92,-.92),(-5.,25.), 'r-',label=r'inner cut')
-    leg = plt.legend(prop=dict(size=30), numpoints=2, ncol=1,fancybox=True,loc=0,handlelength=2.5)
+    plt.xlabel(r'$\log $r', fontsize=30)
+    plt.ylabel(r'$\kappa$', fontsize=30)
+    plt.ylim(-4., .4)
+    plt.plot(x_plot, y_plot, 'K-o', ms=4, mew=0)
+    plt.plot((-.92, -.92), (-5., 25.), 'r-', label='inner cut')
+    leg = plt.legend(prop=dict(size=30), numpoints=2, ncol=1,
+                     fancybox=True, loc=0, handlelength=2.5)
     leg.get_frame().set_alpha(.5)
-    #plt.title(r'$\kappa$ and zero-line (B 199_093, $R_{limit}=32, 50$ bins)',fontsize=30     )
-    #f.savefig(figure_path + 'B_IC_kappa_logr_I_R32.png'          )
+    # plt.title(r'$\kappa$ and zero-line (B 199_093, $R_{limit}=32, 50$ bins)',fontsize=30)
+    # f.savefig(figure_path + 'B_IC_kappa_logr_I_R32.png')
  
 if Fig5_kappa_r_2:
-    f      = plt.figure(figsize=(16,11))
-    x_plot = np.log10(bin_radius_arr/r_2)
+    f = plt.figure(figsize=(16, 11))
+    x_plot = np.log10(bin_radius_arr / r_2)
     y_plot = kappa_arr
-    plt.xlabel(r'$\log (\frac{r}{r_{-2}})$',fontsize=30)
-    plt.ylabel(r'$\kappa$',fontsize=30)
-    plt.plot(x_plot,y_plot,'-o',ms=4,mew=0,color='black',label=r'$\kappa$')
-    #plt.ylim(-2.,.5)
-    plt.title(r'$\kappa$ (B IC with 20 radial bins)',fontsize=30)
-    f.savefig(figure_path + 'B_IC_kappa_r_2_logr.png'         )
+    plt.xlabel(r'$\log (\frac{r}{r_{-2}})$', fontsize=30)
+    plt.ylabel(r'$\kappa$', fontsize=30)
+    plt.plot(x_plot, y_plot, 'K-o', ms=4, mew=0, label=r'$\kappa$')
+    # plt.ylim(-2., .5)
+    plt.title(r'$\kappa$ (B IC with 20 radial bins)', fontsize=30)
+    f.savefig(figure_path + 'B_IC_kappa_r_2_logr.png')
 
 if Fig6_gamma:
-    f      = plt.figure(figsize=(16,11))
+    f = plt.figure(figsize=(16, 11))
     x_plot = np.log10(bin_radius_arr)
-    #x_plot = np.log10(bin_radius_arr)
-    plt.ylim(-4.,1.5)    
+    # x_plot = np.log10(bin_radius_arr)
+    plt.ylim(-4., 1.5)    
     y_plot = gamma_arr
-    plt.xlabel(r'$\log $r',fontsize=30)
-    plt.ylabel(r'$\gamma$',fontsize=30)
-    plt.plot(x_plot,y_plot,'-o',ms=7,lw=2,mew=0,color='black')
-    plt.plot((-.5,-.5),(-4.,4.), 'r-',label=r'inner cut')
-    plt.plot((1.,1.),(-4.,4.), 'b-',label=r'outer cut')
-    leg = plt.legend(prop=dict(size=30), numpoints=2, ncol=1,fancybox=True,loc=0,handlelength=2.5)
+    plt.xlabel(r'$\log $r', fontsize=30)
+    plt.ylabel(r'$\gamma$', fontsize=30)
+    plt.plot(x_plot, y_plot, 'k-o', ms=7, lw=2, mew=0)
+    plt.plot((-.5, -.5), (-4., 4.), 'r-', label='inner cut')
+    plt.plot((1., 1.), (-4., 4.), 'b-', label='outer cut')
+    leg = plt.legend(prop=dict(size=30), numpoints=2, ncol=1,
+                     fancybox=True, loc=0, handlelength=2.5)
     leg.get_frame().set_alpha(.5)
-    #plt.title('Radial density slope (B IC, $R_{limit}=32, 50$ bins)',fontsize=30          )
-    #f.savefig(figure_path + 'B_IC_gamma_logr_I_R32.png'          )
+    # plt.title('Radial density slope (B IC, $R_{limit}=32, 50$ bins)', fontsize=30)
+    # f.savefig(figure_path + 'B_IC_gamma_logr_I_R32.png')
 
 if Fig6_gamma_r_2:
-    f      = plt.figure(figsize=(16,11))
-    x_plot = np.log10(bin_radius_arr/r_2)
+    f = plt.figure(figsize=(16, 11))
+    x_plot = np.log10(bin_radius_arr / r_2)
     y_plot = gamma_arr
-    plt.xlabel(r'$\log (\frac{r}{r_{-2}})$',fontsize=30)
-    plt.ylabel(r'$\gamma$',fontsize=30)
-    plt.plot(x_plot,y_plot,'-o',ms=7,lw=2,mew=0,color='black',label=r'$\gamma$')
-    #plt.title('Radial density slope  (B IC with 20 radial bins)',fontsize=30)
-    #f.savefig(figure_path + 'B_IC_gamma_r_2_logr.png'         )
+    plt.xlabel(r'$\log (\frac{r}{r_{-2}})$', fontsize=30)
+    plt.ylabel(r'$\gamma$', fontsize=30)
+    plt.plot(x_plot, y_plot, 'k-o', ms=7, lw=2, mew=0, label=r'$\gamma$')
+    # plt.title('Radial density slope (B IC with 20 radial bins)', fontsize=30)
+    # f.savefig(figure_path + 'B_IC_gamma_r_2_logr.png')
  
 if Fig7_betagamma:
-    f      = plt.figure()
+    f = plt.figure()
     subplot(121)
-    x_plot = beta_arr
-    y_plot = gamma_arr
-    plt.xlabel(r'$\beta$' , fontsize=30)
-    plt.ylabel(r'$\gamma$' , fontsize=30)
-    plt.title(r'$\gamma$ vs $\beta$ (%s)' %F , fontsize=30)
-    plt.plot(x_plot,y_plot,'-o',ms=2,mew=0,color='black')
-
+    plt.xlabel(r'$\beta$', fontsize=30)
+    plt.ylabel(r'$\gamma$', fontsize=30)
+    plt.title(r'$\gamma$ vs $\beta$ (%s)' % F, fontsize=30)
+    plt.plot(beta_arr, gamma_arr, 'k-o', ms=2, mew=0)
     subplot(122)
-    x_plot = beta_arr
-    y_plot = kappa_arr
-    plt.xlabel(r'$\beta$' , fontsize=30)
-    plt.ylabel(r'$\kappa$' , fontsize=30)
-    plt.title(r'$\kappa$ vs $\beta$' , fontsize=30)
-    plt.plot(x_plot,y_plot,'-o',ms=2,mew=0,color='black')
-    #f.savefig(figure_path + 'B_betagamma.png'      )
+    plt.xlabel(r'$\beta$', fontsize=30)
+    plt.ylabel(r'$\kappa$', fontsize=30)
+    plt.title(r'$\kappa$ vs $\beta$', fontsize=30)
+    plt.plot(beta_arr, kappa_arr, 'k-o', ms=2, mew=0)
+    # f.savefig(figure_path + 'B_betagamma.png')
 
 if save_lnr_beta_gamma_kappa_VR_r_sigma_r_rr2_rho:
-    logr_arr                    = np.array(np.log10(bin_radius_arr))
-    beta_arr                    = np.array(beta_arr)
-    gamma_arr                   = np.array(gamma_arr)
-    kappa_arr                   = np.array(kappa_arr)
-    r_arr                       = 10**(logr_arr)
-    sigmarad2_arr               = np.array(sigmarad2_arr)
-    rho_arr                     = np.array(rho_arr)
-    GoodIDs                     = np.where(gamma_arr == gamma_arr)
-    logr_arr                    = logr_arr[GoodIDs]
-    gamma_arr                   = gamma_arr[GoodIDs]
-    beta_arr                    = beta_arr[GoodIDs]
-    kappa_arr                   = kappa_arr[GoodIDs]
-    r_arr                       = r_arr[GoodIDs]
-    sigmarad2_arr               = sigmarad2_arr[GoodIDs]
-    VR_i_average_inside_bin_arr = VR_i_average_inside_bin_arr[GoodIDs]
+    logr_arr = np.array(np.log10(bin_radius_arr))
+    beta_arr = np.array(beta_arr)
+    gamma_arr = np.array(gamma_arr)
+    kappa_arr = np.array(kappa_arr)
+    r_arr = 10 ** (logr_arr)
+    sigmarad2_arr = np.array(sigmarad2_arr)
+    rho_arr = np.array(rho_arr)
+    GoodIDs = np.where(gamma_arr == gamma_arr)
+    logr_arr = logr_arr[GoodIDs]
+    gamma_arr = gamma_arr[GoodIDs]
+    beta_arr = beta_arr[GoodIDs]
+    kappa_arr = kappa_arr[GoodIDs]
+    r_arr = r_arr[GoodIDs]
+    sigmarad2_arr = sigmarad2_arr[GoodIDs]
+    VR_i_avg_in_bin_arr = VR_i_avg_in_bin_arr[GoodIDs]
 
     if Gamma == -2.0:
-        r_r2_arr                    = r_arr/r_2
-        rho_arr                     = rho_arr[GoodIDs]
-        x        = np.array((logr_arr,beta_arr,gamma_arr,kappa_arr,VR_i_average_inside_bin_arr,r_arr,sigmarad2_arr,r_r2_arr,rho_arr))
-        x        = x.transpose()
-        out_name = text_files_path + F +'.txt'
-        np.savetxt(out_name,x,delimiter=' ',header='          logr                   beta                      gamma                  kappa                  VR_average                  r                  sigmarad2                  r_r2                   rho')
+        r_r2_arr = r_arr / r_2
+        rho_arr = rho_arr[GoodIDs]
+        x = np.array((logr_arr, beta_arr, gamma_arr, kappa_arr,
+                      VR_i_avg_in_bin_arr, r_arr, sigmarad2_arr, r_r2_arr, rho_arr))
+        x = x.transpose()
+        out_name = text_files_path + F + '.txt'
+        np.savetxt(out_name, x, delimiter=' ',
+                   header=' \t logr \t beta \t gamma \t kappa \t VR_avg \t r \t sigmarad2 \t r_r2 \t rho')
     else:
-        x        = np.array((logr_arr,beta_arr,gamma_arr,kappa_arr,VR_i_average_inside_bin_arr,r_arr,sigmarad2_arr))
-        x        = x.transpose()
-        out_name = text_files_path + F +'.txt'
-        np.savetxt(out_name,x,delimiter=' ',header='          logr                   beta                      gamma                  kappa                  VR_average                  r                  sigmarad2 ')
-
+        x = np.array((logr_arr, beta_arr, gamma_arr, kappa_arr,
+                      VR_i_avg_in_bin_arr, r_arr, sigmarad2_arr))
+        x = x.transpose()
+        out_name = text_files_path + F + '.txt'
+        np.savetxt(out_name, x, delimiter=' ',
+                   header=' \t logr \t beta \t gamma \t kappa \t VR_avg \t r \t sigmarad2')
 
 plt.show()
-
