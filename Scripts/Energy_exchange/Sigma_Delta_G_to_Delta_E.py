@@ -174,7 +174,7 @@ Fig6_gamma = 0
 Fig6_gamma_r_2 = 0
 Fig7_betagamma = 0
 
-save_lnr_beta_gamma_kappa_VR_r_sigma_r_rr2_rho = 1
+save_lnr_beta_gamma_kappa_VR_r_sigma_r_rr2_rho = 0
 
 bins_202 = 0
 bins_102 = 0
@@ -355,7 +355,6 @@ if Gamma == -2.0:
     G = 1.
     v_circ_2 = (G * M_2 / r_2) ** .5
 
-
 r = ravf.modulus(x, y, z)
 v = ravf.modulus(vx, vy, vz)
 
@@ -369,7 +368,7 @@ if Fig_v_logr:
     ax2.plot(np.log10(r), v, 'bo', lw=3, ms=2)
     ax2.set_xlabel(r'$\log r$', fontsize=30)
     ax2.yaxis.tick_right()
-    f.savefig(figure_path + 'A_IC_v_logr.png'    )
+    f.savefig(figure_path + 'A_IC_v_logr.png')
 
 if Fig_v_logr_r2:
     r_r2 = r / r_2
@@ -380,7 +379,7 @@ if Fig_v_logr_r2:
     ax1.set_ylabel(r'velocity, $v = \sqrt{v_x^2+v_y^2+v_z^2}$', fontsize=30)
     ax1.set_title(r'A 48_009 (I: $\Delta G,R_{lim}=10^4$)', fontsize=30)
     ax2.plot(np.log10(r_r2), v, 'bo', lw=3, ms=2)
-    ax2.set_xlabel(r'$\log (\frac{r}{r_{-2}})$', fontsize=30)
+    ax2.set_xlabel(r'$\log(\frac{r}{r_{-2}})$', fontsize=30)
     ax2.yaxis.tick_right()
     f.savefig(figure_path + 'A_48_009_v_logr_r2.png')
 
@@ -391,169 +390,150 @@ if Fig1_xy_xz:
     ax1.set_xlabel('x', fontsize=30)
     ax1.set_ylabel('y', fontsize=30)
     ax1.plot(x, y, 'bo', ms=2, mew=0)
-
     ax2.set_xlabel('x', fontsize=30)
     ax2.set_ylabel('z', fontsize=30)
     ax2.yaxis.tick_right()
     ax2.yaxis.set_label_position("right")
     ax2.plot(x, z, 'bo', ms=2, mew=0)
-
-    f.savefig(figure_path + 'A_IC_xy_xz.png'    )
+    f.savefig(figure_path + 'A_IC_xy_xz.png')
 
 if Fig2_v:           
     f = plt.figure()
     ax1 = plt.subplot(131)
     plt.ylabel('vx', fontsize=30)
     plt.plot(x, vx, 'bo', ms=2, mew=0)
-
     ax2 = plt.subplot(132)
     plt.xlabel('x', fontsize=30)
     plt.ylabel('vy', fontsize=30)
     plt.title('Velocities (File = %s)' % F, fontsize=30)
     plt.plot(x, vy, 'bo', ms=2, mew=0)
     setp(ax2.get_yticklabels(), visible=False)
-
     ax3 = plt.subplot(133)
     plt.ylabel('vz', fontsize=30)
     plt.plot(x, vz, 'bo', ms=2, mew=0)
     setp(ax3.get_yticklabels(), visible=False)
     # f.savefig(figure_path + 'A_v.png')
 
-sigma2_arr              = [] 
-sigmarad2_arr           = [] 
-sigmatheta2_arr         = []
-sigmaphi2_arr           = []
-sigmatan2_arr           = []
-v2_arr                  = []
-gamma_arr               = []
-kappa_arr               = []
-beta_arr                = []
-density_arr             = []
-rho_arr                 = []
-Volume_arr              = []
-r                       = []
-Phi                     = []
-Theta                   = []
-VR                      = []
-VTheta                  = []
-VPhi                    = []
-VR_i_average_inside_bin = []
-v_r                     = (vx*x+vy*y+vz*z)/(x**2+y**2+z**2)**.5
+(sigma2_arr, sigmarad2_arr, sigmatheta2_arr, sigmaphi2_arr, sigmatan2_arr, v2_arr, gamma_arr, kappa_arr,
+ beta_arr, density_arr, rho_arr, Volume_arr, r, Phi, Theta, VR,
+ VTheta, VPhi, VR_i_average_inside_bin) = ([] for i in range(19))
 
-min_binning_R       = -1.5
-max_binning_R       = np.log10(R_limit)
+v_r = (vx*x+vy*y+vz*z) / (x**2+y**2+z**2) ** .5
+
+min_binning_R = -1.5
+max_binning_R = np.log10(R_limit)
 
 if bins_202:
     nr_binning_bins = 202
-    F               = F + '_200_radial_bins'
+    F = F + '_200_radial_bins'
 elif bins_102:
     nr_binning_bins = 102
-    F               = F + '_100_radial_bins'
+    F = F + '_100_radial_bins'
 elif bins_52:
     nr_binning_bins = 52
-    F               = F + '_50_radial_bins'
+    F = F + '_50_radial_bins'
 elif bins_22:      
     nr_binning_bins = 22
-    F               = F + '_20_radial_bins'
+    F = F + '_20_radial_bins'
 else:
     pass
-print F
+# print(F)
 
-binning_arr_lin_log10 = np.logspace(min_binning_R,max_binning_R,nr_binning_bins) 
-bin_radius_arr        = []
+binning_arr_lin_log10 = np.logspace(min_binning_R, max_binning_R, nr_binning_bins) 
+bin_radius_arr = []
 
-for i in range(nr_binning_bins-2):      
-    min_R_bin_i            = binning_arr_lin_log10[i]   
-    max_R_bin_i            = binning_arr_lin_log10[i+1]  
-    posR_par_inside_bin_i  = np.where((R_hob_par>min_R_bin_i) & (R_hob_par<max_R_bin_i))
-    nr_par_inside_bin_i    = len(posR_par_inside_bin_i[0])                               
+for i in range(nr_binning_bins - 2):      
+    min_R_bin_i = binning_arr_lin_log10[i]   
+    max_R_bin_i = binning_arr_lin_log10[i + 1]
+    posR_par_inside_bin_i = np.where((R_hob_par > min_R_bin_i) & (R_hob_par < max_R_bin_i))
+    nr_par_inside_bin_i = len(posR_par_inside_bin_i[0])
     if nr_par_inside_bin_i == 0:
         continue
-    v = (vx[posR_par_inside_bin_i]**2+vy[posR_par_inside_bin_i]**2+vz[posR_par_inside_bin_i]**2)**.5
+    v = (vx[posR_par_inside_bin_i] ** 2 + vy[posR_par_inside_bin_i] ** 2 + vz[posR_par_inside_bin_i] ** 2) ** .5
     # sigma2 total
-    v2_inside_bin_i     = v**2
-    sigma2_inside_bin_i = (1./(nr_par_inside_bin_i+1.))*np.sum(v2_inside_bin_i)
+    v2_inside_bin_i = v ** 2
+    sigma2_inside_bin_i = (1. / (nr_par_inside_bin_i + 1.)) * np.sum(v2_inside_bin_i)
     sigma2_arr.append(sigma2_inside_bin_i)
-    bin_radius_arr.append((max_R_bin_i + min_R_bin_i)/2)
+    bin_radius_arr.append((max_R_bin_i + min_R_bin_i) / 2)
     
     # sigmarad2 radial
-    vrad2_inside_bin_i     = v_r[posR_par_inside_bin_i]**2
-    sigmarad2_inside_bin_i = (1./(nr_par_inside_bin_i+1.))*np.sum(vrad2_inside_bin_i)
+    vrad2_inside_bin_i = v_r[posR_par_inside_bin_i] ** 2
+    sigmarad2_inside_bin_i = (1. / (nr_par_inside_bin_i + 1.)) * np.sum(vrad2_inside_bin_i)
     sigmarad2_arr.append(sigmarad2_inside_bin_i)
 
     # calculate volume of cluster:
-    Volume_cl = (4./3.)*np.pi*(max_R_bin_i**3 - min_R_bin_i**3)
+    Volume_cl = (4. / 3.) * np.pi * (max_R_bin_i ** 3 - min_R_bin_i ** 3)
     # density
-    den_cl    = nr_par_inside_bin_i/Volume_cl
-    rho       = den_cl*m
+    den_cl = nr_par_inside_bin_i / Volume_cl
+    rho = den_cl * m
  
-    r_i                       = (x[posR_par_inside_bin_i]**2+y[posR_par_inside_bin_i]**2+z[posR_par_inside_bin_i]**2)**.5
-    Phi_i                     = sp.arctan2(y[posR_par_inside_bin_i],x[posR_par_inside_bin_i])
-    Theta_i                   = sp.arccos(z[posR_par_inside_bin_i]/r_i)
-    VR_i                      = sp.sin(Theta_i)*sp.cos(Phi_i)*vx[posR_par_inside_bin_i]+sp.sin(Theta_i)*sp.sin(Phi_i)*vy[posR_par_inside_bin_i]+sp.cos(Theta_i)*vz[posR_par_inside_bin_i]
-    VTheta_i                  = sp.cos(Theta_i)*sp.cos(Phi_i)*vx[posR_par_inside_bin_i]+sp.cos(Theta_i)*sp.sin(Phi_i)*vy[posR_par_inside_bin_i]-sp.sin(Theta_i)*vz[posR_par_inside_bin_i]
-    VPhi_i                    = -sp.sin(Phi_i)*vx[posR_par_inside_bin_i]+sp.cos(Phi_i)*vy[posR_par_inside_bin_i]
-    VR_i_average_inside_bin_i = (1./(nr_par_inside_bin_i+1.))*np.sum(VR_i)
+    r_i = (x[posR_par_inside_bin_i]**2+y[posR_par_inside_bin_i]**2+z[posR_par_inside_bin_i]**2)**.5
+    Phi_i = sp.arctan2(y[posR_par_inside_bin_i],x[posR_par_inside_bin_i])
+    Theta_i = sp.arccos(z[posR_par_inside_bin_i]/r_i)
+    VR_i = sp.sin(Theta_i)*sp.cos(Phi_i)*vx[posR_par_inside_bin_i]+sp.sin(Theta_i)*sp.sin(Phi_i)*vy[posR_par_inside_bin_i]+sp.cos(Theta_i)*vz[posR_par_inside_bin_i]
+    VTheta_i = sp.cos(Theta_i)*sp.cos(Phi_i)*vx[posR_par_inside_bin_i]+sp.cos(Theta_i)*sp.sin(Phi_i)*vy[posR_par_inside_bin_i]-sp.sin(Theta_i)*vz[posR_par_inside_bin_i]
+    VPhi_i = -sp.sin(Phi_i)*vx[posR_par_inside_bin_i]+sp.cos(Phi_i) * vy[posR_par_inside_bin_i]
+    VR_i_average_inside_bin_i = (1. / (nr_par_inside_bin_i + 1.)) * np.sum(VR_i)
     
     # sigmatheta2
-    VTheta2_inside_bin_i     = VTheta_i**2
-    sigmatheta2_inside_bin_i = (1./(nr_par_inside_bin_i+1.))*np.sum(VTheta2_inside_bin_i)
+    VTheta2_inside_bin_i = VTheta_i ** 2
+    sigmatheta2_inside_bin_i = (1. / (nr_par_inside_bin_i + 1.)) * np.sum(VTheta2_inside_bin_i)
     sigmatheta2_arr.append(sigmatheta2_inside_bin_i)
 
     #sigmaphi2
-    VPhi2_inside_bin_i     = VPhi_i**2
-    sigmaphi2_inside_bin_i = (1./(nr_par_inside_bin_i+1.))*np.sum(VPhi2_inside_bin_i)
+    VPhi2_inside_bin_i = VPhi_i ** 2
+    sigmaphi2_inside_bin_i = (1. / (nr_par_inside_bin_i + 1.)) * np.sum(VPhi2_inside_bin_i)
     sigmaphi2_arr.append(sigmaphi2_inside_bin_i)
 
     #sigmatan2
-    sigmatan  = (sigmatheta2_inside_bin_i + sigmaphi2_inside_bin_i)**.5
-    sigmatan2 = sigmatan**2
+    sigmatan = (sigmatheta2_inside_bin_i + sigmaphi2_inside_bin_i) ** .5
+    sigmatan2 = sigmatan ** 2
     sigmatan2_arr.append(sigmatan2)
 
     #save arrays
-    density_arr.append(den_cl  )
-    rho_arr.append(rho         )
+    density_arr.append(den_cl)
+    rho_arr.append(rho)
     Volume_arr.append(Volume_cl)
-    r.append(r_i               )
-    Phi.append(Phi_i           )
-    Theta.append(Theta_i       )
-    VR.append(VR_i             )
+    r.append(r_i)
+    Phi.append(Phi_i)
+    Theta.append(Theta_i)
+    VR.append(VR_i)
     VR_i_average_inside_bin.append(VR_i_average_inside_bin_i)
-    VTheta.append(VTheta_i     )
-    VPhi.append(VPhi_i         )
+    VTheta.append(VTheta_i)
+    VPhi.append(VPhi_i)
 
 # Change the nesessary lists into arrays
-sigma2_arr                  = np.array(sigma2_arr) 
-sigmarad2_arr               = np.array(sigmarad2_arr)
-bin_radius_arr              = np.array(bin_radius_arr)
-r_arr                       = np.array(r)
-Phi_arr                     = np.array(Phi)
-Theta_arr                   = np.array(Theta)
-VR_arr                      = np.array(VR)
-VTheta_arr                  = np.array(VTheta)
-VPhi_arr                    = np.array(VPhi)
+sigma2_arr = np.array(sigma2_arr) 
+sigmarad2_arr = np.array(sigmarad2_arr)
+bin_radius_arr = np.array(bin_radius_arr)
+r_arr = np.array(r)
+Phi_arr = np.array(Phi)
+Theta_arr = np.array(Theta)
+VR_arr = np.array(VR)
+VTheta_arr = np.array(VTheta)
+VPhi_arr = np.array(VPhi)
 VR_i_average_inside_bin_arr = np.array(VR_i_average_inside_bin)
 
-for  i in range(len(sigma2_arr)): #kappa
-    if i == 0 or i == len(sigma2_arr)-1:
+for i in range(len(sigma2_arr)):  # kappa
+    if i == 0 or i == len(sigma2_arr) - 1:
         kappa_arr.append(np.nan)
         continue
-    dlogr         = np.log10(bin_radius_arr[i+1])-np.log10(bin_radius_arr[i-1])
-    dlogsigmarad2 = np.log10(sigmarad2_arr[i+1]) -np.log10(sigmarad2_arr[i-1])
+    dlogr = np.log10(bin_radius_arr[i + 1]) - np.log10(bin_radius_arr[i - 1])
+    dlogsigmarad2 = np.log10(sigmarad2_arr[i + 1]) -np.log10(sigmarad2_arr[i - 1])
     kappa_arr.append(dlogsigmarad2/dlogr)
 
-for  i in range(len(density_arr)): #gamma
-    if i == 0 or i == len(sigma2_arr)-1:
+for i in range(len(density_arr)):  # gamma
+    if i == 0 or i == len(sigma2_arr) - 1:
         gamma_arr.append(np.nan)
         continue
-    dlogr   = np.log10(bin_radius_arr[i+1]) - np.log10(bin_radius_arr[i-1])
-    dlogrho = np.log10(density_arr[i+1])    - np.log10(density_arr[i-1])
-    gamma_arr.append(dlogrho/dlogr)
+    dlogr = np.log10(bin_radius_arr[i + 1]) - np.log10(bin_radius_arr[i - 1])
+    dlogrho = np.log10(density_arr[i + 1]) - np.log10(density_arr[i - 1])
+    gamma_arr.append(dlogrho / dlogr)
 
-beta_arr = 1. - sigmatheta2_arr/sigmarad2_arr 
+beta_arr = 1. - sigmatheta2_arr / sigmarad2_arr 
 
 if Fig3_sigma:  # Dispersions
-    f      = plt.figure(figsize=(16,11))
+    f = plt.figure(figsize=(16,11))
     x_plot = np.log10(bin_radius_arr)
     y_plot = np.log10(sigma2_arr)
     plt.plot(x_plot,y_plot,'-o',ms=8,mew=0,color='red',label=r'$\log (\sigma_{total}^2)$'    )
@@ -594,36 +574,37 @@ if Fig3_sigma_r_2:  # Dispersions
 
 
 if Fig3_sigma_divided_by_v_circ_r_2:  # Dispersions
-    f      = plt.figure(figsize=(16,11))
-    x_plot = np.log10(bin_radius_arr/r_2)
-    y_plot = np.log10(sigma2_arr/v_circ_2**2)
+    f = plt.figure(figsize=(16, 11))
+    x_plot = np.log10(bin_radius_arr / r_2)
+    y_plot = np.log10(sigma2_arr / v_circ_2 ** 2)
     # label=r'$\log ((\frac{\sigma_{total}}{v_{circ,2}})^2)$'
-    plt.plot(x_plot,y_plot,'-o',ms=8,mew=0,color='red',label=r'$\log (\bar{\sigma_{total}}^2)$')
+    plt.plot(x_plot,y_plot,'r-o',ms=8,mew=0,label=r'$\log (\bar{\sigma_{total}}^2)$')
     y_plot = np.log10(sigmarad2_arr/v_circ_2**2)
-    plt.plot(x_plot,y_plot,'--s',ms=8,mew=0,color='blue',label=r'$\log (\bar{\sigma_{r}}^2)$')
+    plt.plot(x_plot,y_plot,'b--s',ms=8,mew=0,label=r'$\log (\bar{\sigma_{r}}^2)$')
     y_plot = np.log10(sigmatheta2_arr/v_circ_2**2)
-    plt.plot(x_plot,y_plot,'--v',ms=8,mew=0,color='green',label=r'$\log (\bar{\sigma_{\theta}}^2)$')
+    plt.plot(x_plot,y_plot,'g--v',ms=8,mew=0,label=r'$\log (\bar{\sigma_{\theta}}^2)$')
     y_plot = np.log10(sigmaphi2_arr/v_circ_2**2)
-    plt.plot(x_plot,y_plot,'--^',ms=8,mew=0,color='black',label=r'$\log (\bar{\sigma_{\phi}}^2)$')
+    plt.plot(x_plot,y_plot,'k--^',ms=8,mew=0,label=r'$\log (\bar{\sigma_{\phi}}^2)$')
     y_plot = np.log10(sigmatan2_arr/v_circ_2**2) # plot sigma_tan
     plt.plot(x_plot,y_plot,'--^',ms=8,mew=0,color='Violet',label=r'$\log (\bar{\sigma_{\tan}}^2)$')
     plt.xlabel(r'$\log (\frac{r}{r_{-2}})$' , fontsize=30)
     #plt.ylabel(r'$\log (\frac{\sigma^2}{v_{circ,2}} ) $' , fontsize=26)
     plt.ylabel(r'$\log (\bar{\sigma}^2) $' , fontsize=30)
     plt.title(r'Velocity dispersions (B IC, $R_{limit} = 10^4$, 20 radial bins)',fontsize=30)
-    leg = plt.legend(prop=dict(size=18), numpoints=2, ncol=1,fancybox=True,loc=0,handlelength=2.5)
+    leg = plt.legend(prop=dict(size=18), numpoints=2, ncol=1,
+                     fancybox=True,loc=0,handlelength=2.5)
     leg.get_frame().set_alpha(.5)
-    f.savefig(figure_path + 'B_sigma_divided_by_v_circ_r_2.png'      )
+    f.savefig(figure_path + 'B_sigma_divided_by_v_circ_r_2.png')
 
 if Fig4_beta:  # plot beta
-    f      = plt.figure(figsize=(16,11))
+    f = plt.figure(figsize=(16, 11))
     #plt.xlim(-1.,1.0)
     plt.ylim(-1.,1.)
     x_plot = np.log10(bin_radius_arr)
     y_plot = beta_arr
-    plt.xlabel(r'$\log$r',fontsize=30)
-    plt.ylabel(r'$\beta$',fontsize=30)
-    plt.plot(x_plot,y_plot,'-o',ms=7,lw=2,mew=0,color='black') 
+    plt.xlabel(r'$\log$r', fontsize=30)
+    plt.ylabel(r'$\beta$', fontsize=30)
+    plt.plot(x_plot,y_plot,'k-o',ms=7,lw=2,mew=0) 
     plt.plot(x_plot,0*x_plot,'--',lw=2,color='grey')
     plt.plot((-.5,-.5),(-1.,1.), 'r-',label=r'inner cut')
     #plt.plot((1.,1.),(-1.,1.)  , 'b-',label=r'outer cut')
