@@ -208,75 +208,16 @@ if new_R_middle:
                           ('CS4_E_20_005', {-1.5: 10**-.4, -2.0: 10**-.23, -2.5: 10**-.05, -3.0: 10**.25}),
                           ('CS5_E_G2P_0_000', {-1.5: 10**-.7, -2.0: 10**-.3, -2.5: 1., -3.0: 10**.38}),
                           ('CS5_E_G2P_2_005', {-1.5: 10**-.6, -2.0: 10**-.3, -2.5: 10**-.1, -3.0: 10**.3}),
-                          ( , {-1.5: , -2.0: , -2.5: , -3.0: }),
+                          ('CS5_E_G2P_4_005', {-1.5: 10**-.55, -2.0: 10**-.3, -2.5: 1., -3.0: 10**.35}),
+                          ('CS5_E_G2P_6_005', {-1.5: 10**-.48, -2.0: 10**-.3, -2.5: 1., -3.0: 10**.3}),
+                          ('CS5_E_G2P_8_005', RmiddleOnes),
+                          ('CS5_E_G2P_10_005', RmiddleOnes),
+                          ('CS5_E_G2P_20_005', {-1.5: 10**-.42, -2.0: 10**-.25, -2.5: 10**-.05, -3.0: 10**-.28}),
+                          ('CS5_E_20_005', {-1.5: 10**-.45, -2.0: 10**-.23, -2.5: 10**-.04, -3.0: 10**.3}),
+                          ('CS6_E_G2P_0_000', {-1.5: 10**-.73, -2.0: 10**-.3, -2.5: 1., -3.0: 10**.34}),
                          ]
 
-    if F == 'CS5_E_G2P_4_005'
-        if Gamma == -1.5:       
-            R_middle = 10**-.55
-        elif Gamma == -2.0:     
-            R_middle = 10**-.3
-        elif Gamma == -2.5:                   
-            R_middle = 1.
-        elif Gamma == -3.0:    
-            R_middle = 10**.35
-    if F == 'CS5_E_G2P_6_005':
-        if Gamma == -1.5:       
-            R_middle = 10**-.48
-        elif Gamma == -2.0:     
-            R_middle = 10**-.3
-        elif Gamma == -2.5:                   
-            R_middle = 1.
-        elif Gamma == -3.0:    
-            R_middle = 10**.3
-    if F == 'CS5_E_G2P_8_005':
-        if Gamma == -1.5:       
-            R_middle = 1
-        elif Gamma == -2.0:     
-            R_middle = 1
-        elif Gamma == -2.5:                   
-            R_middle = 1
-        elif Gamma == -3.0:    
-            R_middle = 1
-    if F == 'CS5_E_G2P_10_005':
-        if Gamma == -1.5:       
-            R_middle = 1
-        elif Gamma == -2.0:     
-            R_middle = 1
-        elif Gamma == -2.5:                   
-            R_middle = 1
-        elif Gamma == -3.0:    
-            R_middle = 1
-    if F == 'CS5_E_G2P_20_005':
-        if Gamma == -1.5:       
-            R_middle = 10**-.42
-        elif Gamma == -2.0:     
-            R_middle = 10**-.25
-        elif Gamma == -2.5:                   
-            R_middle = 10**-.05
-        elif Gamma == -3.0:    
-            R_middle = 10**-.28          
-    # con_CS5 final
-    if F == 'CS5_E_20_005':
-        if Gamma == -1.5:       
-            R_middle = 10**-.45
-        elif Gamma == -2.0:     
-            R_middle = 10**-.23
-        elif Gamma == -2.5:                 
-            R_middle = 10**-.04
-        elif Gamma == -3.0:     
-            R_middle = 10**.3
-    # CS6
-    if F == 'CS6_E_G2P_0_000':
-        if Gamma == -1.5:       
-            R_middle = 10**-.73
-        elif Gamma == -2.0:     
-            R_middle = 10**-.3
-        elif Gamma == -2.5:                   
-            R_middle = 1.
-        elif Gamma == -3.0:    
-            R_middle = 10**.34
-    if F == 'CS6_E_G2P_2_005':
+    if F == 'CS6_E_G2P_2_005'
         if Gamma == -1.5:       
             R_middle = 10**-.55
         elif Gamma == -2.0:     
