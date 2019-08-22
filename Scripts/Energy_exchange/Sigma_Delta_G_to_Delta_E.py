@@ -153,7 +153,7 @@ F = 'DS1' + Filename[len(GADGET_E_path + con_DS1_path + 'B'):-5]
 Gamma = -3.0
 Beta = 1.
 
-new_R_middle = 1
+new_R_middle = 0
 R_bin_automatic = 0
 
 Fig_v_logr = 0
@@ -179,19 +179,16 @@ save_lnr_beta_gamma_kappa_VR_r_sigma_r_rr2_rho = 1
 bins_202 = 0
 bins_102 = 0
 bins_52 = 0 
-bins_22 = 1
+bins_22 = 0
 
 R_limit_10000 = 0 
 R_limit_5000 = 0 
 R_limit_50 = 0 
-R_limit_32 = 1
+R_limit_32 = 0
 
 if new_R_middle:
-    # List of tuples with string and dict of Gamma and Rmiddle, [('filename', {Gamma_1: R_middle_1, ..., Gamma_4: R_middle_4})]
-
     RmiddleOnes = {-1.5: 1, -2.0: 1, -2.5: 1, -3.0: 1}
-    # {-1.5: , -2.0: , -2.5: , -3.0: }
-    # ( , {-1.5: , -2.0: , -2.5: , -3.0: }),
+    # List of tuples with string and dict of Gamma and Rmiddle, [('filename', {Gamma_1: R_middle_1, ..., Gamma_4: R_middle_4})]
     Gamma_Rmiddle_list = [('B_E_G2P_0_000', RmiddleOnes),
                           ('B_E_G2P_20_005', RmiddleOnes),
                           ('B_E_0_000', {-1.5: 10**-.7, -2.0: 10**-.35, -2.5: 1., -3.0: 10**.3}),
@@ -220,56 +217,28 @@ if new_R_middle:
                           ('CS6_E_G2P_6_005', {-1.5: 10**-.5, -2.0: 10**-.3, -2.5: 10**-.05, -3.0: 10**.35}),
                           ('CS6_E_G2P_8_005', RmiddleOnes),
                           ('CS6_E_G2P_10_005', RmiddleOnes),
-                         ]
-
-    if F == 'CS6_E_G2P_20_005'
-        if Gamma == -1.5:
-            R_middle = 10**-.45
-        elif Gamma == -2.0:
-            R_middle = 10**-.25
-        elif Gamma == -2.5:  
-            R_middle = 10**-.08
-        elif Gamma == -3.0:
-            R_middle = 10**.28
-
-    if F == 'CS6_E_20_005'
-        if Gamma == -1.5:       
-            R_middle = 10**-.42
-        elif Gamma == -2.0:     
-            R_middle = 10**-.23
-        elif Gamma == -2.5:                 
-            R_middle = 1.
-        elif Gamma == -3.0:     
-            R_middle = 10**.3
-
-    if F == 'DS1_E_G2P_0_000', RmiddleOnes
-
-    if F == 'DS1_E_G2P_20_005', RmiddleOnes       
-
-    if F == 'DS1_E_20_005', RmiddleOnes
-
-    if F == 'D2_E_G2P_0_000', RmiddleOnes
-
-    if F == 'D2_E_G2P_20_005', RmiddleOnes       
-
-    if F == 'D2_E_20_005', RmiddleOnes
-
-    if F == 'E_E_G2P_0_000', RmiddleOnes
-
-    if F == 'E_E_G2P_20_005', RmiddleOnes
-
-    if F == 'E_E_20_005', RmiddleOnes
-
+                          ('CS6_E_G2P_20_005', {-1.5: 10**-.45, -2.0: 10**-.25, -2.5: 10**-.08, -3.0: 10**.28}),
+                          ('CS6_E_20_005', {-1.5: 10**-.42, -2.0: 10**-.23, -2.5: 1., -3.0: 10**.3}),
+                          ('DS1_E_G2P_0_000', RmiddleOnes),
+                          ('DS1_E_G2P_20_005', RmiddleOnes),
+                          ('DS1_E_20_005', RmiddleOnes),
+                          ('D2_E_G2P_0_000', RmiddleOnes),
+                          ('D2_E_G2P_20_005', RmiddleOnes),
+                          ('D2_E_20_005', RmiddleOnes),
+                          ('E_E_G2P_0_000', RmiddleOnes),
+                          ('E_E_G2P_20_005', RmiddleOnes),
+                          ('E_E_20_005', RmiddleOnes)
+                          ]
 
 Pos = SnapshotFile['PartType1/Coordinates'].value 
 Vel = SnapshotFile['PartType1/Velocities'].value  
 V = SnapshotFile['PartType1/Potential'].value     
-x = Pos[:,0]
-y = Pos[:,1]
-z = Pos[:,2]
-vx = Vel[:,0]
-vy = Vel[:,1]
-vz = Vel[:,2]
+x = Pos[:, 0]
+y = Pos[:, 1]
+z = Pos[:, 2]
+vx = Vel[:, 0]
+vy = Vel[:, 1]
+vz = Vel[:, 2]
 minV = np.argmin(V) 
 xC = x[minV] 
 yC = y[minV]
@@ -277,7 +246,7 @@ zC = z[minV]
 vxC = vx[minV]
 vyC = vy[minV]
 vzC = vz[minV]
-R = ((x-xC)**2+(y-yC)**2+(z-zC)**2)**.5
+R = ravf.modulus(x - xC, y - yC, z - zC)
 
 if R_limit_10000:
     R_limit = 10000.
@@ -308,20 +277,20 @@ if R_bin_automatic:
         a += 1
         GoodIDs = np.where((R<R_limit_max)*(R>R_limit_min))
         x0 =  x[GoodIDs[0]]
-  
-x =  x[GoodIDs]
-y =  y[GoodIDs]
-z =  z[GoodIDs]
-x = x-np.median(x)
-y = y-np.median(y)
-z = z-np.median(z)
+
+x = x[GoodIDs]
+y = y[GoodIDs]
+z = z[GoodIDs]
+x -= np.median(x)
+y -= np.median(y)
+z -= np.median(z)
 vx = vx[GoodIDs]
 vy = vy[GoodIDs]
 vz = vz[GoodIDs] 
-vx = vx-np.median(vx)
-vy = vy-np.median(vy)
-vz = vz-np.median(vz)
-R_xyz = (x**2+y**2+z**2)**.5
+vx -= np.median(vx)
+vy -= np.median(vy)
+vz -= np.median(vz)
+R_xyz = ravf.modulus(x, y, z)
 
 if Fig_x_hist:
     f, (ax1, ax2, ax3) = plt.subplots(1, 3, figsize=(13, 11))
