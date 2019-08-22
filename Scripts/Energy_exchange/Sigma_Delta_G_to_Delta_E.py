@@ -188,61 +188,19 @@ R_limit_32 = 1
 
 if new_R_middle:
     # List of tuples with string and dict of Gamma and Rmiddle, [('filename', {Gamma_1: R_middle_1, ..., Gamma_4: R_middle_4})]
-    if F == 'B_E_G2P_0_000':
-        Gamma_Rmiddle_list = [('B_E_G2P_0_000', {-1.5: 1, -2.0: 1, -2.5: 1, -3.0: 1}),
-                              ('B_E_G2P_20_005', {-1.5: 1, -2.0: 1, -2.5: 1, -3.0: 1}),
-                              ('B_E_0_000', {-1.5: , -2.0: , -2.5: , -3.0: }),
-                              (, {-1.5: , -2.0: , -2.5: , -3.0: }),
-                              (, {-1.5: , -2.0: , -2.5: , -3.0: }),
-                             ]
 
-    if F == 'B_E_0_000':
-        if Gamma == -1.5:     
-            R_middle = 10**-.7
-        elif Gamma == -2.0:     
-            R_middle = 10**-.35
-        elif Gamma == -2.5:                    
-            R_middle = 1.
-        elif Gamma == -3.0:     
-            R_middle = 10**.3
-    if F == 'B_E_0_001':
-        if Gamma == -1.5:       
-            R_middle = 10**-.7
-        elif Gamma == -2.0:     
-            R_middle = 10**-.35
-        elif Gamma == -2.5:                 
-            R_middle = 1.
-        elif Gamma == -3.0:     
-            R_middle = 10**.3
-    if F == 'B_E_20_005':
-        if Gamma == -1.5:       
-            R_middle = 10**-.6
-        elif Gamma == -2.0:     
-            R_middle = 10**-.35
-        elif Gamma == -2.5:                 
-            R_middle = 1.
-        elif Gamma == -3.0:     
-            R_middle = 10**.3              
-    # CS1
-    if F == 'CS1_E_G2P_0_000':
-        if Gamma == -1.5:       
-            R_middle = 1
-        elif Gamma == -2.0:      
-            R_middle = 1
-        elif Gamma == -2.5:                   
-            R_middle = 1
-        elif Gamma == -3.0:     
-            R_middle = 1
-    # CS4
-    if F == 'CS4_E_G2P_0_000':
-        if Gamma == -1.5:       
-            R_middle = 10**-.65
-        elif Gamma == -2.0:     
-            R_middle = 10**-.3
-        elif Gamma == -2.5:                 
-            R_middle = 1.
-        elif Gamma == -3.0:     
-            R_middle = 10**.3
+    RmiddleOnes = {-1.5: 1, -2.0: 1, -2.5: 1, -3.0: 1}
+
+    Gamma_Rmiddle_list = [('B_E_G2P_0_000', RmiddleOnes),
+                          ('B_E_G2P_20_005', RmiddleOnes),
+                          ('B_E_0_000', {-1.5: 10**-.7, -2.0: 10**-.35, -2.5: 1., -3.0: 10**.3}),
+                          ('B_E_0_001', {-1.5: 10**-.7, -2.0: 10**-.35, -2.5: 1., -3.0: 10**.3}),
+                          ('B_E_20_005', {-1.5: 10**-.6, -2.0: 10**-.35, -2.5: 1., -3.0: 10**.3}),
+                          ('CS1_E_G2P_0_000', RmiddleOnes),
+                          ('CS4_E_G2P_0_000', {-1.5: 10**-.65, -2.0: 10**-.3, -2.5: 1., -3.0: 10**.3}),
+                          (),
+                         ]
+
     if F == 'CS4_E_G2P_2_005':
         if Gamma == -1.5:       
             R_middle = 10**-.52
