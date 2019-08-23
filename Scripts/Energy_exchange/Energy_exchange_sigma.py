@@ -128,120 +128,120 @@ E_path = 'E_HQ_1000000_E/output/'
 # Filename = GADGET_E_path + E_path + 'B_E_G2P_40_021.hdf5'
 
 Test_CS4_path = 'Test_CS4/output/'
-# Filename = GADGET_E_path + Test_CS4_path      + 'B_E_G2P_0_005.hdf5'
-# Filename       = GADGET_E_path + 'Test_CS4/'        + 'B_E_0_005_P2G.hdf5'
-# Filename       = GADGET_E_path + Test_CS4_path      + 'B_E_G2P_1_005.hdf5'
-# Filename       = GADGET_E_path + 'Test_CS4/'        + 'B_E_1_005_P2G.hdf5'
+# Filename = GADGET_E_path + Test_CS4_path + 'B_E_G2P_0_005.hdf5'
+# Filename = GADGET_E_path + 'Test_CS4/' + 'B_E_0_005_P2G.hdf5'
+# Filename = GADGET_E_path + Test_CS4_path + 'B_E_G2P_1_005.hdf5'
+# Filename = GADGET_E_path + 'Test_CS4/' + 'B_E_1_005_P2G.hdf5'
 
-# Filename       = GADGET_E_path + Test_CS4_path      + 'B_E_G2P_2_005.hdf5'
-# Filename       = GADGET_E_path + 'Test_CS4/'        + 'B_E_2_005_P2G.hdf5'
+# Filename = GADGET_E_path + Test_CS4_path + 'B_E_G2P_2_005.hdf5'
+# Filename = GADGET_E_path + 'Test_CS4/' + 'B_E_2_005_P2G.hdf5'
 
-# Filename       = GADGET_E_path + Test_CS4_path      + 'B_E_G2P_3_005.hdf5'
-# Filename       = GADGET_E_path + 'Test_CS4/'        + 'B_E_3_005_P2G.hdf5'
-# Filename       = GADGET_E_path + Test_CS4_path      + 'B_E_G2P_4_005.hdf5'
-# Filename       = GADGET_E_path + 'Test_CS4/'        + 'B_E_4_005_P2G.hdf5'
-# Filename       = GADGET_E_path + Test_CS4_path      + 'B_E_G2P_5_005.hdf5'
-# Filename       = GADGET_E_path + 'Test_CS4/'        + 'B_E_5_005_P2G.hdf5'
-# Filename       = GADGET_E_path + Test_CS4_path      + 'B_E_G2P_6_005.hdf5'
+# Filename = GADGET_E_path + Test_CS4_path + 'B_E_G2P_3_005.hdf5'
+# Filename = GADGET_E_path + 'Test_CS4/' + 'B_E_3_005_P2G.hdf5'
+# Filename = GADGET_E_path + Test_CS4_path + 'B_E_G2P_4_005.hdf5'
+# Filename = GADGET_E_path + 'Test_CS4/' + 'B_E_4_005_P2G.hdf5'
+# Filename = GADGET_E_path + Test_CS4_path + 'B_E_G2P_5_005.hdf5'
+# Filename = GADGET_E_path + 'Test_CS4/' + 'B_E_5_005_P2G.hdf5'
+# Filename = GADGET_E_path + Test_CS4_path + 'B_E_G2P_6_005.hdf5'
 
-Test_D2_path   = 'Test_D2/output/'
-# Filename       = GADGET_E_path + Test_D2_path      + 'B_E_G2P_0_005.hdf5'
-# Filename       = GADGET_E_path + 'Test_D2/'        + 'B_E_0_005_P2G.hdf5'
-# Filename       = GADGET_E_path + Test_D2_path      + 'B_E_G2P_1_005.hdf5'
-# Filename       = GADGET_E_path + 'Test_D2/'        + 'B_E_1_005_P2G.hdf5'
-# Filename       = GADGET_E_path + Test_D2_path      + 'B_E_G2P_2_005.hdf5'
-# Filename       = GADGET_E_path + 'Test_D2/'        + 'B_E_2_005_P2G.hdf5'
-# Filename       = GADGET_E_path + Test_D2_path      + 'B_E_G2P_3_005.hdf5'
-# Filename       = GADGET_E_path + 'Test_D2/'        + 'B_E_3_005_P2G.hdf5'
-# Filename       = GADGET_E_path + Test_D2_path      + 'B_E_G2P_4_005.hdf5'
-# Filename       = GADGET_E_path + 'Test_D2/'        + 'B_E_4_005_P2G.hdf5'
-# Filename       = GADGET_E_path + Test_D2_path      + 'B_E_G2P_5_005.hdf5'
-# Filename       = GADGET_E_path + 'Test_D2/'        + 'B_E_5_005_P2G.hdf5'
-# Filename       = GADGET_E_path + Test_D2_path      + 'B_E_G2P_6_005.hdf5'
+Test_D2_path = 'Test_D2/output/'
+# Filename = GADGET_E_path + Test_D2_path + 'B_E_G2P_0_005.hdf5'
+# Filename = GADGET_E_path + 'Test_D2/' + 'B_E_0_005_P2G.hdf5'
+# Filename = GADGET_E_path + Test_D2_path + 'B_E_G2P_1_005.hdf5'
+# Filename = GADGET_E_path + 'Test_D2/' + 'B_E_1_005_P2G.hdf5'
+# Filename = GADGET_E_path + Test_D2_path + 'B_E_G2P_2_005.hdf5'
+# Filename = GADGET_E_path + 'Test_D2/' + 'B_E_2_005_P2G.hdf5'
+# Filename = GADGET_E_path + Test_D2_path + 'B_E_G2P_3_005.hdf5'
+# Filename = GADGET_E_path + 'Test_D2/' + 'B_E_3_005_P2G.hdf5'
+# Filename = GADGET_E_path + Test_D2_path + 'B_E_G2P_4_005.hdf5'
+# Filename = GADGET_E_path + 'Test_D2/' + 'B_E_4_005_P2G.hdf5'
+# Filename = GADGET_E_path + Test_D2_path + 'B_E_G2P_5_005.hdf5'
+# Filename = GADGET_E_path + 'Test_D2/' + 'B_E_5_005_P2G.hdf5'
+# Filename = GADGET_E_path + Test_D2_path + 'B_E_G2P_6_005.hdf5'
 
-Test_CS4_10tdyn_path   = 'Test_CS4_10tdyn/output/'
-# Filename       = GADGET_E_path + Test_CS4_10tdyn_path      + 'B_E_G2P_0_005.hdf5'
-# Filename       = GADGET_E_path + Test_CS4_10tdyn_path      + 'B_E_G2P_1_041.hdf5'
-# Filename       = GADGET_E_path + Test_CS4_10tdyn_path      + 'B_E_G2P_2_041.hdf5'
-# Filename       = GADGET_E_path + Test_CS4_10tdyn_path      + 'B_E_G2P_3_041.hdf5'
+Test_CS4_10tdyn_path = 'Test_CS4_10tdyn/output/'
+# Filename = GADGET_E_path + Test_CS4_10tdyn_path + 'B_E_G2P_0_005.hdf5'
+# Filename = GADGET_E_path + Test_CS4_10tdyn_path + 'B_E_G2P_1_041.hdf5'
+# Filename = GADGET_E_path + Test_CS4_10tdyn_path + 'B_E_G2P_2_041.hdf5'
+# Filename = GADGET_E_path + Test_CS4_10tdyn_path + 'B_E_G2P_3_041.hdf5'
 
 # Control
-con_Soft_B_path  = 'E_HQ_1000000_B_control/output/'
-# Filename        = GADGET_E_path + con_Soft_B_path    + 'B_E_0_000.hdf5'
-# Filename        = GADGET_E_path + con_Soft_B_path    + 'B_E_0_001.hdf5'
-# Filename        = GADGET_E_path + con_Soft_B_path    + 'B_E_10_005.hdf5'
-# Filename        = GADGET_E_path + con_Soft_B_path    + 'B_E_20_005.hdf5'
-con_CS1_path     = 'E_HQ_10000_CS1_control/output/'
-# Filename        = GADGET_E_path + con_CS1_path       + 'B_E_0_000.hdf5'
-# Filename        = GADGET_E_path + con_CS1_path       + 'B_E_0_001.hdf5'
-# Filename        = GADGET_E_path + con_CS1_path       + 'B_E_20_005.hdf5'
-con_CS4_path     = 'E_HQ_100000_CS4_control/output/'
-# Filename        = GADGET_E_path + con_CS4_path       + 'B_E_0_000.hdf5'
-# Filename        = GADGET_E_path + con_CS4_path       + 'B_E_0_001.hdf5'
-# Filename        = GADGET_E_path + con_CS4_path       + 'B_E_20_005.hdf5'
-con_CS5_path     = 'E_HQ_100000_CS5_control/output/'
-# Filename        = GADGET_E_path + con_CS5_path       + 'B_E_0_000.hdf5'
-# Filename        = GADGET_E_path + con_CS5_path       + 'B_E_0_001.hdf5'
-# Filename        = GADGET_E_path + con_CS5_path       + 'B_E_20_005.hdf5'
-con_CS6_path     = 'E_HQ_100000_CS6_control/output/'
-# Filename        = GADGET_E_path + con_CS6_path       + 'B_E_0_000.hdf5'
-# Filename        = GADGET_E_path + con_CS6_path       + 'B_E_0_001.hdf5'
-# Filename        = GADGET_E_path + con_CS6_path       + 'B_E_20_005.hdf5'
-con_DS1_path     = 'E_0_5_100000_DS1_control/output/'
-# Filename        = GADGET_E_path + con_DS1_path       + 'B_E_0_000.hdf5'
-# Filename        = GADGET_E_path + con_DS1_path       + 'B_E_0_001.hdf5'
-# Filename        = GADGET_E_path + con_DS1_path       + 'B_E_20_005.hdf5'
+con_Soft_B_path = 'E_HQ_1000000_B_control/output/'
+# Filename = GADGET_E_path + con_Soft_B_path + 'B_E_0_000.hdf5'
+# Filename = GADGET_E_path + con_Soft_B_path + 'B_E_0_001.hdf5'
+# Filename = GADGET_E_path + con_Soft_B_path + 'B_E_10_005.hdf5'
+# Filename = GADGET_E_path + con_Soft_B_path + 'B_E_20_005.hdf5'
+con_CS1_path = 'E_HQ_10000_CS1_control/output/'
+# Filename = GADGET_E_path + con_CS1_path + 'B_E_0_000.hdf5'
+# Filename = GADGET_E_path + con_CS1_path + 'B_E_0_001.hdf5'
+# Filename = GADGET_E_path + con_CS1_path + 'B_E_20_005.hdf5'
+con_CS4_path = 'E_HQ_100000_CS4_control/output/'
+# Filename = GADGET_E_path + con_CS4_path + 'B_E_0_000.hdf5'
+# Filename = GADGET_E_path + con_CS4_path + 'B_E_0_001.hdf5'
+# Filename = GADGET_E_path + con_CS4_path + 'B_E_20_005.hdf5'
+con_CS5_path = 'E_HQ_100000_CS5_control/output/'
+# Filename = GADGET_E_path + con_CS5_path + 'B_E_0_000.hdf5'
+# Filename = GADGET_E_path + con_CS5_path + 'B_E_0_001.hdf5'
+# Filename = GADGET_E_path + con_CS5_path + 'B_E_20_005.hdf5'
+con_CS6_path = 'E_HQ_100000_CS6_control/output/'
+# Filename = GADGET_E_path + con_CS6_path + 'B_E_0_000.hdf5'
+# Filename = GADGET_E_path + con_CS6_path + 'B_E_0_001.hdf5'
+# Filename = GADGET_E_path + con_CS6_path + 'B_E_20_005.hdf5'
+con_DS1_path = 'E_0_5_100000_DS1_control/output/'
+# Filename = GADGET_E_path + con_DS1_path + 'B_E_0_000.hdf5'
+# Filename = GADGET_E_path + con_DS1_path + 'B_E_0_001.hdf5'
+# Filename = GADGET_E_path + con_DS1_path + 'B_E_20_005.hdf5'
 con_Soft_D2_path = 'E_0_5_100000_D2_control/output/'
-# Filename        = GADGET_E_path + con_Soft_D2_path   + 'B_E_0_000.hdf5'
-# Filename        = GADGET_E_path + con_Soft_D2_path   + 'B_E_0_001.hdf5'
-# Filename        = GADGET_E_path + con_Soft_D2_path   + 'B_E_20_005.hdf5'
-con_E_path       = 'E_HQ_1000000_E_control/output/'
-# Filename        = GADGET_E_path + con_E_path         + 'B_E_0_000.hdf5'
-# Filename        = GADGET_E_path + con_E_path         + 'B_E_0_001.hdf5'
-# Filename        = GADGET_E_path + con_E_path         + 'B_E_20_005.hdf5'
+# Filename = GADGET_E_path + con_Soft_D2_path + 'B_E_0_000.hdf5'
+# Filename = GADGET_E_path + con_Soft_D2_path + 'B_E_0_001.hdf5'
+# Filename = GADGET_E_path + con_Soft_D2_path + 'B_E_20_005.hdf5'
+con_E_path = 'E_HQ_1000000_E_control/output/'
+# Filename = GADGET_E_path + con_E_path + 'B_E_0_000.hdf5'
+# Filename = GADGET_E_path + con_E_path + 'B_E_0_001.hdf5'
+# Filename = GADGET_E_path + con_E_path + 'B_E_20_005.hdf5'
 
 SnapshotFile = h5py.File(Filename, 'r')
 
 # IIa
-# F               = 'Soft_B'   + Filename[len(GADGET_E_path + Soft_B_path + 'B'):-5     ]
-# F               = 'Soft_B'   + Filename[len(GADGET_E_path + con_Soft_B_path + 'B'):-5 ] 
-# F               = 'CS1'      + Filename[len(GADGET_E_path + CS1_path + 'B'):-5        ]
-# F               = 'CS1'      + Filename[len(GADGET_E_path + con_CS1_path + 'B'):-5    ]
-# F               = 'CS4'      + Filename[len(GADGET_E_path + CS4_path + 'B'):-5        ]
-# F               = 'CS4'      + Filename[len(GADGET_E_path + con_CS4_path + 'B'):-5    ]
-# F               = 'CS5'      + Filename[len(GADGET_E_path + CS5_path + 'B'):-5        ]
-# F               = 'CS5'      + Filename[len(GADGET_E_path + con_CS5_path + 'B'):-5    ]
-# F               = 'CS6'      + Filename[len(GADGET_E_path + CS6_path + 'B'):-5        ]
-# F               = 'CS6'      + Filename[len(GADGET_E_path + con_CS6_path + 'B'):-5    ]
-# F               = 'DS1'      + Filename[len(GADGET_E_path + DS1_path + 'B'):-5        ]
-# F               = 'DS1'      + Filename[len(GADGET_E_path + con_DS1_path + 'B'):-5    ]
-# F               = 'Soft_D2'  + Filename[len(GADGET_E_path + Soft_D2_path + 'B'):-5    ]
-# F               = 'Soft_D2'  + Filename[len(GADGET_E_path + con_Soft_D2_path + 'B'):-5]
-# F               = 'E'        + Filename[len(GADGET_E_path + E_path + 'B'):-5          ]
-# F               = 'E'        + Filename[len(GADGET_E_path + con_E_path + 'B'):-5      ]
-# F               = 'Test_CS4' + Filename[len(GADGET_E_path + Test_CS4_path + 'B'):-5   ]
-# F               = 'Test_CS4' + Filename[len(GADGET_E_path + 'Test_CS4/' + 'B'):-5      ]
-# F               = 'Test_D2'  + Filename[len(GADGET_E_path + Test_D2_path + 'B'):-5    ]
-# F               = 'Test_D2'  + Filename[len(GADGET_E_path + 'Test_D2/' + 'B'):-5      ]
-# F               = 'Test_CS4_10tdyn' + Filename[len(GADGET_E_path + Test_CS4_10tdyn_path + 'B'):-5   ]
+# F = 'Soft_B' + Filename[len(GADGET_E_path + Soft_B_path + 'B'):-5]
+# F = 'Soft_B' + Filename[len(GADGET_E_path + con_Soft_B_path + 'B'):-5]
+# F = 'CS1' + Filename[len(GADGET_E_path + CS1_path + 'B'):-5]
+# F = 'CS1' + Filename[len(GADGET_E_path + con_CS1_path + 'B'):-5]
+# F = 'CS4' + Filename[len(GADGET_E_path + CS4_path + 'B'):-5]
+# F = 'CS4' + Filename[len(GADGET_E_path + con_CS4_path + 'B'):-5]
+# F = 'CS5' + Filename[len(GADGET_E_path + CS5_path + 'B'):-5]
+# F = 'CS5' + Filename[len(GADGET_E_path + con_CS5_path + 'B'):-5]
+# F = 'CS6' + Filename[len(GADGET_E_path + CS6_path + 'B'):-5]
+# F = 'CS6' + Filename[len(GADGET_E_path + con_CS6_path + 'B'):-5]
+# F = 'DS1' + Filename[len(GADGET_E_path + DS1_path + 'B'):-5]
+# F = 'DS1' + Filename[len(GADGET_E_path + con_DS1_path + 'B'):-5]
+# F = 'Soft_D2' + Filename[len(GADGET_E_path + Soft_D2_path + 'B'):-5]
+# F = 'Soft_D2' + Filename[len(GADGET_E_path + con_Soft_D2_path + 'B'):-5]
+# F = 'E' + Filename[len(GADGET_E_path + E_path + 'B'):-5]
+# F = 'E' + Filename[len(GADGET_E_path + con_E_path + 'B'):-5]
+# F = 'Test_CS4' + Filename[len(GADGET_E_path + Test_CS4_path + 'B'):-5]
+# F = 'Test_CS4' + Filename[len(GADGET_E_path + 'Test_CS4/' + 'B'):-5]
+# F = 'Test_D2' + Filename[len(GADGET_E_path + Test_D2_path + 'B'):-5]
+# F = 'Test_D2' + Filename[len(GADGET_E_path + 'Test_D2/' + 'B'):-5]
+# F = 'Test_CS4_10tdyn' + Filename[len(GADGET_E_path + Test_CS4_10tdyn_path + 'B'):-5]
 
 # IIb
-# F               = 'IIb_CS4'      + Filename[len(GADGET_E_path + CS4_path + 'B'):-5          ]
-# F               = 'IIb_Soft_D2'  + Filename[len(GADGET_E_path + Soft_D2_path + 'B'):-5      ]
+# F = 'IIb_CS4' + Filename[len(GADGET_E_path + CS4_path + 'B'):-5]
+# F = 'IIb_Soft_D2' + Filename[len(GADGET_E_path + Soft_D2_path + 'B'):-5]
 
 # IIc
-# F               = 'IIc_CS4'            + Filename[len(GADGET_E_path + CS4_path + 'B'):-5          ]
-# F               = 'IIc_CS4_no_K_ratio' + Filename[len(GADGET_E_path + 'E_HQ_100000_CS4/' + 'B'):-5]
-# F               = 'IIc_CS4_unbound'    + Filename[len(GADGET_E_path + 'E_HQ_100000_CS4/' + 'B'):-5]
-# F               = 'IIc_CS4_no_rand'    + Filename[len(GADGET_E_path + 'E_HQ_100000_CS4/' + 'B'):-5]
-# F               = 'IIc_CS4_car_sph_car' + Filename[len(GADGET_E_path + 'E_HQ_100000_CS4/' + 'B'):-5]
-# F               = 'IIc_Test_CS4' + Filename[len(GADGET_E_path + 'Test_CS4_path/' + 'B'):-5  ]
-# F               = 'IIc_Test_CS4' + Filename[len(GADGET_E_path + 'Test_CS4/' + 'B'):-5       ]
-# F               = 'IIc_CS5' + Filename[len(GADGET_E_path + CS5_path + 'B'):-5     ]
-# F               = 'IIc_CS6' + Filename[len(GADGET_E_path + CS6_path + 'B'):-5     ]
-# F               = 'IIc_DS1'  + Filename[len(GADGET_E_path + DS1_path + 'B'):-5     ]
-F = 'IIc_Soft_D2'  + Filename[len(GADGET_E_path + Soft_D2_path + 'B'):-5      ]
-# F               = 'IIc_Soft_D2'  + Filename[len(GADGET_E_path + 'E_0_5_100000_D2/' + 'B'):-5]
+# F = 'IIc_CS4' + Filename[len(GADGET_E_path + CS4_path + 'B'):-5]
+# F = 'IIc_CS4_no_K_ratio' + Filename[len(GADGET_E_path + 'E_HQ_100000_CS4/' + 'B'):-5]
+# F = 'IIc_CS4_unbound' + Filename[len(GADGET_E_path + 'E_HQ_100000_CS4/' + 'B'):-5]
+# F = 'IIc_CS4_no_rand' + Filename[len(GADGET_E_path + 'E_HQ_100000_CS4/' + 'B'):-5]
+# F = 'IIc_CS4_car_sph_car' + Filename[len(GADGET_E_path + 'E_HQ_100000_CS4/' + 'B'):-5]
+# F = 'IIc_Test_CS4' + Filename[len(GADGET_E_path + 'Test_CS4_path/' + 'B'):-5]
+# F = 'IIc_Test_CS4' + Filename[len(GADGET_E_path + 'Test_CS4/' + 'B'):-5]
+# F = 'IIc_CS5' + Filename[len(GADGET_E_path + CS5_path + 'B'):-5]
+# F = 'IIc_CS6' + Filename[len(GADGET_E_path + CS6_path + 'B'):-5]
+# F = 'IIc_DS1' + Filename[len(GADGET_E_path + DS1_path + 'B'):-5]
+F = 'IIc_Soft_D2' + Filename[len(GADGET_E_path + Soft_D2_path + 'B'):-5]
+# F = 'IIc_Soft_D2' + Filename[len(GADGET_E_path + 'E_0_5_100000_D2/' + 'B'):-5]
 
 # IId
 # F = 'IId_CS4' + Filename[len(GADGET_E_path + CS4_path + 'B'):-5]
@@ -278,7 +278,7 @@ save_lnr_beta_gamma_kappa_VR_r_sigma_r_r2_rho = 0
 
 if keep_IC_R_middle: # For R_limit_10000, 20 bins.
     if F.startswith('Hernquist10000_G'):
-        if   Gamma == -1.5:      
+        if Gamma == -1.5:      
                 R_middle = 0
         elif Gamma == -2.0:     
                 R_middle = 0
@@ -287,7 +287,7 @@ if keep_IC_R_middle: # For R_limit_10000, 20 bins.
         elif Gamma == -3.0: 
                 R_middle = 0
     if F.startswith('OsipkovMerritt_'):
-        if   Gamma == -1.5:      
+        if Gamma == -1.5:      
             R_middle =  0
         elif Gamma == -2.0:     
             R_middle = 0
@@ -298,7 +298,7 @@ if keep_IC_R_middle: # For R_limit_10000, 20 bins.
 if new_R_middle:# Choose new R_middle for each file.
     # Soft_B
     if F == 'Soft_B_E_G2P_0_000': 
-        if   Gamma == -1.5:     
+        if Gamma == -1.5:     
             R_middle = 1
         elif Gamma == -2.0:     
             R_middle = 10**-.3
@@ -307,7 +307,7 @@ if new_R_middle:# Choose new R_middle for each file.
         elif Gamma == -3.0:     
             R_middle = 1
     if F == 'Soft_B_E_G2P_20_005': 
-        if   Gamma == -1.5:       
+        if Gamma == -1.5:       
             R_middle = 1
         elif Gamma == -2.0:     
             R_middle = 10**.2
@@ -317,7 +317,7 @@ if new_R_middle:# Choose new R_middle for each file.
             R_middle = 1
     # con_Soft_B
     if F == 'Soft_B_E_0_000': 
-        if   Gamma == -1.5:     
+        if Gamma == -1.5:     
             R_middle = 10**-.7
         elif Gamma == -2.0:     
             R_middle = 10**-.35
@@ -326,7 +326,7 @@ if new_R_middle:# Choose new R_middle for each file.
         elif Gamma == -3.0:     
             R_middle = 10**.3
     if F == 'Soft_B_E_0_001': 
-        if   Gamma == -1.5:       
+        if Gamma == -1.5:       
             R_middle = 10**-.7
         elif Gamma == -2.0:     
             R_middle = 10**-.35
@@ -335,7 +335,7 @@ if new_R_middle:# Choose new R_middle for each file.
         elif Gamma == -3.0:     
             R_middle = 10**.3
     if F == 'Soft_B_E_20_005': 
-        if   Gamma == -1.5:       
+        if Gamma == -1.5:       
             R_middle = 10**-.6
         elif Gamma == -2.0:     
             R_middle = 10**-.35
@@ -345,7 +345,7 @@ if new_R_middle:# Choose new R_middle for each file.
             R_middle = 10**.3              
     # CS1
     if F == 'CS1_E_G2P_0_000':
-        if   Gamma == -1.5:       
+        if Gamma == -1.5:       
             R_middle = 1
         elif Gamma == -2.0:      
             R_middle = 1
@@ -355,7 +355,7 @@ if new_R_middle:# Choose new R_middle for each file.
             R_middle = 1
     # CS4
     if F == 'CS4_E_G2P_0_000':
-        if   Gamma == -1.5:       
+        if Gamma == -1.5:       
             R_middle = 10**-.65
         elif Gamma == -2.0:     
             R_middle = 10**-.3
@@ -364,7 +364,7 @@ if new_R_middle:# Choose new R_middle for each file.
         elif Gamma == -3.0:     
             R_middle = 10**.3
     if F == 'CS4_E_G2P_2_005':
-        if   Gamma == -1.5:       
+        if Gamma == -1.5:       
             R_middle = 10**-.52
         elif Gamma == -2.0:     
             R_middle = 10**-.3
@@ -373,7 +373,7 @@ if new_R_middle:# Choose new R_middle for each file.
         elif Gamma == -3.0:     
             R_middle = 10**.3
     if F == 'CS4_E_G2P_4_005':
-        if   Gamma == -1.5:       
+        if Gamma == -1.5:       
             R_middle = 10**-.52
         elif Gamma == -2.0:     
             R_middle = 10**-.25
@@ -382,7 +382,7 @@ if new_R_middle:# Choose new R_middle for each file.
         elif Gamma == -3.0:     
             R_middle = 10**.27
     if F == 'CS4_E_G2P_6_005':
-        if   Gamma == -1.5:       
+        if Gamma == -1.5:       
             R_middle = 10**-.48
         elif Gamma == -2.0:     
             R_middle = 10**-.25
@@ -391,7 +391,7 @@ if new_R_middle:# Choose new R_middle for each file.
         elif Gamma == -3.0:     
             R_middle = 10**.27
     if F == 'CS4_E_G2P_8_005':
-        if   Gamma == -1.5:       
+        if Gamma == -1.5:       
             R_middle = 1
         elif Gamma == -2.0:     
             R_middle = 1
@@ -400,7 +400,7 @@ if new_R_middle:# Choose new R_middle for each file.
         elif Gamma == -3.0:     
             R_middle = 1
     if F == 'CS4_E_G2P_10_005':
-        if   Gamma == -1.5:       
+        if Gamma == -1.5:       
             R_middle = 1
         elif Gamma == -2.0:     
             R_middle = 1
@@ -409,7 +409,7 @@ if new_R_middle:# Choose new R_middle for each file.
         elif Gamma == -3.0:     
             R_middle = 1
     if F == 'CS4_E_G2P_20_005':
-        if   Gamma == -1.5:       
+        if Gamma == -1.5:       
             R_middle = 10**-.45
         elif Gamma == -2.0:     
             R_middle = 10**-.25
@@ -418,7 +418,7 @@ if new_R_middle:# Choose new R_middle for each file.
         elif Gamma == -3.0:     
             R_middle = 10**.25
     if F == 'IIc_CS4_E_G2P_40_021':
-        if   Gamma == -1.5:       
+        if Gamma == -1.5:       
             R_middle = 1
         elif Gamma == -2.0:     
             R_middle = 10**-.2
@@ -427,10 +427,9 @@ if new_R_middle:# Choose new R_middle for each file.
         elif Gamma == -3.0:     
             R_middle = 1
 
-            
     # con_CS4 Final
     if F == 'CS4_E_20_005': 
-        if   Gamma == -1.5:       
+        if Gamma == -1.5:       
             R_middle = 10**-.4
         elif Gamma == -2.0:     
             R_middle = 10**-.23
@@ -440,7 +439,7 @@ if new_R_middle:# Choose new R_middle for each file.
             R_middle = 10**.25
     # CS5
     if F == 'CS5_E_G2P_0_000':
-        if   Gamma == -1.5:       
+        if Gamma == -1.5:       
             R_middle = 10**-.7
         elif Gamma == -2.0:     
             R_middle = 10**-.3
@@ -449,7 +448,7 @@ if new_R_middle:# Choose new R_middle for each file.
         elif Gamma == -3.0:    
             R_middle = 10**.38
     if F == 'CS5_E_G2P_2_005':
-        if   Gamma == -1.5:       
+        if Gamma == -1.5:       
             R_middle = 10**-.6
         elif Gamma == -2.0:     
             R_middle = 10**-.3
@@ -458,7 +457,7 @@ if new_R_middle:# Choose new R_middle for each file.
         elif Gamma == -3.0:    
             R_middle = 10**.3
     if F == 'CS5_E_G2P_4_005':
-        if   Gamma == -1.5:       
+        if Gamma == -1.5:       
             R_middle = 10**-.55
         elif Gamma == -2.0:     
             R_middle = 10**-.3
@@ -467,7 +466,7 @@ if new_R_middle:# Choose new R_middle for each file.
         elif Gamma == -3.0:    
             R_middle = 10**.35
     if F == 'CS5_E_G2P_6_005':
-        if   Gamma == -1.5:       
+        if Gamma == -1.5:       
             R_middle = 10**-.48
         elif Gamma == -2.0:     
             R_middle = 10**-.3
@@ -476,7 +475,7 @@ if new_R_middle:# Choose new R_middle for each file.
         elif Gamma == -3.0:    
             R_middle = 10**.3
     if F == 'CS5_E_G2P_8_005':
-        if   Gamma == -1.5:       
+        if Gamma == -1.5:       
             R_middle = 1
         elif Gamma == -2.0:     
             R_middle = 1
@@ -485,7 +484,7 @@ if new_R_middle:# Choose new R_middle for each file.
         elif Gamma == -3.0:    
             R_middle = 1
     if F == 'CS5_E_G2P_10_005':
-        if   Gamma == -1.5:       
+        if Gamma == -1.5:       
             R_middle = 1
         elif Gamma == -2.0:     
             R_middle = 1
@@ -494,7 +493,7 @@ if new_R_middle:# Choose new R_middle for each file.
         elif Gamma == -3.0:    
             R_middle = 1
     if F == 'CS5_E_G2P_20_005':
-        if   Gamma == -1.5:       
+        if Gamma == -1.5:       
             R_middle = 10**-.42
         elif Gamma == -2.0:     
             R_middle = 10**-.25
@@ -503,7 +502,7 @@ if new_R_middle:# Choose new R_middle for each file.
         elif Gamma == -3.0:    
             R_middle = 10**-.28
     if F == 'CS5_E_G2P_30_005':
-        if   Gamma == -1.5:       
+        if Gamma == -1.5:       
             R_middle = 1.
         elif Gamma == -2.0:     
             R_middle = 10**-.35
@@ -512,9 +511,8 @@ if new_R_middle:# Choose new R_middle for each file.
         elif Gamma == -3.0:    
             R_middle = 1.
 
-
     if F == 'IIc_CS5_E_G2P_40_021':
-        if   Gamma == -1.5:       
+        if Gamma == -1.5:       
             R_middle = 1.
         elif Gamma == -2.0:     
             R_middle = 10**-.2
@@ -522,13 +520,10 @@ if new_R_middle:# Choose new R_middle for each file.
             R_middle = 1.
         elif Gamma == -3.0:    
             R_middle = 1. 
-
-
-
             
     # con_CS5 final
     if F == 'CS5_E_20_005': 
-        if   Gamma == -1.5:       
+        if Gamma == -1.5:       
             R_middle = 10**-.45
         elif Gamma == -2.0:     
             R_middle = 10**-.23
@@ -538,7 +533,7 @@ if new_R_middle:# Choose new R_middle for each file.
             R_middle = 10**.3
     # CS6
     if F == 'CS6_E_G2P_0_000':
-        if   Gamma == -1.5:       
+        if Gamma == -1.5:       
             R_middle = 10**-.73
         elif Gamma == -2.0:     
             R_middle = 10**-.3
@@ -547,7 +542,7 @@ if new_R_middle:# Choose new R_middle for each file.
         elif Gamma == -3.0:    
             R_middle = 10**.34
     if F == 'CS6_E_G2P_2_005':
-        if   Gamma == -1.5:       
+        if Gamma == -1.5:       
             R_middle = 10**-.55
         elif Gamma == -2.0:     
             R_middle = 10**-.3
@@ -556,7 +551,7 @@ if new_R_middle:# Choose new R_middle for each file.
         elif Gamma == -3.0:    
             R_middle = 10**.35
     if F == 'CS6_E_G2P_4_005':
-        if   Gamma == -1.5:       
+        if Gamma == -1.5:       
             R_middle = 10**-.5
         elif Gamma == -2.0:     
             R_middle = 10**-.3
@@ -565,7 +560,7 @@ if new_R_middle:# Choose new R_middle for each file.
         elif Gamma == -3.0:    
             R_middle = 10**.32
     if F == 'CS6_E_G2P_6_005':
-        if   Gamma == -1.5:       
+        if Gamma == -1.5:       
             R_middle = 10**-.5
         elif Gamma == -2.0:     
             R_middle = 10**-.3
@@ -574,7 +569,7 @@ if new_R_middle:# Choose new R_middle for each file.
         elif Gamma == -3.0:    
             R_middle = 10**.35
     if F == 'CS6_E_G2P_8_005':
-        if   Gamma == -1.5:       
+        if Gamma == -1.5:       
             R_middle = 1
         elif Gamma == -2.0:     
             R_middle = 1
@@ -583,7 +578,7 @@ if new_R_middle:# Choose new R_middle for each file.
         elif Gamma == -3.0:    
             R_middle = 1
     if F == 'CS6_E_G2P_10_005':
-        if   Gamma == -1.5:       
+        if Gamma == -1.5:       
             R_middle = 1
         elif Gamma == -2.0:     
             R_middle = 1
@@ -592,7 +587,7 @@ if new_R_middle:# Choose new R_middle for each file.
         elif Gamma == -3.0:    
             R_middle = 1
     if F == 'CS6_E_G2P_20_005':
-        if   Gamma == -1.5:       
+        if Gamma == -1.5:       
             R_middle = 10**-.45
         elif Gamma == -2.0:     
             R_middle = 10**-.25
@@ -601,7 +596,7 @@ if new_R_middle:# Choose new R_middle for each file.
         elif Gamma == -3.0:    
             R_middle = 10**.28
     if F == 'CS6_E_G2P_30_005':
-        if   Gamma == -1.5:       
+        if Gamma == -1.5:       
             R_middle = 1.
         elif Gamma == -2.0:     
             R_middle = 10**-.35
@@ -611,7 +606,7 @@ if new_R_middle:# Choose new R_middle for each file.
             R_middle = 1.
 
     if F == 'IIc_CS6_E_G2P_40_021':
-        if   Gamma == -1.5:       
+        if Gamma == -1.5:       
             R_middle = 1.
         elif Gamma == -2.0:     
             R_middle = 10**-.2
@@ -622,7 +617,7 @@ if new_R_middle:# Choose new R_middle for each file.
             
     # con_CS6 final
     if F == 'CS6_E_20_005': 
-        if   Gamma == -1.5:       
+        if Gamma == -1.5:       
             R_middle = 10**-.42
         elif Gamma == -2.0:     
             R_middle = 10**-.23
@@ -632,7 +627,7 @@ if new_R_middle:# Choose new R_middle for each file.
             R_middle = 10**.3
     # DS1
     if F == 'DS1_E_G2P_0_000':
-        if   Gamma == -1.5:       
+        if Gamma == -1.5:       
             R_middle = 1
         elif Gamma == -2.0:     
             R_middle = 10**-.2
@@ -641,7 +636,7 @@ if new_R_middle:# Choose new R_middle for each file.
         elif Gamma == -3.0:    
             R_middle = 1
     if F == 'DS1_E_G2P_20_005':
-        if   Gamma == -1.5:       
+        if Gamma == -1.5:       
             R_middle = 1
         elif Gamma == -2.0:     
             R_middle = 1
@@ -650,7 +645,7 @@ if new_R_middle:# Choose new R_middle for each file.
         elif Gamma == -3.0:    
             R_middle = 1
     if F == 'DS1_E_G2P_40_021':
-        if   Gamma == -1.5:       
+        if Gamma == -1.5:       
             R_middle = 1
         elif Gamma == -2.0:     
             R_middle = 10**-.35
@@ -660,7 +655,7 @@ if new_R_middle:# Choose new R_middle for each file.
             R_middle = 1
 
     if F == 'IIc_DS1_E_G2P_60_021':
-        if   Gamma == -1.5:       
+        if Gamma == -1.5:       
             R_middle = 1
         elif Gamma == -2.0:     
             R_middle = 10**-.2
@@ -671,7 +666,7 @@ if new_R_middle:# Choose new R_middle for each file.
             
     # con_DS1
     if F == 'DS1_E_20_005': 
-        if   Gamma == -1.5:       
+        if Gamma == -1.5:       
             R_middle = 1
         elif Gamma == -2.0:     
             R_middle = 10**-.18
@@ -681,7 +676,7 @@ if new_R_middle:# Choose new R_middle for each file.
             R_middle = 1
     # Soft_D2
     if F == 'Soft_D2_E_G2P_0_000':
-        if   Gamma == -1.5:       
+        if Gamma == -1.5:       
             R_middle = 1
         elif Gamma == -2.0:     
             R_middle = 10**-.2
@@ -690,7 +685,7 @@ if new_R_middle:# Choose new R_middle for each file.
         elif Gamma == -3.0:    
             R_middle = 1
     if F == 'Soft_D2_E_G2P_20_005':
-        if   Gamma == -1.5:       
+        if Gamma == -1.5:       
             R_middle = 1
         elif Gamma == -2.0:     
             R_middle = 1
@@ -699,7 +694,7 @@ if new_R_middle:# Choose new R_middle for each file.
         elif Gamma == -3.0:    
             R_middle = 1
     if F == 'Soft_D2_E_G2P_40_021':
-        if   Gamma == -1.5:       
+        if Gamma == -1.5:       
             R_middle = 1
         elif Gamma == -2.0:     
             R_middle = 10**-.4
@@ -709,7 +704,7 @@ if new_R_middle:# Choose new R_middle for each file.
             R_middle = 1
 
     if F == 'IIc_Soft_D2_E_G2P_60_021':
-        if   Gamma == -1.5:       
+        if Gamma == -1.5:       
             R_middle = 1
         elif Gamma == -2.0:     
             R_middle = 10**-.2
@@ -720,7 +715,7 @@ if new_R_middle:# Choose new R_middle for each file.
 
     # Soft_D2 IId
     if F == 'IId_Soft_D2_E_G2P_0_000':
-        if   Gamma == -1.5:       
+        if Gamma == -1.5:       
             R_middle = 1
         elif Gamma == -2.0:     
             R_middle = 10**-.2
@@ -729,7 +724,7 @@ if new_R_middle:# Choose new R_middle for each file.
         elif Gamma == -3.0:    
             R_middle = 1
     if F == 'IId_Soft_D2_E_G2P_20_013':
-        if   Gamma == -1.5:       
+        if Gamma == -1.5:       
             R_middle = 1
         elif Gamma == -2.0:     
             R_middle = 10**-.45
@@ -740,7 +735,7 @@ if new_R_middle:# Choose new R_middle for each file.
             
     # con_D2
     if F == 'Soft_D2_E_20_005': 
-        if   Gamma == -1.5:       
+        if Gamma == -1.5:       
             R_middle = 1
         elif Gamma == -2.0:     
             R_middle = 10**-.18
@@ -751,7 +746,7 @@ if new_R_middle:# Choose new R_middle for each file.
             
     # E
     if F == 'E_E_G2P_0_000':
-        if   Gamma == -1.5:     
+        if Gamma == -1.5:     
             R_middle = 1
         elif Gamma == -2.0:     
             R_middle = 1
@@ -760,7 +755,7 @@ if new_R_middle:# Choose new R_middle for each file.
         elif Gamma == -3.0:     
             R_middle = 1
     if F == 'E_E_G2P_20_005':
-        if   Gamma == -1.5:     
+        if Gamma == -1.5:     
             R_middle = 1
         elif Gamma == -2.0:     
             R_middle = 1
@@ -770,7 +765,7 @@ if new_R_middle:# Choose new R_middle for each file.
             R_middle = 1
     # E
     if F == 'E_E_20_005': 
-        if   Gamma == -1.5:       
+        if Gamma == -1.5:       
             R_middle = 1
         elif Gamma == -2.0:     
             R_middle = 1
@@ -778,167 +773,168 @@ if new_R_middle:# Choose new R_middle for each file.
             R_middle = 1
         elif Gamma == -3.0:     
             R_middle = 1
-        
-Pos   = SnapshotFile['PartType1/Coordinates'].value 
-Vel   = SnapshotFile['PartType1/Velocities'].value  
-V     = SnapshotFile['PartType1/Potential'].value     
-x     = Pos[:,0]
-y     = Pos[:,1]
-z     = Pos[:,2]
-vx    = Vel[:,0]
-vy    = Vel[:,1]
-vz    = Vel[:,2]
-minV  = np.argmin(V)  # Finds the particle with the lowest potential (which is in the center of the largest cluster)
-xC    = x[minV]       # Changes x, y and z so that the cluster is centered.
-yC    = y[minV]
-zC    = z[minV]
-vxC   = vx[minV]
-vyC   = vy[minV]
-vzC   = vz[minV]
-#xC   = np.median(x[V.argsort()[0:100]]) # Changes x, y and z so that the cluster is centered.
-#yC   = np.median(y[V.argsort()[0:100]])
-#zC   = np.median(z[V.argsort()[0:100]])
 
-#R     = ((x-xC)**2+(y-yC)**2+(z-zC)**2)**.5
-#R     = (x**2+y**2+z**2)**.5
+Pos = SnapshotFile['PartType1/Coordinates'].value 
+Vel = SnapshotFile['PartType1/Velocities'].value  
+V = SnapshotFile['PartType1/Potential'].value     
+x = Pos[:,0]
+y = Pos[:,1]
+z = Pos[:,2]
+vx = Vel[:,0]
+vy = Vel[:,1]
+vz = Vel[:,2]
+minV = np.argmin(V)  # Finds the particle with the lowest potential (which is in the center of the largest cluster)
+xC = x[minV]       # Changes x, y and z so that the cluster is centered.
+yC = y[minV]
+zC = z[minV]
+vxC = vx[minV]
+vyC = vy[minV]
+vzC = vz[minV]
+# xC = np.median(x[V.argsort()[0:100]])  # Changes x, y and z so that the cluster is centered.
+# yC = np.median(y[V.argsort()[0:100]])
+# zC = np.median(z[V.argsort()[0:100]])
+
+# R = ((x-xC)**2+(y-yC)**2+(z-zC)**2)**.5
+# R = (x**2+y**2+z**2)**.5
 
 if R_limit_10000:
     R_limit = 10000.
-    F       = F + '_R_limit_10000'
+    F += '_R_limit_10000'
 elif R_limit_5000:
     R_limit = 5000.
-    F       = F + '_R_limit_5000'
+    F +='_R_limit_5000'
 elif R_limit_50:
     R_limit = 50.
-    F       = F + '_R_limit_50'
+    F += '_R_limit_50'
 elif R_limit_32:
     R_limit = 32.
-    F       = F + '_R_limit_32'
+    F += '_R_limit_32'
 else:
     R_limit = 10.
-    F       = F + '_R_limit_10'
+    F += '_R_limit_10'
 
-#GoodIDs = np.where(R<R_limit) # Removes all particles that is far away from the cluster.
+# GoodIDs = np.where(R < R_limit)  # Removes all particles that is far away from the cluster.
 
-if R_bin_automatic: # make R_limit_min and R_limit_max selection automatic
+if R_bin_automatic:  # make R_limit_min and R_limit_max selection automatic
     R_limit_min = R_middle
     R_limit_max = R_middle
-    a           = 0 # makes sure the while loop is entered.
-    x0          = x
-    while len(x0)<10000 or a==0:
-        R_limit_min = R_limit_min - 0.000005
-        R_limit_max = R_limit_max + 0.000005        
-        a          += 1
-        GoodIDs     = np.where((R<R_limit_max)*(R>R_limit_min))
-        x0          =  x[GoodIDs[0]]
+    a = 0  # makes sure the while loop is entered.
+    x0 = x
+    while len(x0) < 10000 or a == 0:
+        R_limit_min -= 0.000005
+        R_limit_max += 0.000005        
+        a += 1
+        GoodIDs = np.where((R < R_limit_max) * (R > R_limit_min))
+        x0 = x[GoodIDs[0]]
 
 if Fig_x_hist:
-    f,(ax1,ax2,ax3) = plt.subplots(1,3,figsize=(13,11))
-    f.subplots_adjust(hspace=0,wspace=0)
-    
-    ax1.set_xlabel(r'$x-x_c$',fontsize=30)
-    n, bins, patches = ax1.hist(x-xC,500,normed=1,histtype='stepfilled')
-    plt.setp(patches,'facecolor','g','alpha',.75)
-    ax1.set_xlim(-40,40)
-    ax1.set_ylim(.0,.4)
+    f,(ax1, ax2, ax3) = plt.subplots(1, 3, figsize=(13, 11))
+    f.subplots_adjust(hspace=0, wspace=0)
 
-    ax2.set_xlabel(r'$y-y_c$',fontsize=30)
-    n, bins, patches = ax2.hist(y-yC,500,normed=1,histtype='stepfilled')
-    plt.setp(patches,'facecolor','g','alpha',.75)
-    ax2.set_title(r'Histograms of centralized positions',fontsize=30)
-    ax2.set_xlim(-40,40)
-    ax2.set_ylim(.0,.4)
-    ax2.tick_params(axis='both',which='both',bottom='on',top='off',labelbottom='on',right='off',left='off',labelleft='off')
-
-    ax3.set_xlabel(r'$z-z_c$',fontsize=30)
-    n, bins, patches = ax3.hist(z-zC, 500, normed=1, histtype='stepfilled')
+    ax1.set_xlabel(r'$x-x_c$', fontsize=30)
+    n, bins, patches = ax1.hist(x - xC, 500, normed=1, histtype='stepfilled')
     plt.setp(patches, 'facecolor', 'g', 'alpha', .75)
-    ax3.set_xlim(-40,40)
-    ax3.set_ylim(.0,.4)
-    #ax3.axes.get_yaxis().set_visible(False)
-    ax3.tick_params(axis='both',which='both',bottom='on',top='off',labelbottom='on',right='off',left='off',labelleft='off')
+    ax1.set_xlim(-40, 40)
+    ax1.set_ylim(.0, .4)
+
+    ax2.set_xlabel(r'$y-y_c$', fontsize=30)
+    n, bins, patches = ax2.hist(y - yC, 500, normed=1, histtype='stepfilled')
+    plt.setp(patches, 'facecolor', 'g', 'alpha', .75)
+    ax2.set_title('Histograms of centralized positions', fontsize=30)
+    ax2.set_xlim(-40, 40)
+    ax2.set_ylim(.0, .4)
+    ax2.tick_params(axis='both', which='both', bottom='on', top='off',
+                    labelbottom='on', right='off', left='off', labelleft='off')
+
+    ax3.set_xlabel(r'$z-z_c$', fontsize=30)
+    n, bins, patches = ax3.hist(z - zC, 500, normed=1, histtype='stepfilled')
+    plt.setp(patches, 'facecolor', 'g', 'alpha', .75)
+    ax3.set_xlim(-40, 40)
+    ax3.set_ylim(.0, .4)
+    # ax3.axes.get_yaxis().set_visible(False)
+    ax3.tick_params(axis='both', which='both', bottom='on', top='off',
+                    labelbottom='on', right='off', left='off', labelleft='off')
     
-    #f.savefig(figure_path + 'Fig_x_hist.png')
+    # f.savefig(figure_path + 'Fig_x_hist.png')
     f.savefig(figure_path + 'Fig_CS4_Final_x_hist.png')
 
 if Fig_x_hist2d:
-    f = plt.figure(figsize=(13,11))
-    plt.xlabel(r'$x-x_c$',fontsize=30 )
-    plt.ylabel(r'$y-y_c$',fontsize=30 )
-    plt.hexbin(x-xC,y-yC ,gridsize=500)
-    plt.xlim(-10,10)
-    plt.ylim(-10,10)
+    f = plt.figure(figsize=(13, 11))
+    plt.xlabel(r'$x-x_c$', fontsize=30 )
+    plt.ylabel(r'$y-y_c$', fontsize=30 )
+    plt.hexbin(x - xC, y - yC, gridsize=500)
+    plt.xlim(-10, 10)
+    plt.ylim(-10, 10)
     
-    #plt.title(r'Centralized positions x and y (B, gridsize = 500)',fontsize=30 )
-    #plt.title(r'Centralized positions x and y (CS4, gridsize = 500)',fontsize=30)
-    #plt.title(r'Centralized positions x and y (CS5, gridsize = 500)',fontsize=30)
-    #plt.title(r'Centralized positions x and y (CS6, gridsize = 500)',fontsize=30)
-    #plt.title(r'Centralized positions x and y (DS1, gridsize = 500)',fontsize=30)
-    #plt.title(r'Centralized positions x and y (D2, gridsize = 500)' ,fontsize=30)
-    plt.title(r'Centralized positions x and y (E, gridsize = 500)'  ,fontsize=30)
+    # plt.title(r'Centralized positions x and y (B, gridsize = 500)', fontsize=30)
+    # plt.title(r'Centralized positions x and y (CS4, gridsize = 500)', fontsize=30)
+    # plt.title(r'Centralized positions x and y (CS5, gridsize = 500)', fontsize=30)
+    # plt.title(r'Centralized positions x and y (CS6, gridsize = 500)', fontsize=30)
+    # plt.title(r'Centralized positions x and y (DS1, gridsize = 500)', fontsize=30)
+    # plt.title(r'Centralized positions x and y (D2, gridsize = 500)', fontsize=30)
+    plt.title(r'Centralized positions x and y (E, gridsize = 500)', fontsize=30)
 
-    #f.savefig(figure_path + 'Fig_B_Final_x_hist2d.png'  )
-    #f.savefig(figure_path + 'Fig_CS4_Final_x_hist2d.png')
-    #f.savefig(figure_path + 'Fig_CS5_Final_x_hist2d.png')
-    #f.savefig(figure_path + 'Fig_CS6_Final_x_hist2d.png')
-    #f.savefig(figure_path + 'Fig_DS1_Final_x_hist2d.png')
-    #f.savefig(figure_path + 'Fig_D2_Final_x_hist2d.png' )
-    f.savefig(figure_path + 'Fig_E_Final_x_hist2d.png'  )
+    # f.savefig(figure_path + 'Fig_B_Final_x_hist2d.png')
+    # f.savefig(figure_path + 'Fig_CS4_Final_x_hist2d.png')
+    # f.savefig(figure_path + 'Fig_CS5_Final_x_hist2d.png')
+    # f.savefig(figure_path + 'Fig_CS6_Final_x_hist2d.png')
+    # f.savefig(figure_path + 'Fig_DS1_Final_x_hist2d.png')
+    # f.savefig(figure_path + 'Fig_D2_Final_x_hist2d.png')
+    f.savefig(figure_path + 'Fig_E_Final_x_hist2d.png')
 
-x       = x-np.median(x)
-y       = y-np.median(y)
-z       = z-np.median(z)
-R       = (x**2+y**2+z**2)**.5
-GoodIDs = np.where(R<R_limit) # Removes all particles that is far away from the cluster.
-x       = x[GoodIDs]
-y       = y[GoodIDs]
-z       = z[GoodIDs]
-
-vx      = vx[GoodIDs]
-vy      = vy[GoodIDs]
-vz      = vz[GoodIDs] 
-vx      = vx-np.median(vx)
-vy      = vy-np.median(vy)
-vz      = vz-np.median(vz)
+x -= np.median(x)
+y -= np.median(y)
+z -= np.median(z)
+R = (x**2+y**2+z**2)**.5
+GoodIDs = np.where(R < R_limit)  # Removes all particles that is far away from the cluster.
+x = x[GoodIDs]
+y = y[GoodIDs]
+z = z[GoodIDs]
+vx = vx[GoodIDs]
+vy = vy[GoodIDs]
+vz = vz[GoodIDs] 
+vx -= np.median(vx)
+vy -= np.median(vy)
+vz -= np.median(vz)
 
 R_hob_par = R[GoodIDs]
 
 # Declare number of particles
-if F.startswith('Soft_B_') or F.startswith('E_'):
-    N = 10**6
-elif F.startswith('CS4_') or F.startswith('CS5_') or F.startswith('CS6_') or F.startswith('DS1_') or F.startswith('Soft_D2_') or F.startswith('IIc') or F.startswith('IId') or F.startswith('IId') or F.startswith('Test_'):    
-    N = 10**5
+if F.startswith(('Soft_B_', 'E_')):
+    N = 10 ** 6
+elif F.startswith(('CS4_', 'CS5_', 'CS6_', 'DS1_', 'Soft_D2_', 'IIc', 'IId', 'IId', 'Test_')):    
+    N = 10 ** 5
 elif F.startswith('CS1_'):
-    N = 10**4    
+    N = 10 ** 4
 # Declare total mass
-if F.startswith('Soft_B_') or F.startswith('CS1_') or F.startswith('CS4_') or F.startswith('CS5_') or F.startswith('CS6_') or F.startswith('E_') or F.startswith('Test_') or F.startswith('IIc_CS4_') or F.startswith('IIc_CS5_') or F.startswith('IIc_CS6_') or F.startswith('IIc_Test_CS4') or F.startswith('IId_CS4'):
+if F.startswith(('Soft_B_', 'CS1_', 'CS4_', 'CS5_', 'CS6_', 'E_', 'Test_', 'IIc_CS4_', 'IIc_CS5_', 'IIc_CS6_', 'IIc_Test_CS4', 'IId_CS4')):
     M = 1.
-elif F.startswith('DS1_') or F.startswith('D2_') or F.startswith('Soft_D2_') or F.startswith('IIc_Soft_D2_') or F.startswith('IIc_DS1_') or F.startswith('IId_Soft_D2_'):
-    M = 1./6.
+elif F.startswith(('DS1_', 'D2_', 'Soft_D2_', 'IIc_Soft_D2_', 'IIc_DS1_', 'IId_Soft_D2_')):
+    M = 1. / 6.
 # Define particle mass 
-m = M/N
+m = M / N
 
 if Gamma == -2.0:     
-    r_2                    = R_middle
-    posR_par_inside_halo   = np.where(R_hob_par < r_2) # position of particles inside halo
-    nr_par_inside_halo     = len(posR_par_inside_halo[0]) 
-    M_2                    = nr_par_inside_halo*m
-    G                      = 1.
-    v_circ_2               = (G*M_2/r_2)**.5
-    #print 'r_2 = '               , r_2
-    #print 'nr_par_inside_halo = ', nr_par_inside_halo
-    #print 'M_2 = '               , M_2
-    #print 'v_circ_2 = '          , v_circ_2
+    r_2 = R_middle
+    posR_par_in_halo = np.where(R_hob_par < r_2)  # position of particles inside halo
+    nr_par_in_halo = len(posR_par_in_halo[0]) 
+    M_2 = nr_par_in_halo * m
+    G = 1.
+    v_circ_2 = (G * M_2 / r_2) ** .5
+    # print('r_2 = ', r_2)
+    # print('nr_par_in_halo = ', nr_par_in_halo)
+    # print('M_2 = ', M_2)
+    # print('v_circ_2 = ', v_circ_2)
 
 if bins_202:
     nr_binning_bins = 202
-    F               = F + '_200_radial_bins'
+    F += '_200_radial_bins'
 elif bins_102:
     nr_binning_bins = 102
-    F               = F + '_100_radial_bins'
+    F += '_100_radial_bins'
 elif bins_52:
     nr_binning_bins = 52
-    F               = F + '_50_radial_bins'
+    F += '_50_radial_bins'
 elif bins_22:      
     nr_binning_bins = 22
     F               = F + '_20_radial_bins'
