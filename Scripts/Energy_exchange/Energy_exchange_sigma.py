@@ -15,32 +15,19 @@ import matplotlib.patches as mpatches
 from pathlib import Path
 
 User_path = Path.cwd()
-Desktop_path = User_path + 'Desktop/'
-# GADGET_E_path = Desktop_path + 'RunGadget/Energy_Exchange/IIa/'
-# GADGET_E_path = Desktop_path + 'RunGadget/Energy_Exchange/IIb/'
-GADGET_E_path = Desktop_path + 'RunGadget/Energy_Exchange/IIc/'
-# GADGET_E_path = Desktop_path + 'RunGadget/Energy_Exchange/IId/'
 Stable_path = 'Energy_exchange/Stable_structures/'
-# figure_path = Desktop_path + Stable_path + 'figures/IIa/'
-# figure_path = Desktop_path + Stable_path + 'figures/IIb/'
-figure_path = Desktop_path + Stable_path + 'figures/IIc/'
-# figure_path = Desktop_path + Stable_path + 'figures/IId/'
+Desktop_path = User_path + 'Desktop/'
+
+sims_II = ['a', 'b', 'c', 'd']
+# GADGET_E_path = Desktop_path + 'RunGadget/Energy_Exchange/II' + sims_II[0] + '/'
+# figure_path = Desktop_path + Stable_path + 'figures/II' + sims_II[0] + '/'
 
 # IIa
-# text_files_path = Desktop_path + Stable_path + 'text_files/IIa/Soft_B/'
-# text_files_path = Desktop_path + Stable_path + 'text_files/IIa/CS1/'
-# text_files_path = Desktop_path + Stable_path + 'text_files/IIa/CS4/'
-# text_files_path = Desktop_path + Stable_path + 'text_files/IIa/CS5/'
-# text_files_path = Desktop_path + Stable_path + 'text_files/IIa/CS6/'
-# text_files_path = Desktop_path + Stable_path + 'text_files/IIa/DS1/'
-# text_files_path = Desktop_path + Stable_path + 'text_files/IIa/Soft_D2/'
-# text_files_path = Desktop_path + Stable_path + 'text_files/IIa/E/'
-# text_files_path = Desktop_path + Stable_path + 'text_files/IIa/Test_CS4/'
-# text_files_path = Desktop_path + Stable_path + 'text_files/IIa/Test_D2/'
-# text_files_path = Desktop_path + Stable_path + 'text_files/IIa/Test_CS4_10tdyn/'
+sims = ['Soft_B', 'CS1', 'CS4', 'CS5', 'CS6', 'DS1', 'Soft_D2', 'E', 'Test_CS4', 'Test_D2', 'Test_CS4_10tdyn']
+# text_files_path = Desktop_path + Stable_path + 'text_files/IIa/' + sims[0] + '/'
 
 # IIb
-# text_files_path = Desktop_path + Stable_path + 'text_files/IIb/CS4/'
+# text_files_path = Desktop_path + Stable_path + 'text_files/IIb/' + sims[2] + '/'
 # text_files_path = Desktop_path + Stable_path + 'text_files/IIb/Soft_D2/'
 
 # IIc
