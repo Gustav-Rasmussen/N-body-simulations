@@ -221,7 +221,7 @@ if new_R_middle:
                           ('CS6_E_20_005', {-1.5: 10**-.42, -2.0: 10**-.23, -2.5: 1., -3.0: 10**.3}),
                           ('DS1_E_G2P_0_000', RmiddleOnes),
                           ('DS1_E_G2P_20_005', RmiddleOnes),
-                          ('DS1_E_20_005', RmiddleOnes),
+                          ('DS1_E_20_005', {-1.5: 1., -2.0: 10**-.18, -2.5: 1., -3.0: 1.}),
                           ('D2_E_G2P_0_000', RmiddleOnes),
                           ('D2_E_G2P_20_005', RmiddleOnes),
                           ('D2_E_20_005', RmiddleOnes),
