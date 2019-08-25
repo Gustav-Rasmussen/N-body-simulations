@@ -14,6 +14,7 @@ import seaborn as sns
 import matplotlib.patches as mpatches
 from pathlib import Path
 import Attractor.Sigma_calc_OOP
+from Gammas_and_R_middles import R_bin_automatic
 
 User_path = Path.cwd()
 Stable_path = 'Energy_exchange/Stable_structures/'
@@ -306,16 +307,7 @@ else:
 # GoodIDs = np.where(R < R_limit)  # Removes all particles that is far away from the cluster.
 
 if R_bin_automatic:  # make R_limit_min and R_limit_max selection automatic
-    R_limit_min = R_middle
-    R_limit_max = R_middle
-    a = 0  # makes sure the while loop is entered.
-    x0 = x
-    while len(x0) < 10000 or a == 0:
-        R_limit_min -= 0.000005
-        R_limit_max += 0.000005        
-        a += 1
-        GoodIDs = np.where((R < R_limit_max) * (R > R_limit_min))
-        x0 = x[GoodIDs[0]]
+    R_limit_min, R_limit_max = R_bin_automatic(R_middle, x, R)
 
 if Fig_x_hist:
     f,(ax1, ax2, ax3) = plt.subplots(1, 3, figsize=(13, 11))
