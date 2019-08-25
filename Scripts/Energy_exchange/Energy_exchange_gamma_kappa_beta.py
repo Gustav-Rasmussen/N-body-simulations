@@ -84,44 +84,44 @@ if IIa:
                                               (text_files_path + 'Test_CS4/' + 'Test_CS4_E_5_005_P2G_R_limit_32_20_radial_bins.txt', text_files_path + 'Test_CS4_E_5_005_P2G_R_limit_32_20_radial_bins'),
                                               (text_files_path + 'Test_CS4/' + 'Test_CS4_E_G2P_6_005_R_limit_32_20_radial_bins.txt', text_files_path + 'Test_CS4_E_G2P_6_005_R_limit_32_20_radial_bins')]
 
-    list_of_files_Test_CS4_10tdyn_Rlimit32_20bins = [(text_files_path + 'Test_CS4_10tdyn/' + 'Test_CS4_10tdyn_E_G2P_0_005_R_limit_32_20_radial_bins.txt'       ,text_files_path     + 'Test_CS4_E_G2P_0_005_R_limit_32_20_radial_bins'     ),
-                                                     (text_files_path + 'Test_CS4_10tdyn/' + 'Test_CS4_10tdyn_E_G2P_1_041_R_limit_32_20_radial_bins.txt'       ,text_files_path     + 'Test_CS4_E_G2P_1_041_R_limit_32_20_radial_bins'     ),
-                                                     (text_files_path + 'Test_CS4_10tdyn/' + 'Test_CS4_10tdyn_E_G2P_2_041_R_limit_32_20_radial_bins.txt'       ,text_files_path     + 'Test_CS4_E_G2P_2_041_R_limit_32_20_radial_bins'     ),
-                                                     (text_files_path + 'Test_CS4_10tdyn/' + 'Test_CS4_10tdyn_E_G2P_3_041_R_limit_32_20_radial_bins.txt'       ,text_files_path     + 'Test_CS4_E_G2P_3_041_R_limit_32_20_radial_bins'     )]
+    list_of_files_Test_CS4_10tdyn_Rlimit32_20bins = [(text_files_path + 'Test_CS4_10tdyn/' + 'Test_CS4_10tdyn_E_G2P_0_005_R_limit_32_20_radial_bins.txt', text_files_path + 'Test_CS4_E_G2P_0_005_R_limit_32_20_radial_bins'),
+                                                     (text_files_path + 'Test_CS4_10tdyn/' + 'Test_CS4_10tdyn_E_G2P_1_041_R_limit_32_20_radial_bins.txt', text_files_path + 'Test_CS4_E_G2P_1_041_R_limit_32_20_radial_bins'),
+                                                     (text_files_path + 'Test_CS4_10tdyn/' + 'Test_CS4_10tdyn_E_G2P_2_041_R_limit_32_20_radial_bins.txt', text_files_path + 'Test_CS4_E_G2P_2_041_R_limit_32_20_radial_bins'),
+                                                     (text_files_path + 'Test_CS4_10tdyn/' + 'Test_CS4_10tdyn_E_G2P_3_041_R_limit_32_20_radial_bins.txt', text_files_path + 'Test_CS4_E_G2P_3_041_R_limit_32_20_radial_bins')]
 
-    list_of_files_Soft_D2_Rlimit32_20bins = [(text_files_path + 'Soft_D2/' + 'Soft_D2_E_G2P_0_000_R_limit_32_20_radial_bins.txt'    ,text_files_path     + 'Soft_D2_E_G2P_0_000_R_limit_32_20_radial_bins'  ),
-                                             (text_files_path + 'Soft_D2/' + 'Soft_D2_E_G2P_10_005_R_limit_32_20_radial_bins.txt'   ,text_files_path     + 'Soft_D2_E_G2P_10_005_R_limit_32_20_radial_bins' ),
-                                             (text_files_path + 'Soft_D2/' + 'Soft_D2_E_G2P_20_005_R_limit_32_20_radial_bins.txt'   ,text_files_path     + 'Soft_D2_E_G2P_20_005_R_limit_32_20_radial_bins' ),
-                                             (text_files_path + 'Soft_D2/' + 'Soft_D2_E_G2P_30_005_R_limit_32_20_radial_bins.txt'   ,text_files_path     + 'Soft_D2_E_G2P_30_005_R_limit_32_20_radial_bins' ),
-                                             (text_files_path + 'Soft_D2/' + 'Soft_D2_E_G2P_40_021_R_limit_32_20_radial_bins.txt'   ,text_files_path     + 'Soft_D2_E_G2P_40_021_R_limit_32_20_radial_bins' )]
+    list_of_files_Soft_D2_Rlimit32_20bins = [(text_files_path + 'Soft_D2/' + 'Soft_D2_E_G2P_0_000_R_limit_32_20_radial_bins.txt'    ,text_files_path     + 'Soft_D2_E_G2P_0_000_R_limit_32_20_radial_bins'),
+                                             (text_files_path + 'Soft_D2/' + 'Soft_D2_E_G2P_10_005_R_limit_32_20_radial_bins.txt'   ,text_files_path     + 'Soft_D2_E_G2P_10_005_R_limit_32_20_radial_bins'),
+                                             (text_files_path + 'Soft_D2/' + 'Soft_D2_E_G2P_20_005_R_limit_32_20_radial_bins.txt'   ,text_files_path     + 'Soft_D2_E_G2P_20_005_R_limit_32_20_radial_bins'),
+                                             (text_files_path + 'Soft_D2/' + 'Soft_D2_E_G2P_30_005_R_limit_32_20_radial_bins.txt'   ,text_files_path     + 'Soft_D2_E_G2P_30_005_R_limit_32_20_radial_bins'),
+                                             (text_files_path + 'Soft_D2/' + 'Soft_D2_E_G2P_40_021_R_limit_32_20_radial_bins.txt'   ,text_files_path     + 'Soft_D2_E_G2P_40_021_R_limit_32_20_radial_bins')]
 
-    list_of_files_Test_D2_Rlimit32_20bins = [(text_files_path + 'Test_D2/' + 'Test_D2_E_G2P_0_005_R_limit_32_20_radial_bins.txt'       ,text_files_path     + 'Test_D2_E_G2P_0_005_R_limit_32_20_radial_bins'     ),
-                                             (text_files_path + 'Test_D2/' + 'Test_D2_E_0_005_P2G_R_limit_32_20_radial_bins.txt'       ,text_files_path     + 'Test_D2_E_0_005_P2G_R_limit_32_20_radial_bins'     ),       
-                                             (text_files_path + 'Test_D2/' + 'Test_D2_E_G2P_1_005_R_limit_32_20_radial_bins.txt'       ,text_files_path     + 'Test_D2_E_G2P_1_005_R_limit_32_20_radial_bins'     ),
-                                             (text_files_path + 'Test_D2/' + 'Test_D2_E_1_005_P2G_R_limit_32_20_radial_bins.txt'       ,text_files_path     + 'Test_D2_E_1_005_P2G_R_limit_32_20_radial_bins'     ),       
-                                             (text_files_path + 'Test_D2/' + 'Test_D2_E_G2P_2_005_R_limit_32_20_radial_bins.txt'       ,text_files_path     + 'Test_D2_E_G2P_2_005_R_limit_32_20_radial_bins'     ),
-                                             (text_files_path + 'Test_D2/' + 'Test_D2_E_2_005_P2G_R_limit_32_20_radial_bins.txt'       ,text_files_path     + 'Test_D2_E_2_005_P2G_R_limit_32_20_radial_bins'     ),       
-                                             (text_files_path + 'Test_D2/' + 'Test_D2_E_G2P_3_005_R_limit_32_20_radial_bins.txt'       ,text_files_path     + 'Test_D2_E_G2P_3_005_R_limit_32_20_radial_bins'     ),
-                                             (text_files_path + 'Test_D2/' + 'Test_D2_E_3_005_P2G_R_limit_32_20_radial_bins.txt'       ,text_files_path     + 'Test_D2_E_3_005_P2G_R_limit_32_20_radial_bins'     ),       
-                                             (text_files_path + 'Test_D2/' + 'Test_D2_E_G2P_4_005_R_limit_32_20_radial_bins.txt'       ,text_files_path     + 'Test_D2_E_G2P_4_005_R_limit_32_20_radial_bins'     ),
-                                             (text_files_path + 'Test_D2/' + 'Test_D2_E_4_005_P2G_R_limit_32_20_radial_bins.txt'       ,text_files_path     + 'Test_D2_E_4_005_P2G_R_limit_32_20_radial_bins'     ),       
-                                             (text_files_path + 'Test_D2/' + 'Test_D2_E_G2P_5_005_R_limit_32_20_radial_bins.txt'       ,text_files_path     + 'Test_D2_E_G2P_5_005_R_limit_32_20_radial_bins'     ),
-                                             (text_files_path + 'Test_D2/' + 'Test_D2_E_5_005_P2G_R_limit_32_20_radial_bins.txt'       ,text_files_path     + 'Test_D2_E_5_005_P2G_R_limit_32_20_radial_bins'     ),       
-                                             (text_files_path + 'Test_D2/' + 'Test_D2_E_G2P_6_005_R_limit_32_20_radial_bins.txt'       ,text_files_path     + 'Test_D2_E_G2P_6_005_R_limit_32_20_radial_bins'     )]
+    list_of_files_Test_D2_Rlimit32_20bins = [(text_files_path + 'Test_D2/' + 'Test_D2_E_G2P_0_005_R_limit_32_20_radial_bins.txt'       ,text_files_path     + 'Test_D2_E_G2P_0_005_R_limit_32_20_radial_bins'),
+                                             (text_files_path + 'Test_D2/' + 'Test_D2_E_0_005_P2G_R_limit_32_20_radial_bins.txt'       ,text_files_path     + 'Test_D2_E_0_005_P2G_R_limit_32_20_radial_bins'),       
+                                             (text_files_path + 'Test_D2/' + 'Test_D2_E_G2P_1_005_R_limit_32_20_radial_bins.txt'       ,text_files_path     + 'Test_D2_E_G2P_1_005_R_limit_32_20_radial_bins'),
+                                             (text_files_path + 'Test_D2/' + 'Test_D2_E_1_005_P2G_R_limit_32_20_radial_bins.txt'       ,text_files_path     + 'Test_D2_E_1_005_P2G_R_limit_32_20_radial_bins'),       
+                                             (text_files_path + 'Test_D2/' + 'Test_D2_E_G2P_2_005_R_limit_32_20_radial_bins.txt'       ,text_files_path     + 'Test_D2_E_G2P_2_005_R_limit_32_20_radial_bins'),
+                                             (text_files_path + 'Test_D2/' + 'Test_D2_E_2_005_P2G_R_limit_32_20_radial_bins.txt'       ,text_files_path     + 'Test_D2_E_2_005_P2G_R_limit_32_20_radial_bins'),       
+                                             (text_files_path + 'Test_D2/' + 'Test_D2_E_G2P_3_005_R_limit_32_20_radial_bins.txt'       ,text_files_path     + 'Test_D2_E_G2P_3_005_R_limit_32_20_radial_bins'),
+                                             (text_files_path + 'Test_D2/' + 'Test_D2_E_3_005_P2G_R_limit_32_20_radial_bins.txt'       ,text_files_path     + 'Test_D2_E_3_005_P2G_R_limit_32_20_radial_bins'),       
+                                             (text_files_path + 'Test_D2/' + 'Test_D2_E_G2P_4_005_R_limit_32_20_radial_bins.txt'       ,text_files_path     + 'Test_D2_E_G2P_4_005_R_limit_32_20_radial_bins'),
+                                             (text_files_path + 'Test_D2/' + 'Test_D2_E_4_005_P2G_R_limit_32_20_radial_bins.txt'       ,text_files_path     + 'Test_D2_E_4_005_P2G_R_limit_32_20_radial_bins'),       
+                                             (text_files_path + 'Test_D2/' + 'Test_D2_E_G2P_5_005_R_limit_32_20_radial_bins.txt'       ,text_files_path     + 'Test_D2_E_G2P_5_005_R_limit_32_20_radial_bins'),
+                                             (text_files_path + 'Test_D2/' + 'Test_D2_E_5_005_P2G_R_limit_32_20_radial_bins.txt'       ,text_files_path     + 'Test_D2_E_5_005_P2G_R_limit_32_20_radial_bins'),       
+                                             (text_files_path + 'Test_D2/' + 'Test_D2_E_G2P_6_005_R_limit_32_20_radial_bins.txt'       ,text_files_path     + 'Test_D2_E_G2P_6_005_R_limit_32_20_radial_bins')]
 
 
 if IIb:
-    list_of_files_CS4_Rlimit32_20bins                =  [ (text_files_path + 'CS4/' + 'IIb_CS4_E_G2P_0_005_R_limit_32_20_radial_bins.txt'        ,text_files_path     + 'CS4_E_G2P_0_005_R_limit_32_20_radial_bins'      ),
-                                                          (text_files_path + 'CS4/' + 'IIb_CS4_E_G2P_20_021_R_limit_32_20_radial_bins.txt'       ,text_files_path     + 'CS4_E_G2P_20_021_R_limit_32_20_radial_bins'     )]
+    list_of_files_CS4_Rlimit32_20bins = [(text_files_path + 'CS4/' + 'IIb_CS4_E_G2P_0_005_R_limit_32_20_radial_bins.txt'        ,text_files_path     + 'CS4_E_G2P_0_005_R_limit_32_20_radial_bins'),
+                                         (text_files_path + 'CS4/' + 'IIb_CS4_E_G2P_20_021_R_limit_32_20_radial_bins.txt'       ,text_files_path     + 'CS4_E_G2P_20_021_R_limit_32_20_radial_bins')]
 
-    list_of_files_Soft_D2_Rlimit32_20bins            =  [ (text_files_path + 'Soft_D2/' + 'IIb_Soft_D2_E_G2P_0_005_R_limit_32_20_radial_bins.txt'    ,text_files_path     + 'Soft_D2_E_G2P_0_005_R_limit_32_20_radial_bins' ),
-                                                          (text_files_path + 'Soft_D2/' + 'IIb_Soft_D2_E_G2P_20_021_R_limit_32_20_radial_bins.txt'   ,text_files_path     + 'Soft_D2_E_G2P_20_021_R_limit_32_20_radial_bins')]
+    list_of_files_Soft_D2_Rlimit32_20bins = [(text_files_path + 'Soft_D2/' + 'IIb_Soft_D2_E_G2P_0_005_R_limit_32_20_radial_bins.txt'    ,text_files_path     + 'Soft_D2_E_G2P_0_005_R_limit_32_20_radial_bins'),
+                                             (text_files_path + 'Soft_D2/' + 'IIb_Soft_D2_E_G2P_20_021_R_limit_32_20_radial_bins.txt'   ,text_files_path     + 'Soft_D2_E_G2P_20_021_R_limit_32_20_radial_bins')]
 if IIc:
-    list_of_files_CS4_Rlimit32_20bins                =  [ (text_files_path + 'CS4/' + 'IIc_CS4_E_G2P_0_000_R_limit_32_20_radial_bins.txt'        ,text_files_path     + 'CS4_E_G2P_0_000_R_limit_32_20_radial_bins'      ),
-                                                          (text_files_path + 'CS4/' + 'IIc_CS4_E_G2P_10_005_R_limit_32_20_radial_bins.txt'       ,text_files_path     + 'CS4_E_G2P_10_005_R_limit_32_20_radial_bins'     ),
-                                                          (text_files_path + 'CS4/' + 'IIc_CS4_E_G2P_20_021_R_limit_32_20_radial_bins.txt'       ,text_files_path     + 'CS4_E_G2P_20_021_R_limit_32_20_radial_bins'     ),
-                                                          (text_files_path + 'CS4/' + 'IIc_CS4_E_G2P_40_021_R_limit_32_20_radial_bins.txt'       ,text_files_path     + 'CS4_E_G2P_40_021_R_limit_32_20_radial_bins'     ),
-                                                          (text_files_path + 'CS4/' + 'IIc_CS4_E_G2P_40_021_R_limit_32_50_radial_bins.txt'       ,text_files_path     + 'CS4_E_G2P_40_021_R_limit_32_50_radial_bins'     )]
+    list_of_files_CS4_Rlimit32_20bins = [(text_files_path + 'CS4/' + 'IIc_CS4_E_G2P_0_000_R_limit_32_20_radial_bins.txt'        ,text_files_path     + 'CS4_E_G2P_0_000_R_limit_32_20_radial_bins'),
+                                         (text_files_path + 'CS4/' + 'IIc_CS4_E_G2P_10_005_R_limit_32_20_radial_bins.txt'       ,text_files_path     + 'CS4_E_G2P_10_005_R_limit_32_20_radial_bins'     ),
+                                         (text_files_path + 'CS4/' + 'IIc_CS4_E_G2P_20_021_R_limit_32_20_radial_bins.txt'       ,text_files_path     + 'CS4_E_G2P_20_021_R_limit_32_20_radial_bins'     ),
+                                         (text_files_path + 'CS4/' + 'IIc_CS4_E_G2P_40_021_R_limit_32_20_radial_bins.txt'       ,text_files_path     + 'CS4_E_G2P_40_021_R_limit_32_20_radial_bins'     ),
+                                         (text_files_path + 'CS4/' + 'IIc_CS4_E_G2P_40_021_R_limit_32_50_radial_bins.txt'       ,text_files_path     + 'CS4_E_G2P_40_021_R_limit_32_50_radial_bins'     )]
 
     list_of_files_CS5_Rlimit32_20bins                =  [ (text_files_path + 'CS5/' + 'IIc_CS5_E_G2P_0_000_R_limit_32_20_radial_bins.txt'        ,text_files_path     + 'CS5_E_G2P_0_000_R_limit_32_20_radial_bins'      ),
                                                           (text_files_path + 'CS5/' + 'IIc_CS5_E_G2P_20_021_R_limit_32_20_radial_bins.txt'       ,text_files_path     + 'CS5_E_G2P_20_021_R_limit_32_20_radial_bins'     ),
@@ -394,23 +394,22 @@ if log_r_r2_beta_CS4CS5CS6DS1D2_Rlimit32:
     f,(ax1,ax2,ax3) = plt.subplots(1,3,figsize=(15,11))
     f.subplots_adjust(hspace=0,wspace=0)
     # IC
-    # CS4
     data, label = datalist_CS4_Rlimit32_20bins[0]
     label       = label[len(text_files_path):-38]
     ax1.plot(np.log(data[:,7]),data[:,1],Symbols[1],color=Colors[1],label=label,lw=2,ms=7)
-    # CS5
+
     data, label = datalist_CS5_Rlimit32_20bins[0]
     label       = label[len(text_files_path):-38]
     ax1.plot(np.log(data[:,7]),data[:,1],Symbols[2],color=Colors[2],label=label,lw=2,ms=7)
-    # CS6
+
     data, label = datalist_CS6_Rlimit32_20bins[0]
     label       = label[len(text_files_path):-38]
     ax1.plot(np.log(data[:,7]),data[:,1],Symbols[3],color=Colors[3],label=label,lw=2,ms=7)
-    # DS1
+
     data, label = datalist_DS1_Rlimit32_20bins[0]
     label       = label[len(text_files_path):-38]
     ax1.plot(np.log(data[:,7]),data[:,1],Symbols[4],color=Colors[4],label=label,lw=2,ms=7)
-    # Soft_D2
+
     data, label = datalist_Soft_D2_Rlimit32_20bins[0]
     label       = label[len(text_files_path):-38]
     ax1.plot(np.log(data[:,7]),data[:,1],Symbols[5],color=Colors[5],label=label,lw=2,ms=7)
@@ -418,7 +417,7 @@ if log_r_r2_beta_CS4CS5CS6DS1D2_Rlimit32:
     ax1.set_title(r'IC ($IIa, R_{limit} = 32$)',fontsize=30)
     ax1.set_xlabel(r'$\log (\frac{r}{r_{-2}})$' ,fontsize=30)
     ax1.set_ylabel(r'$\beta$',fontsize=30)
-    #ax1.set_xlim(-.2,1.)
+    # ax1.set_xlim(-.2,1.)
     ax1.set_ylim(-.5,1.)
 
     # Final
@@ -468,7 +467,7 @@ if log_r_r2_beta_CS4CS5CS6DS1D2_Rlimit32:
     data,label = datalist_DS1_control_Rlimit32_20bins[0]
     label      = label[len(text_files_path):-39]
     ax3.plot(np.log(data[:,7]),data[:,1],Symbols[4],color = Colors[4], label=label,lw=2,ms=7)
-    # Soft_D2
+
     data,label = datalist_Soft_D2_control_Rlimit32_20bins[0]
     label      = label[len(text_files_path):-39]
     ax3.plot(np.log(data[:,7]),data[:,1],Symbols[5],color=Colors[5],label=label,lw=2,ms=7)
@@ -480,32 +479,26 @@ if log_r_r2_beta_CS4CS5CS6DS1D2_Rlimit32:
     ax3.yaxis.tick_right()
     f.savefig(figure_path + 'log_r_r2_beta_CS4CS5CS6DS1D2_Rlimit32.png')
 
-
-
-
-
-
 if log_r_r2_gamma_CS4CS5CS6DS1D2_Rlimit32_IIc:
     f,(ax1,ax2) = plt.subplots(1,2,figsize=(15,11))
     f.subplots_adjust(hspace=0,wspace=0)
     # IC
-    # CS4
     data, label = datalist_CS4_Rlimit32_20bins[0]
     label       = label[len(text_files_path):-38]
     ax1.plot(np.log(data[:,7]),data[:,2],Symbols[0],color=Colors[0],label=label,lw=2,ms=7)
-    # CS5
+
     data, label = datalist_CS5_Rlimit32_20bins[0]
     label       = label[len(text_files_path):-38]
     ax1.plot(np.log(data[:,7]),data[:,2],Symbols[1],color=Colors[1],label=label,lw=2,ms=7)
-    # CS6
+
     data, label = datalist_CS6_Rlimit32_20bins[0]
     label       = label[len(text_files_path):-38]
     ax1.plot(np.log(data[:,7]),data[:,2],Symbols[2],color=Colors[2],label=label,lw=2,ms=7)
-    # DS1
+
     data, label = datalist_DS1_Rlimit32_20bins[0]
     label       = label[len(text_files_path):-38]
     ax1.plot(np.log(data[:,7]),data[:,2],Symbols[3],color=Colors[3],label=label,lw=2,ms=7)
-    # Soft_D2
+
     data, label = datalist_Soft_D2_Rlimit32_20bins[0]
     label       = label[len(text_files_path):-38]
     ax1.plot(np.log(data[:,7]),data[:,2],Symbols[4],color=Colors[4],label=label,lw=2,ms=7)
@@ -517,23 +510,22 @@ if log_r_r2_gamma_CS4CS5CS6DS1D2_Rlimit32_IIc:
     ax1.set_ylim(-5.,.5)
 
     # Final
-    # CS4
     data, label = datalist_CS4_Rlimit32_20bins[3]
     label       = label[len(text_files_path):-39]
     ax2.plot(np.log(data[:,7]),data[:,2],Symbols[0],color = Colors[0], label=label+ '_40_21',lw=2,ms=7)
-    # CS5
+
     data, label = datalist_CS5_Rlimit32_20bins[2]
     label       = label[len(text_files_path):-39]
     ax2.plot(np.log(data[:,7]),data[:,2],Symbols[1],color = Colors[1], label=label+ '_40_21',lw=2,ms=7)
-    # CS6
+
     data, label = datalist_CS6_Rlimit32_20bins[2]
     label       = label[len(text_files_path):-39]
     ax2.plot(np.log(data[:,7]),data[:,2],Symbols[2],color = Colors[2], label=label+ '_40_21',lw=2,ms=7)
-    # DS1
+
     data, label = datalist_DS1_Rlimit32_20bins[2]
     label       = label[len(text_files_path):-39]
     ax2.plot(np.log(data[:,7]),data[:,2],Symbols[3],color = Colors[3], label=label+ '_60_21',lw=2,ms=7)
-    # Soft_D2
+
     data, label = datalist_Soft_D2_Rlimit32_20bins[5]
     label       = label[len(text_files_path)+5:-39]
     ax2.plot(np.log(data[:,7]),data[:,2],Symbols[4],color=Colors[4],label=label+ '_60_21',lw=2,ms=7)
@@ -544,47 +536,31 @@ if log_r_r2_gamma_CS4CS5CS6DS1D2_Rlimit32_IIc:
     ax2.set_title(r'Final'   ,fontsize=30)
     #ax2.set_xlim(-.2,1.)
     ax2.set_ylim(-5.,.5)
-    ax2.tick_params(axis='both',which='both',bottom='on',top='off',labelbottom='on',right='off',left='off',labelleft='off')
+    ax2.tick_params(axis='both',which='both',bottom='on',top='off',
+                    labelbottom='on',right='off',left='off',labelleft='off')
 
     f.savefig(figure_path + 'log_r_r2_gamma_CS4CS5CS6DS1D2_Rlimit32_IIc.png')
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 if log_r_r2_gamma_CS4CS5CS6DS1D2_Rlimit32_IIc_50bins:
     f,(ax1,ax2) = plt.subplots(1,2,figsize=(15,11))
     f.subplots_adjust(hspace=0,wspace=0)
     # IC
-    # CS4
     data, label = datalist_CS4_Rlimit32_20bins[0]
     label       = label[len(text_files_path):-38]
     ax1.plot(np.log(data[:,7]),data[:,2],Symbols[0],color=Colors[0],label=label,lw=2,ms=7)
-    # CS5
+
     data, label = datalist_CS5_Rlimit32_20bins[0]
     label       = label[len(text_files_path):-38]
     ax1.plot(np.log(data[:,7]),data[:,2],Symbols[1],color=Colors[1],label=label,lw=2,ms=7)
-    # CS6
+
     data, label = datalist_CS6_Rlimit32_20bins[0]
     label       = label[len(text_files_path):-38]
     ax1.plot(np.log(data[:,7]),data[:,2],Symbols[2],color=Colors[2],label=label,lw=2,ms=7)
-    # DS1
+
     data, label = datalist_DS1_Rlimit32_20bins[0]
     label       = label[len(text_files_path):-38]
     ax1.plot(np.log(data[:,7]),data[:,2],Symbols[3],color=Colors[3],label=label,lw=2,ms=7)
-    # Soft_D2
+
     data, label = datalist_Soft_D2_Rlimit32_20bins[0]
     label       = label[len(text_files_path):-38]
     ax1.plot(np.log(data[:,7]),data[:,2],Symbols[4],color=Colors[4],label=label,lw=2,ms=7)
@@ -592,27 +568,26 @@ if log_r_r2_gamma_CS4CS5CS6DS1D2_Rlimit32_IIc_50bins:
     ax1.set_title(r'IC ($IIc, R_{limit} = 32$)',fontsize=30)
     ax1.set_xlabel(r'$\log (\frac{r}{r_{-2}})$',fontsize=30)
     ax1.set_ylabel(r'$\gamma$',fontsize=30)
-    #ax1.set_xlim(-.2,1.)
+    # ax1.set_xlim(-.2,1.)
     ax1.set_ylim(-5.,.5)
 
     # Final
-    # CS4
     data, label = datalist_CS4_Rlimit32_20bins[4]
     label       = label[len(text_files_path):-39]
     ax2.plot(np.log(data[:,7]),data[:,2],Symbols[0],color = Colors[0], label=label+ '_40_21',lw=2,ms=7)
-    # CS5
+
     data, label = datalist_CS5_Rlimit32_20bins[3]
     label       = label[len(text_files_path):-39]
     ax2.plot(np.log(data[:,7]),data[:,2],Symbols[1],color = Colors[1], label=label+ '_40_21',lw=2,ms=7)
-    # CS6
+
     data, label = datalist_CS6_Rlimit32_20bins[3]
     label       = label[len(text_files_path):-39]
     ax2.plot(np.log(data[:,7]),data[:,2],Symbols[2],color = Colors[2], label=label+ '_40_21',lw=2,ms=7)
-    # DS1
+
     data, label = datalist_DS1_Rlimit32_20bins[3]
     label       = label[len(text_files_path):-39]
     ax2.plot(np.log(data[:,7]),data[:,2],Symbols[3],color = Colors[3], label=label+ '_60_21',lw=2,ms=7)
-    # Soft_D2
+
     data, label = datalist_Soft_D2_Rlimit32_20bins[6]
     label       = label[len(text_files_path)+5:-39]
     ax2.plot(np.log(data[:,7]),data[:,2],Symbols[4],color=Colors[4],label=label+ '_60_21',lw=2,ms=7)
@@ -621,64 +596,33 @@ if log_r_r2_gamma_CS4CS5CS6DS1D2_Rlimit32_IIc_50bins:
     leg.get_frame().set_alpha(.5)
     ax2.set_xlabel(r'$\log (\frac{r}{r_{-2}})$',fontsize=30)
     ax2.set_title(r'Final. 50 bins'   ,fontsize=30)
-    #ax2.set_xlim(-.2,1.)
+    # ax2.set_xlim(-.2,1.)
     ax2.set_ylim(-5.,.5)
-    ax2.tick_params(axis='both',which='both',bottom='on',top='off',labelbottom='on',right='off',left='off',labelleft='off')
+    ax2.tick_params(axis='both',which='both',bottom='on',top='off',
+                    labelbottom='on',right='off',left='off',labelleft='off')
 
     f.savefig(figure_path + 'log_r_r2_gamma_CS4CS5CS6DS1D2_Rlimit32_IIc_50bins.png')
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 if log_r_r2_gamma_CS4CS5CS6DS1D2_Rlimit32:
     f,(ax1,ax2,ax3) = plt.subplots(1,3,figsize=(15,11))
     f.subplots_adjust(hspace=0,wspace=0)
     # IC
-    # CS4
     data, label = datalist_CS4_Rlimit32_20bins[0]
     label       = label[len(text_files_path):-38]
     ax1.plot(np.log(data[:,7]),data[:,2],Symbols[1],color=Colors[1],label=label,lw=2,ms=7)
-    # CS5
+
     data, label = datalist_CS5_Rlimit32_20bins[0]
     label       = label[len(text_files_path):-38]
     ax1.plot(np.log(data[:,7]),data[:,2],Symbols[2],color=Colors[2],label=label,lw=2,ms=7)
-    # CS6
+
     data, label = datalist_CS6_Rlimit32_20bins[0]
     label       = label[len(text_files_path):-38]
     ax1.plot(np.log(data[:,7]),data[:,2],Symbols[3],color=Colors[3],label=label,lw=2,ms=7)
-    # DS1
+
     data, label = datalist_DS1_Rlimit32_20bins[0]
     label       = label[len(text_files_path):-38]
     ax1.plot(np.log(data[:,7]),data[:,2],Symbols[4],color=Colors[4],label=label,lw=2,ms=7)
-    # Soft_D2
+
     data, label = datalist_Soft_D2_Rlimit32_20bins[0]
     label       = label[len(text_files_path):-38]
     ax1.plot(np.log(data[:,7]),data[:,2],Symbols[5],color=Colors[5],label=label,lw=2,ms=7)
@@ -690,23 +634,22 @@ if log_r_r2_gamma_CS4CS5CS6DS1D2_Rlimit32:
     ax1.set_ylim(-4.,1.)
 
     # Final
-    # CS4
     data, label = datalist_CS4_Rlimit32_20bins[4]
     label       = label[len(text_files_path):-39]
     ax2.plot(np.log(data[:,7]),data[:,2],Symbols[1],color = Colors[1], label=label,lw=2,ms=7)
-    # CS5
+
     data, label = datalist_CS5_Rlimit32_20bins[3]
     label       = label[len(text_files_path):-39]
     ax2.plot(np.log(data[:,7]),data[:,2],Symbols[2],color = Colors[2], label=label,lw=2,ms=7)
-    # CS6
+
     data, label = datalist_CS6_Rlimit32_20bins[3]
     label       = label[len(text_files_path):-39]
     ax2.plot(np.log(data[:,7]),data[:,2],Symbols[3],color = Colors[3], label=label,lw=2,ms=7)
-    # DS1
+
     data, label = datalist_DS1_Rlimit32_20bins[4]
     label       = label[len(text_files_path):-39]
     ax2.plot(np.log(data[:,7]),data[:,2],Symbols[4],color = Colors[4], label=label,lw=2,ms=7)
-    # Soft_D2
+
     data, label = datalist_Soft_D2_Rlimit32_20bins[4]
     label       = label[len(text_files_path):-39]
     ax2.plot(np.log(data[:,7]),data[:,2],Symbols[5],color=Colors[5],label=label,lw=2,ms=7)
@@ -720,39 +663,32 @@ if log_r_r2_gamma_CS4CS5CS6DS1D2_Rlimit32:
     ax2.tick_params(axis='both',which='both',bottom='on',top='off',labelbottom='on',right='off',left='off',labelleft='off')
 
     # Control
-    # CS4
     data,label = datalist_CS4_control_Rlimit32_20bins[0]
     label      = label[len(text_files_path):-39]
     ax3.plot(np.log(data[:,7]),data[:,2],Symbols[1],color = Colors[1], label=label,lw=2,ms=7)
-    # CS5
+
     data,label = datalist_CS5_control_Rlimit32_20bins[0]
     label      = label[len(text_files_path):-39]
     ax3.plot(np.log(data[:,7]),data[:,2],Symbols[2],color = Colors[2], label=label,lw=2,ms=7)
-    # CS6
+
     data,label = datalist_CS6_control_Rlimit32_20bins[0]
     label      = label[len(text_files_path):-39]
     ax3.plot(np.log(data[:,7]),data[:,2],Symbols[3],color = Colors[3], label=label,lw=2,ms=7)
-    # DS1
+
     data,label = datalist_DS1_control_Rlimit32_20bins[0]
     label      = label[len(text_files_path):-39]
     ax3.plot(np.log(data[:,7]),data[:,2],Symbols[4],color = Colors[4], label=label,lw=2,ms=7)
-    # Soft_D2
+
     data,label = datalist_Soft_D2_control_Rlimit32_20bins[0]
     label      = label[len(text_files_path):-39]
     ax3.plot(np.log(data[:,7]),data[:,2],Symbols[5],color=Colors[5],label=label,lw=2,ms=7)
 
     ax3.set_xlabel(r'$\log (\frac{r}{r_{-2}})$',fontsize=30)
     ax3.set_title(r'Control' ,fontsize=30)
-    #ax3.set_xlim(-.2,1.)
-    ax3.set_ylim(-4.,1.)
+    # ax3.set_xlim(-.2, 1.)
+    ax3.set_ylim(-4., 1.)
     ax3.yaxis.tick_right()
     f.savefig(figure_path + 'log_r_r2_gamma_CS4CS5CS6DS1D2_Rlimit32.png')
-
-
-
-
-
-
 
 if log_r_r2_kappa_CS4CS5CS6DS1D2_Rlimit32:
     f,(ax1,ax2,ax3) = plt.subplots(1,3,figsize=(15,11))
@@ -843,10 +779,6 @@ if log_r_r2_kappa_CS4CS5CS6DS1D2_Rlimit32:
     ax3.set_ylim(-1.5,.5)
     ax3.yaxis.tick_right()
     f.savefig(figure_path + 'log_r_r2_kappa_CS4CS5CS6DS1D2_Rlimit32.png')
-
-
-
-
 
 if r_rho:
     f,(ax1,ax2,ax3) = plt.subplots(1,3,figsize=(13,11))
@@ -1013,23 +945,6 @@ if log_r_r2_logrho:
     ax3.yaxis.tick_right()
 
     f.savefig(figure_path + 'logr_logrho.png')
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 if logr_logrho_R10000:
     f, (ax1, ax2) = plt.subplots(1, 2, figsize=(13,11))
@@ -1827,15 +1742,7 @@ if beta_vs_gamma_plus_kappa_BCS4CS5CS6DS1D2E_Rlimit32_Run_5_10:
     ax2.set_xlim(-.5,1.)
     ax2.set_ylim(-7.,0.)
     ax2.yaxis.tick_right()
-    #f.savefig('/Users/gustav.c.rasmussen/Desktop/Thesis/beta_vs_gamma_plus_kappa_BCS4CS5CS6DS1D2E_Rlimit32_Run_5_10.png')
     f.savefig(figure_path + 'beta_vs_gamma_plus_kappa_BCS4CS5CS6DS1D2E_Rlimit32_Run_5_10.png')
-
-
-
-
-
-
-
 
 if beta_vs_gamma_D2_Time_evolution_Rlimit32:
     f,(ax1) = plt.subplots(1,1,figsize=(13,11))
@@ -1877,25 +1784,6 @@ if beta_vs_gamma_D2_Time_evolution_Rlimit32:
     
     f.savefig(figure_path + 'beta_vs_gamma_D2_Time_evolution_Rlimit32.png')
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 if beta_vs_gamma_CS4_Time_evolution_Rlimit32:
     f,(ax1) = plt.subplots(1,1,figsize=(13,11))
     f.subplots_adjust(hspace=0,wspace=0)
@@ -1935,22 +1823,6 @@ if beta_vs_gamma_CS4_Time_evolution_Rlimit32:
     ax1.set_ylim(-4.,0.)
     
     f.savefig(figure_path + 'beta_vs_gamma_CS4_Time_evolution_Rlimit32_IIa.png')
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 if beta_vs_gamma_DeltaG_DS1_Rlimit32:
     f,(ax1,ax2,ax3) = plt.subplots(1,3,figsize=(15,11))
@@ -2021,34 +1893,6 @@ if beta_vs_gamma_DeltaG_DS1_Rlimit32:
     ax3.set_ylim(-4.,0.)
     ax3.yaxis.tick_right()
     f.savefig(figure_path + 'beta_vs_gamma_DeltaG_DS1_Rlimit32.png')
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 if beta_vs_gamma_plus_kappa_DS1D2_Rlimit32:
     f,(ax1,ax2,ax3) = plt.subplots(1,3,figsize=(15,11))
@@ -2160,49 +2004,6 @@ if beta_vs_gamma_plus_kappa_DS1D2_Rlimit32:
     
     #f.savefig('/Users/gustav.c.rasmussen/Desktop/Thesis/beta_vs_gamma_BCS1CS4CS5CS6DS1D2E_Rlimit10_20_bins.png')
     f.savefig(figure_path + 'beta_vs_gamma_plus_kappa_CS4CS5CS6DS1D2_Rlimit32.png')
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 if beta_vs_gamma_CS4CS5CS6_Rlimit32:
     f,(ax1,ax2,ax3,ax4) = plt.subplots(1,4,figsize=(15,11))
@@ -2514,33 +2315,8 @@ if beta_vs_gamma_plus_kappa_BCS4CS5CS6DS1D2E_Rlimit32:
     ax3.set_ylim(-6.,0.)
     ax3.yaxis.tick_right()
     
-    #f.savefig('/Users/gustav.c.rasmussen/Desktop/Thesis/beta_vs_gamma_plus_kappa_BCS1CS4CS5CS6DS1D2E_Rlimit10_20_bins.png')
+    # f.savefig(figure_path + 'beta_vs_gamma_plus_kappa_BCS1CS4CS5CS6DS1D2E_Rlimit10_20_bins.png')
     f.savefig(figure_path + 'beta_vs_gamma_plus_kappa_BCS1CS4CS5CS6DS1D2E_Rlimit32.png')
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 if beta_vs_gamma_BCS4CS5CS6DS1D2E_Rlimit10_20_bins:
     f, (ax1, ax2) = plt.subplots(1,2,figsize=(13,11))
@@ -3657,9 +3433,6 @@ if Fig_beta_gamma_logr_IC_Final_panel:
         f.savefig(figure_path + 'mass_bins_E_control_beta_gamma_logr_IC_Final_panel.png')
 '''
 
-
-
-
 if beta_vs_gamma_plus_kappa_Test_CS4_Rlimit32:
     f, (ax1) = plt.subplots(1,1,figsize=(13,11))
     f.subplots_adjust(hspace=0,wspace=0)
@@ -3697,8 +3470,6 @@ if beta_vs_gamma_plus_kappa_Test_CS4_Rlimit32:
     leg.get_frame().set_alpha(.5)
     
     f.savefig(figure_path + 'beta_vs_gamma_plus_kappa_Test_CS4_Rlimit32.png')
-
-
 
 if beta_vs_gamma_plus_kappa_Test_D2_Rlimit32:
     f, (ax1) = plt.subplots(1,1,figsize=(13,11))
@@ -3738,11 +3509,6 @@ if beta_vs_gamma_plus_kappa_Test_D2_Rlimit32:
     
     f.savefig(figure_path + 'beta_vs_gamma_plus_kappa_Test_D2_Rlimit32.png')
 
-
-
-
-
-
 if beta_vs_gamma_plus_kappa_Test_CS4_10tdyn_Rlimit32:
     f, (ax1) = plt.subplots(1,1,figsize=(13,11))
     f.subplots_adjust(hspace=0,wspace=0)
@@ -3776,14 +3542,6 @@ if beta_vs_gamma_plus_kappa_Test_CS4_10tdyn_Rlimit32:
     leg.get_frame().set_alpha(.5)
     
     f.savefig(figure_path + 'beta_vs_gamma_plus_kappa_Test_CS4_10tdyn_Rlimit32.png')
-
-
-
-
-
-
-
-
 
 if beta_vs_gamma_plus_kappa_IIb_CS4_Rlimit32:
     f, (ax1) = plt.subplots(1,1,figsize=(13,11))
@@ -3844,7 +3602,6 @@ if beta_vs_gamma_plus_kappa_IIb_D2_Rlimit32:
     leg.get_frame().set_alpha(.5)
     
     f.savefig(figure_path + 'beta_vs_gamma_plus_kappa_IIb_D2_Rlimit32.png')
-
 
 if beta_vs_gamma_plus_kappa_IIc_CS4_Rlimit32:
     f, (ax1) = plt.subplots(1,1,figsize=(13,11))
@@ -3922,7 +3679,6 @@ if beta_vs_gamma_plus_kappa_IIc_D2_Rlimit32:
     
     f.savefig(figure_path + 'beta_vs_gamma_plus_kappa_IIc_D2_Rlimit32.png')
 
-
 if beta_vs_gamma_plus_kappa_IId_CS4_Rlimit32:
     f, (ax1) = plt.subplots(1,1,figsize=(13,11))
     f.subplots_adjust(hspace=0,wspace=0)
@@ -3983,26 +3739,6 @@ if beta_vs_gamma_plus_kappa_IId_D2_Rlimit32:
     
     f.savefig(figure_path + 'beta_vs_gamma_plus_kappa_IId_D2_Rlimit32.png')
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 if beta_vs_gamma_plus_kappa_IIc_ABCS4CS5CS6DS1D2E_Rlimit32:
     f, (ax1,ax2) = plt.subplots(1,2,figsize=(13,11))
     f.subplots_adjust(hspace=0,wspace=0)
@@ -4052,53 +3788,23 @@ if beta_vs_gamma_plus_kappa_IIc_ABCS4CS5CS6DS1D2E_Rlimit32:
     label = label[len(text_files_path):-13]
     ax2.plot(data[3:,1], data[3:,3] + data[3:,2],Symbols[4],color = Colors[4], label=r'60_021',lw=2,ms=7 )
 
-    x = np.linspace(-4.,3.)
-    y = -2*x
-    ax2.plot(x,y,color='Pink',lw=2,ms=7)
-    ax2.fill_between(x, 5, y,color='Violet')
-    y = -5.*x-.8
-    ax2.plot(x,y,color='Black',label='Hansen-Moore relation',lw=2,ms=7)
-    ax2.set_title(r'Final (IIc)',fontsize=30)
-    ax2.set_xlabel(r'$\beta$',fontsize=30)
-    ax2.set_xlim(-.2,1.)
-    ax2.set_ylim(-6.,0.)
-    leg = ax2.legend(prop=dict(size=16),numpoints=2,ncol=1,fancybox=True,loc=0,handlelength=2.5)
+    x = np.linspace(-4., 3.)
+    y = -2 * x
+    ax2.plot(x, y, color='Pink', lw=2, ms=7)
+    ax2.fill_between(x, 5, y, color='Violet')
+    y = -5. * x - .8
+    ax2.plot(x, y, color='k', label='Hansen-Moore relation', lw=2, ms=7)
+    ax2.set_title(r'Final (IIc)', fontsize=30)
+    ax2.set_xlabel(r'$\beta$', fontsize=30)
+    ax2.set_xlim(-.2, 1.)
+    ax2.set_ylim(-6., 0.)
+    leg = ax2.legend(prop=dict(size=16), numpoints=2, ncol=1,
+                     fancybox=True, loc=0, handlelength=2.5)
     leg.get_frame().set_alpha(.5)
-    #ax2.tick_params(axis='both', which='both', bottom='on', top='off', labelbottom='on', right='on', left='off', labelleft='off')
+    # ax2.tick_params(axis='both', which='both', bottom='on', top='off',
+    #                 labelbottom='on', right='on', left='off', labelleft='off')
     ax2.yaxis.tick_right()
 
-
-    
     f.savefig(figure_path + 'beta_vs_gamma_plus_kappa_IIc_ABCS4CS5CS6DS1D2E_Rlimit32.png')
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 plt.show()
-
