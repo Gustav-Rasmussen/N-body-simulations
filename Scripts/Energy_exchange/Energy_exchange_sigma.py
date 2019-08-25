@@ -13,7 +13,7 @@ import scipy as sp
 import seaborn as sns
 import matplotlib.patches as mpatches
 from pathlib import Path
-import Attractor.Sigma_calc_OOP
+from Attractor.Sigma_calc_OOP import chi_2, get_volume_slice
 from Gammas_and_R_middles import R_bin_automatic
 
 User_path = Path.cwd()
@@ -443,7 +443,7 @@ for i in range(nr_binning_bins-2):
     sigmarad2_in_bin_i = (1. / (nr_par_in_bin_i + 1.)) * np.sum(vrad2_in_bin_i)
     sigmarad2_arr.append(sigmarad2_in_bin_i)
 
-    Volume_cl = (4. / 3.) * np.pi * (max_R_bin_i ** 3 - min_R_bin_i ** 3)  # volume of cluster
+    Volume_cl = get_volume_slice(min_R_bin_i, max_R_bin_i)  # Volume of cluster
     den_cl = nr_par_in_bin_i / Volume_cl  # number density
     rho = den_cl * m  # density
 
