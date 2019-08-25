@@ -13,6 +13,7 @@ import scipy as sp
 import seaborn as sns
 import matplotlib.patches as mpatches
 from pathlib import Path
+import Attractor.Sigma_calc_OOP
 
 User_path = Path.cwd()
 Stable_path = 'Energy_exchange/Stable_structures/'
@@ -247,7 +248,7 @@ bins_52 = 0
 bins_22 = 0  # Reduce number of radial bins in analysis code. This makes them larger and they therefore contain more particles.
 
 R_limit_10000 = 0  # Analyse larger volume of structure, sets R_limit to 10000.
-R_limit_5000 = 0  # Analyse large volume of structure, sets R_limit to 5000.
+R_limit_5000 = 0
 R_limit_50 = 0
 R_limit_32 = 0
 
@@ -585,20 +586,17 @@ if Fig4_beta:  # plot beta
     plt.plot(x_plot,0*x_plot,'--',lw=2,color='grey')
 
     if Fig4_betafit:  # fitting beta with two different profiles
-        x = 10**x_plot
-        y_plot = x**2/(23.**2+x**2)
-        plt.plot(x_plot,y_plot,'b-',ms=2,mew=0,label=r'$\frac{x^2}{23^2+x^2}$') 
-        Chi2 = 0
-        i = 0 
-        while (i < len(beta_arr)):
-          Chi2 = Chi2 + ((beta_arr[i]-y_plot[i])**2)/(beta_arr[i]*.2)**2
-          i += 1         
-        Chi2 = (1. / (len(beta_arr) - 1)) * Chi2
+        x = 10 ** x_plot
+        y_plot = x ** 2 / (23. ** 2 + x ** 2)
+        plt.plot(x_plot, y_plot, 'b-', ms=2, mew=0, label=r'$\frac{x^2}{23^2+x^2}$')
+
+        Chi2 = Sigma_calc_OOP.chi_2(beta_arr)
         # print('Chi2 for betafit: ', Chi2)
+
         # Dummy plot to add label to legend for chi2
-        plt.plot([],[],ls='.',c='grey',label = r'$\chi^2 = %.6f$' % Chi2)
-        leg = plt.legend(prop=dict(size=18),numpoints=2,ncol=2,
-                         fancybox=True,loc=0,handlelength=2.5)
+        plt.plot([], [], ls='.', c='grey', label=r'$\chi^2 = %.6f$' % Chi2)
+        leg = plt.legend(prop=dict(size=18), numpoints=2, ncol=2,
+                         fancybox=True, loc=0, handlelength=2.5)
         leg.get_frame().set_alpha(.5)
         plt.title(r'$\beta$ with fit (%s)' % F, fontsize=30)
 
@@ -824,23 +822,15 @@ if Fig6_gamma:
         x = 10 ** x_plot
         y_plot = -1 - 3 * x / (1 + x)
         plt.plot(x_plot, y_plot, 'b-', ms=2, mew=0, label='Fit')  # label=r'$\frac{x^2}{23^2+x^2}$'
-        Chi2 = 0
-        i = 0
-        while (i < len(gamma_arr)):
-            # if gamma_arr[i] == nan:
-            if isnan(gamma_arr[i]):
-                # continue
-                print('nan at index: ', i)
-            else:
-                Chi2 += ((gamma_arr[i]-y_plot[i])**2)/(gamma_arr[i]*.2)**2               
-            i += 1
-        Chi2 = (1.0/(len(gamma_arr)-1)) * Chi2
+
+        Chi2 = Sigma_calc_OOP.chi_2()
         # print('Chi2 for gammafit: ', Chi2)
+
         # Dummy plot to add label to legend for chi2
-        plt.plot([], [], ls='.', c='grey', label = r'$\chi^2 = %.6f$' % Chi2)
+        plt.plot([], [], ls='.', c='grey', label=r'$\chi^2 = %.6f$' % Chi2)
         leg = plt.legend(prop=dict(size=18), numpoints=2, ncol=2,
-                         fancybox=True,loc=0,handlelength=2.5)
-        leg.get_frame().set_alpha(0.5)
+                         fancybox=True, loc=0, handlelength=2.5)
+        leg.get_frame().set_alpha(.5)
         plt.title('Radial density slope with fit (%s)' % F, fontsize=18)
         # f.savefig(figure_path + 'B_IC_gamma_logr_fit.png')
         # f.savefig(figure_path + 'B_Final_gamma_logr_fit.png')
