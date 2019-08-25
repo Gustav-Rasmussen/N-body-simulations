@@ -40,8 +40,8 @@ IIb = 0
 IIc = 0
 IId = 0
 
-list_of_files_Martin_IC = [(Desktop_path + Stable_path   + 'text_files/' + Martin_path + 'OMG00_001_IC_000.txt', 'OMG00_001_IC_000'),
-                           (Desktop_path + Stable_path   + 'text_files/' + Martin_path + '0G00_IC_000.txt', '0G00_IC_000')]
+list_of_files_Martin_IC = [(Desktop_path + Stable_path + 'text_files/' + Martin_path + 'OMG00_001_IC_000.txt', 'OMG00_001_IC_000'),
+                           (Desktop_path + Stable_path + 'text_files/' + Martin_path + '0G00_IC_000.txt', '0G00_IC_000')]
 
 list_of_files_Martin_Final = [(Desktop_path + Stable_path + 'text_files/' + Martin_path + '0G20_001.txt', '0G20_001'),
                               (Desktop_path + Stable_path + 'text_files/' + Martin_path + '00-5G20_001.txt', '00-5G20_001'),
@@ -89,26 +89,25 @@ if IIa:
                                                      (text_files_path + 'Test_CS4_10tdyn/' + 'Test_CS4_10tdyn_E_G2P_2_041_R_limit_32_20_radial_bins.txt', text_files_path + 'Test_CS4_E_G2P_2_041_R_limit_32_20_radial_bins'),
                                                      (text_files_path + 'Test_CS4_10tdyn/' + 'Test_CS4_10tdyn_E_G2P_3_041_R_limit_32_20_radial_bins.txt', text_files_path + 'Test_CS4_E_G2P_3_041_R_limit_32_20_radial_bins')]
 
-    list_of_files_Soft_D2_Rlimit32_20bins = [(text_files_path + 'Soft_D2/' + 'Soft_D2_E_G2P_0_000_R_limit_32_20_radial_bins.txt'    ,text_files_path     + 'Soft_D2_E_G2P_0_000_R_limit_32_20_radial_bins'),
-                                             (text_files_path + 'Soft_D2/' + 'Soft_D2_E_G2P_10_005_R_limit_32_20_radial_bins.txt'   ,text_files_path     + 'Soft_D2_E_G2P_10_005_R_limit_32_20_radial_bins'),
-                                             (text_files_path + 'Soft_D2/' + 'Soft_D2_E_G2P_20_005_R_limit_32_20_radial_bins.txt'   ,text_files_path     + 'Soft_D2_E_G2P_20_005_R_limit_32_20_radial_bins'),
-                                             (text_files_path + 'Soft_D2/' + 'Soft_D2_E_G2P_30_005_R_limit_32_20_radial_bins.txt'   ,text_files_path     + 'Soft_D2_E_G2P_30_005_R_limit_32_20_radial_bins'),
-                                             (text_files_path + 'Soft_D2/' + 'Soft_D2_E_G2P_40_021_R_limit_32_20_radial_bins.txt'   ,text_files_path     + 'Soft_D2_E_G2P_40_021_R_limit_32_20_radial_bins')]
+    list_of_files_Soft_D2_Rlimit32_20bins = [(text_files_path + 'Soft_D2/' + 'Soft_D2_E_G2P_0_000_R_limit_32_20_radial_bins.txt',text_files_path     + 'Soft_D2_E_G2P_0_000_R_limit_32_20_radial_bins'),
+                                             (text_files_path + 'Soft_D2/' + 'Soft_D2_E_G2P_10_005_R_limit_32_20_radial_bins.txt',text_files_path     + 'Soft_D2_E_G2P_10_005_R_limit_32_20_radial_bins'),
+                                             (text_files_path + 'Soft_D2/' + 'Soft_D2_E_G2P_20_005_R_limit_32_20_radial_bins.txt',text_files_path     + 'Soft_D2_E_G2P_20_005_R_limit_32_20_radial_bins'),
+                                             (text_files_path + 'Soft_D2/' + 'Soft_D2_E_G2P_30_005_R_limit_32_20_radial_bins.txt',text_files_path     + 'Soft_D2_E_G2P_30_005_R_limit_32_20_radial_bins'),
+                                             (text_files_path + 'Soft_D2/' + 'Soft_D2_E_G2P_40_021_R_limit_32_20_radial_bins.txt',text_files_path     + 'Soft_D2_E_G2P_40_021_R_limit_32_20_radial_bins')]
 
-    list_of_files_Test_D2_Rlimit32_20bins = [(text_files_path + 'Test_D2/' + 'Test_D2_E_G2P_0_005_R_limit_32_20_radial_bins.txt'       ,text_files_path     + 'Test_D2_E_G2P_0_005_R_limit_32_20_radial_bins'),
-                                             (text_files_path + 'Test_D2/' + 'Test_D2_E_0_005_P2G_R_limit_32_20_radial_bins.txt'       ,text_files_path     + 'Test_D2_E_0_005_P2G_R_limit_32_20_radial_bins'),       
-                                             (text_files_path + 'Test_D2/' + 'Test_D2_E_G2P_1_005_R_limit_32_20_radial_bins.txt'       ,text_files_path     + 'Test_D2_E_G2P_1_005_R_limit_32_20_radial_bins'),
-                                             (text_files_path + 'Test_D2/' + 'Test_D2_E_1_005_P2G_R_limit_32_20_radial_bins.txt'       ,text_files_path     + 'Test_D2_E_1_005_P2G_R_limit_32_20_radial_bins'),       
-                                             (text_files_path + 'Test_D2/' + 'Test_D2_E_G2P_2_005_R_limit_32_20_radial_bins.txt'       ,text_files_path     + 'Test_D2_E_G2P_2_005_R_limit_32_20_radial_bins'),
-                                             (text_files_path + 'Test_D2/' + 'Test_D2_E_2_005_P2G_R_limit_32_20_radial_bins.txt'       ,text_files_path     + 'Test_D2_E_2_005_P2G_R_limit_32_20_radial_bins'),       
-                                             (text_files_path + 'Test_D2/' + 'Test_D2_E_G2P_3_005_R_limit_32_20_radial_bins.txt'       ,text_files_path     + 'Test_D2_E_G2P_3_005_R_limit_32_20_radial_bins'),
-                                             (text_files_path + 'Test_D2/' + 'Test_D2_E_3_005_P2G_R_limit_32_20_radial_bins.txt'       ,text_files_path     + 'Test_D2_E_3_005_P2G_R_limit_32_20_radial_bins'),       
-                                             (text_files_path + 'Test_D2/' + 'Test_D2_E_G2P_4_005_R_limit_32_20_radial_bins.txt'       ,text_files_path     + 'Test_D2_E_G2P_4_005_R_limit_32_20_radial_bins'),
-                                             (text_files_path + 'Test_D2/' + 'Test_D2_E_4_005_P2G_R_limit_32_20_radial_bins.txt'       ,text_files_path     + 'Test_D2_E_4_005_P2G_R_limit_32_20_radial_bins'),       
-                                             (text_files_path + 'Test_D2/' + 'Test_D2_E_G2P_5_005_R_limit_32_20_radial_bins.txt'       ,text_files_path     + 'Test_D2_E_G2P_5_005_R_limit_32_20_radial_bins'),
-                                             (text_files_path + 'Test_D2/' + 'Test_D2_E_5_005_P2G_R_limit_32_20_radial_bins.txt'       ,text_files_path     + 'Test_D2_E_5_005_P2G_R_limit_32_20_radial_bins'),       
-                                             (text_files_path + 'Test_D2/' + 'Test_D2_E_G2P_6_005_R_limit_32_20_radial_bins.txt'       ,text_files_path     + 'Test_D2_E_G2P_6_005_R_limit_32_20_radial_bins')]
-
+    list_of_files_Test_D2_Rlimit32_20bins = [(text_files_path + 'Test_D2/' + 'Test_D2_E_G2P_0_005_R_limit_32_20_radial_bins.txt',text_files_path + 'Test_D2_E_G2P_0_005_R_limit_32_20_radial_bins'),
+                                             (text_files_path + 'Test_D2/' + 'Test_D2_E_0_005_P2G_R_limit_32_20_radial_bins.txt',text_files_path + 'Test_D2_E_0_005_P2G_R_limit_32_20_radial_bins'),       
+                                             (text_files_path + 'Test_D2/' + 'Test_D2_E_G2P_1_005_R_limit_32_20_radial_bins.txt',text_files_path + 'Test_D2_E_G2P_1_005_R_limit_32_20_radial_bins'),
+                                             (text_files_path + 'Test_D2/' + 'Test_D2_E_1_005_P2G_R_limit_32_20_radial_bins.txt',text_files_path + 'Test_D2_E_1_005_P2G_R_limit_32_20_radial_bins'),       
+                                             (text_files_path + 'Test_D2/' + 'Test_D2_E_G2P_2_005_R_limit_32_20_radial_bins.txt',text_files_path + 'Test_D2_E_G2P_2_005_R_limit_32_20_radial_bins'),
+                                             (text_files_path + 'Test_D2/' + 'Test_D2_E_2_005_P2G_R_limit_32_20_radial_bins.txt',text_files_path + 'Test_D2_E_2_005_P2G_R_limit_32_20_radial_bins'),       
+                                             (text_files_path + 'Test_D2/' + 'Test_D2_E_G2P_3_005_R_limit_32_20_radial_bins.txt',text_files_path + 'Test_D2_E_G2P_3_005_R_limit_32_20_radial_bins'),
+                                             (text_files_path + 'Test_D2/' + 'Test_D2_E_3_005_P2G_R_limit_32_20_radial_bins.txt',text_files_path + 'Test_D2_E_3_005_P2G_R_limit_32_20_radial_bins'),       
+                                             (text_files_path + 'Test_D2/' + 'Test_D2_E_G2P_4_005_R_limit_32_20_radial_bins.txt',text_files_path + 'Test_D2_E_G2P_4_005_R_limit_32_20_radial_bins'),
+                                             (text_files_path + 'Test_D2/' + 'Test_D2_E_4_005_P2G_R_limit_32_20_radial_bins.txt',text_files_path + 'Test_D2_E_4_005_P2G_R_limit_32_20_radial_bins'),       
+                                             (text_files_path + 'Test_D2/' + 'Test_D2_E_G2P_5_005_R_limit_32_20_radial_bins.txt',text_files_path + 'Test_D2_E_G2P_5_005_R_limit_32_20_radial_bins'),
+                                             (text_files_path + 'Test_D2/' + 'Test_D2_E_5_005_P2G_R_limit_32_20_radial_bins.txt',text_files_path + 'Test_D2_E_5_005_P2G_R_limit_32_20_radial_bins'),       
+                                             (text_files_path + 'Test_D2/' + 'Test_D2_E_G2P_6_005_R_limit_32_20_radial_bins.txt',text_files_path + 'Test_D2_E_G2P_6_005_R_limit_32_20_radial_bins')]
 
 if IIb:
     list_of_files_CS4_Rlimit32_20bins = [(text_files_path + 'CS4/' + 'IIb_CS4_E_G2P_0_005_R_limit_32_20_radial_bins.txt'        ,text_files_path     + 'CS4_E_G2P_0_005_R_limit_32_20_radial_bins'),
@@ -117,147 +116,147 @@ if IIb:
     list_of_files_Soft_D2_Rlimit32_20bins = [(text_files_path + 'Soft_D2/' + 'IIb_Soft_D2_E_G2P_0_005_R_limit_32_20_radial_bins.txt'    ,text_files_path     + 'Soft_D2_E_G2P_0_005_R_limit_32_20_radial_bins'),
                                              (text_files_path + 'Soft_D2/' + 'IIb_Soft_D2_E_G2P_20_021_R_limit_32_20_radial_bins.txt'   ,text_files_path     + 'Soft_D2_E_G2P_20_021_R_limit_32_20_radial_bins')]
 if IIc:
-    list_of_files_CS4_Rlimit32_20bins = [(text_files_path + 'CS4/' + 'IIc_CS4_E_G2P_0_000_R_limit_32_20_radial_bins.txt'        ,text_files_path     + 'CS4_E_G2P_0_000_R_limit_32_20_radial_bins'),
-                                         (text_files_path + 'CS4/' + 'IIc_CS4_E_G2P_10_005_R_limit_32_20_radial_bins.txt'       ,text_files_path     + 'CS4_E_G2P_10_005_R_limit_32_20_radial_bins'     ),
-                                         (text_files_path + 'CS4/' + 'IIc_CS4_E_G2P_20_021_R_limit_32_20_radial_bins.txt'       ,text_files_path     + 'CS4_E_G2P_20_021_R_limit_32_20_radial_bins'     ),
-                                         (text_files_path + 'CS4/' + 'IIc_CS4_E_G2P_40_021_R_limit_32_20_radial_bins.txt'       ,text_files_path     + 'CS4_E_G2P_40_021_R_limit_32_20_radial_bins'     ),
-                                         (text_files_path + 'CS4/' + 'IIc_CS4_E_G2P_40_021_R_limit_32_50_radial_bins.txt'       ,text_files_path     + 'CS4_E_G2P_40_021_R_limit_32_50_radial_bins'     )]
+    list_of_files_CS4_Rlimit32_20bins = [(text_files_path + 'CS4/' + 'IIc_CS4_E_G2P_0_000_R_limit_32_20_radial_bins.txt',text_files_path     + 'CS4_E_G2P_0_000_R_limit_32_20_radial_bins'),
+                                         (text_files_path + 'CS4/' + 'IIc_CS4_E_G2P_10_005_R_limit_32_20_radial_bins.txt',text_files_path     + 'CS4_E_G2P_10_005_R_limit_32_20_radial_bins'     ),
+                                         (text_files_path + 'CS4/' + 'IIc_CS4_E_G2P_20_021_R_limit_32_20_radial_bins.txt',text_files_path     + 'CS4_E_G2P_20_021_R_limit_32_20_radial_bins'     ),
+                                         (text_files_path + 'CS4/' + 'IIc_CS4_E_G2P_40_021_R_limit_32_20_radial_bins.txt',text_files_path     + 'CS4_E_G2P_40_021_R_limit_32_20_radial_bins'     ),
+                                         (text_files_path + 'CS4/' + 'IIc_CS4_E_G2P_40_021_R_limit_32_50_radial_bins.txt',text_files_path     + 'CS4_E_G2P_40_021_R_limit_32_50_radial_bins'     )]
 
-    list_of_files_CS5_Rlimit32_20bins                =  [ (text_files_path + 'CS5/' + 'IIc_CS5_E_G2P_0_000_R_limit_32_20_radial_bins.txt'        ,text_files_path     + 'CS5_E_G2P_0_000_R_limit_32_20_radial_bins'      ),
-                                                          (text_files_path + 'CS5/' + 'IIc_CS5_E_G2P_20_021_R_limit_32_20_radial_bins.txt'       ,text_files_path     + 'CS5_E_G2P_20_021_R_limit_32_20_radial_bins'     ),
-                                                          (text_files_path + 'CS5/' + 'IIc_CS5_E_G2P_40_021_R_limit_32_20_radial_bins.txt'       ,text_files_path     + 'CS5_E_G2P_40_021_R_limit_32_20_radial_bins'     ),
-                                                          (text_files_path + 'CS5/' + 'IIc_CS5_E_G2P_40_021_R_limit_32_50_radial_bins.txt'       ,text_files_path     + 'CS5_E_G2P_40_021_R_limit_32_50_radial_bins'     )]
+    list_of_files_CS5_Rlimit32_20bins = [(text_files_path + 'CS5/' + 'IIc_CS5_E_G2P_0_000_R_limit_32_20_radial_bins.txt'        ,text_files_path     + 'CS5_E_G2P_0_000_R_limit_32_20_radial_bins'      ),
+                                         (text_files_path + 'CS5/' + 'IIc_CS5_E_G2P_20_021_R_limit_32_20_radial_bins.txt'       ,text_files_path     + 'CS5_E_G2P_20_021_R_limit_32_20_radial_bins'     ),
+                                         (text_files_path + 'CS5/' + 'IIc_CS5_E_G2P_40_021_R_limit_32_20_radial_bins.txt'       ,text_files_path     + 'CS5_E_G2P_40_021_R_limit_32_20_radial_bins'     ),
+                                         (text_files_path + 'CS5/' + 'IIc_CS5_E_G2P_40_021_R_limit_32_50_radial_bins.txt'       ,text_files_path     + 'CS5_E_G2P_40_021_R_limit_32_50_radial_bins'     )]
 
-    list_of_files_CS6_Rlimit32_20bins                =  [ (text_files_path + 'CS6/' + 'IIc_CS6_E_G2P_0_000_R_limit_32_20_radial_bins.txt'        ,text_files_path     + 'CS6_E_G2P_0_000_R_limit_32_20_radial_bins'      ),
-                                                          (text_files_path + 'CS6/' + 'IIc_CS6_E_G2P_20_021_R_limit_32_20_radial_bins.txt'       ,text_files_path     + 'CS6_E_G2P_20_021_R_limit_32_20_radial_bins'     ),
-                                                          (text_files_path + 'CS6/' + 'IIc_CS6_E_G2P_40_021_R_limit_32_20_radial_bins.txt'       ,text_files_path     + 'CS6_E_G2P_40_021_R_limit_32_20_radial_bins'     ),
-                                                          (text_files_path + 'CS6/' + 'IIc_CS6_E_G2P_40_021_R_limit_32_50_radial_bins.txt'       ,text_files_path     + 'CS6_E_G2P_40_021_R_limit_32_50_radial_bins'     )]
+    list_of_files_CS6_Rlimit32_20bins = [(text_files_path + 'CS6/' + 'IIc_CS6_E_G2P_0_000_R_limit_32_20_radial_bins.txt'        ,text_files_path     + 'CS6_E_G2P_0_000_R_limit_32_20_radial_bins'      ),
+                                         (text_files_path + 'CS6/' + 'IIc_CS6_E_G2P_20_021_R_limit_32_20_radial_bins.txt'       ,text_files_path     + 'CS6_E_G2P_20_021_R_limit_32_20_radial_bins'     ),
+                                         (text_files_path + 'CS6/' + 'IIc_CS6_E_G2P_40_021_R_limit_32_20_radial_bins.txt'       ,text_files_path     + 'CS6_E_G2P_40_021_R_limit_32_20_radial_bins'     ),
+                                         (text_files_path + 'CS6/' + 'IIc_CS6_E_G2P_40_021_R_limit_32_50_radial_bins.txt'       ,text_files_path     + 'CS6_E_G2P_40_021_R_limit_32_50_radial_bins'     )]
 
-    list_of_files_DS1_Rlimit32_20bins                =  [ (text_files_path + 'DS1/' + 'IIc_DS1_E_G2P_0_000_R_limit_32_20_radial_bins.txt'    ,text_files_path     + 'DS1_E_G2P_0_000_R_limit_32_20_radial_bins' ),
-                                                          (text_files_path + 'DS1/' + 'IIc_DS1_E_G2P_40_021_R_limit_32_20_radial_bins.txt'   ,text_files_path     + 'DS1_E_G2P_40_021_R_limit_32_20_radial_bins'),
-                                                          (text_files_path + 'DS1/' + 'IIc_DS1_E_G2P_60_021_R_limit_32_20_radial_bins.txt'   ,text_files_path     + 'DS1_E_G2P_60_021_R_limit_32_20_radial_bins'),
-                                                          (text_files_path + 'DS1/' + 'IIc_DS1_E_G2P_60_021_R_limit_32_50_radial_bins.txt'   ,text_files_path     + 'DS1_E_G2P_60_021_R_limit_32_50_radial_bins')]
+    list_of_files_DS1_Rlimit32_20bins = [(text_files_path + 'DS1/' + 'IIc_DS1_E_G2P_0_000_R_limit_32_20_radial_bins.txt'    ,text_files_path     + 'DS1_E_G2P_0_000_R_limit_32_20_radial_bins' ),
+                                         (text_files_path + 'DS1/' + 'IIc_DS1_E_G2P_40_021_R_limit_32_20_radial_bins.txt'   ,text_files_path     + 'DS1_E_G2P_40_021_R_limit_32_20_radial_bins'),
+                                         (text_files_path + 'DS1/' + 'IIc_DS1_E_G2P_60_021_R_limit_32_20_radial_bins.txt'   ,text_files_path     + 'DS1_E_G2P_60_021_R_limit_32_20_radial_bins'),
+                                         (text_files_path + 'DS1/' + 'IIc_DS1_E_G2P_60_021_R_limit_32_50_radial_bins.txt'   ,text_files_path     + 'DS1_E_G2P_60_021_R_limit_32_50_radial_bins')]
 
-    list_of_files_Soft_D2_Rlimit32_20bins            =  [ (text_files_path + 'Soft_D2/' + 'IIc_Soft_D2_E_G2P_0_000_R_limit_32_20_radial_bins.txt'    ,text_files_path     + 'Soft_D2_E_G2P_0_000_R_limit_32_20_radial_bins' ),
-                                                          (text_files_path + 'Soft_D2/' + 'IIc_Soft_D2_E_G2P_10_005_R_limit_32_20_radial_bins.txt'   ,text_files_path     + 'Soft_D2_E_G2P_10_005_R_limit_32_20_radial_bins'),
-                                                          (text_files_path + 'Soft_D2/' + 'IIc_Soft_D2_E_G2P_20_021_R_limit_32_20_radial_bins.txt'   ,text_files_path     + 'Soft_D2_E_G2P_20_021_R_limit_32_20_radial_bins'),
-                                                          (text_files_path + 'Soft_D2/' + 'IIc_Soft_D2_E_G2P_30_021_R_limit_32_20_radial_bins.txt'   ,text_files_path     + 'Soft_D2_E_G2P_30_021_R_limit_32_20_radial_bins'),
-                                                          (text_files_path + 'Soft_D2/' + 'IIc_Soft_D2_E_G2P_40_021_R_limit_32_20_radial_bins.txt'   ,text_files_path     + 'Soft_D2_E_G2P_40_021_R_limit_32_20_radial_bins'),
-                                                          (text_files_path + 'Soft_D2/' + 'IIc_Soft_D2_E_G2P_60_021_R_limit_32_20_radial_bins.txt'   ,text_files_path     + 'Soft_D2_E_G2P_60_021_R_limit_32_20_radial_bins'),
-                                                          (text_files_path + 'Soft_D2/' + 'IIc_Soft_D2_E_G2P_60_021_R_limit_32_50_radial_bins.txt'   ,text_files_path     + 'Soft_D2_E_G2P_60_021_R_limit_32_50_radial_bins')]
+    list_of_files_Soft_D2_Rlimit32_20bins = [(text_files_path + 'Soft_D2/' + 'IIc_Soft_D2_E_G2P_0_000_R_limit_32_20_radial_bins.txt'    ,text_files_path     + 'Soft_D2_E_G2P_0_000_R_limit_32_20_radial_bins' ),
+                                             (text_files_path + 'Soft_D2/' + 'IIc_Soft_D2_E_G2P_10_005_R_limit_32_20_radial_bins.txt'   ,text_files_path     + 'Soft_D2_E_G2P_10_005_R_limit_32_20_radial_bins'),
+                                             (text_files_path + 'Soft_D2/' + 'IIc_Soft_D2_E_G2P_20_021_R_limit_32_20_radial_bins.txt'   ,text_files_path     + 'Soft_D2_E_G2P_20_021_R_limit_32_20_radial_bins'),
+                                             (text_files_path + 'Soft_D2/' + 'IIc_Soft_D2_E_G2P_30_021_R_limit_32_20_radial_bins.txt'   ,text_files_path     + 'Soft_D2_E_G2P_30_021_R_limit_32_20_radial_bins'),
+                                             (text_files_path + 'Soft_D2/' + 'IIc_Soft_D2_E_G2P_40_021_R_limit_32_20_radial_bins.txt'   ,text_files_path     + 'Soft_D2_E_G2P_40_021_R_limit_32_20_radial_bins'),
+                                             (text_files_path + 'Soft_D2/' + 'IIc_Soft_D2_E_G2P_60_021_R_limit_32_20_radial_bins.txt'   ,text_files_path     + 'Soft_D2_E_G2P_60_021_R_limit_32_20_radial_bins'),
+                                             (text_files_path + 'Soft_D2/' + 'IIc_Soft_D2_E_G2P_60_021_R_limit_32_50_radial_bins.txt'   ,text_files_path     + 'Soft_D2_E_G2P_60_021_R_limit_32_50_radial_bins')]
 
-list_of_files_CS4_control_Rlimit32_20bins        =  [ (text_files_path + 'CS4/' + 'CS4_E_20_005_R_limit_32_20_radial_bins.txt'           ,text_files_path     + 'CS4_E_20_005_R_limit_32_20_radial_bins'         )]
+list_of_files_CS4_control_Rlimit32_20bins = [(text_files_path + 'CS4/' + 'CS4_E_20_005_R_limit_32_20_radial_bins.txt'           ,text_files_path     + 'CS4_E_20_005_R_limit_32_20_radial_bins'         )]
 '''
-list_of_files_CS5_Rlimit32_20bins                =  [ (text_files_path + 'CS5/' + 'CS5_E_G2P_0_000_R_limit_32_20_radial_bins.txt'        ,text_files_path     + 'CS5_E_G2P_0_000_R_limit_32_20_radial_bins'      ),
-                                                      (text_files_path + 'CS5/' + 'CS5_E_G2P_10_005_R_limit_32_20_radial_bins.txt'       ,text_files_path     + 'CS5_E_G2P_10_005_R_limit_32_20_radial_bins'     ),       
-                                                      (text_files_path + 'CS5/' + 'CS5_E_G2P_20_005_R_limit_32_20_radial_bins.txt'       ,text_files_path     + 'CS5_E_G2P_20_005_R_limit_32_20_radial_bins'     ),  
-                                                      (text_files_path + 'CS5/' + 'CS5_E_G2P_30_005_R_limit_32_20_radial_bins.txt'       ,text_files_path     + 'CS5_E_G2P_30_005_R_limit_32_20_radial_bins'     )]
+list_of_files_CS5_Rlimit32_20bins = [(text_files_path + 'CS5/' + 'CS5_E_G2P_0_000_R_limit_32_20_radial_bins.txt', text_files_path     + 'CS5_E_G2P_0_000_R_limit_32_20_radial_bins'      ),
+                                     (text_files_path + 'CS5/' + 'CS5_E_G2P_10_005_R_limit_32_20_radial_bins.txt', text_files_path     + 'CS5_E_G2P_10_005_R_limit_32_20_radial_bins'     ),       
+                                     (text_files_path + 'CS5/' + 'CS5_E_G2P_20_005_R_limit_32_20_radial_bins.txt', text_files_path     + 'CS5_E_G2P_20_005_R_limit_32_20_radial_bins'     ),  
+                                     (text_files_path + 'CS5/' + 'CS5_E_G2P_30_005_R_limit_32_20_radial_bins.txt', text_files_path     + 'CS5_E_G2P_30_005_R_limit_32_20_radial_bins'     )]
 '''
-list_of_files_CS5_control_Rlimit32_20bins        =  [ (text_files_path + 'CS5/' + 'CS5_E_20_005_R_limit_32_20_radial_bins.txt'           ,text_files_path     + 'CS5_E_20_005_R_limit_32_20_radial_bins'         )]
+list_of_files_CS5_control_Rlimit32_20bins = [(text_files_path + 'CS5/' + 'CS5_E_20_005_R_limit_32_20_radial_bins.txt'           ,text_files_path     + 'CS5_E_20_005_R_limit_32_20_radial_bins'         )]
 '''
-list_of_files_CS6_Rlimit32_20bins                =  [ (text_files_path + 'CS6/' + 'CS6_E_G2P_0_000_R_limit_32_20_radial_bins.txt'        ,text_files_path     + 'CS6_E_G2P_0_000_R_limit_32_20_radial_bins'      ),
-                                                      (text_files_path + 'CS6/' + 'CS6_E_G2P_10_005_R_limit_32_20_radial_bins.txt'       ,text_files_path     + 'CS6_E_G2P_10_005_R_limit_32_20_radial_bins'     ),
-                                                      (text_files_path + 'CS6/' + 'CS6_E_G2P_20_005_R_limit_32_20_radial_bins.txt'       ,text_files_path     + 'CS6_E_G2P_20_005_R_limit_32_20_radial_bins'     ),
-                                                      (text_files_path + 'CS6/' + 'CS6_E_G2P_30_005_R_limit_32_20_radial_bins.txt'       ,text_files_path     + 'CS6_E_G2P_30_005_R_limit_32_20_radial_bins'     )]
+list_of_files_CS6_Rlimit32_20bins = [(text_files_path + 'CS6/' + 'CS6_E_G2P_0_000_R_limit_32_20_radial_bins.txt',text_files_path     + 'CS6_E_G2P_0_000_R_limit_32_20_radial_bins'      ),
+                                     (text_files_path + 'CS6/' + 'CS6_E_G2P_10_005_R_limit_32_20_radial_bins.txt',text_files_path     + 'CS6_E_G2P_10_005_R_limit_32_20_radial_bins'     ),
+                                     (text_files_path + 'CS6/' + 'CS6_E_G2P_20_005_R_limit_32_20_radial_bins.txt',text_files_path     + 'CS6_E_G2P_20_005_R_limit_32_20_radial_bins'     ),
+                                     (text_files_path + 'CS6/' + 'CS6_E_G2P_30_005_R_limit_32_20_radial_bins.txt',text_files_path     + 'CS6_E_G2P_30_005_R_limit_32_20_radial_bins'     )]
 '''
-list_of_files_CS6_control_Rlimit32_20bins        =  [ (text_files_path + 'CS6/' + 'CS6_E_20_005_R_limit_32_20_radial_bins.txt'           ,text_files_path     + 'CS6_E_20_005_R_limit_32_20_radial_bins'         )]
+list_of_files_CS6_control_Rlimit32_20bins = [(text_files_path + 'CS6/' + 'CS6_E_20_005_R_limit_32_20_radial_bins.txt'           ,text_files_path     + 'CS6_E_20_005_R_limit_32_20_radial_bins'         )]
 '''
-list_of_files_DS1_Rlimit32_20bins                =  [ (text_files_path + 'DS1/' + 'DS1_E_G2P_0_000_R_limit_32_20_radial_bins.txt'        ,text_files_path     + 'DS1_E_G2P_0_000_R_limit_32_20_radial_bins'      ),
-                                                      (text_files_path + 'DS1/' + 'DS1_E_G2P_10_005_R_limit_32_20_radial_bins.txt'       ,text_files_path     + 'DS1_E_G2P_10_005_R_limit_32_20_radial_bins'     ),
-                                                      (text_files_path + 'DS1/' + 'DS1_E_G2P_20_005_R_limit_32_20_radial_bins.txt'       ,text_files_path     + 'DS1_E_G2P_20_005_R_limit_32_20_radial_bins'     ),
-                                                      (text_files_path + 'DS1/' + 'DS1_E_G2P_30_005_R_limit_32_20_radial_bins.txt'       ,text_files_path     + 'DS1_E_G2P_30_005_R_limit_32_20_radial_bins'     ),
-                                                      (text_files_path + 'DS1/' + 'DS1_E_G2P_40_021_R_limit_32_20_radial_bins.txt'       ,text_files_path     + 'DS1_E_G2P_40_021_R_limit_32_20_radial_bins'     )]
+list_of_files_DS1_Rlimit32_20bins = [(text_files_path + 'DS1/' + 'DS1_E_G2P_0_000_R_limit_32_20_radial_bins.txt', text_files_path     + 'DS1_E_G2P_0_000_R_limit_32_20_radial_bins'      ),
+                                     (text_files_path + 'DS1/' + 'DS1_E_G2P_10_005_R_limit_32_20_radial_bins.txt', text_files_path     + 'DS1_E_G2P_10_005_R_limit_32_20_radial_bins'     ),
+                                     (text_files_path + 'DS1/' + 'DS1_E_G2P_20_005_R_limit_32_20_radial_bins.txt', text_files_path     + 'DS1_E_G2P_20_005_R_limit_32_20_radial_bins'     ),
+                                     (text_files_path + 'DS1/' + 'DS1_E_G2P_30_005_R_limit_32_20_radial_bins.txt', text_files_path     + 'DS1_E_G2P_30_005_R_limit_32_20_radial_bins'     ),
+                                     (text_files_path + 'DS1/' + 'DS1_E_G2P_40_021_R_limit_32_20_radial_bins.txt', text_files_path     + 'DS1_E_G2P_40_021_R_limit_32_20_radial_bins'     )]
 '''
-list_of_files_DS1_control_Rlimit32_20bins        =  [ (text_files_path + 'DS1/' + 'DS1_E_20_005_R_limit_32_20_radial_bins.txt'           ,text_files_path     + 'DS1_E_20_005_R_limit_32_20_radial_bins'         )]
+list_of_files_DS1_control_Rlimit32_20bins = [(text_files_path + 'DS1/' + 'DS1_E_20_005_R_limit_32_20_radial_bins.txt'           ,text_files_path     + 'DS1_E_20_005_R_limit_32_20_radial_bins'         )]
 
 if IId:
-    list_of_files_CS4_Rlimit32_20bins                =  [ (text_files_path + 'CS4/' + 'IId_CS4_E_G2P_0_005_R_limit_32_20_radial_bins.txt'        ,text_files_path     + 'CS4_E_G2P_0_005_R_limit_32_20_radial_bins'     ),
-                                                          (text_files_path + 'CS4/' + 'IId_CS4_E_G2P_20_013_R_limit_32_20_radial_bins.txt'       ,text_files_path     + 'CS4_E_G2P_20_013_R_limit_32_20_radial_bins'    )]
+    list_of_files_CS4_Rlimit32_20bins = [(text_files_path + 'CS4/' + 'IId_CS4_E_G2P_0_005_R_limit_32_20_radial_bins.txt'        ,text_files_path     + 'CS4_E_G2P_0_005_R_limit_32_20_radial_bins'     ),
+                                         (text_files_path + 'CS4/' + 'IId_CS4_E_G2P_20_013_R_limit_32_20_radial_bins.txt'       ,text_files_path     + 'CS4_E_G2P_20_013_R_limit_32_20_radial_bins'    )]
 
-    list_of_files_Soft_D2_Rlimit32_20bins            =  [ (text_files_path + 'Soft_D2/' + 'IId_Soft_D2_E_G2P_0_005_R_limit_32_20_radial_bins.txt'    ,text_files_path     + 'Soft_D2_E_G2P_0_005_R_limit_32_20_radial_bins' ),
-                                                          (text_files_path + 'Soft_D2/' + 'IId_Soft_D2_E_G2P_20_013_R_limit_32_20_radial_bins.txt'   ,text_files_path     + 'Soft_D2_E_G2P_20_013_R_limit_32_20_radial_bins')]
+    list_of_files_Soft_D2_Rlimit32_20bins = [(text_files_path + 'Soft_D2/' + 'IId_Soft_D2_E_G2P_0_005_R_limit_32_20_radial_bins.txt'    ,text_files_path     + 'Soft_D2_E_G2P_0_005_R_limit_32_20_radial_bins' ),
+                                             (text_files_path + 'Soft_D2/' + 'IId_Soft_D2_E_G2P_20_013_R_limit_32_20_radial_bins.txt'   ,text_files_path     + 'Soft_D2_E_G2P_20_013_R_limit_32_20_radial_bins')]
 
-list_of_files_Soft_D2_control_Rlimit32_20bins    =  [ (Desktop_path + Stable_path + 'text_files/IIa/' + 'Soft_D2/' + 'Soft_D2_E_20_005_R_limit_32_20_radial_bins.txt'       ,text_files_path     + 'Soft_D2_20_005_R_limit_32_20_radial_bins')]
+list_of_files_Soft_D2_control_Rlimit32_20bins = [(Desktop_path + Stable_path + 'text_files/IIa/' + 'Soft_D2/' + 'Soft_D2_E_20_005_R_limit_32_20_radial_bins.txt'       ,text_files_path     + 'Soft_D2_20_005_R_limit_32_20_radial_bins')]
 
 '''
-list_of_files_E_Rlimit32_50bins                  =  [ (text_files_path + 'E/' + 'E_E_G2P_0_000_R_limit_32_50_radial_bins.txt'          ,text_files_path     + 'E_E_G2P_0_000_R_limit_32_50_radial_bins'        ),
-                                                      (text_files_path + 'E/' + 'E_E_G2P_20_005_R_limit_32_50_radial_bins.txt'         ,text_files_path     + 'E_E_G2P_20_005_R_limit_32_50_radial_bins'       )]
-list_of_files_E_control_Rlimit32_50bins          =  [ (text_files_path + 'E/' + 'E_E_20_005_R_limit_32_50_radial_bins.txt'             ,text_files_path     + 'E_E_20_005_R_limit_32_50_radial_bins'           )]
+list_of_files_E_Rlimit32_50bins = [(text_files_path + 'E/' + 'E_E_G2P_0_000_R_limit_32_50_radial_bins.txt', text_files_path     + 'E_E_G2P_0_000_R_limit_32_50_radial_bins'        ),
+                                    (text_files_path + 'E/' + 'E_E_G2P_20_005_R_limit_32_50_radial_bins.txt', text_files_path     + 'E_E_G2P_20_005_R_limit_32_50_radial_bins'       )]
+list_of_files_E_control_Rlimit32_50bins = [(text_files_path + 'E/' + 'E_E_20_005_R_limit_32_50_radial_bins.txt'             ,text_files_path     + 'E_E_20_005_R_limit_32_50_radial_bins'           )]
 
 # R32, IC and Final, DeltaG analysis code
-list_of_files_DeltaG_DS1_Rlimit32_20bins                =  [ (text_files_path + 'DS1/' + 'DS1_E_G2P_0_000_R_limit_32_DeltaG_20_radial_bins.txt'        ,text_files_path     + 'DS1_E_G2P_0_000_R_limit_32_DeltaG_20_radial_bins'      ),
-                                                             (text_files_path + 'DS1/' + 'DS1_E_G2P_30_005_R_limit_32_DeltaG_20_radial_bins.txt'       ,text_files_path     + 'DS1_E_G2P_30_005_R_limit_32_DeltaG_20_radial_bins'     )]
-list_of_files_DeltaG_DS1_control_Rlimit32_20bins        =  [ (text_files_path + 'DS1/' + 'DS1_E_20_005_R_limit_32_DeltaG_20_radial_bins.txt'           ,text_files_path     + 'DS1_E_20_005_R_limit_32_DeltaG_20_radial_bins'         )]
-list_of_files_DeltaG_Soft_D2_Rlimit32_20bins            =  [ (text_files_path + 'Soft_D2/' + 'Soft_D2_E_G2P_0_000_R_limit_32_DeltaG_20_radial_bins.txt'    ,text_files_path     + 'Soft_D2_E_G2P_0_000_R_limit_32_DeltaG_20_radial_bins'  ),
+list_of_files_DeltaG_DS1_Rlimit32_20bins = [(text_files_path + 'DS1/' + 'DS1_E_G2P_0_000_R_limit_32_DeltaG_20_radial_bins.txt'        ,text_files_path     + 'DS1_E_G2P_0_000_R_limit_32_DeltaG_20_radial_bins'      ),
+                                            (text_files_path + 'DS1/' + 'DS1_E_G2P_30_005_R_limit_32_DeltaG_20_radial_bins.txt'       ,text_files_path     + 'DS1_E_G2P_30_005_R_limit_32_DeltaG_20_radial_bins'     )]
+list_of_files_DeltaG_DS1_control_Rlimit32_20bins =  [ (text_files_path + 'DS1/' + 'DS1_E_20_005_R_limit_32_DeltaG_20_radial_bins.txt'           ,text_files_path     + 'DS1_E_20_005_R_limit_32_DeltaG_20_radial_bins'         )]
+list_of_files_DeltaG_Soft_D2_Rlimit32_20bins =  [ (text_files_path + 'Soft_D2/' + 'Soft_D2_E_G2P_0_000_R_limit_32_DeltaG_20_radial_bins.txt'    ,text_files_path     + 'Soft_D2_E_G2P_0_000_R_limit_32_DeltaG_20_radial_bins'  ),
                                                              (text_files_path + 'Soft_D2/' + 'Soft_D2_E_G2P_10_005_R_limit_32_DeltaG_20_radial_bins.txt'   ,text_files_path     + 'Soft_D2_E_G2P_10_005_R_limit_32_DeltaG_20_radial_bins' ),
                                                              (text_files_path + 'Soft_D2/' + 'Soft_D2_E_G2P_20_005_R_limit_32_DeltaG_20_radial_bins.txt'   ,text_files_path     + 'Soft_D2_E_G2P_20_005_R_limit_32_DeltaG_20_radial_bins' ),
                                                              (text_files_path + 'Soft_D2/' + 'Soft_D2_E_G2P_30_005_R_limit_32_DeltaG_20_radial_bins.txt'   ,text_files_path     + 'Soft_D2_E_G2P_30_005_R_limit_32_DeltaG_20_radial_bins' )]
-list_of_files_DeltaG_Soft_D2_control_Rlimit32_20bins    =  [ (text_files_path + 'Soft_D2/' + 'Soft_D2_E_20_005_R_limit_32_DeltaG_20_radial_bins.txt'       ,text_files_path     + 'Soft_D2_20_005_R_limit_32_DeltaG_20_radial_bins'       )]
+list_of_files_DeltaG_Soft_D2_control_Rlimit32_20bins =  [ (text_files_path + 'Soft_D2/' + 'Soft_D2_E_20_005_R_limit_32_DeltaG_20_radial_bins.txt'       ,text_files_path     + 'Soft_D2_20_005_R_limit_32_DeltaG_20_radial_bins'       )]
 '''
 '''
 # R32, Run 5 and 10
-list_of_files_Soft_B_Rlimit32_50bins_Run_5_10    =  [ (text_files_path + 'Soft_B/'  + 'Soft_B_E_G2P_5_005_R_limit_32_50_radial_bins.txt'     ,text_files_path     + 'Soft_B_E_G2P_5_005_R_limit_32_50_radial_bins'   ),
-                                                      (text_files_path + 'Soft_B/'  + 'Soft_B_E_G2P_10_005_R_limit_32_50_radial_bins.txt'    ,text_files_path     + 'Soft_B_E_G2P_10_005_R_limit_32_50_radial_bins'  )]
-list_of_files_CS4_Rlimit32_20bins_Run_5_10       =  [ (text_files_path + 'CS4/'     + 'CS4_E_G2P_5_005_R_limit_32_20_radial_bins.txt'        ,text_files_path     + 'CS4_E_G2P_5_005_R_limit_32_20_radial_bins'      ),
-                                                      (text_files_path + 'CS4/'     + 'CS4_E_G2P_10_005_R_limit_32_20_radial_bins.txt'       ,text_files_path     + 'CS4_E_G2P_10_005_R_limit_32_20_radial_bins'     )]
-list_of_files_CS5_Rlimit32_20bins_Run_5_10       =  [ (text_files_path + 'CS5/'     + 'CS5_E_G2P_5_005_R_limit_32_20_radial_bins.txt'        ,text_files_path     + 'CS5_E_G2P_5_005_R_limit_32_20_radial_bins'      ),
-                                                      (text_files_path + 'CS5/'     + 'CS5_E_G2P_10_005_R_limit_32_20_radial_bins.txt'       ,text_files_path     + 'CS5_E_G2P_10_005_R_limit_32_20_radial_bins'     )]
-list_of_files_CS6_Rlimit32_20bins_Run_5_10       =  [ (text_files_path + 'CS6/'     + 'CS6_E_G2P_5_005_R_limit_32_20_radial_bins.txt'        ,text_files_path     + 'CS6_E_G2P_5_005_R_limit_32_20_radial_bins'      ),
-                                                      (text_files_path + 'CS6/'     + 'CS6_E_G2P_10_005_R_limit_32_20_radial_bins.txt'       ,text_files_path     + 'CS6_E_G2P_10_005_R_limit_32_20_radial_bins'     )]
-list_of_files_DS1_Rlimit32_20bins_Run_5_10       =  [ (text_files_path + 'DS1/'     + 'DS1_E_G2P_5_005_R_limit_32_20_radial_bins.txt'        ,text_files_path     + 'DS1_E_G2P_5_005_R_limit_32_20_radial_bins'      ),
-                                                      (text_files_path + 'DS1/'     + 'DS1_E_G2P_10_005_R_limit_32_20_radial_bins.txt'       ,text_files_path     + 'DS1_E_G2P_10_005_R_limit_32_20_radial_bins'     )]
-list_of_files_Soft_D2_Rlimit32_20bins_Run_5_10   =  [ (text_files_path + 'Soft_D2/' + 'Soft_D2_E_G2P_5_005_R_limit_32_20_radial_bins.txt'    ,text_files_path     + 'Soft_D2_E_G2P_5_005_R_limit_32_20_radial_bins'  ),
-                                                      (text_files_path + 'Soft_D2/' + 'Soft_D2_E_G2P_10_005_R_limit_32_20_radial_bins.txt'   ,text_files_path     + 'Soft_D2_E_G2P_10_005_R_limit_32_20_radial_bins' )]
-list_of_files_E_Rlimit32_50bins_Run_5_10         =  [ (text_files_path + 'E/'       + 'E_E_G2P_5_005_R_limit_32_50_radial_bins.txt'          ,text_files_path     + 'E_E_G2P_5_005_R_limit_32_50_radial_bins'        ),
-                                                      (text_files_path + 'E/'       + 'E_E_G2P_10_005_R_limit_32_50_radial_bins.txt'         ,text_files_path     + 'E_E_G2P_10_005_R_limit_32_50_radial_bins'       )]
+file_list_Soft_B_Rlimit32_50bins_Run_5_10 = [(text_files_path + 'Soft_B/' + 'Soft_B_E_G2P_5_005_R_limit_32_50_radial_bins.txt', text_files_path + 'Soft_B_E_G2P_5_005_R_limit_32_50_radial_bins'),
+                                             (text_files_path + 'Soft_B/' + 'Soft_B_E_G2P_10_005_R_limit_32_50_radial_bins.txt', text_files_path + 'Soft_B_E_G2P_10_005_R_limit_32_50_radial_bins')]
+file_list_CS4_Rlimit32_20bins_Run_5_10 = [(text_files_path + 'CS4/' + 'CS4_E_G2P_5_005_R_limit_32_20_radial_bins.txt', text_files_path + 'CS4_E_G2P_5_005_R_limit_32_20_radial_bins'),
+                                          (text_files_path + 'CS4/' + 'CS4_E_G2P_10_005_R_limit_32_20_radial_bins.txt', text_files_path + 'CS4_E_G2P_10_005_R_limit_32_20_radial_bins')]
+file_list_CS5_Rlimit32_20bins_Run_5_10 = [(text_files_path + 'CS5/' + 'CS5_E_G2P_5_005_R_limit_32_20_radial_bins.txt', text_files_path + 'CS5_E_G2P_5_005_R_limit_32_20_radial_bins'),
+                                          (text_files_path + 'CS5/' + 'CS5_E_G2P_10_005_R_limit_32_20_radial_bins.txt', text_files_path + 'CS5_E_G2P_10_005_R_limit_32_20_radial_bins')]
+file_list_CS6_Rlimit32_20bins_Run_5_10 = [(text_files_path + 'CS6/' + 'CS6_E_G2P_5_005_R_limit_32_20_radial_bins.txt', text_files_path + 'CS6_E_G2P_5_005_R_limit_32_20_radial_bins'),
+                                          (text_files_path + 'CS6/' + 'CS6_E_G2P_10_005_R_limit_32_20_radial_bins.txt', text_files_path + 'CS6_E_G2P_10_005_R_limit_32_20_radial_bins')]
+file_list_DS1_Rlimit32_20bins_Run_5_10 = [(text_files_path + 'DS1/' + 'DS1_E_G2P_5_005_R_limit_32_20_radial_bins.txt', text_files_path + 'DS1_E_G2P_5_005_R_limit_32_20_radial_bins'),
+                                          (text_files_path + 'DS1/' + 'DS1_E_G2P_10_005_R_limit_32_20_radial_bins.txt', text_files_path + 'DS1_E_G2P_10_005_R_limit_32_20_radial_bins')]
+file_list_Soft_D2_Rlimit32_20bins_Run_5_10 = [(text_files_path + 'Soft_D2/' + 'Soft_D2_E_G2P_5_005_R_limit_32_20_radial_bins.txt', text_files_path + 'Soft_D2_E_G2P_5_005_R_limit_32_20_radial_bins'),
+                                              (text_files_path + 'Soft_D2/' + 'Soft_D2_E_G2P_10_005_R_limit_32_20_radial_bins.txt', text_files_path + 'Soft_D2_E_G2P_10_005_R_limit_32_20_radial_bins')]
+file_list_E_Rlimit32_50bins_Run_5_10 = [(text_files_path + 'E/' + 'E_E_G2P_5_005_R_limit_32_50_radial_bins.txt', text_files_path + 'E_E_G2P_5_005_R_limit_32_50_radial_bins'),
+                                        (text_files_path + 'E/' + 'E_E_G2P_10_005_R_limit_32_50_radial_bins.txt', text_files_path + 'E_E_G2P_10_005_R_limit_32_50_radial_bins')]
 '''
 # R10
-list_of_files_Soft_B_Rlimit10_20bins             =  [ (text_files_path + 'Soft_B/'  + 'Soft_B_E_G2P_0_000_R_limit_10_20_radial_bins.txt'     ,text_files_path     + 'Soft_B_E_G2P_0_000_R_limit_10_20_radial_bins'   ),
-                                                      (text_files_path + 'Soft_B/'  + 'Soft_B_E_G2P_20_005_R_limit_10_20_radial_bins.txt'    ,text_files_path     + 'Soft_B_E_G2P_20_005_R_limit_10_20_radial_bins'  )]
-list_of_files_Soft_B_control_Rlimit10_20bins     =  [ (text_files_path + 'Soft_B/'  + 'Soft_B_E_20_005_R_limit_10_20_radial_bins.txt'        ,text_files_path     + 'Soft_B_E_20_005_R_limit_10_20_radial_bins'      )]
-list_of_files_CS1_Rlimit10_20bins                =  [ (text_files_path + 'CS1/'     + 'CS1_E_G2P_0_000_R_limit_10_20_radial_bins.txt'        ,text_files_path     + 'CS1_E_G2P_0_000_R_limit_10_20_radial_bins'      ),
-                                                      (text_files_path + 'CS1/'     + 'CS1_E_G2P_20_005_R_limit_10_20_radial_bins.txt'       ,text_files_path     + 'CS1_E_G2P_20_005_R_limit_10_20_radial_bins'     )]
-list_of_files_CS1_control_Rlimit10_20bins        =  [ (text_files_path + 'CS1/'     + 'CS1_E_20_005_R_limit_10_20_radial_bins.txt'           ,text_files_path     + 'CS1_E_20_005_R_limit_10_20_radial_bins'         )]
-list_of_files_CS4_Rlimit10_20bins                =  [ (text_files_path + 'CS4/'     + 'CS4_E_G2P_0_000_R_limit_10_20_radial_bins.txt'        ,text_files_path     + 'CS4_E_G2P_0_000_R_limit_10_20_radial_bins'      ),
-                                                      (text_files_path + 'CS4/'     + 'CS4_E_G2P_20_005_R_limit_10_20_radial_bins.txt'       ,text_files_path     + 'CS4_E_G2P_20_005_R_limit_10_20_radial_bins'     )]
-list_of_files_CS4_control_Rlimit10_20bins        =  [ (text_files_path + 'CS4/'     + 'CS4_E_20_005_R_limit_10_20_radial_bins.txt'           ,text_files_path     + 'CS4_E_20_005_R_limit_10_20_radial_bins'         )]
-list_of_files_CS5_Rlimit10_20bins                =  [ (text_files_path + 'CS5/'     + 'CS5_E_G2P_0_000_R_limit_10_20_radial_bins.txt'        ,text_files_path     + 'CS5_E_G2P_0_000_R_limit_10_20_radial_bins'      ),
-                                                      (text_files_path + 'CS5/'     + 'CS5_E_G2P_20_005_R_limit_10_20_radial_bins.txt'       ,text_files_path     + 'CS5_E_G2P_20_005_R_limit_10_20_radial_bins'     )]
-list_of_files_CS5_control_Rlimit10_20bins        =  [ (text_files_path + 'CS5/'     + 'CS5_E_20_005_R_limit_10_20_radial_bins.txt'           ,text_files_path     + 'CS5_E_20_005_R_limit_10_20_radial_bins'         )]
-list_of_files_CS6_Rlimit10_20bins                =  [ (text_files_path + 'CS6/'     + 'CS6_E_G2P_0_000_R_limit_10_20_radial_bins.txt'        ,text_files_path     + 'CS6_E_G2P_0_000_R_limit_10_20_radial_bins'      ),
-                                                      (text_files_path + 'CS6/'     + 'CS6_E_G2P_20_005_R_limit_10_20_radial_bins.txt'       ,text_files_path     + 'CS6_E_G2P_20_005_R_limit_10_20_radial_bins'     )]
-list_of_files_CS6_control_Rlimit10_20bins        =  [ (text_files_path + 'CS6/'     + 'CS6_E_20_005_R_limit_10_20_radial_bins.txt'           ,text_files_path     + 'CS6_E_20_005_R_limit_10_20_radial_bins'         )]
-list_of_files_DS1_Rlimit10_20bins                =  [ (text_files_path + 'DS1/'     + 'DS1_E_G2P_0_000_R_limit_10_20_radial_bins.txt'        ,text_files_path     + 'DS1_E_G2P_0_000_R_limit_10_20_radial_bins'      ),
-                                                      (text_files_path + 'DS1/'     + 'DS1_E_G2P_20_005_R_limit_10_20_radial_bins.txt'       ,text_files_path     + 'DS1_E_G2P_20_005_R_limit_10_20_radial_bins'     )]
-list_of_files_DS1_control_Rlimit10_20bins        =  [ (text_files_path + 'DS1/'     + 'DS1_E_20_005_R_limit_10_20_radial_bins.txt'           ,text_files_path     + 'DS1_E_20_005_R_limit_10_20_radial_bins'         )]
-list_of_files_Soft_D2_Rlimit10_20bins            =  [ (text_files_path + 'Soft_D2/' + 'Soft_D2_E_G2P_0_000_R_limit_10_20_radial_bins.txt'    ,text_files_path     + 'Soft_D2_E_G2P_0_000_R_limit_10_20_radial_bins'  ),
-                                                      (text_files_path + 'Soft_D2/' + 'Soft_D2_E_G2P_20_005_R_limit_10_20_radial_bins.txt'   ,text_files_path     + 'Soft_D2_E_G2P_20_005_R_limit_10_20_radial_bins' )]
-list_of_files_Soft_D2_control_Rlimit10_20bins    =  [ (text_files_path + 'Soft_D2/' + 'Soft_D2_E_20_005_R_limit_10_20_radial_bins.txt'       ,text_files_path     + 'Soft_D2_20_005_R_limit_10_20_radial_bins'       )]
-list_of_files_E_Rlimit10_20bins                  =  [ (text_files_path + 'E/'       + 'E_E_G2P_0_000_R_limit_10_20_radial_bins.txt'          ,text_files_path     + 'E_E_G2P_0_000_R_limit_10_20_radial_bins'        ),
-                                                      (text_files_path + 'E/'       + 'E_E_G2P_20_005_R_limit_10_20_radial_bins.txt'         ,text_files_path     + 'E_E_G2P_20_005_R_limit_10_20_radial_bins'       )]
-list_of_files_E_control_Rlimit10_20bins          =  [ (text_files_path + 'E/'       + 'E_E_20_005_R_limit_10_20_radial_bins.txt'             ,text_files_path     + 'E_E_20_005_R_limit_10_20_radial_bins'           )]
+file_list_Soft_B_Rlimit10_20bins = [(text_files_path + 'Soft_B/' + 'Soft_B_E_G2P_0_000_R_limit_10_20_radial_bins.txt',text_files_path + 'Soft_B_E_G2P_0_000_R_limit_10_20_radial_bins'),
+                                    (text_files_path + 'Soft_B/' + 'Soft_B_E_G2P_20_005_R_limit_10_20_radial_bins.txt',text_files_path + 'Soft_B_E_G2P_20_005_R_limit_10_20_radial_bins')]
+file_list_Soft_B_control_Rlimit10_20bins = [(text_files_path + 'Soft_B/' + 'Soft_B_E_20_005_R_limit_10_20_radial_bins.txt',text_files_path + 'Soft_B_E_20_005_R_limit_10_20_radial_bins')]
+file_list_CS1_Rlimit10_20bins = [(text_files_path + 'CS1/' + 'CS1_E_G2P_0_000_R_limit_10_20_radial_bins.txt',text_files_path + 'CS1_E_G2P_0_000_R_limit_10_20_radial_bins'),
+                                     (text_files_path + 'CS1/' + 'CS1_E_G2P_20_005_R_limit_10_20_radial_bins.txt',text_files_path + 'CS1_E_G2P_20_005_R_limit_10_20_radial_bins')]
+file_list_CS1_control_Rlimit10_20bins =  [ (text_files_path + 'CS1/' + 'CS1_E_20_005_R_limit_10_20_radial_bins.txt',text_files_path + 'CS1_E_20_005_R_limit_10_20_radial_bins')]
+file_list_CS4_Rlimit10_20bins = [(text_files_path + 'CS4/' + 'CS4_E_G2P_0_000_R_limit_10_20_radial_bins.txt',text_files_path + 'CS4_E_G2P_0_000_R_limit_10_20_radial_bins'),
+                                     (text_files_path + 'CS4/' + 'CS4_E_G2P_20_005_R_limit_10_20_radial_bins.txt',text_files_path + 'CS4_E_G2P_20_005_R_limit_10_20_radial_bins')]
+file_list_CS4_control_Rlimit10_20bins =  [ (text_files_path + 'CS4/' + 'CS4_E_20_005_R_limit_10_20_radial_bins.txt',text_files_path + 'CS4_E_20_005_R_limit_10_20_radial_bins')]
+file_list_CS5_Rlimit10_20bins = [(text_files_path + 'CS5/' + 'CS5_E_G2P_0_000_R_limit_10_20_radial_bins.txt',text_files_path + 'CS5_E_G2P_0_000_R_limit_10_20_radial_bins'),
+                                     (text_files_path + 'CS5/' + 'CS5_E_G2P_20_005_R_limit_10_20_radial_bins.txt', text_files_path + 'CS5_E_G2P_20_005_R_limit_10_20_radial_bins')]
+file_list_CS5_control_Rlimit10_20bins =  [ (text_files_path + 'CS5/'     + 'CS5_E_20_005_R_limit_10_20_radial_bins.txt', text_files_path + 'CS5_E_20_005_R_limit_10_20_radial_bins')]
+file_list_CS6_Rlimit10_20bins = [(text_files_path + 'CS6/' + 'CS6_E_G2P_0_000_R_limit_10_20_radial_bins.txt', text_files_path + 'CS6_E_G2P_0_000_R_limit_10_20_radial_bins'),
+                                     (text_files_path + 'CS6/' + 'CS6_E_G2P_20_005_R_limit_10_20_radial_bins.txt', text_files_path + 'CS6_E_G2P_20_005_R_limit_10_20_radial_bins')]
+file_list_CS6_control_Rlimit10_20bins = [(text_files_path + 'CS6/'     + 'CS6_E_20_005_R_limit_10_20_radial_bins.txt', text_files_path + 'CS6_E_20_005_R_limit_10_20_radial_bins')]
+file_list_DS1_Rlimit10_20bins = [(text_files_path + 'DS1/' + 'DS1_E_G2P_0_000_R_limit_10_20_radial_bins.txt', text_files_path + 'DS1_E_G2P_0_000_R_limit_10_20_radial_bins'),
+                                     (text_files_path + 'DS1/' + 'DS1_E_G2P_20_005_R_limit_10_20_radial_bins.txt', text_files_path + 'DS1_E_G2P_20_005_R_limit_10_20_radial_bins')]
+file_list_DS1_control_Rlimit10_20bins = [(text_files_path + 'DS1/' + 'DS1_E_20_005_R_limit_10_20_radial_bins.txt', text_files_path + 'DS1_E_20_005_R_limit_10_20_radial_bins')]
+file_list_Soft_D2_Rlimit10_20bins = [(text_files_path + 'Soft_D2/' + 'Soft_D2_E_G2P_0_000_R_limit_10_20_radial_bins.txt', text_files_path + 'Soft_D2_E_G2P_0_000_R_limit_10_20_radial_bins'),
+                                         (text_files_path + 'Soft_D2/' + 'Soft_D2_E_G2P_20_005_R_limit_10_20_radial_bins.txt', text_files_path + 'Soft_D2_E_G2P_20_005_R_limit_10_20_radial_bins')]
+file_list_Soft_D2_control_Rlimit10_20bins =  [ (text_files_path + 'Soft_D2/' + 'Soft_D2_E_20_005_R_limit_10_20_radial_bins.txt', text_files_path + 'Soft_D2_20_005_R_limit_10_20_radial_bins')]
+file_list_E_Rlimit10_20bins = [(text_files_path + 'E/' + 'E_E_G2P_0_000_R_limit_10_20_radial_bins.txt', text_files_path + 'E_E_G2P_0_000_R_limit_10_20_radial_bins'),
+                                   (text_files_path + 'E/' + 'E_E_G2P_20_005_R_limit_10_20_radial_bins.txt', text_files_path + 'E_E_G2P_20_005_R_limit_10_20_radial_bins')]
+file_list_E_control_Rlimit10_20bins =  [ (text_files_path + 'E/' + 'E_E_20_005_R_limit_10_20_radial_bins.txt', text_files_path + 'E_E_20_005_R_limit_10_20_radial_bins')]
 
 # Sparre data
-datalist_Martin_IC                               =  [ ( pylab.loadtxt(filename), label ) for filename, label in list_of_files_Martin_IC                         ]
-datalist_Martin_Final                            =  [ ( pylab.loadtxt(filename), label ) for filename, label in list_of_files_Martin_Final                      ]
+datalist_Martin_IC = [(pylab.loadtxt(filename), label) for filename, label in file_list_Martin_IC]
+datalist_Martin_Final = [(pylab.loadtxt(filename), label ) for filename, label in file_list_Martin_Final]
 
 # mass bins
-#datalist_mass_bins_Soft_B                       =  [ ( pylab.loadtxt(filename), label ) for filename, label in list_of_files_mass_bins_Soft_B                  ]
-#datalist_mass_bins_Soft_B_control               =  [ ( pylab.loadtxt(filename), label ) for filename, label in list_of_files_mass_bins_Soft_B_control          ]
-#datalist_mass_bins_CS1                          =  [ ( pylab.loadtxt(filename), label ) for filename, label in list_of_files_mass_bins_CS1                     ]
-#datalist_mass_bins_CS1_control                  =  [ ( pylab.loadtxt(filename), label ) for filename, label in list_of_files_mass_bins_CS1_control             ]
-#datalist_mass_bins_CS4                          =  [ ( pylab.loadtxt(filename), label ) for filename, label in list_of_files_mass_bins_CS4                     ]
-#datalist_mass_bins_CS4_control                  =  [ ( pylab.loadtxt(filename), label ) for filename, label in list_of_files_mass_bins_CS4_control             ]
-#datalist_mass_bins_CS5                          =  [ ( pylab.loadtxt(filename), label ) for filename, label in list_of_files_mass_bins_CS5                     ]
-#datalist_mass_bins_CS5_control                  =  [ ( pylab.loadtxt(filename), label ) for filename, label in list_of_files_mass_bins_CS5_control             ]
-#datalist_mass_bins_CS6                          =  [ ( pylab.loadtxt(filename), label ) for filename, label in list_of_files_mass_bins_CS6                     ]
-#datalist_mass_bins_CS6_control                  =  [ ( pylab.loadtxt(filename), label ) for filename, label in list_of_files_mass_bins_CS6_control             ]
-#datalist_mass_bins_DS1                          =  [ ( pylab.loadtxt(filename), label ) for filename, label in list_of_files_mass_bins_DS1                     ]
-#datalist_mass_bins_DS1_control                  =  [ ( pylab.loadtxt(filename), label ) for filename, label in list_of_files_mass_bins_DS1_control             ]
-#datalist_mass_bins_Soft_D2                      =  [ ( pylab.loadtxt(filename), label ) for filename, label in list_of_files_mass_bins_Soft_D2                 ]
-#datalist_mass_bins_Soft_D2_control              =  [ ( pylab.loadtxt(filename), label ) for filename, label in list_of_files_mass_bins_Soft_D2_control         ]
-#datalist_mass_bins_E                            =  [ ( pylab.loadtxt(filename), label ) for filename, label in list_of_files_mass_bins_E                       ]
-#datalist_mass_bins_E_control                    =  [ ( pylab.loadtxt(filename), label ) for filename, label in list_of_files_mass_bins_E_control               ]
+#datalist_mass_bins_Soft_B =  [ ( pylab.loadtxt(filename), label ) for filename, label in list_of_files_mass_bins_Soft_B]
+#datalist_mass_bins_Soft_B_control =  [ ( pylab.loadtxt(filename), label ) for filename, label in list_of_files_mass_bins_Soft_B_control]
+#datalist_mass_bins_CS1 =  [ ( pylab.loadtxt(filename), label ) for filename, label in list_of_files_mass_bins_CS1]
+#datalist_mass_bins_CS1_control                  =  [ ( pylab.loadtxt(filename), label ) for filename, label in list_of_files_mass_bins_CS1_control]
+#datalist_mass_bins_CS4                          =  [ ( pylab.loadtxt(filename), label ) for filename, label in list_of_files_mass_bins_CS4]
+#datalist_mass_bins_CS4_control                  =  [ ( pylab.loadtxt(filename), label ) for filename, label in list_of_files_mass_bins_CS4_control]
+#datalist_mass_bins_CS5                          =  [ ( pylab.loadtxt(filename), label ) for filename, label in list_of_files_mass_bins_CS5]
+#datalist_mass_bins_CS5_control                  =  [ ( pylab.loadtxt(filename), label ) for filename, label in list_of_files_mass_bins_CS5_control]
+#datalist_mass_bins_CS6                          =  [ ( pylab.loadtxt(filename), label ) for filename, label in list_of_files_mass_bins_CS6]
+#datalist_mass_bins_CS6_control                  =  [ ( pylab.loadtxt(filename), label ) for filename, label in list_of_files_mass_bins_CS6_control]
+#datalist_mass_bins_DS1                          =  [ ( pylab.loadtxt(filename), label ) for filename, label in list_of_files_mass_bins_DS1]
+#datalist_mass_bins_DS1_control                  =  [ ( pylab.loadtxt(filename), label ) for filename, label in list_of_files_mass_bins_DS1_control]
+#datalist_mass_bins_Soft_D2                      =  [ ( pylab.loadtxt(filename), label ) for filename, label in list_of_files_mass_bins_Soft_D2]
+#datalist_mass_bins_Soft_D2_control              =  [ ( pylab.loadtxt(filename), label ) for filename, label in list_of_files_mass_bins_Soft_D2_control]
+#datalist_mass_bins_E                            =  [ ( pylab.loadtxt(filename), label ) for filename, label in list_of_files_mass_bins_E]
+#datalist_mass_bins_E_control                    =  [ ( pylab.loadtxt(filename), label ) for filename, label in list_of_files_mass_bins_E_control]
 
 # Rlimit32
 #datalist_Soft_B_Rlimit32_50bins                   =  [ ( pylab.loadtxt(filename), label ) for filename, label in list_of_files_Soft_B_Rlimit32_50bins            ]
