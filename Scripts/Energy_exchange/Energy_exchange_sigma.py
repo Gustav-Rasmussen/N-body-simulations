@@ -246,7 +246,9 @@ R_bin_automatic = 0
 bins_202 = 0
 bins_102 = 0
 bins_52 = 0
-bins_22 = 0  # Reduce number of radial bins in analysis code. This makes them larger and they therefore contain more particles.
+# Reduce number of radial bins in analysis code.
+# This makes them larger and they therefore contain more particles.
+bins_22 = 0
 
 R_limit_10000 = 0  # Analyse larger volume of structure, sets R_limit to 10000.
 R_limit_5000 = 0
@@ -285,8 +287,8 @@ vzC = vz[minV]
 # yC = np.median(y[V.argsort()[0:100]])
 # zC = np.median(z[V.argsort()[0:100]])
 
-# R = ((x-xC)**2+(y-yC)**2+(z-zC)**2)**.5
-# R = (x**2+y**2+z**2)**.5
+# R = ravf.modulus(x - xC, y - yC, z - zC)
+# R = ravf.modulus(x, y, z)
 
 if R_limit_10000:
     R_limit = 10000.
@@ -356,7 +358,7 @@ if Fig_x_hist2d:
 x -= np.median(x)
 y -= np.median(y)
 z -= np.median(z)
-R = (x**2+y**2+z**2)**.5
+R = ravf.modulus(x, y, z)
 GoodIDs = np.where(R < R_limit)  # Removes all particles that is far away from the cluster.
 x = x[GoodIDs]
 y = y[GoodIDs]
@@ -409,8 +411,6 @@ elif bins_52:
 elif bins_22:      
     nr_of_bins = 22
     F += '_20_radial_bins'
-else:
-    pass
 # print(F)
 
 # GoodIDs = np.where(R < R_limit)  # Removes all particles that is far away from the cluster.
@@ -420,19 +420,19 @@ else:
  v2_arr, gamma_arr, kappa_arr, beta_arr, density_arr, rho_arr, Volume_arr,
  r, Phi, Theta, VR, VTheta, VPhi, VR_i_avg_in_bin) = ([] for i in range(20))
 
-v_r = (vx * x + vy * y + vz * z) / (x**2+y**2+z**2)**.5
+v_r = (vx * x + vy * y + vz * z) / ravf.modulus(x, y, z)
 min_binning_R = -1.5
 max_binning_R = np.log10(R_limit)
 binning_arr_lin_log10 = np.logspace(min_binning_R, max_binning_R, nr_binning_bins)  # Array, -5-1000
 
-for i in range(nr_binning_bins-2):      
+for i in range(nr_binning_bins - 2):      
     min_R_bin_i = binning_arr_lin_log10[i]  # start of bin
     max_R_bin_i = binning_arr_lin_log10[i + 1]  # end of bin
     posR_par_in_bin_i = np.where((R_hob_par > min_R_bin_i) & (R_hob_par < max_R_bin_i))  # position of particles inside a radial bin
     nr_par_in_bin_i = len(posR_par_in_bin_i[0])  # number of particles inside a radial bin
     if nr_par_in_bin_i == 0:
         continue
-    v = (vx[posR_par_in_bin_i]**2+vy[posR_par_in_bin_i]**2+vz[posR_par_in_bin_i]**2)**.5
+    v = ravf.modulus(vx[posR_par_in_bin_i], vy[posR_par_in_bin_i], vz[posR_par_in_bin_i])
     # sigma2 total
     v2_in_bin_i = v ** 2
     sigma2_in_bin_i = (1. / (nr_par_in_bin_i + 1.)) * np.sum(v2_in_bin_i)
@@ -447,9 +447,10 @@ for i in range(nr_binning_bins-2):
     den_cl = nr_par_in_bin_i / Volume_cl  # number density
     rho = den_cl * m  # density
 
-    r_i = (x[posR_par_in_bin_i]**2+y[posR_par_in_bin_i]**2+z[posR_par_in_bin_i]**2)**.5
+    r_i = ravf.modulus(x[posR_par_in_bin_i], y[posR_par_in_bin_i], z[posR_par_in_bin_i])
     Phi_i = sp.arctan2(y[posR_par_in_bin_i], x[posR_par_in_bin_i])
-    Theta_i = sp.arccos(z[posR_par_in_bin_i]/r_i)
+    Theta_i = sp.arccos(z[posR_par_in_bin_i] / r_i)
+
     VR_i = sp.sin(Theta_i) * sp.cos(Phi_i) * vx[posR_par_in_bin_i]
            + sp.sin(Theta_i) * sp.sin(Phi_i) * vy[posR_par_in_bin_i]
            + sp.cos(Theta_i) * vz[posR_par_in_bin_i]
@@ -457,6 +458,7 @@ for i in range(nr_binning_bins-2):
                + sp.cos(Theta_i) * sp.sin(Phi_i) * vy[posR_par_in_bin_i]
                - sp.sin(Theta_i) * vz[posR_par_in_bin_i]
     VPhi_i = - sp.sin(Phi_i) * vx[posR_par_in_bin_i] + sp.cos(Phi_i) * vy[posR_par_in_bin_i]
+
     VR_i_avg_in_bin_i = (1. / (nr_par_in_bin_i + 1.)) * np.sum(VR_i)
     # sigmatheta2
     VTheta2_in_bin_i = VTheta_i ** 2
@@ -470,6 +472,7 @@ for i in range(nr_binning_bins-2):
     sigmatan = (sigmatheta2_in_bin_i + sigmaphi2_in_bin_i) ** .5
     sigmatan2 = sigmatan ** 2
     sigmatan2_arr.append(sigmatan2)
+
     # save arrays
     density_arr.append(den_cl)
     rho_arr.append(rho)
@@ -528,8 +531,8 @@ if Fig_vx_x:
     f.savefig(figure_path + 'Soft_B_0_005_logvx_logx_II.png')  # 'Soft_B_1_000_logvx_logx_II'
 
 if Fig_v_logr:
-    r = (x**2+y**2+z**2)**.5
-    v = (vx**2+vy**2+vz**2)**.5
+    r = ravf.modulus(x, y, z)
+    v = ravf.modulus(vx, vy, vz)
     f, (ax1, ax2) = plt.subplots(1, 2, figsize=(13, 11))
     f.subplots_adjust(hspace=0, wspace=0)
     ax1.set_xlabel('r', fontsize=30)
@@ -574,8 +577,8 @@ if Fig4_beta:  # plot beta
     y_plot = beta_arr
     plt.xlabel(r'$\log$r', fontsize=30)
     plt.ylabel(r'$\beta$', fontsize=30)
-    plt.plot(x_plot,y_plot,'k-o',ms=7,lw=2,mew=0,label=r'$\beta$')  # from this graph we see that beta is below zero. this means sigmatheta2_arr/sigmarad2_arr > 1, which in turn means that sigmatheta2_arr > sigmarad2_arr. 
-    plt.plot(x_plot,0*x_plot,'--',lw=2,color='grey')
+    plt.plot(x_plot, y_plot, 'k-o', ms=7, lw=2, mew=0, label=r'$\beta$')  # from this graph we see that beta is below zero. this means sigmatheta2_arr/sigmarad2_arr > 1, which in turn means that sigmatheta2_arr > sigmarad2_arr. 
+    plt.plot(x_plot, 0 * x_plot, '--', lw=2, color='grey')
 
     if Fig4_betafit:  # fitting beta with two different profiles
         x = 10 ** x_plot
@@ -607,17 +610,14 @@ if Fig4_beta:  # plot beta
         # plt.title(r'$\beta$ with zero-line(%s)' % F, fontsize=30)
 
         sims = ['Soft_B', 'CS4', 'CS5', 'CS6', 'DS1', 'Soft_D2', 'E']
-        # plt.title(r'$\beta$ with zero-line(Sim II: $\Delta$E, (%s) final, $R_{limit}=10^4$, 20 bins)' % sims[-1], fontsize=30)
-        # plt.title(r'$\beta$ with zero-line(Sim II: $\Delta$E, (%s) final, $R_{limit}=50$, 50 bins)', % sims[-1], fontsize=30)
+        # plt.title(r'$\beta$ with zero-line(Sim II: $\Delta$E, (%s) final, $R_{limit}=10^4$, 20 bins)' % sims[-1], fontsize=30)  # all sims
+        # plt.title(r'$\beta$ with zero-line(Sim II: $\Delta$E, (%s) final, $R_{limit}=50$, 50 bins)', % sims[-1], fontsize=30)  # all sims
 
+        # plt.title(r'$\beta$ with zero-line(Sim II: $\Delta$E, Soft_B final, $R_{limit}=32$, 50 bins)', fontsize=30)
 
-        # plt.title(r'$\beta$ with zero-line(Sim II: $\Delta$E, Soft_B final, $R_{limit}=32$, 50 bins)',fontsize=30)
-        # plt.title(r'$\beta$ with zero-line(Sim II: $\Delta$E, CS4 final, $R_{limit}=32$, 20 bins)',fontsize=30)
-        # plt.title(r'$\beta$ with zero-line(Sim II: $\Delta$E, CS5 final, $R_{limit}=32$, 20 bins)',fontsize=30)
-        # plt.title(r'$\beta$ with zero-line(Sim II: $\Delta$E, CS6 final, $R_{limit}=32$, 20 bins)',fontsize=30)
-        # plt.title(r'$\beta$ with zero-line(Sim II: $\Delta$E, DS1 final, $R_{limit}=32$, 20 bins)',fontsize=30)
-        # plt.title(r'$\beta$ with zero-line(Sim II: $\Delta$E, Soft_D2 final, $R_{limit}=32$, 20 bins)',fontsize=30)
-        # plt.title(r'$\beta$ with zero-line(Sim II: $\Delta$E, E final, $R_{limit}=32$, 50 bins)',fontsize=30)
+        # plt.title(r'$\beta$ with zero-line(Sim II: $\Delta$E, (%s) final, $R_{limit}=32$, 20 bins)', % sims[1], fontsize=30)  # sims[1] to sims[-2]
+
+        # plt.title(r'$\beta$ with zero-line(Sim II: $\Delta$E, E final, $R_{limit}=32$, 50 bins)', fontsize=30)
 
         # plt.title(r'$\beta$ with zero-line(Sim II: $\Delta$E, (%s) final, $R_{limit}=10$, 20 bins)', % sims[-1], fontsize=30)
 
@@ -728,7 +728,7 @@ if Fig5_kappa:
     plt.xlabel(r'$\log $r', fontsize=30)
     plt.ylabel(r'$\kappa$', fontsize=30)
 
-    # plt.title(r'$\kappa$ and zero-line (%s)'%F,fontsize=30)
+    # plt.title(r'$\kappa$ and zero-line (%s)' % F, fontsize=30)
 
     # plt.title(r'$\kappa$ and zero-line (Sim II: $\Delta$E, Soft_B final, $R_{limit}=10^4$, 20 bins)',fontsize=30)
     # plt.title(r'$\kappa$ and zero-line (Sim II: $\Delta$E, CS4 final, $R_{limit}=10^4$, 20 bins)',fontsize=30)
@@ -849,7 +849,7 @@ if Fig6_gamma:
         # f.savefig(figure_path + 'E_Final_gamma_logr_fit.png')
         # f.savefig(figure_path + 'E_Final_control_gamma_logr_fit.png')
     else:
-        # plt.title('Radial density slope (%s)'%F,fontsize=30)
+        # plt.title('Radial density slope (%s)' % F, fontsize=30)
         # plt.title('Radial density slope (Sim II: $\Delta$E, Soft_B final, $R_{limit}=10^4$, 20 bins)',fontsize=30)
         # plt.title('Radial density slope (Sim II: $\Delta$E, CS4 final, $R_{limit}=10^4$, 20 bins)',fontsize=30)
         # plt.title('Radial density slope (Sim II: $\Delta$E, CS5 final, $R_{limit}=10^4$, 20 bins)',fontsize=30)
