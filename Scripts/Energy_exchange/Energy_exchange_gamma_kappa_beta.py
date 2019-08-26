@@ -40,19 +40,6 @@ IIb = 0
 IIc = 0
 IId = 0
 
-file_list_Martin_IC = [(Desktop_path + Stable_path + 'text_files/' + Martin_path + 'OMG00_001_IC_000.txt', 'OMG00_001_IC_000'),
-                       (Desktop_path + Stable_path + 'text_files/' + Martin_path + '0G00_IC_000.txt', '0G00_IC_000')]
-
-file_list_Martin_Final = [(Desktop_path + Stable_path + 'text_files/' + Martin_path + '0G20_001.txt', '0G20_001'),
-                          (Desktop_path + Stable_path + 'text_files/' + Martin_path + '00-5G20_001.txt', '00-5G20_001'),
-                          (Desktop_path + Stable_path + 'text_files/' + Martin_path + 'om0-3.5G20_001.txt', 'om0-3.5G20_001'),
-                          (Desktop_path + Stable_path + 'text_files/' + Martin_path + 's1G20_001.txt', 's1G20_001'),
-                          (Desktop_path + Stable_path + 'text_files/' + Martin_path + 's2G20_001.txt', 's2G20_001'),
-                          (Desktop_path + Stable_path + 'text_files/' + Martin_path + 's3G20_001.txt', 's3G20_001'),
-                          (Desktop_path + Stable_path + 'text_files/' + Martin_path + 's4G20_001.txt', 's4G20_001')
-                          # (Desktop_path + Stable_path + 'text_files/' + Martin_path + 'OMG20_Final_000.txt', 'OMG20_Final_000')
-                          ]
-
 # R32
 file_list_Soft_B_Rlimit32_50bins = [(text_files_path + 'Soft_B/' + 'Soft_B_E_G2P_0_000_R_limit_32_50_radial_bins.txt', text_files_path + 'Soft_B_E_G2P_0_000_R_limit_32_50_radial_bins'),
                                     (text_files_path + 'Soft_B/' + 'Soft_B_E_G2P_20_005_R_limit_32_50_radial_bins.txt', text_files_path + 'Soft_B_E_G2P_20_005_R_limit_32_50_radial_bins')]
