@@ -8,20 +8,17 @@ from pylab import *
 from scipy.stats import norm
 import scipy
 import os.path
-      
+from pathlib import Path
 
+pathname = Path.cwd() + '/RunGadget/Energy_Exchange/IIa/E_HQ_100000_D1/output/B_E_G2P_'
 
-pathname = '/Users/gustav.c.rasmussen/Desktop/RunGadget/Energy_Exchange/IIa/E_HQ_100000_D1/output/B_E_G2P_'
-
-if os.path.exists('/Users/gustav.c.rasmussen/Desktop/RunGadget/Energy_Exchange/E_HQ_100000_D1/output/'):
-    print 'The main path exists!'
+if os.path.exists(Path.cwd() + '/RunGadget/Energy_Exchange/E_HQ_100000_D1/output/'):
+    print('The main path exists!')
 
 # D1
 if os.path.exists(pathname + '20_005.hdf5'):
-    Filename_old = pathname + '20_005.hdf5'  # D1.  GADGET to Python, or G2P.
-    Filename_new = 'B_E_20_005_P2G.hdf5'
-
-    
+    Filename_old = pathname + '20_005.hdf5'  # D1. G2P (GADGET to Python).
+    Filename_new = 'B_E_20_005_P2G.hdf5'    
 elif os.path.exists(pathname + '19_005.hdf5'):
     Filename_old = pathname + '19_005.hdf5'  
     Filename_new = 'B_E_19_005_P2G.hdf5'
@@ -79,81 +76,59 @@ elif os.path.exists(pathname + '2_005.hdf5'):
 elif os.path.exists(pathname + '1_005.hdf5'):
     Filename_old = pathname + '1_005.hdf5'  
     Filename_new = 'B_E_1_005_P2G.hdf5'    
-
-
 elif os.path.exists(pathname + '0_005.hdf5'):
-    
-    #print 'The first input file path exists!'
-    
+    # print('The first input file path exists!')
     Filename_old = pathname + '0_005.hdf5'
-    
-    #print 'The old snapshot has been named'
-    
+    # print('The old snapshot has been named')
     Filename_new = 'B_E_0_005_P2G.hdf5'
-    
-    #print 'New snapshot created!'
-
-
+    # print('New snapshot created!')
 else:
-    print 'Filename or path error'
+    print('Filename or path error')
 
-
-
-OldSnapfile = h5py.File(Filename_old,'r')      
-NewSnapfile = h5py.File(Filename_new,'w')  # Python to GADGET, or P2G.
-F = Filename_old[len('/Users/gustav.c.rasmussen/Desktop/RunGadget/Energy_Exchange/E_HQ_100000_D1/output/'):-5]
-
+OldSnapfile = h5py.File(Filename_old, 'r')      
+NewSnapfile = h5py.File(Filename_new, 'w')  # Python to GADGET, or P2G.
+F = Filename_old[len(Path.cwd() + '/RunGadget/Energy_Exchange/E_HQ_100000_D1/output/'):-5]
 
 # Particle masses
 Masses = OldSnapfile['PartType1/Masses'].value 
-Pos    = OldSnapfile['PartType1/Coordinates'].value 
-Vel    = OldSnapfile['PartType1/Velocities'].value  
-V      = OldSnapfile['PartType1/Potential'].value     
-
+Pos = OldSnapfile['PartType1/Coordinates'].value
+Vel = OldSnapfile['PartType1/Velocities'].value  
+V = OldSnapfile['PartType1/Potential'].value     
 M = Masses
-
-x     = Pos[:,0]
-y     = Pos[:,1]
-z     = Pos[:,2]
-
-
-
-vx    = Vel[:,0]
-vy    = Vel[:,1]
-vz    = Vel[:,2]
-
-minV  = np.argmin(V)  
-
-xC  = x[minV] 
-yC  = y[minV]
-zC  = z[minV]
+x = Pos[:, 0]
+y = Pos[:, 1]
+z = Pos[:, 2]
+vx = Vel[:, 0]
+vy = Vel[:, 1]
+vz = Vel[:, 2]
+minV = np.argmin(V)
+xC = x[minV]
+yC = y[minV]
+zC = z[minV]
 vxC = vx[minV]
 vyC = vy[minV]
 vzC = vz[minV]
-
 R = ((x-xC)**2+(y-yC)**2+(z-zC)**2)**0.5
+vx -= np.median(vx)
+vy -= np.median(vy)
+vz -= np.median(vz)
 
-vx = vx - np.median(vx)
-vy = vy - np.median(vy)
-vz = vz - np.median(vz)
-
-
-#M_limit = np.sum(M) # total mass
+# M_limit = np.sum(M)  # total mass
 IDs = np.argsort(R)
 
-x_IDs  = x[IDs]
-y_IDs  = y[IDs]
-z_IDs  = z[IDs]
+x_IDs = x[IDs]
+y_IDs = y[IDs]
+z_IDs = z[IDs]
 vx_IDs = vx[IDs]
 vy_IDs = vy[IDs]
 vz_IDs = vz[IDs]
-R_IDs  = R[IDs]
-V_IDs  = V[IDs]
-M_IDs  = M[IDs]
+R_IDs = R[IDs]
+V_IDs = V[IDs]
+M_IDs = M[IDs]
 
-N_total             = x.shape[0]
+N_total = x.shape[0]
 N_particles_per_bin = 500
-N_bins              = N_total/N_particles_per_bin
+N_bins = N_total / N_particles_per_bin
 
 bin_radius_arr      = []
 x_GoodIDs_arr       = []
