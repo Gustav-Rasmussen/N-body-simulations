@@ -105,7 +105,7 @@ d = {"C": "-", "ABC": "-", "CSAMPLEABC": "-:)-"}
 # find_replace_multi_ordered(s, d)
 
 
-def file_replace(From: str, to: str, in_str: str = ''):
+def file_replace(From: str, to: str, in_str: str=''):
     """."""
     if in_str in file_name:
         return file_name.replace(From, to)
@@ -132,7 +132,7 @@ def rename_files(files):
         os.rename(f, new_file)
 
 
-def line_replace(From: str, to: str, in_str: str = ''):
+def line_replace(From: str, to: str, in_str: str=''):
     """."""
     if in_str in line:
         return line.replace(From, to)
@@ -140,10 +140,6 @@ def line_replace(From: str, to: str, in_str: str = ''):
 
 
 def replace_lines():
-    '''
-    with open(readfile, "r") as rf:
-        with open(writefile, "w") as wf:
-    '''
     with open(readfile, "r") as rf, open(writefile, "w") as wf:
         for line in rf:
             # for k, v in line_dict.items():
