@@ -140,27 +140,30 @@ def line_replace(From: str, to: str, in_str: str = ''):
 
 
 def replace_lines():
+    '''
     with open(readfile, "r") as rf:
         with open(writefile, "w") as wf:
-            for line in rf:
-                # for k, v in line_dict.items():
-                #     line = line_replace(k, v)
-                line = find_replace_multi_ordered(line, line_dict)
-                # line = line_replace('yan', '', 'cyan')
-                # line = line_replace('agenta', '', 'magenta')
-                # line = line_replace('hite', '', 'white')
-                if any(x in line for x in ['Sigmarad', 'sigmarad']):
-                    line = line.replace('rad', 'R')
-                if any(x in line for x in ['Sigmatan', 'sigmatan']):
-                    line = line.replace('tan', 'T')
-                # if label, ls: swap to ls, label.
-                # Put ls and color together.
-                if re.findall(regexUpper.pattern_1, line):
-                    print(line)
-                    # print(re.sub(regexUpper.sub_pattern, '', line))
-                    line = re.sub(regexUpper.sub_pattern, '', line)
-                    print(line)
-                wf.write(line)
+    '''
+    with open(readfile, "r") as rf, open(writefile, "w") as wf:
+        for line in rf:
+            # for k, v in line_dict.items():
+            #     line = line_replace(k, v)
+            line = find_replace_multi_ordered(line, line_dict)
+            # line = line_replace('yan', '', 'cyan')
+            # line = line_replace('agenta', '', 'magenta')
+            # line = line_replace('hite', '', 'white')
+            if any(x in line for x in ['Sigmarad', 'sigmarad']):
+                line = line.replace('rad', 'R')
+            if any(x in line for x in ['Sigmatan', 'sigmatan']):
+                line = line.replace('tan', 'T')
+            # if label, ls: swap to ls, label.
+            # Put ls and color together.
+            if re.findall(regexUpper.pattern_1, line):
+                print(line)
+                # print(re.sub(regexUpper.sub_pattern, '', line))
+                line = re.sub(regexUpper.sub_pattern, '', line)
+                print(line)
+            wf.write(line)
 
 
 def main():
