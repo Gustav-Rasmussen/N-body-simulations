@@ -360,65 +360,65 @@ def func_4_log(log10x, a, q, b):
 '''
 binning_arr = np.linspace(R_limit_min, R_limit_max, nr_binning_bins) 
 
-for i in range(nr_binning_bins-2): 
-    min_R_bin_i            = binning_arr[i]  # start of bin
-    max_R_bin_i            = binning_arr[i+1]  # end of bin
-    posR_par_inside_bin_i  = np.where((R_hob_par>min_R_bin_i) & (R_hob_par<max_R_bin_i)) # position of particles inside a radial bin
-    nr_par_inside_bin_i    = len(posR_par_inside_bin_i[0]) 
-    if nr_par_inside_bin_i == 0:
+for i in range(nr_binning_bins - 2): 
+    min_R_bin_i = binning_arr[i]  # start of bin
+    max_R_bin_i = binning_arr[i + 1]  # end of bin
+    posR_par_in_bin_i = np.where((R_hob_par > min_R_bin_i) & (R_hob_par < max_R_bin_i))  # position of particles inside a radial bin
+    nr_par_in_bin_i = len(posR_par_in_bin_i[0])
+    if nr_par_in_bin_i == 0:
         continue
 
-    r_i      = (x[posR_par_inside_bin_i]**2 + y[posR_par_inside_bin_i]**2+ z[posR_par_inside_bin_i]**2)**.5
-    Phi_i    = sp.arctan2(y[posR_par_inside_bin_i],x[posR_par_inside_bin_i])
-    Theta_i  = sp.arccos(z[posR_par_inside_bin_i]/r_i)
-    VR_i     = sp.sin(Theta_i)*sp.cos(Phi_i) * vx[posR_par_inside_bin_i] + sp.sin(Theta_i)*sp.sin(Phi_i) * vy[posR_par_inside_bin_i] + sp.cos(Theta_i) * vz[posR_par_inside_bin_i]
+    r_i = (x[posR_par_inside_bin_i]**2 + y[posR_par_inside_bin_i]**2+ z[posR_par_inside_bin_i]**2)**.5
+    Phi_i = sp.arctan2(y[posR_par_inside_bin_i],x[posR_par_inside_bin_i])
+    Theta_i = sp.arccos(z[posR_par_inside_bin_i]/r_i)
+    VR_i = sp.sin(Theta_i)*sp.cos(Phi_i) * vx[posR_par_inside_bin_i] + sp.sin(Theta_i)*sp.sin(Phi_i) * vy[posR_par_inside_bin_i] + sp.cos(Theta_i) * vz[posR_par_inside_bin_i]
     VTheta_i = sp.cos(Theta_i)*sp.cos(Phi_i) * vx[posR_par_inside_bin_i] + sp.cos(Theta_i)*sp.sin(Phi_i) * vy[posR_par_inside_bin_i] - sp.sin(Theta_i) * vz[posR_par_inside_bin_i]
-    VPhi_i   = - sp.sin(Phi_i) * vx[posR_par_inside_bin_i] + sp.cos(Phi_i) * vy[posR_par_inside_bin_i]
-    VT_i     = (VTheta_i**2 + VPhi_i**2)**.5
-    R_LOS_i  = (y[posR_par_inside_bin_i]**2 + z[posR_par_inside_bin_i]**2)**.5
+    VPhi_i = - sp.sin(Phi_i) * vx[posR_par_inside_bin_i] + sp.cos(Phi_i) * vy[posR_par_inside_bin_i]
+    VT_i = (VTheta_i**2 + VPhi_i**2)**.5
+    R_LOS_i = (y[posR_par_inside_bin_i]**2 + z[posR_par_inside_bin_i]**2)**.5
     vx_LOS_i = vx[posR_par_inside_bin_i]
-    #v2      = vx[posR_par_inside_bin_i]**2+vy[posR_par_inside_bin_i]**2+vz[posR_par_inside_bin_i]**2
-    v        = (vx[posR_par_inside_bin_i]**2+vy[posR_par_inside_bin_i]**2+vz[posR_par_inside_bin_i]**2)**.5
-    
+    # v2 = vx[posR_par_inside_bin_i]**2+vy[posR_par_inside_bin_i]**2+vz[posR_par_inside_bin_i]**2
+    v = (vx[posR_par_inside_bin_i]**2+vy[posR_par_inside_bin_i]**2+vz[posR_par_inside_bin_i]**2)**.5
+
     # sigmatan2
-    vtan2_inside_bin_i     = VT_i**2
-    sigmatan2_inside_bin_i = (1./(nr_par_inside_bin_i+1.))*np.sum(vtan2_inside_bin_i)
-    sigmatan2.append(sigmatan2_inside_bin_i)
-    #print sigmatan2_inside_bin_i, np.std(VT_i)**2
-    #print sigmatan2_inside_bin_i, np.mean(VT_i**2), nr_par_inside_bin_i
+    vtan2_in_bin_i = VT_i ** 2
+    sigmatan2_in_bin_i = (1. / (nr_par_in_bin_i + 1.)) * np.sum(vtan2_in_bin_i)
+    sigmatan2.append(sigmatan2_in_bin_i)
+    # print(sigmatan2_in_bin_i, np.std(VT_i) ** 2)
+    # print(sigmatan2_in_bin_i, np.mean(VT_i ** 2), nr_par_in_bin_i)
 
-    #sigma2 total
-    #v2_inside_bin_i     = v2
-    #sigma2_inside_bin_i = (1./(nr_par_inside_bin_i+1.))*np.sum(v2_inside_bin_i)
-    #sigma2_inside_bin_i = (1./(nr_par_inside_bin_i+1.))*np.sum(v2)
-    #sigma2.append(sigma2_inside_bin_i)
-    bin_radius_arr.append((max_R_bin_i + min_R_bin_i)/2)
+    # sigma2 total
+    # v2_in_bin_i = v2
+    # sigma2_in_bin_i = (1./(nr_par_in_bin_i+1.))*np.sum(v2_in_bin_i)
+    # sigma2_in_bin_i = (1./(nr_par_in_bin_i+1.))*np.sum(v2)
+    # sigma2.append(sigma2_in_bin_i)
+    bin_radius_arr.append((max_R_bin_i + min_R_bin_i) / 2)
 
-    #sigmarad2 radial
-    vrad2_inside_bin_i     = VR_i**2
-    sigmarad2_inside_bin_i = (1./(nr_par_inside_bin_i+1.))*np.sum(vrad2_inside_bin_i)
-    sigmarad2.append(sigmarad2_inside_bin_i)
+    # sigmarad2 radial
+    vrad2_in_bin_i = VR_i ** 2
+    sigmarad2_in_bin_i = (1. / (nr_par_in_bin_i + 1.)) * np.sum(vrad2_in_bin_i)
+    sigmarad2.append(sigmarad2_in_bin_i)
 
-    #sigmatheta2
-    VTheta2_inside_bin_i     = VTheta_i**2
-    sigmatheta2_inside_bin_i = (1./(nr_par_inside_bin_i+1.))*np.sum(VTheta2_inside_bin_i)
-    sigmatheta2.append(sigmatheta2_inside_bin_i)
+    # sigmatheta2
+    VTheta2_in_bin_i = VTheta_i ** 2
+    sigmatheta2_in_bin_i = (1. / (nr_par_in_bin_i + 1.)) * np.sum(VTheta2_in_bin_i)
+    sigmatheta2.append(sigmatheta2_in_bin_i)
 
-    #sigmaphi2
-    VPhi2_inside_bin_i     = VPhi_i**2
-    sigmaphi2_inside_bin_i = (1./(nr_par_inside_bin_i+1.))*np.sum(VPhi2_inside_bin_i)
-    sigmaphi2.append(sigmaphi2_inside_bin_i)
+    # sigmaphi2
+    VPhi2_in_bin_i = VPhi_i ** 2
+    sigmaphi2_in_bin_i = (1. / (nr_par_in_bin_i + 1.)) * np.sum(VPhi2_in_bin_i)
+    sigmaphi2.append(sigmaphi2_in_bin_i)
 
-    #sigma_i     = (sigma2[i])**.5
-    sigma_i      = ((1./(nr_par_inside_bin_i+1.))*np.sum(v**2))**.5 # total sigma
-    #sigmarad_i  = (sigmarad2[i])**.5
-    sigmarad_i   = ((1./(nr_par_inside_bin_i+1.))*np.sum(VR_i**2))**.5
-    #sigmatheta_i = (sigmatheta2[i])**.5
-    sigmatheta_i  = ((1./(nr_par_inside_bin_i+1.))*np.sum(VTheta_i**2))**.5
-    #sigmaphi_i   = (sigmaphi2[i])**.5
-    sigmaphi_i    = ((1./(nr_par_inside_bin_i+1.))*np.sum(VPhi_i**2))**.5
-    #sigmatan_i   = (sigmatan2[i])**.5
-    sigmatan_i    = ((1./(nr_par_inside_bin_i+1.))*np.sum(VT_i**2))**.5 
+    # sigma_i = sigma2[i] ** .5
+    sigma_i = ((1. / (nr_par_in_bin_i + 1.)) * np.sum(v**2)) ** .5  # total sigma
+    # sigmarad_i = sigmarad2[i] ** .5
+    sigmarad_i = ((1. / (nr_par_in_bin_i + 1.)) * np.sum(VR_i ** 2)) ** .5
+    # sigmatheta_i = sigmatheta2[i] ** .5
+    sigmatheta_i = ((1. / (nr_par_in_bin_i + 1.)) * np.sum(VTheta_i ** 2)) ** .5
+    # sigmaphi_i = sigmaphi2[i] ** .5
+    sigmaphi_i = ((1. / (nr_par_in_bin_i + 1.)) * np.sum(VPhi_i ** 2)) ** .5
+    # sigmatan_i = sigmatan2[i] ** .5
+    sigmatan_i = ((1. / (nr_par_in_bin_i + 1.)) * np.sum(VT_i ** 2)) ** .5 
 
     R_LOS_arr.append(R_LOS_i)
     vx_LOS_arr.append(vx_LOS_i)
@@ -429,47 +429,47 @@ for i in range(nr_binning_bins-2):
     sigmaphi.append(sigmaphi_i)
     sigmatan.append(sigmatan_i)
 
-    r.append(r_i)   #save arrays
+    r.append(r_i)  # save arrays
     Phi.append(Phi_i)
     Theta.append(Theta_i)
     VR.append(VR_i)
     VTheta.append(VTheta_i)
     VPhi.append(VPhi_i)
     VT.append(VT_i)
-    #np.array(VT)
+    # np.array(VT)
     
-    VR_sigmarad.append(VR_i/sigmarad_i)
-    VTheta_sigmatheta.append(VTheta_i/sigmatheta_i)
-    VPhi_sigmaphi.append(VPhi_i/sigmaphi_i)
-    VT_sigmatan.append(VT_i/sigmatan_i)
+    VR_sigmarad.append(VR_i / sigmarad_i)
+    VTheta_sigmatheta.append(VTheta_i / sigmatheta_i)
+    VPhi_sigmaphi.append(VPhi_i / sigmaphi_i)
+    VT_sigmatan.append(VT_i / sigmatan_i)
 
-#R_LOS                = np.array(R_LOS_arr)
-#vx_LOS               = np.array(vx_LOS_arr)
-R_LOS                 = np.concatenate(np.array(R_LOS_arr),axis = 0)
-vx_LOS                = np.concatenate(np.array(vx_LOS_arr),axis = 0)
+# R_LOS = np.array(R_LOS_arr)
+# vx_LOS = np.array(vx_LOS_arr)
+R_LOS = np.concatenate(np.array(R_LOS_arr), axis = 0)
+vx_LOS = np.concatenate(np.array(vx_LOS_arr), axis = 0)
 
-sigma2                = np.array(sigma2) 
-sigmarad2             = np.array(sigmarad2)
-sigmatheta2           = np.array(sigmatheta2)
-sigmaphi2             = np.array(sigmaphi2)
-sigmatan2             = np.array(sigmatan2)
-sigma                 = np.array(sigma)
-sigmarad              = np.array(sigmarad)
-sigmatheta            = np.array(sigmatheta)
-sigmaphi              = np.array(sigmaphi)
-sigmatan              = np.array(sigmatan)
+sigma2 = np.array(sigma2)
+sigmarad2 = np.array(sigmarad2)
+sigmatheta2 = np.array(sigmatheta2)
+sigmaphi2 = np.array(sigmaphi2)
+sigmatan2 = np.array(sigmatan2)
+sigma = np.array(sigma)
+sigmarad = np.array(sigmarad)
+sigmatheta = np.array(sigmatheta)
+sigmaphi = np.array(sigmaphi)
+sigmatan = np.array(sigmatan)
 
-r                     = np.concatenate(np.array(r),axis = 0)
-Phi                   = np.concatenate(np.array(Phi),axis = 0)
-Theta                 = np.concatenate(np.array(Theta),axis = 0)
-VR                    = np.concatenate(np.array(VR),axis = 0)
-VTheta                = np.concatenate(np.array(VTheta),axis = 0)
-VPhi                  = np.concatenate(np.array(VPhi),axis = 0)
-VT                    = np.concatenate(np.array(VT),axis = 0)
-VR_sigmarad           = np.concatenate(np.array(VR_sigmarad),axis = 0)
-VTheta_sigmatheta     = np.concatenate(np.array(VTheta_sigmatheta),axis = 0)
-VPhi_sigmaphi         = np.concatenate(np.array(VPhi_sigmaphi),axis = 0)
-VT_sigmatan           = np.concatenate(np.array(VT_sigmatan),axis = 0)
+r = np.concatenate(np.array(r), axis=0)
+Phi = np.concatenate(np.array(Phi), axis=0)
+Theta = np.concatenate(np.array(Theta), axis=0)
+VR = np.concatenate(np.array(VR), axis=0)
+VTheta = np.concatenate(np.array(VTheta), axis=0)
+VPhi = np.concatenate(np.array(VPhi), axis=0)
+VT = np.concatenate(np.array(VT), axis=0)
+VR_sigmarad = np.concatenate(np.array(VR_sigmarad), axis=0)
+VTheta_sigmatheta = np.concatenate(np.array(VTheta_sigmatheta), axis=0)
+VPhi_sigmaphi = np.concatenate(np.array(VPhi_sigmaphi), axis=0)
+VT_sigmatan = np.concatenate(np.array(VT_sigmatan), axis=0)
 
 '''
 
@@ -580,131 +580,85 @@ if vsphericalnew_sigma:
     VT_sigmatan_p_arr = np.asarray(VT_sigmatan_p)
     VT_sigmatan_n_arr = np.asarray(VT_sigmatan_n)
 
+r = ravf.modulus(x, y, z)
+Phi = sp.arctan2(y, x)
+Theta = sp.arccos(z / r)
+VR = sp.sin(Theta) * sp.cos(Phi) * vx + sp.sin(Theta) * sp.sin(Phi) * vy + sp.cos(Theta) * vz
+R = (y ** 2 + z ** 2) ** .5
+    
 if Fig13_LOS:
-    r             = (x**2+y**2+z**2)**.5
-    Phi           = sp.arctan2(y,x)
-    Theta         = sp.arccos(z/r)
-    VR            = sp.sin(Theta)*sp.cos(Phi)*vx+sp.sin(Theta)*sp.sin(Phi)*vy+sp.cos(Theta)*vz
-    R             = (y**2+z**2)**.5
-    f,(ax1,ax2)   = plt.subplots(1,2)
-
-    ax1.plot(r, VR,'o', color = 'Blue',lw=2,ms=1)
+    f, (ax1, ax2) = plt.subplots(1, 2)
+    ax1.plot(r, VR, 'bo', lw=2, ms=1)
     ax1.set_xlabel(r'Radius, $r$', fontsize=30)
     ax1.set_ylabel(r'Radial velocity, $v_r$', fontsize=30)
-    ax1.set_title(r' %s' %F, fontsize=30)
-
-    ax2.plot(R, vx,'o',color = 'Blue',lw=2,ms=1)
+    ax1.set_title(F, fontsize=30)
+    ax2.plot(R, vx, 'bo', lw=2, ms=1)
     ax2.set_xlabel(r'Projected radius, $R$', fontsize=30)
     ax2.set_ylabel(r'Line-of-sight velocity, $v_x$', fontsize=30)
     ax2.set_title('LOS (A)', fontsize=30)
-
-    # f.savefig(figure_path + 'A_v.png'      )
-    # f.savefig(figure_path + 'B_v.png'      )
-    # f.savefig(figure_path + 'Soft_B_v.png' )
-    # f.savefig(figure_path + 'CS1_v.png'    )
-    # f.savefig(figure_path + 'CS2_v.png'    )
-    # f.savefig(figure_path + 'CS3_v.png'    )
-    # f.savefig(figure_path + 'CS4_v.png'    )
-    # f.savefig(figure_path + 'CS5_v.png'    )
-    # f.savefig(figure_path + 'CS6_v.png'    )
-    # f.savefig(figure_path + 'DS1_v.png'    )
-    # f.savefig(figure_path + 'D2_v.png'     )
-    # f.savefig(figure_path + 'Soft_D2_v.png')
-    # f.savefig(figure_path + 'E_v.png'      )
+    figs = ['A', 'B', 'Soft_B', 'CS1', 'CS2', 'CS3', 'CS4', 'CS5', 'CS6', 'DS1', 'D2', 'Soft_D2', 'E']
+    f.savefig(figure_path + figs[0] + '_v.png')
 
 if Fig14_LOS_log:
-    r           = (x**2+y**2+z**2)**.5
-    Phi         = sp.arctan2(y,x)
-    Theta       = sp.arccos(z/r)
-    VR          = sp.sin(Theta)*sp.cos(Phi)*vx+sp.sin(Theta)*sp.sin(Phi)*vy+sp.cos(Theta)*vz
-    R           = (y**2+z**2)**.5
-    f,(ax1,ax2) = plt.subplots(1,2)
-
-    ax1.plot(np.log10(r),VR,'o',color='Blue',lw=2,ms=1)
-    ax1.set_xlabel(r'$\log$ r',fontsize=30)
-    ax1.set_ylabel(r'Radial velocity, $v_r$',fontsize=30)
-    ax1.set_title(r'%s'%F,fontsize=30)
-
-    ax2.plot(np.log10(R),vx,'o',color='Blue',lw=2,ms=1)
-    ax2.set_xlabel(r'$\log$ R',fontsize=30)
-    ax2.set_ylabel(r'Line-of-sight velocity,$v_x$',fontsize=30)
-    ax2.set_title('LOS (A)',fontsize=30)
-
-    # f.savefig(figure_path + 'A_v.png'      )
-    # f.savefig(figure_path + 'B_v.png'      )
-    # f.savefig(figure_path + 'Soft_B_v.png' )
-    # f.savefig(figure_path + 'CS1_v.png'    )
-    # f.savefig(figure_path + 'CS2_v.png'    )
-    # f.savefig(figure_path + 'CS3_v.png'    )
-    # f.savefig(figure_path + 'CS4_v.png'    )
-    # f.savefig(figure_path + 'CS5_v.png'    )
-    # f.savefig(figure_path + 'CS6_v.png'    )
-    # f.savefig(figure_path + 'DS1_v.png'    )
-    # f.savefig(figure_path + 'D2_v.png'     )
-    # f.savefig(figure_path + 'Soft_D2_v.png')
-    # f.savefig(figure_path + 'E_v.png')
+    f, (ax1, ax2) = plt.subplots(1, 2)
+    ax1.plot(np.log10(r), VR, 'bo', lw=2, ms=1)
+    ax1.set_xlabel(r'$\log$ r', fontsize=30)
+    ax1.set_ylabel(r'Radial velocity, $v_r$', fontsize=30)
+    ax1.set_title(F, fontsize=30)
+    ax2.plot(np.log10(R), vx, 'bo', lw=2, ms=1)
+    ax2.set_xlabel(r'$\log$ R', fontsize=30)
+    ax2.set_ylabel(r'Line-of-sight velocity, $v_x$', fontsize=30)
+    ax2.set_title('LOS (A)', fontsize=30)
+    figs = ['A', 'B', 'Soft_B', 'CS1', 'CS2', 'CS3', 'CS4', 'CS5', 'CS6', 'DS1', 'D2', 'Soft_D2', 'E']
+    f.savefig(figure_path + figs[0] + '_v.png')
 
 if Fig15_LOS_radius10:
-    r     = (x**2+y**2+z**2)**.5
-    Phi   = sp.arctan2(y,x)
-    Theta = sp.arccos(z/r)
-    VR    = sp.sin(Theta)*sp.cos(Phi)*vx+sp.sin(Theta)*sp.sin(Phi)*vy+sp.cos(Theta)*vz
-    R     = (y**2+z**2)**.5
     f,((ax1,ax2),(ax3,ax4)) = plt.subplots(2,2)
-
     ax1.set_xlim(0,10)
-    ax1.plot(r, VR,'o', color = 'Blue',lw=2,ms=1 )
+    ax1.plot(r, VR,'bo',lw=2,ms=1 )
     ax1.set_xlabel(r'Radius, $r$', fontsize=30)
     ax1.set_ylabel(r'Radial velocity, $v_r$', fontsize=30)
-    ax1.set_title(r' %s' %F, fontsize=30)
-
-    ax2.set_xlim(0,10)
-    ax2.plot(R, vx,'o',color = 'Blue',lw=2,ms=1 )
+    ax1.set_title(F, fontsize=30)
+    ax2.set_xlim(0, 10)
+    ax2.plot(R, vx,'bo',lw=2,ms=1 )
     ax2.set_xlabel(r'Projected radius, $R$', fontsize=30)
     ax2.set_ylabel(r'Line-of-sight velocity, $v_x$', fontsize=30)
     ax2.set_title('Line-of-sight', fontsize=30)
-
     ax3.set_xlim(np.log10(0),np.log10(10))
-    ax3.plot(np.log10(r), VR,'o', color = 'Blue',lw=2,ms=1 )
+    ax3.plot(np.log10(r), VR,'bo',lw=2,ms=1 )
     ax3.set_xlabel(r'$\log$ r', fontsize=30)
     ax3.set_ylabel(r'Radial velocity, $v_r$', fontsize=30)
-
     ax4.set_xlim(np.log10(0),np.log10(10))
-    ax4.plot(np.log10(R), vx,'o',color = 'Blue',lw=2,ms=1 )
+    ax4.plot(np.log10(R), vx,'bo',lw=2,ms=1 )
     ax4.set_xlabel(r'$\log$ R', fontsize=30)
     ax4.set_ylabel(r'Line-of-sight velocity, $v_x$', fontsize=30)
 
 if Fig16_LOS_radius50:
-    r     = (x**2+y**2+z**2)**.5
-    Phi   = sp.arctan2(y,x)
-    Theta = sp.arccos(z/r)
-    VR    = sp.sin(Theta)*sp.cos(Phi)*vx+sp.sin(Theta)*sp.sin(Phi)*vy+sp.cos(Theta)*vz
-    R     = (y**2+z**2)**.5
     f,((ax1,ax2),(ax3,ax4))=plt.subplots(2,2)    
     # Only choose every thousand particle to plot.
     a = 0
     while a < len(r):
-        #ax1.set_xlim(0,50)
-        ax1.plot(r[a], VR[a],'o', color = 'Blue',lw=2,ms=1 )
+        # ax1.set_xlim(0, 50)
+        ax1.plot(r[a], VR[a],'bo',lw=2,ms=1)
         #ax2.set_xlim(0,50)
-        ax2.plot(R[a], vx[a],'o',color = 'Blue',lw=2,ms=1 )
+        ax2.plot(R[a], vx[a],'bo', lw=2, ms=1)
         #ax3.set_xlim(np.log10(0),np.log10(50))
-        ax3.plot(np.log10(r[a]), VR[a],'o', color = 'Blue',lw=2,ms=1 )
+        ax3.plot(np.log10(r[a]), VR[a],'bo',lw=2,ms=1 )
         #ax4.set_xlim(np.log10(0),np.log10(50))
-        ax4.plot(np.log10(R[a]), vx[a],'o',color = 'Blue',lw=2,ms=1 )
-        #print 'a = ', a
-        a += 10**3
+        ax4.plot(np.log10(R[a]), vx[a],'bo',lw=2,ms=1 )
+        # print('a = ', a)
+        a += 10 ** 3
     '''
-    ax1.plot(r, VR,'o', color = 'Blue',lw=2,ms=1 )
-    ax2.plot(R, vx,'o',color = 'Blue',lw=2,ms=1 )
-    ax3.plot(np.log10(r), VR,'o', color = 'Blue',lw=2,ms=1 )
-    ax4.plot(np.log10(R), vx,'o',color = 'Blue',lw=2,ms=1 )
+    ax1.plot(r, VR,'bo',lw=2,ms=1 )
+    ax2.plot(R, vx,'bo',lw=2,ms=1 )
+    ax3.plot(np.log10(r), VR,'bo',lw=2,ms=1 )
+    ax4.plot(np.log10(R), vx,'bo',lw=2,ms=1 )
     '''
     ax1.set_xlim(0,50)
     ax1.set_xlabel(r'Radius, $r$', fontsize=30)
     ax1.set_ylabel(r'Radial velocity, $v_r$', fontsize=30)
-    ax1.set_title(r' %s, $N = 10^3 $' %F, fontsize=30)
-    #ax1.set_title(r' %s' %F, fontsize=30)
+    ax1.set_title(r' %s, $N = 10^3 $' % F, fontsize=30)
+    #ax1.set_title(F, fontsize=30)
 
     ax2.set_xlim(0,50)
     ax2.set_xlabel(r'Projected radius, $R$', fontsize=30)
@@ -722,47 +676,42 @@ if Fig16_LOS_radius50:
     ax4.set_ylabel(r'Line-of-sight velocity, $v_x$', fontsize=30)
 
 if Fig17_LOS_radius200:
-    r     = (x**2 + y**2 + z**2)**.5
-    Phi   = sp.arctan2(y,x)
-    Theta = sp.arccos(z/r)
-    VR    = sp.sin(Theta)*sp.cos(Phi) * vx + sp.sin(Theta)*sp.sin(Phi) * vy + sp.cos(Theta) * vz
-    R     = (y**2 + z**2)**.5
     f, ((ax1, ax2),(ax3, ax4)) = plt.subplots(2, 2) # Only choose every thousand particle to plot.
     a = 0
     while a < len(r):
         #ax1.set_xlim(0,50)
-        ax1.plot(r[a], VR[a],'o', color = 'Blue',lw=2,ms=1 )
+        ax1.plot(r[a], VR[a],'bo',lw=2,ms=1 )
         #ax2.set_xlim(0,50)
-        ax2.plot(R[a], vx[a],'o',color = 'Blue',lw=2,ms=1 )
+        ax2.plot(R[a], vx[a],'bo',lw=2,ms=1 )
         #ax3.set_xlim(np.log10(0),np.log10(50))
-        ax3.plot(np.log10(r[a]), VR[a],'o', color = 'Blue',lw=2,ms=1 )
+        ax3.plot(np.log10(r[a]), VR[a],'bo',lw=2,ms=1 )
         #ax4.set_xlim(np.log10(0),np.log10(50))
-        ax4.plot(np.log10(R[a]), vx[a],'o',color = 'Blue',lw=2,ms=1 )
-        #print 'a = ', a
-        a += 10**3
+        ax4.plot(np.log10(R[a]), vx[a],'bo',lw=2,ms=1 )
+        # print('a = ', a)
+        a += 10 ** 3
     '''
-    ax1.plot(r, VR,'o', color = 'Blue',lw=2,ms=1 )
-    ax2.plot(R, vx,'o',color = 'Blue',lw=2,ms=1 )
-    ax3.plot(np.log10(r), VR,'o', color = 'Blue',lw=2,ms=1 )
-    ax4.plot(np.log10(R), vx,'o',color = 'Blue',lw=2,ms=1 )
+    ax1.plot(r, VR,'bo',lw=2,ms=1 )
+    ax2.plot(R, vx,'bo',lw=2,ms=1 )
+    ax3.plot(np.log10(r), VR,'bo',lw=2,ms=1 )
+    ax4.plot(np.log10(R), vx,'bo',lw=2,ms=1 )
     '''
 
     ax1.set_xlim(0,200)
     ax1.set_xlabel(r'Radius, $r$', fontsize=30)
     ax1.set_ylabel(r'Radial velocity, $v_r$', fontsize=30)
     ax1.set_title(r' %s, $N = 10^3 $' %F, fontsize=30)
-    #ax1.set_title(r' %s' %F, fontsize=30)    
+    #ax1.set_title(F, fontsize=30)    
  
-    ax2.set_xlim(0,200)
+    ax2.set_xlim(0, 200)
     ax2.set_xlabel(r'Projected radius, $R$', fontsize=30)
     ax2.set_ylabel(r'Line-of-sight velocity, $v_x$', fontsize=30)
     ax2.set_title('Line-of-sight', fontsize=30)
     
-    ax3.set_xlim(0,np.log(200))
+    ax3.set_xlim(0, np.log(200))
     ax3.set_xlabel(r'$\log$ r', fontsize=30)
     ax3.set_ylabel(r'Radial velocity, $v_r$', fontsize=30)
 
-    ax4.set_xlim(0,np.log(200))
+    ax4.set_xlim(0, np.log(200))
     ax4.set_xlabel(r'$\log$ R', fontsize=30)
     ax4.set_ylabel(r'Line-of-sight velocity, $v_x$', fontsize=30)
     
