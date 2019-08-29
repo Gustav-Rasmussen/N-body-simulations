@@ -6,9 +6,7 @@ do
    # python Energy_exchange_D1.py
 done
 
-
-
-/*
+: <<'END'
 mpirun -np 4 ./Gadget2 Run0.param
 python Energy_exchange_D1.py
 mpirun -np 4 ./Gadget2 Run1.param
@@ -51,4 +49,4 @@ mpirun -np 4 ./Gadget2 Run19.param
 python Energy_exchange_D1.py
 mpirun -np 4 ./Gadget2 Run20.param
 python Energy_exchange_D1.py
-*/
+END
