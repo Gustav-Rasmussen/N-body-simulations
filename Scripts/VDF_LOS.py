@@ -38,151 +38,149 @@ Martin_path = 'Martin_IC_and_Final_Edd_and_OM/'
 hdf5_path = Desktop_path + 'G_perturbations/hdf5_files/'
 nosync_path = User_path + 'nosync/RunGadget/'
 
-# Filename = hdf5_path                        + '0G00_IC_000.hdf5'
-# Filename       = hdf5_path                        + '0G20_Final_000.hdf5'
-# Filename       = hdf5_path                        + 'OMG00_001_IC_000.hdf5'
-# Filename       = hdf5_path                        + 'OMG20_Final_000.hdf5'
+# Filename = hdf5_path + '0G00_IC_000.hdf5'
+# Filename = hdf5_path + '0G20_Final_000.hdf5'
+# Filename = hdf5_path + 'OMG00_001_IC_000.hdf5'
+# Filename = hdf5_path + 'OMG20_Final_000.hdf5'
 
-test_path        = 'G_HQ_1000000_test/output/'
-#Filename        = GADGET_G_path + test_path        + 'Hernquist10000_G1.0_0_000.hdf5'
-#Filename        = GADGET_G_path + test_path        + 'Hernquist10000_G1.2_1_005.hdf5'
-#Filename        = GADGET_G_path + test_path        + 'Hernquist10000_G0.8_2_000.hdf5'
-#Filename        = GADGET_G_path + test_path        + 'Hernquist10000_G0.8_2_005.hdf5'
-#Filename        = GADGET_G_path + test_path        + 'Hernquist10000_G1.2_3_005.hdf5'
-#Filename        = GADGET_G_path + test_path        + 'Hernquist10000_G1.2_5_005.hdf5'
-#Filename        = GADGET_G_path + test_path        + 'Hernquist10000_G1.2_7_005.hdf5'
-#Filename        = GADGET_G_path + test_path        + 'Hernquist10000_G1.2_9_005.hdf5'
-#Filename        = GADGET_G_path + test_path        + 'Hernquist10000_G1.0_10_009.hdf5'
-A_path           = 'G_HQ_1000000_A/output/'
-Filename        = GADGET_G_path + A_path           + 'Hernquist10000_G1.0_0_000.hdf5'
-#Filename        = GADGET_G_path + A_path           + 'Hernquist10000_G1.0_5_005.hdf5'
-#Filename        = GADGET_G_path + A_path           + 'Hernquist10000_G1.0_10_005.hdf5'
-#Filename        = GADGET_G_path + A_path           + 'Hernquist10000_G1.0_40_005.hdf5'
-#Filename        = GADGET_G_path + A_path           + 'Hernquist10000_G1.0_48_009.hdf5'
-#Filename        = nosync_path   + A_path           + 'Hernquist10000_G1.0_48_093.hdf5'   
-B_path           = 'G_HQ_1000000_B/output/'
-#Filename        = GADGET_G_path + B_path           + 'Hernquist10000_G1.0_0_000.hdf5'
-#Filename        = GADGET_G_path + B_path           + 'Hernquist10000_G1.0_5_005.hdf5'
-#Filename        = GADGET_G_path + B_path           + 'Hernquist10000_G1.0_10_005.hdf5'
-#Filename        = GADGET_G_path + B_path           + 'Hernquist10000_G1.0_198_000.hdf5'
-#Filename        = GADGET_G_path + B_path           + 'Hernquist10000_G1.0_198_093.hdf5'
-#Filename        = GADGET_G_path + B_path           + 'Hernquist10000_G1.0_199_093.hdf5'
-Soft_B_path      = 'Soft_G_HQ_1000000_B/output/'
-#Filename        = GADGET_G_path + Soft_B_path      + 'Hernquist10000_G1.0_0_000.hdf5'
-#Filename        = GADGET_G_path + Soft_B_path      + 'Hernquist10000_G1.0_5_005.hdf5'
-#Filename        = GADGET_G_path + Soft_B_path      + 'Hernquist10000_G1.0_10_005.hdf5'
-#Filename        = GADGET_G_path + Soft_B_path      + 'Hernquist10000_G1.0_198_000.hdf5'
-#Filename        = GADGET_G_path + Soft_B_path      + 'Hernquist10000_G1.0_198_093.hdf5'
-#Filename        = GADGET_G_path + Soft_B_path      + 'Hernquist10000_G1.0_199_093.hdf5'
-CS1_path         = 'G_HQ_10000_CS1/output/'
-#Filename        = GADGET_G_path + CS1_path         + 'Osipkov_Merritt10000_G1.0_0_000.hdf5'
-CS2_path         = 'G_HQ_10000_CS2/output/'
-#Filename        = GADGET_G_path + CS2_path         + 'Osipkov_Merritt10000_G1.0_0_000.hdf5'
-CS3_path         = 'G_HQ_10000_CS3/output/'
-#Filename        = GADGET_G_path + CS3_path         + 'Osipkov_Merritt10000_G1.0_0_000.hdf5'
-CS4_path         = 'G_HQ_100000_CS4/output/'
-#Filename        = GADGET_G_path + CS4_path         + 'Osipkov_Merritt10000_G1.0_0_000.hdf5'
-#Filename        = GADGET_G_path + CS4_path         + 'Osipkov_Merritt10000_G1.0_48_093.hdf5'
-CS5_path         = 'G_HQ_100000_CS5/output/'
-#Filename        = GADGET_G_path + CS5_path         + 'Osipkov_Merritt10000_G1.0_0_000.hdf5'
-#Filename        = GADGET_G_path + CS5_path         + 'Osipkov_Merritt10000_G1.0_48_093.hdf5'
-CS6_path         = 'G_HQ_100000_CS6/output/'
-#Filename        = GADGET_G_path + CS6_path         + 'Osipkov_Merritt10000_G1.0_0_000.hdf5'
-#Filename        = GADGET_G_path + CS6_path         + 'Osipkov_Merritt10000_G1.0_48_093.hdf5'
-DS1_path         = 'G_0_5_100000_DS1/output/'
-#Filename        = GADGET_G_path + DS1_path         + 'Osipkov_Merritt10000_G1.0_0_000.hdf5'
-#Filename        = GADGET_G_path + DS1_path         + 'Osipkov_Merritt10000_G1.0_48_093.hdf5'
-#Filename        = GADGET_G_path + DS1_path         + 'Osipkov_Merritt10000_G1.0_49_093.hdf5'
-D2_path          = 'G_0_5_100000_D2/output/'
-#Filename        = GADGET_G_path + D2_path          + 'Hernquist10000_G1.0_0_000.hdf5'
-#Filename        = GADGET_G_path + D2_path          + 'Hernquist10000_G1.0_48_093.hdf5'
-#Filename        = GADGET_G_path + D2_path          + 'Hernquist10000_G1.0_49_093.hdf5'
-Soft_D2_path     = 'Soft_G_0_5_100000_D2/output/'
-#Filename        = GADGET_G_path + Soft_D2_path     + 'Hernquist10000_G1.0_0_000.hdf5'
-#Filename        = GADGET_G_path + Soft_D2_path     + 'Hernquist10000_G1.0_48_093.hdf5'
-#Filename        = GADGET_G_path + Soft_D2_path     + 'Hernquist10000_G1.0_49_093.hdf5'
-E_path           = 'Soft_G_HQ_1000000_E/output/'
-#Filename        = GADGET_G_path + E_path           + 'Hernquist10000_G1.0_0_000.hdf5' 
-#Filename        = GADGET_G_path + E_path           + 'Hernquist10000_G1.0_5_005.hdf5' 
-#Filename        = GADGET_G_path + E_path           + 'Hernquist10000_G1.0_10_005.hdf5' 
-#Filename        = GADGET_G_path + E_path           + 'Hernquist10000_G1.0_160_005.hdf5'
-#Filename        = GADGET_G_path + E_path           + 'Hernquist10000_G1.05_196_005.hdf5'
-#Filename        = GADGET_G_path + E_path           + 'Hernquist10000_G0.95_197_005.hdf5'
-#Filename        = GADGET_G_path + E_path           + 'Hernquist10000_G1.0_198_009.hdf5'
-#Filename        = GADGET_G_path + E_path           + 'Hernquist10000_G1.0_198_093.hdf5'
+test_path = 'G_HQ_1000000_test/output/'
+#Filename = GADGET_G_path + test_path + 'Hernquist10000_G1.0_0_000.hdf5'
+#Filename = GADGET_G_path + test_path + 'Hernquist10000_G1.2_1_005.hdf5'
+#Filename = GADGET_G_path + test_path + 'Hernquist10000_G0.8_2_000.hdf5'
+#Filename = GADGET_G_path + test_path + 'Hernquist10000_G0.8_2_005.hdf5'
+#Filename = GADGET_G_path + test_path + 'Hernquist10000_G1.2_3_005.hdf5'
+#Filename = GADGET_G_path + test_path + 'Hernquist10000_G1.2_5_005.hdf5'
+#Filename = GADGET_G_path + test_path + 'Hernquist10000_G1.2_7_005.hdf5'
+#Filename = GADGET_G_path + test_path + 'Hernquist10000_G1.2_9_005.hdf5'
+#Filename = GADGET_G_path + test_path + 'Hernquist10000_G1.0_10_009.hdf5'
+A_path = 'G_HQ_1000000_A/output/'
+Filename = GADGET_G_path + A_path + 'Hernquist10000_G1.0_0_000.hdf5'
+#Filename = GADGET_G_path + A_path + 'Hernquist10000_G1.0_5_005.hdf5'
+#Filename = GADGET_G_path + A_path + 'Hernquist10000_G1.0_10_005.hdf5'
+#Filename = GADGET_G_path + A_path + 'Hernquist10000_G1.0_40_005.hdf5'
+#Filename = GADGET_G_path + A_path + 'Hernquist10000_G1.0_48_009.hdf5'
+#Filename = nosync_path + A_path + 'Hernquist10000_G1.0_48_093.hdf5'   
+B_path = 'G_HQ_1000000_B/output/'
+#Filename = GADGET_G_path + B_path + 'Hernquist10000_G1.0_0_000.hdf5'
+#Filename = GADGET_G_path + B_path + 'Hernquist10000_G1.0_5_005.hdf5'
+#Filename = GADGET_G_path + B_path + 'Hernquist10000_G1.0_10_005.hdf5'
+#Filename = GADGET_G_path + B_path + 'Hernquist10000_G1.0_198_000.hdf5'
+#Filename = GADGET_G_path + B_path + 'Hernquist10000_G1.0_198_093.hdf5'
+#Filename = GADGET_G_path + B_path + 'Hernquist10000_G1.0_199_093.hdf5'
+Soft_B_path = 'Soft_G_HQ_1000000_B/output/'
+#Filename = GADGET_G_path + Soft_B_path + 'Hernquist10000_G1.0_0_000.hdf5'
+#Filename = GADGET_G_path + Soft_B_path + 'Hernquist10000_G1.0_5_005.hdf5'
+#Filename = GADGET_G_path + Soft_B_path + 'Hernquist10000_G1.0_10_005.hdf5'
+#Filename = GADGET_G_path + Soft_B_path + 'Hernquist10000_G1.0_198_000.hdf5'
+#Filename = GADGET_G_path + Soft_B_path + 'Hernquist10000_G1.0_198_093.hdf5'
+#Filename = GADGET_G_path + Soft_B_path + 'Hernquist10000_G1.0_199_093.hdf5'
+CS1_path = 'G_HQ_10000_CS1/output/'
+#Filename = GADGET_G_path + CS1_path + 'Osipkov_Merritt10000_G1.0_0_000.hdf5'
+CS2_path = 'G_HQ_10000_CS2/output/'
+#Filename = GADGET_G_path + CS2_path + 'Osipkov_Merritt10000_G1.0_0_000.hdf5'
+CS3_path = 'G_HQ_10000_CS3/output/'
+#Filename = GADGET_G_path + CS3_path + 'Osipkov_Merritt10000_G1.0_0_000.hdf5'
+CS4_path = 'G_HQ_100000_CS4/output/'
+#Filename = GADGET_G_path + CS4_path + 'Osipkov_Merritt10000_G1.0_0_000.hdf5'
+#Filename = GADGET_G_path + CS4_path + 'Osipkov_Merritt10000_G1.0_48_093.hdf5'
+CS5_path = 'G_HQ_100000_CS5/output/'
+#Filename = GADGET_G_path + CS5_path + 'Osipkov_Merritt10000_G1.0_0_000.hdf5'
+#Filename = GADGET_G_path + CS5_path + 'Osipkov_Merritt10000_G1.0_48_093.hdf5'
+CS6_path = 'G_HQ_100000_CS6/output/'
+#Filename = GADGET_G_path + CS6_path + 'Osipkov_Merritt10000_G1.0_0_000.hdf5'
+#Filename = GADGET_G_path + CS6_path + 'Osipkov_Merritt10000_G1.0_48_093.hdf5'
+DS1_path = 'G_0_5_100000_DS1/output/'
+#Filename = GADGET_G_path + DS1_path + 'Osipkov_Merritt10000_G1.0_0_000.hdf5'
+#Filename = GADGET_G_path + DS1_path + 'Osipkov_Merritt10000_G1.0_48_093.hdf5'
+#Filename = GADGET_G_path + DS1_path + 'Osipkov_Merritt10000_G1.0_49_093.hdf5'
+D2_path = 'G_0_5_100000_D2/output/'
+#Filename = GADGET_G_path + D2_path + 'Hernquist10000_G1.0_0_000.hdf5'
+#Filename = GADGET_G_path + D2_path + 'Hernquist10000_G1.0_48_093.hdf5'
+#Filename = GADGET_G_path + D2_path + 'Hernquist10000_G1.0_49_093.hdf5'
+Soft_D2_path = 'Soft_G_0_5_100000_D2/output/'
+#Filename = GADGET_G_path + Soft_D2_path + 'Hernquist10000_G1.0_0_000.hdf5'
+#Filename = GADGET_G_path + Soft_D2_path + 'Hernquist10000_G1.0_48_093.hdf5'
+#Filename = GADGET_G_path + Soft_D2_path + 'Hernquist10000_G1.0_49_093.hdf5'
+E_path = 'Soft_G_HQ_1000000_E/output/'
+#Filename = GADGET_G_path + E_path + 'Hernquist10000_G1.0_0_000.hdf5' 
+#Filename = GADGET_G_path + E_path + 'Hernquist10000_G1.0_5_005.hdf5' 
+#Filename = GADGET_G_path + E_path + 'Hernquist10000_G1.0_10_005.hdf5' 
+#Filename = GADGET_G_path + E_path + 'Hernquist10000_G1.0_160_005.hdf5'
+#Filename = GADGET_G_path + E_path + 'Hernquist10000_G1.05_196_005.hdf5'
+#Filename = GADGET_G_path + E_path + 'Hernquist10000_G0.95_197_005.hdf5'
+#Filename = GADGET_G_path + E_path + 'Hernquist10000_G1.0_198_009.hdf5'
+#Filename = GADGET_G_path + E_path + 'Hernquist10000_G1.0_198_093.hdf5'
 
 # Bound particles only:
-B_rfp_path       = 'G_HQ_1000000_B/rfp_output/'
-#Filename        = GADGET_G_path + B_rfp_path       + 'B_G1.0_200_rfp_011.hdf5'
-#Filename        = GADGET_G_path + B_rfp_path       + 'B_G1.0_200_rfp_093.hdf5'
-Soft_B_rfp_path  = 'Soft_G_HQ_1000000_B/rfp_output/'
-#Filename        = GADGET_G_path + Soft_B_rfp_path  + 'B_G1.0_200_rfp_011.hdf5'
-#Filename        = GADGET_G_path + Soft_B_rfp_path  + 'B_G1.0_200_rfp_093.hdf5'
-CS4_rfp_path     = 'G_HQ_100000_CS4/rfp_output/'
-#Filename        = GADGET_G_path + CS4_rfp_path     + 'CS4_G1.0_49_rfp_093.hdf5'
-CS5_rfp_path     = 'G_HQ_100000_CS5/rfp_output/'
-#Filename        = GADGET_G_path + CS5_rfp_path     + 'CS5_G1.0_49_rfp_093.hdf5'
-CS6_rfp_path     = 'G_HQ_100000_CS6/rfp_output/'
-#Filename        = GADGET_G_path + CS6_rfp_path     + 'CS6_G1.0_49_rfp_093.hdf5'
-DS1_rfp_path     = 'G_0_5_100000_DS1/rfp_output/'
-#Filename        = GADGET_G_path + DS1_rfp_path     + 'DS1_G1.0_50_rfp_093.hdf5'
-D2_rfp_path      = 'G_0_5_100000_D2/rfp_output/'
-#Filename        = GADGET_G_path + D2_rfp_path      + 'D2_G1.0_50_rfp_093.hdf5'
+B_rfp_path = 'G_HQ_1000000_B/rfp_output/'
+# Filename = GADGET_G_path + B_rfp_path + 'B_G1.0_200_rfp_011.hdf5'
+# Filename = GADGET_G_path + B_rfp_path + 'B_G1.0_200_rfp_093.hdf5'
+Soft_B_rfp_path = 'Soft_G_HQ_1000000_B/rfp_output/'
+# Filename = GADGET_G_path + Soft_B_rfp_path + 'B_G1.0_200_rfp_011.hdf5'
+# Filename = GADGET_G_path + Soft_B_rfp_path + 'B_G1.0_200_rfp_093.hdf5'
+CS4_rfp_path = 'G_HQ_100000_CS4/rfp_output/'
+# Filename = GADGET_G_path + CS4_rfp_path + 'CS4_G1.0_49_rfp_093.hdf5'
+CS5_rfp_path = 'G_HQ_100000_CS5/rfp_output/'
+# Filename = GADGET_G_path + CS5_rfp_path + 'CS5_G1.0_49_rfp_093.hdf5'
+CS6_rfp_path = 'G_HQ_100000_CS6/rfp_output/'
+# Filename = GADGET_G_path + CS6_rfp_path + 'CS6_G1.0_49_rfp_093.hdf5'
+DS1_rfp_path = 'G_0_5_100000_DS1/rfp_output/'
+# Filename = GADGET_G_path + DS1_rfp_path + 'DS1_G1.0_50_rfp_093.hdf5'
+D2_rfp_path = 'G_0_5_100000_D2/rfp_output/'
+# Filename = GADGET_G_path + D2_rfp_path + 'D2_G1.0_50_rfp_093.hdf5'
 Soft_D2_rfp_path = 'Soft_G_0_5_100000_D2/rfp_output/'
-#Filename        = GADGET_G_path + Soft_D2_rfp_path + 'D2_G1.0_50_rfp_093.hdf5'
-E_rfp_path       = 'G_HQ_1000000_E/rfp_output/'
-#Filename        = GADGET_G_path + E_rfp_path       + 'E_G1.0_50_rfp_093.hdf5' # Fix filename here.
+# Filename = GADGET_G_path + Soft_D2_rfp_path + 'D2_G1.0_50_rfp_093.hdf5'
+E_rfp_path = 'G_HQ_1000000_E/rfp_output/'
+# Filename = GADGET_G_path + E_rfp_path + 'E_G1.0_50_rfp_093.hdf5'  # Fix filename here.
 
 print(Filename)
+SnapshotFile = h5py.File(Filename, 'r')
 
-SnapshotFile     = h5py.File(Filename,'r')
-
-#F               = 'test_'                          + Filename[len(GADGET_G_path + test_path):-5                   ]
-F               = 'A_'                             + Filename[len(GADGET_G_path + A_path):-5                      ]
-#F               = 'A_'                             + Filename[len(nosync_path   + A_path):-5                      ]
-#F               = 'B_'                             + Filename[len(GADGET_G_path + B_path):-5                      ]
-#F               = 'Soft_B_'                        + Filename[len(GADGET_G_path + Soft_B_path):-5                 ]
-#F               = 'CS1_'                           + Filename[len(GADGET_G_path + CS1_path):-5                    ]
-#F               = 'CS2_'                           + Filename[len(GADGET_G_path + CS2_path):-5                    ]
-#F               = 'CS3_'                           + Filename[len(GADGET_G_path + CS3_path):-5                    ]
-#F               = 'CS4_'                           + Filename[len(GADGET_G_path + CS4_path):-5                    ]
-#F               = 'CS5_'                           + Filename[len(GADGET_G_path + CS5_path):-5                    ]
-#F               = 'CS6_'                           + Filename[len(GADGET_G_path + CS6_path):-5                    ]
-#F               = 'DS1_'                           + Filename[len(GADGET_G_path + DS1_path):-5                    ]
-#F               = 'D2_'                            + Filename[len(GADGET_G_path + D2_path):-5                     ]           
-#F               = 'Soft_D2_'                       + Filename[len(GADGET_G_path + Soft_D2_path):-5                ]
-#F               = 'E_'                             + Filename[len(GADGET_G_path + E_path):-5                      ]
+# F = 'test_' + Filename[len(GADGET_G_path + test_path):-5]
+# F = 'A_' + Filename[len(GADGET_G_path + A_path):-5]
+# F = 'A_' + Filename[len(nosync_path   + A_path):-5]
+# F = 'B_' + Filename[len(GADGET_G_path + B_path):-5]
+# F = 'Soft_B_' + Filename[len(GADGET_G_path + Soft_B_path):-5]
+# F = 'CS1_' + Filename[len(GADGET_G_path + CS1_path):-5]
+# F = 'CS2_' + Filename[len(GADGET_G_path + CS2_path):-5]
+# F = 'CS3_' + Filename[len(GADGET_G_path + CS3_path):-5]
+# F = 'CS4_' + Filename[len(GADGET_G_path + CS4_path):-5]
+# F = 'CS5_' + Filename[len(GADGET_G_path + CS5_path):-5]
+# F = 'CS6_' + Filename[len(GADGET_G_path + CS6_path):-5]
+# F = 'DS1_' + Filename[len(GADGET_G_path + DS1_path):-5]
+# F = 'D2_' + Filename[len(GADGET_G_path + D2_path):-5]           
+# F = 'Soft_D2_' + Filename[len(GADGET_G_path + Soft_D2_path):-5]
+# F = 'E_' + Filename[len(GADGET_G_path + E_path):-5]
 
 # Bound particles only:
-#F               = 'B_bound_particles_'             + Filename[len(GADGET_G_path + B_rfp_path + 'B_'):-5           ]
-#F               = 'Soft_B_bound_particles_'        + Filename[len(GADGET_G_path + Soft_B_rfp_path + 'B_'):-5      ]
-#F               = 'CS4_bound_particles_'           + Filename[len(GADGET_G_path + CS4_rfp_path + 'CS4_'):-5       ]
-#F               = 'CS5_bound_particles_'           + Filename[len(GADGET_G_path + CS5_rfp_path + 'CS5_'):-5       ]
-#F               = 'CS6_bound_particles_'           + Filename[len(GADGET_G_path + CS6_rfp_path +  'CS6_'):-5      ]
-#F               = 'DS1_bound_particles_'           + Filename[len(GADGET_G_path + DS1_rfp_path + 'DS1_'):-5       ]
-#F               = 'D2_bound_particles_'            + Filename[len(GADGET_G_path + D2_rfp_path + 'D2_'):-5         ]
-#F               = 'Soft_D2_bound_particles_'       + Filename[len(GADGET_G_path + Soft_D2_rfp_path + 'D2_'):-5    ]
-#F               = 'E_bound_particles_'             + Filename[len(GADGET_G_path + E_rfp_path + 'E_'):-5           ]
+# F = 'B_bound_particles_' + Filename[len(GADGET_G_path + B_rfp_path + 'B_'):-5]
+# F = 'Soft_B_bound_particles_' + Filename[len(GADGET_G_path + Soft_B_rfp_path + 'B_'):-5]
+# F = 'CS4_bound_particles_' + Filename[len(GADGET_G_path + CS4_rfp_path + 'CS4_'):-5]
+# F = 'CS5_bound_particles_' + Filename[len(GADGET_G_path + CS5_rfp_path + 'CS5_'):-5]
+# F = 'CS6_bound_particles_' + Filename[len(GADGET_G_path + CS6_rfp_path +  'CS6_'):-5]
+# F = 'DS1_bound_particles_' + Filename[len(GADGET_G_path + DS1_rfp_path + 'DS1_'):-5]
+# F = 'D2_bound_particles_' + Filename[len(GADGET_G_path + D2_rfp_path + 'D2_'):-5]
+# F = 'Soft_D2_bound_particles_' + Filename[len(GADGET_G_path + Soft_D2_rfp_path + 'D2_'):-5]
+# F = 'E_bound_particles_' + Filename[len(GADGET_G_path + E_rfp_path + 'E_'):-5]
 
-
-#Gamma           = -1.5
-#Beta            = 1.0
+# Gamma = -1.5
+# Beta = 1.0
 
 keep_IC_R_middle = 0
-new_R_middle     = 0
+new_R_middle = 0
 
 if keep_IC_R_middle:
     if F.startswith('Hernquist10000_G'):
-        if   Gamma == -1.5:     # logr = -0.70, r = 10**-0.70  
-                R_middle = 10**-.70 
-        elif Gamma == -2.0:     # logr = -0.25, r = 10**-0.25
+        if Gamma == -1.5:
+                R_middle = 10 ** -.70 
+        elif Gamma == -2.0:
                 R_middle = 10**-.25
-        elif Gamma == -2.5:     # logr = 0.0 , r = 10**0.0               
+        elif Gamma == -2.5:
                 R_middle = 10**-.0 
-        elif Gamma == -3.0:     # logr = 0.30 , r = 10**0.30
+        elif Gamma == -3.0:
                 R_middle = 10**-.30
     if F.startswith('OsipkovMerritt_'):
-        if   Gamma == -1.5:
+        if Gamma == -1.5:
             R_middle =  0
         elif Gamma == -2.0:
             R_middle = 0
@@ -192,113 +190,114 @@ if keep_IC_R_middle:
             R_middle = 0
 
 if new_R_middle:  # Choose new R_middle for each file.
-    if F == 'Hernquist10000_G1.0_0_000':  # 0.th/IC file
-        if Gamma == -1.5:     # logr = -0.70, r = 10**-0.70  
+    ['Hernquist10000_G1.0_0_000',
+        if Gamma == -1.5:
             R_middle = 10**-0.70 
-        elif Gamma == -2.0:     # logr = -0.25, r = 10**-0.25
+        elif Gamma == -2.0:
             R_middle = 10**-0.25
-        elif Gamma == -2.5:     # logr = 0.0 , r = 10**0.0               
+        elif Gamma == -2.5:         
             R_middle = 10**-0.0 
-        elif Gamma == -3.0:     # logr = 0.30 , r = 10**0.30
+        elif Gamma == -3.0:
             R_middle = 10**-0.30
-    if F == 'Hernquist10000_G1.2_1_005': # 1.st file
-        if Gamma == -1.5:     # logr =  
+    if F == 'Hernquist10000_G1.2_1_005':
+        if Gamma == -1.5:
             R_middle =  10**-0.55
-        elif Gamma == -2.0:     # logr = 
+        elif Gamma == -2.0:
             R_middle = 10**-0.4
-        elif Gamma == -2.5:     # logr =               
+        elif Gamma == -2.5:
             R_middle = 10**-0.1
-        elif Gamma == -3.0:     # logr = 
+        elif Gamma == -3.0:
             R_middle = 10**0.2
-    if F == 'Hernquist10000_G0.8_2_005': # 2.nd file
-        if   Gamma == -1.5:     # logr =  
+    if F == 'Hernquist10000_G0.8_2_005':
+        if   Gamma == -1.5:
             R_middle =  0
-        elif Gamma == -2.0:     # logr = 
+        elif Gamma == -2.0:
             R_middle = 0
-        elif Gamma == -2.5:     # logr =                
+        elif Gamma == -2.5:             
             R_middle =  0
-        elif Gamma == -3.0:     # logr = 
+        elif Gamma == -3.0:
             R_middle = 0
-    if F == 'Hernquist10000_G1.2_3_005': # 3.rd file
-        if   Gamma == -1.5:     # logr =  
+    if F == 'Hernquist10000_G1.2_3_005':
+        if   Gamma == -1.5:
             R_middle =  10**-0.6
-        elif Gamma == -2.0:     # logr = 
+        elif Gamma == -2.0:
             R_middle = 10**-0.4
-        elif Gamma == -2.5:     # logr =               
+        elif Gamma == -2.5:
             R_middle = 10**0.0
-        elif Gamma == -3.0:     # logr = 
+        elif Gamma == -3.0:
             R_middle = 10**0.4
-    if F == 'Hernquist10000_G1.2_5_005': # 5.th file
-        if   Gamma == -1.5:     # logr =  
+    if F == 'Hernquist10000_G1.2_5_005':
+        if   Gamma == -1.5:
             R_middle = 10**-0.45 
-        elif Gamma == -2.0:     # logr = 
+        elif Gamma == -2.0:
             R_middle = 10**-0.35
-        elif Gamma == -2.5:     # logr =               
+        elif Gamma == -2.5:
             R_middle =  10**-0.1
-        elif Gamma == -3.0:     # logr = 
+        elif Gamma == -3.0:
             R_middle = 10**0.45
-    if F == 'Hernquist10000_G1.2_7_005': # 7.th file
-        if   Gamma == -1.5:     # logr =  
+    if F == 'Hernquist10000_G1.2_7_005':
+        if   Gamma == -1.5:
             R_middle =  10**-0.35
-        elif Gamma == -2.0:     # logr = 
+        elif Gamma == -2.0:
             R_middle = 10**-0.25
-        elif Gamma == -2.5:     # logr =               
+        elif Gamma == -2.5:
             R_middle = 10**-0.1
-        elif Gamma == -3.0:     # logr = 
+        elif Gamma == -3.0:
             R_middle = 10**0.48
-    if F == 'Hernquist10000_G1.2_9_005': # 9.th file
-        if   Gamma == -1.5:     # logr =   
+    if F == 'Hernquist10000_G1.2_9_005':
+        if   Gamma == -1.5:
             R_middle = 10**-0.35
-        elif Gamma == -2.0:     # logr = 
+        elif Gamma == -2.0:
             R_middle = 10**-0.3
-        elif Gamma == -2.5:     # logr =               
+        elif Gamma == -2.5:
             R_middle = 10**-0.15
-        elif Gamma == -3.0:     # logr = 
+        elif Gamma == -3.0:
             R_middle = 10**0.5
-    if F == 'Hernquist10000_G1.0_10_009': # 10.th file
-        if   Gamma == -1.5:     # logr =   
+    if F == 'Hernquist10000_G1.0_10_009':
+        if   Gamma == -1.5:
             R_middle = 10**-0.25
-        elif Gamma == -2.0:     # logr = 
+        elif Gamma == -2.0:
             R_middle = 10**-0.15
-        elif Gamma == -2.5:     # logr =               
+        elif Gamma == -2.5:
             R_middle = 10**0.0
-        elif Gamma == -3.0:     # logr = 
+        elif Gamma == -3.0:
             R_middle = 10**0.5
+     ]
 
-Pos   = SnapshotFile['PartType1/Coordinates'].value 
-Vel   = SnapshotFile['PartType1/Velocities'].value  
-V     = SnapshotFile['PartType1/Potential'].value     
-x     = Pos[:,0]
-y     = Pos[:,1]
-z     = Pos[:,2]
-vx    = Vel[:,0]
-vy    = Vel[:,1]
-vz    = Vel[:,2]
-minV  = np.argmin(V)
-xC    = x[minV]
-yC    = y[minV]
-zC    = z[minV]
-vxC   = vx[minV]
-vyC   = vy[minV]
-vzC   = vz[minV]
-R     = ((x-xC)**2+(y-yC)**2+(z-zC)**2)**0.5
+Pos = SnapshotFile['PartType1/Coordinates'].value
+Vel = SnapshotFile['PartType1/Velocities'].value
+V = SnapshotFile['PartType1/Potential'].value
+x = Pos[:, 0]
+y = Pos[:, 1]
+z = Pos[:, 2]
+vx = Vel[:, 0]
+vy = Vel[:, 1]
+vz = Vel[:, 2]
+minV = np.argmin(V)
+xC = x[minV]
+yC = y[minV]
+zC = z[minV]
+vxC = vx[minV]
+vyC = vy[minV]
+vzC = vz[minV]
+R = ravf.modulus(x - xC, y - yC, z - zC)
 
-#R_limit_min = R_middle # make R_limit_min and R_limit_max selection automatic
-#R_limit_max = R_middle
+# R_limit_min = R_middle  # make R_limit_min and R_limit_max selection automatic
+# R_limit_max = R_middle
 
 '''
-a = 0 # makes sure the while loop is entered.
+a = 0  # makes sure the while loop is entered.
 x0 = x
-while len(x0)<10000 or a==0:
+while len(x0) < 10000 or a == 0:
     R_limit_min -= .000005
     R_limit_max += .000005
     a += 1
     GoodIDs = np.where((R < R_limit_max) * (R > R_limit_min))
     x0 = x[GoodIDs[0]]
 
-x =  x[GoodIDs]
-y =  y[GoodIDs]
-z =  z[GoodIDs]
+x = x[GoodIDs]
+y = y[GoodIDs]
+z = z[GoodIDs]
 vx = vx[GoodIDs]
 vy = vy[GoodIDs]
 vz = vz[GoodIDs] 
@@ -313,21 +312,21 @@ vz -= np.median(vz)
 nr_binning_bins = 102
 
 # Switches
-Fig1_xy                           = 0
-Fig2_xz                           = 0
-Fig3_3D_xyz                       = 0
+Fig1_xy = 0
+Fig2_xz = 0
+Fig3_3D_xyz = 0
 
-vsphericalnew                     = 0
-vsphericalnew_sigma               = 0
+vsphericalnew = 0
+vsphericalnew_sigma = 0
 
-x14_25_36_same_length             = 0
-save_r_v_as_txt                   = 0
+x14_25_36_same_length = 0
+save_r_v_as_txt = 0
 
-Fig13_LOS                         = 0
-Fig14_LOS_log                     = 0
-Fig15_LOS_radius10                = 0
-Fig16_LOS_radius50                = 0
-Fig17_LOS_radius200               = 0
+Fig13_LOS = 0
+Fig14_LOS_log = 0
+Fig15_LOS_radius10 = 0
+Fig16_LOS_radius50 = 0
+Fig17_LOS_radius200 = 0
 
 if Fig1_xy:
     figure()
