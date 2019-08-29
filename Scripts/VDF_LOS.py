@@ -169,6 +169,8 @@ SnapshotFile = h5py.File(Filename, 'r')
 keep_IC_R_middle = 0
 new_R_middle = 0
 
+zero_dict = {-1.5: .0, -2.0: .0, -2.5: .0, -3.0: .0}
+
 if keep_IC_R_middle:
     if F.startswith('Hernquist10000_G'):
         if Gamma == -1.5:
@@ -180,14 +182,7 @@ if keep_IC_R_middle:
         elif Gamma == -3.0:
             R_middle = 10**-.30
     if F.startswith('OsipkovMerritt_'):
-        if Gamma == -1.5:
-            R_middle =  0
-        elif Gamma == -2.0:
-            R_middle = 0
-        elif Gamma == -2.5:
-            R_middle = 0
-        elif Gamma == -3.0:
-            R_middle = 0
+        zero_dict.get(Gamma, "No such gamma value")
 
 if new_R_middle:
     [('Hernquist10000_G1.0_0_000', {-1.5: 10 ** -.70, -2.0: 10 ** -.25, -2.5: 10 ** -.0, -3.0: 10 ** -.30}),
@@ -195,14 +190,8 @@ if new_R_middle:
      
 
     if F == 'Hernquist10000_G0.8_2_005':
-        if   Gamma == -1.5:
-            R_middle =  0
-        elif Gamma == -2.0:
-            R_middle = 0
-        elif Gamma == -2.5:             
-            R_middle =  0
-        elif Gamma == -3.0:
-            R_middle = 0
+        zero_dict
+
     if F == 'Hernquist10000_G1.2_3_005':
         if   Gamma == -1.5:
             R_middle =  10**-0.6
