@@ -186,57 +186,14 @@ if keep_IC_R_middle:
 
 if new_R_middle:
     [('Hernquist10000_G1.0_0_000', {-1.5: 10 ** -.70, -2.0: 10 ** -.25, -2.5: 10 ** -.0, -3.0: 10 ** -.30}),
-     ('Hernquist10000_G1.2_1_005', {-1.5: 10**-0.55, -2.0: 10**-0.4, -2.5: 10**-0.1, -3.0: 10**0.2})]
-     
-
-    if F == 'Hernquist10000_G0.8_2_005':
-        zero_dict
-
-    if F == 'Hernquist10000_G1.2_3_005':
-        if   Gamma == -1.5:
-            R_middle =  10**-0.6
-        elif Gamma == -2.0:
-            R_middle = 10**-0.4
-        elif Gamma == -2.5:
-            R_middle = 10**0.0
-        elif Gamma == -3.0:
-            R_middle = 10**0.4
-    if F == 'Hernquist10000_G1.2_5_005':
-        if   Gamma == -1.5:
-            R_middle = 10**-0.45 
-        elif Gamma == -2.0:
-            R_middle = 10**-0.35
-        elif Gamma == -2.5:
-            R_middle =  10**-0.1
-        elif Gamma == -3.0:
-            R_middle = 10**0.45
-    if F == 'Hernquist10000_G1.2_7_005':
-        if   Gamma == -1.5:
-            R_middle =  10**-0.35
-        elif Gamma == -2.0:
-            R_middle = 10**-0.25
-        elif Gamma == -2.5:
-            R_middle = 10**-0.1
-        elif Gamma == -3.0:
-            R_middle = 10**0.48
-    if F == 'Hernquist10000_G1.2_9_005':
-        if   Gamma == -1.5:
-            R_middle = 10**-0.35
-        elif Gamma == -2.0:
-            R_middle = 10**-0.3
-        elif Gamma == -2.5:
-            R_middle = 10**-0.15
-        elif Gamma == -3.0:
-            R_middle = 10**0.5
-    if F == 'Hernquist10000_G1.0_10_009':
-        if   Gamma == -1.5:
-            R_middle = 10**-0.25
-        elif Gamma == -2.0:
-            R_middle = 10**-0.15
-        elif Gamma == -2.5:
-            R_middle = 10**0.0
-        elif Gamma == -3.0:
-            R_middle = 10**0.5
+     ('Hernquist10000_G1.2_1_005', {-1.5: 10**-0.55, -2.0: 10**-0.4, -2.5: 10**-0.1, -3.0: 10**0.2}),
+     ('Hernquist10000_G0.8_2_005', zero_dict),
+     ('Hernquist10000_G1.2_3_005', {-1.5: 10**-0.6, -2.0: 10**-0.4, -2.5: 10**0.0, -3.0: 10**0.4}),
+     ('Hernquist10000_G1.2_5_005', {-1.5: 10**-0.45, -2.0: 10**-0.35, -2.5: 10**-0.1, -3.0: 10**0.45}),     
+     ('Hernquist10000_G1.2_7_005', {-1.5: 10**-0.35, -2.0: 10**-0.25, -2.5: 10**-0.1, -3.0: 10**0.48}),
+     ('Hernquist10000_G1.2_9_005', {-1.5: 10**-0.35, -2.0: 10**-0.3, -2.5: 10**-0.15, -3.0: 10**0.5}),
+     ('Hernquist10000_G1.0_10_009', {-1.5: 10**-0.25, -2.0: 10**-0.15, -2.5: 10**0.0, -3.0: 10**0.5})
+     ]
 
 Pos = SnapshotFile['PartType1/Coordinates'].value
 Vel = SnapshotFile['PartType1/Velocities'].value
