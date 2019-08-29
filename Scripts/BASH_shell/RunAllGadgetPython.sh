@@ -1,3 +1,14 @@
+#!/bin/bash
+for i in 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20
+do
+   # echo "Welcome $i times"
+   mpirun -np 4 ./Gadget2 Run$i.param
+   python Energy_exchange_D1.py
+done
+
+
+
+/*
 mpirun -np 4 ./Gadget2 Run0.param
 python Energy_exchange_D1.py
 mpirun -np 4 ./Gadget2 Run1.param
@@ -40,3 +51,4 @@ mpirun -np 4 ./Gadget2 Run19.param
 python Energy_exchange_D1.py
 mpirun -np 4 ./Gadget2 Run20.param
 python Energy_exchange_D1.py
+*/
