@@ -39,15 +39,11 @@ nosync_path = User_path + 'nosync/RunGadget/'
 # Filename = hdf5_path + 'OMG20_Final_000.hdf5'
 
 test_path = 'G_HQ_1000000_test/output/'
-# Filename = GADGET_G_path + test_path + 'Hernquist10000_G1.0_0_000.hdf5'
-# Filename = GADGET_G_path + test_path + 'Hernquist10000_G1.2_1_005.hdf5'
-# Filename = GADGET_G_path + test_path + 'Hernquist10000_G0.8_2_000.hdf5'
-# Filename = GADGET_G_path + test_path + 'Hernquist10000_G0.8_2_005.hdf5'
-# Filename = GADGET_G_path + test_path + 'Hernquist10000_G1.2_3_005.hdf5'
-# Filename = GADGET_G_path + test_path + 'Hernquist10000_G1.2_5_005.hdf5'
-# Filename = GADGET_G_path + test_path + 'Hernquist10000_G1.2_7_005.hdf5'
-# Filename = GADGET_G_path + test_path + 'Hernquist10000_G1.2_9_005.hdf5'
-# Filename = GADGET_G_path + test_path + 'Hernquist10000_G1.0_10_009.hdf5'
+
+snaps = ['1.0_0_000', '1.2_1_005', '0.8_2_000', '0.8_2_005', '1.2_3_005', '1.2_5_005',
+         '1.2_7_005', '1.2_9_005', '1.0_10_009']
+# Filename = GADGET_G_path + test_path + 'Hernquist10000_G' + snaps[0] + '.hdf5'
+
 A_path = 'G_HQ_1000000_A/output/'
 # Filename = GADGET_G_path + A_path + 'Hernquist10000_G1.0_0_000.hdf5'
 # Filename = GADGET_G_path + A_path + 'Hernquist10000_G1.0_5_005.hdf5'
