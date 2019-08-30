@@ -25,14 +25,9 @@ GADGET_G_path = Desktop_path + 'RunGadget/G_perturbations/'
 Stable_path = 'LOS/Stable_structures/'
 figure_path = Desktop_path + Stable_path + 'figures/'
 
-# text_files_path = Desktop_path + Stable_path + 'text_files/A/'
-# text_files_path = Desktop_path + Stable_path + 'text_files/B/'
-# text_files_path = Desktop_path + Stable_path + 'text_files/CS4/'
-# text_files_path = Desktop_path + Stable_path + 'text_files/CS5/'
-# text_files_path = Desktop_path + Stable_path + 'text_files/CS6/'
-# text_files_path = Desktop_path + Stable_path + 'text_files/DS1/'
-# text_files_path = Desktop_path + Stable_path + 'text_files/Soft_D2/'
-# text_files_path = Desktop_path + Stable_path + 'text_files/E/'
+sims = ['A', 'B', 'Soft_B', 'CS1', 'CS2', 'CS3', 'CS4', 'CS5', 'CS6', 'DS1', 'D2', 'Soft_D2', 'E']
+
+# text_files_path = Desktop_path + Stable_path + 'text_files/' + sims[0] + '/'
 
 Martin_path = 'Martin_IC_and_Final_Edd_and_OM/'
 hdf5_path = Desktop_path + 'G_perturbations/hdf5_files/'
@@ -54,7 +49,7 @@ test_path = 'G_HQ_1000000_test/output/'
 # Filename = GADGET_G_path + test_path + 'Hernquist10000_G1.2_9_005.hdf5'
 # Filename = GADGET_G_path + test_path + 'Hernquist10000_G1.0_10_009.hdf5'
 A_path = 'G_HQ_1000000_A/output/'
-Filename = GADGET_G_path + A_path + 'Hernquist10000_G1.0_0_000.hdf5'
+# Filename = GADGET_G_path + A_path + 'Hernquist10000_G1.0_0_000.hdf5'
 # Filename = GADGET_G_path + A_path + 'Hernquist10000_G1.0_5_005.hdf5'
 # Filename = GADGET_G_path + A_path + 'Hernquist10000_G1.0_10_005.hdf5'
 # Filename = GADGET_G_path + A_path + 'Hernquist10000_G1.0_40_005.hdf5'
@@ -217,14 +212,7 @@ R = ravf.modulus(x - xC, y - yC, z - zC)
 # R_limit_max = R_middle
 
 '''
-a = 0  # makes sure the while loop is entered.
-x0 = x
-while len(x0) < 10000 or a == 0:
-    R_limit_min -= .000005
-    R_limit_max += .000005
-    a += 1
-    GoodIDs = np.where((R < R_limit_max) * (R > R_limit_min))
-    x0 = x[GoodIDs[0]]
+R_limit_min, R_limit_max = r_bin_automatic()
 
 x = x[GoodIDs]
 y = y[GoodIDs]
@@ -266,7 +254,6 @@ if Fig1_xy:
     plt.xlabel(r'$x$', fontsize=30)
     plt.ylabel(r'$y$', fontsize=30)
     plt.title(r'Positions. $N=%i$, $\gamma = %.2f$ ,  File = %s' % (len(x), Gamma, F), fontsize=30)
-
     plt.subplot(122)
     plt.plot (x, z)
     plt.xlabel(r'$x$', fontsize=30)
@@ -279,19 +266,18 @@ if Fig2_xz:
     plt.xlabel(r'$x$',fontsize=30)
     plt.ylabel(r'$y$',fontsize=30)
     plt.title(r'Positions. $N=%i$, $\gamma = %.2f$ ,  File = %s' %(len(x), Gamma, F),fontsize=30)
-
     plt.subplot(122)
     plt.plot (x,z,'o', ms=1)
     plt.xlabel(r'$x$',fontsize=30)
     plt.ylabel(r'$z$',fontsize=30)
 
-def randrange(n,vmin,vmax): # 3D scatterplot of positions
-    return (vmax-vmin)*np.random.rand(n)+vmin
+def randrange(n, vmin, vmax):  # 3D scatterplot of positions
+    return (vmax - vmin) * np.random.rand(n) + vmin
 
 if Fig3_3D_xyz:
-    f   = plt.figure()
-    ax  = f.add_subplot(111, projection='3d')
-    n   = 100
+    f = plt.figure()
+    ax = f.add_subplot(111, projection='3d')
+    n = 100
     for c, m, zl, zh in [('r', 'o', -50, -25), ('b', '^', -30, -5)]:
         ax.scatter(x, y, z, c=c, marker=m)
     ax.set_xlabel('x')
@@ -300,17 +286,17 @@ if Fig3_3D_xyz:
     ax.set_title('3D view of halo positions')
 
 if vsphericalnew: # radial and tangential velocities
-    r      = (x**2+y**2+z**2)**.5
-    Phi    = sp.arctan2(y,x)
-    Theta  = sp.arccos(z/r)
-    VR     = sp.sin(Theta)*sp.cos(Phi) * vx + sp.sin(Theta)*sp.sin(Phi) * vy + sp.cos(Theta) * vz
+    r = ravf.modulus(x, y, z)
+    Phi = sp.arctan2(y, x)
+    Theta = sp.arccos(z / r)
+    VR = sp.sin(Theta)*sp.cos(Phi) * vx + sp.sin(Theta)*sp.sin(Phi) * vy + sp.cos(Theta) * vz
     VTheta = sp.cos(Theta)*sp.cos(Phi) * vx + sp.cos(Theta)*sp.sin(Phi) * vy - sp.sin(Theta) * vz
-    VPhi   = - sp.sin(Phi) * vx + sp.cos(Phi) * vy
-    VT     = VTheta + VPhi
+    VPhi = - sp.sin(Phi) * vx + sp.cos(Phi) * vy
+    VT = VTheta + VPhi
 
 
 def func_1(x, a, b):
-    return a * x*np.exp(-b * x**2.)
+    return a * x * np.exp(-b * x ** 2.)
 
 
 def func_2(x, a, b):
@@ -585,7 +571,7 @@ Phi = sp.arctan2(y, x)
 Theta = sp.arccos(z / r)
 VR = sp.sin(Theta) * sp.cos(Phi) * vx + sp.sin(Theta) * sp.sin(Phi) * vy + sp.cos(Theta) * vz
 R = (y ** 2 + z ** 2) ** .5
-    
+
 if Fig13_LOS:
     f, (ax1, ax2) = plt.subplots(1, 2)
     ax1.plot(r, VR, 'bo', lw=2, ms=1)
@@ -596,8 +582,7 @@ if Fig13_LOS:
     ax2.set_xlabel(r'Projected radius, $R$', fontsize=30)
     ax2.set_ylabel(r'Line-of-sight velocity, $v_x$', fontsize=30)
     ax2.set_title('LOS (A)', fontsize=30)
-    figs = ['A', 'B', 'Soft_B', 'CS1', 'CS2', 'CS3', 'CS4', 'CS5', 'CS6', 'DS1', 'D2', 'Soft_D2', 'E']
-    f.savefig(figure_path + figs[0] + '_v.png')
+    f.savefig(figure_path + sims[0] + '_v.png')
 
 if Fig14_LOS_log:
     f, (ax1, ax2) = plt.subplots(1, 2)
@@ -609,8 +594,7 @@ if Fig14_LOS_log:
     ax2.set_xlabel(r'$\log$ R', fontsize=30)
     ax2.set_ylabel(r'Line-of-sight velocity, $v_x$', fontsize=30)
     ax2.set_title('LOS (A)', fontsize=30)
-    figs = ['A', 'B', 'Soft_B', 'CS1', 'CS2', 'CS3', 'CS4', 'CS5', 'CS6', 'DS1', 'D2', 'Soft_D2', 'E']
-    f.savefig(figure_path + figs[0] + '_v.png')
+    f.savefig(figure_path + sims[0] + '_v.png')
 
 if Fig15_LOS_radius10:
     f,((ax1,ax2),(ax3,ax4)) = plt.subplots(2,2)
@@ -634,18 +618,18 @@ if Fig15_LOS_radius10:
     ax4.set_ylabel(r'Line-of-sight velocity, $v_x$', fontsize=30)
 
 if Fig16_LOS_radius50:
-    f,((ax1,ax2),(ax3,ax4))=plt.subplots(2,2)    
+    f, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2)    
     # Only choose every thousand particle to plot.
     a = 0
     while a < len(r):
         # ax1.set_xlim(0, 50)
-        ax1.plot(r[a], VR[a],'bo',lw=2,ms=1)
-        #ax2.set_xlim(0,50)
+        ax1.plot(r[a], VR[a], 'bo', lw=2, ms=1)
+        # ax2.set_xlim(0, 50)
         ax2.plot(R[a], vx[a],'bo', lw=2, ms=1)
-        #ax3.set_xlim(np.log10(0),np.log10(50))
-        ax3.plot(np.log10(r[a]), VR[a],'bo',lw=2,ms=1 )
-        #ax4.set_xlim(np.log10(0),np.log10(50))
-        ax4.plot(np.log10(R[a]), vx[a],'bo',lw=2,ms=1 )
+        # ax3.set_xlim(np.log10(0),np.log10(50))
+        ax3.plot(np.log10(r[a]), VR[a],'bo',lw=2,ms=1)
+        # ax4.set_xlim(np.log10(0),np.log10(50))
+        ax4.plot(np.log10(R[a]), vx[a],'bo',lw=2,ms=1)
         # print('a = ', a)
         a += 10 ** 3
     '''
@@ -659,17 +643,14 @@ if Fig16_LOS_radius50:
     ax1.set_ylabel(r'Radial velocity, $v_r$', fontsize=30)
     ax1.set_title(r' %s, $N = 10^3 $' % F, fontsize=30)
     #ax1.set_title(F, fontsize=30)
-
     ax2.set_xlim(0,50)
     ax2.set_xlabel(r'Projected radius, $R$', fontsize=30)
     ax2.set_ylabel(r'Line-of-sight velocity, $v_x$', fontsize=30)
     ax2.set_title('Line-of-sight', fontsize=30)
-
     #ax3.set_xlim(np.log10(0),np.log10(50))
     ax3.set_xlim(0,np.log(50))
     ax3.set_xlabel(r'$\log$ r', fontsize=30)
     ax3.set_ylabel(r'Radial velocity, $v_r$', fontsize=30)
-
     #ax4.set_xlim(np.log10(0),np.log10(50))
     ax4.set_xlim(0,np.log(50))
     ax4.set_xlabel(r'$\log$ R', fontsize=30)
@@ -695,22 +676,18 @@ if Fig17_LOS_radius200:
     ax3.plot(np.log10(r), VR,'bo',lw=2,ms=1 )
     ax4.plot(np.log10(R), vx,'bo',lw=2,ms=1 )
     '''
-
     ax1.set_xlim(0,200)
     ax1.set_xlabel(r'Radius, $r$', fontsize=30)
     ax1.set_ylabel(r'Radial velocity, $v_r$', fontsize=30)
     ax1.set_title(r' %s, $N = 10^3 $' %F, fontsize=30)
-    #ax1.set_title(F, fontsize=30)    
- 
+    #ax1.set_title(F, fontsize=30)
     ax2.set_xlim(0, 200)
     ax2.set_xlabel(r'Projected radius, $R$', fontsize=30)
     ax2.set_ylabel(r'Line-of-sight velocity, $v_x$', fontsize=30)
     ax2.set_title('Line-of-sight', fontsize=30)
-    
     ax3.set_xlim(0, np.log(200))
     ax3.set_xlabel(r'$\log$ r', fontsize=30)
     ax3.set_ylabel(r'Radial velocity, $v_r$', fontsize=30)
-
     ax4.set_xlim(0, np.log(200))
     ax4.set_xlabel(r'$\log$ R', fontsize=30)
     ax4.set_ylabel(r'Line-of-sight velocity, $v_x$', fontsize=30)
