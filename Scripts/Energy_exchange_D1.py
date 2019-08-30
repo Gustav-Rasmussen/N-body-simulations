@@ -134,10 +134,10 @@ N_bins = N_total / N_particles_per_bin
  vx_GoodIDs_rand_arr, vy_GoodIDs_rand_arr, vz_GoodIDs_rand_arr,
  M_GoodIDs_arr, vx_GoodIDs_rand_norm_arr, vy_GoodIDs_rand_norm_arr,
  vz_GoodIDs_rand_norm_arr, vx_final_arr, vy_final_arr, vz_final_arr,
- K_init_mean_inside_bin_arr, K_rand_mean_inside_bin_arr,
- K_rand_norm_mean_inside_bin_arr, K_final_mean_inside_bin_arr,
- V_mean_inside_bin_arr, Ratio_init_mean_inside_bin_arr,
- Ratio_rand_mean_inside_bin_arr, Ratio_norm_mean_inside_bin_arr) = ([] for i in range(22))
+ K_init_mean_in_bin_arr, K_rand_mean_in_bin_arr,
+ K_rand_norm_mean_in_bin_arr, K_final_mean_in_bin_arr,
+ V_mean_in_bin_arr, Ratio_init_mean_in_bin_arr,
+ Ratio_rand_mean_in_bin_arr, Ratio_norm_mean_in_bin_arr) = ([] for i in range(22))
 
 for i in range(N_bins):  # Divide structure into mass-bins. Favoured over radial bins, as outer region of structure has less particles.
     (vx_unbound_norm_i_arr, vy_unbound_norm_i_arr, vz_unbound_norm_i_arr,
@@ -171,8 +171,8 @@ for i in range(N_bins):  # Divide structure into mass-bins. Favoured over radial
     K_rand_mean = np.mean(K_rand)
     print('K_init_mean: ', K_init_mean)
     print('K_rand_mean: ', K_rand_mean)
-    K_init_mean_inside_bin_arr.append(K_init_mean)
-    K_rand_mean_inside_bin_arr.append(K_rand_mean) 
+    K_init_mean_in_bin_arr.append(K_init_mean)
+    K_rand_mean_in_bin_arr.append(K_rand_mean) 
     E_tot_rand = V_GoodIDs + K_rand
     UnboundIDs_rand = np.where(E_tot_rand > 0.)  # Unbound particles. Tuple with 24 entries. (IDs of 19 unbound particles)
     BoundIDs_rand = np.where(E_tot_rand <= 0.)  # Bound particles.
@@ -193,9 +193,9 @@ for i in range(N_bins):  # Divide structure into mass-bins. Favoured over radial
     Ratio_init_mean_inside_bin_arr.append(Ratio_init_mean)
     Ratio_rand_mean_inside_bin_arr.append(Ratio_rand_mean)
     for i in range(len(UnboundIDs_rand[0])):
-        vx_unbound_norm_i = vx_unbound[i] * np.random.uniform(low=.8, high=1.)*Ratio_rand_unbound[i]  # Multiplies velocities with random number between 0.8 and 1 (1 not included)
-        vy_unbound_norm_i = vy_unbound[i] * np.random.uniform(low=.8, high=1.)*Ratio_rand_unbound[i]
-        vz_unbound_norm_i = vz_unbound[i] * np.random.uniform(low=.8, high=1.)*Ratio_rand_unbound[i]
+        vx_unbound_norm_i = vx_unbound[i] * np.random.uniform(low=.8, high=1.) * Ratio_rand_unbound[i]  # Multiplies velocities with random number between 0.8 and 1 (1 not included)
+        vy_unbound_norm_i = vy_unbound[i] * np.random.uniform(low=.8, high=1.) * Ratio_rand_unbound[i]
+        vz_unbound_norm_i = vz_unbound[i] * np.random.uniform(low=.8, high=1.) * Ratio_rand_unbound[i]
         vx_unbound_norm_i_arr.append(vx_unbound_norm_i)
         vy_unbound_norm_i_arr.append(vy_unbound_norm_i)
         vz_unbound_norm_i_arr.append(vz_unbound_norm_i)
@@ -205,12 +205,12 @@ for i in range(N_bins):  # Divide structure into mass-bins. Favoured over radial
     v_GoodIDs_rand_norm = np.sqrt(vx_unbound_norm**2+vy_unbound_norm**2+vz_unbound_norm**2)
     v_GoodIDs_bound = np.sqrt(vx_bound**2+vy_bound**2+vz_bound**2)  # always 
     v_new = np.concatenate([v_GoodIDs_bound, v_GoodIDs_rand_norm])
-    K_rand_norm = .5*v_new**2  # Kinetic energy after 1.st randomization and subsequent normalization
+    K_rand_norm = .5 * v_new ** 2  # Kinetic energy after 1.st randomization and subsequent normalization
     K_rand_norm_mean = np.mean(K_rand_norm)
-    K_rand_norm_mean_inside_bin_arr.append(K_rand_norm_mean)
-    Ratio_norm = np.sqrt(np.abs(V_GoodIDs)/K_rand_norm)
+    K_rand_norm_mean_in_bin_arr.append(K_rand_norm_mean)
+    Ratio_norm = np.sqrt(np.abs(V_GoodIDs) / K_rand_norm)
     Ratio_norm_mean = np.mean(Ratio_norm)
-    Ratio_norm_mean_inside_bin_arr.append(Ratio_norm_mean)
+    Ratio_norm_mean_in_bin_arr.append(Ratio_norm_mean)
     E_tot_new = V_GoodIDs +.5 * v_new ** 2
     for i in range(len(E_tot_new)):  # This does not give the right result. There should be zero unbound perticles here! Is the sorting wrong?
         if E_tot_new[i] > 0.:
@@ -221,8 +221,8 @@ for i in range(N_bins):  # Divide structure into mass-bins. Favoured over radial
     y_GoodIDs_arr.append(y_GoodIDs)
     z_GoodIDs_arr.append(z_GoodIDs)
     M_GoodIDs_arr.append(M_GoodIDs)
-    V_mean_inside_bin = np.mean(V_GoodIDs)
-    V_mean_inside_bin_arr.append(V_mean_inside_bin)
+    V_mean_in_bin = np.mean(V_GoodIDs)
+    V_mean_in_bin_arr.append(V_mean_in_bin)
     K_Ratio = np.sqrt(K_init_mean / K_rand_norm)
     vx = np.concatenate([vx_bound, vx_unbound_norm])
     vx *= K_Ratio
@@ -233,23 +233,25 @@ for i in range(N_bins):  # Divide structure into mass-bins. Favoured over radial
     v_final = np.sqrt(vx ** 2 + vy ** 2 + vz ** 2)
     K_final = .5 * v_final ** 2  # Kinetic energy after 1.st randomization and subsequent normalization
     K_final_mean = np.mean(K_final)
-    K_final_mean_inside_bin_arr.append(K_final_mean)
+    K_final_mean_in_bin_arr.append(K_final_mean)
     vx_final_arr.append(vx)
     vy_final_arr.append(vy)
     vz_final_arr.append(vz)
 
 # Save kinetic energies to textfile
 '''
-K_init_mean_inside_bin_arr = np.asarray(K_init_mean_inside_bin_arr)
-K_rand_mean_inside_bin_arr = np.asarray(K_rand_mean_inside_bin_arr)
-K_rand_norm_mean_inside_bin_arr = np.asarray(K_rand_norm_mean_inside_bin_arr)
-K_final_mean_inside_bin_arr = np.asarray(K_final_mean_inside_bin_arr)
-V_mean_inside_bin_arr = np.asarray(V_mean_inside_bin_arr)
-Ratio_init_mean_inside_bin_arr = np.asarray(Ratio_init_mean_inside_bin_arr)
-Ratio_rand_mean_inside_bin_arr = np.asarray(Ratio_rand_mean_inside_bin_arr)
-Ratio_norm_mean_inside_bin_arr = np.asarray(Ratio_norm_mean_inside_bin_arr)
+K_init_mean_in_bin_arr = np.asarray(K_init_mean_in_bin_arr)
+K_rand_mean_in_bin_arr = np.asarray(K_rand_mean_in_bin_arr)
+K_rand_norm_mean_in_bin_arr = np.asarray(K_rand_norm_mean_in_bin_arr)
+K_final_mean_in_bin_arr = np.asarray(K_final_mean_in_bin_arr)
+V_mean_in_bin_arr = np.asarray(V_mean_in_bin_arr)
+Ratio_init_mean_in_bin_arr = np.asarray(Ratio_init_mean_in_bin_arr)
+Ratio_rand_mean_in_bin_arr = np.asarray(Ratio_rand_mean_in_bin_arr)
+Ratio_norm_mean_in_bin_arr = np.asarray(Ratio_norm_mean_in_bin_arr)
 
-x = np.array((K_init_mean_inside_bin_arr, K_rand_mean_inside_bin_arr, K_rand_norm_mean_inside_bin_arr, K_final_mean_inside_bin_arr, V_mean_inside_bin_arr, Ratio_init_mean_inside_bin_arr, Ratio_rand_mean_inside_bin_arr, Ratio_norm_mean_inside_bin_arr ))
+x = np.array((K_init_mean_in_bin_arr, K_rand_mean_in_bin_arr, K_rand_norm_mean_in_bin_arr,
+              K_final_mean_in_bin_arr, V_mean_in_bin_arr, Ratio_init_mean_in_bin_arr,
+              Ratio_rand_mean_in_bin_arr, Ratio_norm_mean_in_bin_arr))
 x = x.transpose()
 np.savetxt(F + '_Kinetic_energies.txt', x, delimiter=' ',
            header='\t <K_i> \t\t <K_rand> \t\t <K_rand_norm> \t\t <K_final> \t\t <V_mean> \t\t <Ratio_i>  \t\t <Ratio_rand> \t\t <Ratio_norm> \t')
