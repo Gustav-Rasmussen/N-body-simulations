@@ -11,7 +11,7 @@ import os.path
 from pathlib import Path
 import sys
 
-# pathname = Path.cwd() + '/RunGadget/Energy_Exchange/IIa/E_HQ_100000_D1/output/B_E_G2P_'
+pathname = Path.cwd() / 'RunGadget/Energy_Exchange/IIa/E_HQ_100000_D1/output/B_E_G2P_'
 
 '''
 if os.path.exists(Path.cwd() + '/RunGadget/Energy_Exchange/E_HQ_100000_D1/output/'):
