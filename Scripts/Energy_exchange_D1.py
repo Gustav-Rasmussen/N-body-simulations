@@ -15,6 +15,27 @@ pathname = Path.cwd() + '/RunGadget/Energy_Exchange/IIa/E_HQ_100000_D1/output/B_
 if os.path.exists(Path.cwd() + '/RunGadget/Energy_Exchange/E_HQ_100000_D1/output/'):
     print('The main path exists!')
 
+number_of_runs = 20
+
+if os.path.exists(pathname + str(number_of_runs) + '_005.hdf5'):
+    Filename_old = pathname + str(number_of_runs) + '_005.hdf5'
+    Filename_new = f'B_E_{number_of_runs}_005_P2G.hdf5'
+
+elif os.path.exists(pathname + str(number_of_runs - 1) + '_005.hdf5'):
+    Filename_old = pathname + str(number_of_runs - 1) + '_005.hdf5'
+    Filename_new = f'B_E_{number_of_runs - 1}_005_P2G.hdf5'
+# ...
+elif os.path.exists(pathname + str(number_of_runs - 20) + '_005.hdf5'):
+    # print('The first input file path exists!')
+    Filename_old = pathname + str(number_of_runs - 20) + '_005.hdf5'
+    # print('The old snapshot has been named')
+    Filename_new = f'B_E_{number_of_runs - 20}_005_P2G.hdf5'
+    # print('New snapshot created!')
+else:
+    print('Filename or path error')
+
+
+'''
 # D1
 if os.path.exists(pathname + '20_005.hdf5'):
     Filename_old = pathname + '20_005.hdf5'  # D1. G2P (GADGET to Python).
@@ -84,6 +105,7 @@ elif os.path.exists(pathname + '0_005.hdf5'):
     # print('New snapshot created!')
 else:
     print('Filename or path error')
+'''
 
 OldSnapfile = h5py.File(Filename_old, 'r')      
 NewSnapfile = h5py.File(Filename_new, 'w')  # Python to GADGET, or P2G.
