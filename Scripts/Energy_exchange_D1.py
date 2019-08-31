@@ -9,6 +9,7 @@ from scipy.stats import norm
 import scipy
 import os.path
 from pathlib import Path
+import sys
 
 # pathname = Path.cwd() + '/RunGadget/Energy_Exchange/IIa/E_HQ_100000_D1/output/B_E_G2P_'
 
@@ -16,6 +17,7 @@ from pathlib import Path
 if os.path.exists(Path.cwd() + '/RunGadget/Energy_Exchange/E_HQ_100000_D1/output/'):
     print('The main path exists!')
 '''
+
 
 def find_latest_filenum():
     '''Return largest filenumber.'''
@@ -27,10 +29,10 @@ def find_latest_filenum():
 run_number = find_latest_filenum()
 
 if ((type(run_number) != int) or (run_number < 0)):
-    print('Filename or path error')
-else:
-    Filename_old = pathname / f'{run_number}_005.hdf5'  # D1. G2P (GADGET to Python).
-    Filename_new = f"B_E_{run_number}_005_P2G.hdf5"
+    sys.exit('Filename or path error')
+
+Filename_old = pathname / f'{run_number}_005.hdf5'  # D1. G2P (GADGET to Python).
+Filename_new = f"B_E_{run_number}_005_P2G.hdf5"
 
 OldSnapfile = h5py.File(Filename_old, 'r')      
 NewSnapfile = h5py.File(Filename_new, 'w')  # Python to GADGET, or P2G.
