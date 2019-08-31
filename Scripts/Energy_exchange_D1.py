@@ -10,102 +10,27 @@ import scipy
 import os.path
 from pathlib import Path
 
-pathname = Path.cwd() + '/RunGadget/Energy_Exchange/IIa/E_HQ_100000_D1/output/B_E_G2P_'
+# pathname = Path.cwd() + '/RunGadget/Energy_Exchange/IIa/E_HQ_100000_D1/output/B_E_G2P_'
 
+'''
 if os.path.exists(Path.cwd() + '/RunGadget/Energy_Exchange/E_HQ_100000_D1/output/'):
     print('The main path exists!')
-
-number_of_runs = 20
-
-if os.path.exists(pathname + str(number_of_runs) + '_005.hdf5'):
-    Filename_old = pathname + str(number_of_runs) + '_005.hdf5'
-    Filename_new = f'B_E_{number_of_runs}_005_P2G.hdf5'
-
-elif os.path.exists(pathname + str(number_of_runs - 1) + '_005.hdf5'):
-    Filename_old = pathname + str(number_of_runs - 1) + '_005.hdf5'
-    Filename_new = f'B_E_{number_of_runs - 1}_005_P2G.hdf5'
-# ...
-elif os.path.exists(pathname + str(number_of_runs - 20) + '_005.hdf5'):
-    # print('The first input file path exists!')
-    Filename_old = pathname + str(number_of_runs - 20) + '_005.hdf5'
-    # print('The old snapshot has been named')
-    Filename_new = f'B_E_{number_of_runs - 20}_005_P2G.hdf5'
-    # print('New snapshot created!')
-else:
-    print('Filename or path error')
-
-
 '''
-# D1
-if os.path.exists(pathname + '20_005.hdf5'):
-    Filename_old = pathname + '20_005.hdf5'  # D1. G2P (GADGET to Python).
-    Filename_new = 'B_E_20_005_P2G.hdf5'    
-elif os.path.exists(pathname + '19_005.hdf5'):
-    Filename_old = pathname + '19_005.hdf5'  
-    Filename_new = 'B_E_19_005_P2G.hdf5'
-elif os.path.exists(pathname + '18_005.hdf5'):
-    Filename_old = pathname + '18_005.hdf5'  
-    Filename_new = 'B_E_18_005_P2G.hdf5'
-elif os.path.exists(pathname + '17_005.hdf5'):
-    Filename_old = pathname + '17_005.hdf5'  
-    Filename_new = 'B_E_17_005_P2G.hdf5'
-elif os.path.exists(pathname + '16_005.hdf5'):
-    Filename_old = pathname + '16_005.hdf5'  
-    Filename_new = 'B_E_16_005_P2G.hdf5'
-elif os.path.exists(pathname + '15_005.hdf5'):
-    Filename_old = pathname + '15_005.hdf5'  
-    Filename_new = 'B_E_15_005_P2G.hdf5'
-elif os.path.exists(pathname + '14_005.hdf5'):
-    Filename_old = pathname + '14_005.hdf5'  
-    Filename_new = 'B_E_14_005_P2G.hdf5'
-elif os.path.exists(pathname + '13_005.hdf5'):
-    Filename_old = pathname + '13_005.hdf5'  
-    Filename_new = 'B_E_13_005_P2G.hdf5'
-elif os.path.exists(pathname + '12_005.hdf5'):
-    Filename_old = pathname + '12_005.hdf5'  
-    Filename_new = 'B_E_12_005_P2G.hdf5'
-elif os.path.exists(pathname + '11_005.hdf5'):
-    Filename_old = pathname + '11_005.hdf5'  
-    Filename_new = 'B_E_11_005_P2G.hdf5'
-elif os.path.exists(pathname + '10_005.hdf5'):
-    Filename_old = pathname + '10_005.hdf5'  
-    Filename_new = 'B_E_10_005_P2G.hdf5'
-elif os.path.exists(pathname + '9_005.hdf5'):
-    Filename_old = pathname + '9_005.hdf5'  
-    Filename_new = 'B_E_9_005_P2G.hdf5'
-elif os.path.exists(pathname + '8_005.hdf5'):
-    Filename_old = pathname + '8_005.hdf5'  
-    Filename_new = 'B_E_8_005_P2G.hdf5'
-elif os.path.exists(pathname + '7_005.hdf5'):
-    Filename_old = pathname + '7_005.hdf5'  
-    Filename_new = 'B_E_7_005_P2G.hdf5'
-elif os.path.exists(pathname + '6_005.hdf5'):
-    Filename_old = pathname + '6_005.hdf5'  
-    Filename_new = 'B_E_6_005_P2G.hdf5'
-elif os.path.exists(pathname + '5_005.hdf5'):
-    Filename_old = pathname + '5_005.hdf5'  
-    Filename_new = 'B_E_5_005_P2G.hdf5'
-elif os.path.exists(pathname + '4_005.hdf5'):
-    Filename_old = pathname + '4_005.hdf5'  
-    Filename_new = 'B_E_4_005_P2G.hdf5'
-elif os.path.exists(pathname + '3_005.hdf5'):
-    Filename_old = pathname + '3_005.hdf5'  
-    Filename_new = 'B_E_3_005_P2G.hdf5'
-elif os.path.exists(pathname + '2_005.hdf5'):
-    Filename_old = pathname + '2_005.hdf5'  
-    Filename_new = 'B_E_2_005_P2G.hdf5'
-elif os.path.exists(pathname + '1_005.hdf5'):
-    Filename_old = pathname + '1_005.hdf5'  
-    Filename_new = 'B_E_1_005_P2G.hdf5'    
-elif os.path.exists(pathname + '0_005.hdf5'):
-    # print('The first input file path exists!')
-    Filename_old = pathname + '0_005.hdf5'
-    # print('The old snapshot has been named')
-    Filename_new = 'B_E_0_005_P2G.hdf5'
-    # print('New snapshot created!')
-else:
+
+def find_latest_filenum():
+    '''Return largest filenumber.'''
+    hdf5_posix = list(pathname.glob('*.hdf5'))
+    hdf5_filenum = [str(file).split('/')[-1][0] for file in hdf5_posix]
+    return max(hdf5_filenum)
+
+
+run_number = find_latest_filenum()
+
+if ((type(run_number) != int) or (run_number < 0)):
     print('Filename or path error')
-'''
+else:
+    Filename_old = pathname / f'{run_number}_005.hdf5'  # D1. G2P (GADGET to Python).
+    Filename_new = f"B_E_{run_number}_005_P2G.hdf5"
 
 OldSnapfile = h5py.File(Filename_old, 'r')      
 NewSnapfile = h5py.File(Filename_new, 'w')  # Python to GADGET, or P2G.
