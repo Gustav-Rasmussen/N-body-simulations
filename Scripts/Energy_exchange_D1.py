@@ -13,10 +13,7 @@ import sys
 
 pathname = Path.cwd() / 'RunGadget/Energy_Exchange/IIa/E_HQ_100000_D1/output/B_E_G2P_'
 
-'''
-if os.path.exists(Path.cwd() + '/RunGadget/Energy_Exchange/E_HQ_100000_D1/output/'):
-    print('The main path exists!')
-'''
+assert os.path.exists(Path.cwd() + '/RunGadget/Energy_Exchange/E_HQ_100000_D1/output/')
 
 
 def find_latest_filenum():
@@ -57,7 +54,7 @@ zC = z[minV]
 vxC = vx[minV]
 vyC = vy[minV]
 vzC = vz[minV]
-R = ((x-xC)**2+(y-yC)**2+(z-zC)**2)**0.5
+R = ravf.modulus(x - xC, y - yC, z - zC)
 vx -= np.median(vx)
 vy -= np.median(vy)
 vz -= np.median(vz)
