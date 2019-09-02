@@ -13,7 +13,7 @@ import scipy as sp
 import seaborn as sns
 import matplotlib.patches as mpatches
 from pathlib import Path
-from Attractor.Sigma_calc_OOP import chi_2, get_volume_slice
+from Attractor.Sigma_calc_OOP import chi_2, get_volume_slice, beta, gamma, kappa
 from Gammas_and_R_middles import R_bin_automatic
 
 User_path = Path.cwd()
@@ -498,23 +498,19 @@ VPhi_arr = np.array(VPhi)
 VR_i_avg_in_bin_arr = np.array(VR_i_avg_in_bin)
 rho_arr = np.array(rho_arr)
 
-for i in range(len(sigma2_arr)):  # kappa
-    if i == 0 or i == len(sigma2_arr) - 1:
-        kappa_arr.append(np.nan)
-        continue   
-    dlogr = np.log10(bin_radius_arr[i + 1]) - np.log10(bin_radius_arr[i - 1])
-    dlogsigmarad2 = np.log10(sigmarad2_arr[i + 1]) - np.log10(sigmarad2_arr[i - 1])
-    kappa_arr.append(dlogsigmarad2 / dlogr)
+# Set kappa
+radii = bin_radius_arr
+sigma_r2 = sigmarad2_arr
+kappa_arr = kappa(sigma2_arr)
 
-for i in range(len(density_arr)):  # gamma
-    if i == 0 or i == len(sigma2_arr) - 1:
-        gamma_arr.append(np.nan)
-        continue
-    dlogr = np.log10(bin_radius_arr[i + 1]) - np.log10(bin_radius_arr[i - 1])
-    dlogrho = np.log10(density_arr[i + 1]) - np.log10(density_arr[i - 1])
-    gamma_arr.append(dlogrho / dlogr)
+# Set gamma
+density = density_arr
+gamma_arr = gamma(sigma2_arr)
 
-beta_arr = 1. - sigmatheta2_arr / sigmarad2_arr  # Calculate beta
+# Set beta
+sigmatheta2 = sigmatheta2_arr
+sigmarad2 = sigmarad2_arr
+beta_arr = beta(self)
 
 if Fig_vx_x:
     f, (ax1) = plt.subplots(1, 1, figsize=(13, 11))
