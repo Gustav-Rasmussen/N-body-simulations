@@ -68,25 +68,16 @@ Soft_D2_snaps = ['0_005', '10_005', '20_013', '20_021', '30_021', '40_021', '60_
 # Filename = GADGET_E_path + Soft_D2_path + 'B_E_G2P_' + Soft_D2_snaps[0] + '.hdf5'
 
 E_path = 'E_HQ_1000000_E/output/'
-# Filename = GADGET_E_path + E_path + 'B_E_G2P_0_005.hdf5'
-# Filename = GADGET_E_path + E_path + 'B_E_G2P_2_005.hdf5'
-# Filename = GADGET_E_path + E_path + 'B_E_G2P_4_005.hdf5'
-# Filename = GADGET_E_path + E_path + 'B_E_G2P_6_005.hdf5'
-# Filename = GADGET_E_path + E_path + 'B_E_G2P_8_005.hdf5'
-# Filename = GADGET_E_path + E_path + 'B_E_G2P_10_005.hdf5'
-# Filename = GADGET_E_path + E_path + 'B_E_G2P_20_005.hdf5'
-# Filename = GADGET_E_path + E_path + 'B_E_G2P_30_005.hdf5'
-# Filename = GADGET_E_path + E_path + 'B_E_G2P_40_021.hdf5'
+E_snaps = ['0_005', '2_005', '4_005', '6_005', '8_005', '10_005', '20_005', '30_005', '40_021']
+# Filename = GADGET_E_path + E_path + 'B_E_G2P_' + E_snaps[0] + '.hdf5'
 
 Test_CS4_path = 'Test_CS4/output/'
 # Filename = GADGET_E_path + Test_CS4_path + 'B_E_G2P_0_005.hdf5'
 # Filename = GADGET_E_path + 'Test_CS4/' + 'B_E_0_005_P2G.hdf5'
 # Filename = GADGET_E_path + Test_CS4_path + 'B_E_G2P_1_005.hdf5'
 # Filename = GADGET_E_path + 'Test_CS4/' + 'B_E_1_005_P2G.hdf5'
-
 # Filename = GADGET_E_path + Test_CS4_path + 'B_E_G2P_2_005.hdf5'
 # Filename = GADGET_E_path + 'Test_CS4/' + 'B_E_2_005_P2G.hdf5'
-
 # Filename = GADGET_E_path + Test_CS4_path + 'B_E_G2P_3_005.hdf5'
 # Filename = GADGET_E_path + 'Test_CS4/' + 'B_E_3_005_P2G.hdf5'
 # Filename = GADGET_E_path + Test_CS4_path + 'B_E_G2P_4_005.hdf5'
@@ -276,13 +267,11 @@ if R_bin_automatic:  # make R_limit_min and R_limit_max selection automatic
 if Fig_x_hist:
     f,(ax1, ax2, ax3) = plt.subplots(1, 3, figsize=(13, 11))
     f.subplots_adjust(hspace=0, wspace=0)
-
     ax1.set_xlabel(r'$x-x_c$', fontsize=30)
     n, bins, patches = ax1.hist(x - xC, 500, normed=1, histtype='stepfilled')
     plt.setp(patches, 'facecolor', 'g', 'alpha', .75)
     ax1.set_xlim(-40, 40)
     ax1.set_ylim(.0, .4)
-
     ax2.set_xlabel(r'$y-y_c$', fontsize=30)
     n, bins, patches = ax2.hist(y - yC, 500, normed=1, histtype='stepfilled')
     plt.setp(patches, 'facecolor', 'g', 'alpha', .75)
@@ -291,7 +280,6 @@ if Fig_x_hist:
     ax2.set_ylim(.0, .4)
     ax2.tick_params(axis='both', which='both', bottom='on', top='off',
                     labelbottom='on', right='off', left='off', labelleft='off')
-
     ax3.set_xlabel(r'$z-z_c$', fontsize=30)
     n, bins, patches = ax3.hist(z - zC, 500, normed=1, histtype='stepfilled')
     plt.setp(patches, 'facecolor', 'g', 'alpha', .75)
@@ -300,7 +288,6 @@ if Fig_x_hist:
     # ax3.axes.get_yaxis().set_visible(False)
     ax3.tick_params(axis='both', which='both', bottom='on', top='off',
                     labelbottom='on', right='off', left='off', labelleft='off')
-
     f.savefig(figure_path + 'Fig_CS4_Final_x_hist.png')  # 'Fig_x_hist.png'
 
 if Fig_x_hist2d:
@@ -310,11 +297,8 @@ if Fig_x_hist2d:
     plt.hexbin(x - xC, y - yC, gridsize=500)
     plt.xlim(-10, 10)
     plt.ylim(-10, 10)
-
     sims = ['B', 'CS4', 'CS5', 'CS6', 'DS1', 'D2', 'E']
-
     plt.title(f'Centralized positions x and y ({sims[0]}, gridsize = 500)', fontsize=30)
-
     f.savefig(f'{figure_path}Fig_{sims[0]}_Final_x_hist2d.png')
 
 x -= np.median(x)
@@ -478,14 +462,11 @@ if Fig_vx_x:
     f, (ax1) = plt.subplots(1, 1, figsize=(13, 11))
     ax1.set_xlabel(r'$\log x$', fontsize=30)
     ax1.set_ylabel(r'$\log v_x$', fontsize=30)
-
     ax1.plot(np.log10(x), np.log10(vx), 'bo', label='Soft B 0_005', lw=3, ms=2)  # label='Soft B 1_000'
-
     leg = ax1.legend(prop=dict(size=18), numpoints=1, ncol=1,
                      fancybox=True, loc=0, handlelength=2.5)
     leg.get_frame().set_alpha(.5)
     ax1.set_title(r'II: $\Delta E,R_{lim}=10^4$', fontsize=30)
-
     f.savefig(figure_path + 'Soft_B_0_005_logvx_logx_II.png')  # 'Soft_B_1_000_logvx_logx_II'
 
 if Fig_v_logr:
@@ -495,15 +476,12 @@ if Fig_v_logr:
     f.subplots_adjust(hspace=0, wspace=0)
     ax1.set_xlabel('r', fontsize=30)
     ax1.set_ylabel(r'total velocity, $v=\sqrt{v_x^2+v_y^2+v_z^2}$', fontsize=30)
-
     labels = ['Soft B IC', 'Soft B 10_005', 'Soft B 20_005', 'Soft B control IC',
               'Soft B control 10_005', 'Soft B control 20_005',
               r'$CS_4$ 2_005', r'$CS_4$ 2_005 perturbation', r'$CS_4$ 2_005 P2G (no K_ratio)',
               r'$CS_4$ 2_005 P2G (unbound)', r'$CS_4$ 2_005 P2G (no rand)',
               r'$CS_4$ 2_005 P2G (car sph car)']
-
     ax1.plot(r, v, 'bo', label=labels[-1], lw=3, ms=2)
-
     leg = ax1.legend(prop=dict(size=18), numpoints=1, ncol=1,
                      fancybox=True, loc=0, handlelength=2.5)
     leg.get_frame().set_alpha(.5)
@@ -511,7 +489,6 @@ if Fig_v_logr:
     ax2.plot(np.log10(r), v, 'bo', lw=3, ms=2)
     ax2.set_xlabel(r'$\log r$', fontsize=30)
     ax2.yaxis.tick_right()
-
     figtitles = ['Soft_B_IC_v_logr_II',
                  'Soft_B_10_005_v_logr_II',
                  'Soft_B_20_005_v_logr_II',
@@ -524,7 +501,6 @@ if Fig_v_logr:
                  'CS4_2_005_P2G_unbound_v_logr_IIc',
                  'CS4_2_005_P2G_no_rand_v_logr_IIc'
                  ]
-
     f.savefig(figure_path + figtitles[-1] + '.png')
 
 if Fig4_beta:  # plot beta
@@ -542,17 +518,14 @@ if Fig4_beta:  # plot beta
         x = 10 ** x_plot
         y_plot = x ** 2 / (23. ** 2 + x ** 2)
         plt.plot(x_plot, y_plot, 'b-', ms=2, mew=0, label=r'$\frac{x^2}{23^2+x^2}$')
-
         Chi2 = Sigma_calc_OOP.chi_2(beta_arr)
         # print('Chi2 for betafit: ', Chi2)
-
         # Dummy plot to add label to legend for chi2
         plt.plot([], [], ls='.', c='grey', label=r'$\chi^2 = %.6f$' % Chi2)
         leg = plt.legend(prop=dict(size=18), numpoints=2, ncol=2,
                          fancybox=True, loc=0, handlelength=2.5)
         leg.get_frame().set_alpha(.5)
         plt.title(r'$\beta$ with fit (%s)' % F, fontsize=30)
-
         figtitles = ['B_IC', 'B_Final', 'B_Final_control', 'CS1_IC',
                      'CS1_Final', 'CS1_Final_control', 'CS4_IC',
                      'CS4_Final', 'CS4_Final_control', 'CS5_IC',
@@ -562,122 +535,21 @@ if Fig4_beta:  # plot beta
                      'D2_Final', 'D2_Final_control', 'E_IC',
                      'E_Final', 'E_Final_control'
                      ]
-
                      f.savefig(figure_path + figtitles[-1] + '_beta_logr_fit.png']
     else:
         # plt.title(r'$\beta$ with zero-line(%s)' % F, fontsize=30)
-
         sims = ['Soft_B', 'CS4', 'CS5', 'CS6', 'DS1', 'Soft_D2', 'E']
         # plt.title(r'$\beta$ with zero-line(Sim II: $\Delta$E, (%s) final, $R_{limit}=10^4$, 20 bins)' % sims[-1], fontsize=30)  # all sims
         # plt.title(r'$\beta$ with zero-line(Sim II: $\Delta$E, (%s) final, $R_{limit}=50$, 50 bins)', % sims[-1], fontsize=30)  # all sims
-
         # plt.title(r'$\beta$ with zero-line(Sim II: $\Delta$E, Soft_B final, $R_{limit}=32$, 50 bins)', fontsize=30)
-
         # plt.title(r'$\beta$ with zero-line(Sim II: $\Delta$E, (%s) final, $R_{limit}=32$, 20 bins)', % sims[1], fontsize=30)  # sims[1] to sims[-2]
-
         # plt.title(r'$\beta$ with zero-line(Sim II: $\Delta$E, E final, $R_{limit}=32$, 50 bins)', fontsize=30)
-
         # plt.title(r'$\beta$ with zero-line(Sim II: $\Delta$E, (%s) final, $R_{limit}=10$, 20 bins)', % sims[-1], fontsize=30)
 
-        # f.savefig(figure_path + 'Soft_B_IC_beta_logr_II_R10000.png')
-        # f.savefig(figure_path + 'Soft_B_Final_beta_logr_II_R10000.png')
-        # f.savefig(figure_path + 'Soft_B_Final_control_beta_logr_II_R10000.png')
-        # f.savefig(figure_path + 'CS1_IC_beta_logr_II_R10000.png')
-        # f.savefig(figure_path + 'CS1_Final_beta_logr_II_R10000.png')
-        # f.savefig(figure_path + 'CS1_Final_control_beta_logr_II_R10000.png')
-        # f.savefig(figure_path + 'CS4_IC_beta_logr_II_R10000.png')
-        # f.savefig(figure_path + 'CS4_Final_beta_logr_II_R10000.png')
-        # f.savefig(figure_path + 'CS4_Final_control_beta_logr_II_R10000.png')
-        # f.savefig(figure_path + 'CS5_IC_beta_logr_II_R10000.png')
-        # f.savefig(figure_path + 'CS5_Final_beta_logr_II_R10000.png')
-        # f.savefig(figure_path + 'CS5_Final_control_beta_logr_II_R10000.png')
-        # f.savefig(figure_path + 'CS6_IC_beta_logr_II_R10000.png')
-        # f.savefig(figure_path + 'CS6_Final_beta_logr_II_R10000.png')
-        # f.savefig(figure_path + 'CS6_Final_control_beta_logr_II_R10000.png')
-        # f.savefig(figure_path + 'DS1_IC_beta_logr_II_R10000.png')
-        # f.savefig(figure_path + 'DS1_Final_beta_logr_II_R10000.png')
-        # f.savefig(figure_path + 'DS1_Final_control_beta_logr_II_R10000.png')
-        # f.savefig(figure_path + 'Soft_D2_IC_beta_logr_II_R10000.png')
-        # f.savefig(figure_path + 'Soft_D2_Final_beta_logr_II_R10000.png')
-        # f.savefig(figure_path + 'Soft_D2_Final_control_beta_logr_II_R10000.png')
-        # f.savefig(figure_path + 'E_IC_beta_logr_II_R10000.png')
-        # f.savefig(figure_path + 'E_Final_beta_logr_II_R10000.png')
-        # f.savefig(figure_path + 'E_Final_control_beta_logr_II_R10000.png')
-
-        # f.savefig(figure_path + 'Soft_B_IC_beta_logr_II_R50.png')
-        # f.savefig(figure_path + 'Soft_B_Final_beta_logr_II_R50.png')
-        # f.savefig(figure_path + 'Soft_B_Final_control_beta_logr_II_R50.png')
-        # f.savefig(figure_path + 'CS1_IC_beta_logr_II_R50.png')
-        # f.savefig(figure_path + 'CS1_Final_beta_logr_II_R50.png')
-        # f.savefig(figure_path + 'CS1_Final_control_beta_logr_II_R50.png')
-        # f.savefig(figure_path + 'CS4_IC_beta_logr_II_R50.png')
-        # f.savefig(figure_path + 'CS4_Final_beta_logr_II_R50.png')
-        # f.savefig(figure_path + 'CS4_Final_control_beta_logr_II_R50.png')
-        # f.savefig(figure_path + 'CS5_IC_beta_logr_II_R50.png')
-        # f.savefig(figure_path + 'CS5_Final_beta_logr_II_R50.png')
-        # f.savefig(figure_path + 'CS5_Final_control_beta_logr_II_R50.png') 
-        # f.savefig(figure_path + 'CS6_IC_beta_logr_II_R50.png')
-        # f.savefig(figure_path + 'CS6_Final_beta_logr_II_R50.png')
-        # f.savefig(figure_path + 'CS6_Final_control_beta_logr_II_R50.png')
-        # f.savefig(figure_path + 'DS1_IC_beta_logr_II_R50.png')
-        # f.savefig(figure_path + 'DS1_Final_beta_logr_II_R50.png')
-        # f.savefig(figure_path + 'DS1_Final_control_beta_logr_II_R50.png')
-        # f.savefig(figure_path + 'Soft_D2_IC_beta_logr_II_R50.png')
-        # f.savefig(figure_path + 'Soft_D2_Final_beta_logr_II_R50.png')
-        # f.savefig(figure_path + 'Soft_D2_Final_control_beta_logr_II_R50.png')
-        # f.savefig(figure_path + 'E_IC_beta_logr_II_R50.png')
-        # f.savefig(figure_path + 'E_Final_beta_logr_II_R50.png')
-        # f.savefig(figure_path + 'E_Final_control_beta_logr_II_R50.png')
-
-        # f.savefig(figure_path + 'Soft_B_IC_beta_logr_II_R32.png')
-        # f.savefig(figure_path + 'Soft_B_Final_beta_logr_II_R32.png')
-        # f.savefig(figure_path + 'Soft_B_Final_control_beta_logr_II_R32.png')
-        # f.savefig(figure_path + 'CS1_IC_beta_logr_II_R32.png')
-        # f.savefig(figure_path + 'CS1_Final_beta_logr_II_R32.png')
-        # f.savefig(figure_path + 'CS1_Final_control_beta_logr_II_R32.png')
-        # f.savefig(figure_path + 'CS4_IC_beta_logr_II_R32.png')
-        # f.savefig(figure_path + 'CS4_Final_beta_logr_II_R32.png')
-        # f.savefig(figure_path + 'CS4_Final_control_beta_logr_II_R32.png')
-        # f.savefig(figure_path + 'CS5_IC_beta_logr_II_R32.png')
-        # f.savefig(figure_path + 'CS5_Final_beta_logr_II_R32.png')
-        # f.savefig(figure_path + 'CS5_Final_control_beta_logr_II_R32.png')
-        # f.savefig(figure_path + 'CS6_IC_beta_logr_II_R32.png')
-        # f.savefig(figure_path + 'CS6_Final_beta_logr_II_R32.png')
-        # f.savefig(figure_path + 'CS6_Final_control_beta_logr_II_R32.png')
-        # f.savefig(figure_path + 'DS1_IC_beta_logr_II_R32.png')
-        # f.savefig(figure_path + 'DS1_Final_beta_logr_II_R32.png')
-        # f.savefig(figure_path + 'DS1_Final_control_beta_logr_II_R32.png')
-        # f.savefig(figure_path + 'Soft_D2_IC_beta_logr_II_R32.png')
-        # f.savefig(figure_path + 'Soft_D2_Final_beta_logr_II_R32.png')
-        # f.savefig(figure_path + 'Soft_D2_Final_control_beta_logr_II_R32.png')
-        # f.savefig(figure_path + 'E_IC_beta_logr_II_R32.png')
-        # f.savefig(figure_path + 'E_Final_beta_logr_II_R32.png')
-        # f.savefig(figure_path + 'E_Final_control_beta_logr_II_R32.png')
-
-        # f.savefig(figure_path + 'Soft_B_IC_beta_logr_II_R10.png')
-        # f.savefig(figure_path + 'Soft_B_Final_beta_logr_II_R10.png')
-        # f.savefig(figure_path + 'Soft_B_Final_control_beta_logr_II_R10.png')
-        # f.savefig(figure_path + 'CS1_IC_beta_logr_II_R10.png')
-        # f.savefig(figure_path + 'CS1_Final_beta_logr_II_R10.png')
-        # f.savefig(figure_path + 'CS1_Final_control_beta_logr_II_R10.png')
-        # f.savefig(figure_path + 'CS4_IC_beta_logr_II_R10.png')
-        # f.savefig(figure_path + 'CS4_Final_beta_logr_II_R10.png')
-        # f.savefig(figure_path + 'CS4_Final_control_beta_logr_II_R10.png')
-        # f.savefig(figure_path + 'CS5_IC_beta_logr_II_R10.png')
-        # f.savefig(figure_path + 'CS5_Final_beta_logr_II_R10.png')
-        # f.savefig(figure_path + 'CS5_Final_control_beta_logr_II_R10.png')
-        # f.savefig(figure_path + 'CS6_IC_beta_logr_II_R10.png')
-        # f.savefig(figure_path + 'CS6_Final_beta_logr_II_R10.png')
-        # f.savefig(figure_path + 'CS6_Final_control_beta_logr_II_R10.png')
-        # f.savefig(figure_path + 'DS1_IC_beta_logr_II_R10.png')
-        # f.savefig(figure_path + 'DS1_Final_beta_logr_II_R10.png')
-        # f.savefig(figure_path + 'DS1_Final_control_beta_logr_II_R10.png')
-        # f.savefig(figure_path + 'Soft_D2_IC_beta_logr_II_R10.png')
-        # f.savefig(figure_path + 'Soft_D2_Final_beta_logr_II_R10.png')
-        # f.savefig(figure_path + 'Soft_D2_Final_control_beta_logr_II_R10.png')
-        # f.savefig(figure_path + 'E_IC_beta_logr_II_R10.png')
-        # f.savefig(figure_path + 'E_Final_beta_logr_II_R10.png')
-        # f.savefig(figure_path + 'E_Final_control_beta_logr_II_R10.png')
+        titles = ['Soft_B', 'CS1', 'CS4', 'CS5', 'CS6', 'DS1', 'Soft_D2', 'E']
+        ext = ['IC', 'Final', 'Final_control']
+        radii = ['10000', '50', '32', '10']
+        f.savefig(figure_path + titles[0] + '_' + ext[0] + '_beta_logr_II_R' + radii[0] + '.png')
 
 if Fig5_kappa:
     f = plt.figure(figsize=(13, 11))
