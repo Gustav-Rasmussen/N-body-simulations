@@ -26,18 +26,14 @@ sims_II = ['a', 'b', 'c', 'd']
 
 # IIa
 sims = ['Soft_B', 'CS1', 'CS4', 'CS5', 'CS6', 'DS1', 'Soft_D2', 'E', 'Test_CS4', 'Test_D2', 'Test_CS4_10tdyn']
-# text_files_path = Desktop_path + Stable_path + 'text_files/IIa/' + sims[0] + '/'
+# text_files_path = Desktop_path + Stable_path + 'text_files/IIa/' + sims[0] + '/'  # All sims
 
 # IIb
 # text_files_path = Desktop_path + Stable_path + 'text_files/IIb/' + sims[2] + '/'
 # text_files_path = Desktop_path + Stable_path + 'text_files/IIb/Soft_D2/'
 
 # IIc
-# text_files_path = Desktop_path + Stable_path + 'text_files/IIc/CS4/'
-# text_files_path = Desktop_path + Stable_path + 'text_files/IIc/CS5/'
-# text_files_path = Desktop_path + Stable_path + 'text_files/IIc/CS6/'
-# text_files_path = Desktop_path + Stable_path + 'text_files/IIc/DS1/'
-# text_files_path = Desktop_path + Stable_path + 'text_files/IIc/Soft_D2/'
+# text_files_path = Desktop_path + Stable_path + 'text_files/IIc/' + sims[2] + '/'  # sims[3], sims[4], sims[5], sims[6]
 
 # IId
 # text_files_path = Desktop_path + Stable_path + 'text_files/IId/CS4/'
@@ -59,36 +55,17 @@ CS5_path = 'E_HQ_100000_CS5/output/'
 CS5_snaps = ['0_005', '2_005', '4_005', '6_005', '8_005', '10_005', '20_021', '30_005', '40_021']
 # Filename = GADGET_E_path + CS5_path + 'B_E_G2P_' + CS5_snaps[0] + '.hdf5'
 
-CS6_path = 'E_HQ_100000_CS6/output/'  
-# Filename = GADGET_E_path + CS6_path + 'B_E_G2P_0_005.hdf5'
-# Filename = GADGET_E_path + CS6_path + 'B_E_G2P_2_005.hdf5'
-# Filename = GADGET_E_path + CS6_path + 'B_E_G2P_4_005.hdf5'
-# Filename = GADGET_E_path + CS6_path + 'B_E_G2P_6_005.hdf5'
-# Filename = GADGET_E_path + CS6_path + 'B_E_G2P_8_005.hdf5'
-# Filename = GADGET_E_path + CS6_path + 'B_E_G2P_10_005.hdf5'
-# Filename = GADGET_E_path + CS6_path + 'B_E_G2P_20_021.hdf5'
-# Filename = GADGET_E_path + CS6_path + 'B_E_G2P_30_005.hdf5'
-# Filename = GADGET_E_path + CS6_path + 'B_E_G2P_40_021.hdf5'
-DS1_path = 'E_0_5_100000_DS1/output/'  
-# Filename = GADGET_E_path + DS1_path + 'B_E_G2P_0_005.hdf5'
-# Filename = GADGET_E_path + DS1_path + 'B_E_G2P_2_005.hdf5'
-# Filename = GADGET_E_path + DS1_path + 'B_E_G2P_4_005.hdf5'
-# Filename = GADGET_E_path + DS1_path + 'B_E_G2P_6_005.hdf5'
-# Filename = GADGET_E_path + DS1_path + 'B_E_G2P_8_005.hdf5'
-# Filename = GADGET_E_path + DS1_path + 'B_E_G2P_10_005.hdf5'
-# Filename = GADGET_E_path + DS1_path + 'B_E_G2P_20_005.hdf5'
-# Filename = GADGET_E_path + DS1_path + 'B_E_G2P_30_005.hdf5'
-# Filename = GADGET_E_path + DS1_path + 'B_E_G2P_40_021.hdf5'
-# Filename = GADGET_E_path + DS1_path + 'B_E_G2P_60_021.hdf5'
+CS6_path = 'E_HQ_100000_CS6/output/'
+CS6_snaps = ['0_005', '2_005', '4_005', '6_005', '8_005', '10_005', '20_021', '30_005', '40_021']
+# Filename = GADGET_E_path + CS6_path + 'B_E_G2P_' + CS6_snaps[0] + '.hdf5'
+
+DS1_path = 'E_0_5_100000_DS1/output/'
+DS1_snaps = ['0_005', '2_005', '4_005', '6_005', '8_005', '10_005', '20_005', '30_005', '40_021', '60_021']
+# Filename = GADGET_E_path + DS1_path + 'B_E_G2P_' + DS1_snaps[0] + '.hdf5'
 
 Soft_D2_path = 'E_0_5_100000_D2/output/'
-# Filename = GADGET_E_path + Soft_D2_path + 'B_E_G2P_0_005.hdf5'
-# Filename = GADGET_E_path + Soft_D2_path + 'B_E_G2P_10_005.hdf5'
-# Filename = GADGET_E_path + Soft_D2_path + 'B_E_G2P_20_013.hdf5'
-# Filename = GADGET_E_path + Soft_D2_path + 'B_E_G2P_20_021.hdf5'
-# Filename = GADGET_E_path + Soft_D2_path + 'B_E_G2P_30_021.hdf5'
-# Filename = GADGET_E_path + Soft_D2_path + 'B_E_G2P_40_021.hdf5'
-# Filename = GADGET_E_path + Soft_D2_path + 'B_E_G2P_60_021.hdf5'
+Soft_D2_snaps = ['0_005', '10_005', '20_013', '20_021', '30_021', '40_021', '60_021']
+# Filename = GADGET_E_path + Soft_D2_path + 'B_E_G2P_' + Soft_D2_snaps[0] + '.hdf5'
 
 E_path = 'E_HQ_1000000_E/output/'
 # Filename = GADGET_E_path + E_path + 'B_E_G2P_0_005.hdf5'
