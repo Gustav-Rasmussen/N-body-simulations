@@ -44,36 +44,21 @@ sims = ['Soft_B', 'CS1', 'CS4', 'CS5', 'CS6', 'DS1', 'Soft_D2', 'E', 'Test_CS4',
 # text_files_path = Desktop_path + Stable_path + 'text_files/IId/Soft_D2/'
 
 Soft_B_path = 'E_HQ_1000000_B/output/'
-# Filename = GADGET_E_path + Soft_B_path + 'B_E_G2P_0_000.hdf5'
-# Filename = GADGET_E_path + Soft_B_path + 'B_E_G2P_0_005.hdf5'
-# Filename = GADGET_E_path + Soft_B_path + 'B_E_G2P_1_000.hdf5'
-# Filename = GADGET_E_path + Soft_B_path + 'B_E_G2P_2_005.hdf5'
-# Filename = GADGET_E_path + Soft_B_path + 'B_E_G2P_4_005.hdf5'
-# Filename = GADGET_E_path + Soft_B_path + 'B_E_G2P_6_005.hdf5'
-# Filename = GADGET_E_path + Soft_B_path + 'B_E_G2P_8_005.hdf5'
-# Filename = GADGET_E_path + Soft_B_path + 'B_E_G2P_10_005.hdf5'
-# Filename = GADGET_E_path + Soft_B_path + 'B_E_G2P_20_005.hdf5'
+Soft_B_snaps = ['0_000', '0_005', '1_000', '2_005', '4_005', '6_005', '8_005', '10_005', '20_005']
+# Filename = GADGET_E_path + Soft_B_path + 'B_E_G2P_' + Soft_B_snaps[0] + '.hdf5'
+
 CS1_path = 'E_HQ_10000_CS1/output/'
 # Filename = GADGET_E_path + CS1_path + 'B_E_G2P_0_000.hdf5'
 # Filename = GADGET_E_path + CS1_path + 'B_E_G2P_20_005.hdf5'
 
-CS4_path = 'E_HQ_100000_CS4/output/' 
-# Filename = GADGET_E_path + CS4_path + 'B_E_G2P_0_005.hdf5'
-# Filename = GADGET_E_path + CS4_path + 'B_E_G2P_10_005.hdf5'
-# Filename = GADGET_E_path + CS4_path + 'B_E_G2P_20_013.hdf5'
-# Filename = GADGET_E_path + CS4_path + 'B_E_G2P_20_021.hdf5'
-# Filename = GADGET_E_path + CS4_path + 'B_E_G2P_30_005.hdf5'
-# Filename = GADGET_E_path + CS4_path + 'B_E_G2P_40_021.hdf5'
+CS4_path = 'E_HQ_100000_CS4/output/'
+CS4_snaps = ['0_005', '10_005', '20_013', '20_021', '30_005', '40_021']
+# Filename = GADGET_E_path + CS4_path + 'B_E_G2P_' + CS4_snaps[0] + '.hdf5'
+
 CS5_path = 'E_HQ_100000_CS5/output/'
-# Filename = GADGET_E_path + CS5_path + 'B_E_G2P_0_005.hdf5'
-# Filename = GADGET_E_path + CS5_path + 'B_E_G2P_2_005.hdf5'
-# Filename = GADGET_E_path + CS5_path + 'B_E_G2P_4_005.hdf5'
-# Filename = GADGET_E_path + CS5_path + 'B_E_G2P_6_005.hdf5'
-# Filename = GADGET_E_path + CS5_path + 'B_E_G2P_8_005.hdf5'
-# Filename = GADGET_E_path + CS5_path + 'B_E_G2P_10_005.hdf5'
-# Filename = GADGET_E_path + CS5_path + 'B_E_G2P_20_021.hdf5'
-# Filename = GADGET_E_path + CS5_path + 'B_E_G2P_30_005.hdf5'
-# Filename = GADGET_E_path + CS5_path + 'B_E_G2P_40_021.hdf5'
+CS5_snaps = ['0_005', '2_005', '4_005', '6_005', '8_005', '10_005', '20_021', '30_005', '40_021']
+# Filename = GADGET_E_path + CS5_path + 'B_E_G2P_' + CS5_snaps[0] + '.hdf5'
+
 CS6_path = 'E_HQ_100000_CS6/output/'  
 # Filename = GADGET_E_path + CS6_path + 'B_E_G2P_0_005.hdf5'
 # Filename = GADGET_E_path + CS6_path + 'B_E_G2P_2_005.hdf5'
