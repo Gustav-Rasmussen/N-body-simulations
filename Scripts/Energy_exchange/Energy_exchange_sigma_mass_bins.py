@@ -13,6 +13,7 @@ import scipy as sp
 import seaborn as sns
 import matplotlib.patches as mpatches
 from pathlib import Path
+from Attractor.Sigma_calc_OOP import get_volume_slice
 
 User_path = Path.cwd()
 Desktop_path = User_path + 'Desktop/'
@@ -191,7 +192,7 @@ for i in range(N_bins):
     sigmarad2_arr.append(sigmarad2_in_bin_i)
 
     # calculate volume of cluster:
-    Volume_cl = (4. / 3.) * np.pi * (R_max ** 3 - R_min ** 3)
+    Volume_cl = get_volume_slice(R_min, R_max)
     # density
     den_cl = N_particles_per_bin / Volume_cl
  
