@@ -13,7 +13,8 @@ import scipy as sp
 import seaborn as sns
 import matplotlib.patches as mpatches
 from pathlib import Path
-from Attractor.Sigma_calc_OOP import get_volume_slice, vr_cartesian, vr_spherical
+from Attractor.Sigma_calc_OOP import get_volume_slice, vr_cartesian, vr_spherical,
+                                     theta_velocity, phi_velocity
 
 User_path = Path.cwd()
 Desktop_path = User_path + 'Desktop/'
@@ -199,10 +200,8 @@ for i in range(N_bins):
     Phi_i = sp.arctan2(y_GoodIDs, x_GoodIDs)
     Theta_i = sp.arccos(z_GoodIDs / r_i)
     VR_i = vr_spherical(Theta_i, Phi_i, vx_GoodIDs, vy_GoodIDs, vz_GoodIDs)
-    
-    VTheta_i = sp.cos(Theta_i) * sp.cos(Phi_i) * vx_GoodIDs + sp.cos(Theta_i)
-               * sp.sin(Phi_i) * vy_GoodIDs - sp.sin(Theta_i) * vz_GoodIDs
-    VPhi_i = -sp.sin(Phi_i) * vx_GoodIDs + sp.cos(Phi_i) * vy_GoodIDs
+    VTheta_i = theta_velocity(Theta_i, Phi_i, vx_GoodIDs, vy_GoodIDs, vz_GoodIDs)
+    VPhi_i = phi_velocity(Phi_i, vx_GoodIDs, vy_GoodIDs)
     VR_i_avg_in_bin_i = (1. / (N_particles_per_bin + 1.)) * np.sum(VR_i)
 
     # sigmatheta2
