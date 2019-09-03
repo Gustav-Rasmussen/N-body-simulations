@@ -100,8 +100,9 @@ def modulus(x, y, z):
     return (x ** 2 + y ** 2 + z ** 2) ** .5
 
 
-def radial_velocities(x, y, z, vx, vy, vz):
-    '''Doc-string here.'''
+def vr_cartesian(x, y, z, vx, vy, vz):
+    '''Takes cartesian coordinates and velocities.
+    Returns radial velocity.'''
     return (vx * x + vy * y + vz * z) / modulus(x, y, z)
 
 
@@ -222,8 +223,9 @@ def theta(z, r):
     return sp.arccos(z / r)
 
 
-def radial_velocity(theta, phi, vx, vy, vz):
-    '''Doc-string here.'''
+def vr_spherical(theta, phi, vx, vy, vz):
+    '''Takes spherical coordinates and cartesian velocities.
+    Returns radial velocity.'''
     return (sp.sin(theta) * sp.cos(phi) * vx
             + sp.sin(theta) * sp.sin(phi) * vy + sp.cos(theta) * vz)
 
