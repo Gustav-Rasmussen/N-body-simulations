@@ -154,9 +154,9 @@ N_total = x.shape[0]
 if CS1 or CS2 or CS3:
     nr_par_bin = 500  # Number of particles per bin.
 elif CS4 or CS5 or CS6 or DS1 or D2:
-    nr_par_bin = 5000
+    nr_par_bin = 5_000
 elif B or E: 
-    nr_par_bin = 50000
+    nr_par_bin = 50_000
 
 N_bins = N_total / nr_par_bin
 
@@ -178,24 +178,13 @@ for i in range(N_bins):
     R_min = R_IDs[GoodIDs][0]
     R_max = R_IDs[GoodIDs][-1]
     v = ravf.modulus(vx_GoodIDs, vy_GoodIDs, vz_GoodIDs)
-    
-    # sigma2 total
-    v2_i = v ** 2
+    v2_i = v ** 2  # sigma2 total
     sigma2_i = mean_velocity_slice(nr_par_bin, v2_i)
-    sigma2_arr.append(sigma2_i)
-    bin_radius_arr.append((R_max + R_min) / 2)
-
-    # sigmarad2 radial
     v_r = vr_cartesian(x_GoodIDs, y_GoodIDs, z_GoodIDs, vx_GoodIDs, vy_GoodIDs, vz_GoodIDs)
     vrad2_i = v_r ** 2
-    sigmarad2_i = mean_velocity_slice(nr_par_bin, vrad2_i)
-    sigmarad2_arr.append(sigmarad2_i)
-
-    # calculate volume of cluster:
-    Volume_cl = get_volume_slice(R_min, R_max)
-    # density
-    den_cl = nr_par_bin / Volume_cl
- 
+    sigmarad2_i = mean_velocity_slice(nr_par_bin, vrad2_i)  # sigmarad2 radial
+    Volume_cl = get_volume_slice(R_min, R_max)  # Volume of cluster
+    den_cl = nr_par_bin / Volume_cl  # density
     r_i = ravf.modulus(x_GoodIDs, y_GoodIDs, z_GoodIDs)
     Phi_i = sp.arctan2(y_GoodIDs, x_GoodIDs)
     Theta_i = sp.arccos(z_GoodIDs / r_i)
@@ -203,23 +192,20 @@ for i in range(N_bins):
     VTheta_i = theta_velocity(Theta_i, Phi_i, vx_GoodIDs, vy_GoodIDs, vz_GoodIDs)
     VPhi_i = phi_velocity(Phi_i, vx_GoodIDs, vy_GoodIDs)
     VR_i_avg_in_bin_i = mean_velocity_slice(nr_par_bin, VR_i)
-
-    # sigmatheta2
-    VTheta2_i = VTheta_i ** 2
+    VTheta2_i = VTheta_i ** 2  # sigmatheta2
     sigmatheta2_i = mean_velocity_slice(nr_par_bin, VTheta2_i)
-    sigmatheta2_arr.append(sigmatheta2_i)
-
-    # sigmaphi2
-    VPhi2_i = VPhi_i ** 2
+    VPhi2_i = VPhi_i ** 2  # sigmaphi2
     sigmaphi2_i = mean_velocity_slice(nr_par_bin, VPhi2_i)
-    sigmaphi2_arr.append(sigmaphi2_i)
-
-    # sigmatan2
-    sigmatan = (sigmatheta2_i + sigmaphi2_i) ** .5
+    sigmatan = (sigmatheta2_i + sigmaphi2_i) ** .5  # sigmatan2
     sigmatan2 = sigmatan ** 2
-    sigmatan2_arr.append(sigmatan2)
 
     # save arrays
+    sigma2_arr.append(sigma2_i)
+    bin_radius_arr.append((R_max + R_min) / 2)
+    sigmarad2_arr.append(sigmarad2_i)
+    sigmatheta2_arr.append(sigmatheta2_i)
+    sigmaphi2_arr.append(sigmaphi2_i)
+    sigmatan2_arr.append(sigmatan2)
     density_arr.append(den_cl)
     Volume_arr.append(Volume_cl)
     r.append(r_i)
