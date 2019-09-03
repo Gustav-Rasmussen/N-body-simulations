@@ -484,12 +484,12 @@ for i in range(nr_binning_bins - 2):
     bin_radius_arr.append((max_R_i + min_R_i) / 2)
 
     # sigmarad2 radial
-    vrad2_i = v_r[posR_par_inside_bin_i] ** 2
+    vrad2_i = v_r[posR_par_i] ** 2
     sigmarad2_i = (1. / (nr_par_i + 1.)) * np.sum(vrad2_i)
     sigmarad2_arr.append(sigmarad2_i)
 
     # calculate volume of cluster:
-    Volume_cl = (4. / 3.) * np.pi * (max_R_bin_i ** 3 - min_R_bin_i ** 3)
+    Volume_cl = volume_slice(min_R_i, max_R_i)
     # density
     den_cl = nr_par_i / Volume_cl
     rho = den_cl * m
