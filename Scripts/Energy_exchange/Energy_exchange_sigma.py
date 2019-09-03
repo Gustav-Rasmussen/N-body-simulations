@@ -383,41 +383,34 @@ for i in range(nr_binning_bins - 2):
     vz = vz[posR_par_i]
 
     v = ravf.modulus(vx, vy, vz)
-    # sigma2 total
     v2_i = v ** 2
-    sigma2_i = (1. / (nr_par_i + 1.)) * np.sum(v2_i)
-    sigma2_arr.append(sigma2_i)
-    bin_radius_arr.append((max_R_i + min_R_i) / 2)
-    # sigmarad2 radial
+    sigma2_i = mean_velocity_slice(nr_par_i, v2_i)  # sigma2 total
     vrad2_i = v_r[posR_par_in_bin_i] ** 2
-    sigmarad2_i = (1. / (nr_par_i + 1.)) * np.sum(vrad2_i)
-    sigmarad2_arr.append(sigmarad2_i)
+    sigmarad2_i = mean_velocity_slice(nr_par_i, vrad2_i)  # sigmarad2 radial
     Volume_cl = get_volume_slice(min_R_i, max_R_i)  # Volume of cluster
     den_cl = nr_par_i / Volume_cl  # number density
     rho = den_cl * m  # density
     r_i = ravf.modulus(x, y, z)
-    Phi_i = sp.arctan2(y, x)
-    Theta_i = sp.arccos(z / r_i)
-
+    Phi_i = phi(x, y)
+    Theta_i = theta(z, r_i)
     VR_i = vr_spherical(Theta_i, Phi_i, vx, vy, vz)
     VTheta_i = theta_velocity(Theta_i, Phi_i, vx, vy, vz)
     VPhi_i = phi_velocity(Phi_i, vx, vy)
-
-    VR_i_avg_i = (1. / (nr_par_i + 1.)) * np.sum(VR_i)
-    # sigmatheta2
+    VR_i_avg_i = mean_velocity_slice(nr_par_i, VR_i)
     VTheta2_i = VTheta_i ** 2
-    sigmatheta2_i = (1. / (nr_par_i + 1.)) * np.sum(VTheta2_i)
-    sigmatheta2_arr.append(sigmatheta2_i)
-    # sigmaphi2
+    sigmatheta2_i = mean_velocity_slice(nr_par_i, VTheta2_i)  # sigmatheta2
     VPhi2_i = VPhi_i ** 2
-    sigmaphi2_i = (1. / (nr_par_i + 1.)) * np.sum(VPhi2_i)
-    sigmaphi2_arr.append(sigmaphi2_i)
-    # sigmatan2
+    sigmaphi2_i = mean_velocity_slice(nr_par_i, VPhi2_i)  # sigmaphi2
     sigmatan = (sigmatheta2_i + sigmaphi2_i) ** .5
-    sigmatan2 = sigmatan ** 2
-    sigmatan2_arr.append(sigmatan2)
+    sigmatan2 = sigmatan ** 2  # sigmatan2
 
     # save arrays
+    sigma2_arr.append(sigma2_i)
+    bin_radius_arr.append((max_R_i + min_R_i) / 2)
+    sigmarad2_arr.append(sigmarad2_i)
+    sigmatheta2_arr.append(sigmatheta2_i)
+    sigmaphi2_arr.append(sigmaphi2_i)
+    sigmatan2_arr.append(sigmatan2)
     density_arr.append(den_cl)
     rho_arr.append(rho)
     Volume_arr.append(Volume_cl)
