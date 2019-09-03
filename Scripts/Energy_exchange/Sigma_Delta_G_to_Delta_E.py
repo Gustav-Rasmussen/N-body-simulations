@@ -19,14 +19,8 @@ GADGET_E_path = Desktop_path + 'RunGadget/Energy_Exchange/'
 Stable_path = 'Energy_exchange/Stable_structures/'
 figure_path = Desktop_path + Stable_path + 'figures/'
 
-# text_files_path = Desktop_path + Stable_path + 'text_files/Soft_B/'
-# text_files_path = Desktop_path + Stable_path + 'text_files/CS1/'
-# text_files_path = Desktop_path + Stable_path + 'text_files/CS4/'
-# text_files_path = Desktop_path + Stable_path + 'text_files/CS5/'
-# text_files_path = Desktop_path + Stable_path + 'text_files/CS6/'
-text_files_path = Desktop_path + Stable_path + 'text_files/DS1/'
-# text_files_path = Desktop_path + Stable_path + 'text_files/Soft_D2/'
-# text_files_path = Desktop_path + Stable_path + 'text_files/E/'
+sims = ['Soft_B', 'CS1', 'CS4', 'CS5', 'CS6', 'DS1', 'Soft_D2', 'E']
+# text_files_path = Desktop_path + Stable_path + 'text_files/' + sims[0] + 'E/'
 
 Soft_B_path = 'E_HQ_1000000_B/output/'
 # Filename = GADGET_E_path + Soft_B_path + 'B_E_G2P_0_000.hdf5'
@@ -468,54 +462,64 @@ binning_arr_lin_log10 = np.logspace(min_binning_R, max_binning_R, nr_binning_bin
 bin_radius_arr = []
 
 for i in range(nr_binning_bins - 2):      
-    min_R_bin_i = binning_arr_lin_log10[i]   
-    max_R_bin_i = binning_arr_lin_log10[i + 1]
-    posR_par_inside_bin_i = np.where((R_hob_par > min_R_bin_i) & (R_hob_par < max_R_bin_i))
-    nr_par_inside_bin_i = len(posR_par_inside_bin_i[0])
-    if nr_par_inside_bin_i == 0:
+    min_R_i = binning_arr_lin_log10[i]   
+    max_R_i = binning_arr_lin_log10[i + 1]
+    posR_par_i = np.where((R_hob_par > min_R_i) & (R_hob_par < max_R_i))
+    nr_par_i = len(posR_par_i[0])
+    if nr_par_i == 0:
         continue
-    v = (vx[posR_par_inside_bin_i] ** 2 + vy[posR_par_inside_bin_i] ** 2 + vz[posR_par_inside_bin_i] ** 2) ** .5
+
+    x = x[posR_par_i]
+    y = y[posR_par_i]
+    z = z[posR_par_i]
+    vx = vx[posR_par_i]
+    vy = vy[posR_par_i]
+    vz = vz[posR_par_i]
+
+    v = ravf.modulus(vx, vy, vz)
     # sigma2 total
-    v2_inside_bin_i = v ** 2
-    sigma2_inside_bin_i = (1. / (nr_par_inside_bin_i + 1.)) * np.sum(v2_inside_bin_i)
-    sigma2_arr.append(sigma2_inside_bin_i)
-    bin_radius_arr.append((max_R_bin_i + min_R_bin_i) / 2)
-    
+    v2_i = v ** 2
+    sigma2_i = (1. / (nr_par_i + 1.)) * np.sum(v2_i)
+    sigma2_arr.append(sigma2_i)
+    bin_radius_arr.append((max_R_i + min_R_i) / 2)
+
     # sigmarad2 radial
-    vrad2_inside_bin_i = v_r[posR_par_inside_bin_i] ** 2
-    sigmarad2_inside_bin_i = (1. / (nr_par_inside_bin_i + 1.)) * np.sum(vrad2_inside_bin_i)
-    sigmarad2_arr.append(sigmarad2_inside_bin_i)
+    vrad2_i = v_r[posR_par_inside_bin_i] ** 2
+    sigmarad2_i = (1. / (nr_par_i + 1.)) * np.sum(vrad2_i)
+    sigmarad2_arr.append(sigmarad2_i)
 
     # calculate volume of cluster:
     Volume_cl = (4. / 3.) * np.pi * (max_R_bin_i ** 3 - min_R_bin_i ** 3)
     # density
-    den_cl = nr_par_inside_bin_i / Volume_cl
+    den_cl = nr_par_i / Volume_cl
     rho = den_cl * m
  
-    r_i = (x[posR_par_inside_bin_i] ** 2 + y[posR_par_inside_bin_i] ** 2 + z[posR_par_inside_bin_i] ** 2) ** .5
-    Phi_i = sp.arctan2(y[posR_par_inside_bin_i], x[posR_par_inside_bin_i])
-    Theta_i = sp.arccos(z[posR_par_inside_bin_i] / r_i)
-    VR_i = sp.sin(Theta_i) * sp.cos(Phi_i) * vx[posR_par_inside_bin_i]
-           + sp.sin(Theta_i) * sp.sin(Phi_i) * vy[posR_par_inside_bin_i]
-           + sp.cos(Theta_i) * vz[posR_par_inside_bin_i]
-    VTheta_i = sp.cos(Theta_i) * sp.cos(Phi_i) * vx[posR_par_inside_bin_i]
-               + sp.cos(Theta_i) * sp.sin(Phi_i) * vy[posR_par_inside_bin_i]
-               - sp.sin(Theta_i) * vz[posR_par_inside_bin_i]
-    VPhi_i = -sp.sin(Phi_i) * vx[posR_par_inside_bin_i] + sp.cos(Phi_i) * vy[posR_par_inside_bin_i]
-    VR_i_average_inside_bin_i = (1. / (nr_par_inside_bin_i + 1.)) * np.sum(VR_i)
+    r_i = ravf.modulus(x, y, z)
+
+    Phi_i = sp.arctan2(y, x)
+    Theta_i = sp.arccos(z / r_i)
+
+    VR_i = sp.sin(Theta_i) * sp.cos(Phi_i) * vx
+           + sp.sin(Theta_i) * sp.sin(Phi_i) * vy
+           + sp.cos(Theta_i) * vz
+    VTheta_i = sp.cos(Theta_i) * sp.cos(Phi_i) * vx
+               + sp.cos(Theta_i) * sp.sin(Phi_i) * vy
+               - sp.sin(Theta_i) * vz
+    VPhi_i = -sp.sin(Phi_i) * vx + sp.cos(Phi_i) * vy
+    VR_i_avg_i = (1. / (nr_par_i + 1.)) * np.sum(VR_i)
     
     # sigmatheta2
-    VTheta2_inside_bin_i = VTheta_i ** 2
-    sigmatheta2_inside_bin_i = (1. / (nr_par_inside_bin_i + 1.)) * np.sum(VTheta2_inside_bin_i)
-    sigmatheta2_arr.append(sigmatheta2_inside_bin_i)
+    VTheta2_i = VTheta_i ** 2
+    sigmatheta2_i = (1. / (nr_par_i + 1.)) * np.sum(VTheta2_i)
+    sigmatheta2_arr.append(sigmatheta2_i)
 
     # sigmaphi2
-    VPhi2_inside_bin_i = VPhi_i ** 2
-    sigmaphi2_inside_bin_i = (1. / (nr_par_inside_bin_i + 1.)) * np.sum(VPhi2_inside_bin_i)
-    sigmaphi2_arr.append(sigmaphi2_inside_bin_i)
+    VPhi2_i = VPhi_i ** 2
+    sigmaphi2_i = (1. / (nr_par_i + 1.)) * np.sum(VPhi2_i)
+    sigmaphi2_arr.append(sigmaphi2_i)
 
     # sigmatan2
-    sigmatan = (sigmatheta2_inside_bin_i + sigmaphi2_inside_bin_i) ** .5
+    sigmatan = (sigmatheta2_i + sigmaphi2_i) ** .5
     sigmatan2 = sigmatan ** 2
     sigmatan2_arr.append(sigmatan2)
 
@@ -527,7 +531,7 @@ for i in range(nr_binning_bins - 2):
     Phi.append(Phi_i)
     Theta.append(Theta_i)
     VR.append(VR_i)
-    VR_i_average_inside_bin.append(VR_i_average_inside_bin_i)
+    VR_i_avg.append(VR_i_avg_i)
     VTheta.append(VTheta_i)
     VPhi.append(VPhi_i)
 
@@ -541,7 +545,8 @@ Theta_arr = np.array(Theta)
 VR_arr = np.array(VR)
 VTheta_arr = np.array(VTheta)
 VPhi_arr = np.array(VPhi)
-VR_i_average_inside_bin_arr = np.array(VR_i_average_inside_bin)
+VR_i_avg_arr = np.array(VR_i_avg)
+
 
 for i in range(len(sigma2_arr)):  # kappa
     if i == 0 or i == len(sigma2_arr) - 1:
