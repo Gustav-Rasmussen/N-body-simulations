@@ -249,41 +249,44 @@ def mean_velocity_slice(nr_par_bin, v):
 for i in range(bins - 2):
     min_R_bin = binning_arr_lin_log10[i]  # start of bin
     max_R_bin = binning_arr_lin_log10[i + 1]  # end of bin
-
     posR_par_bin = particle_positions_slice(min_R_bin, max_R_bin)
     nr_par_bin = particle_number_slice()
     if nr_par_bin == 0:
         continue
 
-    v_bin = modulus(vx[posR_par_bin], vy[posR_par_bin], vz[posR_par_bin])
+    x = x[posR_par_bin]
+    y = y[posR_par_bin]
+    z = z[posR_par_bin]
+    vx = vx[posR_par_bin]
+    vy = vy[posR_par_bin]
+    vz = vz[posR_par_bin]
+
+    v_bin = modulus(vx, vy, vz)
     sigma2_bin = sigma_squared_slice(nr_par_bin, v_bin)
-    sigma2_lst.append(sigma2_bin)
     bin_radius = radius_slice(min_R_bin, max_R_bin)
-    bin_radius_lst.append(bin_radius)
     vrad2_bin = v_r[posR_par_bin] ** 2
     sigmarad2_bin = sigmarad2_slice(nr_par_bin, vrad2_bin)
-    sigmarad2_lst.append(sigmarad2_bin)
-
     Volume_bin = volume_slice(min_R_bin, max_R_bin)
     rho = density_slice(nr_par_bin, Volume_bin)
-    r_bin = radii(x[posR_par_bin], y[posR_par_bin], z[posR_par_bin])
-    Phi_i = phi(x[posR_par_bin], y[posR_par_bin])
-    Theta_i = theta(z[posR_par_bin], r_bin)
-    VR_i = radial_velocity(Theta_i, Phi_i, vx[posR_par_bin], vy[posR_par_bin],
-                           vz[posR_par_bin])
-    VTheta_i = theta_velocity(Theta_i, Phi_i, vx[posR_par_bin],
-                              vy[posR_par_bin], vz[posR_par_bin])
-    VPhi_i = phi_velocity(Phi_i, vx[posR_par_bin], vy[posR_par_bin])
+    r_bin = radii(x, y, z)
+    Phi_i = phi(x, y)
+    Theta_i = theta(z, r_bin)
+    VR_i = radial_velocity(Theta_i, Phi_i, vx, vy, vz)
+    VTheta_i = theta_velocity(Theta_i, Phi_i, vx, vy, vz)
+    VPhi_i = phi_velocity(Phi_i, vx, vy)
     VR_i_avg_bin = mean_velocity_slice(nr_par_bin, VR_i)
     VTheta2_bin = VTheta_i ** 2
     sigmatheta2_bin = mean_velocity_slice(nr_par_bin, VTheta2_bin)
-    sigmatheta2_lst.append(sigmatheta2_bin)
     VPhi2_bin = VPhi_i ** 2
     sigmaphi2_bin = mean_velocity_slice(nr_par_bin, VPhi2_bin)
-    sigmaphi2_lst.append(sigmaphi2_bin)
     sigmatan = (sigmatheta2_bin + sigmaphi2_bin) ** .5
     sigmatan2 = sigmatan ** 2
 
+    sigma2_lst.append(sigma2_bin)
+    bin_radius_lst.append(bin_radius)
+    sigmarad2_lst.append(sigmarad2_bin)
+    sigmatheta2_lst.append(sigmatheta2_bin)
+    sigmaphi2_lst.append(sigmaphi2_bin)
     sigmatan2_lst.append(sigmatan2)
     density_lst.append(den_cl)
     rho_lst.append(rho)
