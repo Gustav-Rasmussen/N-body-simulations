@@ -152,13 +152,13 @@ V_IDs = V[IDs]
 N_total = x.shape[0]
 
 if CS1 or CS2 or CS3:
-    N_particles_per_bin = 500
+    nr_par_bin = 500  # Number of particles per bin.
 elif CS4 or CS5 or CS6 or DS1 or D2:
-    N_particles_per_bin = 5000
+    nr_par_bin = 5000
 elif B or E: 
-    N_particles_per_bin = 50000
+    nr_par_bin = 50000
 
-N_bins = N_total / N_particles_per_bin
+N_bins = N_total / nr_par_bin
 
 (sigma2_arr, sigmarad2_arr, sigmatheta2_arr, sigmaphi2_arr,
  sigmatan2_arr, v2_arr, gamma_arr, kappa_arr, beta_arr,
@@ -167,7 +167,7 @@ N_bins = N_total / N_particles_per_bin
 
 # Divide structure into mass-bins. Favoured over radial bins, as outer region of structure has less particles.
 for i in range(N_bins):
-    GoodIDs = np.arange(i * N_particles_per_bin, (i + 1) * N_particles_per_bin)
+    GoodIDs = np.arange(i * nr_par_bin, (i + 1) * nr_par_bin)
     x_GoodIDs = x_IDs[GoodIDs]
     y_GoodIDs = y_IDs[GoodIDs]
     z_GoodIDs = z_IDs[GoodIDs]
@@ -180,21 +180,21 @@ for i in range(N_bins):
     v = ravf.modulus(vx_GoodIDs, vy_GoodIDs, vz_GoodIDs)
     
     # sigma2 total
-    v2_in_bin_i = v ** 2
-    sigma2_in_bin_i = (1. / (N_particles_per_bin + 1.)) * np.sum(v2_in_bin_i)
-    sigma2_arr.append(sigma2_in_bin_i)
+    v2_i = v ** 2
+    sigma2_i = mean_velocity_slice(nr_par_bin, v2_i)
+    sigma2_arr.append(sigma2_i)
     bin_radius_arr.append((R_max + R_min) / 2)
 
     # sigmarad2 radial
     v_r = vr_cartesian(x_GoodIDs, y_GoodIDs, z_GoodIDs, vx_GoodIDs, vy_GoodIDs, vz_GoodIDs)
-    vrad2_in_bin_i = v_r ** 2
-    sigmarad2_in_bin_i = (1. / (N_particles_per_bin + 1.)) * np.sum(vrad2_in_bin_i)
-    sigmarad2_arr.append(sigmarad2_in_bin_i)
+    vrad2_i = v_r ** 2
+    sigmarad2_i = mean_velocity_slice(nr_par_bin, vrad2_i)
+    sigmarad2_arr.append(sigmarad2_i)
 
     # calculate volume of cluster:
     Volume_cl = get_volume_slice(R_min, R_max)
     # density
-    den_cl = N_particles_per_bin / Volume_cl
+    den_cl = nr_par_bin / Volume_cl
  
     r_i = ravf.modulus(x_GoodIDs, y_GoodIDs, z_GoodIDs)
     Phi_i = sp.arctan2(y_GoodIDs, x_GoodIDs)
@@ -205,17 +205,17 @@ for i in range(N_bins):
     VR_i_avg_in_bin_i = (1. / (N_particles_per_bin + 1.)) * np.sum(VR_i)
 
     # sigmatheta2
-    VTheta2_in_bin_i = VTheta_i ** 2
-    sigmatheta2_in_bin_i = (1. / (N_particles_per_bin + 1.)) * np.sum(VTheta2_in_bin_i)
-    sigmatheta2_arr.append(sigmatheta2_in_bin_i)
+    VTheta2_i = VTheta_i ** 2
+    sigmatheta2_i = (1. / (nr_par_bin + 1.)) * np.sum(VTheta2_i)
+    sigmatheta2_arr.append(sigmatheta2_i)
 
     # sigmaphi2
-    VPhi2_in_bin_i = VPhi_i ** 2
-    sigmaphi2_in_bin_i = (1. / (N_particles_per_bin + 1.)) * np.sum(VPhi2_in_bin_i)
-    sigmaphi2_arr.append(sigmaphi2_in_bin_i)
+    VPhi2_i = VPhi_i ** 2
+    sigmaphi2_i = (1. / (nr_par_bin + 1.)) * np.sum(VPhi2_i)
+    sigmaphi2_arr.append(sigmaphi2_i)
 
     # sigmatan2
-    sigmatan = (sigmatheta2_in_bin_i + sigmaphi2_in_bin_i) ** .5
+    sigmatan = (sigmatheta2_i + sigmaphi2_i) ** .5
     sigmatan2 = sigmatan ** 2
     sigmatan2_arr.append(sigmatan2)
 
@@ -226,7 +226,7 @@ for i in range(N_bins):
     Phi.append(Phi_i)
     Theta.append(Theta_i)
     VR.append(VR_i)
-    VR_i_avg_in_bin.append(VR_i_avg_in_bin_i)
+    VR_i_avg_in_bin.append(VR_i_avg_i)
     VTheta.append(VTheta_i)
     VPhi.append(VPhi_i)
 
@@ -240,7 +240,7 @@ Theta_arr = np.array(Theta)
 VR_arr = np.array(VR)
 VTheta_arr = np.array(VTheta)
 VPhi_arr = np.array(VPhi)
-VR_i_avg_in_bin_arr = np.array(VR_i_avg_in_bin)
+VR_i_avg_arr = np.array(VR_i_avg_i)
 
 for i in range(len(sigma2_arr)):  # kappa
     if i == 0 or i == len(sigma2_arr) - 1:
