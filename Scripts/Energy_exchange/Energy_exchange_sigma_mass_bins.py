@@ -13,7 +13,7 @@ import scipy as sp
 import seaborn as sns
 import matplotlib.patches as mpatches
 from pathlib import Path
-from Attractor.Sigma_calc_OOP import get_volume_slice
+from Attractor.Sigma_calc_OOP import get_volume_slice, vr_cartesian, vr_spherical
 
 User_path = Path.cwd()
 Desktop_path = User_path + 'Desktop/'
@@ -185,8 +185,7 @@ for i in range(N_bins):
     bin_radius_arr.append((R_max + R_min) / 2)
 
     # sigmarad2 radial
-    v_r = (vx_GoodIDs * x_GoodIDs + vy_GoodIDs * y_GoodIDs + vz_GoodIDs * z_GoodIDs)
-           / ravf.modulus(x_GoodIDs, y_GoodIDs, z_GoodIDs)
+    v_r = vr_cartesian(x_GoodIDs, y_GoodIDs, z_GoodIDs, vx_GoodIDs, vy_GoodIDs, vz_GoodIDs)
     vrad2_in_bin_i = v_r ** 2
     sigmarad2_in_bin_i = (1. / (N_particles_per_bin + 1.)) * np.sum(vrad2_in_bin_i)
     sigmarad2_arr.append(sigmarad2_in_bin_i)
@@ -199,8 +198,8 @@ for i in range(N_bins):
     r_i = ravf.modulus(x_GoodIDs, y_GoodIDs, z_GoodIDs)
     Phi_i = sp.arctan2(y_GoodIDs, x_GoodIDs)
     Theta_i = sp.arccos(z_GoodIDs / r_i)
-    VR_i = sp.sin(Theta_i) * sp.cos(Phi_i) * vx_GoodIDs + sp.sin(Theta_i)
-           * sp.sin(Phi_i) * vy_GoodIDs + sp.cos(Theta_i) * vz_GoodIDs
+    VR_i = vr_spherical(Theta_i, Phi_i, vx_GoodIDs, vy_GoodIDs, vz_GoodIDs)
+    
     VTheta_i = sp.cos(Theta_i) * sp.cos(Phi_i) * vx_GoodIDs + sp.cos(Theta_i)
                * sp.sin(Phi_i) * vy_GoodIDs - sp.sin(Theta_i) * vz_GoodIDs
     VPhi_i = -sp.sin(Phi_i) * vx_GoodIDs + sp.cos(Phi_i) * vy_GoodIDs
