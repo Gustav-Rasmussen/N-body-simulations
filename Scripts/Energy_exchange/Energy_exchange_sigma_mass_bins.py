@@ -202,16 +202,16 @@ for i in range(N_bins):
     VR_i = vr_spherical(Theta_i, Phi_i, vx_GoodIDs, vy_GoodIDs, vz_GoodIDs)
     VTheta_i = theta_velocity(Theta_i, Phi_i, vx_GoodIDs, vy_GoodIDs, vz_GoodIDs)
     VPhi_i = phi_velocity(Phi_i, vx_GoodIDs, vy_GoodIDs)
-    VR_i_avg_in_bin_i = (1. / (N_particles_per_bin + 1.)) * np.sum(VR_i)
+    VR_i_avg_in_bin_i = mean_velocity_slice(nr_par_bin, VR_i)
 
     # sigmatheta2
     VTheta2_i = VTheta_i ** 2
-    sigmatheta2_i = (1. / (nr_par_bin + 1.)) * np.sum(VTheta2_i)
+    sigmatheta2_i = mean_velocity_slice(nr_par_bin, VTheta2_i)
     sigmatheta2_arr.append(sigmatheta2_i)
 
     # sigmaphi2
     VPhi2_i = VPhi_i ** 2
-    sigmaphi2_i = (1. / (nr_par_bin + 1.)) * np.sum(VPhi2_i)
+    sigmaphi2_i = mean_velocity_slice(nr_par_bin, VPhi2_i)
     sigmaphi2_arr.append(sigmaphi2_i)
 
     # sigmatan2
