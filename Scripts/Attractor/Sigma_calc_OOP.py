@@ -95,9 +95,20 @@ save_sigma = 0
 # Functions -------------------------------------------------------------------
 
 
+'''
 def modulus(x, y, z):
     '''Modulus of vector.'''
     return (x ** 2 + y ** 2 + z ** 2) ** .5
+'''
+
+  
+def modulus(*args):
+    '''Modulus of vector.'''
+    sum_of_squares = 0
+    # Iterating over the Python args tuple
+    for x in args:
+        sum_of_squares += x ** 2
+    return sum_of_squares ** .5
 
 
 def vr_cartesian(x, y, z, vx, vy, vz):
