@@ -434,11 +434,7 @@ if Fig2_v:
     setp(ax3.get_yticklabels(), visible=False)
     # f.savefig(figure_path + 'A_v.png')
 
-(sigma2_arr, sigmarad2_arr, sigmatheta2_arr, sigmaphi2_arr, sigmatan2_arr, v2_arr, gamma_arr, kappa_arr,
- beta_arr, density_arr, rho_arr, Volume_arr, r, Phi, Theta, VR,
- VTheta, VPhi, VR_i_average_inside_bin) = ([] for i in range(19))
-
-v_r = (vx*x+vy*y+vz*z) / (x**2+y**2+z**2) ** .5
+v_r = (vx * x + vy * y + vz * z) / (x ** 2 + y ** 2 + z ** 2) ** .5
 
 min_binning_R = -1.5
 max_binning_R = np.log10(R_limit)
