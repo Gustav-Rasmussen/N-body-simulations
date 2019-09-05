@@ -457,6 +457,7 @@ else:
 
 sigma2_arr, sigmarad2_arr, bin_radius_arr, r_arr, Phi_arr, Theta_arr, VR_arr, VTheta_arr, VPhi_arr, VR_i_avg_arr = bin_halo_radially()
 
+# kappa(self)
 for i in range(len(sigma2_arr)):  # kappa
     if i == 0 or i == len(sigma2_arr) - 1:
         kappa_arr.append(np.nan)
@@ -465,6 +466,7 @@ for i in range(len(sigma2_arr)):  # kappa
     dlogsigmarad2 = np.log10(sigmarad2_arr[i + 1]) -np.log10(sigmarad2_arr[i - 1])
     kappa_arr.append(dlogsigmarad2/dlogr)
 
+# gamma()
 for i in range(len(density_arr)):  # gamma
     if i == 0 or i == len(sigma2_arr) - 1:
         gamma_arr.append(np.nan)
@@ -473,7 +475,9 @@ for i in range(len(density_arr)):  # gamma
     dlogrho = np.log10(density_arr[i + 1]) - np.log10(density_arr[i - 1])
     gamma_arr.append(dlogrho / dlogr)
 
-beta_arr = 1. - sigmatheta2_arr / sigmarad2_arr 
+sigmatheta2 = sigmatheta2_arr
+sigmarad2 = sigmarad2_arr
+beta_arr = beta()
 
 if Fig3_sigma:  # Dispersions
     f = plt.figure(figsize=(16,11))
