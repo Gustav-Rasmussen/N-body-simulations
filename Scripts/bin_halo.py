@@ -2,10 +2,9 @@
 def bin_halo_radially():
     (sigma2_arr, sigmarad2_arr, sigmatheta2_arr, sigmaphi2_arr, sigmatan2_arr, v2_arr, gamma_arr, kappa_arr,
      beta_arr, density_arr, rho_arr, Volume_arr, r, Phi, Theta, VR,
-     VTheta, VPhi, VR_i_avg_in_bin) = ([] for i in range(19))
+     VTheta, VPhi, VR_i_avg_in_bin, bin_radius_arr) = ([] for i in range(20))
 
     binning_arr_lin_log10 = np.logspace(min_binning_R, max_binning_R, nr_binning_bins) 
-    bin_radius_arr = []
 
     for i in range(nr_binning_bins - 2):      
         min_R_i = binning_arr_lin_log10[i]   
