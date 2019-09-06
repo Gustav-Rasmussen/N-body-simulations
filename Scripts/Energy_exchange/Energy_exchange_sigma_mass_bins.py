@@ -168,6 +168,7 @@ N_bins = N_total / nr_par_bin
 # Divide structure into mass-bins. Favoured over radial bins, as outer region of structure has less particles.
 for i in range(N_bins):
     GoodIDs = np.arange(i * nr_par_bin, (i + 1) * nr_par_bin)
+
     x = x_IDs[GoodIDs]
     y = y_IDs[GoodIDs]
     z = z_IDs[GoodIDs]
@@ -175,6 +176,7 @@ for i in range(N_bins):
     vy = vy_IDs[GoodIDs]
     vz = vz_IDs[GoodIDs]
     V = V_IDs[GoodIDs]  # Shape: 500
+
     R_min = R_IDs[GoodIDs][0]
     R_max = R_IDs[GoodIDs][-1]
     v = ravf.modulus(vx, vy, vz)
@@ -228,7 +230,8 @@ VTheta_arr = np.array(VTheta)
 VPhi_arr = np.array(VPhi)
 VR_i_avg_arr = np.array(VR_i_avg_i)
 
-for i in range(len(sigma2_arr)):  # kappa
+# kappa()
+for i in range(len(sigma2_arr)):
     if i == 0 or i == len(sigma2_arr) - 1:
         kappa_arr.append(np.nan)
         continue
@@ -236,7 +239,8 @@ for i in range(len(sigma2_arr)):  # kappa
     dlogsigmarad2 = np.log10(sigmarad2_arr[i + 1]) - np.log10(sigmarad2_arr[i - 1])
     kappa_arr.append(dlogsigmarad2 / dlogr)
 
-for i in range(len(density_arr)):  # gamma
+# gamma()
+for i in range(len(density_arr)):
     if i == 0 or i == len(sigma2_arr) - 1:
         gamma_arr.append(np.nan)
         continue
@@ -244,7 +248,8 @@ for i in range(len(density_arr)):  # gamma
     dlogrho = np.log10(density_arr[i + 1]) - np.log10(density_arr[i - 1])
     gamma_arr.append(dlogrho / dlogr)
 
-beta_arr = 1. - sigmatheta2_arr / sigmarad2_arr  # Calculate beta
+# beta()
+beta_arr = 1. - sigmatheta2_arr / sigmarad2_arr
 
 if Fig_beta:  # plot beta
     f = plt.figure()
