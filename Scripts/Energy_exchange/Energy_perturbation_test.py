@@ -82,6 +82,12 @@ N_bins = N_total / N_particles_per_bin
  V_mean_in_bin_arr, Ratio_init_mean_in_bin_arr,
  Ratio_rand_mean_in_bin_arr, Ratio_norm_mean_in_bin_arr) = ([] for i in range(22))
 
+
+def E_kin(v, m=1):
+   '''Find kinetic energy.'''
+   return .5 * m * v ** 2
+
+
 if Fig_logvx_logx_before:
     f, (ax1) = plt.subplots(1, 1, figsize=(13, 11))
     ax1.set_xlabel(r'$\log x$', fontsize=30)
@@ -134,8 +140,8 @@ for i in range(N_bins):
     v_GoodIDs_rand = ravf.modulus(vx_GoodIDs_rand, vy_GoodIDs_rand, vz_GoodIDs_rand)
     v_GoodIDs = ravf.modulus(vx_GoodIDs, vy_GoodIDs, vz_GoodIDs)
     
-    K_init = .5 * v_GoodIDs ** 2  # Kinetic energy before 1.st randomization
-    K_rand = .5 * v_GoodIDs_rand ** 2  # -||- after -||-
+    K_init = E_kin(v_GoodIDs)  # Kinetic energy before 1.st randomization
+    K_rand = E_kin(v_GoodIDs_rand)  # -||- after -||-
     K_init_mean = np.mean(K_init)
     K_rand_mean = np.mean(K_rand)
     K_init_mean_in_bin_arr.append(K_init_mean)
@@ -196,13 +202,13 @@ for i in range(N_bins):
     v_GoodIDs_rand_norm = ravf.modulus(vx_unbound_norm, vy_unbound_norm, vz_unbound_norm)
     v_GoodIDs_bound = ravf.modulus(vx_bound, vy_bound, vz_bound)
     v_new = np.concatenate([v_GoodIDs_bound, v_GoodIDs_rand_norm])
-    K_rand_norm = .5 * v_new ** 2  # Kinetic energy after 1.st randomization and subsequent normalization
+    K_rand_norm = E_kin(v_new)  # Kinetic energy after 1.st randomization and subsequent normalization
     K_rand_norm_mean = np.mean(K_rand_norm)
     K_rand_norm_mean_in_bin_arr.append(K_rand_norm_mean)
     Ratio_norm = (np.abs(V_GoodIDs) / K_rand_norm) ** .5
     Ratio_norm_mean = np.mean(Ratio_norm)
     Ratio_norm_mean_in_bin_arr.append(Ratio_norm_mean)
-    E_tot_new = V_GoodIDs + .5 * v_new ** 2
+    E_tot_new = V_GoodIDs + E_kin(v_new)
     for i in range(len(E_tot_new)):  # This does not give the right result. There should be zero unbound perticles here! Is the sorting wrong?
         if E_tot_new[i] > 0.:
             print('E_tot_new check. This is an unbound particle!', i)  
@@ -223,7 +229,7 @@ for i in range(N_bins):
     vz = np.concatenate([vz_bound, vz_unbound_norm])
     vz = vz * K_Ratio
     v_final = ravf.modulus(vx, vy, vz)
-    K_final = .5 * v_final ** 2  # Kinetic energy after 1.st randomization and subsequent normalization
+    K_final = E_kin(v_final)  # Kinetic energy after 1.st randomization and subsequent normalization
     K_final_mean = np.mean(K_final)
     K_final_mean_in_bin_arr.append(K_final_mean)
     vx_final_arr.append(vx)
