@@ -139,7 +139,7 @@ SnapshotFile = h5py.File(Filename, 'r')
 # F = 'CS6' + Filename[len(GADGET_E_path + CS6_path + 'B'):-5]
 # F = 'CS6' + Filename[len(GADGET_E_path + con_CS6_path + 'B'):-5]
 # F = 'DS1' + Filename[len(GADGET_E_path + DS1_path + 'B'):-5]
-F = 'DS1' + Filename[len(GADGET_E_path + con_DS1_path + 'B'):-5]
+# F = 'DS1' + Filename[len(GADGET_E_path + con_DS1_path + 'B'):-5]
 # F = 'Soft_D2'+ Filename[len(GADGET_E_path + Soft_D2_path + 'B'):-5]
 # F = 'Soft_D2'+ Filename[len(GADGET_E_path + con_Soft_D2_path + 'B'):-5]
 # F = 'E' + Filename[len(GADGET_E_path + E_path + 'B'):-5]
@@ -331,7 +331,7 @@ if Fig_x_hist:
                     labelbottom='on', right='off', left='off', labelleft='off')
 
     ax3.set_xlabel(r'$z-z_c$', fontsize=30)
-    n, bins, patches = ax3.hist(z-zC, 500, normed=1, histtype='stepfilled')
+    n, bins, patches = ax3.hist(z - zC, 500, normed=1, histtype='stepfilled')
     plt.setp(patches, 'facecolor', 'g', 'alpha', .75)
     ax3.set_xlim(-40, 40)
     ax3.set_ylim(.0, .4)
@@ -348,8 +348,7 @@ if Fig_x_hist2d:
     plt.xlim(-4, 4)
     plt.ylim(-4, 4)
     plt.title(r'Histogram of centralized positions x and y (200 hexbins)', fontsize=30)
-    # f.savefig(figure_path + 'Fig_x_hist2d.png')
-    f.savefig(figure_path + 'Fig_CS4_Final_x_hist2d_I.png')
+    f.savefig(figure_path + 'Fig_CS4_Final_x_hist2d_I.png')  # 'Fig_x_hist2d.png'
 
 R_hob_par = R[GoodIDs]
 # Declare number of particles
@@ -369,9 +368,9 @@ m = M / N
 
 if Gamma == -2.0:     
     r_2 = R_middle
-    posR_par_inside_halo = np.where(R_hob_par < r_2) 
-    nr_par_inside_halo = len(posR_par_inside_halo[0]) 
-    M_2 = nr_par_inside_halo * m
+    posR_par_in_halo = np.where(R_hob_par < r_2) 
+    nr_par_in_halo = len(posR_par_in_halo[0]) 
+    M_2 = nr_par_in_halo * m
     G = 1.
     v_circ_2 = (G * M_2 / r_2) ** .5
 
@@ -434,46 +433,36 @@ if Fig2_v:
     setp(ax3.get_yticklabels(), visible=False)
     # f.savefig(figure_path + 'A_v.png')
 
-v_r = (vx * x + vy * y + vz * z) / (x ** 2 + y ** 2 + z ** 2) ** .5
+v_r = vr_cartesian(x, y, z, vx, vy, vz)
 
 min_binning_R = -1.5
 max_binning_R = np.log10(R_limit)
 
 if bins_202:
     nr_binning_bins = 202
-    F = F + '_200_radial_bins'
+    F += '_200_radial_bins'
 elif bins_102:
     nr_binning_bins = 102
-    F = F + '_100_radial_bins'
+    F += '_100_radial_bins'
 elif bins_52:
     nr_binning_bins = 52
-    F = F + '_50_radial_bins'
+    F += '_50_radial_bins'
 elif bins_22:      
     nr_binning_bins = 22
-    F = F + '_20_radial_bins'
+    F +='_20_radial_bins'
 else:
     pass
-# print(F)
 
 sigma2_arr, sigmarad2_arr, bin_radius_arr, r_arr, Phi_arr, Theta_arr, VR_arr, VTheta_arr, VPhi_arr, VR_i_avg_arr = bin_halo_radially()
 
-# kappa(self)
-for i in range(len(sigma2_arr)):  # kappa
-    if i == 0 or i == len(sigma2_arr) - 1:
-        kappa_arr.append(np.nan)
-        continue
-    dlogr = np.log10(bin_radius_arr[i + 1]) - np.log10(bin_radius_arr[i - 1])
-    dlogsigmarad2 = np.log10(sigmarad2_arr[i + 1]) -np.log10(sigmarad2_arr[i - 1])
-    kappa_arr.append(dlogsigmarad2/dlogr)
+radii = bin_radius_arr
+sigma_r2 = sigmarad2_arr
+kappa_arr = kappa(sigma2_arr)
 
-# gamma()
-for i in range(len(density_arr)):  # gamma
-    if i == 0 or i == len(sigma2_arr) - 1:
-        gamma_arr.append(np.nan)
-        continue
-    dlogr = np.log10(bin_radius_arr[i + 1]) - np.log10(bin_radius_arr[i - 1])
-    dlogrho = np.log10(density_arr[i + 1]) - np.log10(density_arr[i - 1])
-    gamma_arr.append(dlogrho / dlogr)
+len_obj_1 = density_arr
+len_obj = sigma2_arr
+density = density_arr
+gamma_arr = gamma(density_arr)
 
 sigmatheta2 = sigmatheta2_arr
 sigmarad2 = sigmarad2_arr
@@ -483,7 +472,7 @@ if Fig3_sigma:  # Dispersions
     f = plt.figure(figsize=(16,11))
     x_plot = np.log10(bin_radius_arr)
     y_plot = np.log10(sigma2_arr)
-    plt.plot(x_plot,y_plot,'r-o',ms=8,mew=0,label=r'$\log (\sigma_{total}^2)$')
+    plt.plot(x_plot, y_plot, 'r-o', ms=8, mew=0, label=r'$\log (\sigma_{total}^2)$')
     y_plot = np.log10(sigmarad2_arr)
     plt.plot(x_plot,y_plot,'b--s',ms=8,mew=0,label=r'$\log (\sigma_{r}^2)$')
     y_plot = np.log10(sigmatheta2_arr)
