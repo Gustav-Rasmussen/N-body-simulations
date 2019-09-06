@@ -83,22 +83,13 @@ con_E_path = 'E_HQ_1000000_E_control/output/'
 # Filename = GADGET_E_path + con_E_path + 'B_E_20_005.hdf5'
 
 SnapshotFile = h5py.File(Filename, 'r')
-# F = 'B' + Filename[len(GADGET_E_path + Soft_B_path + 'B'):-5]
-# F = 'B' + Filename[len(GADGET_E_path + con_Soft_B_path + 'B'):-5]
-# F = 'CS1' + Filename[len(GADGET_E_path + CS1_path + 'B'):-5]
-# F = 'CS1' + Filename[len(GADGET_E_path + con_CS1_path + 'B'):-5]
-# F = 'CS4' + Filename[len(GADGET_E_path + CS4_path + 'B'):-5]
-# F = 'CS4' + Filename[len(GADGET_E_path + con_CS4_path + 'B'):-5]
-# F = 'CS5' + Filename[len(GADGET_E_path + CS5_path + 'B'):-5]
-# F = 'CS5' + Filename[len(GADGET_E_path + con_CS5_path + 'B'):-5]
-# F = 'CS6' + Filename[len(GADGET_E_path + CS6_path + 'B'):-5]
-# F = 'CS6' + Filename[len(GADGET_E_path + con_CS6_path + 'B'):-5]
-# F = 'DS1' + Filename[len(GADGET_E_path + DS1_path + 'B'):-5]
-# F = 'DS1' + Filename[len(GADGET_E_path + con_DS1_path + 'B'):-5]
-# F = 'D2' + Filename[len(GADGET_E_path + D2_path + 'B'):-5]
-# F = 'D2' + Filename[len(GADGET_E_path + con_D2_path + 'B'):-5]
-# F = 'E' + Filename[len(GADGET_E_path + E_path + 'B'):-5]
-# F = 'E' + Filename[len(GADGET_E_path + con_E_path + 'B'):-5]
+
+sims = ['B', 'CS1', 'CS4', 'CS5', 'CS6', 'DS1', 'D2', 'E']
+paths = [Soft_B_path, con_Soft_B_path, CS1_path, con_CS1_path,
+         CS4_path, con_CS4_path, CS5_path, con_CS5_path,
+         CS6_path, con_CS6_path, DS1_path, con_DS1_path,
+         D2_path, con_D2_path, E_path, con_E_path]
+# F = sims[0] + Filename[len(GADGET_E_path + paths[0] + 'B'):-5]
 
 Fig_beta = 0
 Fig_betafit = 0
