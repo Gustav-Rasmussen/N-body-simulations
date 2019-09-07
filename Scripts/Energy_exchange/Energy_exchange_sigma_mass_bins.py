@@ -13,8 +13,9 @@ import scipy as sp
 import seaborn as sns
 import matplotlib.patches as mpatches
 from pathlib import Path
-from Attractor.Sigma_calc_OOP import get_volume_slice, vr_cartesian, vr_spherical,
-                                     theta_velocity, phi_velocity, chi_2, beta, gamma, kappa
+from Attractor.Sigma_calc_OOP import get_volume_slice, vr_cartesian,
+                                     vr_spherical, theta_velocity,
+                                     phi_velocity, chi_2, beta, gamma, kappa
 
 User_path = Path.cwd()
 Desktop_path = User_path + 'Desktop/'
@@ -29,16 +30,16 @@ Soft_B_path = 'E_HQ_1000000_B/output/'
 CS1_path = 'E_HQ_10000_CS1/output/'
 # Filename = GADGET_E_path + CS1_path + 'B_E_G2P_0_000.hdf5'
 # Filename = GADGET_E_path + CS1_path + 'B_E_G2P_20_005.hdf5'
-CS4_path = 'E_HQ_100000_CS4/output/' 
+CS4_path = 'E_HQ_100000_CS4/output/'
 # Filename = GADGET_E_path + CS4_path + 'B_E_G2P_0_000.hdf5'
 # Filename = GADGET_E_path + CS4_path + 'B_E_G2P_20_005.hdf5'
 CS5_path = 'E_HQ_100000_CS5/output/'
 # Filename = GADGET_E_path + CS5_path + 'B_E_G2P_0_000.hdf5'
 # Filename = GADGET_E_path + CS5_path + 'B_E_G2P_20_005.hdf5'
-CS6_path = 'E_HQ_100000_CS6/output/'  
+CS6_path = 'E_HQ_100000_CS6/output/'
 # Filename = GADGET_E_path + CS6_path + 'B_E_G2P_0_000.hdf5'
 # Filename = GADGET_E_path + CS6_path + 'B_E_G2P_20_005.hdf5'
-DS1_path = 'E_0_5_100000_DS1/output/'  
+DS1_path = 'E_0_5_100000_DS1/output/'
 # Filename = GADGET_E_path + DS1_path + 'B_E_G2P_0_000.hdf5'
 # Filename = GADGET_E_path + DS1_path + 'B_E_G2P_20_005.hdf5'
 D2_path = 'E_0_5_100000_D2/output/'
@@ -50,9 +51,9 @@ E_path = 'E_HQ_1000000_E/output/'
 
 # Control
 con_Soft_B_path = 'E_HQ_1000000_B_control/output/'
-# Filename = GADGET_E_path + con_Soft_B_path + 'B_E_0_000.hdf5'
-# Filename = GADGET_E_path + con_Soft_B_path + 'B_E_0_001.hdf5'
-# Filename = GADGET_E_path + con_Soft_B_path + 'B_E_20_005.hdf5'
+con_Soft_B_snaps = ['0_000', '0_001', '20_005']
+# Filename = GADGET_E_path + con_Soft_B_path + 'B_E_' + con_Soft_B_snaps[0]
+#            + '.hdf5'
 con_CS1_path = 'E_HQ_10000_CS1_control/output/'
 # Filename = GADGET_E_path + con_CS1_path + 'B_E_0_000.hdf5'
 # Filename = GADGET_E_path + con_CS1_path + 'B_E_0_001.hdf5'
@@ -110,9 +111,9 @@ DS1 = 0
 D2  = 0
 E = 0
 
-Pos = SnapshotFile['PartType1/Coordinates'].value 
-Vel = SnapshotFile['PartType1/Velocities'].value  
-V = SnapshotFile['PartType1/Potential'].value     
+Pos = SnapshotFile['PartType1/Coordinates'].value
+Vel = SnapshotFile['PartType1/Velocities'].value
+V = SnapshotFile['PartType1/Potential'].value
 x = Pos[:, 0]
 y = Pos[:, 1]
 z = Pos[:, 2]
@@ -146,7 +147,7 @@ if CS1 or CS2 or CS3:
     nr_par_bin = 500  # Number of particles per bin.
 elif CS4 or CS5 or CS6 or DS1 or D2:
     nr_par_bin = 5_000
-elif B or E: 
+elif B or E:
     nr_par_bin = 50_000
 
 N_bins = N_total / nr_par_bin
@@ -235,6 +236,9 @@ kappa_arr = kappa(sigma2_arr)
 density = density_arr
 gamma_arr = gamma(sigma2_arr)
 
+sims = ['B', 'CS1', 'CS4', 'CS5', 'CS6', 'DS1', 'D2', 'E']
+mode = ['IC', 'Final', 'Final_control']
+
 if Fig_beta:  # plot beta
     f = plt.figure()
     # plt.xlim(-1.7, 2.0)
@@ -243,8 +247,9 @@ if Fig_beta:  # plot beta
     y_plot = beta_arr
     plt.xlabel(r'$\log$r (kpc)', fontsize=20)
     plt.ylabel(r'$\beta$', fontsize=20)
-    # from this graph we see that beta is below zero. this means sigmatheta2_arr/sigmarad2_arr > 1,
-    # which in turn means that sigmatheta2_arr > sigmarad2_arr. 
+    # from this graph we see that beta is below zero. this means
+    # sigmatheta2_arr/sigmarad2_arr > 1,
+    # which in turn means that sigmatheta2_arr > sigmarad2_arr.
     plt.plot(x_plot, y_plot, 'k-o', ms=7, lw=2, mew=0, label=r'$\beta$')
     plt.plot(x_plot, 0 * x_plot, '--', lw=2, color='grey')
     plt.grid()
@@ -252,7 +257,7 @@ if Fig_beta:  # plot beta
     if Fig_betafit:  # fitting beta with two different profiles
         x = 10 ** x_plot
         y_plot = x ** 2 / (25 ** 2 + x ** 2)
-        plt.plot(x_plot, y_plot, 'b-', ms=2, mew=0, label=r'$\frac{x^2}{25^2+x^2}$') 
+        plt.plot(x_plot, y_plot, 'b-', ms=2, mew=0, label=r'$\frac{x^2}{25^2+x^2}$')
 
         Chi2 = chi_2(beta_arr)
         print('Chi2 for betafit: ', Chi2)
@@ -263,56 +268,13 @@ if Fig_beta:  # plot beta
                          fancybox=True, loc=0, handlelength=2.5)
         leg.get_frame().set_alpha(.5)
         plt.title(r'$\beta$ with fit. mass bins (%s)' % F, fontsize=18)
-        # f.savefig(figure_path + 'B_IC_beta_logr_fit_mass_bins.png')
-        # f.savefig(figure_path + 'B_Final_beta_logr_fit_mass_bins.png')
-        # f.savefig(figure_path + 'B_Final_control_beta_logr_fit_mass_bins.png')
-        # f.savefig(figure_path + 'CS1_IC_beta_logr_fit_mass_bins.png')
-        # f.savefig(figure_path + 'CS1_Final_beta_logr_fit_mass_bins.png')
-        # f.savefig(figure_path + 'CS1_Final_control_beta_logr_fit_mass_bins.png')
-        # f.savefig(figure_path + 'CS4_IC_beta_logr_fit_mass_bins.png')
-        # f.savefig(figure_path + 'CS4_Final_beta_logr_fit_mass_bins.png')
-        # f.savefig(figure_path + 'CS4_Final_control_beta_logr_fit_mass_bins.png')
-        # f.savefig(figure_path + 'CS5_IC_beta_logr_fit_mass_bins.png')
-        # f.savefig(figure_path + 'CS5_Final_beta_logr_fit_mass_bins.png')
-        # f.savefig(figure_path + 'CS5_Final_control_beta_logr_fit_mass_bins.png')
-        # f.savefig(figure_path + 'CS6_IC_beta_logr_fit_mass_bins.png')
-        # f.savefig(figure_path + 'CS6_Final_beta_logr_fit_mass_bins.png')
-        # f.savefig(figure_path + 'CS6_Final_control_beta_logr_fit_mass_bins.png')
-        # f.savefig(figure_path + 'DS1_IC_beta_logr_fit_mass_bins.png')
-        # f.savefig(figure_path + 'DS1_Final_beta_logr_fit_mass_bins.png')
-        # f.savefig(figure_path + 'DS1_Final_control_beta_logr_fit_mass_bins.png')
-        # f.savefig(figure_path + 'D2_IC_beta_logr_fit_mass_bins.png')
-        # f.savefig(figure_path + 'D2_Final_beta_logr_fit_mass_bins.png')
-        # f.savefig(figure_path + 'D2_Final_control_beta_logr_fit_mass_bins.png')
-        # f.savefig(figure_path + 'E_IC_beta_logr_fit_mass_bins.png')
-        # f.savefig(figure_path + 'E_Final_beta_logr_fit_mass_bins.png')
-        # f.savefig(figure_path + 'E_Final_control_beta_logr_fit_mass_bins.png')
+
+        f.savefig(figure_path + sims[0] + '_' + mode[0] + '_'
+                  + 'beta_logr_fit_mass_bins.png')
     else:
         plt.title(r'$\beta$ with zero-line(%s)' % F, fontsize=18)
-        # f.savefig(figure_path + 'B_IC_beta_logr_mass_bins.png')
-        # f.savefig(figure_path + 'B_Final_beta_logr_mass_bins.png')
-        # f.savefig(figure_path + 'B_Final_control_beta_logr_mass_bins.png')
-        # f.savefig(figure_path + 'CS1_IC_beta_logr_mass_bins.png')
-        # f.savefig(figure_path + 'CS1_Final_beta_logr_mass_bins.png')
-        # f.savefig(figure_path + 'CS1_Final_control_beta_logr_mass_bins.png')
-        # f.savefig(figure_path + 'CS4_IC_beta_logr_mass_bins.png')
-        # f.savefig(figure_path + 'CS4_Final_beta_logr_mass_bins.png')
-        # f.savefig(figure_path + 'CS4_Final_control_beta_logr_mass_bins.png')
-        # f.savefig(figure_path + 'CS5_IC_beta_logr_mass_bins.png')
-        # f.savefig(figure_path + 'CS5_Final_beta_logr_mass_bins.png')
-        # f.savefig(figure_path + 'CS5_Final_control_beta_logr_mass_bins.png')
-        # f.savefig(figure_path + 'CS6_IC_beta_logr_mass_bins.png')
-        # f.savefig(figure_path + 'CS6_Final_beta_logr_mass_bins.png')
-        # f.savefig(figure_path + 'CS6_Final_control_beta_logr_mass_bins.png')
-        # f.savefig(figure_path + 'DS1_IC_beta_logr_mass_bins.png')
-        # f.savefig(figure_path + 'DS1_Final_beta_logr_mass_bins.png')
-        # f.savefig(figure_path + 'DS1_Final_control_beta_logr_mass_bins.png')
-        # f.savefig(figure_path + 'D2_IC_beta_logr_mass_bins.png')
-        # f.savefig(figure_path + 'D2_Final_beta_logr_mass_bins.png')
-        # f.savefig(figure_path + 'D2_Final_control_beta_logr_mass_bins.png')
-        # f.savefig(figure_path + 'E_IC_beta_logr_mass_bins.png')
-        # f.savefig(figure_path + 'E_Final_beta_logr_mass_bins.png')
-        # f.savefig(figure_path + 'E_Final_control_beta_logr_mass_bins.png')
+        f.savefig(figure_path + sims[0] + '_' + mode[0] + '_'
+                  + 'beta_logr_mass_bins.png')
 
 if Fig_kappa:
     f = plt.figure()
@@ -323,14 +285,7 @@ if Fig_kappa:
     plt.title(r'$\kappa$ and zero-line. mass bins (%s)'% F, fontsize=18)
     plt.plot(x_plot, y_plot, 'k-o', ms=4, mew=0)
     plt.plot(x_plot, 0 * x_plot, '--', lw=2, color='grey')
-    # f.savefig(figure_path + 'B_kappa_mass_bins.png')
-    # f.savefig(figure_path + 'CS1_kappa_mass_bins.png')
-    # f.savefig(figure_path + 'CS4_kappa_mass_bins.png')
-    # f.savefig(figure_path + 'CS5_kappa_mass_bins.png')
-    # f.savefig(figure_path + 'CS6_kappa_mass_bins.png')
-    # f.savefig(figure_path + 'DS1_kappa_mass_bins.png')
-    # f.savefig(figure_path + 'D2_kappa_mass_bins.png')
-    # f.savefig(figure_path + 'E_kappa_mass_bins.png')
+    f.savefig(figure_path + sims[0] + '_kappa_mass_bins.png')
 
 if Fig_gamma:
     f = plt.figure()
@@ -345,93 +300,39 @@ if Fig_gamma:
     if Fig_gammafit:
         x = 10 ** x_plot
         y_plot = -1 -3 * x / (1 + x)
-        plt.plot(x_plot, y_plot, 'b-', ms=2, mew=0, label='Fit')  # label=r'$\frac{x^2}{23^2+x^2}$'
-
+        plt.plot(x_plot, y_plot, 'b-', ms=2, mew=0, label='Fit')
+        # label=r'$\frac{x^2}{23^2+x^2}$'
         Chi2 = chi_2()
         # print('Chi2 for gammafit: ', Chi2)
-
         # Dummy plot to add label to legend for chi2
         plt.plot([], [], ls='.', c='grey',label = r'$\chi^2 = %.6f$' % Chi2)
         leg = plt.legend(prop=dict(size=18), numpoints=2, ncol=2,
                          fancybox=True, loc=0, handlelength=2.5)
         leg.get_frame().set_alpha(0.5)
-        plt.title('Radial density slope with fit. mass bins (%s)' % F, fontsize=18)
-        # f.savefig(figure_path + 'B_IC_gamma_logr_fit_mass_bins.png')
-        # f.savefig(figure_path + 'B_Final_gamma_logr_fit_mass_bins.png')
-        # f.savefig(figure_path + 'B_Final_control_gamma_logr_fit_mass_bins.png')
-        # f.savefig(figure_path + 'CS1_IC_gamma_logr_fit_mass_bins.png')
-        # f.savefig(figure_path + 'CS1_Final_gamma_logr_fit_mass_bins.png')
-        # f.savefig(figure_path + 'CS1_Final_control_gamma_logr_fit_mass_bins.png')
-        # f.savefig(figure_path + 'CS4_IC_gamma_logr_fit_mass_bins.png')
-        # f.savefig(figure_path + 'CS4_Final_gamma_logr_fit_mass_bins.png')
-        # f.savefig(figure_path + 'CS4_Final_control_gamma_logr_fit_mass_bins.png')
-        # f.savefig(figure_path + 'CS5_IC_gamma_logr_fit_mass_bins.png')
-        # f.savefig(figure_path + 'CS5_Final_gamma_logr_fit_mass_bins.png')
-        # f.savefig(figure_path + 'CS5_Final_control_gamma_logr_fit_mass_bins.png')
-        # f.savefig(figure_path + 'CS6_IC_gamma_logr_fit_mass_bins.png')
-        # f.savefig(figure_path + 'CS6_Final_gamma_logr_fit_mass_bins.png')
-        # f.savefig(figure_path + 'CS6_Final_control_gamma_logr_fit_mass_bins.png')             
-        # f.savefig(figure_path + 'DS1_IC_gamma_logr_fit_mass_bins.png')
-        # f.savefig(figure_path + 'DS1_Final_gamma_logr_fit_mass_bins.png')
-        # f.savefig(figure_path + 'DS1_Final_control_gamma_logr_fit_mass_bins.png')
-        # f.savefig(figure_path + 'D2_IC_gamma_logr_fit_mass_bins.png')
-        # f.savefig(figure_path + 'D2_Final_gamma_logr_fit_mass_bins.png')
-        # f.savefig(figure_path + 'D2_Final_control_gamma_logr_fit_mass_bins.png')
-        # f.savefig(figure_path + 'E_IC_gamma_logr_fit_mass_bins.png')
-        # f.savefig(figure_path + 'E_Final_gamma_logr_fit_mass_bins.png')
-        # f.savefig(figure_path + 'E_Final_control_gamma_logr_fit_mass_bins.png')
+        plt.title('Radial density slope with fit. mass bins (%s)' % F,
+                  fontsize=18)
+        f.savefig(figure_path + sims[0] + '_' + mode[0] + '_'
+                  + 'gamma_logr_fit_mass_bins.png')
     else:
         plt.title(f'Radial density slope {F}', fontsize=18)
-        # f.savefig(figure_path + 'B_IC_gamma_logr_mass_bins.png')
-        # f.savefig(figure_path + 'B_Final_gamma_logr_mass_bins.png')
-        # f.savefig(figure_path + 'B_Final_control_gamma_logr_mass_bins.png')
-        # f.savefig(figure_path + 'CS1_IC_gamma_logr_mass_bins.png')
-        # f.savefig(figure_path + 'CS1_Final_gamma_logr_mass_bins.png')
-        # f.savefig(figure_path + 'CS1_Final_control_gamma_logr_mass_bins.png')
-        # f.savefig(figure_path + 'CS4_IC_gamma_logr_mass_bins.png')
-        # f.savefig(figure_path + 'CS4_Final_gamma_logr_mass_bins.png')
-        # f.savefig(figure_path + 'CS4_Final_control_gamma_logr_mass_bins.png')
-        # f.savefig(figure_path + 'CS5_IC_gamma_logr_mass_bins.png')
-        # f.savefig(figure_path + 'CS5_Final_gamma_logr_mass_bins.png')
-        # f.savefig(figure_path + 'CS5_Final_control_gamma_logr_mass_bins.png')
-        # f.savefig(figure_path + 'CS6_IC_gamma_logr_mass_bins.png')
-        # f.savefig(figure_path + 'CS6_Final_gamma_logr_mass_bins.png')
-        # f.savefig(figure_path + 'CS6_Final_control_gamma_logr_mass_bins.png')             
-        # f.savefig(figure_path + 'DS1_IC_gamma_logr_mass_bins.png')
-        # f.savefig(figure_path + 'DS1_Final_gamma_logr_mass_bins.png')
-        # f.savefig(figure_path + 'DS1_Final_control_gamma_logr_mass_bins.png')
-        # f.savefig(figure_path + 'D2_IC_gamma_logr_mass_bins.png')
-        # f.savefig(figure_path + 'D2_Final_gamma_logr_mass_bins.png')
-        # f.savefig(figure_path + 'D2_Final_control_gamma_logr_mass_bins.png')
-        # f.savefig(figure_path + 'E_IC_gamma_logr_mass_bins.png')
-        # f.savefig(figure_path + 'E_Final_gamma_logr_mass_bins.png')
-        # f.savefig(figure_path + 'E_Final_control_gamma_logr_mass_bins.png')
+        f.savefig(figure_path + sims[0] + '_' + mode[0] + '_'
+                  + 'gamma_logr_mass_bins.png')
 
 if Fig_betagamma:
-    f = plt.figure()
-    subplot(121)
-    plt.xlabel(r'$\beta$', fontsize=20)
-    plt.ylabel(r'$\gamma$', fontsize=20)
-    plt.title(r'$\gamma$ vs $\beta$ (%s)' % F, fontsize=18)
-    plt.plot(beta_arr, gamma_arr, 'k-o', ms=2, mew=0)
-    plt.grid()
-    subplot(122)
-    plt.xlabel(r'$\beta$', fontsize=20)
-    plt.ylabel(r'$\kappa$', fontsize=20)
-    plt.title(r'$\kappa$ vs $\beta$', fontsize=20)
-    plt.plot(beta_arr, kappa_arr, 'k-o', ms=2, mew=0)
-    plt.grid()
-    
-    # f.savefig(figure_path + 'B_betagamma_mass_bins.png')
-    # f.savefig(figure_path + 'CS1_betagamma_mass_bins.png')
-    # f.savefig(figure_path + 'CS4_betagamma_mass_bins.png')
-    # f.savefig(figure_path + 'CS5_betagamma_mass_bins.png')
-    # f.savefig(figure_path + 'CS6_betagamma_mass_bins.png')
-    # f.savefig(figure_path + 'DS1_betagamma_mass_bins.png')
-    # f.savefig(figure_path + 'D2_betagamma_mass_bins.png')
-    # f.savefig(figure_path + 'E_betagamma_mass_bins.png')
+    f, (ax1, ax2) = plt.subplots(2, 1)
+    ax1.xlabel(r'$\beta$', fontsize=20)
+    ax1.ylabel(r'$\gamma$', fontsize=20)
+    ax1.title(r'$\gamma$ vs $\beta$ (%s)' % F, fontsize=18)
+    ax1.plot(beta_arr, gamma_arr, 'k-o', ms=2, mew=0)
+    ax1.grid()
+    ax2.xlabel(r'$\beta$', fontsize=20)
+    ax2.ylabel(r'$\kappa$', fontsize=20)
+    ax2.title(r'$\kappa$ vs $\beta$', fontsize=20)
+    ax2.plot(beta_arr, kappa_arr, 'k-o', ms=2, mew=0)
+    ax2.grid()
+    f.savefig(figure_path + sims[0] + '_' + 'B_betagamma_mass_bins.png')
 
-if save_lnr_beta_gamma_kappa_VR_r_sigma_r: 
+if save_lnr_beta_gamma_kappa_VR_r_sigma_r:
     logr_arr = np.array(np.log10(bin_radius_arr))
     beta_arr = np.array(beta_arr)
     gamma_arr = np.array(gamma_arr)
@@ -447,7 +348,8 @@ if save_lnr_beta_gamma_kappa_VR_r_sigma_r:
     sigmarad2_arr = sigmarad2_arr[GoodIDs]
     VR_i_avg_in_bin_arr = VR_i_avg_in_bin_arr[GoodIDs]
 
-    x = np.array((logr_arr, beta_arr, gamma_arr, kappa_arr, VR_i_avg_in_bin_arr, r_arr, sigmarad2_arr))
+    x = np.array((logr_arr, beta_arr, gamma_arr, kappa_arr,
+                  VR_i_avg_in_bin_arr, r_arr, sigmarad2_arr))
     x = x.transpose()
     out_name = text_files_path + F + '_mass_bins.txt'
     np.savetxt(out_name, x, delimiter=' ')

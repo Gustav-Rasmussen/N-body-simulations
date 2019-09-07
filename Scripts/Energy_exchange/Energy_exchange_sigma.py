@@ -25,23 +25,29 @@ sims_II = ['a', 'b', 'c', 'd']
 # figure_path = Desktop_path + Stable_path + 'figures/II' + sims_II[0] + '/'
 
 # IIa
-sims = ['Soft_B', 'CS1', 'CS4', 'CS5', 'CS6', 'DS1', 'Soft_D2', 'E', 'Test_CS4', 'Test_D2', 'Test_CS4_10tdyn']
-# text_files_path = Desktop_path + Stable_path + 'text_files/IIa/' + sims[0] + '/'  # All sims
+sims = ['Soft_B', 'CS1', 'CS4', 'CS5', 'CS6', 'DS1', 'Soft_D2', 'E',
+        'Test_CS4', 'Test_D2', 'Test_CS4_10tdyn']
+# text_files_path = Desktop_path + Stable_path + 'text_files/IIa/' + sims[0]
+#                   + '/'  # All sims
 
 # IIb
-# text_files_path = Desktop_path + Stable_path + 'text_files/IIb/' + sims[2] + '/'
+# text_files_path = Desktop_path + Stable_path + 'text_files/IIb/' + sims[2]
+#                   + '/'
 # text_files_path = Desktop_path + Stable_path + 'text_files/IIb/Soft_D2/'
 
 # IIc
-# text_files_path = Desktop_path + Stable_path + 'text_files/IIc/' + sims[2] + '/'  # sims[3], sims[4], sims[5], sims[6]
+# text_files_path = Desktop_path + Stable_path + 'text_files/IIc/' + sims[2]
+#                   + '/'  # sims[3], sims[4], sims[5], sims[6]
 
 # IId
 # text_files_path = Desktop_path + Stable_path + 'text_files/IId/CS4/'
 # text_files_path = Desktop_path + Stable_path + 'text_files/IId/Soft_D2/'
 
 Soft_B_path = 'E_HQ_1000000_B/output/'
-Soft_B_snaps = ['0_000', '0_005', '1_000', '2_005', '4_005', '6_005', '8_005', '10_005', '20_005']
-# Filename = GADGET_E_path + Soft_B_path + 'B_E_G2P_' + Soft_B_snaps[0] + '.hdf5'
+Soft_B_snaps = ['0_000', '0_005', '1_000', '2_005', '4_005', '6_005', '8_005',
+                '10_005', '20_005']
+# Filename = GADGET_E_path + Soft_B_path + 'B_E_G2P_' + Soft_B_snaps[0]
+#            + '.hdf5'
 
 CS1_path = 'E_HQ_10000_CS1/output/'
 # Filename = GADGET_E_path + CS1_path + 'B_E_G2P_0_000.hdf5'
@@ -52,23 +58,29 @@ CS4_snaps = ['0_005', '10_005', '20_013', '20_021', '30_005', '40_021']
 # Filename = GADGET_E_path + CS4_path + 'B_E_G2P_' + CS4_snaps[0] + '.hdf5'
 
 CS5_path = 'E_HQ_100000_CS5/output/'
-CS5_snaps = ['0_005', '2_005', '4_005', '6_005', '8_005', '10_005', '20_021', '30_005', '40_021']
+CS5_snaps = ['0_005', '2_005', '4_005', '6_005', '8_005', '10_005', '20_021',
+             '30_005', '40_021']
 # Filename = GADGET_E_path + CS5_path + 'B_E_G2P_' + CS5_snaps[0] + '.hdf5'
 
 CS6_path = 'E_HQ_100000_CS6/output/'
-CS6_snaps = ['0_005', '2_005', '4_005', '6_005', '8_005', '10_005', '20_021', '30_005', '40_021']
+CS6_snaps = ['0_005', '2_005', '4_005', '6_005', '8_005', '10_005', '20_021',
+             '30_005', '40_021']
 # Filename = GADGET_E_path + CS6_path + 'B_E_G2P_' + CS6_snaps[0] + '.hdf5'
 
 DS1_path = 'E_0_5_100000_DS1/output/'
-DS1_snaps = ['0_005', '2_005', '4_005', '6_005', '8_005', '10_005', '20_005', '30_005', '40_021', '60_021']
+DS1_snaps = ['0_005', '2_005', '4_005', '6_005', '8_005', '10_005', '20_005',
+             '30_005', '40_021', '60_021']
 # Filename = GADGET_E_path + DS1_path + 'B_E_G2P_' + DS1_snaps[0] + '.hdf5'
 
 Soft_D2_path = 'E_0_5_100000_D2/output/'
-Soft_D2_snaps = ['0_005', '10_005', '20_013', '20_021', '30_021', '40_021', '60_021']
-# Filename = GADGET_E_path + Soft_D2_path + 'B_E_G2P_' + Soft_D2_snaps[0] + '.hdf5'
+Soft_D2_snaps = ['0_005', '10_005', '20_013', '20_021', '30_021', '40_021',
+                 '60_021']
+# Filename = GADGET_E_path + Soft_D2_path + 'B_E_G2P_' + Soft_D2_snaps[0]
+#            + '.hdf5'
 
 E_path = 'E_HQ_1000000_E/output/'
-E_snaps = ['0_005', '2_005', '4_005', '6_005', '8_005', '10_005', '20_005', '30_005', '40_021']
+E_snaps = ['0_005', '2_005', '4_005', '6_005', '8_005', '10_005', '20_005',
+           '30_005', '40_021']
 # Filename = GADGET_E_path + E_path + 'B_E_G2P_' + E_snaps[0] + '.hdf5'
 
 Test_CS4_path = 'Test_CS4/output/'
@@ -217,9 +229,9 @@ Fig6_gammafit = 0
 Fig7_betagamma = 0
 save_lnr_beta_gamma_kappa_VR_r_sigma_r_r2_rho = 0
 
-Pos = SnapshotFile['PartType1/Coordinates'].value 
-Vel = SnapshotFile['PartType1/Velocities'].value  
-V = SnapshotFile['PartType1/Potential'].value     
+Pos = SnapshotFile['PartType1/Coordinates'].value
+Vel = SnapshotFile['PartType1/Velocities'].value
+V = SnapshotFile['PartType1/Potential'].value
 x = Pos[:, 0]
 y = Pos[:, 1]
 z = Pos[:, 2]
@@ -307,7 +319,7 @@ y = y[GoodIDs]
 z = z[GoodIDs]
 vx = vx[GoodIDs]
 vy = vy[GoodIDs]
-vz = vz[GoodIDs] 
+vz = vz[GoodIDs]
 vx -= np.median(vx)
 vy -= np.median(vy)
 vz -= np.median(vz)
@@ -317,7 +329,7 @@ R_hob_par = R[GoodIDs]
 # Declare number of particles
 if F.startswith(('Soft_B_', 'E_')):
     N = 10 ** 6
-elif F.startswith(('CS4_', 'CS5_', 'CS6_', 'DS1_', 'Soft_D2_', 'IIc', 'IId', 'IId', 'Test_')):    
+elif F.startswith(('CS4_', 'CS5_', 'CS6_', 'DS1_', 'Soft_D2_', 'IIc', 'IId', 'IId', 'Test_')):
     N = 10 ** 5
 elif F.startswith('CS1_'):
     N = 10 ** 4
@@ -326,13 +338,13 @@ if F.startswith(('Soft_B_', 'CS1_', 'CS4_', 'CS5_', 'CS6_', 'E_', 'Test_', 'IIc_
     M = 1.
 elif F.startswith(('DS1_', 'D2_', 'Soft_D2_', 'IIc_Soft_D2_', 'IIc_DS1_', 'IId_Soft_D2_')):
     M = 1. / 6.
-# Define particle mass 
+# Define particle mass
 m = M / N
 
-if Gamma == -2.0:     
+if Gamma == -2.0:
     r_2 = R_middle
     posR_par_in_halo = np.where(R_hob_par < r_2)  # position of particles inside halo
-    nr_par_in_halo = len(posR_par_in_halo[0]) 
+    nr_par_in_halo = len(posR_par_in_halo[0])
     M_2 = nr_par_in_halo * m
     G = 1.
     v_circ_2 = (G * M_2 / r_2) ** .5
@@ -350,7 +362,7 @@ elif bins_102:
 elif bins_52:
     nr_of_bins = 52
     F += '_50_radial_bins'
-elif bins_22:      
+elif bins_22:
     nr_of_bins = 22
     F += '_20_radial_bins'
 # print(F)
@@ -367,7 +379,7 @@ min_binning_R = -1.5
 max_binning_R = np.log10(R_limit)
 binning_arr_lin_log10 = np.logspace(min_binning_R, max_binning_R, nr_binning_bins)  # Array, -5-1000
 
-for i in range(nr_binning_bins - 2):      
+for i in range(nr_binning_bins - 2):
     min_R_i = binning_arr_lin_log10[i]  # start of bin
     max_R_i = binning_arr_lin_log10[i + 1]  # end of bin
     posR_par_i = np.where((R_hob_par > min_R_i) & (R_hob_par < max_R_i))  # position of particles inside a radial bin
@@ -502,7 +514,7 @@ if Fig4_beta:  # plot beta
     y_plot = beta_arr
     plt.xlabel(r'$\log$r', fontsize=30)
     plt.ylabel(r'$\beta$', fontsize=30)
-    plt.plot(x_plot, y_plot, 'k-o', ms=7, lw=2, mew=0, label=r'$\beta$')  # from this graph we see that beta is below zero. this means sigmatheta2_arr/sigmarad2_arr > 1, which in turn means that sigmatheta2_arr > sigmarad2_arr. 
+    plt.plot(x_plot, y_plot, 'k-o', ms=7, lw=2, mew=0, label=r'$\beta$')  # from this graph we see that beta is below zero. this means sigmatheta2_arr/sigmarad2_arr > 1, which in turn means that sigmatheta2_arr > sigmarad2_arr.
     plt.plot(x_plot, 0 * x_plot, '--', lw=2, color='grey')
 
     if Fig4_betafit:  # fitting beta with two different profiles
@@ -659,7 +671,7 @@ if Fig6_gamma:
         # f.savefig(figure_path + 'CS5_Final_control_gamma_logr_fit.png')
         # f.savefig(figure_path + 'CS6_IC_gamma_logr_fit.png')
         # f.savefig(figure_path + 'CS6_Final_gamma_logr_fit.png')
-        # f.savefig(figure_path + 'CS6_Final_control_gamma_logr_fit.png')             
+        # f.savefig(figure_path + 'CS6_Final_control_gamma_logr_fit.png')
         # f.savefig(figure_path + 'DS1_IC_gamma_logr_fit.png')
         # f.savefig(figure_path + 'DS1_Final_gamma_logr_fit.png')
         # f.savefig(figure_path + 'DS1_Final_control_gamma_logr_fit.png')
@@ -695,7 +707,7 @@ if Fig6_gamma:
         # plt.title('Radial density slope (Sim II: $\Delta$E, B 10_005, $R_{limit}=32$, 50 bins)',fontsize=30)
         # plt.title('Radial density slope (Sim II: $\Delta$E, B final, $R_{limit}=32$, 50 bins)',fontsize=30)
         # plt.title('Radial density slope (Sim II: $\Delta$E, B control final, $R_{limit}=32$, 50 bins)',fontsize=30)
-        
+
         # plt.title('Radial density slope (Sim II: $\Delta$E, CS4 IC, $R_{limit}=32$, 20 bins)',fontsize=30)
         # plt.title('Radial density slope (Sim II: $\Delta$E, CS4 2_005, $R_{limit}=32$, 20 bins)',fontsize=30)
         # plt.title('Radial density slope (Sim II: $\Delta$E, CS4 4_005, $R_{limit}=32$, 20 bins)',fontsize=30)
@@ -740,7 +752,7 @@ if Fig6_gamma:
         # plt.title('Radial density slope (Sim II: $\Delta$E, D2 10_005, $R_{limit}=32$, 20 bins)',fontsize=30)
         # plt.title('Radial density slope (Sim II: $\Delta$E, D2 final, $R_{limit}=32$, 20 bins)',fontsize=30)
         # plt.title('Radial density slope (Sim II: $\Delta$E, D2 control final, $R_{limit}=32$, 20 bins)',fontsize=30)
-        
+
         # plt.title('Radial density slope (Sim II: $\Delta$E, E IC, $R_{limit}=32$, 50 bins)',fontsize=30)
         # plt.title('Radial density slope (Sim II: $\Delta$E, E 2_005, $R_{limit}=32$, 50 bins)',fontsize=30)
         # plt.title('Radial density slope (Sim II: $\Delta$E, E 4_005, $R_{limit}=32$, 50 bins)',fontsize=30)
@@ -801,7 +813,7 @@ if Fig6_gamma:
         # f.savefig(figure_path + 'CS5_Final_control_gamma_logr_II_R50.png')
         # f.savefig(figure_path + 'CS6_IC_gamma_logr_II_R50.png')
         # f.savefig(figure_path + 'CS6_Final_gamma_logr_II_R50.png')
-        # f.savefig(figure_path + 'CS6_Final_control_gamma_logr_II_R50.png')             
+        # f.savefig(figure_path + 'CS6_Final_control_gamma_logr_II_R50.png')
         # f.savefig(figure_path + 'DS1_IC_gamma_logr_II_R50.png')
         # f.savefig(figure_path + 'DS1_Final_gamma_logr_II_R50.png')
         # f.savefig(figure_path + 'DS1_Final_control_gamma_logr_II_R50.png')
@@ -891,7 +903,7 @@ if Fig6_gamma:
         # f.savefig(figure_path + 'CS5_Final_control_gamma_logr_II_R10.png')
         # f.savefig(figure_path + 'CS6_IC_gamma_logr_II_R10.png')
         # f.savefig(figure_path + 'CS6_Final_gamma_logr_II_R10.png')
-        # f.savefig(figure_path + 'CS6_Final_control_gamma_logr_II_R10.png')             
+        # f.savefig(figure_path + 'CS6_Final_control_gamma_logr_II_R10.png')
         # f.savefig(figure_path + 'DS1_IC_gamma_logr_II_R10.png')
         # f.savefig(figure_path + 'DS1_Final_gamma_logr_II_R10.png')
         # f.savefig(figure_path + 'DS1_Final_control_gamma_logr_II_R10.png')
@@ -919,7 +931,7 @@ if Fig7_betagamma:
 
     f.savefig(figure_path + sims[-1] + '_betagamma.png')
 
-if save_lnr_beta_gamma_kappa_VR_r_sigma_r_r2_rho: 
+if save_lnr_beta_gamma_kappa_VR_r_sigma_r_r2_rho:
     logr_arr = np.array(np.log10(bin_radius_arr))
     beta_arr = np.array(beta_arr)
     gamma_arr = np.array(gamma_arr)
