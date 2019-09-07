@@ -14,7 +14,7 @@ import seaborn as sns
 import matplotlib.patches as mpatches
 from pathlib import Path
 from Attractor.Sigma_calc_OOP import get_volume_slice, vr_cartesian, vr_spherical,
-                                     theta_velocity, phi_velocity
+                                     theta_velocity, phi_velocity, chi_2, beta, gamma, kappa
 
 User_path = Path.cwd()
 Desktop_path = User_path + 'Desktop/'
@@ -221,26 +221,19 @@ VTheta_arr = np.array(VTheta)
 VPhi_arr = np.array(VPhi)
 VR_i_avg_arr = np.array(VR_i_avg_i)
 
-# kappa()
-for i in range(len(sigma2_arr)):
-    if i == 0 or i == len(sigma2_arr) - 1:
-        kappa_arr.append(np.nan)
-        continue
-    dlogr = np.log10(bin_radius_arr[i + 1]) - np.log10(bin_radius_arr[i - 1])
-    dlogsigmarad2 = np.log10(sigmarad2_arr[i + 1]) - np.log10(sigmarad2_arr[i - 1])
-    kappa_arr.append(dlogsigmarad2 / dlogr)
+# Set beta
+sigmatheta2 = sigmatheta2_arr
+sigmarad2 = sigmarad2_arr
+beta_arr = beta()
 
-# gamma()
-for i in range(len(density_arr)):
-    if i == 0 or i == len(sigma2_arr) - 1:
-        gamma_arr.append(np.nan)
-        continue
-    dlogr = np.log10(bin_radius_arr[i + 1]) - np.log10(bin_radius_arr[i - 1])
-    dlogrho = np.log10(density_arr[i + 1]) - np.log10(density_arr[i - 1])
-    gamma_arr.append(dlogrho / dlogr)
+# Set kappa
+radii = bin_radius_arr
+sigma_r2 = sigmarad2_arr
+kappa_arr = kappa(sigma2_arr)
 
-# beta()
-beta_arr = 1. - sigmatheta2_arr / sigmarad2_arr
+# Set gamma
+density = density_arr
+gamma_arr = gamma(sigma2_arr)
 
 if Fig_beta:  # plot beta
     f = plt.figure()
@@ -261,12 +254,7 @@ if Fig_beta:  # plot beta
         y_plot = x ** 2 / (25 ** 2 + x ** 2)
         plt.plot(x_plot, y_plot, 'b-', ms=2, mew=0, label=r'$\frac{x^2}{25^2+x^2}$') 
 
-        Chi2 = 0
-        i = 0 
-        while (i < len(beta_arr)):
-          Chi2 += ((beta_arr[i] - y_plot[i]) ** 2) / (beta_arr[i] * .2) ** 2
-          i += 1         
-        Chi2 = (1.0 / (len(beta_arr) - 1)) * Chi2
+        Chi2 = chi_2(beta_arr)
         print('Chi2 for betafit: ', Chi2)
 
         # Dummy plot to add label to legend for chi2
@@ -359,17 +347,7 @@ if Fig_gamma:
         y_plot = -1 -3 * x / (1 + x)
         plt.plot(x_plot, y_plot, 'b-', ms=2, mew=0, label='Fit')  # label=r'$\frac{x^2}{23^2+x^2}$'
 
-        Chi2 = 0
-        i = 0
-        while (i < len(gamma_arr)):
-            # if gamma_arr[i] == nan :
-            if isnan(gamma_arr[i]):
-                # continue
-                print('nan at index: ', i)
-            else:
-                Chi2 += ((gamma_arr[i] - y_plot[i]) ** 2) / (gamma_arr[i] * .2) ** 2
-            i += 1
-        Chi2 = (1.0 / (len(gamma_arr) - 1)) * Chi2
+        Chi2 = chi_2()
         # print('Chi2 for gammafit: ', Chi2)
 
         # Dummy plot to add label to legend for chi2
