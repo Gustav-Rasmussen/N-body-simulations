@@ -447,7 +447,7 @@ gamma_arr = gamma(sigma2_arr)
 # Set beta
 sigmatheta2 = sigmatheta2_arr
 sigmarad2 = sigmarad2_arr
-beta_arr = beta(self)
+beta_arr = beta()
 
 if Fig_vx_x:
     f, (ax1) = plt.subplots(1, 1, figsize=(13, 11))
