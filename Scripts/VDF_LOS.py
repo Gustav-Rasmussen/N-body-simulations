@@ -1,23 +1,25 @@
 # -*- coding: utf-8 -*-
 
-from __future__ import division
-import h5py
-import numpy as np
-from scipy.optimize import curve_fit
-import matplotlib
-# matplotlib.use('TkAgg')  # <-- THIS MAKES IT FAST!
-import matplotlib.pyplot as plt
-import IPython
-# from matplotlib.colors import LogNorm
-import time
-import pylab
-from scipy.stats import norm
-# import matplotlib.mlab as mlab
-import scipy as sp
-from astropy.io import ascii
-from mpl_toolkits.mplot3d import Axes3D
-import seaborn as sns
+# Standard library imports ------------------------
 from pathlib import Path
+import time
+
+# Third party imports -----------------------------
+from astropy.io import ascii
+import h5py
+import IPython
+import matplotlib
+# import matplotlib.mlab as mlab
+# matplotlib.use('TkAgg')  # THIS MAKES IT FAST!
+# from matplotlib.colors import LogNorm
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+import numpy as np
+import pylab
+import seaborn as sns
+import scipy as sp
+from scipy.optimize import curve_fit
+from scipy.stats import norm
 
 User_path = Path.cwd()
 Desktop_path = User_path + 'Desktop/'
@@ -126,7 +128,7 @@ SnapshotFile = h5py.File(Filename, 'r')
 # F = 'CS5_' + Filename[len(GADGET_G_path + CS5_path):-5]
 # F = 'CS6_' + Filename[len(GADGET_G_path + CS6_path):-5]
 # F = 'DS1_' + Filename[len(GADGET_G_path + DS1_path):-5]
-# F = 'D2_' + Filename[len(GADGET_G_path + D2_path):-5]           
+# F = 'D2_' + Filename[len(GADGET_G_path + D2_path):-5]
 # F = 'Soft_D2_' + Filename[len(GADGET_G_path + Soft_D2_path):-5]
 # F = 'E_' + Filename[len(GADGET_G_path + E_path):-5]
 
@@ -160,7 +162,7 @@ if new_R_middle:
      ('HQ10000_G1.2_1_005', {-1.5: 10 ** -.55, -2.0: 10 ** -.4, -2.5: 10 ** -.1, -3.0: 10 ** .2}),
      ('HQ10000_G0.8_2_005', zero_dict),
      ('HQ10000_G1.2_3_005', {-1.5: 10 ** -.6, -2.0: 10 ** -.4, -2.5: 10 ** .0, -3.0: 10 ** .4}),
-     ('HQ10000_G1.2_5_005', {-1.5: 10 ** -.45, -2.0: 10 ** -.35, -2.5: 10 ** -.1, -3.0: 10 ** .45}),     
+     ('HQ10000_G1.2_5_005', {-1.5: 10 ** -.45, -2.0: 10 ** -.35, -2.5: 10 ** -.1, -3.0: 10 ** .45}),
      ('HQ10000_G1.2_7_005', {-1.5: 10 ** -.35, -2.0: 10 ** -.25, -2.5: 10 ** -.1, -3.0: 10 ** .48}),
      ('HQ10000_G1.2_9_005', {-1.5: 10 ** -.35, -2.0: 10 ** -.3, -2.5: 10 ** -.15, -3.0: 10 ** .5}),
      ('HQ10000_G1.0_10_009', {-1.5: 10 ** -.25, -2.0: 10 ** -.15, -2.5: 10 ** .0, -3.0: 10 ** .5})
@@ -195,7 +197,7 @@ y = y[GoodIDs]
 z = z[GoodIDs]
 vx = vx[GoodIDs]
 vy = vy[GoodIDs]
-vz = vz[GoodIDs] 
+vz = vz[GoodIDs]
 vx -= np.median(vx)
 vy -= np.median(vy)
 vz -= np.median(vz)
@@ -324,9 +326,9 @@ def func_4_log(log10x, a, q, b):
  R_LOS_arr, vx_LOS_arr, bin_radius_arr) = ([] for i in range(24))
 
 '''
-binning_arr = np.linspace(R_limit_min, R_limit_max, nr_binning_bins) 
+binning_arr = np.linspace(R_limit_min, R_limit_max, nr_binning_bins)
 
-for i in range(nr_binning_bins - 2): 
+for i in range(nr_binning_bins - 2):
     min_R_bin_i = binning_arr[i]  # start of bin
     max_R_bin_i = binning_arr[i + 1]  # end of bin
     posR_par_in_bin_i = np.where((R_hob_par > min_R_bin_i) & (R_hob_par < max_R_bin_i))  # position of particles inside a radial bin
@@ -386,7 +388,7 @@ for i in range(nr_binning_bins - 2):
     # sigmaphi_i = sigmaphi2[i] ** .5
     sigmaphi_i = ((1. / (nr_par_in_bin_i + 1.)) * np.sum(VPhi_i ** 2)) ** .5
     # sigmatan_i = sigmatan2[i] ** .5
-    sigmatan_i = ((1. / (nr_par_in_bin_i + 1.)) * np.sum(VT_i ** 2)) ** .5 
+    sigmatan_i = ((1. / (nr_par_in_bin_i + 1.)) * np.sum(VT_i ** 2)) ** .5
 
     R_LOS_arr.append(R_LOS_i)
     vx_LOS_arr.append(vx_LOS_i)
@@ -405,7 +407,7 @@ for i in range(nr_binning_bins - 2):
     VPhi.append(VPhi_i)
     VT.append(VT_i)
     # np.array(VT)
-    
+
     VR_sigmarad.append(VR_i / sigmarad_i)
     VTheta_sigmatheta.append(VTheta_i / sigmatheta_i)
     VPhi_sigmaphi.append(VPhi_i / sigmaphi_i)
@@ -452,7 +454,7 @@ if vsphericalnew:
         v_thetap.append(VTheta[i]) if VTheta[i] >= 0. else v_thetan.append(VTheta[i])
     v_thetap_arr = np.asarray(v_thetap)
     v_thetan_arr = np.asarray(v_thetan)
-    for i in range(len(VPhi)):    
+    for i in range(len(VPhi)):
         v_phip.append(VPhi[i]) if VPhi[i] >= 0. else v_phin.append(VPhi[i])
     v_phip_arr = np.asarray(v_phip)
     v_phin_arr = np.asarray(v_phin)
@@ -476,16 +478,16 @@ if x14_25_36_same_length:
         for i in range(len(v_thetap_arr) - len(v_thetan_arr)):
             x4.append(0.)
     x1 = np.asarray(x1)
-    x4 = np.asarray(x4)                           
+    x4 = np.asarray(x4)
 
     if len(v_phin_arr) > len(v_phip_arr):
         for i in range(len(v_phin_arr) - len(v_phip_arr)):
             x2.append(0.)
-    else:            
+    else:
         for i in range(len(v_phip_arr) - len(v_phin_arr)):
             x5.append(0.)
     x2 = np.asarray(x2)
-    x5 = np.asarray(x5)                           
+    x5 = np.asarray(x5)
 
     if len(v_rn_arr) > len(v_rp_arr):
         for i in range(len(v_rn_arr) - len(v_rp_arr)):
@@ -494,7 +496,7 @@ if x14_25_36_same_length:
         for i in range(len(v_rp_arr) - len(v_rp_arr)):
             x6.append(0.)
     x3 = np.asarray(x3)
-    x6 = np.asarray(x6)                           
+    x6 = np.asarray(x6)
 
 if vsphericalnew_sigma:
     (VR_sigmarad_p, VR_sigmarad_n, VTheta_sigmatheta_p, VTheta_sigmatheta_n,
@@ -521,7 +523,7 @@ if vsphericalnew_sigma:
             VPhi_sigmaphi_p.append(VPhi_sigmaphi[i])
         else:
             VPhi_sigmaphi_n.append(VPhi_sigmaphi[i])
-            
+
     VPhi_sigmaphi_p_arr = np.asarray(VPhi_sigmaphi_p)
     VPhi_sigmaphi_n_arr = np.asarray(VPhi_sigmaphi_n)
 
@@ -586,7 +588,7 @@ if Fig15_LOS_radius10:
     ax4.set_ylabel(r'Line-of-sight velocity, $v_x$', fontsize=30)
 
 if Fig16_LOS_radius50:
-    f, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2)    
+    f, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2)
     # Only choose every thousand particle to plot.
     a = 0
     while a < len(r):
@@ -659,5 +661,5 @@ if Fig17_LOS_radius200:
     ax4.set_xlim(0, np.log(200))
     ax4.set_xlabel(r'$\log$ R', fontsize=30)
     ax4.set_ylabel(r'Line-of-sight velocity, $v_x$', fontsize=30)
-    
+
 plt.show()
