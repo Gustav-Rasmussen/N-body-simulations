@@ -1,27 +1,31 @@
 # -*- coding: utf-8 -*-
 
+# Standard library imports --------------------
+from pathlib import Path
+import time
+
+# Third party imports --------------------------
+from astropy.io import ascii
 import h5py
-import numpy as np
-from scipy.optimize import curve_fit
-import matplotlib.pyplot as plt
 import IPython
 from matplotlib.colors import LogNorm
-import time
-from pylab import *
-import pylab
-from scipy.stats import norm
 import matplotlib.mlab as mlab
-import scipy as sp
-from astropy.io import ascii
+import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
+import numpy as np
+import pylab
 import seaborn as sns
-from pathlib import Path
-import Gammas_and_R_middles
-import RhoAndGaussianAndTsallis
-import getSnapshotValues
-import snapshotFiles
+from scipy.optimize import curve_fit
+from scipy.stats import norm
+import scipy as sp
+
+# Local application imports ------------------
 from definePaths import *
+import Gammas_and_R_middles
+import getSnapshotValues
 import radius_and_velocity_funcs as ravf
+import RhoAndGaussianAndTsallis
+import snapshotFiles
 
 # Run 3D plots with this command from terminal:
 # ~/python/3dplot/bin/python VDF.py
@@ -135,8 +139,7 @@ if calc_sigma_binned_lin_radius:
         VR_i = ravf.v_R(vx, vy, vz, Theta_i, Phi_i)
         VTheta_i = ravf.v_theta(vx, vy, vz, Theta_i, Phi_i)
         VPhi_i = ravf.v_phi(vx, vy, Phi_i)
-
-        VT_i = (VTheta_i ** 2 + VPhi_i ** 2) ** .5
+        VT_i = ravf.modulus(VTheta_i, VPhi_i)
 
         # sigma2 total
         v2_in_bin_i = v2[posR_par_in_bin_i]
@@ -174,11 +177,11 @@ if calc_sigma_binned_lin_radius:
         VTheta_i_avg_in_bin.append(VTheta_i_avg_in_bin_i)
         VPhi_i_avg_in_bin.append(VPhi_i_avg_in_bin_i)
 
-        sigma_i = (sigma2[j]) ** .5
-        sigmarad_i = (sigmarad2[j]) ** .5
-        sigmatheta_i = (sigmatheta2[j]) ** .5
-        sigmaphi_i = (sigmaphi2[j]) ** .5
-        sigmatan_i = (sigmatan2[j]) ** .5
+        sigma_i = sigma2[j] ** .5
+        sigmarad_i = sigmarad2[j] ** .5
+        sigmatheta_i = sigmatheta2[j] ** .5
+        sigmaphi_i = sigmaphi2[j] ** .5
+        sigmatan_i = sigmatan2[j] ** .5
 
         sigma.append(sigma_i)
         sigmarad.append(sigmarad_i)

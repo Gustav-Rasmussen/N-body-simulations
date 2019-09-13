@@ -1,26 +1,30 @@
 # -*- coding: utf-8 -*-
 
+# Standard library imports ------------------------
+import os
+import time
+
+# Third party imports -----------------------------
+from astropy.io import ascii
 import h5py
-import numpy as np
-from scipy.optimize import curve_fit
-import matplotlib.pyplot as plt
 import IPython
 from matplotlib.colors import LogNorm
-import time
-from pylab import *
-import pylab
-from scipy.stats import norm
 import matplotlib.mlab as mlab
-from astropy.io import ascii
+import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
+import numpy as np
+import pylab
+from scipy.optimize import curve_fit
+from scipy.stats import norm
+
+# Local application imports ---------------------
 import Gammas_and_R_middles
-import os
 import getSnapshotValues
-import RhoAndGaussianAndTsallis
-import velocityCheck as vC
-import snapshotFiles
-import vSphericalAnd_vBins
 import radius_and_velocity_funcs as ravf
+import RhoAndGaussianAndTsallis
+import snapshotFiles
+import velocityCheck as vC
+import vSphericalAnd_vBins
 
 # HQ1000000_150311_000.hdf5
 # Gamma | logr | r
