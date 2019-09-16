@@ -1,18 +1,20 @@
 # -*- coding: utf-8 -*-
 
 import h5py
-import numpy as np
-import matplotlib.pyplot as plt
+from pathlib import Path
+import time
+
 import IPython
 from matplotlib.colors import LogNorm
-import time
-from pylab import *
-from scipy.stats import norm
-from scipy.optimize import curve_fit
-import scipy as sp
-import seaborn as sns
 import matplotlib.patches as mpatches
-from pathlib import Path
+import matplotlib.pyplot as plt
+import numpy as np
+from pylab import *
+import scipy as sp
+from scipy.optimize import curve_fit
+from scipy.stats import norm
+import seaborn as sns
+
 from Attractor.Sigma_calc_OOP import chi_2, get_volume_slice, beta, gamma, kappa
 from Gammas_and_R_middles import R_bin_automatic
 
