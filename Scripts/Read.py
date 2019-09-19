@@ -91,19 +91,19 @@ for i in range(0, int(nr_bins - 2)):  # loop over 0-998
 
 Invers_Volume_arr = np.log10(np.divide(np.ones(len(Volume_arr)), Volume_arr))
 
-print('len(density_arr) = ', len(density_arr),
-      'len(rho_arr) = ', len(rho_arr),
-      'len(x) = ', len(x),
-      'len(y) = ', len(y),
-      'len(z) = ', len(z),
-      'len(R) = ', len(R)
+print(f'{len(density_arr)= }',
+      f'{len(rho_arr)= }',
+      f'{len(x)= }',
+      f'{len(y)= }',
+      f'{len(z)= }',
+      f'{len(R)= }'
       )
 
 for i in [0, 100, 99999]:
-    print('x[i] = ', x[i],
-          'y[i] = ', y[i],
-          'z[i] = ', z[i],
-          'R[i] = ', R[i]
+    print(f'{x[i]= }',
+          f'{y[i]= }',
+          f'{z[i]= }',
+          f'{R[i]= }'
           )
 
 # Switches for figures -------------------------------------------------

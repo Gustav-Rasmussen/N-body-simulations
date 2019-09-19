@@ -1,15 +1,20 @@
 # -*- coding: utf-8 -*-
 
+# Standard library imports
 import h5py
+import os
+
+# Third party imports
+import matplotlib.pyplot as plt
 import numpy as np
+import pylab
 import scipy as sp
 from scipy.optimize import curve_fit
-import matplotlib.pyplot as plt
-import pylab
 from scipy.stats import norm
-import os
-import radius_and_velocity_funcs as ravf
+
+# Local application imports
 import Mock_data as mock
+import radius_and_velocity_funcs as ravf
 from RhoAndGaussianAndTsallis import func1, func2, func1Log
 
 User_path = os.getcwd()
@@ -113,37 +118,37 @@ if vsphericalnew:  # radial and tangential velocities
     ravf.spherical_coords_and_velocities()
 
 if velocitycheck:  # Use 3 simple particles to check vr and vtheta (continued)
-    print(f'VR[0] = {VR[0]} \n'  # .0
-          f'VTheta[0] = {VTheta[0]} \n'  # 1.0
-          f'VPhi[0] = {VPhi[0]} \n'  # 1.0
-          f'VR[1] = {VR[1]} \n'  # -4.37114e-08
-          f'VTheta[1] = {VTheta[1]} \n'  # 1.91069e-15
-          f'VPhi[1] = {VPhi[1]} \n'  # -1.0
-          f'VR[2] = {VR[2]} \n'  # 1.0
-          f'VTheta[2] = {VTheta[2]} \n'  # -4.37114e-08
-          f'VPhi[2] = {VPhi[2]} \n')  # 0.0
+    print(f'{VR[0]= } \n' # .0
+          f'{VTheta[0]= } \n' # 1.0
+          f'{VPhi[0]= } \n' # 1.0
+          f'{VR[1]= } \n' # -4.37114e-08
+          f'{VTheta[1]= } \n' # 1.91069e-15
+          f'{VPhi[1]= } \n' # -1.0
+          f'{VR[2]= } \n' # 1.0
+          f'{VTheta[2]= } \n' # -4.37114e-08
+          f'{VPhi[2]= } \n') # 0.0
 
 if vsphericalold:
     Rvector = np.array([x, y, z])
     vvector = np.array([vx, vy, vz])
     v_r, v_t = np.zeros([len(x), 1]), np.zeros([len(x), 3])
-    print(f'Rvector.shape = {Rvector.shape} \n'
-          f'vvector.shape = {vvector.shape}')
+    print(f'{Rvector.shape= } \n'
+          f'{vvector.shape= }')
     for i in range(len(x)):
         v_r[i] = np.divide(np.dot(Rvector[:, i], vvector[:, i]),
                            np.linalg.norm(Rvector[:, i]))
         v_t[i] = np.divide(np.cross(Rvector[:, i], vvector[:, i], axis=0),
                            np.linalg.norm(Rvector[:, i]))
 
-    print(f'v_r = {v_r} \n'
-          f'v_r.shape = {v_r.shape} \n'
-          f'v_t = {v_t} \n'
-          f'v_t.shape = {v_t.shape} \n')
+    print(f'{v_r= } \n'
+          f'{v_r.shape= } \n'
+          f'{v_t= } \n'
+          f'{v_t.shape= } \n')
 
     v = ravf.modulus(vx, vy, vz)
 
     # v_theta and v_phi -------------------------------------------------------
-    v_theta, v_phi = np.zeros([len(x), 1]), np.zeros([len(x), 1])
+    v_theta = v_phi = np.zeros([len(x), 1])
     for i in range(len(x)):
         xy = x[i] ** 2 + y[i] ** 2
         if (xy > 0.):
@@ -163,9 +168,9 @@ if vsphericalold:
         v_phi[i] = np.cross()
         '''
 
-    print(f'v_r[0] = {v_r[0]}'  # [0.]
-          f'v_theta[0] = {v_theta[0]}'  # [0.]
-          f'v_phi[0] = {v_phi[0]}')  # [0.]
+    print(f'{v_r[0]= }'  # [0.]
+          f'{v_theta[0]= }'  # [0.]
+          f'{v_phi[0]= }')  # [0.]
 
 if plotvelocitycheckold:  # Check old velocities are correct
     f, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2)
@@ -422,7 +427,7 @@ if vsphericalnew:
 
 
 def show_object_and_shape(object):
-    print(f'{str(object)} = {object} \n {str(object)}.shape = {object.shape}')
+    print(f'{object= } \n {object.shape= }')
 
 
 if print_vp_vn:
@@ -498,12 +503,12 @@ if print_x123456:
     show_object_and_shape(x2)
     show_object_and_shape(x3)
 
-    print(f'x4.shape = {x4.shape}'
-          f'v_thetap_arr.shape = {v_thetap_arr.shape}'
-          f'v_thetan_arr.shape = {v_thetan_arr.shape}'
-          f'x5.shape = {x5.shape}'
-          f'x6.shape = {x6.shape}'
-          f'type(x1) = {type(x1)}')
+    print(f'{x4.shape= }'
+          f'{v_thetap_arr.shape= }'
+          f'{v_thetan_arr.shape= }'
+          f'{x5.shape= }'
+          f'{x6.shape= }'
+          f'{type(x1)= }')
 
 if Fig9_VPhiminus:  # test VPhi and VPhiminus = -VPhi
     VPhiminus = sp.sin(Phi) * vx - sp.cos(Phi) * vy
@@ -544,8 +549,8 @@ if vsphericalnew_sigma:
      VPhi_sigmaphi_p, VPhi_sigmaphi_n, VT_sigmaT_p, VT_sigmaT_n) =\
         ([] for i in range(8))
 
-    for i in range(len(VR_sigmaR)):
-        VR_sigmaR_p.append(VR_sigmaR[i]) if VR_sigmaR[i] >= 0. else VR_sigmaR_n.append(VR_sigmaR[i])
+    for i in range(len(k := VR_sigmaR)):
+        VR_sigmaR_p.append(k[i]) if k[i] >= 0. else VR_sigmaR_n.append(k[i])
     VR_sigmaR_p_arr = np.asarray(VR_sigmaR_p)
     VR_sigmaR_n_arr = np.asarray(VR_sigmaR_n)
 
@@ -576,11 +581,11 @@ if vsphericalnew_sigma:
      VTheta_i_avg_in_bin_sigmatheta_p, VTheta_i_avg_in_bin_sigmatheta_n) =\
      ([] for i in range(8))
 
-    for i in range(len(VR_i_avg_in_bin_sigmaR)):
-        if VR_i_avg_in_bin_sigmaR[i] >= 0.:
-            VR_i_avg_in_bin_sigmaR_p.append(VR_i_avg_in_bin_sigmaR[i])
+    for i in range(len(k := VR_i_avg_in_bin_sigmaR)):
+        if k[i] >= 0.:
+            VR_i_avg_in_bin_sigmaR_p.append(k[i])
         else:
-            VR_i_avg_in_bin_sigmaR_n.append(VR_i_avg_in_bin_sigmaR[i])
+            VR_i_avg_in_bin_sigmaR_n.append(k[i])
     VR_i_avg_in_bin_sigmaR_p_arr = np.asarray(VR_i_avg_in_bin_sigmaR_p)
     VR_i_avg_in_bin_sigmaR_n_arr = np.asarray(VR_i_avg_in_bin_sigmaR_n)
 
@@ -632,11 +637,11 @@ if print_Vp_Vn:
         show_object_and_shape(VR)
         show_object_and_shape(VTheta)
         show_object_and_shape(VPhi)
-        print(f'VR_sigmaR.shape = {(VR / sigmaR).shape}',
-              f'VR_sigmaR = {VR / sigmaR}',
-              f'np.where(sigmaR == 0) = {np.where(sigmaR == 0)}',
-              f'np.where(sigmatheta == 0) = {np.where(sigmatheta == 0)}',
-              f'np.where(sigmaphi == 0) = {np.where(sigmaphi == 0)}')
+        print(f'{(VR / sigmaR).shape= }',
+              f'{(VR / sigmaR)= }',
+              f'{np.where(sigmaR == 0)= }',
+              f'{np.where(sigmatheta == 0)= }',
+              f'{np.where(sigmaphi == 0)= }')
 
 if Fig10_concatenate_x789:
     # check new log, concatenate lists x1 and x4, x2 and x5, x3 and x6.
@@ -1087,23 +1092,21 @@ if Fig13_vspherical_hist_old:
     # y = mlab.normpdf(bins, mu, sigma)
     # l = plt.plot(bins, y, 'r--', linewidth=2)
     xdata = get_xdata(bins)
-    ydata = n
-    popt, pcov = curve_fit(func2, xdata, ydata)
+    popt, pcov = curve_fit(func2, xdata, n)
     y_fit = func2(xdata, popt[0], popt[1], popt[2])
     plt.plot(xdata, y_fit, 'b--', lw=3)
     plt.xlabel(r'$v_r$')
     plt.ylabel('number of particles')
     plt.title(r'$\mathrm{Histogram\ of\ VDF:}\ \mu=%.3f,\ \sigma=%.3f$' % (mu, sigma))
     plt.grid()
-    x = np.array((xdata, ydata))
-    x = x.transpose()
-    print('x.shape:', x.shape)
+    x = np.array((xdata, n)).transpose()
+    print(f'{x.shape= }')
     np.savetxt('HQ10000_G1.2_9_005_bin6_VDFr.txt', x, delimiter=' ',
                header='\t bins \t\t n')
 
 if save_r_v_as_txt:
     x = np.array((xcl2, ycl2, zcl2, vxnew2, vynew2, vznew2)).transpose()
-    print('x.shape:', x.shape)
+    print(f'{x.shape= }')
     np.savetxt('HQ10000_G1.2_9_005_bin0_05to0_25kpc_VDF.txt', x, delimiter=' ',
                header=' xcl2 \t ycl2 \t zcl2 \t vxnew2 \t vynew2 \t vznew2')
 

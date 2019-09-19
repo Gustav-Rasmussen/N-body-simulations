@@ -17,6 +17,7 @@ import seaborn as sns
 
 from Attractor.Sigma_calc_OOP import chi_2, get_volume_slice, beta, gamma, kappa
 from Gammas_and_R_middles import R_bin_automatic
+import General.NoOfParticlesAndParticleMass
 
 User_path = Path.cwd()
 Stable_path = 'Energy_exchange/Stable_structures/'
@@ -308,7 +309,8 @@ if Fig_x_hist2d:
     plt.xlim(-10, 10)
     plt.ylim(-10, 10)
     sims = ['B', 'CS4', 'CS5', 'CS6', 'DS1', 'D2', 'E']
-    plt.title(f'Centralized positions x and y ({sims[0]}, gridsize = 500)', fontsize=30)
+    plt.title(f'Centralized positions x and y ({sims[0]}, gridsize = 500)',
+              fontsize=30)
     f.savefig(f'{figure_path}Fig_{sims[0]}_Final_x_hist2d.png')
 
 x -= np.median(x)
@@ -327,21 +329,6 @@ vy -= np.median(vy)
 vz -= np.median(vz)
 
 R_hob_par = R[GoodIDs]
-
-# Declare number of particles
-if F.startswith(('Soft_B_', 'E_')):
-    N = 10 ** 6
-elif F.startswith(('CS4_', 'CS5_', 'CS6_', 'DS1_', 'Soft_D2_', 'IIc', 'IId', 'IId', 'Test_')):
-    N = 10 ** 5
-elif F.startswith('CS1_'):
-    N = 10 ** 4
-# Declare total mass
-if F.startswith(('Soft_B_', 'CS1_', 'CS4_', 'CS5_', 'CS6_', 'E_', 'Test_', 'IIc_CS4_', 'IIc_CS5_', 'IIc_CS6_', 'IIc_Test_CS4', 'IId_CS4')):
-    M = 1.
-elif F.startswith(('DS1_', 'D2_', 'Soft_D2_', 'IIc_Soft_D2_', 'IIc_DS1_', 'IId_Soft_D2_')):
-    M = 1. / 6.
-# Define particle mass
-m = M / N
 
 if Gamma == -2.0:
     r_2 = R_middle
