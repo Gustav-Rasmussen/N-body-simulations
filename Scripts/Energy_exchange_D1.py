@@ -1,15 +1,18 @@
 # -*- coding: utf-8 -*-
 
+# Standard library imports
 import h5py
-import numpy as np
-import IPython
-import time
-from pylab import *
-from scipy.stats import norm
-import scipy
 import os.path
 from pathlib import Path
 import sys
+import time
+
+# Third party imports
+import IPython
+import numpy as np
+from pylab import *
+import scipy
+from scipy.stats import norm
 
 pathname = Path.cwd() / 'RunGadget/Energy_Exchange/IIa/E_HQ_100000_D1/output/B_E_G2P_'
 assert os.path.exists(Path.cwd() + '/RunGadget/Energy_Exchange/E_HQ_100000_D1/output/')
@@ -30,15 +33,15 @@ if ((type(run_number) != int) or (run_number < 0)):
 Filename_old = pathname / f'{run_number}_005.hdf5'  # D1. G2P (GADGET to Python).
 Filename_new = f"B_E_{run_number}_005_P2G.hdf5"
 
-OldSnapfile = h5py.File(Filename_old, 'r')      
+OldSnapfile = h5py.File(Filename_old, 'r')
 NewSnapfile = h5py.File(Filename_new, 'w')  # Python to GADGET, or P2G.
 F = Filename_old[len(Path.cwd() + '/RunGadget/Energy_Exchange/E_HQ_100000_D1/output/'):-5]
 
 # Particle masses
-Masses = OldSnapfile['PartType1/Masses'].value 
+Masses = OldSnapfile['PartType1/Masses'].value
 Pos = OldSnapfile['PartType1/Coordinates'].value
-Vel = OldSnapfile['PartType1/Velocities'].value  
-V = OldSnapfile['PartType1/Potential'].value     
+Vel = OldSnapfile['PartType1/Velocities'].value
+V = OldSnapfile['PartType1/Potential'].value
 M = Masses
 x = Pos[:, 0]
 y = Pos[:, 1]
@@ -101,7 +104,7 @@ for i in range(N_bins):
     M_GoodIDs = M_IDs[GoodIDs]
     V_GoodIDs = V_IDs[GoodIDs]  # Shape: 500
     R_min = R_IDs[GoodIDs][0]
-    R_max = R_IDs[GoodIDs][-1] 
+    R_max = R_IDs[GoodIDs][-1]
     # 1.st randomization
     a = np.random.uniform(low=0.5, high=1.5, size=(N_particles_per_bin,))  # Shape: 500
     b = np.random.uniform(low=0.5, high=1.5, size=(N_particles_per_bin,))  # Shape: 500
@@ -109,16 +112,16 @@ for i in range(N_bins):
     vx_GoodIDs_rand = a * vx_GoodIDs  # Shape: 500
     vy_GoodIDs_rand = b * vy_GoodIDs  # Shape: 500
     vz_GoodIDs_rand = c * vz_GoodIDs  # Shape: 500
-    v_GoodIDs_rand = ravf.modulus(vx_GoodIDs_rand, vy_GoodIDs_rand, vz_GoodIDs_rand)  # Shape: 500    
+    v_GoodIDs_rand = ravf.modulus(vx_GoodIDs_rand, vy_GoodIDs_rand, vz_GoodIDs_rand)  # Shape: 500
     v_GoodIDs = ravf.modulus(vx_GoodIDs, vy_GoodIDs, vz_GoodIDs)  # Shape: 500
     K_init = E_kin(v_GoodIDs)  # Kinetic energy before 1.st randomization
     K_rand = E_kin(v_GoodIDs_rand)  # -||- after -||-
     K_init_mean = np.mean(K_init)
     K_rand_mean = np.mean(K_rand)
-    print('K_init_mean: ', K_init_mean)
-    print('K_rand_mean: ', K_rand_mean)
+    print(f'{K_init_mean= }')
+    print(f'{K_rand_mean= }')
     K_init_mean_in_bin_arr.append(K_init_mean)
-    K_rand_mean_in_bin_arr.append(K_rand_mean) 
+    K_rand_mean_in_bin_arr.append(K_rand_mean)
     E_tot_rand = V_GoodIDs + K_rand
     UnboundIDs_rand = np.where(E_tot_rand > 0.)  # Unbound particles. Tuple with 24 entries. (IDs of 19 unbound particles)
     BoundIDs_rand = np.where(E_tot_rand <= 0.)  # Bound particles.
@@ -165,7 +168,7 @@ for i in range(N_bins):
             print('E_tot_new check. This is an unbound particle!', i)
 
     UnboundIDs_new = np.where(E_tot_new > 0.)
-    print('len(UnboundIDs_new[0]): ', len(UnboundIDs_new[0]))
+    print(f'{len(UnboundIDs_new[0])= }')
     x_GoodIDs_arr.append(x_GoodIDs)
     y_GoodIDs_arr.append(y_GoodIDs)
     z_GoodIDs_arr.append(z_GoodIDs)
@@ -198,7 +201,8 @@ Ratio_init_mean_in_bin_arr = np.asarray(Ratio_init_mean_in_bin_arr)
 Ratio_rand_mean_in_bin_arr = np.asarray(Ratio_rand_mean_in_bin_arr)
 Ratio_norm_mean_in_bin_arr = np.asarray(Ratio_norm_mean_in_bin_arr)
 
-x = np.array((K_init_mean_in_bin_arr, K_rand_mean_in_bin_arr, K_rand_norm_mean_in_bin_arr,
+x = np.array((K_init_mean_in_bin_arr, K_rand_mean_in_bin_arr,
+              K_rand_norm_mean_in_bin_arr,
               K_final_mean_in_bin_arr, V_mean_in_bin_arr, Ratio_init_mean_in_bin_arr,
               Ratio_rand_mean_in_bin_arr, Ratio_norm_mean_in_bin_arr))
 x = x.transpose()
@@ -223,11 +227,11 @@ Masses = np.concatenate(Masses, axis=0)
 OldSnapfile.copy('/Header', NewSnapfile, '/Header')  # copy header to new snapshot
 
 Pos = np.array([x, y, z])
-Pos = Pos.transpose() 
+Pos = Pos.transpose()
 Vel = np.array([vx, vy, vz])
-Vel = Vel.transpose() 
+Vel = Vel.transpose()
 
-NewSnapfile['PartType1/Masses'] = Masses          
+NewSnapfile['PartType1/Masses'] = Masses
 NewSnapfile['PartType1/Coordinates'] = Pos
 NewSnapfile['PartType1/Velocities'] = Vel
 
@@ -237,5 +241,5 @@ Narray = np.array([0, Ndm, 0, 0, 0, 0], dtype=np.int32)
 NewSnapfile['Header'].attrs.modify('NumPart_ThisFile', Narray)
 NewSnapfile['Header'].attrs.modify('NumPart_Total', Narray)
 
-NewSnapfile.close()       
+NewSnapfile.close()
 OldSnapfile.close()
