@@ -1,18 +1,21 @@
 # -*- coding: utf-8 -*-
 
+# Standard library imports
 import h5py
-import numpy as np
-import matplotlib.pyplot as plt
+from pathlib import Path
+import time
+
+# Third party imports
 import IPython
 from matplotlib.colors import LogNorm
-import time
-from pylab import *
-from scipy.stats import norm
-from scipy.optimize import curve_fit
-import scipy as sp
-import seaborn as sns
 import matplotlib.patches as mpatches
-from pathlib import Path
+import matplotlib.pyplot as plt
+import numpy as np
+from pylab import *
+import scipy as sp
+from scipy.optimize import curve_fit
+from scipy.stats import norm
+import seaborn as sns
 
 User_path = Path.cwd()
 Desktop_path = User_path + 'Desktop/'
@@ -32,10 +35,10 @@ Fig_logvx_logx_after = 0
 Fig_v_logx_before = 0
 Fig_v_logx_after = 0
 
-Masses = SnapshotFile['PartType1/Masses'].value 
-Pos = SnapshotFile['PartType1/Coordinates'].value 
-Vel = SnapshotFile['PartType1/Velocities'].value  
-V = SnapshotFile['PartType1/Potential'].value     
+Masses = SnapshotFile['PartType1/Masses'].value
+Pos = SnapshotFile['PartType1/Coordinates'].value
+Vel = SnapshotFile['PartType1/Velocities'].value
+V = SnapshotFile['PartType1/Potential'].value
 M = Masses
 x = Pos[:, 0]
 y = Pos[:, 1]
@@ -43,8 +46,8 @@ z = Pos[:, 2]
 vx = Vel[:, 0]
 vy = Vel[:, 1]
 vz = Vel[:, 2]
-minV = np.argmin(V)  
-xC = x[minV] 
+minV = np.argmin(V)
+xC = x[minV]
 yC = y[minV]
 zC = z[minV]
 vxC = vx[minV]
@@ -126,9 +129,9 @@ for i in range(N_bins):
     vy_GoodIDs = vy_IDs[GoodIDs]
     vz_GoodIDs = vz_IDs[GoodIDs]
     M_GoodIDs = M_IDs[GoodIDs]
-    V_GoodIDs = V_IDs[GoodIDs] 
+    V_GoodIDs = V_IDs[GoodIDs]
     R_min = R_IDs[GoodIDs][0]
-    R_max = R_IDs[GoodIDs][-1] 
+    R_max = R_IDs[GoodIDs][-1]
     # 1.st randomization
     a = np.random.uniform(low=.8, high=1.2, size=(N_particles_per_bin,))  # low=.9999, high=1.00001
     b = np.random.uniform(low=.8, high=1.2, size=(N_particles_per_bin,))  # low=.9999, high=1.00001
@@ -139,17 +142,17 @@ for i in range(N_bins):
     vz_GoodIDs_rand = c * vz_GoodIDs
     v_GoodIDs_rand = ravf.modulus(vx_GoodIDs_rand, vy_GoodIDs_rand, vz_GoodIDs_rand)
     v_GoodIDs = ravf.modulus(vx_GoodIDs, vy_GoodIDs, vz_GoodIDs)
-    
+
     K_init = E_kin(v_GoodIDs)  # Kinetic energy before 1.st randomization
     K_rand = E_kin(v_GoodIDs_rand)  # -||- after -||-
     K_init_mean = np.mean(K_init)
     K_rand_mean = np.mean(K_rand)
     K_init_mean_in_bin_arr.append(K_init_mean)
     K_rand_mean_in_bin_arr.append(K_rand_mean)
-    
+
     E_tot_rand = V_GoodIDs + K_rand
 
-    UnboundIDs_rand = np.where(E_tot_rand > 0.)  # Unbound particles. 
+    UnboundIDs_rand = np.where(E_tot_rand > 0.)  # Unbound particles.
     BoundIDs_rand = np.where(E_tot_rand <= 0.)  # Bound particles.
     # Split particles into bound and unbound
     vx_unbound = vx_GoodIDs_rand[UnboundIDs_rand]
@@ -158,8 +161,8 @@ for i in range(N_bins):
     vx_bound = vx_GoodIDs_rand[BoundIDs_rand]
     vy_bound = vy_GoodIDs_rand[BoundIDs_rand]
     vz_bound = vz_GoodIDs_rand[BoundIDs_rand]
-    
-    Ratio_init = (np.abs(V_GoodIDs) / K_init) ** .5 
+
+    Ratio_init = (np.abs(V_GoodIDs) / K_init) ** .5
     Ratio_rand = (np.abs(V_GoodIDs) / K_rand) ** .5
 
     # Ratio = Ratio[GoodIDs]
@@ -168,22 +171,22 @@ for i in range(N_bins):
     Ratio_rand_mean = np.mean(Ratio_rand)
     Ratio_init_mean_in_bin_arr.append(Ratio_init_mean)
     Ratio_rand_mean_in_bin_arr.append(Ratio_rand_mean)
-    
+
     for i in range(len(UnboundIDs_rand[0])):  # Error! len(UnboundIDs_rand[0]) = 0!
     # for i in range(len(UnboundIDs_rand)):  # Error! len(UnboundIDs_rand[0]) = 1!
-        # vx_unbound_norm_i = vx_unbound[i] * np.random.uniform(low=.8, high=1.) * Ratio_rand_unbound[i] 
+        # vx_unbound_norm_i = vx_unbound[i] * np.random.uniform(low=.8, high=1.) * Ratio_rand_unbound[i]
         # vy_unbound_norm_i = vy_unbound[i] * np.random.uniform(low=.8, high=1.) * Ratio_rand_unbound[i]
         # vz_unbound_norm_i = vz_unbound[i] * np.random.uniform(low=.8, high=1.) * Ratio_rand_unbound[i]
 
-        # vx_unbound_norm_i = vx_unbound[i] * np.random.uniform(low=.8, high=1.,size=(len(UnboundIDs_rand[0]),))*Ratio_rand_unbound[i] 
+        # vx_unbound_norm_i = vx_unbound[i] * np.random.uniform(low=.8, high=1.,size=(len(UnboundIDs_rand[0]),))*Ratio_rand_unbound[i]
         # vy_unbound_norm_i = vy_unbound[i] * np.random.uniform(low=.8, high=1.,size=(len(UnboundIDs_rand[0]),))*Ratio_rand_unbound[i]
         # vz_unbound_norm_i = vz_unbound[i] * np.random.uniform(low=.8, high=1.,size=(len(UnboundIDs_rand[0]),))*Ratio_rand_unbound[i]
 
-        # vx_unbound_norm_i = vx_unbound[i] * Ratio_rand_unbound[i] 
+        # vx_unbound_norm_i = vx_unbound[i] * Ratio_rand_unbound[i]
         # vy_unbound_norm_i = vy_unbound[i] * Ratio_rand_unbound[i]
         # vz_unbound_norm_i = vz_unbound[i] * Ratio_rand_unbound[i]
 
-        if np.sum(K_rand[UnboundIDs_rand]) != 0:        
+        if np.sum(K_rand[UnboundIDs_rand]) != 0:
             vx_unbound_norm_i = vx_unbound[i] * np.random.uniform(low=.8, high=1.)
                                 * (np.sum(np.abs(V_GoodIDs[UnboundIDs_rand])) / np.sum(K_rand[UnboundIDs_rand])) ** .5
             vy_unbound_norm_i = vy_unbound[i] * np.random.uniform(low=.8, high=1.)
@@ -192,7 +195,7 @@ for i in range(N_bins):
                                 * (np.sum(np.abs(V_GoodIDs[UnboundIDs_rand])) / np.sum(K_rand[UnboundIDs_rand])) ** .5
         else:
             print('vx_unbound_norm_i / vx_unbound[i] = ', vx_unbound_norm_i / vx_unbound[i])
-        
+
         vx_unbound_norm_i_arr.append(vx_unbound_norm_i)
         vy_unbound_norm_i_arr.append(vy_unbound_norm_i)
         vz_unbound_norm_i_arr.append(vz_unbound_norm_i)
@@ -211,10 +214,10 @@ for i in range(N_bins):
     E_tot_new = V_GoodIDs + E_kin(v_new)
     for i in range(len(E_tot_new)):  # This does not give the right result. There should be zero unbound perticles here! Is the sorting wrong?
         if E_tot_new[i] > 0.:
-            print('E_tot_new check. This is an unbound particle!', i)  
+            print('E_tot_new check. This is an unbound particle!', i)
     UnboundIDs_new = np.where(E_tot_new > 0.)
     # print('len(UnboundIDs_new[0]): ', len(UnboundIDs_new[0]))
-    
+
     x_GoodIDs_arr.append(x_GoodIDs)
     y_GoodIDs_arr.append(y_GoodIDs)
     z_GoodIDs_arr.append(z_GoodIDs)
@@ -260,7 +263,7 @@ if Fig_logvx_logx_after:
     leg.get_frame().set_alpha(.5)
     ax1.set_title(r'II: $\Delta E $ (after perturbations)', fontsize=30)
     f.savefig(figure_path + 'Soft_B_0_005_P2G_no_0_8_logvx_logx_II.png')
-   
+
 if Fig_v_logx_after:
     v = ravf.modulus(vx, vy, vz)
     f, (ax1) = plt.subplots(1,1,figsize=(13,11))

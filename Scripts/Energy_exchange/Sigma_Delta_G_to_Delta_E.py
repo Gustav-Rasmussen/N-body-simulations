@@ -1,17 +1,22 @@
 # -*- coding: utf-8 -*-
 
+# Standard library imports
 import h5py
-import numpy as np
-import matplotlib.pyplot as plt
+from pathlib import Path
+import time
+
+# Third party imports
 import IPython
 from matplotlib.colors import LogNorm
-import time
+import matplotlib.pyplot as plt
+import numpy as np
 import pylab
-from scipy.stats import norm
-from scipy.optimize import curve_fit
 import scipy as sp
+from scipy.optimize import curve_fit
+from scipy.stats import norm
 import seaborn as sns
-from pathlib import Path
+
+# Local application imports
 from bin_halo import bin_halo_radially
 
 User_path = Path.cwd()
@@ -36,7 +41,7 @@ Soft_B_path = 'E_HQ_1000000_B/output/'
 CS1_path = 'E_HQ_10000_CS1/output/'
 # Filename = GADGET_E_path + CS1_path + 'B_E_G2P_0_000.hdf5'
 # Filename = GADGET_E_path + CS1_path + 'B_E_G2P_20_005.hdf5'
-CS4_path = 'E_HQ_100000_CS4/output/' 
+CS4_path = 'E_HQ_100000_CS4/output/'
 # Filename = GADGET_E_path + CS4_path + 'B_E_G2P_0_000.hdf5'
 # Filename = GADGET_E_path + CS4_path + 'B_E_G2P_2_005.hdf5'
 # Filename = GADGET_E_path + CS4_path + 'B_E_G2P_4_005.hdf5'
@@ -56,7 +61,7 @@ CS5_path = 'E_HQ_100000_CS5/output/'
 # Filename = GADGET_E_path + CS5_path + 'B_E_G2P_8_005.hdf5'
 # Filename = GADGET_E_path + CS5_path + 'B_E_G2P_10_005.hdf5'
 # Filename = GADGET_E_path + CS5_path + 'B_E_G2P_20_005.hdf5'
-CS6_path = 'E_HQ_100000_CS6/output/'  
+CS6_path = 'E_HQ_100000_CS6/output/'
 # Filename = GADGET_E_path + CS6_path + 'B_E_G2P_0_000.hdf5'
 # Filename = GADGET_E_path + CS6_path + 'B_E_G2P_2_005.hdf5'
 # Filename = GADGET_E_path + CS6_path + 'B_E_G2P_4_005.hdf5'
@@ -65,7 +70,7 @@ CS6_path = 'E_HQ_100000_CS6/output/'
 # Filename = GADGET_E_path + CS6_path + 'B_E_G2P_10_005.hdf5'
 # Filename = GADGET_E_path + CS6_path + 'B_E_G2P_20_005.hdf5'
 # Filename = GADGET_E_path + CS6_path + 'B_E_G2P_30_005.hdf5'
-DS1_path = 'E_0_5_100000_DS1/output/'  
+DS1_path = 'E_0_5_100000_DS1/output/'
 # Filename = GADGET_E_path + DS1_path + 'B_E_G2P_0_000.hdf5'
 # Filename = GADGET_E_path + DS1_path + 'B_E_G2P_2_005.hdf5'
 # Filename = GADGET_E_path + DS1_path + 'B_E_G2P_4_005.hdf5'
@@ -173,12 +178,12 @@ save_lnr_beta_gamma_kappa_VR_r_sigma_r_rr2_rho = 0
 
 bins_202 = 0
 bins_102 = 0
-bins_52 = 0 
+bins_52 = 0
 bins_22 = 0
 
-R_limit_10000 = 0 
-R_limit_5000 = 0 
-R_limit_50 = 0 
+R_limit_10000 = 0
+R_limit_5000 = 0
+R_limit_50 = 0
 R_limit_32 = 0
 
 if keep_IC_R_middle:  # For R_limit_10000, 20 bins.
@@ -250,17 +255,17 @@ if new_R_middle:  # Choose new R_middle for each file.
                           ('Soft_D2_E_20_005', {-1.5: 1., -2.0: 10**-.18, -2.5: 1., -3.0: 1.})
                           ]
 
-Pos = SnapshotFile['PartType1/Coordinates'].value 
-Vel = SnapshotFile['PartType1/Velocities'].value  
-V = SnapshotFile['PartType1/Potential'].value     
+Pos = SnapshotFile['PartType1/Coordinates'].value
+Vel = SnapshotFile['PartType1/Velocities'].value
+V = SnapshotFile['PartType1/Potential'].value
 x = Pos[:, 0]
 y = Pos[:, 1]
 z = Pos[:, 2]
 vx = Vel[:, 0]
 vy = Vel[:, 1]
 vz = Vel[:, 2]
-minV = np.argmin(V) 
-xC = x[minV] 
+minV = np.argmin(V)
+xC = x[minV]
 yC = y[minV]
 zC = z[minV]
 vxC = vx[minV]
@@ -284,16 +289,16 @@ else:
     R_limit = 10.
     F = F + '_R_limit_10_DeltaG'
 
-GoodIDs = np.where(R < R_limit) 
+GoodIDs = np.where(R < R_limit)
 
-if R_bin_automatic: 
+if R_bin_automatic:
     R_limit_min = R_middle
     R_limit_max = R_middle
-    a = 0 
+    a = 0
     x0 = x
     while len(x0) < 10000 or a == 0:
         R_limit_min -= 0.000005
-        R_limit_max += 0.000005        
+        R_limit_max += 0.000005
         a += 1
         GoodIDs = np.where((R < R_limit_max) * (R > R_limit_min))
         x0 = x[GoodIDs[0]]
@@ -306,7 +311,7 @@ y -= np.median(y)
 z -= np.median(z)
 vx = vx[GoodIDs]
 vy = vy[GoodIDs]
-vz = vz[GoodIDs] 
+vz = vz[GoodIDs]
 vx -= np.median(vx)
 vy -= np.median(vy)
 vz -= np.median(vz)
@@ -314,7 +319,7 @@ R_xyz = ravf.modulus(x, y, z)
 
 if Fig_x_hist:
     f, (ax1, ax2, ax3) = plt.subplots(1, 3, figsize=(13, 11))
-    f.subplots_adjust(hspace=0,wspace=0) 
+    f.subplots_adjust(hspace=0,wspace=0)
     ax1.set_xlabel(r'$x-x_c$', fontsize=30)
     n, bins, patches = ax1.hist(x-xC, 500, normed=1, histtype='stepfilled')
     plt.setp(patches, 'facecolor', 'g', 'alpha', .75)
@@ -357,19 +362,19 @@ if F.startswith(('Soft_B_', 'E_')):
 elif F.startswith(('CS4_', 'CS5_', 'CS6_', 'DS1_', 'Soft_D2_')):
     N = 10**5
 elif F.startswith('CS1_'):
-    N = 10**4       
+    N = 10**4
 # Declare total mass
 if F.startswith(('A_', 'B_', 'CS1_', 'CS4_', 'CS5_', 'CS6_', 'E_'):
     M = 1.
 elif F.startswith(('DS1_', 'D2_', 'Soft_D2_')):
     M = 1. / 6.
-# Define particle mass    
+# Define particle mass
 m = M / N
 
-if Gamma == -2.0:     
+if Gamma == -2.0:
     r_2 = R_middle
-    posR_par_in_halo = np.where(R_hob_par < r_2) 
-    nr_par_in_halo = len(posR_par_in_halo[0]) 
+    posR_par_in_halo = np.where(R_hob_par < r_2)
+    nr_par_in_halo = len(posR_par_in_halo[0])
     M_2 = nr_par_in_halo * m
     G = 1.
     v_circ_2 = (G * M_2 / r_2) ** .5
@@ -402,7 +407,7 @@ if Fig_v_logr_r2:
     ax2.yaxis.tick_right()
     f.savefig(figure_path + 'A_48_009_v_logr_r2.png')
 
-if Fig1_xy_xz: 
+if Fig1_xy_xz:
     f, (ax1, ax2) = plt.subplots(1, 2, figsize=(14, 10))
     f.subplots_adjust(hspace=0, wspace=0)
     ax1.set_title(r'A IC ($R_{lim}=32$)', fontsize=30)
@@ -416,7 +421,7 @@ if Fig1_xy_xz:
     ax2.plot(x, z, 'bo', ms=2, mew=0)
     f.savefig(figure_path + 'A_IC_xy_xz.png')
 
-if Fig2_v:           
+if Fig2_v:
     f = plt.figure()
     ax1 = plt.subplot(131)
     plt.ylabel('vx', fontsize=30)
@@ -447,7 +452,7 @@ elif bins_102:
 elif bins_52:
     nr_binning_bins = 52
     F += '_50_radial_bins'
-elif bins_22:      
+elif bins_22:
     nr_binning_bins = 22
     F +='_20_radial_bins'
 else:
@@ -541,7 +546,7 @@ if Fig4_beta:  # plot beta
     y_plot = beta_arr
     plt.xlabel(r'$\log$r', fontsize=30)
     plt.ylabel(r'$\beta$', fontsize=30)
-    plt.plot(x_plot, y_plot, 'k-o', ms=7, lw=2, mew=0) 
+    plt.plot(x_plot, y_plot, 'k-o', ms=7, lw=2, mew=0)
     plt.plot(x_plot, 0 * x_plot, '--', lw=2, color='grey')
     plt.plot((-.5, -.5), (-1., 1.), 'r-', label='inner cut')
     # plt.plot((1., 1.), (-1., 1.), 'b-', label='outer cut')
@@ -559,7 +564,7 @@ if Fig4_beta_r_2:  # plot beta
     y_plot = beta_arr
     plt.xlabel(r'$\log(\frac{r}{r_{-2}})$', fontsize=30)
     plt.ylabel(r'$\beta$', fontsize=30)
-    plt.plot(x_plot, y_plot, 'k-o', ms=7, lw=2, mew=0, label=r'$\beta$')  # from this graph we see that beta is below zero. this means sigmatheta2_arr/sigmarad2_arr > 1, which in turn means that sigmatheta2_arr > sigmarad2_arr. 
+    plt.plot(x_plot, y_plot, 'k-o', ms=7, lw=2, mew=0, label=r'$\beta$')  # from this graph we see that beta is below zero. this means sigmatheta2_arr/sigmarad2_arr > 1, which in turn means that sigmatheta2_arr > sigmarad2_arr.
     plt.plot(x_plot, 0 * x_plot, '--', lw=2, color='grey')
     # plt.title(r'$\beta$ with zero-line(%s)' % F, fontsize=30)
     # plt.title('Velocity anisotropy (CS6 IC with 20 radial bins)', fontsize=30)
@@ -579,7 +584,7 @@ if Fig5_kappa:
     leg.get_frame().set_alpha(.5)
     # plt.title(r'$\kappa$ and zero-line (B 199_093, $R_{limit}=32, 50$ bins)',fontsize=30)
     # f.savefig(figure_path + 'B_IC_kappa_logr_I_R32.png')
- 
+
 if Fig5_kappa_r_2:
     f = plt.figure(figsize=(16, 11))
     x_plot = np.log10(bin_radius_arr / r_2)
@@ -595,7 +600,7 @@ if Fig6_gamma:
     f = plt.figure(figsize=(16, 11))
     x_plot = np.log10(bin_radius_arr)
     # x_plot = np.log10(bin_radius_arr)
-    plt.ylim(-4., 1.5)    
+    plt.ylim(-4., 1.5)
     y_plot = gamma_arr
     plt.xlabel(r'$\log $r', fontsize=30)
     plt.ylabel(r'$\gamma$', fontsize=30)
@@ -617,7 +622,7 @@ if Fig6_gamma_r_2:
     plt.plot(x_plot, y_plot, 'k-o', ms=7, lw=2, mew=0, label=r'$\gamma$')
     # plt.title('Radial density slope (B IC with 20 radial bins)', fontsize=30)
     # f.savefig(figure_path + 'B_IC_gamma_r_2_logr.png')
- 
+
 if Fig7_betagamma:
     f = plt.figure()
     subplot(121)

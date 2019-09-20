@@ -1,21 +1,26 @@
 # -*- coding: utf-8 -*-
 
+# Standard library imports
 import h5py
-import numpy as np
-import matplotlib.pyplot as plt
+from pathlib import Path
+import time
+
+# Third party imports
 import IPython
 from matplotlib.colors import LogNorm
-import time
-from pylab import *
-from scipy.stats import norm
-from scipy.optimize import curve_fit
-import scipy as sp
-import seaborn as sns
 import matplotlib.patches as mpatches
-from pathlib import Path
+import matplotlib.pyplot as plt
+import numpy as np
+from pylab import *
+import scipy as sp
+from scipy.optimize import curve_fit
+from scipy.stats import norm
+import seaborn as sns
+
+# Local application imports
 from Attractor.Sigma_calc_OOP import get_volume_slice, vr_cartesian,
-                                     vr_spherical, theta_velocity,
-                                     phi_velocity, chi_2, beta, gamma, kappa
+vr_spherical, theta_velocity,
+phi_velocity, chi_2, beta, gamma, kappa
 
 User_path = Path.cwd()
 Desktop_path = User_path + 'Desktop/'

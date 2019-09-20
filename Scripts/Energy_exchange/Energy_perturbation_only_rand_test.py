@@ -1,18 +1,21 @@
 # -*- coding: utf-8 -*-
 
+# Standard library imports
 import h5py
-import numpy as np
-import matplotlib.pyplot as plt
+from pathlib import Path
+import time
+
+# Third party imports
 import IPython
 from matplotlib.colors import LogNorm
-import time
-from pylab import *
-from scipy.stats import norm
-from scipy.optimize import curve_fit
-import scipy as sp
-import seaborn as sns
 import matplotlib.patches as mpatches
-from pathlib import Path
+import matplotlib.pyplot as plt
+import numpy as np
+from pylab import *
+import scipy as sp
+from scipy.optimize import curve_fit
+from scipy.stats import norm
+import seaborn as sns
 
 User_path = Path.cwd()
 Desktop_path = User_path + 'Desktop/'
@@ -30,10 +33,10 @@ F = 'Soft_B' + Filename[len(GADGET_E_path + Soft_B_path + 'B'):-5]
 Fig_v_logx_before = 0
 Fig_v_logx_after = 0
 
-Masses = SnapshotFile['PartType1/Masses'].value 
-Pos = SnapshotFile['PartType1/Coordinates'].value 
-Vel = SnapshotFile['PartType1/Velocities'].value  
-V = SnapshotFile['PartType1/Potential'].value     
+Masses = SnapshotFile['PartType1/Masses'].value
+Pos = SnapshotFile['PartType1/Coordinates'].value
+Vel = SnapshotFile['PartType1/Velocities'].value
+V = SnapshotFile['PartType1/Potential'].value
 M = Masses
 x = Pos[:, 0]
 y = Pos[:, 1]
@@ -41,8 +44,8 @@ z = Pos[:, 2]
 vx = Vel[:, 0]
 vy = Vel[:, 1]
 vz = Vel[:, 2]
-minV = np.argmin(V)  
-xC = x[minV] 
+minV = np.argmin(V)
+xC = x[minV]
 yC = y[minV]
 zC = z[minV]
 vxC = vx[minV]
@@ -104,24 +107,24 @@ for i in range(N_bins):
     vy_GoodIDs = vy_IDs[GoodIDs]
     vz_GoodIDs = vz_IDs[GoodIDs]
     M_GoodIDs = M_IDs[GoodIDs]
-    V_GoodIDs = V_IDs[GoodIDs] 
+    V_GoodIDs = V_IDs[GoodIDs]
     R_min = R_IDs[GoodIDs][0]
     R_max = R_IDs[GoodIDs][-1]
-    
+
     # 1.st randomization
     l, h, s = .9999, 1.00001, (N_particles_per_bin,)
-    a = np.random.uniform(low=l, high=h, size=s) 
-    b = np.random.uniform(low=l, high=h, size=s) 
+    a = np.random.uniform(low=l, high=h, size=s)
+    b = np.random.uniform(low=l, high=h, size=s)
     c = np.random.uniform(low=l, high=h, size=s)
     vx_GoodIDs_rand = a * vx_GoodIDs
-    vy_GoodIDs_rand = b * vy_GoodIDs 
+    vy_GoodIDs_rand = b * vy_GoodIDs
     vz_GoodIDs_rand = c * vz_GoodIDs
     v_GoodIDs_rand  = ravf.modulus(vx_GoodIDs_rand, vy_GoodIDs_rand, vz_GoodIDs_rand)
-    
+
     x_GoodIDs_arr.append(x_GoodIDs)
     y_GoodIDs_arr.append(y_GoodIDs)
     z_GoodIDs_arr.append(z_GoodIDs)
-    
+
     vx = vx_GoodIDs_rand
     vy = vy_GoodIDs_rand
     vz = vz_GoodIDs_rand
@@ -129,7 +132,7 @@ for i in range(N_bins):
     # Split particles into bound and unbound
     K_rand = .5 * v_GoodIDs_rand ** 2
     E_tot_rand = V_GoodIDs + K_rand
-    UnboundIDs_rand = np.where(E_tot_rand > 0.)  # Unbound particles. 
+    UnboundIDs_rand = np.where(E_tot_rand > 0.)  # Unbound particles.
     BoundIDs_rand = np.where(E_tot_rand <= 0.)  # Bound particles.
     vx_unbound = vx_GoodIDs_rand[UnboundIDs_rand]
     vy_unbound = vy_GoodIDs_rand[UnboundIDs_rand]
@@ -137,10 +140,10 @@ for i in range(N_bins):
     vx_bound = vx_GoodIDs_rand[BoundIDs_rand]
     vy_bound = vy_GoodIDs_rand[BoundIDs_rand]
     vz_bound = vz_GoodIDs_rand[BoundIDs_rand]
-    
+
     # Normalize unbound particles
     for i in range(len(UnboundIDs_rand[0])):
-        if np.sum(K_rand[UnboundIDs_rand]) != 0:        
+        if np.sum(K_rand[UnboundIDs_rand]) != 0:
             vx_unbound_norm_i = vx_unbound[i] * np.random.uniform(low=.8, high=1.)
                                 * (np.sum(np.abs(V_GoodIDs[UnboundIDs_rand]))
                                    / np.sum(K_rand[UnboundIDs_rand])) ** .5
@@ -182,7 +185,7 @@ z = np.concatenate(z, axis=0)
 vx = np.concatenate(vx, axis=0)
 vy = np.concatenate(vy, axis=0)
 vz = np.concatenate(vz, axis=0)
-   
+
 if Fig_v_logx_after:
     v = ravf.modulus(vx, vy, vz)
     f, (ax1) = plt.subplots(1, 1, figsize=(13, 11))

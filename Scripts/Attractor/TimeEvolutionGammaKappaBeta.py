@@ -1,17 +1,22 @@
 # -*- coding: utf-8 -*-
 
+# Standard library imports
 import h5py
-import numpy as np
-import matplotlib.pyplot as plt
+import os
+import time
+
+# Third party imports
 import IPython
 from matplotlib.colors import LogNorm
-import time
+import matplotlib.pyplot as plt
+import numpy as np
 import pylab
 import seaborn as sns
-import os
-import fileLsts as lsts
+
+# Local application imports
 import colorsAndSymbols
 from definePaths import *
+import fileLsts as lsts
 
 # Datasets below are structured with the following columns (ordered):
 # lnr, beta, gamma, kappa, VR, r, sigmarad2, r_r2, rho.

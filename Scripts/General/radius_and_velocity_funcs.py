@@ -1,9 +1,9 @@
 import numpy as np
 
 
-def modulus(x, y, z):
-    """Modulus of vector."""
-    return (x ** 2 + y ** 2 + z ** 2) ** .5
+def modulus(*args):
+    """Modulus of vector of arbitrary size."""
+    return sum([i ** 2 for i in args]) ** .5
 
 
 def phi(x, y):
