@@ -1,11 +1,16 @@
 # -*- coding: utf-8 -*-
 
-import numpy as np
-import matplotlib.pyplot as plt
-import pylab
+# Standard library
 from collections import namedtuple
-from Sigma_calc_OOP import chi_2, modulus, phi, theta, radial_velocity
+
+# Third party
+import matplotlib.pyplot as plt
+import numpy as np
+import pylab
+
+# Local application
 import Mock_data as mock
+from Sigma_calc_OOP import chi_2, modulus, phi, theta, radial_velocity
 
 simulations = ['A/', 'B/', 'Soft_B/', 'CS4/', 'CS5/', 'CS6/', 'DS1/',
                'Soft_D2/', 'E/']
@@ -482,8 +487,8 @@ if Fig6_gamma:
     plt.xlabel(r'$\log $r', fontsize=30)
     plt.ylabel(r'$\gamma$', fontsize=30)
     plt.plot(x_plot, y_plot, 'k-o', ms=7, lw=2, mew=0)
-    plt.plot((-.5, -.5), (-4., 4.), 'r-', label=r'inner cut')
-    plt.plot((1., 1.), (-4., 4.), 'b-', label=r'outer cut')
+    plt.plot((-.5, -.5), (-4., 4.), 'r-', label='inner cut')
+    plt.plot((1., 1.), (-4., 4.), 'b-', label='outer cut')
 
     if Fig6_gammafit:
         x = 10 ** x_plot
@@ -638,10 +643,14 @@ if Fig_combine_ASCII:
     read_txt = pylab.loadtxt(text_files_path + f'{sim_names[1]}_particle_tracking.txt')
     f, (ax1) = plt.subplots(1, 1, figsize=(13, 11))
     f.subplots_adjust(hspace=0, wspace=0)
-    ax1.plot(read_txt[:, 0], read_txt[:, 4], 'r-o', label='Particle 100000', lw=2, ms=7)
-    ax1.plot(read_txt[:, 0], read_txt[:, 8], 'b-s', label='Particle 200000', lw=2, ms=7)
-    ax1.plot(read_txt[:, 0], read_txt[:, 12], 'k-<', label='Particle 300000', lw=2, ms=7)
-    ax1.plot(read_txt[:, 0], read_txt[:, 16], 'c--v', label='Particle 400000', lw=2, ms=7)
+    ax1.plot(read_txt[:, 0], read_txt[:, 4], 'r-o', label='Particle 100_000',
+             lw=2, ms=7)
+    ax1.plot(read_txt[:, 0], read_txt[:, 8], 'b-s', label='Particle 200_000',
+             lw=2, ms=7)
+    ax1.plot(read_txt[:, 0], read_txt[:, 12], 'k-<', label='Particle 300_000',
+             lw=2, ms=7)
+    ax1.plot(read_txt[:, 0], read_txt[:, 16], 'c--v', label='Particle 400_000',
+             lw=2, ms=7)
     ax1.set_ylabel('Radius', fontsize=30)
     ax1.set_xlabel('Simulation time', fontsize=30)
     leg = ax1.legend(prop=dict(size=13), numpoints=2, ncol=1,

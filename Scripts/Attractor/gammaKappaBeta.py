@@ -1,9 +1,13 @@
 # -*- coding: utf-8 -*-
 
+# Third party
 import matplotlib.lines as lines
 import matplotlib.pyplot as plt
 import numpy as np
-from RhoAndGaussianAndTsallis import rho_HQ
+
+# Local application
+import General.radius_and_velocity_funcs as ravf
+from General.RhoAndGaussianAndTsallis import rho_HQ
 
 
 def betaOM(r, rA=1.20):
@@ -19,7 +23,7 @@ def sigmaRad2(no_of_bins):
         minRBinI = binningArrLinLog10[i]  # start of bin
         maxRBinI = binningArrLinLog10[i + 1]  # end of bin
         vR[i] = ((vx[i] * x[i] + vy[i] * y[i] + vz[i] * z[i])
-                 / ((x[i] ** 2 + y[i] ** 2 + z[i] ** 2) ** .5))
+                 / ravf.modulus(x[i], y[i], z[i]))
         vR2[i] = vR[i] ** 2
         sigmaR2 = (1. / (len(vR2) + 1.)) * np.sum(vR2[i])
     return sigmaR2

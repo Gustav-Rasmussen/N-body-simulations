@@ -1,9 +1,14 @@
 # -*- coding: utf-8 -*-
 
+# Standard library
+from dataclasses import dataclass
+
+# Third party
 import numpy as np
 import pylab
 import scipy as sp
-from dataclasses import dataclass
+
+# Local application
 import Mock_data as mock
 
 simulations = ['A/', 'B/', 'Soft_B/', 'CS4/', 'CS5/', 'CS6/', 'DS1/',
@@ -95,13 +100,6 @@ save_sigma = 0
 # Functions -------------------------------------------------------------------
 
 
-'''
-def modulus(x, y, z):
-    '''Modulus of vector.'''
-    return (x ** 2 + y ** 2 + z ** 2) ** .5
-'''
-
-  
 def modulus(*args):
     '''Modulus of vector.'''
     sum_of_squares = 0
@@ -343,7 +341,7 @@ if save_lnr_beta_gamma_kappa_VR_r_sigma_r_rr2_rho:
 
     if Gamma == -2.0:
         r_r2_arr = r_arr / r_2
-        print('r_r2_arr = ', r_r2_arr)
+        print(f'{r_r2_arr =}')
         rho_arr = rho_arr[GoodIDs]
         x = np.array((logr_arr, beta_arr, gamma_arr, kappa_arr,
                       VR_i_avg_in_bin_arr, r_arr, sigmarad2_arr,
