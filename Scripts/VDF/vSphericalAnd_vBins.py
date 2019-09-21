@@ -1,8 +1,11 @@
 # -*- coding: utf-8 -*-
 
-import numpy as np
-import radius_and_velocity_funcs as ravf
+# Third party
 import matplotlib.pyplot as plt
+import numpy as np
+
+# Local application
+import radius_and_velocity_funcs as ravf
 
 # switches -------------------------------------------------------------
 vspherical = 0

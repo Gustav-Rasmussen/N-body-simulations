@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
 
-import numpy as np
-from scipy.optimize import curve_fit
 import matplotlib.pyplot as plt
+import numpy as np
 import pylab
+from scipy.optimize import curve_fit
+
 import RhoAndGaussianAndTsallis as ragat
 
 Lst1 = ['HQ10000_G0.8_2_000_bin3_VDFr', 'HQ10000_G0.8_2_000_bin3_VDFt',

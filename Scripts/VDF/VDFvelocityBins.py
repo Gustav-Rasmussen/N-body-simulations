@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 
-import numpy as np
 import matplotlib.pyplot as plt
+import numpy as np
 from pylab import *
+
 import VDF
 
 # readline will not be well behaved unless this is installed:
@@ -58,11 +59,8 @@ if vspherical_sigma:
      VTheta_sigmatheta_n, VPhi_sigmaphi_p, VPhi_sigmaphi_n,
      VT_sigmaT_p, VT_sigmaT_n) = ([] for i in range(8))
 
-    for i in range(len(VR_sigmaR)):
-        if VR_sigmaR[i] >= 0.:
-            VR_sigmaR_p.append(VR_sigmaR[i])
-        else:
-            VR_sigmaR_n.append(VR_sigmaR[i])
+    for i in range(len(n := VR_sigmaR)):
+        VR_sigmaR_p.append(n[i]) if n[i] >= 0. else VR_sigmaR_n.append(n[i])
     VR_sigmaR_p_arr = np.asarray(VR_sigmaR_p)
     VR_sigmaR_n_arr = np.asarray(VR_sigmaR_n)
     for i in range(len(VR_sigmaR)):
@@ -93,11 +91,11 @@ if vspherical_sigma:
      VTheta_i_avg_in_bin_sigmatheta_p,
      VTheta_i_avg_in_bin_sigmatheta_n) = ([] for i in range(8))
 
-    for i in range(len(VR_i_avg_in_bin_sigmaR)):
-        if VR_i_avg_in_bin_sigmaR[i] >= 0.:
-            VR_i_avg_in_bin_sigmaR_p.append(VR_i_avg_in_bin_sigmaR[i])
+    for i in range(len(n := VR_i_avg_in_bin_sigmaR)):
+        if n[i] >= 0.:
+            VR_i_avg_in_bin_sigmaR_p.append(n[i])
         else:
-            VR_i_avg_in_bin_sigmaR_n.append(VR_i_avg_in_bin_sigmaR[i])
+            VR_i_avg_in_bin_sigmaR_n.append(n[i])
     VR_i_avg_in_bin_sigmaR_p_arr = np.asarray(VR_i_avg_in_bin_sigmaR_p)
     VR_i_avg_in_bin_sigmaR_n_arr = np.asarray(VR_i_avg_in_bin_sigmaR_n)
     for i in range(len(VR_i_avg_in_bin_sigmaR)):
@@ -130,29 +128,29 @@ if print_Vp_Vn:
     VPhi_sigmaphi = np.array(VPhi_sigmaphi)
 
     if print_sigma_binned_lin_radius:
-        print(f'sigmarad2 = {sigmarad2}',
-              f'sigmarad2.shape = {sigmarad2.shape}',
-              f'sigmatheta2 = {sigmatheta2}',
-              f'sigmatheta2.shape = {sigmatheta2.shape}',
-              f'sigmaphi2 = {sigmaphi2}',
-              f'sigmaphi2.shape = {sigmaphi2.shape}',
-              f'sigmarad = {sigmarad}',
-              f'sigmarad.shape = {sigmarad.shape}',
-              f'sigmatheta = {sigmatheta}',
-              f'sigmatheta.shape = {sigmatheta.shape}',
-              f'sigmaphi = {sigmaphi}',
-              f'sigmaphi.shape = {sigmaphi.shape}',
-              f'VR = {VR}',
-              f'VR.shape = {VR.shape}',
-              f'VTheta = {VTheta}',
-              f'VTheta.shape = {VTheta.shape}',
-              f'VPhi ={VPhi}',
-              f'VPhi.shape = {VPhi.shape}',
-              f'VR_sigmarad.shape = {(VR / sigmarad).shape}',
-              f'VR_sigmarad = {VR / sigmarad}',
-              f'np.where(sigmarad == 0) = {np.where(sigmarad == 0)}',
-              f'np.where(sigmatheta == 0) = {np.where(sigmatheta == 0)}',
-              f'np.where(sigmaphi == 0) = {np.where(sigmaphi == 0)}')
+        print(f'{sigmarad2= }\n',
+              f'{sigmarad2.shape= }',
+              f'{sigmatheta2= }',
+              f'{sigmatheta2.shape= }',
+              f'{sigmaphi2= }',
+              f'{sigmaphi2.shape= }',
+              f'{sigmarad= }',
+              f'{sigmarad.shape= }',
+              f'{sigmatheta= }',
+              f'{sigmatheta.shape= }',
+              f'{sigmaphi= }',
+              f'{sigmaphi.shape= }',
+              f'{VR= }',
+              f'{VR.shape= }',
+              f'{VTheta= }',
+              f'{VTheta.shape= }',
+              f'{VPhi= }',
+              f'{VPhi.shape= }',
+              f'{(VR / sigmarad).shape= }',
+              f'{(VR / sigmarad)= }',
+              f'{np.where(sigmarad == 0)= }',
+              f'{np.where(sigmatheta == 0)= }',
+              f'{np.where(sigmaphi == 0)= }')
 
 # All figures with log(v) can instead be plotted as log(v) vs. f(v)/v.
 # the idea is, that a flat tail will appear towards small velocities.
