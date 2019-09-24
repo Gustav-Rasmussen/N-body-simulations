@@ -1,9 +1,11 @@
 # -*- coding: utf-8 -*-
 
+# Standard library
 import h5py
 from pathlib import Path
 import time
 
+# Third party
 import IPython
 from matplotlib.colors import LogNorm
 import matplotlib.patches as mpatches
@@ -15,6 +17,7 @@ from scipy.optimize import curve_fit
 from scipy.stats import norm
 import seaborn as sns
 
+# Local application
 from Attractor.Sigma_calc_OOP import chi_2, get_volume_slice, beta, gamma, kappa
 from Gammas_and_R_middles import R_bin_automatic
 import General.NoOfParticlesAndParticleMass
@@ -309,7 +312,7 @@ if Fig_x_hist2d:
     plt.xlim(-10, 10)
     plt.ylim(-10, 10)
     sims = ['B', 'CS4', 'CS5', 'CS6', 'DS1', 'D2', 'E']
-    plt.title(f'Centralized positions x and y ({sims[0]}, gridsize = 500)',
+    plt.title(f'Centralized positions x and y ({sims[0]}, gridsize=500)',
               fontsize=30)
     f.savefig(f'{figure_path}Fig_{sims[0]}_Final_x_hist2d.png')
 
@@ -337,10 +340,10 @@ if Gamma == -2.0:
     M_2 = nr_par_in_halo * m
     G = 1.
     v_circ_2 = (G * M_2 / r_2) ** .5
-    # print('r_2 = ', r_2)
-    # print('nr_par_in_halo = ', nr_par_in_halo)
-    # print('M_2 = ', M_2)
-    # print('v_circ_2 = ', v_circ_2)
+    # print(f'{r_2= }')
+    # print(f'{nr_par_in_halo= }')
+    # print(f'{M_2= }')
+    # print(f'{v_circ_2= }')
 
 if bins_202:
     nr_of_bins = 202
@@ -552,21 +555,15 @@ if Fig5_kappa:
 
     # plt.title(r'$\kappa$ and zero-line (%s)' % F, fontsize=30)
 
-    # plt.title(r'$\kappa$ and zero-line (Sim II: $\Delta$E, Soft_B final, $R_{limit}=10^4$, 20 bins)',fontsize=30)
-    # plt.title(r'$\kappa$ and zero-line (Sim II: $\Delta$E, CS4 final, $R_{limit}=10^4$, 20 bins)',fontsize=30)
-    # plt.title(r'$\kappa$ and zero-line (Sim II: $\Delta$E, CS5 final, $R_{limit}=10^4$, 20 bins)',fontsize=30)
-    # plt.title(r'$\kappa$ and zero-line (Sim II: $\Delta$E, CS6 final, $R_{limit}=10^4$, 20 bins)',fontsize=30)
-    # plt.title(r'$\kappa$ and zero-line (Sim II: $\Delta$E, DS1 final, $R_{limit}=10^4$, 20 bins)',fontsize=30)
-    # plt.title(r'$\kappa$ and zero-line (Sim II: $\Delta$E, Soft_D2 final, $R_{limit}=10^4$, 20 bins)',fontsize=30)
-    # plt.title(r'$\kappa$ and zero-line (Sim II: $\Delta$E, E final, $R_{limit}=10^4$, 20 bins)',fontsize=30)
+    sims = ['Soft_B', 'CS4', 'CS5', 'CS6', 'DS1', 'Soft_D2', 'E']
 
-    # plt.title(r'$\kappa$ and zero-line (Sim II: $\Delta$E, Soft_B final, $R_{limit}=50$, 50 bins)',fontsize=30)
-    # plt.title(r'$\kappa$ and zero-line (Sim II: $\Delta$E, CS4 final, $R_{limit}=50$, 50 bins)',fontsize=30)
-    # plt.title(r'$\kappa$ and zero-line (Sim II: $\Delta$E, CS5 final, $R_{limit}=50$, 50 bins)',fontsize=30)
-    # plt.title(r'$\kappa$ and zero-line (Sim II: $\Delta$E, CS6 final, $R_{limit}=50$, 50 bins)',fontsize=30)
-    # plt.title(r'$\kappa$ and zero-line (Sim II: $\Delta$E, DS1 final, $R_{limit}=50$, 50 bins)',fontsize=30)
-    # plt.title(r'$\kappa$ and zero-line (Sim II: $\Delta$E, Soft_D2 final, $R_{limit}=50$, 50 bins)',fontsize=30)
-    # plt.title(r'$\kappa$ and zero-line (Sim II: $\Delta$E, E final, $R_{limit}=50$, 50 bins)',fontsize=30)
+    # plt.title(r'$\kappa$ and zero-line (Sim II: $\Delta$E, '
+    #           + f'{sims[0]} final, '
+    #           + r'$R_{limit}=10^4$, 20 bins)', fontsize=30)
+
+    # plt.title(r'$\kappa$ and zero-line (Sim II: $\Delta$E, '
+    #           + f'{sims[0]} final, '
+    #           + r'$R_{limit}=50$, 50 bins)', fontsize=30)
 
     # plt.title(r'$\kappa$ and zero-line (Sim II: $\Delta$E, Soft_B final, $R_{limit}=32$, 50 bins)',fontsize=30)
     # plt.title(r'$\kappa$ and zero-line (Sim II: $\Delta$E, CS4 final, $R_{limit}=32$, 20 bins)',fontsize=30)
@@ -576,51 +573,17 @@ if Fig5_kappa:
     # plt.title(r'$\kappa$ and zero-line (Sim II: $\Delta$E, Soft_D2 final, $R_{limit}=32$, 20 bins)',fontsize=30)
     # plt.title(r'$\kappa$ and zero-line (Sim II: $\Delta$E, E final, $R_{limit}=32$, 50 bins)',fontsize=30)
 
-    # plt.title(r'$\kappa$ and zero-line (Sim II: $\Delta$E, Soft_B final, $R_{limit}=10$, 20 bins)',fontsize=30)
-    # plt.title(r'$\kappa$ and zero-line (Sim II: $\Delta$E, CS4 final, $R_{limit}=10$, 20 bins)',fontsize=30)
-    # plt.title(r'$\kappa$ and zero-line (Sim II: $\Delta$E, CS5 final, $R_{limit}=10$, 20 bins)',fontsize=30)
-    # plt.title(r'$\kappa$ and zero-line (Sim II: $\Delta$E, CS6 final, $R_{limit}=10$, 20 bins)',fontsize=30)
-    # plt.title(r'$\kappa$ and zero-line (Sim II: $\Delta$E, DS1 final, $R_{limit}=10$, 20 bins)',fontsize=30)
-    # plt.title(r'$\kappa$ and zero-line (Sim II: $\Delta$E, Soft_D2 final, $R_{limit}=10$, 20 bins)',fontsize=30)
-    # plt.title(r'$\kappa$ and zero-line (Sim II: $\Delta$E, E final, $R_{limit}=10$, 20 bins)',fontsize=30)
+    # plt.title(r'$\kappa$ and zero-line (Sim II: $\Delta$E, '
+    #           + f'{sims[0]} final, '
+    #           + r'$R_{limit}=10$, 20 bins)', fontsize=30)
 
     plt.plot(x_plot, y_plot, 'k-o', ms=4, mew=0)
     plt.plot(x_plot, 0 * x_plot, '--', lw=2, color='grey')
-    # f.savefig(figure_path + 'Soft_B_Final_kappa_logr_II_R10000.png')
-    # f.savefig(figure_path + 'CS1_Final_kappa_logr_II_R10000.png')
-    # f.savefig(figure_path + 'CS4_Final_kappa_logr_II_R10000.png')
-    # f.savefig(figure_path + 'CS5_Final_kappa_logr_II_R10000.png')
-    # f.savefig(figure_path + 'CS6_Final_kappa_logr_II_R10000.png')
-    # f.savefig(figure_path + 'DS1_Final_kappa_logr_II_R10000.png')
-    # f.savefig(figure_path + 'Soft_D2_Final_kappa_logr_II_R10000.png')
-    # f.savefig(figure_path + 'E_Final_kappa_logr_II_R10000.png')
 
-    # f.savefig(figure_path + 'Soft_B_Final_kappa_logr_II_R50.png')
-    # f.savefig(figure_path + 'CS1_Final_kappa_logr_II_R50.png')
-    # f.savefig(figure_path + 'CS4_Final_kappa_logr_II_R50.png')
-    # f.savefig(figure_path + 'CS5_Final_kappa_logr_II_R50.png')
-    # f.savefig(figure_path + 'CS6_Final_kappa_logr_II_R50.png')
-    # f.savefig(figure_path + 'DS1_Final_kappa_logr_II_R50.png')
-    # f.savefig(figure_path + 'Soft_D2_Final_kappa_logr_II_R50.png')
-    # f.savefig(figure_path + 'E_Final_kappa_logr_II_R50.png')
-
-    # f.savefig(figure_path + 'Soft_B_Final_kappa_logr_II_R32.png')
-    # f.savefig(figure_path + 'CS1_Final_kappa_logr_II_R32.png')
-    # f.savefig(figure_path + 'CS4_Final_kappa_logr_II_R32.png')
-    # f.savefig(figure_path + 'CS5_Final_kappa_logr_II_R32.png')
-    # f.savefig(figure_path + 'CS6_Final_kappa_logr_II_R32.png')
-    # f.savefig(figure_path + 'DS1_Final_kappa_logr_II_R32.png')
-    # f.savefig(figure_path + 'Soft_D2_Final_kappa_logr_II_R32.png')
-    # f.savefig(figure_path + 'E_Final_kappa_logr_II_R32.png')
-
-    # f.savefig(figure_path + 'Soft_B_Final_kappa_logr_II_R10.png')
-    # f.savefig(figure_path + 'CS1_Final_kappa_logr_II_R10.png')
-    # f.savefig(figure_path + 'CS4_Final_kappa_logr_II_R10.png')
-    # f.savefig(figure_path + 'CS5_Final_kappa_logr_II_R10.png')
-    # f.savefig(figure_path + 'CS6_Final_kappa_logr_II_R10.png')
-    # f.savefig(figure_path + 'DS1_Final_kappa_logr_II_R10.png')
-    # f.savefig(figure_path + 'Soft_D2_Final_kappa_logr_II_R10.png')
-    # f.savefig(figure_path + 'E_Final_kappa_logr_II_R10.png')
+    # f.savefig(figure_path + sims[0] + '_Final_kappa_logr_II_R10000.png')
+    # f.savefig(figure_path + sims[0] + '_Final_kappa_logr_II_R50.png')
+    # f.savefig(figure_path + sims[0] + '_Final_kappa_logr_II_R32.png')
+    # f.savefig(figure_path + sims[0] + '_Final_kappa_logr_II_R10.png')
 
 if Fig6_gamma:
     f = plt.figure(figsize=(13, 11))
