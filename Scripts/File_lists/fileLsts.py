@@ -9,77 +9,46 @@ Created on Sat Jun 16 15:30:48 2018
 from definePaths import *
 
 Sparre = ['OMG00_001_IC_000', '0G00_IC_000', '0G20_001', '00-5G20_001',
-          'om0-3.5G20_001', 's1G20_001', 's2G20_001', 's3G20_001', 's4G20_001',
-          'OMG20_Final_000']
+          'om0-3.5G20_001', 's1G20_001', 's2G20_001', 's3G20_001',
+          's4G20_001', 'OMG20_Final_000']
 
-fileLstMartinIC = [(textMartinPath / Sparre[0] + '.txt', Sparre[0]),
-                   (textMartinPath / Sparre[1] + '.txt', Sparre[1])]
+fileLstMartinIC = [(textMartinPath / Sparre[i] + '.txt', Sparre[i])
+                   for i in range(2)]
 
-fileLstMartinFinal = [(textMartinPath / Sparre[2] + '.txt', Sparre[2]),
-                      (textMartinPath / Sparre[3] + '.txt', Sparre[3]),
-                      (textMartinPath / Sparre[4] + '.txt', Sparre[4]),
-                      (textMartinPath / Sparre[5] + '.txt', Sparre[5]),
-                      (textMartinPath / Sparre[6] + '.txt', Sparre[6]),
-                      (textMartinPath / Sparre[7] + '.txt', Sparre[7]),
-                      (textMartinPath / Sparre[8] + '.txt', Sparre[8]),
-                      (textMartinPath / Sparre[9] + '.txt', Sparre[9])]
+fileLstMartinFinal = [(textMartinPath / Sparre[i] + '.txt', Sparre[i])
+                      for i in range(2, 10)]
 
 A_lst = ['A_HQ10000_G1.0_0_000', 'A_HQ10000_G1.0_5_005',
          'A_HQ10000_G1.0_10_005', 'A_HQ10000_G1.0_40_005',
          'A_HQ10000_G1.0_48_009']
 
-fileLstA = [(textFilesPath / 'A' / A_lst[0] + '.txt', A_lst[0]),
-            (textFilesPath / 'A' / A_lst[1] + '.txt', A_lst[1]),
-            (textFilesPath / 'A' / A_lst[2] + '.txt', A_lst[2]),
-            (textFilesPath / 'A' / A_lst[3] + '.txt', A_lst[3]),
-            (textFilesPath / 'A' / A_lst[4] + '.txt', A_lst[4])]
+fileLstA = [(textFilesPath / 'A' / A_lst[i] + '.txt', A_lst[i])
+            for i in range(5)]
 
-A_Rlim10000 = ['A_HQ10000_G1.0_0_000_Rlim_10000_20_RBins',
-               'A_HQ10000_G1.0_5_005_Rlim_10000_20_RBins',
-               'A_HQ10000_G1.0_10_005_Rlim_10000_20_RBins',
-               'A_HQ10000_G1.0_40_005_Rlim_10000_20_RBins',
-               'A_HQ10000_G1.0_48_009_Rlim_10000_20_RBins']
+A_Rlim10000 = [A_lst[i] + '_Rlim_10000_20_RBins' for i in range(5)]
 
-fileLstA_R10000 = [(textFilesPath / 'A' / A_Rlim10000[0] + '.txt',
-                    A_Rlim10000[0]),
-                   (textFilesPath / 'A' / A_Rlim10000[1] + '.txt',
-                    A_Rlim10000[1]),
-                   (textFilesPath / 'A' / A_Rlim10000[2] + '.txt',
-                    A_Rlim10000[2]),
-                   (textFilesPath / 'A' / A_Rlim10000[3] + '.txt',
-                    A_Rlim10000[3]),
-                   (textFilesPath / 'A' / A_Rlim10000[4] + '.txt',
-                    A_Rlim10000[4])]
+fileLstA_R10000 = [(textFilesPath / 'A' / A_Rlim10000[i] + '.txt',
+                    A_Rlim10000[i]) for i in range(5)]
 
 A_Rlim32 = ['A_HQ10000_G1.0_0_000_Rlim_32_50_RBins',
             'A_HQ10000_G1.0_48_009_Rlim_32_50_RBins']
 
-FileLstA_Rlimit32_50bins = [(textFilesPath / 'A' / A_Rlim32[0] + '.txt',
-                             A_Rlim32[0]),
-                            (textFilesPath / 'A' / A_Rlim32[1] + '.txt',
-                             A_Rlim32[1])]
+FileLstA_Rlimit32_50bins = [(textFilesPath / 'A' / A_Rlim32[i] + '.txt',
+                             A_Rlim32[i]) for i in range(2)]
 
 B_lst = ['B_HQ10000_G1.0_0_000', 'B_HQ10000_G1.0_5_005',
          'B_HQ10000_G1.0_10_005', 'B_HQ10000_G1.0_198_000',
          'B_HQ10000_G1.0_198_093', 'B_HQ10000_G1.0_199_093']
 
-fileLstB = [(textFilesPath / 'B' / B_lst[0] + '.txt', B_lst[0]),
-            (textFilesPath / 'B' / B_lst[1] + '.txt', B_lst[2]),
-            (textFilesPath / 'B' / B_lst[2] + '.txt', B_lst[3]),
-            (textFilesPath / 'B' / B_lst[3] + '.txt', B_lst[4]),
-            (textFilesPath / 'B' / B_lst[4] + '.txt', B_lst[5]),
-            (textFilesPath / 'B' / B_lst[5] + '.txt', B_lst[6])]
+fileLstB = [(textFilesPath / 'B' / B_lst[i] + '.txt', B_lst[i])
+            for i in range(6)]
 
 B20 = ['B_HQ10000_G1.0_0_000_20_RBins', 'B_HQ10000_G1.0_199_093_20_RBins',
        'B_HQ10000_G1.0_5_005_20_RBins', 'B_HQ10000_G1.0_10_005_20_RBins',
        'B_HQ10000_G1.0_198_000_20_RBins', 'B_HQ10000_G1.0_198_093_20_RBins']
 
-fileLstB20 = [(textFilesPath / 'B' / B20[0] + '.txt', B20[0]),
-              (textFilesPath / 'B' / B20[1] + '.txt', B20[1]),
-              (textFilesPath / 'B' / B20[2] + '.txt', B20[2]),
-              (textFilesPath / 'B' / B20[3] + '.txt', B20[3]),
-              (textFilesPath / 'B' / B20[4] + '.txt', B20[4]),
-              (textFilesPath / 'B' / B20[5] + '.txt', B20[5])]
+fileLstB20 = [(textFilesPath / 'B' / B20[i] + '.txt', B20[i])
+              for i in range(6)]
 
 B_R10000 = ['B_HQ10000_G1.0_0_000_Rlim_10000',
             'B_HQ10000_G1.0_198_093_Rlim_10000',
@@ -91,31 +60,20 @@ B_R10000 = ['B_HQ10000_G1.0_0_000_Rlim_10000',
             'B_HQ10000_G1.0_198_093_Rlim_10000_20_RBins',
             'B_HQ10000_G1.0_199_093_Rlim_10000_20_RBins']
 
-fileLstB_R10000 = [(textFilesPath / 'B' / B_R10000[0] + '.txt', B_R10000[0]),
-                   (textFilesPath / 'B' / B_R10000[1] + '.txt', B_R10000[1]),
-                   (textFilesPath / 'B' / B_R10000[2] + '.txt', B_R10000[2]),
-                   (textFilesPath / 'B' / B_R10000[3] + '.txt', B_R10000[3]),
-                   (textFilesPath / 'B' / B_R10000[4] + '.txt', B_R10000[4]),
-                   (textFilesPath / 'B' / B_R10000[5] + '.txt', B_R10000[5]),
-                   (textFilesPath / 'B' / B_R10000[6] + '.txt', B_R10000[6]),
-                   (textFilesPath / 'B' / B_R10000[7] + '.txt', B_R10000[7]),
-                   (textFilesPath / 'B' / B_R10000[8] + '.txt', B_R10000[8])]
+fileLstB_R10000 = [(textFilesPath / 'B' / B_R10000[i] + '.txt', B_R10000[i])
+                   for i in range(9)]
 
 B_R5000 = ['B_HQ10000_G1.0_198_093_Rlim_5000',
            'B_HQ10000_G1.0_198_093_Rlim_5000_20_RBins']
 
-FileLstB_SecondLast_R5000 = [(textFilesPath / 'B' / B_R5000[0] + '.txt',
-                              B_R5000[0]),
-                             (textFilesPath / 'B' / B_R5000[1] + '.txt',
-                              B_R5000[1])]
+FileLstB_SecondLast_R5000 = [(textFilesPath / 'B' / B_R5000[i] + '.txt',
+                              B_R5000[i]) for i in range(2)]
 
 B_R32 = ['B_HQ10000_G1.0_0_000_Rlim_32_50_RBins',
          'B_HQ10000_G1.0_199_093_Rlim_32_50_RBins']
 
-FileLstB_Rlimit32_50bins = [(textFilesPath / 'B' / B_R32[0] + '.txt',
-                             B_R32[0]),
-                            (textFilesPath / 'B' / B_R32[1] + '.txt',
-                             B_R32[1])]
+FileLstB_Rlimit32_50bins = [(textFilesPath / 'B' / B_R32[i] + '.txt',
+                             B_R32[i]) for i in range(2)]
 
 IC = ['CS1_OM10000_G1.0_0_000', 'CS2_OM10000_G1.0_0_000',
       'CS3_OM10000_G1.0_0_000', 'CS1_OM10000_G1.0_0_000_20_RBins',
