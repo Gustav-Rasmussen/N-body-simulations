@@ -2,6 +2,7 @@
 
 # Standard library imports ------------------------
 import os
+from pprint import pprint as pp
 import time
 
 # Third party imports -----------------------------
@@ -27,37 +28,37 @@ import velocityCheck as vC
 import vSphericalAnd_vBins
 
 # HQ1000000_150311_000.hdf5
-# Gamma | logr | r
-# -1.5  | -.75 | 10 ** -.75
-# -2    | -.35 | 10 ** -.35
-# -2.5  | .0   | 10 ** .0
+# Gamma | logr
+# -1.5  | -.75
+# -2    | -.35
+# -2.5  | .0
 
 # OM_150310_000.hdf5
-# Beta | logr | r
-# .0   | -1.0 | 10 ** -1.0
-# .87  | .5   | 10 ** .5
-# .07  | -.5  | 10 ** -.5
-# .4   | .0   | 10 ** .0
-# 1.0  | 1.2  | 10 ** 1.2
+# Beta | logr
+# .0   | -1.0
+# .87  | .5
+# .07  | -.5
+# .4   | .0
+# 1.0  | 1.2
 
-# Gamma | logr | r
-# -1.5  | -.7  | 10 ** -.7
-# -2    | -.28 | 10 ** -.28
-# -2.5  | .0   | 10 ** .0
+# Gamma | logr
+# -1.5  | -.7
+# -2    | -.28
+# -2.5  | .0
 
 # HQ10000_G0.8_2_000.hdf5
-# Gamma | logr | r
-# -1.5  | -.65 | 10 ** -.65
-# -2    | -.35 | 10 ** -.35
-# -2.5  | -.08 | 10 ** -.08
+# Gamma | logr
+# -1.5  | -.65
+# -2    | -.35
+# -2.5  | -.08
 
 # HQ10000_G1.2_9_005.hdf5
-# Gamma | logr | r
-# -1    | -.5  | 10 ** -.5
-# -1.5  | -.4  | 10 ** -.4
-# -2    | -.25 | 10 ** -.25
-# -2.5  | -.15 | 10 ** -.15
-# -3    | .5   | 10 ** .5
+# Gamma | logr
+# -1    | -.5
+# -1.5  | -.4
+# -2    | -.25
+# -2.5  | -.15
+# -3    | .5
 
 # Make switches to control figures, print statements, binning etc.
 
@@ -101,7 +102,7 @@ def save_txt(title: str):
 
 if calc_sigma_binned_lin_radius:
     R_hob_par = R[GoodIDs]
-    v2 = ravf.speed(vx, vy, vz) ** 2
+    v2 = ravf.modulus(vx, vy, vz) ** 2
 
     (sigma2, sigmarad2, sigmatheta2, sigmaphi2, sigmatan2, sigma,
      sigmarad, sigmatheta, sigmaphi, sigmatan, VR_sigmarad,
@@ -199,17 +200,15 @@ if calc_sigma_binned_lin_radius:
     sigmaphi = np.array(sigmaphi)
     sigmatan = np.array(sigmatan)
 
-    '''
-    print(r'$\sigma_{tan} = $', linalg.norm(sigmatan),
-          r'$\sigma = $', linalg.norm(sigma),
-          r'$\sigma_{rad} = $', linalg.norm(sigmarad),
-          r'$\sigma_{\phi} = $', linalg.norm(sigmaphi),
-          r'$\sigma_{\theta} = $', linalg.norm(sigmatheta),
-          'np.concatenate(np.array(VT_sigmatan), axis=0) = ',
-          np.concatenate(np.array(VT_sigmatan), axis=0),
-          sigmatan2_inside_bin_i, np.mean(VT_i ** 2),
-          'VR = ', VR)
-    '''
+    pp(f'{linalg.norm(sigmatan)= }\n',
+       f'{linalg.norm(sigma)= }\n',
+       f'{linalg.norm(sigmarad)= }\n',
+       f'{linalg.norm(sigmaphi)= }\n',
+       f'{linalg.norm(sigmatheta)= }\n',
+       f'{np.concatenate(np.array(VT_sigmatan), axis=0)= }\n',
+       f'{sigmatan2_inside_bin_i= }\n',
+       f'{np.mean(VT_i ** 2)= }\n',
+       f'{VR= }')
 
 
     def concat(list_object):
@@ -307,22 +306,22 @@ if vsphericalnew:
     v_tn_arr = np.asarray(v_tn)
 
 if print_vp_vn:
-    print(f'{v_rp_arr= }',
-          f'{v_rp_arr.shape= }',
-          f'{v_rn_arr= }',
-          f'{v_rn_arr.shape= }',
-          f'{v_thetap_arr= }',
-          f'{v_thetap_arr.shape= }',
-          f'{v_thetan_arr= }',
-          f'{v_thetan_arr.shape= }',
-          f'{v_phip_arr= }',
-          f'{v_phip_arr.shape= }',
-          f'{v_phin_arr= }',
-          f'{v_phin_arr.shape= }',
-          f'{v_tp_arr= }',
-          f'{v_tp_arr.shape= }',
-          f'{v_tn_arr= }',
-          f'{v_tn_arr.shape= }')
+    pp(f'{v_rp_arr= }\n',
+       f'{v_rp_arr.shape= }\n',
+       f'{v_rn_arr= }\n',
+       f'{v_rn_arr.shape= }\n',
+       f'{v_thetap_arr= }\n',
+       f'{v_thetap_arr.shape= }\n',
+       f'{v_thetan_arr= }\n',
+       f'{v_thetan_arr.shape= }\n',
+       f'{v_phip_arr= }\n',
+       f'{v_phip_arr.shape= }\n',
+       f'{v_phin_arr= }\n',
+       f'{v_phin_arr.shape= }\n',
+       f'{v_tp_arr= }\n',
+       f'{v_tp_arr.shape= }\n',
+       f'{v_tn_arr= }\n',
+       f'{v_tn_arr.shape= }')
 
 if Fig8_vspherical_hist_log_vpvn:
     plt.figure()
@@ -348,22 +347,22 @@ if Fig8_vspherical_hist_log_vpvn:
                frameon=True, loc=2, handlelength=2.5)
 
 if print_Vp_Vn:
-    print(f'{VR_sigmarad_p_arr= }',
-          f'{VR_sigmarad_p_arr.shape= }',
-          f'{VR_sigmarad_n_arr= }',
-          f'{VR_sigmarad_n_arr.shape= }',
-          f'{VTheta_sigmatheta_p_arr= }',
-          f'{VTheta_sigmatheta_p_arr.shape= }',
-          f'{VTheta_sigmatheta_n_arr= }',
-          f'{VTheta_sigmatheta_n_arr.shape= }',
-          f'{VPhi_sigmaphi_p_arr= }',
-          f'{VPhi_sigmaphi_p_arr.shape= }',
-          f'{VPhi_sigmaphi_n_arr= }',
-          f'{VPhi_sigmaphi_n_arr.shape= }',
-          f'{VT_sigmatan_p_arr= }',
-          f'{VT_sigmatan_p_arr.shape= }',
-          f'{VT_sigmatan_n_arr= }',
-          f'{VT_sigmatan_n_arr.shape= }')
+    pp(f'{VR_sigmarad_p_arr= }\n',
+       f'{VR_sigmarad_p_arr.shape= }\n',
+       f'{VR_sigmarad_n_arr= }\n',
+       f'{VR_sigmarad_n_arr.shape= }\n',
+       f'{VTheta_sigmatheta_p_arr= }\n',
+       f'{VTheta_sigmatheta_p_arr.shape= }\n',
+       f'{VTheta_sigmatheta_n_arr= }\n',
+       f'{VTheta_sigmatheta_n_arr.shape= }\n',
+       f'{VPhi_sigmaphi_p_arr= }\n',
+       f'{VPhi_sigmaphi_p_arr.shape= }\n',
+       f'{VPhi_sigmaphi_n_arr= }\n',
+       f'{VPhi_sigmaphi_n_arr.shape= }\n',
+       f'{VT_sigmatan_p_arr= }\n',
+       f'{VT_sigmatan_p_arr.shape= }\n',
+       f'{VT_sigmatan_n_arr= }\n',
+       f'{VT_sigmatan_n_arr.shape= }\n')
 
     VTheta = np.array(VTheta)
     VPhi = np.array(VPhi)
@@ -372,29 +371,29 @@ if print_Vp_Vn:
     VPhi_sigmaphi = np.array(VPhi_sigmaphi)
 
     if print_sigma_binned_lin_radius:
-        print(f'{sigmarad2= }',
-              f'{sigmarad2.shape= }',
-              f'{sigmatheta2= }',
-              f'{sigmatheta2.shape= }',
-              f'{sigmaphi2= }',
-              f'{sigmaphi2.shape= }',
-              f'{sigmarad= }',
-              f'{sigmarad.shape= }',
-              f'{sigmatheta= }',
-              f'{sigmatheta.shape= }',
-              f'{sigmaphi= }',
-              f'{sigmaphi.shape= }',
-              f'{VR= }',
-              f'{VR.shape= }',
-              f'{VTheta= }',
-              f'{VTheta.shape= }',
-              f'{VPhi= }',
-              f'{VPhi.shape= }',
-              f'{(VR / sigmarad).shape= }',
-              f'{(VR / sigmarad)= }',
-              f'{np.where(sigmarad == 0)= }',
-              f'{np.where(sigmatheta == 0)= }',
-              f'{np.where(sigmaphi == 0)= }')
+        pp(f'{sigmarad2= }\n',
+           f'{sigmarad2.shape= }\n',
+           f'{sigmatheta2= }\n',
+           f'{sigmatheta2.shape= }\n',
+           f'{sigmaphi2= }\n',
+           f'{sigmaphi2.shape= }\n',
+           f'{sigmarad= }\n',
+           f'{sigmarad.shape= }\n',
+           f'{sigmatheta= }\n',
+           f'{sigmatheta.shape= }\n',
+           f'{sigmaphi= }\n',
+           f'{sigmaphi.shape= }\n',
+           f'{VR= }\n',
+           f'{VR.shape= }\n',
+           f'{VTheta= }\n',
+           f'{VTheta.shape= }\n',
+           f'{VPhi= }\n',
+           f'{VPhi.shape= }\n',
+           f'{(VR / sigmarad).shape= }\n',
+           f'{(VR / sigmarad)= }\n',
+           f'{np.where(sigmarad == 0)= }\n',
+           f'{np.where(sigmatheta == 0)= }\n',
+           f'{np.where(sigmaphi == 0)= }')
 
 if Fig11_vspherical_hist_log_n123:
     fig = plt.figure()
