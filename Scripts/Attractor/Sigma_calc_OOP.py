@@ -9,12 +9,14 @@ import pylab
 import scipy as sp
 
 # Local application
+from bin_halo import bin_halo_radially
 import Mock_data as mock
 
 simulations = ['A/', 'B/', 'Soft_B/', 'CS4/', 'CS5/', 'CS6/', 'DS1/',
                'Soft_D2/', 'E/']
 
-A = B = 0
+A = 0
+B = 0
 
 # text_files_path = textFilesPath / simulations[0]
 
@@ -255,70 +257,7 @@ def mean_velocity_slice(nr_par_bin, v):
     return (1. / (nr_par_bin + 1.)) * np.sum(v)
 
 
-for i in range(bins - 2):
-    min_R_bin = binning_arr_lin_log10[i]  # start of bin
-    max_R_bin = binning_arr_lin_log10[i + 1]  # end of bin
-    posR_par_bin = particle_positions_slice(min_R_bin, max_R_bin)
-    nr_par_bin = particle_number_slice()
-    if nr_par_bin == 0:
-        continue
-
-    x = x[posR_par_bin]
-    y = y[posR_par_bin]
-    z = z[posR_par_bin]
-    vx = vx[posR_par_bin]
-    vy = vy[posR_par_bin]
-    vz = vz[posR_par_bin]
-
-    v_bin = modulus(vx, vy, vz)
-    sigma2_bin = sigma_squared_slice(nr_par_bin, v_bin)
-    bin_radius = radius_slice(min_R_bin, max_R_bin)
-    vrad2_bin = v_r[posR_par_bin] ** 2
-    sigmarad2_bin = sigmarad2_slice(nr_par_bin, vrad2_bin)
-    Volume_bin = volume_slice(min_R_bin, max_R_bin)
-    rho = density_slice(nr_par_bin, Volume_bin)
-    r_bin = radii(x, y, z)
-    Phi_i = phi(x, y)
-    Theta_i = theta(z, r_bin)
-    VR_i = radial_velocity(Theta_i, Phi_i, vx, vy, vz)
-    VTheta_i = theta_velocity(Theta_i, Phi_i, vx, vy, vz)
-    VPhi_i = phi_velocity(Phi_i, vx, vy)
-    VR_i_avg_bin = mean_velocity_slice(nr_par_bin, VR_i)
-    VTheta2_bin = VTheta_i ** 2
-    sigmatheta2_bin = mean_velocity_slice(nr_par_bin, VTheta2_bin)
-    VPhi2_bin = VPhi_i ** 2
-    sigmaphi2_bin = mean_velocity_slice(nr_par_bin, VPhi2_bin)
-    sigmatan = (sigmatheta2_bin + sigmaphi2_bin) ** .5
-    sigmatan2 = sigmatan ** 2
-
-    sigma2_lst.append(sigma2_bin)
-    bin_radius_lst.append(bin_radius)
-    sigmarad2_lst.append(sigmarad2_bin)
-    sigmatheta2_lst.append(sigmatheta2_bin)
-    sigmaphi2_lst.append(sigmaphi2_bin)
-    sigmatan2_lst.append(sigmatan2)
-    density_lst.append(den_cl)
-    rho_lst.append(rho)
-    Volume_lst.append(Volume_cl)
-    r_lst.append(r_i)
-    Phi_lst.append(Phi_i)
-    Theta_lst.append(Theta_i)
-    VR_lst.append(VR_i)
-    VR_i_avg_bin_lst.append(VR_i_avg_bin)
-    VTheta_lst.append(VTheta_i)
-    VPhi_lst.append(VPhi_i)
-
-# Change lists into arrays
-sigma2_arr = np.array(sigma2_lst)
-sigmarad2_arr = np.array(sigmarad2_lst)
-bin_radius_arr = np.array(bin_radius_lst)
-r_arr = np.array(r_lst)
-Phi_arr = np.array(Phi_lst)
-Theta_arr = np.array(Theta_lst)
-VR_arr = np.array(VR_lst)
-VTheta_arr = np.array(VTheta_lst)
-VPhi_arr = np.array(VPhi_lst)
-VR_i_avg_bin_arr = np.array(VR_i_avg_bin_lst)
+Radially_binned_arrays = bin_halo_radially()
 
 # Save (logr, beta, gamma, kappa etc.) as text file,
 # so they can be plotted in Sigma_plot.py
