@@ -402,9 +402,10 @@ if Fig_v_logr:
     f.subplots_adjust(hspace=0, wspace=0)
     ax1.set_xlabel('r', fontsize=30)
     ax1.set_ylabel(r'total velocity, $v=\sqrt{v_x^2+v_y^2+v_z^2}$', fontsize=30)
-    labels = ['Soft B IC', 'Soft B 10_005', 'Soft B 20_005', 'Soft B control IC',
-              'Soft B control 10_005', 'Soft B control 20_005',
-              r'$CS_4$ 2_005', r'$CS_4$ 2_005 perturbation', r'$CS_4$ 2_005 P2G (no K_ratio)',
+    labels = ['Soft B IC', 'Soft B 10_005', 'Soft B 20_005',
+              'Soft B control IC', 'Soft B control 10_005',
+              'Soft B control 20_005', r'$CS_4$ 2_005',
+              r'$CS_4$ 2_005 perturbation', r'$CS_4$ 2_005 P2G (no K_ratio)',
               r'$CS_4$ 2_005 P2G (unbound)', r'$CS_4$ 2_005 P2G (no rand)',
               r'$CS_4$ 2_005 P2G (car sph car)']
     ax1.plot(r, v, 'bo', label=labels[-1], lw=3, ms=2)
@@ -429,7 +430,10 @@ if Fig_v_logr:
                  ]
     f.savefig(figure_path + figtitles[-1] + '.png')
 
-if Fig4_beta:  # plot beta
+radii = ['10_000', '50', '32', '10']
+modes = ['IC', 'Final', 'Final_control']
+
+if Fig4_beta:
     f = plt.figure(figsize=(13, 11))
     # plt.xlim(-1.7, 2.0)
     # plt.ylim(-1., 1.)
@@ -439,32 +443,25 @@ if Fig4_beta:  # plot beta
     plt.ylabel(r'$\beta$', fontsize=30)
     plt.plot(x_plot, y_plot, 'k-o', ms=7, lw=2, mew=0, label=r'$\beta$')  # from this graph we see that beta is below zero. this means sigmatheta2_arr/sigmarad2_arr > 1, which in turn means that sigmatheta2_arr > sigmarad2_arr.
     plt.plot(x_plot, 0 * x_plot, '--', lw=2, color='grey')
-
     if Fig4_betafit:  # fitting beta with two different profiles
         x = 10 ** x_plot
         y_plot = x ** 2 / (23. ** 2 + x ** 2)
-        plt.plot(x_plot, y_plot, 'b-', ms=2, mew=0, label=r'$\frac{x^2}{23^2+x^2}$')
+        plt.plot(x_plot, y_plot, 'b-', ms=2, mew=0,
+                 label=r'$\frac{x^2}{23^2+x^2}$')
         Chi2 = Sigma_calc_OOP.chi_2(beta_arr)
-        # print('Chi2 for betafit: ', Chi2)
+        # print(f'betafit, {Chi2= }')
         # Dummy plot to add label to legend for chi2
         plt.plot([], [], ls='.', c='grey', label=r'$\chi^2 = %.6f$' % Chi2)
         leg = plt.legend(prop=dict(size=18), numpoints=2, ncol=2,
                          fancybox=True, loc=0, handlelength=2.5)
         leg.get_frame().set_alpha(.5)
         plt.title(r'$\beta$ with fit (%s)' % F, fontsize=30)
-        figtitles = ['B_IC', 'B_Final', 'B_Final_control', 'CS1_IC',
-                     'CS1_Final', 'CS1_Final_control', 'CS4_IC',
-                     'CS4_Final', 'CS4_Final_control', 'CS5_IC',
-                     'CS5_Final', 'CS5_Final_control', 'CS6_IC',
-                     'CS6_Final', 'CS6_Final_control', 'DS1_IC',
-                     'DS1_Final', 'DS1_Final_control', 'D2_IC',
-                     'D2_Final', 'D2_Final_control', 'E_IC',
-                     'E_Final', 'E_Final_control'
-                     ]
-                     f.savefig(figure_path + figtitles[-1] + '_beta_logr_fit.png']
+        sims = ['B', 'CS1', 'CS4', 'CS5', 'CS6', 'DS1', 'D2', 'E']
+        figtitles = [sim + mode for sim in sims for mode in modes]
+        f.savefig(figure_path + figtitles[0] + '_beta_logr_fit.png')
     else:
         # plt.title(r'$\beta$ with zero-line(%s)' % F, fontsize=30)
-        sims = ['Soft_B', 'CS4', 'CS5', 'CS6', 'DS1', 'Soft_D2', 'E']
+        sims = ['Soft_B', 'CS1', 'CS4', 'CS5', 'CS6', 'DS1', 'Soft_D2', 'E']
         # plt.title(r'$\beta$ with zero-line(Sim II: $\Delta$E, (%s) final, $R_{limit}=10^4$, 20 bins)' % sims[-1], fontsize=30)  # all sims
         # plt.title(r'$\beta$ with zero-line(Sim II: $\Delta$E, (%s) final, $R_{limit}=50$, 50 bins)', % sims[-1], fontsize=30)  # all sims
         # plt.title(r'$\beta$ with zero-line(Sim II: $\Delta$E, Soft_B final, $R_{limit}=32$, 50 bins)', fontsize=30)
@@ -472,10 +469,7 @@ if Fig4_beta:  # plot beta
         # plt.title(r'$\beta$ with zero-line(Sim II: $\Delta$E, E final, $R_{limit}=32$, 50 bins)', fontsize=30)
         # plt.title(r'$\beta$ with zero-line(Sim II: $\Delta$E, (%s) final, $R_{limit}=10$, 20 bins)', % sims[-1], fontsize=30)
 
-        titles = ['Soft_B', 'CS1', 'CS4', 'CS5', 'CS6', 'DS1', 'Soft_D2', 'E']
-        ext = ['IC', 'Final', 'Final_control']
-        radii = ['10000', '50', '32', '10']
-        f.savefig(figure_path + titles[0] + '_' + ext[0] + '_beta_logr_II_R' + radii[0] + '.png')
+        f.savefig(figure_path + sims[0] + '_' + modes[0] + '_beta_logr_II_R' + radii[0] + '.png')
 
 if Fig5_kappa:
     f = plt.figure(figsize=(13, 11))
@@ -511,10 +505,8 @@ if Fig5_kappa:
     plt.plot(x_plot, y_plot, 'k-o', ms=4, mew=0)
     plt.plot(x_plot, 0 * x_plot, '--', lw=2, color='grey')
 
-    # f.savefig(figure_path + sims[0] + '_Final_kappa_logr_II_R10000.png')
-    # f.savefig(figure_path + sims[0] + '_Final_kappa_logr_II_R50.png')
-    # f.savefig(figure_path + sims[0] + '_Final_kappa_logr_II_R32.png')
-    # f.savefig(figure_path + sims[0] + '_Final_kappa_logr_II_R10.png')
+    f.savefig(figure_path + sims[0]
+              + '_Final_kappa_logr_II_R' + radii[0] + '.png')
 
 if Fig6_gamma:
     f = plt.figure(figsize=(13, 11))
@@ -525,277 +517,80 @@ if Fig6_gamma:
     plt.xlabel(r'$\log $r', fontsize=30)
     plt.ylabel(r'$\gamma$', fontsize=30)
     plt.plot(x_plot, y_plot, 'k-o', ms=7, lw=2, mew=0, label=r'$\gamma$')
-
     if Fig6_gammafit:
+        sims = ['B', 'CS1', 'CS4', 'CS5', 'CS6', 'DS1', 'D2', 'E']
         x = 10 ** x_plot
         y_plot = -1 - 3 * x / (1 + x)
         plt.plot(x_plot, y_plot, 'b-', ms=2, mew=0, label='Fit')  # label=r'$\frac{x^2}{23^2+x^2}$'
-
         Chi2 = Sigma_calc_OOP.chi_2()
-        # print('Chi2 for gammafit: ', Chi2)
-
+        # print(f'gammafit, {Chi2= }')
         # Dummy plot to add label to legend for chi2
         plt.plot([], [], ls='.', c='grey', label=r'$\chi^2 = %.6f$' % Chi2)
         leg = plt.legend(prop=dict(size=18), numpoints=2, ncol=2,
                          fancybox=True, loc=0, handlelength=2.5)
         leg.get_frame().set_alpha(.5)
         plt.title('Radial density slope with fit (%s)' % F, fontsize=18)
-        # f.savefig(figure_path + 'B_IC_gamma_logr_fit.png')
-        # f.savefig(figure_path + 'B_Final_gamma_logr_fit.png')
-        # f.savefig(figure_path + 'B_Final_control_gamma_logr_fit.png')
-        # f.savefig(figure_path + 'CS1_IC_gamma_logr_fit.png')
-        # f.savefig(figure_path + 'CS1_Final_gamma_logr_fit.png')
-        # f.savefig(figure_path + 'CS1_Final_control_gamma_logr_fit.png')
-        # f.savefig(figure_path + 'CS4_IC_gamma_logr_fit.png')
-        # f.savefig(figure_path + 'CS4_Final_gamma_logr_fit.png')
-        # f.savefig(figure_path + 'CS4_Final_control_gamma_logr_fit.png')
-        # f.savefig(figure_path + 'CS5_IC_gamma_logr_fit.png')
-        # f.savefig(figure_path + 'CS5_Final_gamma_logr_fit.png')
-        # f.savefig(figure_path + 'CS5_Final_control_gamma_logr_fit.png')
-        # f.savefig(figure_path + 'CS6_IC_gamma_logr_fit.png')
-        # f.savefig(figure_path + 'CS6_Final_gamma_logr_fit.png')
-        # f.savefig(figure_path + 'CS6_Final_control_gamma_logr_fit.png')
-        # f.savefig(figure_path + 'DS1_IC_gamma_logr_fit.png')
-        # f.savefig(figure_path + 'DS1_Final_gamma_logr_fit.png')
-        # f.savefig(figure_path + 'DS1_Final_control_gamma_logr_fit.png')
-        # f.savefig(figure_path + 'D2_IC_gamma_logr_fit.png')
-        # f.savefig(figure_path + 'D2_Final_gamma_logr_fit.png')
-        # f.savefig(figure_path + 'D2_Final_control_gamma_logr_fit.png')
-        # f.savefig(figure_path + 'E_IC_gamma_logr_fit.png')
-        # f.savefig(figure_path + 'E_Final_gamma_logr_fit.png')
-        # f.savefig(figure_path + 'E_Final_control_gamma_logr_fit.png')
+        f.savefig(figure_path + sims[0] + '_' + modes[0]
+                  + '_gamma_logr_fit.png')
     else:
+        sims = ['Soft_B', 'CS1', 'CS4', 'CS5', 'CS6', 'DS1', 'Soft_D2', 'E']
         # plt.title('Radial density slope (%s)' % F, fontsize=30)
-        # plt.title('Radial density slope (Sim II: $\Delta$E, Soft_B final, $R_{limit}=10^4$, 20 bins)',fontsize=30)
-        # plt.title('Radial density slope (Sim II: $\Delta$E, CS4 final, $R_{limit}=10^4$, 20 bins)',fontsize=30)
-        # plt.title('Radial density slope (Sim II: $\Delta$E, CS5 final, $R_{limit}=10^4$, 20 bins)',fontsize=30)
-        # plt.title('Radial density slope (Sim II: $\Delta$E, CS6 final, $R_{limit}=10^4$, 20 bins)',fontsize=30)
-        # plt.title('Radial density slope (Sim II: $\Delta$E, DS1 final, $R_{limit}=10^4$, 20 bins)',fontsize=30)
-        # plt.title('Radial density slope (Sim II: $\Delta$E, Soft_D2 final, $R_{limit}=10^4$, 20 bins)',fontsize=30)
-        # plt.title('Radial density slope (Sim II: $\Delta$E, E final, $R_{limit}=10^4$, 20 bins)',fontsize=30)
+        # plt.title(r'Radial density slope (Sim II: $\Delta$E,' + sims[0]
+        #           + r'final, $R_{limit}=10^4$, 20 bins)', fontsize=30)
+        # plt.title(r'Radial density slope (Sim II: $\Delta$E,' + sims[0]
+        #           + r'final, $R_{limit}=50$, 50 bins)', fontsize=30)
+        snaps = ['IC', '2_005', '4_005', '6_005', '8_005', '10_005',
+                 'final', 'control final']
+        # plt.title(r'Radial density slope (Sim II: $\Delta$E, B ' + snaps[0]
+        #           + r', $R_{limit}=32$, 50 bins)', fontsize=30)
+        CS4_snaps = ['IC', '2_005', '4_005', '6_005', '8_005', '10_005',
+                     '40_021', 'control final']
+        # plt.title(r'Radial density slope (Sim II: $\Delta$E, CS4 '
+        #           + CS4_snaps[0] + r', $R_{limit}=32$, 20 bins)',
+        #           fontsize=30)
+        # plt.title(r'Radial density slope (Sim II: $\Delta$E, CS5 '
+        #           + snaps[0] + r', $R_{limit}=32$, 20 bins)', fontsize=30)
+        # plt.title(r'Radial density slope (Sim II: $\Delta$E, CS6 '
+        #           + snaps[0] + r', $R_{limit}=32$, 20 bins)', fontsize=30)
+        # plt.title(r'Radial density slope (Sim II: $\Delta$E, DS1 '
+        #           + snaps[0] + r', $R_{limit}=32$, 20 bins)', fontsize=30)
+        # plt.title(r'Radial density slope (Sim II: $\Delta$E, D2 '
+        #           + snaps[0] + r', $R_{limit}=32$, 20 bins)', fontsize=30)
+        # plt.title(r'Radial density slope (Sim II: $\Delta$E, E '
+        #           + snaps[0] + r', $R_{limit}=32$, 50 bins)', fontsize=30)
+        # plt.title(r'Radial density slope (Sim II: $\Delta$E, ' + sims[0]
+        #           + r' final, $R_{limit}=10$, 20 bins)', fontsize=30)
 
-        # plt.title('Radial density slope (Sim II: $\Delta$E, Soft_B final, $R_{limit}=50$, 50 bins)',fontsize=30)
-        # plt.title('Radial density slope (Sim II: $\Delta$E, CS4 final, $R_{limit}=50$, 50 bins)',fontsize=30)
-        # plt.title('Radial density slope (Sim II: $\Delta$E, CS5 final, $R_{limit}=50$, 50 bins)',fontsize=30)
-        # plt.title('Radial density slope (Sim II: $\Delta$E, CS6 final, $R_{limit}=50$, 50 bins)',fontsize=30)
-        # plt.title('Radial density slope (Sim II: $\Delta$E, DS1 final, $R_{limit}=50$, 50 bins)',fontsize=30)
-        # plt.title('Radial density slope (Sim II: $\Delta$E, Soft_D2 final, $R_{limit}=50$, 50 bins)',fontsize=30)
-        # plt.title('Radial density slope (Sim II: $\Delta$E, E final, $R_{limit}=50$, 50 bins)',fontsize=30)
+        ext_1 = '_gamma_logr_II_R10_000.png'
+        ext_2 = '_gamma_logr_II_R50.png'
+        ext_3 = '_gamma_logr_II_R32.png'
+        ext_4 = '_gamma_logr_II_R10.png'
 
-        # plt.title('Radial density slope (Sim II: $\Delta$E, B IC, $R_{limit}=32$, 50 bins)', fontsize=30)
-        # plt.title('Radial density slope (Sim II: $\Delta$E, B 2_005, $R_{limit}=32$, 50 bins)',fontsize=30)
-        # plt.title('Radial density slope (Sim II: $\Delta$E, B 4_005, $R_{limit}=32$, 50 bins)',fontsize=30)
-        # plt.title('Radial density slope (Sim II: $\Delta$E, B 6_005, $R_{limit}=32$, 50 bins)',fontsize=30)
-        # plt.title('Radial density slope (Sim II: $\Delta$E, B 8_005, $R_{limit}=32$, 50 bins)',fontsize=30)
-        # plt.title('Radial density slope (Sim II: $\Delta$E, B 10_005, $R_{limit}=32$, 50 bins)',fontsize=30)
-        # plt.title('Radial density slope (Sim II: $\Delta$E, B final, $R_{limit}=32$, 50 bins)',fontsize=30)
-        # plt.title('Radial density slope (Sim II: $\Delta$E, B control final, $R_{limit}=32$, 50 bins)',fontsize=30)
+        Soft_B_modes = ['IC', 'Final', 'IC_control', 'control',
+                        'Final_control']
 
-        # plt.title('Radial density slope (Sim II: $\Delta$E, CS4 IC, $R_{limit}=32$, 20 bins)',fontsize=30)
-        # plt.title('Radial density slope (Sim II: $\Delta$E, CS4 2_005, $R_{limit}=32$, 20 bins)',fontsize=30)
-        # plt.title('Radial density slope (Sim II: $\Delta$E, CS4 4_005, $R_{limit}=32$, 20 bins)',fontsize=30)
-        # plt.title('Radial density slope (Sim II: $\Delta$E, CS4 6_005, $R_{limit}=32$, 20 bins)',fontsize=30)
-        # plt.title('Radial density slope (Sim II: $\Delta$E, CS4 8_005, $R_{limit}=32$, 20 bins)',fontsize=30)
-        # plt.title('Radial density slope (Sim II: $\Delta$E, CS4 10_005, $R_{limit}=32$, 20 bins)',fontsize=30)
-        # plt.title('Radial density slope (Sim IIc, CS4 40_021, $R_{limit}=32$, 20 bins)',fontsize=30)
-        # plt.title('Radial density slope (Sim II: $\Delta$E, CS4 control final, $R_{limit}=32$, 20 bins)',fontsize=30)
-
-        # plt.title('Radial density slope (Sim II: $\Delta$E, CS5 IC, $R_{limit}=32$, 20 bins)',fontsize=30)
-        # plt.title('Radial density slope (Sim II: $\Delta$E, CS5 2_005, $R_{limit}=32$, 20 bins)',fontsize=30)
-        # plt.title('Radial density slope (Sim II: $\Delta$E, CS5 4_005, $R_{limit}=32$, 20 bins)',fontsize=30)
-        # plt.title('Radial density slope (Sim II: $\Delta$E, CS5 6_005, $R_{limit}=32$, 20 bins)',fontsize=30)
-        # plt.title('Radial density slope (Sim II: $\Delta$E, CS5 8_005, $R_{limit}=32$, 20 bins)', fontsize=30)
-        # plt.title('Radial density slope (Sim II: $\Delta$E, CS5 10_005, $R_{limit}=32$, 20 bins)', fontsize=30)
-        # plt.title('Radial density slope (Sim II: $\Delta$E, CS5 final, $R_{limit}=32$, 20 bins)', fontsize=30)
-        # plt.title('Radial density slope (Sim II: $\Delta$E, CS5 control final, $R_{limit}=32$, 20 bins)',fontsize=30)
-
-        # plt.title('Radial density slope (Sim II: $\Delta$E, CS6 IC, $R_{limit}=32$, 20 bins)',fontsize=30)
-        # plt.title('Radial density slope (Sim II: $\Delta$E, CS6 2_005, $R_{limit}=32$, 20 bins)',fontsize=30)
-        # plt.title('Radial density slope (Sim II: $\Delta$E, CS6 4_005, $R_{limit}=32$, 20 bins)',fontsize=30)
-        # plt.title('Radial density slope (Sim II: $\Delta$E, CS6 6_005, $R_{limit}=32$, 20 bins)',fontsize=30)
-        # plt.title('Radial density slope (Sim II: $\Delta$E, CS6 8_005, $R_{limit}=32$, 20 bins)',fontsize=30)
-        # plt.title('Radial density slope (Sim II: $\Delta$E, CS6 10_005, $R_{limit}=32$, 20 bins)',fontsize=30)
-        # plt.title('Radial density slope (Sim II: $\Delta$E, CS6 final, $R_{limit}=32$, 20 bins)',fontsize=30)
-        # plt.title('Radial density slope (Sim II: $\Delta$E, CS6 control final, $R_{limit}=32$, 20 bins)',fontsize=30)
-
-        # plt.title('Radial density slope (Sim II: $\Delta$E, DS1 IC, $R_{limit}=32$, 20 bins)',fontsize=30)
-        # plt.title('Radial density slope (Sim II: $\Delta$E, DS1 2_005, $R_{limit}=32$, 20 bins)',fontsize=30)
-        # plt.title('Radial density slope (Sim II: $\Delta$E, DS1 4_005, $R_{limit}=32$, 20 bins)',fontsize=30)
-        # plt.title('Radial density slope (Sim II: $\Delta$E, DS1 6_005, $R_{limit}=32$, 20 bins)',fontsize=30)
-        # plt.title('Radial density slope (Sim II: $\Delta$E, DS1 8_005, $R_{limit}=32$, 20 bins)',fontsize=30)
-        # plt.title('Radial density slope (Sim II: $\Delta$E, DS1 10_005, $R_{limit}=32$, 20 bins)',fontsize=30)
-        # plt.title('Radial density slope (Sim II: $\Delta$E, DS1 final, $R_{limit}=32$, 20 bins)',fontsize=30)
-        # plt.title('Radial density slope (Sim II: $\Delta$E, DS1 control final, $R_{limit}=32$, 20 bins)',fontsize=30)
-
-        # plt.title('Radial density slope (Sim II: $\Delta$E, D2 IC, $R_{limit}=32$, 20 bins)',fontsize=30)
-        # plt.title('Radial density slope (Sim II: $\Delta$E, D2 2_005, $R_{limit}=32$, 20 bins)',fontsize=30)
-        # plt.title('Radial density slope (Sim II: $\Delta$E, D2 4_005, $R_{limit}=32$, 20 bins)',fontsize=30)
-        # plt.title('Radial density slope (Sim II: $\Delta$E, D2 6_005, $R_{limit}=32$, 20 bins)',fontsize=30)
-        # plt.title('Radial density slope (Sim II: $\Delta$E, D2 8_005, $R_{limit}=32$, 20 bins)',fontsize=30)
-        # plt.title('Radial density slope (Sim II: $\Delta$E, D2 10_005, $R_{limit}=32$, 20 bins)',fontsize=30)
-        # plt.title('Radial density slope (Sim II: $\Delta$E, D2 final, $R_{limit}=32$, 20 bins)',fontsize=30)
-        # plt.title('Radial density slope (Sim II: $\Delta$E, D2 control final, $R_{limit}=32$, 20 bins)',fontsize=30)
-
-        # plt.title('Radial density slope (Sim II: $\Delta$E, E IC, $R_{limit}=32$, 50 bins)',fontsize=30)
-        # plt.title('Radial density slope (Sim II: $\Delta$E, E 2_005, $R_{limit}=32$, 50 bins)',fontsize=30)
-        # plt.title('Radial density slope (Sim II: $\Delta$E, E 4_005, $R_{limit}=32$, 50 bins)',fontsize=30)
-        # plt.title('Radial density slope (Sim II: $\Delta$E, E 6_005, $R_{limit}=32$, 50 bins)',fontsize=30)
-        # plt.title('Radial density slope (Sim II: $\Delta$E, E 8_005, $R_{limit}=32$, 50 bins)',fontsize=30)
-        # plt.title('Radial density slope (Sim II: $\Delta$E, E 10_005, $R_{limit}=32$, 50 bins)',fontsize=30)
-        # plt.title('Radial density slope (Sim II: $\Delta$E, E final, $R_{limit}=32$, 50 bins)',fontsize=30)
-        # plt.title('Radial density slope (Sim II: $\Delta$E, E control final, $R_{limit}=32$, 50 bins)',fontsize=30)
-
-        # plt.title('Radial density slope (Sim II: $\Delta$E, Soft_B final, $R_{limit}=10$, 20 bins)',fontsize=30)
-        # plt.title('Radial density slope (Sim II: $\Delta$E, CS4 final, $R_{limit}=10$, 20 bins)',fontsize=30)
-        # plt.title('Radial density slope (Sim II: $\Delta$E, CS5 final, $R_{limit}=10$, 20 bins)',fontsize=30)
-        # plt.title('Radial density slope (Sim II: $\Delta$E, CS6 final, $R_{limit}=10$, 20 bins)',fontsize=30)
-        # plt.title('Radial density slope (Sim II: $\Delta$E, DS1 final, $R_{limit}=10$, 20 bins)',fontsize=30)
-        # plt.title('Radial density slope (Sim II: $\Delta$E, Soft_D2 final, $R_{limit}=10$, 20 bins)',fontsize=30)
-        # plt.title('Radial density slope (Sim II: $\Delta$E, E final, $R_{limit}=10$, 20 bins)',fontsize=30)
-
-        # f.savefig(figure_path + 'Soft_B_IC_gamma_logr_II_R10000.png')
-        # f.savefig(figure_path + 'Soft_B_Final_gamma_logr_II_R10000.png')
-        # f.savefig(figure_path + 'Soft_B_IC_control_gamma_logr_II_R10000.png')
-        # f.savefig(figure_path + 'Soft_B_control_gamma_logr_II_R10000.png')
-        # f.savefig(figure_path + 'Soft_B_Final_control_gamma_logr_II_R10000.png')
-        # f.savefig(figure_path + 'CS1_IC_gamma_logr_II_R10000.png')
-        # f.savefig(figure_path + 'CS1_Final_gamma_logr_II_R10000.png')
-        # f.savefig(figure_path + 'CS1_Final_control_gamma_logr_II_R10000.png')
-        # f.savefig(figure_path + 'CS4_IC_gamma_logr_II_R10000.png')
-        # f.savefig(figure_path + 'CS4_Final_gamma_logr_II_R10000.png')
-        # f.savefig(figure_path + 'CS4_Final_control_gamma_logr_II_R10000.png')
-        # f.savefig(figure_path + 'CS5_IC_gamma_logr_II_R10000.png')
-        # f.savefig(figure_path + 'CS5_Final_gamma_logr_II_R10000.png')
-        # f.savefig(figure_path + 'CS5_Final_control_gamma_logr_II_R10000.png')
-        # f.savefig(figure_path + 'CS6_IC_gamma_logr_II_R10000.png')
-        # f.savefig(figure_path + 'CS6_Final_gamma_logr_II_R10000.png')
-        # f.savefig(figure_path + 'CS6_Final_control_gamma_logr_II_R10000.png')
-        # f.savefig(figure_path + 'DS1_IC_gamma_logr_II_R10000.png')
-        # f.savefig(figure_path + 'DS1_Final_gamma_logr_II_R10000.png')
-        # f.savefig(figure_path + 'DS1_Final_control_gamma_logr_II_R10000.png')
-        # f.savefig(figure_path + 'Soft_D2_IC_gamma_logr_II_R10000.png')
-        # f.savefig(figure_path + 'Soft_D2_Final_gamma_logr_II_R10000.png')
-        # f.savefig(figure_path + 'Soft_D2_Final_control_gamma_logr_II_R10000.png')
-        # f.savefig(figure_path + 'E_IC_gamma_logr_II_R10000.png')
-        # f.savefig(figure_path + 'E_Final_gamma_logr_II_R10000.png')
-        # f.savefig(figure_path + 'E_Final_control_gamma_logr_II_R10000.png')
-
-        # f.savefig(figure_path + 'Soft_B_IC_gamma_logr_II_R50.png')
-        # f.savefig(figure_path + 'Soft_B_Final_gamma_logr_II_R50.png')
-        # f.savefig(figure_path + 'Soft_B_IC_control_gamma_logr_II_R50.png')
-        # f.savefig(figure_path + 'Soft_B_control_gamma_logr_II_R50.png')
-        # f.savefig(figure_path + 'Soft_B_Final_control_gamma_logr_II_R50.png')
-        # f.savefig(figure_path + 'CS1_IC_gamma_logr_II_R50.png')
-        # f.savefig(figure_path + 'CS1_Final_gamma_logr_II_R50.png')
-        # f.savefig(figure_path + 'CS1_Final_control_gamma_logr_II_R50.png')
-        # f.savefig(figure_path + 'CS4_IC_gamma_logr_II_R50.png')
-        # f.savefig(figure_path + 'CS4_Final_gamma_logr_II_R50.png')
-        # f.savefig(figure_path + 'CS4_Final_control_gamma_logr_II_R50.png')
-        # f.savefig(figure_path + 'CS5_IC_gamma_logr_II_R50.png')
-        # f.savefig(figure_path + 'CS5_Final_gamma_logr_II_R50.png')
-        # f.savefig(figure_path + 'CS5_Final_control_gamma_logr_II_R50.png')
-        # f.savefig(figure_path + 'CS6_IC_gamma_logr_II_R50.png')
-        # f.savefig(figure_path + 'CS6_Final_gamma_logr_II_R50.png')
-        # f.savefig(figure_path + 'CS6_Final_control_gamma_logr_II_R50.png')
-        # f.savefig(figure_path + 'DS1_IC_gamma_logr_II_R50.png')
-        # f.savefig(figure_path + 'DS1_Final_gamma_logr_II_R50.png')
-        # f.savefig(figure_path + 'DS1_Final_control_gamma_logr_II_R50.png')
-        # f.savefig(figure_path + 'Soft_D2_IC_gamma_logr_II_R50.png')
-        # f.savefig(figure_path + 'Soft_D2_Final_gamma_logr_II_R50.png')
-        # f.savefig(figure_path + 'Soft_D2_Final_control_gamma_logr_II_R50.png')
-        # f.savefig(figure_path + 'E_IC_gamma_logr_II_R50.png')
-        # f.savefig(figure_path + 'E_Final_gamma_logr_II_R50.png')
-        # f.savefig(figure_path + 'E_Final_control_gamma_logr_II_R50.png')
-
-        # f.savefig(figure_path + 'Soft_B_IC_gamma_logr_II_R32.png')
-        # f.savefig(figure_path + 'Soft_B_Final_gamma_logr_II_R32.png')
-        # f.savefig(figure_path + 'Soft_B_IC_control_gamma_logr_II_R32.png')
-        # f.savefig(figure_path + 'Soft_B_control_gamma_logr_II_R32.png')
-        # f.savefig(figure_path + 'Soft_B_Final_control_gamma_logr_II_R32.png')
-        # f.savefig(figure_path + 'CS1_IC_gamma_logr_II_R32.png')
-        # f.savefig(figure_path + 'CS1_Final_gamma_logr_II_R32.png')
-        # f.savefig(figure_path + 'CS1_Final_control_gamma_logr_II_R32.png')
-
-        # f.savefig(figure_path + 'CS4_IC_gamma_logr_II_R32.png')
-        # f.savefig(figure_path + 'CS4_2_gamma_logr_II_R32.png')
-        # f.savefig(figure_path + 'CS4_4_gamma_logr_II_R32.png')
-        # f.savefig(figure_path + 'CS4_6_gamma_logr_II_R32.png')
-        # f.savefig(figure_path + 'CS4_8_gamma_logr_II_R32.png')
-        # f.savefig(figure_path + 'CS4_10_gamma_logr_II_R32.png')
-        # f.savefig(figure_path + 'CS4_40_gamma_logr_IIc_R32.png')
-        # f.savefig(figure_path + 'CS4_Final_control_gamma_logr_II_R32.png')
-
-        # f.savefig(figure_path + 'CS5_IC_gamma_logr_II_R32.png')
-        # f.savefig(figure_path + 'CS5_2_gamma_logr_II_R32.png')
-        # f.savefig(figure_path + 'CS5_4_gamma_logr_II_R32.png')
-        # f.savefig(figure_path + 'CS5_6_gamma_logr_II_R32.png')
-        # f.savefig(figure_path + 'CS5_8_gamma_logr_II_R32.png')
-        # f.savefig(figure_path + 'CS5_10_gamma_logr_II_R32.png')
-        # f.savefig(figure_path + 'CS5_Final_gamma_logr_II_R32.png')
-        # f.savefig(figure_path + 'CS5_Final_control_gamma_logr_II_R32.png')
-
-        # f.savefig(figure_path + 'CS6_IC_gamma_logr_II_R32.png')
-        # f.savefig(figure_path + 'CS6_2_gamma_logr_II_R32.png')
-        # f.savefig(figure_path + 'CS6_4_gamma_logr_II_R32.png')
-        # f.savefig(figure_path + 'CS6_6_gamma_logr_II_R32.png')
-        # f.savefig(figure_path + 'CS6_8_gamma_logr_II_R32.png')
-        # f.savefig(figure_path + 'CS6_10_gamma_logr_II_R32.png')
-        # f.savefig(figure_path + 'CS6_Final_gamma_logr_II_R32.png')
-        # f.savefig(figure_path + 'CS6_Final_control_gamma_logr_II_R32.png')
-
-        # f.savefig(figure_path + 'DS1_IC_gamma_logr_II_R32.png')
-        # f.savefig(figure_path + 'DS1_2_gamma_logr_II_R32.png')
-        # f.savefig(figure_path + 'DS1_4_gamma_logr_II_R32.png')
-        # f.savefig(figure_path + 'DS1_6_gamma_logr_II_R32.png')
-        # f.savefig(figure_path + 'DS1_8_gamma_logr_II_R32.png')
-        # f.savefig(figure_path + 'DS1_10_gamma_logr_II_R32.png')
-        # f.savefig(figure_path + 'DS1_Final_gamma_logr_II_R32.png')
-        # f.savefig(figure_path + 'DS1_Final_control_gamma_logr_II_R32.png')
-
-        # f.savefig(figure_path + 'Soft_D2_IC_gamma_logr_II_R32.png')
-        # f.savefig(figure_path + 'Soft_D2_2_gamma_logr_II_R32.png')
-        # f.savefig(figure_path + 'Soft_D2_4_gamma_logr_II_R32.png')
-        # f.savefig(figure_path + 'Soft_D2_6_gamma_logr_II_R32.png')
-        # f.savefig(figure_path + 'Soft_D2_8_gamma_logr_II_R32.png')
-        # f.savefig(figure_path + 'Soft_D2_10_gamma_logr_II_R32.png')
-        # f.savefig(figure_path + 'Soft_D2_Final_gamma_logr_II_R32.png')
-        # f.savefig(figure_path + 'Soft_D2_Final_control_gamma_logr_II_R32.png')
-
-        # f.savefig(figure_path + 'E_IC_gamma_logr_II_R32.png')
-        # f.savefig(figure_path + 'E_2_gamma_logr_II_R32.png')
-        # f.savefig(figure_path + 'E_4_gamma_logr_II_R32.png')
-        # f.savefig(figure_path + 'E_6_gamma_logr_II_R32.png')
-        # f.savefig(figure_path + 'E_8_gamma_logr_II_R32.png')
-        # f.savefig(figure_path + 'E_10_gamma_logr_II_R32.png')
-        # f.savefig(figure_path + 'E_Final_gamma_logr_II_R32.png')
-        # f.savefig(figure_path + 'E_Final_control_gamma_logr_II_R32.png')
-
-        # f.savefig(figure_path + 'Soft_B_IC_gamma_logr_II_R10.png')
-        # f.savefig(figure_path + 'Soft_B_Final_gamma_logr_II_R10.png')
-        # f.savefig(figure_path + 'Soft_B_IC_control_gamma_logr_II_R10.png')
-        # f.savefig(figure_path + 'Soft_B_control_gamma_logr_II_R10.png')
-        # f.savefig(figure_path + 'Soft_B_Final_control_gamma_logr_II_R10.png')
-        # f.savefig(figure_path + 'CS1_IC_gamma_logr_II_R10.png')
-        # f.savefig(figure_path + 'CS1_Final_gamma_logr_II_R10.png')
-        # f.savefig(figure_path + 'CS1_Final_control_gamma_logr_II_R10.png')
-        # f.savefig(figure_path + 'CS4_IC_gamma_logr_II_R10.png')
-        # f.savefig(figure_path + 'CS4_Final_gamma_logr_II_R10.png')
-        # f.savefig(figure_path + 'CS4_Final_control_gamma_logr_II_R10.png')
-        # f.savefig(figure_path + 'CS5_IC_gamma_logr_II_R10.png')
-        # f.savefig(figure_path + 'CS5_Final_gamma_logr_II_R10.png')
-        # f.savefig(figure_path + 'CS5_Final_control_gamma_logr_II_R10.png')
-        # f.savefig(figure_path + 'CS6_IC_gamma_logr_II_R10.png')
-        # f.savefig(figure_path + 'CS6_Final_gamma_logr_II_R10.png')
-        # f.savefig(figure_path + 'CS6_Final_control_gamma_logr_II_R10.png')
-        # f.savefig(figure_path + 'DS1_IC_gamma_logr_II_R10.png')
-        # f.savefig(figure_path + 'DS1_Final_gamma_logr_II_R10.png')
-        # f.savefig(figure_path + 'DS1_Final_control_gamma_logr_II_R10.png')
-        # f.savefig(figure_path + 'Soft_D2_IC_gamma_logr_II_R10.png')
-        # f.savefig(figure_path + 'Soft_D2_Final_gamma_logr_II_R10.png')
-        # f.savefig(figure_path + 'Soft_D2_Final_control_gamma_logr_II_R10.png')
-        # f.savefig(figure_path + 'E_IC_gamma_logr_II_R10.png')
-        # f.savefig(figure_path + 'E_Final_gamma_logr_II_R10.png')
-        # f.savefig(figure_path + 'E_Final_control_gamma_logr_II_R10.png')
+        # f.savefig(figure_path + 'Soft_B_' + Soft_B_modes[0] + ext_1)
+        # f.savefig(figure_path + sims[1] + '_' + modes[0]+ ext_1)
+        # f.savefig(figure_path + 'Soft_B_' + Soft_B_modes[0] + ext_2)
+        # f.savefig(figure_path + sims[1] + '_' + modes[0]+ ext_2)
+        # f.savefig(figure_path + 'Soft_B_' + Soft_B_modes[0] + ext_3)
+        # f.savefig(figure_path + sims[1] + '_' + modes[0]+ ext_3)
+        CS4_snaps_2 = ['2', '4', '6', '8', '10', '40']
+        # f.savefig(figure_path + 'CS4_' + modes[0] + ext_3)
+        # f.savefig(figure_path + 'CS4_' + CS4_snaps_2[0] + ext_3)
+        snaps_2 = ['2', '4', '6', '8', '10']
+        # f.savefig(figure_path + 'CS5_' + modes[0] + ext_3)
+        # f.savefig(figure_path + 'CS5_' + snaps_2[0] + ext_3)
+        # f.savefig(figure_path + 'CS6_' + modes[0] + ext_3)
+        # f.savefig(figure_path + 'CS6_' + snaps_2[0] + ext_3)
+        # f.savefig(figure_path + 'DS1_' + modes[0] + ext_3)
+        # f.savefig(figure_path + 'DS1_' + snaps_2[0] + ext_3)
+        # f.savefig(figure_path + 'Soft_D2_' + modes[0] + ext_3)
+        # f.savefig(figure_path + 'Soft_D2_' + snaps_2[0] + ext_3)
+        # f.savefig(figure_path + 'E_' + modes[0] + ext_3)
+        # f.savefig(figure_path + 'E_' + snaps_2[0] + ext_3)
+        # f.savefig(figure_path + 'Soft_B_' + Soft_B_modes[0] + ext_4)
+        # f.savefig(figure_path + sims[1] + '_' + modes[0] + ext_4)
 
 if Fig7_betagamma:
     f, (ax1, ax2) = plt.subplots(2, 1)
@@ -809,10 +604,8 @@ if Fig7_betagamma:
     ax2.title(r'$\kappa$ vs $\beta$', fontsize=20)
     ax2.plot(beta_arr, kappa_arr, 'k-o', ms=2, mew=0)
     ax2.grid()
-
     sims = ['B', 'CS1', 'CS4', 'CS5', 'CS6', 'DS1', 'D2', 'E']
-
-    f.savefig(figure_path + sims[-1] + '_betagamma.png')
+    f.savefig(figure_path + sims[0] + '_betagamma.png')
 
 if save_lnr_beta_gamma_kappa_VR_r_sigma_r_r2_rho:
     logr_arr = np.array(np.log10(bin_radius_arr))
@@ -832,10 +625,11 @@ if save_lnr_beta_gamma_kappa_VR_r_sigma_r_r2_rho:
 
     if Gamma == -2.0:
         r_r2_arr = r_arr / r_2
-        # print('r_r2_arr = ', r_r2_arr)
+        # print(f'{r_r2_arr= }')
         rho_arr = rho_arr[GoodIDs]
         x = np.array((logr_arr, beta_arr, gamma_arr, kappa_arr,
-                      VR_i_avg_in_bin_arr, r_arr, sigmarad2_arr, r_r2_arr, rho_arr))
+                      VR_i_avg_in_bin_arr, r_arr, sigmarad2_arr, r_r2_arr,
+                      rho_arr))
         x = x.transpose()
         out_name = text_files_path + F + '.txt'
         np.savetxt(out_name, x, delimiter=' ',
@@ -848,6 +642,6 @@ if save_lnr_beta_gamma_kappa_VR_r_sigma_r_r2_rho:
         out_name = text_files_path + F + '.txt'
         np.savetxt(out_name, x, delimiter=' ',
                    header='\t logr \t beta \t gamma \t kappa \t VR_avg \t r \t sigmarad2 \t rho')
-        # print('out_name = ', out_name)
+        # print(f'{out_name= }')
 
 plt.show()
