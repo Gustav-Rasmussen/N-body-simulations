@@ -77,11 +77,17 @@ def bin_halo_radially():
            Theta_arr, VR_arr, VTheta_arr, VPhi_arr, VR_i_avg_arr)
 
 
+# Mock data
+x = [[], []]
+nr_par_bin = 500
+
+
+# Energy exchange perturbations
 def bin_halo_by_mass():
     '''Divide structure into mass-bins. Favoured over radial bins,
     as outer region of structure has less particles.'''
     N_total = x.shape[0]
-    N_particles_per_bin = 500
+    N_particles_per_bin = nr_par_bin
     N_bins = N_total / N_particles_per_bin
 
     (bin_radius_arr, x_GoodIDs_arr, y_GoodIDs_arr, z_GoodIDs_arr,

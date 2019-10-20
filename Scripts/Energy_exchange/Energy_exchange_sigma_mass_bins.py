@@ -18,9 +18,9 @@ from scipy.stats import norm
 import seaborn as sns
 
 # Local application imports
-from Attractor.Sigma_calc_OOP import get_volume_slice, vr_cartesian,
-vr_spherical, theta_velocity,
-phi_velocity, chi_2, beta, gamma, kappa
+from Attractor.Sigma_calc_OOP import (get_volume_slice, vr_cartesian,
+                                      vr_spherical, theta_velocity,
+                                      phi_velocity, chi_2, beta, gamma, kappa)
 
 User_path = Path.cwd()
 Desktop_path = User_path + 'Desktop/'
@@ -147,15 +147,20 @@ R_IDs = R[IDs]
 V_IDs = V[IDs]
 
 N_total = x.shape[0]
+N_bins = N_total / N_particles_per_bin
 
-if CS1 or CS2 or CS3:
-    nr_par_bin = 500  # Number of particles per bin.
-elif CS4 or CS5 or CS6 or DS1 or D2:
-    nr_par_bin = 5_000
-elif B or E:
-    nr_par_bin = 50_000
 
-N_bins = N_total / nr_par_bin
+def nr_par_bin_filter():
+    if CS1 or CS2 or CS3:
+        nr_par_bin = 500  # Number of particles per bin.
+    elif CS4 or CS5 or CS6 or DS1 or D2:
+        nr_par_bin = 5_000
+    elif B or E:
+        nr_par_bin = 50_000
+    return nr_par_bin
+
+
+nr_par_bin = nr_par_bin_filter()
 
 (sigma2_arr, sigmarad2_arr, sigmatheta2_arr, sigmaphi2_arr,
  sigmatan2_arr, v2_arr, gamma_arr, kappa_arr, beta_arr,
