@@ -4,33 +4,63 @@ import h5py
 import definePaths as dp
 import numpy as np
 import radius_and_velocity_funcs as ravf
+import dataclasses
+from typing import IO
 
-Filename = dp.desktopPath / 'RunGadget/G_HQ_1000000_test/output/\
-           HQ10000_G0.8_2_000.hdf5'
-SnapshotFile = h5py.File(Filename, 'r')
 
-Pos = SnapshotFile['PartType1/Coordinates'].value
-Vel = SnapshotFile['PartType1/Velocities'].value
-V = SnapshotFile['PartType1/Potential'].value
+@dataclasses
+Class LoadHalo:
+    Filename: IO = dp.desktopPath / 'RunGadget/G_HQ_1000000_test/output/\
+               HQ10000_G0.8_2_000.hdf5'
 
-x = Pos[:, 0]
-y = Pos[:, 1]
-z = Pos[:, 2]
-vx = Vel[:, 0]
-vy = Vel[:, 1]
-vz = Vel[:, 2]
+    def read_hdf5(self):
+        SnapshotFile = h5py.File(Filename, 'r')
+        return SnapshotFile
 
-# Finds the particle with the lowest potential
-# (which is in the center of the largest cluster)
-minV = np.argmin(V)
+    def get_positions(self):
+        Pos = SnapshotFile['PartType1/Coordinates'].value
+        return Pos
 
-# Changes x, y and z so that the cluster is centered
-xC = x[minV]
-yC = y[minV]
-zC = z[minV]
-vxC = vx[minV]
-vyC = vy[minV]
-vzC = vz[minV]
+    def get_velocities(self):
+        Vel = SnapshotFile['PartType1/Velocities'].value
+        return Vel
+
+    def get_potential(self):
+        V = SnapshotFile['PartType1/Potential'].value
+        return V
+
+    def cartesian_positions(self):
+        x = Pos[:, 0]
+        y = Pos[:, 1]
+        z = Pos[:, 2]
+        return x, y, z
+
+    def cartesian_velocities(self):
+        vx = Vel[:, 0]
+        vy = Vel[:, 1]
+        vz = Vel[:, 2]
+        return vx, vy, vz
+
+    def center_of_largest_cluster(self):
+        """Finds the particle with the lowest potential
+        which is in the center of the largest cluster."""
+        minV = np.argmin(V)
+        return minV
+
+    def centralized_coords(self):
+        """Changes x, y and z so that the cluster is centered."""
+        xC = x[minV]
+        yC = y[minV]
+        zC = z[minV]
+        return xC, yC, zC
+
+    def centralized_velocities(self):
+        """Changes vx, vy and vz so that the velocities are centered."""
+        vxC = vx[minV]
+        vyC = vy[minV]
+        vzC = vz[minV]
+        return vxC, vyC, vzC
+
 
 R_xyz = ravf.modulus(x, y, z)
 R = ravf.modulus(x - xC, y - yC, z - zC)
@@ -59,21 +89,6 @@ Rvector = np.array([xcl, ycl, zcl])  # positions
 v_vector = np.array([vxnew, vynew, vznew])  # velocities
 Vcl = V[GoodIDs_1]
 Rcl = R[GoodIDs_1]
-
-'''
-x = x[GoodIDs_1]
-y = y[GoodIDs_1]
-z = z[GoodIDs_1]
-x = x - np.median(x)
-y = y - np.median(y)
-z = z - np.median(z)
-vx = vx[GoodIDs_1]
-vy = vy[GoodIDs_1]
-vz = vz[GoodIDs_1]
-vx = vx - np.median(vx)
-vy = vy - np.median(vy)
-vz = vz - np.median(vz)
-'''
 
 # Now slice the cluster into a rectangular shape still 1000 kpc wide,
 # but only 100 kpc tall
