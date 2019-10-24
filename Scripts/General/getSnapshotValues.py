@@ -1,78 +1,84 @@
 # -*- coding: utf-8 -*-
 
-import h5py
-import definePaths as dp
-import numpy as np
-import radius_and_velocity_funcs as ravf
 import dataclasses
+import h5py
+import numpy as np
 from typing import IO
+
+import definePaths as dp
+import radius_and_velocity_funcs as ravf
 
 
 @dataclasses
-Class LoadHalo:
+class LoadHalo:
     Filename: IO = dp.desktopPath / 'RunGadget/G_HQ_1000000_test/output/\
                HQ10000_G0.8_2_000.hdf5'
+    V: np.ndarray # = SnapshotFile['PartType1/Potential'].value
+    x: np.ndarray # = Pos[:, 0]
+    y: np.ndarray # = Pos[:, 1]
+    z: np.ndarray # = Pos[:, 2]
+    vx: np.ndarray # = Vel[:, 0]
+    vy: np.ndarray # = Vel[:, 1]
+    vz: np.ndarray  # = Vel[:, 2]
+    ID_minV: float # = np.argmin(V)
 
-    def read_hdf5(self):
+    def __post_init__(self):
+        read_arepo_snapshot()
+        centralized_coords()
+        radial_cut()
+        centralized_velocities()
+
+    def read_arepo_snapshot(self, Filename):
         SnapshotFile = h5py.File(Filename, 'r')
-        return SnapshotFile
-
-    def get_positions(self):
         Pos = SnapshotFile['PartType1/Coordinates'].value
-        return Pos
-
-    def get_velocities(self):
         Vel = SnapshotFile['PartType1/Velocities'].value
-        return Vel
-
-    def get_potential(self):
         V = SnapshotFile['PartType1/Potential'].value
-        return V
-
-    def cartesian_positions(self):
         x = Pos[:, 0]
         y = Pos[:, 1]
         z = Pos[:, 2]
-        return x, y, z
-
-    def cartesian_velocities(self):
         vx = Vel[:, 0]
         vy = Vel[:, 1]
         vz = Vel[:, 2]
-        return vx, vy, vz
+        ID_minV = np.argmin(V)
+        SnapshotFile.close()
 
-    def center_of_largest_cluster(self):
-        """Finds the particle with the lowest potential
-        which is in the center of the largest cluster."""
-        minV = np.argmin(V)
-        return minV
+    def radial_cut(self, r_cut=100):
+        GoodIDs = np.where(x ** 2 + y ** 2 + z ** 2 < r_cut ** 2)
+        x = x[GoodIDs]
+        y = y[GoodIDs]
+        z = z[GoodIDs]
+        vx = vx[GoodIDs]
+        vy = vy[GoodIDs]
+        vz = vz[GoodIDs]
+        V = V[GoodIDs]
 
     def centralized_coords(self):
         """Changes x, y and z so that the cluster is centered."""
-        xC = x[minV]
-        yC = y[minV]
-        zC = z[minV]
-        return xC, yC, zC
+        x -= x[ID_minV]
+        y -= y[ID_minV]
+        z -= z[ID_minV]
 
     def centralized_velocities(self):
         """Changes vx, vy and vz so that the velocities are centered."""
-        vxC = vx[minV]
-        vyC = vy[minV]
-        vzC = vz[minV]
-        return vxC, vyC, vzC
+        vx -= np.medium(vx)
+        vy -= np.medium(vy)
+        vz -= np.medium(vz)
 
+halo = LoadHalo(Filename="")
+print(halo.centralized_coords())
 
+"""
 R_xyz = ravf.modulus(x, y, z)
 R = ravf.modulus(x - xC, y - yC, z - zC)
 
 R_limit_min = 400.
 R_limit_max = 500.
-R_limit = 100.
+# R_limit = 100.
 
 # Removes all particles that is far away from the cluster.
 GoodIDs_1 = np.where(R < R_limit_max)
 GoodIDs_2 = np.where(R < R_limit)
-GoodIDs_3 = np.where((R < R_limit_max) * (R > R_limit_min))
+# GoodIDs_3 = np.where((R < R_limit_max) * (R > R_limit_min))
 
 # Cluster
 xcl = x[GoodIDs_1]
@@ -81,9 +87,9 @@ zcl = z[GoodIDs_1]
 vxcl = vx[GoodIDs_1]
 vycl = vy[GoodIDs_1]
 vzcl = vz[GoodIDs_1]
-vxnew = vx[GoodIDs_1] - np.median(vxcl)
-vynew = vy[GoodIDs_1] - np.median(vycl)
-vznew = vz[GoodIDs_1] - np.median(vzcl)
+# vxnew = vx[GoodIDs_1] - np.median(vxcl)
+# vynew = vy[GoodIDs_1] - np.median(vycl)
+# vznew = vz[GoodIDs_1] - np.median(vzcl)
 R_hob_par = R[GoodIDs_1]
 Rvector = np.array([xcl, ycl, zcl])  # positions
 v_vector = np.array([vxnew, vynew, vznew])  # velocities
@@ -161,3 +167,4 @@ vz -= np.median(vz)
 min_binning_R_unitRmax = .00001  # end-value of first bin
 max_binning_R_unitRmax = 1.0  # end-value of last bin
 nr_binning_bins = 1000.0  # number of bins 1000.0
+"""
