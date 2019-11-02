@@ -1,26 +1,33 @@
 # -*- coding: utf-8 -*-
 
 import dataclasses
-import h5py
-import numpy as np
+# import h5py
+# import numpy as np
+from pathlib import Path
 from typing import IO
 
-import definePaths as dp
-import radius_and_velocity_funcs as ravf
+# import definePaths as dp
+# import radius_and_velocity_funcs as ravf
 
+data_folder = Path("Documents/Hdf5/")
 
+Filename: IO = data_folder / '0G00_IC_000.hdf5'
+
+a = 5
+print(f'{a=}')
+
+'''
 @dataclasses
 class LoadHalo:
-    Filename: IO = dp.desktopPath / 'RunGadget/G_HQ_1000000_test/output/\
-               HQ10000_G0.8_2_000.hdf5'
-    V: np.ndarray # = SnapshotFile['PartType1/Potential'].value
-    x: np.ndarray # = Pos[:, 0]
-    y: np.ndarray # = Pos[:, 1]
-    z: np.ndarray # = Pos[:, 2]
-    vx: np.ndarray # = Vel[:, 0]
-    vy: np.ndarray # = Vel[:, 1]
-    vz: np.ndarray  # = Vel[:, 2]
-    ID_minV: float # = np.argmin(V)
+    Filename: IO = data_folder / '0G00_IC_000.hdf5'
+    V: np.ndarray
+    x: np.ndarray
+    y: np.ndarray
+    z: np.ndarray
+    vx: np.ndarray
+    vy: np.ndarray
+    vz: np.ndarray
+    ID_minV: float
 
     def __post_init__(self):
         read_arepo_snapshot()
@@ -64,10 +71,10 @@ class LoadHalo:
         vy -= np.medium(vy)
         vz -= np.medium(vz)
 
-halo = LoadHalo(Filename="")
-print(halo.centralized_coords())
 
-"""
+# halo = LoadHalo(Filename="")
+# print(halo.centralized_coords())
+
 R_xyz = ravf.modulus(x, y, z)
 R = ravf.modulus(x - xC, y - yC, z - zC)
 
@@ -167,4 +174,4 @@ vz -= np.median(vz)
 min_binning_R_unitRmax = .00001  # end-value of first bin
 max_binning_R_unitRmax = 1.0  # end-value of last bin
 nr_binning_bins = 1000.0  # number of bins 1000.0
-"""
+'''
