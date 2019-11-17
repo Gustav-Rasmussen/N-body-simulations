@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-import dataclasses
-# import h5py
-# import numpy as np
+from dataclasses import dataclass
+import h5py
+import numpy as np
 from pathlib import Path
 from typing import IO
 
@@ -13,11 +13,8 @@ data_folder = Path("Documents/Hdf5/")
 
 Filename: IO = data_folder / '0G00_IC_000.hdf5'
 
-a = 5
-print(f'{a=}')
 
-'''
-@dataclasses
+@dataclass
 class LoadHalo:
     Filename: IO = data_folder / '0G00_IC_000.hdf5'
     V: np.ndarray
@@ -35,19 +32,22 @@ class LoadHalo:
         radial_cut()
         centralized_velocities()
 
-    def read_arepo_snapshot(self, Filename):
-        SnapshotFile = h5py.File(Filename, 'r')
-        Pos = SnapshotFile['PartType1/Coordinates'].value
-        Vel = SnapshotFile['PartType1/Velocities'].value
-        V = SnapshotFile['PartType1/Potential'].value
-        x = Pos[:, 0]
-        y = Pos[:, 1]
-        z = Pos[:, 2]
-        vx = Vel[:, 0]
-        vy = Vel[:, 1]
-        vz = Vel[:, 2]
+    def read_arepo_snapshot(self, filename):
+        try:
+            snapshotfile = h5py.File(filename, 'r')
+        except:
+            IOError
+        pos = snapshotfile['PartType1/Coordinates'].value
+        vel = snapshotfile['PartType1/Velocities'].value
+        V = snapshotfile['PartType1/Potential'].value
+        x = pos[:, 0]
+        y = pos[:, 1]
+        z = pos[:, 2]
+        vx = vel[:, 0]
+        vy = vel[:, 1]
+        vz = vel[:, 2]
         ID_minV = np.argmin(V)
-        SnapshotFile.close()
+        snapshotfile.close()
 
     def radial_cut(self, r_cut=100):
         GoodIDs = np.where(x ** 2 + y ** 2 + z ** 2 < r_cut ** 2)
@@ -75,6 +75,7 @@ class LoadHalo:
 # halo = LoadHalo(Filename="")
 # print(halo.centralized_coords())
 
+"""
 R_xyz = ravf.modulus(x, y, z)
 R = ravf.modulus(x - xC, y - yC, z - zC)
 
@@ -174,4 +175,4 @@ vz -= np.median(vz)
 min_binning_R_unitRmax = .00001  # end-value of first bin
 max_binning_R_unitRmax = 1.0  # end-value of last bin
 nr_binning_bins = 1000.0  # number of bins 1000.0
-'''
+"""

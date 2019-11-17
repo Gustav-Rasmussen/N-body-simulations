@@ -3,7 +3,7 @@ import numpy as np
 
 
 def bin_halo_radially():
-    '''Divide halo into radial bins.'''
+    """Divide halo into radial bins."""
     (sigma2_arr, sigmarad2_arr, sigmatheta2_arr, sigmaphi2_arr, sigmatan2_arr, v2_arr, gamma_arr, kappa_arr,
      beta_arr, density_arr, rho_arr, Volume_arr, r, Phi, Theta, VR,
      VTheta, VPhi, VR_i_avg_in_bin, bin_radius_arr) = ([] for i in range(20))
@@ -65,7 +65,7 @@ def bin_halo_radially():
         VTheta.append(VTheta_i)
         VPhi.append(VPhi_i)
 
-    # Change the nesessary lists into arrays
+    # Change the necessary lists into arrays
     sigma2_arr = np.array(sigma2_arr)
     sigmarad2_arr = np.array(sigmarad2_arr)
     bin_radius_arr = np.array(bin_radius_arr)
@@ -209,4 +209,3 @@ def bin_halo_by_mass():
             np.concatenate(np.asarray(vy_final_arr), axis=0),
             np.concatenate(np.asarray(vz_final_arr), axis=0),
             np.concatenate(np.asarray(M_GoodIDs_arr), axis=0))
-
