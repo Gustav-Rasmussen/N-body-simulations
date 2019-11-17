@@ -16,7 +16,6 @@ Filename: IO = data_folder / '0G00_IC_000.hdf5'
 
 @dataclass
 class LoadHalo:
-    Filename: IO = data_folder / '0G00_IC_000.hdf5'
     V: np.ndarray
     x: np.ndarray
     y: np.ndarray
@@ -25,6 +24,7 @@ class LoadHalo:
     vy: np.ndarray
     vz: np.ndarray
     ID_minV: float
+    Filename: IO = data_folder / '0G00_IC_000.hdf5'
 
     def __post_init__(self):
         read_arepo_snapshot()

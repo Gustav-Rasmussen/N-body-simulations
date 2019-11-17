@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 # Standard library imports ------------------------
+from collections import namedtuple
 import os
 from pprint import pprint as pp
 import time
@@ -27,38 +28,40 @@ import snapshotFiles
 import velocityCheck as vC
 import vSphericalAnd_vBins
 
-# HQ1000000_150311_000.hdf5
-# Gamma | logr
-# -1.5  | -.75
-# -2    | -.35
-# -2.5  | .0
+file_tuple = namedtuple('file_tuple',
+                        'filename, params'
+                        )
 
-# OM_150310_000.hdf5
-# Beta | logr
-# .0   | -1.0
-# .87  | .5
-# .07  | -.5
-# .4   | .0
-# 1.0  | 1.2
+HQ1000000_150311_000 = file_tuple('HQ1000000_150311_000.hdf5',
+                                  [{'Gamma': [-1.5, -2, -2.5],
+                                   'logr': [-.75, -.35, .0]
+                                   }
+                                   ]
+                                  )
 
-# Gamma | logr
-# -1.5  | -.7
-# -2    | -.28
-# -2.5  | .0
+OM_150310_000 = file_tuple('OM_150310_000.hdf5',
+                           [{'Beta': [.0, .87, .07, .4, 1.0],
+                            'logr': [-1.0, .5, -.5, .0, 1.2]
+                            },
+                            {'Gamma': [-1.5, -2, -2.5],
+                             'logr': [-.7, -.28, .0]
+                             }
+                            ]
+                           )
 
-# HQ10000_G0.8_2_000.hdf5
-# Gamma | logr
-# -1.5  | -.65
-# -2    | -.35
-# -2.5  | -.08
+HQ10000_G0_8_2_000 = file_tuple('HQ10000_G0.8_2_000.hdf5',
+                                [{'Gamma': [-1.5, -2, -2.5],
+                                  'logr': [-.65, -.35, -.08]
+                                  }
+                                 ]
+                                )
 
-# HQ10000_G1.2_9_005.hdf5
-# Gamma | logr
-# -1    | -.5
-# -1.5  | -.4
-# -2    | -.25
-# -2.5  | -.15
-# -3    | .5
+HQ10000_G1_2_9_005 = file_tuple('HQ10000_G1.2_9_005.hdf5',
+                                [{'Gamma': [-1, -1.5, -2, -2.5, -3],
+                                  'logr': [-.5, -.4, -.25, -.15, .5]
+                                  }
+                                 ]
+                                )
 
 # Make switches to control figures, print statements, binning etc.
 
