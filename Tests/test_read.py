@@ -2,7 +2,9 @@
 Unit tests for the Read program
 """
 
-import Read
+import Scripts.Attractor.Read as Read
+# import sys
+# sys.path.append("..")
 
 
 def test_get_sphere_volume():
