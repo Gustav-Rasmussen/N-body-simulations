@@ -1,11 +1,12 @@
 # -*- coding: utf-8 -*-
 
-import numpy as np
-import matplotlib.pyplot as plt
 from matplotlib.colors import LogNorm
-import Sigma_calc_OOP as scoop
-from RhoAndGaussianAndTsallis import rho_HQ
+import matplotlib.pyplot as plt
+import numpy as np
+
 import Mock_data as mock
+from RhoAndGaussianAndTsallis import rho_HQ
+import Sigma_calc_OOP as scoop
 
 figurePath = mock.figurePath
 Gamma = mock.Gamma
@@ -26,7 +27,7 @@ simulationsLst = ['A', 'B', 'Soft_B', 'CS1', 'CS2', 'CS3', 'CS4',
                   'CS5', 'CS6', 'DS1', 'D2', 'Soft_D2', 'E']
 
 
-def get_sphere_volume(radius):
+def get_sphere_volume(radius: np.ndarray) -> np.ndarray:
     return 4 / 3 * np.pi * radius ** 3
 
 
