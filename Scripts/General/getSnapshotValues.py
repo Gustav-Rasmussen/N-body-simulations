@@ -9,70 +9,67 @@ from typing import IO
 # import definePaths as dp
 # import radius_and_velocity_funcs as ravf
 
-data_folder = Path("Documents/Hdf5/")
+# data_folder = Path.home() / 'Documents/Hdf5/'
+# filename: IO = data_folder / '0G00_IC_000.hdf5'
+# print((Path.home() / 'Documents/Hdf5/0G00_IC_000.hdf5').is_file())
+# print(f"filename: {filename}")
 
-Filename: IO = data_folder / '0G00_IC_000.hdf5'
+data_folder = Path.home() / 'Documents/Hdf5/'
 
 
 @dataclass
 class LoadHalo:
-    V: np.ndarray
-    x: np.ndarray
-    y: np.ndarray
-    z: np.ndarray
-    vx: np.ndarray
-    vy: np.ndarray
-    vz: np.ndarray
-    ID_minV: float
-    Filename: IO = data_folder / '0G00_IC_000.hdf5'
+    '''Class for loading a halo.'''
+    filename: str = '0G00_IC_000.hdf5'
 
     def __post_init__(self):
-        read_arepo_snapshot()
-        centralized_coords()
-        radial_cut()
-        centralized_velocities()
+        self.read_arepo_snapshot()
+        # self.centralized_coords()
+        # self.radial_cut()
+        # self.centralized_velocities()
 
-    def read_arepo_snapshot(self, filename):
-        try:
-            snapshotfile = h5py.File(filename, 'r')
-        except:
-            IOError
-        pos = snapshotfile['PartType1/Coordinates'].value
-        vel = snapshotfile['PartType1/Velocities'].value
-        V = snapshotfile['PartType1/Potential'].value
-        x = pos[:, 0]
-        y = pos[:, 1]
-        z = pos[:, 2]
-        vx = vel[:, 0]
-        vy = vel[:, 1]
-        vz = vel[:, 2]
-        ID_minV = np.argmin(V)
-        snapshotfile.close()
+    def read_arepo_snapshot(self):
+        filepath = data_folder / self.filename
+        with h5py.File(filepath, 'r') as snapshotfile:
+            pos = snapshotfile['PartType1/Coordinates']
+            vel = snapshotfile['PartType1/Velocities']
+            V = snapshotfile['PartType1/Potential']
+            x = pos[:, 0]
+            y = pos[:, 1]
+            z = pos[:, 2]
+            vx = vel[:, 0]
+            vy = vel[:, 1]
+            vz = vel[:, 2]
+            ID_minV = np.argmin(V)
+        return x, y, z, vx, vy, vz, ID_minV, V
 
+    '''
     def radial_cut(self, r_cut=100):
-        GoodIDs = np.where(x ** 2 + y ** 2 + z ** 2 < r_cut ** 2)
-        x = x[GoodIDs]
-        y = y[GoodIDs]
-        z = z[GoodIDs]
-        vx = vx[GoodIDs]
-        vy = vy[GoodIDs]
-        vz = vz[GoodIDs]
-        V = V[GoodIDs]
+        GoodIDs = np.where(self.x ** 2 + self.y ** 2 + self.z ** 2 < r_cut ** 2)
+        x = self.x[GoodIDs]
+        y = self.y[GoodIDs]
+        z = self.z[GoodIDs]
+        vx = self.vx[GoodIDs]
+        vy = self.vy[GoodIDs]
+        vz = self.vz[GoodIDs]
+        V = self.V[GoodIDs]
 
     def centralized_coords(self):
         """Changes x, y and z so that the cluster is centered."""
-        x -= x[ID_minV]
-        y -= y[ID_minV]
-        z -= z[ID_minV]
+        x = self.x - self.x[self.ID_minV]
+        y = self.y - self.y[self.ID_minV]
+        z = self.z - self.z[self.ID_minV]
 
     def centralized_velocities(self):
         """Changes vx, vy and vz so that the velocities are centered."""
-        vx -= np.medium(vx)
-        vy -= np.medium(vy)
-        vz -= np.medium(vz)
+        vx = self.vx - np.medium(self.vx)
+        vy = self.vy - np.medium(self.vy)
+        vz = self.vz - np.medium(self.vz)
+    '''
 
 
-# halo = LoadHalo(Filename="")
+halo = LoadHalo('0G00_IC_000.hdf5')
+print(halo.read_arepo_snapshot())
 # print(halo.centralized_coords())
 
 """
