@@ -1,18 +1,14 @@
 # -*- coding: utf-8 -*-
 
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 import h5py
 import numpy as np
 from pathlib import Path
+from pprint import pprint as pp
 from typing import IO
 
 # import definePaths as dp
 # import radius_and_velocity_funcs as ravf
-
-# data_folder = Path.home() / 'Documents/Hdf5/'
-# filename: IO = data_folder / '0G00_IC_000.hdf5'
-# print((Path.home() / 'Documents/Hdf5/0G00_IC_000.hdf5').is_file())
-# print(f"filename: {filename}")
 
 data_folder = Path.home() / 'Documents/Hdf5/'
 
@@ -20,62 +16,80 @@ data_folder = Path.home() / 'Documents/Hdf5/'
 @dataclass
 class LoadHalo:
     '''Class for loading a halo.'''
+    V: np.ndarray = field(init=False, repr=False)
+    x: np.ndarray = field(init=False, repr=False)
+    y: np.ndarray = field(init=False, repr=False)
+    z: np.ndarray = field(init=False, repr=False)
+    vx: np.ndarray = field(init=False, repr=False)
+    vy: np.ndarray = field(init=False, repr=False)
+    vz: np.ndarray = field(init=False, repr=False)
+    ID_minV: np.ndarray = field(init=False, repr=False)
     filename: str = '0G00_IC_000.hdf5'
 
     def __post_init__(self):
         self.read_arepo_snapshot()
-        # self.centralized_coords()
-        # self.radial_cut()
-        # self.centralized_velocities()
+        self.centralized_coords()
+        self.radial_cut()
+        self.centralized_velocities()
 
     def read_arepo_snapshot(self):
         filepath = data_folder / self.filename
         with h5py.File(filepath, 'r') as snapshotfile:
             pos = snapshotfile['PartType1/Coordinates']
             vel = snapshotfile['PartType1/Velocities']
-            V = snapshotfile['PartType1/Potential']
-            x = pos[:, 0]
-            y = pos[:, 1]
-            z = pos[:, 2]
-            vx = vel[:, 0]
-            vy = vel[:, 1]
-            vz = vel[:, 2]
-            ID_minV = np.argmin(V)
-        return x, y, z, vx, vy, vz, ID_minV, V
+            self.V = snapshotfile['PartType1/Potential'][:]
+            self.x = pos[:, 0]
+            self.y = pos[:, 1]
+            self.z = pos[:, 2]
+            self.vx = vel[:, 0]
+            self.vy = vel[:, 1]
+            self.vz = vel[:, 2]
+            self.ID_minV = np.argmin(self.V)
 
-    '''
     def radial_cut(self, r_cut=100):
         GoodIDs = np.where(self.x ** 2 + self.y ** 2 + self.z ** 2 < r_cut ** 2)
-        x = self.x[GoodIDs]
-        y = self.y[GoodIDs]
-        z = self.z[GoodIDs]
-        vx = self.vx[GoodIDs]
-        vy = self.vy[GoodIDs]
-        vz = self.vz[GoodIDs]
-        V = self.V[GoodIDs]
+        self.x = self.x[GoodIDs]
+        self.y = self.y[GoodIDs]
+        self.z = self.z[GoodIDs]
+        self.vx = self.vx[GoodIDs]
+        self.vy = self.vy[GoodIDs]
+        self.vz = self.vz[GoodIDs]
+        self.V = self.V[GoodIDs]
 
     def centralized_coords(self):
         """Changes x, y and z so that the cluster is centered."""
-        x = self.x - self.x[self.ID_minV]
-        y = self.y - self.y[self.ID_minV]
-        z = self.z - self.z[self.ID_minV]
+        self.x = self.x - self.x[self.ID_minV]
+        self.y = self.y - self.y[self.ID_minV]
+        self.z = self.z - self.z[self.ID_minV]
 
     def centralized_velocities(self):
         """Changes vx, vy and vz so that the velocities are centered."""
-        vx = self.vx - np.medium(self.vx)
-        vy = self.vy - np.medium(self.vy)
-        vz = self.vz - np.medium(self.vz)
-    '''
+        self.vx = self.vx - np.median(self.vx)
+        self.vy = self.vy - np.median(self.vy)
+        self.vz = self.vz - np.median(self.vz)
+
+    def modulus(self, *args):
+        """Modulus of vector of arbitrary size."""
+        return sum([i ** 2 for i in args]) ** .5
 
 
 halo = LoadHalo('0G00_IC_000.hdf5')
-print(halo.read_arepo_snapshot())
-# print(halo.centralized_coords())
+'''
+print(f"Filename: {halo.filename}")
+pp(f"x: {halo.x}")
+pp(f"y: {halo.y}")
+pp(f"z: {halo.z}")
+pp(f"vx: {halo.vx}")
+pp(f"vy: {halo.vy}")
+pp(f"vz: {halo.vz}")
+pp(f"Potential: {halo.V}")
+print(f"ID_minV: {halo.ID_minV}")
+'''
+
+R_xyz = halo.modulus(halo.x, halo.y, halo.z)
+# R = halo.modulus(x - xC, y - yC, z - zC)
 
 """
-R_xyz = ravf.modulus(x, y, z)
-R = ravf.modulus(x - xC, y - yC, z - zC)
-
 R_limit_min = 400.
 R_limit_max = 500.
 # R_limit = 100.
