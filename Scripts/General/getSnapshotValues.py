@@ -32,6 +32,19 @@ class LoadHalo:
         self.radial_cut()
         self.centralized_velocities()
 
+    def __repr__(self):
+        return (
+            f"Filename: {halo.filename}\n"
+            f"x: {halo.x}\n"
+            f"y: {halo.y}\n"
+            f"z: {halo.z}\n"
+            f"vx: {halo.vx}\n"
+            f"vy: {halo.vy}\n"
+            f"vz: {halo.vz}\n"
+            f"Potential: {halo.V}\n"
+            f"ID_minV: {halo.ID_minV}"
+        )
+
     def read_arepo_snapshot(self):
         filepath = data_folder / self.filename
         with h5py.File(filepath, 'r') as snapshotfile:
@@ -47,24 +60,23 @@ class LoadHalo:
             self.ID_minV = np.argmin(self.V)
 
     def radial_cut(self, r_cut=100):
-        GoodIDs = np.where(self.x ** 2 + self.y ** 2 + self.z ** 2 < r_cut ** 2)
-        # R_limit_min = 400.
-        # R_limit_max = 500.
-        # R_limit = 100.
+        good_ids = np.where(self.x ** 2 + self.y ** 2 + self.z ** 2 < r_cut ** 2)
+        # r_cut_min = 400.
+        # r_cut_max = 500.
         # Removes all particles that is far away from the cluster.
-        # GoodIDs_1 = np.where(R < R_limit_max)
-        # GoodIDs_2 = np.where(R < R_limit)
-        # GoodIDs_3 = np.where((R < R_limit_max) * (R > R_limit_min))
+        # good_ids = np.where(R < r_cut_max)
+        # good_ids = np.where(R < r_cut)
+        # good_ids = np.where((R < r_cut_max) * (R > r_cut_min))
         # Now slice the cluster into a rectangular shape still 1_000 kpc wide,
         # but only 100 kpc tall
-        # GoodIDs_rec = np.where((R < R_limit) * (yC - 50.0 < y) * (y < yC + 50.0))
-        self.x = self.x[GoodIDs]
-        self.y = self.y[GoodIDs]
-        self.z = self.z[GoodIDs]
-        self.vx = self.vx[GoodIDs]
-        self.vy = self.vy[GoodIDs]
-        self.vz = self.vz[GoodIDs]
-        self.V = self.V[GoodIDs]
+        # good_ids = np.where((R < r_cut) * (yC - 50.0 < y) * (y < yC + 50.0))
+        self.x = self.x[good_ids]
+        self.y = self.y[good_ids]
+        self.z = self.z[good_ids]
+        self.vx = self.vx[good_ids]
+        self.vy = self.vy[good_ids]
+        self.vz = self.vz[good_ids]
+        self.V = self.V[good_ids]
 
     def centralized_coords(self):
         """Changes x, y and z so that the cluster is centered."""
@@ -83,22 +95,23 @@ class LoadHalo:
         """Modulus of vector of arbitrary size."""
         return sum([i ** 2 for i in args]) ** .5
 
+    def r_bin_automatic(self):
+        """Make R_limit_min and R_limit_max selection automatic."""
+        r_middle = 10 ** 1.3
+        r_cut_min, r_cut_max = r_middle
+        a = 0
+        x0 = self.x
+        while len(x0) < 10_000 or a == 0:
+            r_cut_min -= .000_005
+            r_cut_max += .000_005
+            a = 1
+            good_ids = np.where((R < r_cut_max) * (R > r_cut_min))
+            x0 = halo.x[good_ids[0]]
+        return r_cut_min, r_cut_max
+
 
 halo = LoadHalo('0G00_IC_000.hdf5')
-
-
-def show_halo():
-    print(f"Filename: {halo.filename}",
-          f"x: {halo.x}",
-          f"y: {halo.y}",
-          f"z: {halo.z}",
-          f"vx: {halo.vx}",
-          f"vy: {halo.vy}",
-          f"vz: {halo.vz}",
-          f"Potential: {halo.V}",
-          f"ID_minV: {halo.ID_minV}"
-          )
-
+# print(halo)
 
 R = halo.modulus(halo.x, halo.y, halo.z)
 # R = halo.modulus(x - xC, y - yC, z - zC)
@@ -112,8 +125,8 @@ bins_102 = 0
 # Reduce number of radial bins in analysis code.
 # This makes them larger and contain more particles.
 larger_fewer_bins = 1
-largest_R_limit = 1  # Analyze larger volume of structure, set R_limit to 10_000.
-large_R_limit = 0  # Analyze large volume of structure, sets R_limit to 5_000.
+largest_r_cut = 1  # Analyze larger volume of structure, set R_limit to 10_000.
+large_r_cut = 0  # Analyze large volume of structure, sets R_limit to 5_000.
 
 IC_R_middle = 0
 keep_IC_R_middle = 0
@@ -124,39 +137,14 @@ R_bin_automatic = 0
 if large_R_middle:
     R_middle = 10 ** 1.5  # 10 ** 1.3
 
-# make R_limit_min and R_limit_max selection automatic
-R_limit_min, R_limit_max = R_middle
-
-# min_binning_R = -1.5
-# max_binning_R = np.log10(500.0)
-# nr_binning_bins = 300
-
-a = 0
-x0 = x
-while len(x0) < 1_0000 or a == 0:
-    R_limit_min -= .000005
-    R_limit_max -= .000005
-    a = 1
-    GoodIDs = np.where((R < R_limit_max) * (R > R_limit_min))
-    x0 = x[GoodIDs[0]]
-
-DoInnerCut = 0
-if DoInnerCut:
-    GoodIDs = np.where(R < R_limit_max)
-else:
-    GoodIDs = np.where((R < R_limit_max) * (R > R_limit_min))
-
-x, y, z = x[GoodIDs], y[GoodIDs], z[GoodIDs]
-vx, vy, vz = vx[GoodIDs], vy[GoodIDs], vz[GoodIDs]
-vx -= np.median(vx)
-vy -= np.median(vy)
-vz -= np.median(vz)
-
 # if test or A or B or E:
-#     nr_binning_bins = 102
+#     nr_bins = 102
 # if CS1 or CS2 or CS3:
-#     nr_binning_bins = 53
+#     nr_bins = 53
 
-min_binning_R_unitRmax = .000_01  # end-value of first bin
-max_binning_R_unitRmax = 1.0  # end-value of last bin
-nr_binning_bins = 1_000.0  # number of bins 1000.0
+# min_binning_R = -1.5  # end-value of first bin
+# max_binning_R = np.log10(500.0)  # end-value of last bin
+# nr_bins = 300  # number of bins
+min_binning_R_unitRmax = .000_01
+max_binning_R_unitRmax = 1.0
+nr_bins = 1_000.0
