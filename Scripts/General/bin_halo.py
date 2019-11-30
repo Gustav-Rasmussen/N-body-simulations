@@ -9,13 +9,15 @@ from load_halo import LoadHalo
 @dataclass
 class BinHalo(LoadHalo):
     """Divide halo into bins."""
-    nr_bins: int = 1_000
+    min_binning_R: float = -1.5  # end-value of first bin
+    max_binning_R: float = np.log10(500.0)  # end-value of last bin
+    nr_bins: int = 300  # number of bins
+    # min_binning_R_unitRmax = .000_01
+    # max_binning_R_unitRmax = 1.0
 
-    '''
     (sigma2_arr, sigmarad2_arr, sigmatheta2_arr, sigmaphi2_arr, sigmatan2_arr, v2_arr, gamma_arr, kappa_arr,
      beta_arr, density_arr, rho_arr, Volume_arr, r, Phi, Theta, VR,
      VTheta, VPhi, VR_i_avg_in_bin, bin_radius_arr) = ([] for i in range(20))
-    '''
 
     binning_arr_lin_log10 = np.logspace(min_binning_R, max_binning_R, nr_bins)
 
@@ -138,10 +140,3 @@ if large_R_middle:
 #     nr_bins = 102
 # if CS1 or CS2 or CS3:
 #     nr_bins = 53
-
-# min_binning_R = -1.5  # end-value of first bin
-# max_binning_R = np.log10(500.0)  # end-value of last bin
-# nr_bins = 300  # number of bins
-min_binning_R_unitRmax = .000_01
-max_binning_R_unitRmax = 1.0
-nr_bins = 1_000.0
