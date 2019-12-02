@@ -37,7 +37,7 @@ for i in range(1000000):
     v_phi[i] = ((zcl[i] * (xcl[i] * vxnew[i] + ycl[i] * vynew[i])
                 - (xcl[i] ** 2 + ycl[i] ** 2) * vznew[i]) /
                 ((xcl[i] ** 2 + ycl[i] ** 2 + zcl[i] ** 2)
-                * ravf.modulus(xcl[i], ycl[i])))
+                * modulus(xcl[i], ycl[i])))
 
 plt.figure(1)
 plt.xlabel(r'$v_r, v_{\theta}$ and $v_{\phi}$')

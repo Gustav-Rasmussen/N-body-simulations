@@ -145,7 +145,7 @@ if vsphericalold:
           f'{v_t= } \n'
           f'{v_t.shape= } \n')
 
-    v = ravf.modulus(vx, vy, vz)
+    v = modulus(vx, vy, vz)
 
     # v_theta and v_phi -------------------------------------------------------
     v_theta = v_phi = np.zeros([len(x), 1])
@@ -154,7 +154,7 @@ if vsphericalold:
         if (xy > 0.):
             v_theta[i] = (x[i] * vy[i] - y[i] * vx[i]) / xy
     for i in range(len(x)):
-        r = ravf.modulus(x[i], y[i], z[i])
+        r = modulus(x[i], y[i], z[i])
         if ((r > 0.) and (z[i] != r)):
             v_phi[i] = ((r * vz[i] - z[i] * v_r[i]) / (r ** 2)
                         * (1 - (z[i] / r) ** 2) ** .5)

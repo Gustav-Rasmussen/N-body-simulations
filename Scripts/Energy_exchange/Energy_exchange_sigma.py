@@ -320,7 +320,7 @@ if Fig_x_hist2d:
 x -= np.median(x)
 y -= np.median(y)
 z -= np.median(z)
-R = ravf.modulus(x, y, z)
+R = modulus(x, y, z)
 GoodIDs = np.where(R < R_limit)  # Removes all particles that is far away from the cluster.
 x = x[GoodIDs]
 y = y[GoodIDs]
@@ -396,8 +396,8 @@ if Fig_vx_x:
     f.savefig(figure_path + 'Soft_B_0_005_logvx_logx_II.png')  # 'Soft_B_1_000_logvx_logx_II'
 
 if Fig_v_logr:
-    r = ravf.modulus(x, y, z)
-    v = ravf.modulus(vx, vy, vz)
+    r = modulus(x, y, z)
+    v = modulus(vx, vy, vz)
     f, (ax1, ax2) = plt.subplots(1, 2, figsize=(13, 11))
     f.subplots_adjust(hspace=0, wspace=0)
     ax1.set_xlabel('r', fontsize=30)

@@ -4,11 +4,6 @@ from dataclasses import dataclass, field
 import h5py
 import numpy as np
 from pathlib import Path
-# from pprint import pprint as pp
-# from typing import IO
-
-# import definePaths as dp
-# import radius_and_velocity_funcs as ravf
 
 data_folder = Path.home() / 'Documents/Hdf5/'
 
@@ -33,17 +28,15 @@ class LoadHalo:
         self.centralized_velocities()
 
     def __repr__(self):
-        return (
-            f"Filename: {self.filename}\n"
-            f"x: {self.x}\n"
-            f"y: {self.y}\n"
-            f"z: {self.z}\n"
-            f"vx: {self.vx}\n"
-            f"vy: {self.vy}\n"
-            f"vz: {self.vz}\n"
-            f"Potential: {self.V}\n"
-            f"ID_minV: {self.ID_minV}"
-        )
+        return (f'Filename: {self.filename}\n'
+                f'x: {self.x}\n'
+                f'y: {self.y}\n'
+                f'z: {self.z}\n'
+                f'vx: {self.vx}\n'
+                f'vy: {self.vy}\n'
+                f'vz: {self.vz}\n'
+                f'Potential: {self.V}\n'
+                f'ID_minV: {self.ID_minV}')
 
     def read_arepo_snapshot(self):
         filepath = data_folder / self.filename
@@ -91,7 +84,10 @@ class LoadHalo:
         self.vz = self.vz - np.median(self.vz)
 
 
-if __name__ == '__main__':
+def main():
     halo = LoadHalo('0G00_IC_000.hdf5')
-    # print(halo)
-    # print(halo.x)
+    print(halo)
+
+
+if __name__ == '__main__':
+    main()

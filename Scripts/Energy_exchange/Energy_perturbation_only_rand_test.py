@@ -51,7 +51,7 @@ zC = z[minV]
 vxC = vx[minV]
 vyC = vy[minV]
 vzC = vz[minV]
-R = ravf.modulus(x - xC, y - yC, z - zC)
+R = modulus(x - xC, y - yC, z - zC)
 x =  x - np.median(x)
 y =  y - np.median(y)
 z =  z - np.median(z)
@@ -83,7 +83,7 @@ N_bins = N_total / N_particles_per_bin
  Ratio_init_mean_inside_bin_arr, Ratio_rand_mean_inside_bin_arr, Ratio_norm_mean_inside_bin_arr)  = ([] for i in range(22))
 
 if Fig_v_logx_before:
-    v = ravf.modulus(vx, vy, vz)
+    v = modulus(vx, vy, vz)
     f, (ax1) = plt.subplots(1, 1, figsize=(13, 11))
     ax1.set_xlabel(r'$\log x$', fontsize=30)
     ax1.set_ylabel(r'$v_{tot}$', fontsize=30)
@@ -119,7 +119,7 @@ for i in range(N_bins):
     vx_GoodIDs_rand = a * vx_GoodIDs
     vy_GoodIDs_rand = b * vy_GoodIDs
     vz_GoodIDs_rand = c * vz_GoodIDs
-    v_GoodIDs_rand  = ravf.modulus(vx_GoodIDs_rand, vy_GoodIDs_rand, vz_GoodIDs_rand)
+    v_GoodIDs_rand  = modulus(vx_GoodIDs_rand, vy_GoodIDs_rand, vz_GoodIDs_rand)
 
     x_GoodIDs_arr.append(x_GoodIDs)
     y_GoodIDs_arr.append(y_GoodIDs)
@@ -161,8 +161,8 @@ for i in range(N_bins):
     vx_unbound_norm = np.asarray(vx_unbound_norm_i_arr)
     vy_unbound_norm = np.asarray(vy_unbound_norm_i_arr)
     vz_unbound_norm = np.asarray(vz_unbound_norm_i_arr)
-    v_GoodIDs_rand_norm = ravf.modulus(vx_unbound_norm, vy_unbound_norm, vz_unbound_norm)
-    v_GoodIDs_bound = ravf.modulus(vx_bound, vy_bound, vz_bound)
+    v_GoodIDs_rand_norm = modulus(vx_unbound_norm, vy_unbound_norm, vz_unbound_norm)
+    v_GoodIDs_bound = modulus(vx_bound, vy_bound, vz_bound)
     v_new = np.concatenate([v_GoodIDs_bound, v_GoodIDs_rand_norm])
     # v_final = ravf.modulus(vx, vy, vz)
     vx = np.concatenate([vx_bound, vx_unbound_norm])
@@ -187,7 +187,7 @@ vy = np.concatenate(vy, axis=0)
 vz = np.concatenate(vz, axis=0)
 
 if Fig_v_logx_after:
-    v = ravf.modulus(vx, vy, vz)
+    v = modulus(vx, vy, vz)
     f, (ax1) = plt.subplots(1, 1, figsize=(13, 11))
     ax1.set_xlabel(r'$\log x$', fontsize=30)
     ax1.set_ylabel(r'$v_{tot}$', fontsize=30)

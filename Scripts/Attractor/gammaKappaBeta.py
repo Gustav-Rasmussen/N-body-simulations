@@ -23,7 +23,7 @@ def sigmaRad2(no_of_bins):
         minRBinI = binningArrLinLog10[i]  # start of bin
         maxRBinI = binningArrLinLog10[i + 1]  # end of bin
         vR[i] = ((vx[i] * x[i] + vy[i] * y[i] + vz[i] * z[i])
-                 / ravf.modulus(x[i], y[i], z[i]))
+                 / modulus(x[i], y[i], z[i]))
         vR2[i] = vR[i] ** 2
         sigmaR2 = (1. / (len(vR2) + 1.)) * np.sum(vR2[i])
     return sigmaR2

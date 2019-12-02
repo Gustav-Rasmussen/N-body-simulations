@@ -184,7 +184,7 @@ zC = z[minV]
 vxC = vx[minV]
 vyC = vy[minV]
 vzC = vz[minV]
-R = ravf.modulus(x - xC, y - yC, z - zC)
+R = modulus(x - xC, y - yC, z - zC)
 
 # R_limit_min = R_middle  # make R_limit_min and R_limit_max selection automatic
 # R_limit_max = R_middle
@@ -266,7 +266,7 @@ if Fig3_3D_xyz:
     ax.set_title('3D view of halo positions')
 
 if vsphericalnew: # radial and tangential velocities
-    r = ravf.modulus(x, y, z)
+    r = modulus(x, y, z)
     Phi = sp.arctan2(y, x)
     Theta = sp.arccos(z / r)
     VR = sp.sin(Theta) * sp.cos(Phi) * vx + sp.sin(Theta)
@@ -536,7 +536,7 @@ if vsphericalnew_sigma:
     VT_sigmatan_p_arr = np.asarray(VT_sigmatan_p)
     VT_sigmatan_n_arr = np.asarray(VT_sigmatan_n)
 
-r = ravf.modulus(x, y, z)
+r = modulus(x, y, z)
 Phi = sp.arctan2(y, x)
 Theta = sp.arccos(z / r)
 VR = sp.sin(Theta) * sp.cos(Phi) * vx + sp.sin(Theta) * sp.sin(Phi) * vy + sp.cos(Theta) * vz

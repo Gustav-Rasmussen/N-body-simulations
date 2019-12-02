@@ -25,7 +25,7 @@ def bin_halo_radially():
         vy = vy[posR_par_i]
         vz = vz[posR_par_i]
 
-        v = ravf.modulus(vx, vy, vz)
+        v = modulus(vx, vy, vz)
         v2_i = v ** 2
         sigma2_i = mean_velocity_slice(nr_par_i, v2_i)  # sigma2 total
         vrad2_i = v_r[posR_par_i] ** 2
@@ -33,7 +33,7 @@ def bin_halo_radially():
         Volume_cl = volume_slice(min_R_i, max_R_i)  # volume of cluster
         den_cl = nr_par_i / Volume_cl  # density
         rho = den_cl * m
-        r_i = ravf.modulus(x, y, z)
+        r_i = modulus(x, y, z)
         Phi_i = phi(x, y)
         Theta_i = theta(z, r_i)
         VR_i = vr_spherical(Theta_i, Phi_i, vx, vy, vz)
@@ -128,8 +128,8 @@ def bin_halo_by_mass():
         vx_GoodIDs_rand = a * vx
         vy_GoodIDs_rand = b * vy
         vz_GoodIDs_rand = c * vz
-        v_GoodIDs_rand = ravf.modulus(vx_GoodIDs_rand, vy_GoodIDs_rand, vz_GoodIDs_rand)
-        v_GoodIDs = ravf.modulus(vx, vy, vz)
+        v_GoodIDs_rand = modulus(vx_GoodIDs_rand, vy_GoodIDs_rand, vz_GoodIDs_rand)
+        v_GoodIDs = modulus(vx, vy, vz)
         K_init = E_kin(v_GoodIDs)  # Kinetic energy before 1.st randomization
         K_rand = E_kin(v_GoodIDs_rand)  # -||- after -||-
         K_init_mean = np.mean(K_init)
@@ -167,8 +167,8 @@ def bin_halo_by_mass():
         vx_unbound_norm = np.asarray(vx_unbound_norm_i_arr)
         vy_unbound_norm = np.asarray(vy_unbound_norm_i_arr)
         vz_unbound_norm = np.asarray(vz_unbound_norm_i_arr)
-        v_GoodIDs_rand_norm = ravf.modulus(vx_unbound_norm, vy_unbound_norm, vz_unbound_norm)
-        v_GoodIDs_bound = ravf.modulus(vx_bound, vy_bound, vz_bound)
+        v_GoodIDs_rand_norm = modulus(vx_unbound_norm, vy_unbound_norm, vz_unbound_norm)
+        v_GoodIDs_bound = modulus(vx_bound, vy_bound, vz_bound)
         v_new = np.concatenate([v_GoodIDs_bound, v_GoodIDs_rand_norm])
         K_rand_norm = E_kin(v_new)  # Kinetic energy after 1.st randomization and subsequent normalization
         K_rand_norm_mean = np.mean(K_rand_norm)
@@ -195,7 +195,7 @@ def bin_halo_by_mass():
         vx = np.concatenate([vx_bound, vx_unbound_norm]) * K_Ratio
         vy = np.concatenate([vy_bound, vy_unbound_norm]) * K_Ratio
         vz = np.concatenate([vz_bound, vz_unbound_norm]) * K_Ratio
-        v_final = ravf.modulus(vx, vy, vz)
+        v_final = modulus(vx, vy, vz)
         K_final = E_kin(v_final)  # Kinetic energy after 1.st randomization and subsequent normalization
         K_final_mean = np.mean(K_final)
         K_final_mean_in_bin_arr.append(K_final_mean)

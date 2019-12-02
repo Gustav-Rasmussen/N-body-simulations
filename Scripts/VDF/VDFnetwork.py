@@ -105,7 +105,7 @@ def save_txt(title: str):
 
 if calc_sigma_binned_lin_radius:
     R_hob_par = R[GoodIDs]
-    v2 = ravf.modulus(vx, vy, vz) ** 2
+    v2 = modulus(vx, vy, vz) ** 2
 
     (sigma2, sigmarad2, sigmatheta2, sigmaphi2, sigmatan2, sigma,
      sigmarad, sigmatheta, sigmaphi, sigmatan, VR_sigmarad,
@@ -131,7 +131,7 @@ if calc_sigma_binned_lin_radius:
         vy = vy[posR_par_in_bin_i]
         vz = vz[posR_par_in_bin_i]
 
-        r_i = ravf.modulus(x, y, z)
+        r_i = modulus(x, y, z)
         Phi_i = ravf.phi(x, y)
         Theta_i = ravf.theta(r_i, z)
         VR_i = ravf.v_R(vx, vy, vz, Theta_i, Phi_i)

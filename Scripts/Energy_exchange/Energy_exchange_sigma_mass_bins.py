@@ -132,7 +132,7 @@ zC = z[minV]
 vxC = vx[minV]
 vyC = vy[minV]
 vzC = vz[minV]
-R = ravf.modulus(x - xC, y - yC, z - zC)
+R = modulus(x - xC, y - yC, z - zC)
 vx -= np.median(vx)
 vy -= np.median(vy)
 vz -= np.median(vz)
@@ -181,7 +181,7 @@ for i in range(N_bins):
 
     R_min = R_IDs[GoodIDs][0]
     R_max = R_IDs[GoodIDs][-1]
-    v = ravf.modulus(vx, vy, vz)
+    v = modulus(vx, vy, vz)
     v2_i = v ** 2  # sigma2 total
     sigma2_i = mean_velocity_slice(nr_par_bin, v2_i)
     v_r = vr_cartesian(x, y, z, vx, vy, vz)
@@ -189,7 +189,7 @@ for i in range(N_bins):
     sigmarad2_i = mean_velocity_slice(nr_par_bin, vrad2_i)  # sigmarad2 radial
     Volume_cl = get_volume_slice(R_min, R_max)  # Volume of cluster
     den_cl = nr_par_bin / Volume_cl  # density
-    r_i = ravf.modulus(x, y, z)
+    r_i = modulus(x, y, z)
     Phi_i = sp.arctan2(y, x)
     Theta_i = sp.arccos(z / r_i)
     VR_i = vr_spherical(Theta_i, Phi_i, vx, vy, vz)

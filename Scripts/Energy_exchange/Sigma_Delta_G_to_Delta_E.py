@@ -271,7 +271,7 @@ zC = z[minV]
 vxC = vx[minV]
 vyC = vy[minV]
 vzC = vz[minV]
-R = ravf.modulus(x - xC, y - yC, z - zC)
+R = modulus(x - xC, y - yC, z - zC)
 
 if R_limit_10000:
     R_limit = 10000.
@@ -315,7 +315,7 @@ vz = vz[GoodIDs]
 vx -= np.median(vx)
 vy -= np.median(vy)
 vz -= np.median(vz)
-R_xyz = ravf.modulus(x, y, z)
+R_xyz = modulus(x, y, z)
 
 if Fig_x_hist:
     f, (ax1, ax2, ax3) = plt.subplots(1, 3, figsize=(13, 11))
@@ -379,8 +379,8 @@ if Gamma == -2.0:
     G = 1.
     v_circ_2 = (G * M_2 / r_2) ** .5
 
-r = ravf.modulus(x, y, z)
-v = ravf.modulus(vx, vy, vz)
+r = modulus(x, y, z)
+v = modulus(vx, vy, vz)
 
 if Fig_v_logr:
     f, (ax1, ax2) = plt.subplots(1, 2, figsize=(13, 11))

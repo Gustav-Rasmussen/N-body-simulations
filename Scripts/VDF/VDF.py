@@ -79,7 +79,7 @@ if Fig_3D_xyz:
 
 # radial and tangential velocities
 if vspherical:
-    r = ravf.modulus(x, y, z)
+    r = modulus(x, y, z)
     Phi = ravf.phi(x, y)
     Theta = ravf.theta(r, z)
     VR = ravf.v_R(vx, vy, vz, Theta, Phi)
@@ -133,13 +133,13 @@ if calc_sigma_binned_lin_radius:
         vy = vy[posR_par_in_bin_i]
         vz = vz[posR_par_in_bin_i]
 
-        r_i = ravf.modulus(x, y, z)
+        r_i = modulus(x, y, z)
         Phi_i = ravf.phi(x, y)
         Theta_i = ravf.theta(r_i, z)
         VR_i = ravf.v_R(vx, vy, vz, Theta_i, Phi_i)
         VTheta_i = ravf.v_theta(vx, vy, vz, Theta_i, Phi_i)
         VPhi_i = ravf.v_phi(vx, vy, Phi_i)
-        VT_i = ravf.modulus(VTheta_i, VPhi_i)
+        VT_i = modulus(VTheta_i, VPhi_i)
 
         # sigma2 total
         v2_in_bin_i = v2[posR_par_in_bin_i]
