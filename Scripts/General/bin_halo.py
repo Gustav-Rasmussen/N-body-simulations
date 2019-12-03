@@ -22,7 +22,7 @@ class BinHalo(LoadHalo):
     max_binning_R: float = np.log10(500.0)  # end-value of last bin
     # min_binning_R_unitRmax = .000_01
     # max_binning_R_unitRmax = 1.0
-    R: List = field(init=False, repr=False)
+    R: np.ndarray = field(init=False, repr=False)
     sigma2_arr: List = field(init=False, repr=False)
     sigmarad2_arr: List = field(init=False, repr=False)
     bin_radius_arr: List = field(init=False, repr=False)
@@ -38,10 +38,14 @@ class BinHalo(LoadHalo):
     # r_cut = 10_000  # 5_000
     # R_middle = 10 ** 1.5  # 10 ** 1.3
 
-    # def __post_init__(self):
-    #     self.R = self.modulus(self.x, self.y, self.z)
-    #     # self.R = np.array([self.x, self.y, self.z])
+    def __post_init__(self):
+        super().__post_init__()
+        self.R = self.get_moduli(self.x, self.y, self.z)
 
+    def get_moduli(self, *args) -> np.ndarray:
+        return np.array(list(map(lambda x: sum(y ** 2 for y in x) ** .5, zip(*args))))
+
+    '''
     def binning_loop(self):
         (sigmatheta2_arr,
          sigmaphi2_arr,
@@ -64,7 +68,6 @@ class BinHalo(LoadHalo):
         for i in range(self.nr_bins - 2):
             min_R_i = binning_arr[i]
             max_R_i = binning_arr[i + 1]
-            '''
             posR_par_i = np.where(min_R_i < self.R < max_R_i)
             nr_par_i = len(posR_par_i[0])
             if nr_par_i == 0:
@@ -95,7 +98,6 @@ class BinHalo(LoadHalo):
             VPhi2_i = VPhi_i ** 2
             sigmaphi2_i = mean_velocity_slice(nr_par_i, VPhi2_i)
             sigmatan2_arr.append(abs(sigmatheta2_i) + abs(sigmaphi2_i))
-            '''
             bin_radius_arr.append((max_R_i + min_R_i) / 2)
             # sigmaphi2_arr.append(sigmaphi2_i)
             # density_arr.append(den_cl)
@@ -130,18 +132,16 @@ class BinHalo(LoadHalo):
             good_ids = np.where((self.R < r_cut_max) * (self.R > r_cut_min))
             x0 = self.x[good_ids[0]]
         return r_cut_min, r_cut_max
-
-    def modulus(*args: List) -> List:
-        """Modulus of vector of arbitrary size."""
-        return sum([i ** 2 for i in args]) ** .5
+    '''
 
 
 def main():
     halo = BinHalo('0G00_IC_000.hdf5')
+    print(f"halo.filename: {halo.filename}")
+    print(f"halo.x: {halo.x}")
+    print(f"halo.R: {halo.R}")
     # print(f"{halo.r_middle}")
     # print(f"{halo.bin_radius_arr}")
-    print(f"{halo.x}")
-    # print(f"{halo.R}")
 
 
 if __name__ == '__main__':
