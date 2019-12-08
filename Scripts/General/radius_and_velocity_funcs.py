@@ -1,11 +1,6 @@
 import numpy as np
 
 
-def modulus(*args):
-    """Modulus of vector of arbitrary size."""
-    return sum([i ** 2 for i in args]) ** .5
-
-
 def phi(x, y):
     """."""
     return np.arctan2(y, x)
@@ -40,10 +35,10 @@ def v_tan(VTheta, VPhi):
 
 def spherical_coords(x, y, z):
     """."""
-    r = modulus(x, y, z)
+    # r = modulus(x, y, z)
     Phi = phi(x, y)
-    Theta = theta(r, z)
-    return r, Phi, Theta
+    # Theta = theta(r, z)
+    return Phi  # , r, Theta
 
 
 def spherical_velocities(vx, vy, vz, Theta, Phi):
@@ -65,8 +60,8 @@ def main():
     vz = np.array(7, 8, 9)
     r, Phi, Theta = spherical_coords(x, y, z)
     VR, VTheta, VPhi, VT = spherical_velocities(vx, vy, vz, Theta, Phi)
-    Speed = modulus(vx, vy, vz)
-    print(r, Phi, Theta, VR, VTheta, VPhi, VT, Speed)
+    # Speed = modulus(vx, vy, vz)
+    print(r, Phi, Theta, VR, VTheta, VPhi, VT)  # , Speed)
 
 
 if __name__ == '__main__':

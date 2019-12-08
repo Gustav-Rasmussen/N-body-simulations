@@ -10,20 +10,16 @@ from load_halo import LoadHalo
 @dataclass
 class BinHalo(LoadHalo):
     """Divide halo into bins."""
-    mode: str = 'radial'
-    # Reduce number of radial bins to makes them larger / contain more particles.
-    # (test, A, B or E): nr_bins = 102, (CS1, CS2 or CS3): nr_bins = 53
-    nr_bins: int = 102  # 202
-    r_middle: float = 10 ** 1.3
+    # TODO:  # mode: str = 'radial'.  # min_binning_R_unitRmax = .000_01  # max_binning_R_unitRmax = 1.0
+    nr_bins: int = 102  # 202.  # Reduce number of radial bins to makes them larger / contain more particles.
+    r_middle: float = 10 ** 1.3  # 10 ** 1.5
     r_cut_min: float = -1.5  # end-value of first bin
     r_cut_max: float = np.log10(500.0)  # end-value of last bin
-    # min_binning_R_unitRmax = .000_01
-    # max_binning_R_unitRmax = 1.0
     R: np.ndarray = field(init=False, repr=False)
+    r_arr: List = field(init=False, repr=False, default_factory=list)
     # sigma2_arr: List = field(init=False, repr=False)
     # sigmarad2_arr: List = field(init=False, repr=False)
     # bin_radius_arr: List = field(init=False, repr=False)
-    r_arr: List = field(init=False, repr=False, default_factory=list)
     # Phi_arr: List = field(init=False, repr=False)
     # Theta_arr: List = field(init=False, repr=False)
     # VR_arr: List = field(init=False, repr=False)
@@ -31,8 +27,6 @@ class BinHalo(LoadHalo):
     # VPhi_arr: List = field(init=False, repr=False)
     # VR_i_avg_arr: List = field(init=False, repr=False)
     # v = np.array([halo.vx, halo.vy, halo.vz])  # velocities
-    # r_cut = 10_000  # 5_000
-    # R_middle = 10 ** 1.5  # 10 ** 1.3
 
     def __post_init__(self):
         super().__post_init__()
@@ -41,6 +35,7 @@ class BinHalo(LoadHalo):
         self.binning_loop()
 
     def get_moduli(self, *args) -> np.ndarray:
+        """Moduli of vector of arbitrary size."""
         return np.array(list(map(lambda x: sum(y ** 2 for y in x) ** .5, zip(*args))))
 
     def binning_loop(self):
@@ -132,6 +127,16 @@ class BinHalo(LoadHalo):
 
 
 def main():
+    bin_dict = {
+                'test': 102,
+                'A': 102,
+                'B': 102,
+                'E': 102,
+                'CS1': 53,
+                'CS2': 53,
+                'CS3': 53
+    }
+
     halo = BinHalo('0G00_IC_000.hdf5')
     print(f"halo.filename: {halo.filename}")
     print(f"halo.x: {halo.x}")

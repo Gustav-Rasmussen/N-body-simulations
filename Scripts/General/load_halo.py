@@ -20,6 +20,7 @@ class LoadHalo:
     vz: np.ndarray = field(init=False, repr=False)
     ID_minV: np.ndarray = field(init=False, repr=False)
     filename: str = '0G00_IC_000.hdf5'
+    r_cut: int = 100
 
     def __post_init__(self):
         self.read_arepo_snapshot()
@@ -52,8 +53,8 @@ class LoadHalo:
             self.vz = vel[:, 2]
             self.ID_minV = np.argmin(self.V)
 
-    def radial_cut(self, r_cut=100):
-        good_ids = np.where(self.x ** 2 + self.y ** 2 + self.z ** 2 < r_cut ** 2)
+    def radial_cut(self):
+        good_ids = np.where(self.x ** 2 + self.y ** 2 + self.z ** 2 < self.r_cut ** 2)
         # r_cut_min = 400.
         # r_cut_max = 500.
         # Removes all particles that is far away from the cluster.
