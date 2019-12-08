@@ -99,17 +99,6 @@ save_particle_tracking_ASCII = 0
 save_combine_ASCII = 0
 save_sigma = 0
 
-# Functions -------------------------------------------------------------------
-
-
-def modulus(*args):
-    '''Modulus of vector.'''
-    sum_of_squares = 0
-    # Iterating over the Python args tuple
-    for x in args:
-        sum_of_squares += x ** 2
-    return sum_of_squares ** .5
-
 
 def vr_cartesian(x, y, z, vx, vy, vz):
     '''Takes cartesian coordinates and velocities.
@@ -250,11 +239,6 @@ def theta_velocity(theta, phi, vx, vy, vz):
 def phi_velocity(phi, vx, vy):
     '''Doc-string here.'''
     return -sp.sin(phi) * vx + sp.cos(phi) * vy
-
-
-def mean_velocity_slice(nr_par_bin, v):
-    '''Doc-string here.'''
-    return (1. / (nr_par_bin + 1.)) * np.sum(v)
 
 
 Radially_binned_arrays = bin_halo_radially()

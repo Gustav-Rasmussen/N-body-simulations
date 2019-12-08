@@ -17,7 +17,7 @@ class BinHalo(LoadHalo):
     r_cut_max: float = np.log10(500.0)  # end-value of last bin
     R: np.ndarray = field(init=False, repr=False)
     r_arr: List = field(init=False, repr=False, default_factory=list)
-    # sigma2_arr: List = field(init=False, repr=False)
+    sigma2_arr: List = field(init=False, repr=False)
     # sigmarad2_arr: List = field(init=False, repr=False)
     # bin_radius_arr: List = field(init=False, repr=False)
     # Phi_arr: List = field(init=False, repr=False)
@@ -40,6 +40,9 @@ class BinHalo(LoadHalo):
 
     def binning_loop(self):
         self.r_arr = []
+
+        self.sigma2_arr = []
+
         # sigmatheta2_arr,
         # sigmaphi2_arr,
         # sigmatan2_arr,
@@ -74,7 +77,7 @@ class BinHalo(LoadHalo):
             vz = self.vz[pos_r_par_i]
             v = self.get_moduli(vx, vy, vz)
             v2_i = v ** 2
-            # sigma2_arr.append(mean_velocity_slice(nr_par_i, v2_i))  # sigma2 total
+            self.sigma2_arr.append(self.mean_velocity_slice(nr_par_i, v2_i))  # sigma2 total
             # vrad2_i = v_r[posR_par_i] ** 2
             # sigmarad2_arr.append(mean_velocity_slice(nr_par_i, vrad2_i))
             # Volume_cl = volume_slice(min_R_i, max_R_i)  # volume of cluster
@@ -102,7 +105,7 @@ class BinHalo(LoadHalo):
             # VR.append(VR_i)
             # VTheta.append(VTheta_i)
             # VPhi.append(VPhi_i)
-        # sigma2_arr = np.array(sigma2_arr)
+        self.sigma2_arr = np.array(self.sigma2_arr)
         # sigmarad2_arr = np.array(sigmarad2_arr)
         # bin_radius_arr = np.array(bin_radius_arr)
         self.r_arr = np.array(self.r_arr)
@@ -112,6 +115,9 @@ class BinHalo(LoadHalo):
         # VTheta_arr = np.array(VTheta)
         # VPhi_arr = np.array(VPhi)
         # VR_i_avg_arr = np.array(VR_i_avg)
+
+    def mean_velocity_slice(self, nr_par_bin, v):
+        return (1. / (nr_par_bin + 1.)) * np.sum(v)
 
     def r_bin_automatic(self) -> None:
         """Make R_limit_min and R_limit_max selection automatic."""
@@ -139,8 +145,9 @@ def main():
 
     halo = BinHalo('0G00_IC_000.hdf5')
     print(f"halo.filename: {halo.filename}")
-    print(f"halo.x: {halo.x}")
-    print(f"halo.R: {halo.R}")
+    # print(f"halo.x: {halo.x}")
+    # print(f"halo.R: {halo.R}")
+    print(f"halo.sigma2_arr: {halo.sigma2_arr}")
 
 
 if __name__ == '__main__':
