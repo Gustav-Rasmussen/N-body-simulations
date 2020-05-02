@@ -1,0 +1,43 @@
+\section{The GADGET-2 code}
+\textit{In GADGET-2 the N-body simulations were run inside a non-cosmological Newtonian box, with only collisionless particles. This section provides some properties of the GADGET-2 code.} \\  
+
+\centerline{\textbf{Leapfrog symplectic integrator.}} 
+The system is integrated with a 2.nd order leapfrog integrator, which assures a symplectic behavior, that is, the total energy (Hamiltonian) is unchanged and the system is time-reversible. \\
+
+\centerline{\textbf{simulation time and relaxation time.}} 
+In general, Poisson solvers are used for N-body codes, both collisional and collisionless. Collisionless codes can model dark matter systems over times much shorter than $t_{relax}$. In real cosmological dark matter halos around galaxy clusters, the number of particles, N, could be much larger than the number of particles in these simulations. Because of this, $t_{relax}$ in the real structure could be much larger than $t_{relax}$ in the simulation. This is not a problem, since the time of integration is a lot shorter than $t_{relax}$ of either the model or the real structure. \\ 
+
+\centerline{\textbf{Discretization of the density field.}} 
+Collisionless codes takes the density of particles in the real system to be a continuum $\rho(r,t)$, and the particle locations in the corresponding model is a Monte-Carlo sampling of the probability-density distribution in position and velocity. From the particles current positions, the gravitational force is determined on each particle, by all the other particles. This force then evolves the position and momentum of each particle for one timestep to obtain the next structure and then determine the new gravitational forces. The limitation on Poisson solvers are due to the fact that we only sample $\rho(r,t)$ but we do not know how it really looks. Therefore the gravitational potential $\Phi(r)$ can never be known completely by this method. So there is always a decision to be made on how to keep an adequate resolution of the model, without having the statistical Poisson-noise blow up. \\ 
+
+\centerline{\textbf{Multipole expansion of the gravitational force in a N-body system.}} 
+Direct summation can be utilized in order to find the gravitational force on a single particle (i) by all of the ambient particles (j):
+\begin{equation}
+F_i = \sum\limits_{j \neq i} Gm_j\frac{r_j - r_i}{|r_j - r_i|^3} 
+\end{equation}
+However, this method costs $N^2$ calculations per timestep since gravity is a long-range force where each particle interacts with every other particle, making high-accuracy solutions for the gravitational forces very expensive for large N. Instead other gravitational algorithms such as the tree algorithm (hierarchical multipole expansion) is faster, with only a slightly larger error than by direct summation. The method consists of grouping distant particles into increasingly larger cells such that a single multipole force can describe the gravitational attraction. The amount of computation can thus be lowered from direct summation with $N^2$ to just $log(N)$ iterations. \\ 
+
+\centerline{\textbf{Gravitational softening.}} 
+When two particles approach each other and get very close, the force obtained from direct summation will blow up (see previous eq.). This is a problem, because the divergence is non-physical for collisionless particles (the mass distribution is thought to be smooth). It is an effect of the Monte Carlo sampling of the real, smooth density distribution. To solve it, a softening can be incorporated into the previous eq.:
+\begin{equation}
+F_i = \sum\limits_{j \neq i} Gm_j S_F(|r_j - r_i|) \frac{r_j - r_i}{|r_j - r_i|} 
+\end{equation}
+where $S_F(r)$ (with $ r = r_j - r_i $) is known as the force softening kernel. It tends to $r^{-2}$ for values of its argument larger than the softening length $\epsilon$ , and tends to zero for small values. This eq. approaches the gravitational force term from direct summation for large r. Also, it satisfies Newtons third law, the force is radial, and finally, for two particles at the same location, the force is zero. $S_F(r)$ is the derivative of S(r), called the softening kernel. It is used to describe the gravitational potential that particle i feels from all the j other particles,
+\begin{equation}
+\Phi_i \equiv \sum\limits_{j \neq i} Gm_j S(|r_j - r_i|)
+\end{equation}
+A typically used form is:
+\begin{equation}
+S(r) = -\frac{r^2+\frac{3}{2}\epsilon^2}{(r^2 + \epsilon^2)^{\frac{3}{2}}}
+\end{equation}
+The spline softening $\eta$ is used in this work, which is already implemented in GADGET-2. It can be seen as the inter-particle distance. For the simulations here (with $10^6$ particles) I use a softening of $ \eta = 0.1 $, Time-step of each particle is calculated from $ \delta t = (\frac{2\eta \epsilon}{|a|})^{\frac{1}{2}}$, where a is the acceleration and $\epsilon$ is the accuracy parameter (which is set to 0.05 in this work). but more generally the softening value depends on the size of the simulation in the following way: $ \epsilon \sim \sqrt[3]{N} $. This follows directly from $  V \sim R^3$. \\ 
+
+\centerline{\textbf{Peano-Hilbert space-filling curve with fractal-structure. Cutting at branch points.}}
+Space can be recursively subdivided by first filling it with a Peano-Hilbert space-filling curve, and subsequently performing hierarchical grouping in multipole expansion. This allows for walking the tree with the tree algorithm, starting from the node, to evaluate forces. These will be approximative, but for higher accuracy the tree can just be followed to increasingly lower branches. In case the partial force is close enough to the real thing, the multipole force is used and the walk along this branch of the tree is terminated afterwards. Otherwise, the nodes daughter nodes are considered in turn until the force accuracy is satisfactory. \\ 
+
+\centerline{\textbf{Separable Hamiltonian.}}
+The collisionless dynamics of the dark matter particles is described by the Hamiltonian
+\begin{equation}
+H = \sum\limits_{i}\frac{p_i^2}{2m_ia(t)^2} + \frac{1}{2}\sum\limits_{i,j}\frac{m_im_j\phi(x_i - x_j)}{a(t)}
+\end{equation}
+with $ H = H(p_1,...,p_N,x_1,...,x_N,t)$, where $x_i$ are the comoving coordinate vectors, $p_i = a^2m_i\dot{x_i}$ are the corresponding canonical momenta, a(t) is the scale factor which gives the time dependence of the Hamiltonian. The FLRW model determines a(t). GADGET-2 has a Particle mesh providing the environment for all particles. The numerical integrations depend on kick and drift operators having the Hamiltonian as argument.

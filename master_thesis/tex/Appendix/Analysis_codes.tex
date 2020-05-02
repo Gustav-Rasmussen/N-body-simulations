@@ -1,0 +1,72 @@
+\section{Analysis codes}
+As the Python analysis codes developed for the simulations in this work are long and numerous it would not be very useful to include them here in their entirety. Instead what follows is a short description of the most important codes with their main purpose emphasized. For those who have interest, the original codes might be found in their full length at bitbucket.org under the following adress: \\
+\url{https://bitbucket.org/dark_knights/darkmatterproject}
+
+\subsection{Read.py}
+This code reads the GADGET-2 output files, plots the structures and divide it into logarithmic radial bins. Logarithmic radial bins gives better resolution of the central parts of the structure. It then finds and plots the velocities of all the particles of the structure in all three cartesian directions, as a function of the x-positions (notice these velocities will be similar in the beginning, but can be very anisotropic at the end of the simulations since the dark matter particles are collisionless). It finds the density of the cluster and fits it with a HQ density profile. Finally the code finds and plots the gravitational potential vs. radius.
+
+%\begin{pythonstyle}
+%\lstinputlisting[language=Python]{/Users/gustav.c.rasmussen/Desktop/Cosmosim/Read_ics.py}
+%\end{pythonstyle}
+
+\subsection{Sigma.py}
+This program finds the radial velocities of particles inside the structure as
+
+\begin{equation}
+|\vec{v_r}| = \frac{\vec{v} \cdot \vec{r}}{|\vec{r}|}     
+\end{equation}
+and the tangential velocities,
+\begin{equation}
+|\vec{v_t}| = \sqrt{|\vec{v_\theta}|^2 + |\vec{v_\phi}|^2}     
+\end{equation}
+(see the VDF section). It then calculates the total velocity dispersion with this basic formula:
+\begin{equation}
+\sigma_{total}^2 = \frac{1}{N}\cdot \sum\limits_{i} (v_i - \mu)^2
+\end{equation}
+Here $\mu$ is the median and NOT the mean of the velocities.
+The median is better, since it is insensitive to outliers in velocity space.
+Similarly for the radial velocity dispersion,
+\begin{equation}
+\sigma_{rad}^2 = \frac{1}{N}\cdot \sum\limits_{i} (v_{rad,i} - \mu)^2
+\end{equation}
+Now the numerical difference between these two dispersions can be computed to obtain an estimate of the tangential velocity dispersion, that is,
+\begin{equation}
+\sigma_{tan}^2 = \sigma_{total}^2 - \sigma_{rad}^2
+\end{equation}
+
+Determining the radial profiles for $ \gamma $ , $\kappa$ and $ \beta $: \\
+$ \gamma $ can be found by first finding $d\log r$ and $d \log \rho$, then taking there ratio for each radial bin. In the same way, $ \kappa $ is found from first finding $d\log r$ and $d \log \sigma_{rad}^2$, then taking there ratio for each radial bin. And $ \beta $ is just one minus the ratio of already known quantities ($\sigma_{tan}$ and $\sigma_{rad}$). These three quantities, $ \gamma $ , $\kappa$ and $ \beta $ , can now be plotted versus each other to look for correlations. These final plots of ($\beta,\gamma$) and ($\beta,\kappa$) are finally saved as textfiles. \\ 
+%\begin{pythonstyle}
+%\lstinputlisting[language=Python]{/Users/gustav.c.rasmussen/Desktop/Cosmosim/Sigma.py}
+%\end{pythonstyle}
+
+\subsection{gamma\_kappa\_beta.py}
+This program reads text files containing numerical values of $\beta$, $\gamma$ and $\kappa$. It then plots these three parameters together in various combinations.
+ 
+%\begin{pythonstyle}
+%\lstinputlisting[language=Python]{/Users/gustav.c.rasmussen/Desktop/Cosmosim/gamma_kappa_beta.py}
+%\end{pythonstyle}
+
+\subsection{VDF.py}
+Velocity Distribution Functions (VDF) are found and fitted by Gaussian functions as well as by the Tsallis q-fit.
+Both VDFs of radial and tangential velocities are found (f($v_r$) and f($v_t$) respectively), the tangential is further subdivided into two constituents (f($v_{\theta}$) and f($v_{\phi}$)).
+
+%\begin{pythonstyle}
+%\lstinputlisting[language=Python]{/Users/gustav.c.rasmussen/Desktop/Cosmosim/VDF.py}
+%\end{pythonstyle}
+
+\subsection{VDF\_LOS.py}
+VDFs are found and compared to Line-Of-Sight (LOS) quantities such as the LOS-velocity and the projected radius.
+
+%\begin{pythonstyle}
+%\lstinputlisting[language=Python]{/Users/gustav.c.rasmussen/Desktop/VDF_Line_of_sight/VDF_LOS.py}
+%\end{pythonstyle}
+\subsection{Remove\_free\_particles.py}
+This code removes gravitationally unbound particles from structures.
+
+\subsection{Energy\_exchange.py}
+Velocities of particles are read from hdf5 files produced from GADGET-2 sims. (type IIa and IIb) and perturbed. Gravitationally unbound particles are then normalized to become rebound. Finally the kinetic energy is conserved by application of another normalization.
+
+%\begin{pythonstyle}
+%\lstinputlisting[language=Python]{/Users/gustav.c.rasmussen/Desktop/RunGadget/Energy_Exchange/E_HQ_10000_C1/Energy_exchange_C1.py}
+%\end{pythonstyle}

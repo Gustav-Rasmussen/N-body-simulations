@@ -1,0 +1,26 @@
+\section{A note on simulation time}
+Most runs of sim. I and all runs of sim. II (for all structures and with Run 0 included) lasts $100\cdot TimeMax$, corresponding to one dynamical time $t_{dyn}$ at a radius $r=12.7 \cdot r_s$. \\
+Proof (assuming a HQ profile with $\rho_o = \frac{1}{2\pi}$):
+The dynamical time is given by
+\begin{equation}
+t_{dyn} = \frac{1}{\sqrt{G \bar{\rho}}} = \frac{1}{\sqrt{G \cdot \frac{M(r)}{\frac{4}{3}\pi r^3}}} 
+\end{equation}
+setting G = 1 and inserting the mass-function for a HQ structure, $M(r)=\frac{r_s\cdot r^2}{(1+\frac{r}{r_s})^2}$:
+\begin{align*}
+& \frac{1}{\sqrt{\frac{ \frac{r_s\cdot r^2}{ (1+\frac{r}{r_s})^2 } }{\frac{4}{3}\pi r^3}}} = \\
+& \sqrt{ \frac{\frac{4}{3}\pi r^3}{\frac{r_s\cdot r^2}{ (1+\frac{r}{r_s})^2 } }}     = \\
+& \sqrt{ \frac{\frac{4}{3}\pi r^3 \cdot (1+\frac{r}{r_s})^2}{r_s\cdot r^2}}     = \\
+& \sqrt{ \frac{\frac{4}{3}\pi r \cdot (1+\frac{r}{r_s})^2}{r_s}} 
+\end{align*}
+and this will equal 100 when 
+\begin{align*}
+& \sqrt{ \frac{\frac{4}{3}\pi r \cdot (1+\frac{r}{r_s})^2}{r_s}} = 100 \leftrightarrow \\
+& \frac{\frac{4}{3}\pi r \cdot (1+\frac{r}{r_s})^2}{r_s} = 10^4 \leftrightarrow \\
+& \frac{r \cdot (1+\frac{r}{r_s})^2}{r_s} = \frac{3\cdot 10^4}{4\pi}\\
+\end{align*}
+substituting $ r = x\cdot r_s$ we find
+\begin{align*}
+& x(1+x)^2 = \frac{3\cdot 10^4}{4\pi} \leftrightarrow \\
+& x \simeq 12.7
+\end{align*}
+and so 100 simulation times (TimeMax $= 100$) equals one dynamical time $t_{dyn}$, at $ r = 12.7\cdot r_s$.

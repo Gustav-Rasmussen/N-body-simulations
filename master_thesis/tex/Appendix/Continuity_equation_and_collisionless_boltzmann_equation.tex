@@ -1,0 +1,103 @@
+\section{Continuity Equation and Collisionless Boltzmann Equation}
+\textbf{A comparison of DM dynamics and gas physics is useful to highlight unique DM properties as well as similarities between the two.} \\ \\
+
+A baryonic gas satisfies Eulers momentum equation,
+\begin{equation}
+\frac{\partial v}{\partial t} + (v\cdot \nabla)v = -\frac{1}{\rho}\nabla p - \nabla \Phi 
+\end{equation}
+which can be simplified by using
+\begin{equation}
+\nabla p = - \rho \nabla \Phi \rightarrow \frac{\partial p}{\partial r} = -\rho \frac{\partial \Phi}{\partial r}
+\end{equation}
+and
+\begin{equation}
+p = \frac{\rho k_B T}{\mu m_H} , \Phi = \frac{-GM}{r}
+\end{equation}
+we thus obtain HE:
+\begin{equation}
+M(r) = -\frac{rk_BT_{gas}}{\mu m_HG}\Bigg[\frac{d\ln n_e}{d\ln r} + \frac{d\ln T_{gas}}{d\ln r} \Bigg] 
+\end{equation}
+Signifying that if we measure temperature and density as a function of radius, we find the total mass contained inside this sphere. In order to describe the nature of any particle-system, the concept of a DF, $ f(r,v,t) $, is very useful. Here r represents the position in configuration space, v the velocity, and t the time. Multiplied by a infinitesimal phase-space volume, $ d^3rd^3v $, $ f(r,v,t)\cdot d^3rd^3v $ gives the probability of finding a DM particle (or star, or which ever object we are interested in) at a certain phase-space volume at a given time. It is normally normalised so that \\
+\begin{equation}
+\int \! f(r,v,t) \, \mathrm{d^3}r \mathrm{d^3}v
+ = 1
+\end{equation}
+Euler´s first eq., the CE of fluid mass, states:
+\begin{equation}
+\frac{\partial \rho}{\partial t} + \frac{\partial}{\partial r}\cdot (\rho \dot{r}) = 0
+\end{equation}
+
+As the CE found in fluid dynamics, a similar conservation relation for DM can be stated by treating the DM distribution as a perfect fluid (This is a quite safe approximation since $ \Phi $ is very smooth),
+\begin{equation}
+\frac{\partial f}{\partial t} + \frac{\partial}{\partial w}\cdot (f\dot{w}) = 0
+\end{equation}
+where $w = (r,v)$. Then $ \dot{w} = (\dot{r},\dot{v}) = (v, a ) = (v, -\nabla \Phi ) $, where a is the acceleration and $\nabla \Phi$ is the gradient of the gravitational potential. This conservation in phase space of probability basically means, that when we follow a certain particles trajectory, the probability of finding it within a surrounding, co-moving phase space element stays the same. With the use of Hamiltons equations, the CBE can be obtained
+\begin{equation}
+\frac{\partial f}{\partial t} + v \cdot \frac{\partial f}{\partial x}
+- \frac{\partial \Phi}{\partial x} \cdot \frac{\partial f}{\partial v}
+ = 0
+\end{equation}
+which can also be written as the convective/Lagrangian derivative of the DF: \\
+\begin{equation}
+\frac{df}{dt} = 0 
+\end{equation}
+So we have a differential equation for the DF as a function of the six phase-space coordinates and time. It expresses that the local phase-space density around a given object will be constant as it moves through phase-space. It is hard to solve, so a way of learning new information from this relation is by taking different moments of it (see next section). Let us consider spherical coordinates, $r, \theta, \phi$. The corresponding spherical velocities are 
+
+\centerline{$v_r=\dot{r}=p_r$, $v_{\theta}=r\dot{\theta}=\frac{p_{\theta}}{r}$ and 
+$v_{\phi}=rsin\theta\dot{\phi}=\frac{p_{\phi}}{rsin\theta}$}
+
+with momenta given by the Lagrangian, $p_i\equiv \frac{\partial L}{\partial \dot{q_i}}$, yielding \\ 
+
+\centerline{$ p_r = \dot{r}$, $ p_{\theta} = r^2\dot{\theta}$ and $ p_{\phi} = r^2sin^2\theta\dot{\phi}$} 
+
+The Hamiltonian is
+\begin{equation}
+\begin{aligned}
+H&=\frac{1}{2}(\dot{r}^2 + r^2\dot{\theta}^2 + r^2sin^2\theta\dot{\phi}^2) + \Phi(r) \\
+ &=\frac{1}{2}(p_r^2 + \frac{p_{\theta}^2}{r^2} + \frac{p_{\phi}^2}{r^2sin^2\theta} ) + \Phi(r) 
+\end{aligned}
+\end{equation} \\
+and CBE reads \\
+\begin{equation}
+\begin{aligned}
+0&=\frac{\partial f}{\partial t} + \frac{\partial f}{\partial q_i}\frac{\partial H}{\partial p_i} - 
+\frac{\partial f}{\partial p_i}\frac{\partial H}{\partial q_i} \\
+ &=\frac{\partial f}{\partial t} + \frac{\partial f}{\partial r}\frac{\partial H}{\partial p_r} +
+\frac{\partial f}{\partial \theta}\frac{\partial H}{\partial p_{\theta}} + 
+\frac{\partial f}{\partial \phi}\frac{\partial H}{\partial p_{\phi}} -
+\frac{\partial f}{\partial p_r}\frac{\partial H}{\partial r} -
+\frac{\partial f}{\partial p_{\theta}}\frac{\partial H}{\partial \theta} -
+\frac{\partial f}{\partial p_{\phi}}\frac{\partial H}{\partial \phi} \\
+\end{aligned}
+\end{equation} 
+last term cancel out since H is independent of $\phi$, so CBE becomes
+\begin{equation}
+\begin{aligned}
+0&=\frac{\partial f}{\partial t} + \frac{\partial f}{\partial r}p_r +
+\frac{\partial f}{\partial \theta}\frac{p_{\theta}}{r^2} + 
+\frac{\partial f}{\partial \phi}\frac{p_{\phi}}{r^2sin^2\theta} \\
+&-\frac{\partial f}{\partial p_r}\big(     
+-\frac{p_{\theta}^2}{r^3} - \frac{p_{\phi}^2}{sin^2\theta r^3} + \frac{\partial \Phi}{\partial r} \big)  +  \frac{\partial f}{\partial p_{\theta}}\frac{p_{\phi}^2}{r^2}\frac{cos(\theta)}{sin^3 \theta}
+\end{aligned}
+\end{equation} 
+\centerline{\textbf{Note:}} 
+The DF now have spherical arguments, \\ $ f(r, \theta, \phi, v_r, v_{\theta}, v_{\phi} , t)$. Introducing the normalized number-density (with limits from zero to infinity),
+\begin{equation}
+\begin{aligned}
+\nu(r, \theta, \phi, t) & \equiv \int \! f \, \mathrm{d}v_r \mathrm{d}v_{\theta} \mathrm{d}v_{\phi} \\
+& = \int \! f \frac{1}{r^2sin\theta} \, \mathrm{d}p_r \mathrm{d}p_{\theta} \mathrm{d}p_{\phi} \\
+& \Rightarrow \int \! f  \, \mathrm{d}p_r \mathrm{d}p_{\theta} \mathrm{d}p_{\phi} = \nu\cdot r^2 sin\theta
+\end{aligned}
+\end{equation}
+In general, finding the mean of some quantity (say, A($r, \theta, \phi, v_r , v_{\theta}, v_{\phi}, t$)) can be done as follows:
+\begin{equation}
+\begin{aligned}
+\overline{A}(r, \theta, \phi, t) &\equiv \frac{1}{\nu(r, \theta, \phi, t)}\int \! A\cdot f \, \mathrm{d}v_r \mathrm{d}v_{\theta} \mathrm{d}v_{\phi} \\
+& = \frac{1}{\nu(r, \theta, \phi, t}\int \! A\cdot f \frac{1}{r^2sin\theta} \, \mathrm{d}p_r \mathrm{d}p_{\theta} \mathrm{d}p_{\phi} \\
+\end{aligned}
+\end{equation}
+so
+\begin{equation}
+\int \! A\cdot f \, \mathrm{d}p_r \mathrm{d}p_{\theta} \mathrm{d}p_{\phi} = \overline{A}\cdot \nu \cdot r^2 sin\theta
+\end{equation}
+This shall be of use in the following section.

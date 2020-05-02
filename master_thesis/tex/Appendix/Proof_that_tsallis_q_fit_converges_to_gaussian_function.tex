@@ -1,0 +1,43 @@
+\section{Proof that Tsallis q-fit converges to gaussian function}
+\textbf{The q-fit converges into a gaussian at the limit of q$\rightarrow$1 (from both sides).} \\ \\
+\centerline{\textit{Proof: The q-fit is given by}} 
+\begin{equation}
+f(q) = a(1-(1-q)bx^2)^{\frac{q}{1-q}}
+\end{equation}
+Momentarily setting a =1, we will show that:
+\begin{equation}
+\lim_{q \to 1} (1-(1-q)bx^2)^{\frac{q}{1-q}} = e^{-bx^2}
+\end{equation}
+Firstly, for a = 1, let us rewrite the q-fit as follows:
+\begin{align*}
+&\lim_{q \to 1} f(q) = \lim_{q \to 1} a(1-(1-q)bx^2)^{\frac{q}{1-q}}= \\
+&\lim_{q \to 1}(1-(1-q)bx^2)^{\frac{q}{1-q}}= \\
+&\lim_{q \to 1}e^{\big(\frac{q ln (1-(1-q)bx^2)}{1-q}\big)}\text{ ,(the rewrite rule) }= \\
+&e^{\big(\lim_{q \to 1}\frac{q ln (1-(1-q)bx^2)}{1-q}\big)}\text{ ,(the exp rule. Indeterminate form) }= \\ 
+&e^{\big(\lim_{q \to 1}-\frac{ln(bx^2q-bx^2+1)^2(bx^2q-bx^2+1)}{x^2b(-1+q)^2}\big)}\text{ ,(L'Hôpital's rule. notice the constant factors) }= \\  
+&e^{\bigg(-\frac{\lim_{q \to 1}\frac{ln(bx^2q-bx^2+1)^2(bx^2q-bx^2+1)}{(-1+q)^2}}{bx^2}\bigg)}\text{ ,(The constantmultiple rule. Indeterminate form) }= \\  
+&e^{\bigg(-\frac{1}{bx^2}\big( \lim_{q \to 1} \frac{1}{2} \frac{ln(bx^2q-bx^2+1)bx^2(ln(bx^2q-bx^2+1)+2)}{-1+q} \big) \bigg) }\text{ ,(L'Hôpital's rule) }= \\ 
+&e^{\bigg(-\frac{1}{2} \lim_{q\to 1}\frac{ln(bx^2q-bx^2+1)(ln(bx^2q-bx^2+1)+2)}{-1+q} \bigg) }\text{ ,(The constantmultiple rule. Indeterminate form) }= \\ 
+&e^{\bigg(-\frac{1}{2} \lim_{q\to 1}2\frac{bx^2 (ln(bx^2q-bx^2+1)+1)}{bx^2q-bx^2+1} \bigg) }\text{ ,(L'Hôpital's rule) }= \\   
+&e^{\bigg(-bx^2 \lim_{q \to 1}\frac{ln(bx^2q-bx^2+1)+1)}{bx^2q-bx^2+1} \bigg) }\text{ ,(The constantmultiple rule. Notice the 2's cancel.) }= \\   
+&e^{\Bigg(-\frac{bx^2 \lim_{q \to 1}(ln(bx^2q-bx^2+1)+1)}{\lim_{q \to 1}(bx^2q-bx^2+1)}\Bigg)}\text{ ,(The quotient rule) }= \\  
+&e^{\Bigg(-\frac{bx^2 \big( \lim_{q \to 1}ln(bx^2q-bx^2+1)+ \lim_{q \to 1} 1\big)}{\lim_{q \to 1}(bx^2q-bx^2+1)}\Bigg)}\text{ ,(The sum rule) }= \\  
+&e^{\Bigg(-\frac{bx^2 \big( \lim_{q \to 1}ln(bx^2q-bx^2+1)+ 1\big)}{\lim_{q \to 1}(bx^2q-bx^2+1)}\Bigg)}\text{ ,(The constant rule) }= \\  
+&e^{\Bigg(-\frac{bx^2 \big( ln( \lim_{q \to 1}(bx^2q-bx^2+1))+ 1 \big)}{\lim_{q \to 1}(bx^2q-bx^2+1)}\Bigg)}\text{ ,(The ln rule) }= \\ 
+&e^{\Bigg(-\frac{bx^2 \big( ln( \lim_{q \to 1}bx^2q + \lim_{q \to 1}-bx^2 + \lim_{q \to 1}1)+ 1 \big)}{\lim_{q \to 1}(bx^2q-bx^2+1)}\Bigg)}\text{ ,(The sum rule) }= \\  
+&e^{\Bigg(-\frac{bx^2 \big( ln(-bx^2 + \lim_{q \to 1}bx^2q+ \lim_{q \to 1}1)+ 1 \big)}{\lim_{q \to 1}(bx^2q-bx^2+1)}\Bigg)}\text{ ,(The constant rule) }= \\   
+&e^{\Bigg(-\frac{bx^2 \big( ln(-bx^2 + \lim_{q \to 1}bx^2q+1)+ 1 \big)}{\lim_{q \to 1}(bx^2q-bx^2+1)}\Bigg)}\text{ ,(The constant rule) }= \\ 
+&e^{\Bigg(-\frac{bx^2 \big( ln(-bx^2 + bx^2\lim_{q \to 1}q+1)+ 1 \big)}{\lim_{q \to 1}(bx^2q-bx^2+1)}\Bigg)}\text{ ,(The constantmultiple rule) }= \\ 
+&e^{\Bigg(-\frac{bx^2}{\lim_{q \to 1}(bx^2q-bx^2+1)}\Bigg)}\text{ ,(The identity rule) }= \\ 
+&e^{\Bigg(-\frac{bx^2}{\lim_{q \to 1}bx^2q+\lim_{q \to 1}-bx^2+\lim_{q \to 1}1)}\Bigg)}\text{ ,(The sum rule) }= \\ 
+&e^{\Bigg(-\frac{bx^2}{-bx^2+\lim_{q \to 1}bx^2q+\lim_{q \to 1}1)}\Bigg)}\text{ ,(The constant rule) }= \\ 
+&e^{\Bigg(-\frac{bx^2}{-bx^2+\lim_{q \to 1}bx^2q+1)}\Bigg)}\text{ ,(The constant rule) }= \\  
+&e^{\Bigg(-\frac{bx^2}{-bx^2+bx^2\lim_{q \to 1}q+1)}\Bigg)}\text{ ,(The constantmultiple rule) }= \\   
+&e^{(-bx^2)}\text{ ,(The identity rule) }
+\end{align*}
+Which is then easily expanded into
+\begin{equation}
+\lim_{q \to 1} f(q) = ae^{-bx^2}
+\end{equation} 
+when multiplying both sides by a. \\
+\centerline{\textbf{QED}}

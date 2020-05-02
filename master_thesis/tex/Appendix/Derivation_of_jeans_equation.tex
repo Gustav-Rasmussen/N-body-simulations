@@ -1,0 +1,114 @@
+\section{Derivation of Jeans Equation}
+Since the LHS of the CBE is identical to zero, we might multiply both sides of this equation with any quantity, for example the radial momentum: \\
+\begin{equation}
+p_r \frac{df}{dt} = 0 
+\end{equation} \\
+Now we can integrate over all momenta.
+\begin{equation}
+\begin{aligned}
+& \int \! \frac{d f}{d t}\cdot p_r \, \mathrm{d}p_r \mathrm{d}p_{\theta} \mathrm{d}p_{\phi} = 0
+\end{aligned}
+\end{equation}
+resulting in (assuming spherical symmetry): 
+\begin{equation}
+\frac{\partial f}{\partial t} + \frac{\partial f}{\partial r}p_r + \frac{\partial f}{\partial p_r}\big(\frac{p_{\theta}^2}{r^3} + \frac{p_{\phi}^2}{sin^2\theta r^3} - \frac{\partial \Phi}{\partial r} \big) + \frac{\partial f}{\partial p_{\theta}}\frac{p_{\phi}^2}{r^2}\frac{cos(\theta)}{sin^3 \theta} = 0
+\end{equation}
+We will take a look at what happens to these terms, one at a time. 1.st term:
+\begin{equation}
+\begin{aligned}
+& \int \! \frac{\partial f}{\partial t}\cdot p_r \, \mathrm{d}p_r \mathrm{d}p_{\theta} \mathrm{d}p_{\phi}
+= \frac{\partial}{\partial t} \int \! f \cdot p_r \, \mathrm{d}p_r \mathrm{d}p_{\theta} \mathrm{d}p_{\phi} = \\
+& \frac{\partial}{\partial t}(\overline{p_r}\cdot \nu \cdot r^2sin\theta)
+= r^2 sin\theta \frac{\partial}{\partial t}(\overline{p_r} \nu)
+\end{aligned}
+\end{equation}
+
+2.nd term:
+\begin{equation}
+\begin{aligned}
+& \int \! \frac{\partial f}{\partial r}\cdot p_r^2 \, \mathrm{d}p_r \mathrm{d}p_{\theta} \mathrm{d}p_{\phi}
+= \frac{\partial}{\partial r}\Bigg( \int \! f \cdot p_r^2 \, \mathrm{d}p_r \mathrm{d}p_{\theta} \mathrm{d}p_{\phi}\Bigg) \\
+& = \frac{\partial}{\partial r}\bigg(\overline{p_r^2}\cdot \nu \cdot r^2sin\theta \bigg)
+= r^2 sin\theta \frac{\partial}{\partial r}(\overline{p_r^2} \nu) + 2\overline{p_r^2}\nu r sin \theta
+\end{aligned}
+\end{equation}
+
+3.rd term (and subsequently using the chain rule):
+\begin{equation}
+\int \! \frac{\partial f}{\partial p_r}\cdot p_r 
+\bigg( \frac{p_{\theta}^2}{r^3} + \frac{p_{\phi}^2}{sin^2\theta r^3} - \frac{\partial \Phi}{\partial r} \bigg) \, \mathrm{d}p_r \mathrm{d}p_{\theta} \mathrm{d}p_{\phi} =
+\nu r^2 sin \theta \Big( \frac{\partial \Phi}{\partial r} - \frac{\overline{p_{\theta}^2}}{r^3} - 
+\frac{\overline{p_{\phi}^2}}{r^3 sin^2 \theta} \Big)
+\end{equation}
+4.th and final term,
+\begin{equation}
+\begin{aligned}
+& \int \! p_r \frac{\partial f}{\partial p_{\theta}}\frac{p_{\phi}^2}{r^2}\frac{cos\theta}{sin^3\theta} \, \mathrm{d}p_r \mathrm{d}p_{\theta} \mathrm{d}p_{\phi} \\
+& = \frac{cos\theta}{r^2sin^3\theta} \int \! p_r \Bigg( \frac{\partial f}{\partial p_{\theta}} \Bigg)\cdot p_{\phi}^2\cdot \, \mathrm{d}p_r \mathrm{d}p_{\theta} \mathrm{d}p_{\phi}
+\end{aligned}
+\end{equation}
+consider next
+\begin{equation}
+\begin{aligned}
+& \frac{\partial}{\partial p_{\theta}} \Bigg( p_r\cdot f \cdot p_{\phi}^2 \Bigg) \\
+& = f\cdot \frac{\partial}{\partial p_{\theta}} \Bigg( p_r\cdot p_{\phi}^2 \Bigg) + p_r\cdot p_{\phi}^2\frac{\partial f}{\partial p_{\theta}}
+\end{aligned}
+\end{equation}
+so
+\begin{equation}
+\begin{aligned}
+& \int \! p_r \Bigg( \frac{\partial f}{\partial p_{\theta}} \Bigg)\cdot p_{\phi}^2\cdot \, \mathrm{d}p_r \mathrm{d}p_{\theta} \mathrm{d}p_{\phi} \\
+& = \int \! \frac{\partial}{\partial p_{\theta}} \Bigg( p_r\cdot f \cdot p_{\phi}^2 \Bigg) \, \mathrm{d}p_r \mathrm{d}p_{\theta} \mathrm{d}p_{\phi}
+- \int \! f\frac{\partial}{\partial p_{\theta}} \Bigg( p_r \cdot p_{\phi}^2 \Bigg) \, \mathrm{d}p_r \mathrm{d}p_{\theta} \mathrm{d}p_{\phi}
+\end{aligned}
+\end{equation}
+The first part gives 
+\begin{equation}
+\begin{aligned}
+& \int \! \frac{\partial}{\partial p_{\theta}} \Bigg( p_r\cdot f \cdot p_{\phi}^2 \Bigg) \, \mathrm{d}p_r \mathrm{d}p_{\theta} \mathrm{d}p_{\phi} \\
+& = \int \! \Bigg[ p_r\cdot f \cdot p_{\phi}^2 \Bigg]_{-\infty}^{\infty} \, \mathrm{d}p_{\phi} \\
+& = \int \! 0 \, \mathrm{d}p_{\phi} = 0
+\end{aligned}
+\end{equation}
+The second part gives
+\begin{equation}
+\begin{aligned}
+&- \int \! f\frac{\partial}{\partial p_{\theta}} \Bigg( p_r \cdot p_{\phi}^2 \Bigg) \, \mathrm{d}p_r \mathrm{d}p_{\theta} \mathrm{d}p_{\phi} \\
+&= - \int \! f\cdot 0 \, \mathrm{d}p_r \mathrm{d}p_{\theta} \mathrm{d}p_{\phi} = 0
+\end{aligned}
+\end{equation}
+since $ p_r \cdot p_{\phi}^2 $ is independent of $ p_{\theta}$.
+So the 4.th term is zero. Adding all together:
+\begin{equation}
+r^2 sin \theta \Big( \frac{\partial \overline{p_r} \nu}{\partial t} +
+\frac{\partial \overline{p_r^2} \nu}{\partial r} +
+\frac{2 \overline{p_r^2} \nu}{r} +
+\nu \Big( \frac{\partial \Phi}{\partial r} -
+\frac{\overline{p_{\theta}^2} \nu}{r^3} -
+\frac{\overline{p_{\phi}^2} \nu}{r^3 sin^2 \theta}
+\Big) \Big)  = 0
+\end{equation}
+Substituting the velocities back into the equation instead of the canonical momenta
+and dividing by $r^2 sin \theta$ followed by some algebra,
+
+\centerline{\textbf{All in all}}
+
+\begin{equation}
+\frac{\partial \overline{v_r}\cdot \nu}{\partial t} +
+\frac{\partial \overline{v_r^2} \nu)}{\partial r} + 
+\nu \frac{2 \overline{v_r^2} - \overline{v_{\theta}^2} - \overline{v_{\phi}^2}}{r} +
+\nu \frac{\partial \Phi}{\partial r} = 0
+\end{equation}
+Taking the probability density to be proportional to the DM density, $\nu \propto \rho$, and setting 
+$\overline{v_r^2} = \sigma_r^2 + \overline{v_r}^2$, $\overline{v_{\theta}^2} = \sigma_{\theta}^2$, 
+$\overline{v_{\phi}^2} = \sigma_{\phi}^2$, $\frac{d \Phi}{dr} = \frac{GM(r)}{r^2}$ (for spherically symmetric systems) plus assuming no bulk motion gives:
+\begin{equation}
+\frac{GM(r)}{r} = -\frac{r}{\rho} \frac{\partial \rho \sigma_r^2}{\partial r} - 2\sigma_r^2\beta
+\end{equation}
+%\end{center}
+Finally using a rule for logarithms together with the chain rule gives
+\begin{equation}
+M(r) = -\frac{r \sigma_r^2}{G}  \Bigg[\gamma +\kappa +2 \beta \Bigg] 
+\end{equation}
+Which is called the Jeans equation ($\gamma$, $\kappa$ and $\beta$ are defined in the introduction). 
+Sidenote: if we think of $\sigma_r^2$ as a temperature T then Jeans equation is equivalent to H.E. (Hydrostatic Equilibrium), but describing collisionless dynamics as opposed to the collisionally dominated fluid/gas in HE.
