@@ -1,0 +1,27 @@
+import h5py
+import numpy
+import matplotlib.pyplot as plt
+import IPython
+from matplotlib.colors import LogNorm
+
+
+
+SnapshotFile = h5py.File('ICS_10mpc_res256_022.hdf5','r')
+#SnapshotFile = h5py.File('ics_10MPC_128_022.hdf5','r')
+
+Pos = SnapshotFile['PartType1/Coordinates'].value
+Vel = SnapshotFile['PartType1/Velocities'].value
+V = SnapshotFile['PartType1/Potential'].value
+
+x = Pos[:,0]
+y = Pos[:,1]
+z = Pos[:,2]
+
+vx = Vel[:,0]
+vy = Vel[:,1]
+vz = Vel[:,2]
+plt.title('redshift $z=$'+str(SnapshotFile['Header'].attrs['Redshift']))
+
+plt.hist2d(x,y,bins=200, norm=LogNorm())
+plt.colorbar()
+plt.show()

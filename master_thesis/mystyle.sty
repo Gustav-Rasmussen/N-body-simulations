@@ -1,0 +1,106 @@
+\ProvidesPackage{mystyle}
+
+\usepackage[utf8]{inputenc}
+\usepackage[danish,english]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{amsmath, amssymb}
+\usepackage{mathtools}
+\usepackage{url}
+\usepackage{wasysym}
+\usepackage[left=3cm,right=3cm,top=2.5cm,bottom=2.5cm]{geometry}
+\usepackage{float}
+\usepackage{gensymb}
+\usepackage{textcomp}
+\usepackage{stmaryrd}
+\usepackage{todonotes}
+\usepackage{cite}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{booktabs} % For \toprule, \midrule and \bottomrule
+\usepackage{siunitx} % Formats the units and values
+\usepackage{pgfplotstable} % Generates table from .csv
+\usepackage[procnames]{listings}
+\usepackage{python}
+\usepackage{color}
+\allowdisplaybreaks
+\usepackage{titlesec}
+\setcounter{secnumdepth}{4}
+
+\definecolor{deepblue}{rgb}{0,0,0.5}
+\definecolor{deepred}{rgb}{0.6,0,0}
+\definecolor{deepgreen}{rgb}{0,0.5,0}
+
+%% Default fixed font does not support bold face
+\DeclareFixedFont{\ttb}{T1}{txtt}{bx}{n}{12} % for bold
+\DeclareFixedFont{\ttm}{T1}{txtt}{m}{n}{12}  % for normal
+
+\newcommand\pythonstyle{\lstset{
+language=Python,
+basicstyle=\ttm,
+otherkeywords={self},             % Add keywords here
+keywordstyle=\ttb\color{deepblue},
+emph={MyClass,__init__},          % Custom highlighting
+emphstyle=\ttb\color{deepred},    % Custom highlighting style
+stringstyle=\color{deepgreen},
+%frame=tb,                        % top and bottom line
+frame=single,                     % complete frame
+numberstyle=\tiny\color{red},
+rulecolor=\color{black},
+numbers=left,
+numbersep=5pt,
+showstringspaces=false,
+extendedchars=true,
+breaklines=true,
+keepspaces=true
+}}
+
+%\lstset{showspaces=false}  
+%\lstset{showtabs=false}    
+
+\newcommand\cstyle{\lstset{
+language=C,
+basicstyle=\ttm,
+otherkeywords={self},             % Add keywords here
+%keywordstyle=\ttb\color{deepblue},
+%emph={MyClass,__init__},          % Custom highlighting
+%emphstyle=\ttb\color{deepred},    % Custom highlighting style
+%stringstyle=\color{deepgreen},
+%frame=tb,                        % top and bottom line
+frame=single,                     % complete frame
+numberstyle=\tiny\color{red},
+rulecolor=\color{black},
+numbers=left,
+numbersep=5pt,
+showstringspaces=false,
+extendedchars=true,
+breaklines=true,
+keepspaces=true
+}}
+
+\newcommand\shstyle{\lstset{
+language=sh,
+basicstyle=\ttm,
+otherkeywords={self},             % Add keywords here
+%keywordstyle=\ttb\color{deepblue},
+%emph={MyClass,__init__},          % Custom highlighting
+%emphstyle=\ttb\color{deepred},    % Custom highlighting style
+%stringstyle=\color{deepgreen},
+%frame=tb,                        % top and bottom line
+frame=single,                     % complete frame
+numberstyle=\tiny\color{red},
+rulecolor=\color{black},
+numbers=left,
+numbersep=5pt,
+showstringspaces=false,
+extendedchars=true,
+breaklines=true,
+keepspaces=true
+}}
+
+% Setup siunitx:
+\sisetup{
+  round-mode = places, % Rounds numbers
+  round-precision = 2, % to 2 places
+}

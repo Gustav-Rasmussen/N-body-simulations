@@ -1,0 +1,21 @@
+﻿Table 2.
+        Current state of the art in DM-only simulations on cosmic<comma> cluster<comma> and galactic scale<comma> ordered by number of simulation particles. Lhires is a proxy for the size of the high-resolution region in zoom-in simulations<comma> and is defined to be equal to the size of a cube at mean density enclosing all high resolution particles. is the number of halos in the box (Cosmic) or subhalos within r50 (Cluster and Galactic) with at least 100 particles at z = 0. In some cases (DEUS FUR<comma> Horizon-4Π) mass functions have not been published<comma> and so we estimated from a Sheth and Tormen [ 19] mass function fit.
+DM-only simulations
+Name,Code,Lbox [h−1 Mpc],Np [109],mp [h−1 M⊙],ɛsoft [h−1 kpc],[106],Ref.
+Cosmic,,,,,,,
+DEUS FUR,Ramses-Deus,21<comma>000,550,1.2 × 1012,40.0a,145,[259]
+Horizon Run 3,Gotpm,10<comma>815,370,2.5 × 1011,150.0,∼190,[260]
+Millennium-XXL,Gadget-3,3000,300,6.2 × 109,10.0,170,[220]
+Horizon-4Π,Ramses,2000,69,7.8 × 109,7.6a,∼40,[261]
+Millennium,Gadget-2,500,10,8.6 × 108,5.0,4.5,[181]
+Millennium-II,Gadget-3,100,10,6.9 × 106,1.0,2.3,[87]
+MultiDark Run1,Art,1000,8.6,8.7 × 109,7.6a,3.3,[36]
+Bolshoi,Art,250,8.6,1.4 × 108,1.0a,2.4,[262]
+Name,Code,Lhires [h−1 Mpc],Np<comma>hires [109],mp<comma>hires [h-1 M⊙],ɛsoft [h−1 kpc],[103],Ref.
+Cluster,,,,,,,
+Phoenix A-1,Gadget-3,41.2,4.1,6.4 × 105,0.15,60,[263]
+Name,Code,Lhires [Mpc],Np<comma>hires [109],mp<comma>hires [M⊙],ɛsoft [pc],[103],Ref.
+Galactic,,,,,,,
+Aquarius A-1,Gadget-3,5.9,4.3 × 109,1.7 × 103,20.5,82,[45]
+GHalo,Pkdgrav2,3.89,2.1 × 109,1.0 × 103,61.0,43,[32]
+Via Lactea II,Pkdgrav2,4.86,1.0 × 109,4.1 × 103,40.0,13,[44]
